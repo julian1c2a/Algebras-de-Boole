@@ -8,9 +8,9 @@ all: pdf
 
 pdf: $(PROJECT).tex
 	@mkdir -p $(BUILD_DIR)
-	pdflatex -output-directory=$(BUILD_DIR) $(PROJECT).tex
+	pdflatex -interaction=nonstopmode -output-directory=$(BUILD_DIR) $(PROJECT).tex
 	# Segunda pasada para referencias
-	pdflatex -output-directory=$(BUILD_DIR) $(PROJECT).tex
+	pdflatex -interaction=nonstopmode -output-directory=$(BUILD_DIR) $(PROJECT).tex
 
 # Regla mock por si decides añadir tests (ej. tests de sintaxis o scripts en el futuro)
 tests:
