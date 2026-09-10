@@ -54,10 +54,9 @@ Unicidad de los elementos neutros.
 <!-- Propiedades de absorción $(Abs_{\vee,\wedge})$-->
 <!-- Teoremas de de Morgan $(Mor_{\vee,\wedge})$ -->
 
-
-
-
-
+Álgebra Trivial:
+- Condición de Álgebra Trivial: $\bot = \top \implies \mathbb{B} = \{\top\} = \{\bot\}$
+- Complemento idéntico implica Álgebra Trivial: $\exists a \in \mathbb{B}, a' = a \implies \mathbb{B} = \{\top\} = \{\bot\}$
 - Conclusiones.
 
 (Ve guardando este archivo, y yo me encargaré de pasarlo a LaTeX)
