@@ -240,19 +240,6 @@ Lo cual implica que $\bot = \top$. Aplicando el teorema anterior (Condición de 
 \end{proof}
 }
 
-\begin{teorema}{Asociatividad - $Asoc_\vee, Asoc_\wedge$}{asociatividad}
-El orden en el que se agrupan tres o más elementos al aplicar de forma consecutiva la misma operación ($\vee$ o $\wedge$) no altera el resultado final:
-\begin{align*}
-    a \vee (b \vee c) &= (a \vee b) \vee c \\
-    a \wedge (b \wedge c) &= (a \wedge b) \wedge c
-\end{align*}
-\end{teorema}
-\desplegable{proof_asociatividad}{
-\begin{proof}
-(La demostración completa de la asociatividad a partir de los postulados de Huntington requiere de una manipulación algebraica extensa que omitiremos por brevedad, pero es un resultado derivado puro y no un axioma).
-\end{proof}
-}
-
 \begin{teorema}{Propiedades de absorción - $Abs_{\vee}, Abs_{\wedge}$}{absorcion}
 Cuando se combinan ambas operaciones anidando un elemento consigo mismo y con un tercero, el elemento repetido "absorbe" al otro, independientemente del valor del segundo:
 \begin{align*}
@@ -403,46 +390,77 @@ De forma equivalente, aislando las variables mediante la involución, podemos ex
 \end{teorema}
 \desplegable{proof_morgan}{
 \begin{proof}[Demostración de $\neg (a \vee b) = \neg a \wedge \neg b$]
-Debemos demostrar que $\neg a \wedge \neg b$ actúa como el complemento de $(a \vee b)$, satisfaciendo las dos condiciones de complemento. Para la suma:
+Para demostrarlo sin recurrir a la asociatividad, usaremos las propiedades de absorción. Comprobemos primero la suma: $(a \vee b) \vee (\neg a \wedge \neg b) = \top$.
+Sabemos por $Abs_\wedge$ que $a \wedge (a \vee b) = a$.
+\begin{align*}
+    \neg a \vee (a \wedge (a \vee b)) &= \neg a \vee a = \top & (Comp_\vee) \\
+    (\neg a \vee a) \wedge (\neg a \vee (a \vee b)) &= \top & (Dist_\vee) \\
+    \top \wedge (\neg a \vee (a \vee b)) &= \top & (Comp_\vee) \\
+    \neg a \vee (a \vee b) &= \top & (ElemNeu_\wedge)
+\end{align*}
+Simétricamente, como $b \wedge (a \vee b) = b \wedge (b \vee a) = b$, obtenemos $\neg b \vee (a \vee b) = \top$.
+Por tanto:
 \begin{align*}
     (a \vee b) \vee (\neg a \wedge \neg b) &= ((a \vee b) \vee \neg a) \wedge ((a \vee b) \vee \neg b) & (Dist_\vee) \\
-    &= ((b \vee a) \vee \neg a) \wedge ((a \vee b) \vee \neg b) & (Comm_\vee) \\
-    &= (b \vee (a \vee \neg a)) \wedge (a \vee (b \vee \neg b)) & (Asoc_\vee) \\
-    &= (b \vee \top) \wedge (a \vee \top) & (Comp_\vee) \\
-    &= \top \wedge \top & (Abs_\top) \\
+    &= (\neg a \vee (a \vee b)) \wedge (\neg b \vee (a \vee b)) & (Comm_\vee) \\
+    &= \top \wedge \top & (\text{Resultados anteriores}) \\
     &= \top & (Idemp_\wedge)
 \end{align*}
-Para el producto:
+
+Segundo, comprobemos el producto: $(a \vee b) \wedge (\neg a \wedge \neg b) = \bot$.
+Sabemos por $Abs_\vee$ que $\neg a \vee (\neg a \wedge \neg b) = \neg a$.
+\begin{align*}
+    a \wedge (\neg a \vee (\neg a \wedge \neg b)) &= a \wedge \neg a = \bot & (Comp_\wedge) \\
+    (a \wedge \neg a) \vee (a \wedge (\neg a \wedge \neg b)) &= \bot & (Dist_\wedge) \\
+    \bot \vee (a \wedge (\neg a \wedge \neg b)) &= \bot & (Comp_\wedge) \\
+    a \wedge (\neg a \wedge \neg b) &= \bot & (ElemNeu_\vee)
+\end{align*}
+Simétricamente, como $\neg b \vee (\neg a \wedge \neg b) = \neg b \vee (\neg b \wedge \neg a) = \neg b$, obtenemos $b \wedge (\neg a \wedge \neg b) = \bot$.
+Por tanto:
 \begin{align*}
     (a \vee b) \wedge (\neg a \wedge \neg b) &= (\neg a \wedge \neg b) \wedge (a \vee b) & (Comm_\wedge) \\
     &= ((\neg a \wedge \neg b) \wedge a) \vee ((\neg a \wedge \neg b) \wedge b) & (Dist_\wedge) \\
-    &= (\neg b \wedge (\neg a \wedge a)) \vee (\neg a \wedge (\neg b \wedge b)) & (Asoc_\wedge, Comm_\wedge) \\
-    &= (\neg b \wedge \bot) \vee (\neg a \wedge \bot) & (Comp_\wedge) \\
-    &= \bot \vee \bot & (Abs_\bot) \\
+    &= (a \wedge (\neg a \wedge \neg b)) \vee (b \wedge (\neg a \wedge \neg b)) & (Comm_\wedge) \\
+    &= \bot \vee \bot & (\text{Resultados anteriores}) \\
     &= \bot & (Idemp_\vee)
 \end{align*}
 Por el teorema de unicidad ($Unic_{comp}$), concluimos que $\neg (a \vee b) = \neg a \wedge \neg b$.
 \end{proof}
+
 \begin{proof}[Demostración de $\neg (a \wedge b) = \neg a \vee \neg b$ (Dual)]
-Intercambiando operaciones y constantes, demostramos que $\neg a \vee \neg b$ es el complemento de $(a \wedge b)$. Para el producto:
+Intercambiando operaciones y constantes, comprobamos el producto: $(a \wedge b) \wedge (\neg a \vee \neg b) = \bot$.
+Sabemos por $Abs_\vee$ que $a \vee (a \wedge b) = a$.
+\begin{align*}
+    \neg a \wedge (a \vee (a \wedge b)) &= \neg a \wedge a = \bot & (Comp_\wedge) \\
+    (\neg a \wedge a) \vee (\neg a \wedge (a \wedge b)) &= \bot & (Dist_\wedge) \\
+    \bot \vee (\neg a \wedge (a \wedge b)) &= \bot & (Comp_\wedge) \\
+    \neg a \wedge (a \wedge b) &= \bot & (ElemNeu_\vee)
+\end{align*}
+Simétricamente, $\neg b \wedge (a \wedge b) = \bot$.
+Por tanto:
 \begin{align*}
     (a \wedge b) \wedge (\neg a \vee \neg b) &= ((a \wedge b) \wedge \neg a) \vee ((a \wedge b) \wedge \neg b) & (Dist_\wedge) \\
-    &= ((b \wedge a) \wedge \neg a) \vee ((a \wedge b) \wedge \neg b) & (Comm_\wedge) \\
-    &= (b \wedge (a \wedge \neg a)) \vee (a \wedge (b \wedge \neg b)) & (Asoc_\wedge) \\
-    &= (b \wedge \bot) \vee (a \wedge \bot) & (Comp_\wedge) \\
-    &= \bot \vee \bot & (Abs_\bot) \\
-    &= \bot & (Idemp_\vee)
+    &= (\neg a \wedge (a \wedge b)) \vee (\neg b \wedge (a \wedge b)) & (Comm_\wedge) \\
+    &= \bot \vee \bot = \bot & (\text{Resultados anteriores})
 \end{align*}
-Para la suma:
+
+Comprobemos la suma: $(a \wedge b) \vee (\neg a \vee \neg b) = \top$.
+Sabemos por $Abs_\wedge$ que $\neg a \wedge (\neg a \vee \neg b) = \neg a$.
+\begin{align*}
+    a \vee (\neg a \wedge (\neg a \vee \neg b)) &= a \vee \neg a = \top & (Comp_\vee) \\
+    (a \vee \neg a) \wedge (a \vee (\neg a \vee \neg b)) &= \top & (Dist_\vee) \\
+    \top \wedge (a \vee (\neg a \vee \neg b)) &= \top & (Comp_\vee) \\
+    a \vee (\neg a \vee \neg b) &= \top & (ElemNeu_\wedge)
+\end{align*}
+Simétricamente, $b \vee (\neg a \vee \neg b) = \top$.
+Por tanto:
 \begin{align*}
     (a \wedge b) \vee (\neg a \vee \neg b) &= (\neg a \vee \neg b) \vee (a \wedge b) & (Comm_\vee) \\
     &= ((\neg a \vee \neg b) \vee a) \wedge ((\neg a \vee \neg b) \vee b) & (Dist_\vee) \\
-    &= (\neg b \vee (\neg a \vee a)) \wedge (\neg a \vee (\neg b \vee b)) & (Asoc_\vee, Comm_\vee) \\
-    &= (\neg b \vee \top) \wedge (\neg a \vee \top) & (Comp_\vee) \\
-    &= \top \wedge \top & (Abs_\top) \\
-    &= \top & (Idemp_\wedge)
+    &= (a \vee (\neg a \vee \neg b)) \wedge (b \vee (\neg a \vee \neg b)) & (Comm_\vee) \\
+    &= \top \wedge \top = \top & (\text{Resultados anteriores})
 \end{align*}
-Por el teorema de unicidad, concluimos que $\neg (a \wedge b) = \neg a \vee \neg b$.
+Por $Unic_{comp}$, $\neg (a \wedge b) = \neg a \vee \neg b$.
 \end{proof}
 
 \begin{proof}[Demostración de $a \vee b = \neg (\neg a \wedge \neg b)$ y su dual]
@@ -452,6 +470,65 @@ Partiendo de $\neg (\neg a \wedge \neg b)$, aplicamos De Morgan a sus componente
     &= a \vee b & (Comp_{inv})
 \end{align*}
 Dualizando la expresión, obtenemos de manera idéntica que $\neg (\neg a \vee \neg b) = a \wedge b$.
+\end{proof}
+}
+
+\begin{teorema}{Asociatividad - $Asoc_\vee, Asoc_\wedge$}{asociatividad}
+El orden en el que se agrupan tres o más elementos al aplicar de forma consecutiva la misma operación ($\vee$ o $\wedge$) no altera el resultado final. Al ubicar este teorema después de De Morgan, podemos simplificar enormemente su demostración:
+\begin{align*}
+    a \vee (b \vee c) &= (a \vee b) \vee c \\
+    a \wedge (b \wedge c) &= (a \wedge b) \wedge c
+\end{align*}
+\end{teorema}
+\desplegable{proof_asociatividad}{
+\begin{proof}[Demostración de $a \vee (b \vee c) = (a \vee b) \vee c$]
+Primero, demostraremos un pequeño \textbf{Lema de Igualdad por Casos}: Si $x \wedge y = x \wedge z$ y $\neg x \wedge y = \neg x \wedge z$, entonces $y = z$.
+\begin{align*}
+    y &= \top \wedge y & (ElemNeu_\wedge) \\
+      &= (x \vee \neg x) \wedge y & (Comp_\vee) \\
+      &= (x \wedge y) \vee (\neg x \wedge y) & (Dist_\wedge) \\
+      &= (x \wedge z) \vee (\neg x \wedge z) & (\text{Por hipótesis del Lema}) \\
+      &= (x \vee \neg x) \wedge z & (Dist_\wedge) \\
+      &= \top \wedge z = z & (Comp_\vee, ElemNeu_\wedge)
+\end{align*}
+Sea $L = a \vee (b \vee c)$ y $R = (a \vee b) \vee c$. Aplicaremos el lema usando $x = a$, por lo que debemos demostrar que $a \wedge L = a \wedge R$ y $\neg a \wedge L = \neg a \wedge R$.
+
+1) Comprobamos $a \wedge L = a \wedge R$:
+\begin{align*}
+    a \wedge L &= a \wedge (a \vee (b \vee c)) = a & (Abs_\wedge) \\
+    a \wedge R &= a \wedge ((a \vee b) \vee c) \\
+               &= (a \wedge (a \vee b)) \vee (a \wedge c) & (Dist_\wedge) \\
+               &= a \vee (a \wedge c) = a & (Abs_\wedge, Abs_\vee)
+\end{align*}
+Por tanto, $a \wedge L = a \wedge R$.
+
+2) Comprobamos $\neg a \wedge L = \neg a \wedge R$:
+\begin{align*}
+    \neg a \wedge L &= \neg a \wedge (a \vee (b \vee c)) \\
+                    &= (\neg a \wedge a) \vee (\neg a \wedge (b \vee c)) & (Dist_\wedge) \\
+                    &= \bot \vee (\neg a \wedge (b \vee c)) & (Comp_\wedge) \\
+                    &= \neg a \wedge (b \vee c) & (ElemNeu_\vee)
+\end{align*}
+\begin{align*}
+    \neg a \wedge R &= \neg a \wedge ((a \vee b) \vee c) \\
+                    &= (\neg a \wedge (a \vee b)) \vee (\neg a \wedge c) & (Dist_\wedge) \\
+                    &= ((\neg a \wedge a) \vee (\neg a \wedge b)) \vee (\neg a \wedge c) & (Dist_\wedge) \\
+                    &= (\bot \vee (\neg a \wedge b)) \vee (\neg a \wedge c) & (Comp_\wedge) \\
+                    &= (\neg a \wedge b) \vee (\neg a \wedge c) & (ElemNeu_\vee) \\
+                    &= \neg a \wedge (b \vee c) & (Dist_\wedge)
+\end{align*}
+Como $\neg a \wedge L = \neg a \wedge R$, aplicando el Lema concluimos que $L = R$, es decir, $a \vee (b \vee c) = (a \vee b) \vee c$.
+\end{proof}
+
+\begin{proof}[Demostración de $a \wedge (b \wedge c) = (a \wedge b) \wedge c$ (Dual mediante De Morgan)]
+Al haber demostrado previamente las leyes de De Morgan, podemos probar la asociatividad del ínfimo de forma directa y elegante sin necesidad de repetir la manipulación algebraica de la demostración dual:
+\begin{align*}
+    a \wedge (b \wedge c) &= \neg (\neg a \vee \neg (b \wedge c)) & (Mor_\wedge \text{ y } Comp_{inv}) \\
+                          &= \neg (\neg a \vee (\neg b \vee \neg c)) & (Mor_\wedge) \\
+                          &= \neg ((\neg a \vee \neg b) \vee \neg c) & (Asoc_\vee \text{ demostrada arriba}) \\
+                          &= \neg (\neg (a \wedge b) \vee \neg c) & (Mor_\wedge) \\
+                          &= (a \wedge b) \wedge c & (Mor_\wedge \text{ y } Comp_{inv})
+\end{align*}
 \end{proof}
 }
 
