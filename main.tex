@@ -20,71 +20,73 @@
 \section{Introducción}
 El álgebra de Boole, originalmente introducida por George Boole en su obra de 1854 \textit{The Laws of Thought}, fue posteriormente axiomatizada de forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye Huntington presentó un conjunto de postulados independientes que definen formalmente una estructura de álgebra de Boole. 
 
-Para evitar cualquier confusión conceptual con la aritmética tradicional, en esta fase inicial emplearemos la signatura propia de la teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y $\wedge$ (ínfimo o meet), junto a los elementos neutros $\bot$ (mínimo) y $\top$ (máximo). Más adelante, y por conveniencia práctica, transitaremos hacia la notación clásica de sistemas digitales ($+$, $\cdot$, $0$, $1$).
+Para evitar cualquier confusión conceptual con la aritmética tradicional, en esta fase inicial emplearemos la signatura propia de la teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y $\wedge$ (ínfimo o meet), junto a los elementos constantes $\bot$ (mínimo) y $\top$ (máximo). Más adelante, y por conveniencia práctica, transitaremos hacia la notación clásica de sistemas digitales ($+$, $\cdot$, $0$, $1$).
+
+\section{Pre-Axiomas de la Estructura}
+Antes de enunciar los postulados, debemos definir rigurosamente sobre qué elementos y operaciones estamos trabajando. 
+
+Partimos de un ente matemático $\mathbb{B}$.
+\begin{itemize}
+    \item \textbf{[EsConjunto($\mathbb{B}$)]}: Se requiere que $\mathbb{B}$ sea un conjunto.
+    \item \textbf{[Constantes]}: Este conjunto ha de cumplir que tiene dos elementos que llamaremos constantes, tales que $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En principio, no asumimos nada sobre la igualdad o desigualdad de estas constantes.
+\end{itemize}
+
+Además, vamos a definir dos operaciones binarias internas que denotaremos por $\vee$ y $\wedge$. Estas deben satisfacer rigurosamente la definición de función:
+\begin{itemize}
+    \item \textbf{[OpBinInt\_$\vee$]}: $\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+    \item \textbf{[OpBinInt\_$\wedge$]}: $\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+\end{itemize}
+
+Para poder usar estos conceptos con mayor seguridad y flexibilidad en las futuras demostraciones formales, asignaremos nombres cortos a las condiciones de existencia y unicidad de la imagen para estas operaciones:
+
+\begin{itemize}
+    \item \textbf{[Existencia\_$\vee$]}: Para todo par existe imagen en $\mathbb{B}$. Es decir, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists c \in \mathbb{B}$ tal que $a \vee b = c$.
+    \item \textbf{[Existencia\_$\wedge$]}: Análogamente, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists d \in \mathbb{B}$ tal que $a \wedge b = d$.
+    \item \textbf{[Unicidad\_$\vee$]}: Para un par solo existe una imagen. Esto es, si $a \vee b = c$ y $a \vee b = d$, entonces $c = d$.
+    \item \textbf{[Unicidad\_$\wedge$]}: De igual forma para el ínfimo, si $a \wedge b = c$ y $a \wedge b = d$, entonces $c = d$.
+\end{itemize}
 
 \section{Los Postulados de Huntington (1904)}
-Sea $K$ un conjunto provisto de dos operaciones binarias, que denotaremos como $\vee$ y $\wedge$. El sistema $(K, \vee, \wedge)$ es un álgebra de Boole si cumple los siguientes postulados:
+Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los pre-axiomas anteriores, diremos que forma un álgebra de Boole si satisface los siguientes postulados:
 
-\begin{postulado}[Clausura]
-Para cualesquiera $a, b \in K$, los elementos $a \vee b$ y $a \wedge b$ también pertenecen a $K$.
+\begin{postulado}[Elemento neutro $\vee$] \label{post:neutro_vee}
+$\forall a \in \mathbb{B}$ se tiene que $a \vee \bot = a$.
 \end{postulado}
 
-\begin{postulado}[Elementos Neutros]
-Existen elementos distintos $\bot, \top \in K$ tales que para todo $a \in K$:
+\begin{postulado}[Elemento neutro $\wedge$] \label{post:neutro_wedge}
+$\forall a \in \mathbb{B}$ se tiene que $a \wedge \top = a$.
+\end{postulado}
+
+\begin{postulado}[Conmutatividad $\vee$] \label{post:conmut_vee}
+$\forall a, b \in \mathbb{B}$ se tiene que $a \vee b = b \vee a$.
+\end{postulado}
+
+\begin{postulado}[Conmutatividad $\wedge$] \label{post:conmut_wedge}
+$\forall a, b \in \mathbb{B}$ se tiene que $a \wedge b = b \wedge a$.
+\end{postulado}
+
+\begin{postulado}[Distributividad $\vee$ sobre $\wedge$] \label{post:distrib_vee_wedge}
+$\forall a, b, c \in \mathbb{B}$ se tiene que $a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$.
+\end{postulado}
+
+\begin{postulado}[Distributividad $\wedge$ sobre $\vee$] \label{post:distrib_wedge_vee}
+$\forall a, b, c \in \mathbb{B}$ se tiene que $a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$.
+\end{postulado}
+
+\begin{postulado}[Complementario] \label{post:comp}
+$\forall a \in \mathbb{B}, \exists b \in \mathbb{B}$ tal que:
 \begin{align*}
-a \vee \bot &= a \\
-a \wedge \top &= a
+a \vee b &= \top \\
+a \wedge b &= \bot
 \end{align*}
 \end{postulado}
 
-\begin{postulado}[Conmutatividad]
-Para cualesquiera $a, b \in K$:
-\begin{align*}
-a \vee b &= b \vee a \\
-a \wedge b &= b \wedge a
-\end{align*}
-\end{postulado}
-
-\begin{postulado}[Distributividad]
-Para cualesquiera $a, b, c \in K$, cada operación es distributiva respecto a la otra:
-\begin{align*}
-a \vee (b \wedge c) &= (a \vee b) \wedge (a \vee c) \\
-a \wedge (b \vee c) &= (a \wedge b) \vee (a \wedge c)
-\end{align*}
-\end{postulado}
-
-\begin{postulado}[Elemento Complementario]
-Para cada elemento $a \in K$, existe un elemento $a' \in K$ (llamado complemento de $a$) tal que:
-\begin{align*}
-a \vee a' &= \top \\
-a \wedge a' &= \bot
-\end{align*}
-\end{postulado}
-
-\begin{postulado}[Cardinalidad]
-Existen al menos dos elementos distintos en el conjunto $K$ (es decir, $\bot \neq \top$).
-\end{postulado}
+\textit{Nota: Para evitar que el álgebra sea trivial (de un solo elemento), tradicionalmente se incluye un axioma de cardinalidad que asegura que $\bot \neq \top$.}
 
 \section{Teoremas Principales Derivados}
-A partir de los postulados de Huntington, se pueden demostrar diversas propiedades fundamentales del álgebra de Boole, tales como:
-
-\begin{teorema}[Idempotencia]
-Para todo $a \in K$:
-\begin{align*}
-a \vee a &= a \\
-a \wedge a &= a
-\end{align*}
-\end{teorema}
-
-\begin{teorema}[Leyes de De Morgan]
-Para cualesquiera $a, b \in K$:
-\begin{align*}
-(a \vee b)' &= a' \wedge b' \\
-(a \wedge b)' &= a' \vee b'
-\end{align*}
-\end{teorema}
+(Pendiente de redacción basada en los pre-axiomas y postulados).
 
 \section{Conclusión}
-Los postulados de Huntington proporcionan una base sólida, minimalista y elegante para el estudio matemático de las álgebras de Boole. Como veremos a continuación, una vez establecidos estos fundamentos matemáticos, podemos realizar la transición a la notación digital, donde la estructura $(K, \vee, \wedge, \bot, \top)$ toma la forma familiar de $(K, +, \cdot, 0, 1)$, que es la base teórica para la lógica de circuitos y la computación.
+(Pendiente de redacción).
 
 \end{document}
