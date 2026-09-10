@@ -1,0 +1,88 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+
+% Definición de entornos para postulados y teoremas
+\newtheorem{postulado}{Postulado}
+\newtheorem{teorema}{Teorema}
+
+\title{Desarrollo del Álgebra de Boole \\ \large Desde los Postulados de Huntington}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+El álgebra de Boole, originalmente introducida por George Boole en su obra de 1854 \textit{The Laws of Thought}, fue posteriormente axiomatizada de forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye Huntington presentó un conjunto de postulados independientes que definen formalmente una estructura de álgebra de Boole.
+
+\section{Los Postulados de Huntington (1904)}
+Sea $K$ un conjunto provisto de dos operaciones binarias, que denotaremos como suma ($+$) y producto ($\cdot$). El sistema $(K, +, \cdot)$ es un álgebra de Boole si cumple los siguientes postulados:
+
+\begin{postulado}[Clausura]
+Para cualesquiera $a, b \in K$, los elementos $a+b$ y $a \cdot b$ también pertenecen a $K$.
+\end{postulado}
+
+\begin{postulado}[Elementos Neutros]
+Existen elementos distintos $0, 1 \in K$ tales que para todo $a \in K$:
+\begin{align*}
+a + 0 &= a \\
+a \cdot 1 &= a
+\end{align*}
+\end{postulado}
+
+\begin{postulado}[Conmutatividad]
+Para cualesquiera $a, b \in K$:
+\begin{align*}
+a + b &= b + a \\
+a \cdot b &= b \cdot a
+\end{align*}
+\end{postulado}
+
+\begin{postulado}[Distributividad]
+Para cualesquiera $a, b, c \in K$, cada operación es distributiva respecto a la otra:
+\begin{align*}
+a + (b \cdot c) &= (a + b) \cdot (a + c) \\
+a \cdot (b + c) &= (a \cdot b) + (a \cdot c)
+\end{align*}
+\end{postulado}
+
+\begin{postulado}[Elemento Complementario]
+Para cada elemento $a \in K$, existe un elemento $a' \in K$ (llamado complemento de $a$) tal que:
+\begin{align*}
+a + a' &= 1 \\
+a \cdot a' &= 0
+\end{align*}
+\end{postulado}
+
+\begin{postulado}[Cardinalidad]
+Existen al menos dos elementos distintos en el conjunto $K$ (es decir, $0 \neq 1$).
+\end{postulado}
+
+\section{Teoremas Principales Derivados}
+A partir de los postulados de Huntington, se pueden demostrar diversas propiedades fundamentales del álgebra de Boole, tales como:
+
+\begin{teorema}[Idempotencia]
+Para todo $a \in K$:
+\begin{align*}
+a + a &= a \\
+a \cdot a &= a
+\end{align*}
+\end{teorema}
+
+\begin{teorema}[Leyes de De Morgan]
+Para cualesquiera $a, b \in K$:
+\begin{align*}
+(a + b)' &= a' \cdot b' \\
+(a \cdot b)' &= a' + b'
+\end{align*}
+\end{teorema}
+
+\section{Conclusión}
+Los postulados de Huntington proporcionan una base sólida, minimalista y elegante para el estudio matemático de las álgebras de Boole, permitiendo derivar el resto de sus propiedades sistemáticamente y sentando las bases teóricas para la lógica digital y la computación.
+
+\end{document}
