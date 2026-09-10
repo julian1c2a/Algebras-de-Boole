@@ -18,49 +18,51 @@
 \maketitle
 
 \section{Introducción}
-El álgebra de Boole, originalmente introducida por George Boole en su obra de 1854 \textit{The Laws of Thought}, fue posteriormente axiomatizada de forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye Huntington presentó un conjunto de postulados independientes que definen formalmente una estructura de álgebra de Boole.
+El álgebra de Boole, originalmente introducida por George Boole en su obra de 1854 \textit{The Laws of Thought}, fue posteriormente axiomatizada de forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye Huntington presentó un conjunto de postulados independientes que definen formalmente una estructura de álgebra de Boole. 
+
+Para evitar cualquier confusión conceptual con la aritmética tradicional, en esta fase inicial emplearemos la signatura propia de la teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y $\wedge$ (ínfimo o meet), junto a los elementos neutros $\bot$ (mínimo) y $\top$ (máximo). Más adelante, y por conveniencia práctica, transitaremos hacia la notación clásica de sistemas digitales ($+$, $\cdot$, $0$, $1$).
 
 \section{Los Postulados de Huntington (1904)}
-Sea $K$ un conjunto provisto de dos operaciones binarias, que denotaremos como suma ($+$) y producto ($\cdot$). El sistema $(K, +, \cdot)$ es un álgebra de Boole si cumple los siguientes postulados:
+Sea $K$ un conjunto provisto de dos operaciones binarias, que denotaremos como $\vee$ y $\wedge$. El sistema $(K, \vee, \wedge)$ es un álgebra de Boole si cumple los siguientes postulados:
 
 \begin{postulado}[Clausura]
-Para cualesquiera $a, b \in K$, los elementos $a+b$ y $a \cdot b$ también pertenecen a $K$.
+Para cualesquiera $a, b \in K$, los elementos $a \vee b$ y $a \wedge b$ también pertenecen a $K$.
 \end{postulado}
 
 \begin{postulado}[Elementos Neutros]
-Existen elementos distintos $0, 1 \in K$ tales que para todo $a \in K$:
+Existen elementos distintos $\bot, \top \in K$ tales que para todo $a \in K$:
 \begin{align*}
-a + 0 &= a \\
-a \cdot 1 &= a
+a \vee \bot &= a \\
+a \wedge \top &= a
 \end{align*}
 \end{postulado}
 
 \begin{postulado}[Conmutatividad]
 Para cualesquiera $a, b \in K$:
 \begin{align*}
-a + b &= b + a \\
-a \cdot b &= b \cdot a
+a \vee b &= b \vee a \\
+a \wedge b &= b \wedge a
 \end{align*}
 \end{postulado}
 
 \begin{postulado}[Distributividad]
 Para cualesquiera $a, b, c \in K$, cada operación es distributiva respecto a la otra:
 \begin{align*}
-a + (b \cdot c) &= (a + b) \cdot (a + c) \\
-a \cdot (b + c) &= (a \cdot b) + (a \cdot c)
+a \vee (b \wedge c) &= (a \vee b) \wedge (a \vee c) \\
+a \wedge (b \vee c) &= (a \wedge b) \vee (a \wedge c)
 \end{align*}
 \end{postulado}
 
 \begin{postulado}[Elemento Complementario]
 Para cada elemento $a \in K$, existe un elemento $a' \in K$ (llamado complemento de $a$) tal que:
 \begin{align*}
-a + a' &= 1 \\
-a \cdot a' &= 0
+a \vee a' &= \top \\
+a \wedge a' &= \bot
 \end{align*}
 \end{postulado}
 
 \begin{postulado}[Cardinalidad]
-Existen al menos dos elementos distintos en el conjunto $K$ (es decir, $0 \neq 1$).
+Existen al menos dos elementos distintos en el conjunto $K$ (es decir, $\bot \neq \top$).
 \end{postulado}
 
 \section{Teoremas Principales Derivados}
@@ -69,20 +71,20 @@ A partir de los postulados de Huntington, se pueden demostrar diversas propiedad
 \begin{teorema}[Idempotencia]
 Para todo $a \in K$:
 \begin{align*}
-a + a &= a \\
-a \cdot a &= a
+a \vee a &= a \\
+a \wedge a &= a
 \end{align*}
 \end{teorema}
 
 \begin{teorema}[Leyes de De Morgan]
 Para cualesquiera $a, b \in K$:
 \begin{align*}
-(a + b)' &= a' \cdot b' \\
-(a \cdot b)' &= a' + b'
+(a \vee b)' &= a' \wedge b' \\
+(a \wedge b)' &= a' \vee b'
 \end{align*}
 \end{teorema}
 
 \section{Conclusión}
-Los postulados de Huntington proporcionan una base sólida, minimalista y elegante para el estudio matemático de las álgebras de Boole, permitiendo derivar el resto de sus propiedades sistemáticamente y sentando las bases teóricas para la lógica digital y la computación.
+Los postulados de Huntington proporcionan una base sólida, minimalista y elegante para el estudio matemático de las álgebras de Boole. Como veremos a continuación, una vez establecidos estos fundamentos matemáticos, podemos realizar la transición a la notación digital, donde la estructura $(K, \vee, \wedge, \bot, \top)$ toma la forma familiar de $(K, +, \cdot, 0, 1)$, que es la base teórica para la lógica de circuitos y la computación.
 
 \end{document}
