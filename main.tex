@@ -125,6 +125,7 @@ Este rasgo estructural da lugar al \textbf{Principio de Dualidad}: toda proposic
 \section{Teoremas Principales Derivados}
 
 \begin{teorema}{Unicidad de los elementos neutros - $Unic_e, Unic_u$}{unicidad_neutros}
+Los elementos neutros descritos en los postulados son únicos. No existe ningún otro elemento en el conjunto que se comporte como el mínimo $\bot$ para la operación $\vee$, ni ningún otro que actúe como el máximo $\top$ para la operación $\wedge$:
 \begin{align*}
     \exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a \vee e &= a \implies e = \bot \quad (Unic_e) \\
     \exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \wedge u &= a \implies u = \top \quad (Unic_u)
@@ -151,6 +152,7 @@ Sea $u \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \wedge u = a$. Toman
 }
 
 \begin{teorema}{Idempotencia - $Idemp_\vee, Idemp_\wedge$}{idempotencia}
+Operar un elemento consigo mismo, independientemente de si usamos $\vee$ o $\wedge$, no altera su valor. El elemento se mantiene idéntico a sí mismo:
 \begin{align*}
     \forall a \in \mathbb{B}, \quad a \vee a &= a \quad (Idemp_\vee) \\
     \forall a \in \mathbb{B}, \quad a \wedge a &= a \quad (Idemp_\wedge)
@@ -181,6 +183,7 @@ Intercambiando los operadores y constantes de la prueba anterior paso a paso:
 }
 
 \begin{teorema}{Elementos absorbentes - $Abs_{\bot}, Abs_{\top}$}{absorbentes}
+Cualquier elemento operado mediante $\vee$ con el máximo $\top$ es absorbido por este, dando como resultado $\top$. De igual manera, operar cualquier elemento mediante $\wedge$ con el mínimo $\bot$ siempre resulta en $\bot$:
 \begin{align*}
     \forall a \in \mathbb{B}, \quad a \vee \top &= \top \\
     \forall a \in \mathbb{B}, \quad a \wedge \bot &= \bot
@@ -210,7 +213,7 @@ Intercambiando los operadores y constantes de la prueba anterior paso a paso:
 }
 
 \begin{teorema}{Condición de Álgebra Trivial}{trivial_cond}
-Si los elementos neutros son iguales ($\bot = \top$), entonces el álgebra de Boole tiene un único elemento, es decir, $\mathbb{B} = \{\bot\} = \{\top\}$.
+Si se da el caso extremo de que el elemento mínimo $\bot$ y el máximo $\top$ son exactamente el mismo, entonces estamos ante un álgebra que contiene un único elemento en todo su conjunto (el álgebra trivial):
 \end{teorema}
 \desplegable{proof_trivial_cond}{
 \begin{proof}
@@ -225,7 +228,7 @@ Por tanto, todo elemento $x$ del conjunto es idéntico a $\top$, lo que implica 
 }
 
 \begin{teorema}{Complemento Idéntico implica Álgebra Trivial}{trivial_comp}
-Si existe un elemento $a \in \mathbb{B}$ que es igual a su propio complemento (es decir, $\neg a = a$), entonces $\mathbb{B} = \{\top\} = \{\bot\}$.
+Si dentro de la estructura existe algún elemento que sea igual a su propio complemento ($\neg a = a$), entonces forzosamente todo el sistema colapsa en el álgebra trivial de un solo elemento:
 \end{teorema}
 \desplegable{proof_trivial_comp}{
 \begin{proof}
@@ -238,7 +241,7 @@ Lo cual implica que $\bot = \top$. Aplicando el teorema anterior (Condición de 
 }
 
 \begin{teorema}{Asociatividad - $Asoc_\vee, Asoc_\wedge$}{asociatividad}
-Para cualesquiera $a, b, c \in \mathbb{B}$:
+El orden en el que se agrupan tres o más elementos al aplicar de forma consecutiva la misma operación ($\vee$ o $\wedge$) no altera el resultado final:
 \begin{align*}
     a \vee (b \vee c) &= (a \vee b) \vee c \\
     a \wedge (b \wedge c) &= (a \wedge b) \wedge c
@@ -251,6 +254,7 @@ Para cualesquiera $a, b, c \in \mathbb{B}$:
 }
 
 \begin{teorema}{Propiedades de absorción - $Abs_{\vee}, Abs_{\wedge}$}{absorcion}
+Cuando se combinan ambas operaciones anidando un elemento consigo mismo y con un tercero, el elemento repetido "absorbe" al otro, independientemente del valor del segundo:
 \begin{align*}
     \forall a, b \in \mathbb{B}, \quad a \vee (a \wedge b) &= a \\
     \forall a, b \in \mathbb{B}, \quad a \wedge (a \vee b) &= a
@@ -278,8 +282,8 @@ Para cualesquiera $a, b, c \in \mathbb{B}$:
 }
 
 \begin{teorema}{Propiedades de orden de retículo - $Prop_{\vee,\wedge}$}{prop_reticulo}
-Para cualesquiera $a, b \in \mathbb{B}$:
-$$ a \vee b = a \iff a \wedge b = b $$
+Existe una correspondencia biunívoca fundamental entre las dos operaciones: afirmar que un elemento domina a otro mediante $\vee$ equivale matemáticamente a afirmar que el segundo se impone al primero mediante $\wedge$:
+\[ \forall a, b \in \mathbb{B}: \quad a \vee b = a \iff a \wedge b = b \]
 \end{teorema}
 \desplegable{proof_prop_reticulo}{
 \begin{proof}[Demostración de $\implies$]
@@ -302,8 +306,8 @@ Supongamos que $a \wedge b = b$.
 }
 
 \begin{teorema}{Equivalencia de operaciones - $Equa_{\vee,\wedge}$}{equa_operaciones}
-Para cualesquiera $a, b \in \mathbb{B}$:
-$$ a \vee b = a \wedge b \implies a = b $$
+Si operar dos elementos mediante $\vee$ da exactamente el mismo resultado que operarlos mediante $\wedge$, esto sólo es lógicamente posible si ambos elementos son en realidad el mismo:
+\[ \forall a, b \in \mathbb{B}: \quad a \vee b = a \wedge b \implies a = b \]
 \end{teorema}
 \desplegable{proof_equa_operaciones}{
 \begin{proof}
@@ -329,8 +333,8 @@ Por consiguiente, $a \vee b = b$. Finalmente, uniendo ambos resultados: $a = a \
 }
 
 \begin{teorema}{Teorema de Cancelación - $Equa_{canc}$}{equa_canc}
-Para cualesquiera $a, b, c \in \mathbb{B}$:
-$$ a \vee b = a \vee c \quad \text{y} \quad a \wedge b = a \wedge c \implies b = c $$
+Si un elemento $a$ se opera mediante $\vee$ con $b$ y con $c$ dando el mismo resultado, y además se opera mediante $\wedge$ con $b$ y con $c$ coincidiendo también los resultados, entonces forzosamente $b$ y $c$ son el mismo elemento:
+\[ \forall a, b, c \in \mathbb{B}: \quad a \vee b = a \vee c \quad \text{y} \quad a \wedge b = a \wedge c \implies b = c \]
 \end{teorema}
 \desplegable{proof_equa_canc}{
 \begin{proof}
@@ -350,10 +354,11 @@ Este teorema es automejor dualizable al ser sus hipótesis perfectamente simétr
 }
 
 \begin{teorema}{Unicidad del complemento - $Unic_{comp}$}{unic_comp}
-Para todo $a \in \mathbb{B}$, su complemento $\neg a$ es único. Si existe $x \in \mathbb{B}$ tal que $a \vee x = \top$ y $a \wedge x = \bot$, entonces $x = \neg a$.
+Todo elemento del conjunto tiene un complemento $\neg a$, y este es estrictamente único. Ningún otro elemento puede cumplir simultáneamente las dos condiciones del postulado del complemento para un mismo $a$:
 \end{teorema}
 \desplegable{proof_unic_comp}{
 \begin{proof}
+Supongamos que existe $x \in \mathbb{B}$ tal que $a \vee x = \top$ y $a \wedge x = \bot$.
 \begin{align*}
     x &= x \wedge \top & (ElemNeu_\wedge) \\
       &= x \wedge (a \vee \neg a) & (Comp_\vee) \\
@@ -366,11 +371,13 @@ Para todo $a \in \mathbb{B}$, su complemento $\neg a$ es único. Si existe $x \i
       &= \neg a \wedge \top & (Comm_\wedge) \\
       &= \neg a & (ElemNeu_\wedge)
 \end{align*}
+Por tanto, si $x$ cumple las condiciones de complemento, $x$ tiene que ser necesariamente $\neg a$.
 \end{proof}
 }
 
 \begin{teorema}{Involución - $Comp_{inv}$}{comp_inv}
-Para todo $a \in \mathbb{B}$, $\neg (\neg a) = a$.
+Aplicar la operación de complemento (o negación) dos veces consecutivas sobre un mismo elemento cancela su efecto, devolviendo el elemento original intacto:
+\[ \forall a \in \mathbb{B}, \quad \neg (\neg a) = a \]
 \end{teorema}
 \desplegable{proof_comp_inv}{
 \begin{proof}
@@ -383,12 +390,12 @@ Esto demuestra que $a$ actúa como un complemento de $\neg a$. Por el teorema de
 }
 
 \begin{teorema}{Leyes de De Morgan - $Mor_{\vee, \wedge}$}{morgan}
-Para cualesquiera $a, b \in \mathbb{B}$:
+La negación matemática se distribuye sobre las operaciones, pero al hacerlo, invierte la operación original: un supremo ($\vee$) negado se convierte en el ínfimo ($\wedge$) de las negaciones, y viceversa:
 \begin{align}
     \neg (a \vee b) &= \neg a \wedge \neg b \\
     \neg (a \wedge b) &= \neg a \vee \neg b 
 \end{align}
-De forma equivalente, aplicando la involución, podemos despejar las operaciones básicas:
+De forma equivalente, aislando las variables mediante la involución, podemos expresar las operaciones básicas exclusivamente a partir de su dual negada:
 \begin{align}
     a \vee b &= \neg (\neg a \wedge \neg b) \\
     a \wedge b &= \neg (\neg a \vee \neg b) 
