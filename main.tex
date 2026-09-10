@@ -78,37 +78,37 @@ Para poder usar estos conceptos con mayor seguridad y flexibilidad en las futura
 Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los pre-axiomas anteriores, diremos que forma un álgebra de Boole si satisface los siguientes postulados:
 
 \begin{postulado}{Elemento neutro $\vee$ - $ElemNeu_\vee$}{neutro_vee}
-Para todo elemento del conjunto se tiene que:
+Todo elemento operado mediante $\vee$ con el mínimo $\bot$ da como resultado el mismo elemento; es decir, $\bot$ no altera el valor original:
 \[ \forall a \in \mathbb{B}, \quad a \vee \bot = a \]
 \end{postulado}
 
 \begin{postulado}{Elemento neutro $\wedge$ - $ElemNeu_\wedge$}{neutro_wedge}
-Para todo elemento del conjunto se tiene que:
+Todo elemento operado mediante $\wedge$ con el máximo $\top$ da como resultado el mismo elemento, quedando inalterado:
 \[ \forall a \in \mathbb{B}, \quad a \wedge \top = a \]
 \end{postulado}
 
 \begin{postulado}{Conmutatividad $\vee$ - $Comm_\vee$}{conmut_vee}
-Para cualquier par de elementos del conjunto se cumple:
+El orden de los operandos al aplicar la operación $\vee$ es indiferente, obteniéndose exactamente el mismo resultado:
 \[ \forall a, b \in \mathbb{B}, \quad a \vee b = b \vee a \]
 \end{postulado}
 
 \begin{postulado}{Conmutatividad $\wedge$ - $Comm_\wedge$}{conmut_wedge}
-Para cualquier par de elementos del conjunto se cumple:
+De la misma forma, el orden de los operandos al aplicar la operación $\wedge$ tampoco altera el resultado final:
 \[ \forall a, b \in \mathbb{B}, \quad a \wedge b = b \wedge a \]
 \end{postulado}
 
 \begin{postulado}{Distributividad $\vee$ sobre $\wedge$ - $Dist_\vee$}{distrib_vee_wedge}
-Para cualesquiera tres elementos del conjunto se verifica:
+La operación $\vee$ se distribuye sobre la operación $\wedge$. Operar un elemento con el resultado de un $\wedge$ equivale a operar con $\vee$ cada componente individualmente y luego aplicar $\wedge$:
 \[ \forall a, b, c \in \mathbb{B}, \quad a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c) \]
 \end{postulado}
 
 \begin{postulado}{Distributividad $\wedge$ sobre $\vee$ - $Dist_\wedge$}{distrib_wedge_vee}
-Para cualesquiera tres elementos del conjunto se verifica:
+De manera equivalente, el ínfimo ($\wedge$) se reparte de forma distributiva entre los componentes de un supremo ($\vee$):
 \[ \forall a, b, c \in \mathbb{B}, \quad a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c) \]
 \end{postulado}
 
 \begin{postulado}{Complementario - $Comp_\vee, Comp_\wedge$}{comp}
-Para cada elemento del conjunto, existe al menos un elemento complementario tal que:
+Todo elemento del conjunto posee al menos un "complemento" (o elemento opuesto). Al operarlo con su complemento mediante $\vee$ siempre alcanzamos el máximo $\top$, y mediante $\wedge$ siempre caemos al mínimo $\bot$:
 \begin{align*}
 \forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \\
 a \wedge b &= \bot \quad (Comp_\wedge)
