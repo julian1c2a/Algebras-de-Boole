@@ -89,6 +89,11 @@ a \wedge b &= \bot \quad (Comp_\wedge)
 
 \textit{Nota: A diferencia de algunas formulaciones clásicas que imponen un axioma de cardinalidad ($\bot \neq \top$) para evitar el álgebra trivial, en este desarrollo permitiremos la existencia del álgebra trivial.}
 
+\section{El Principio de Dualidad}
+Si observamos los postulados de Huntington, notaremos una perfecta simetría entre las operaciones $\vee$ y $\wedge$, y entre las constantes $\bot$ y $\top$. Si en cualquier postulado intercambiamos $\vee$ por $\wedge$ y $\bot$ por $\top$, obtenemos otro postulado válido del sistema. 
+
+Este rasgo estructural da lugar al \textbf{Principio de Dualidad}: toda proposición o teorema deducido a partir de estos axiomas tiene un \textit{teorema dual} que también es válido. La demostración de un teorema dual se construye manipulando la prueba original y aplicando sistemáticamente el intercambio de operaciones ($\vee \leftrightarrow \wedge$) y constantes ($\bot \leftrightarrow \top$). En las siguientes pruebas no evitaremos repetir las versiones duales; al contrario, haremos hincapié en cómo se manipula la prueba de uno para obtener la del otro.
+
 \section{Teoremas Principales Derivados}
 
 \begin{teorema}[Unicidad de los elementos neutros - $Unic_e, Unic_u$]
@@ -104,7 +109,15 @@ Sea $e \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \vee e = a$. Tomando
       &= \bot \vee e & (Comm_\vee) \\
       &= \bot & (\text{Hipótesis sobre } e)
 \end{align*}
-La demostración para $Unic_u$ es análoga por dualidad.
+\end{proof}
+\begin{proof}[Demostración de $Unic_u$ (Dual)]
+Para obtener la prueba dual, intercambiamos $\vee$ por $\wedge$ y $\bot$ por $\top$.
+Sea $u \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \wedge u = a$. Tomando $a = \top$:
+\begin{align*}
+    u &= u \wedge \top & (ElemNeu_\wedge) \\
+      &= \top \wedge u & (Comm_\wedge) \\
+      &= \top & (\text{Hipótesis sobre } u)
+\end{align*}
 \end{proof}
 
 \begin{teorema}[Idempotencia - $Idemp_\vee, Idemp_\wedge$]
@@ -122,7 +135,17 @@ La demostración para $Unic_u$ es análoga por dualidad.
       &= \top \wedge (a \vee a) & (Comm_\wedge) \\
       &= a \vee a & (ElemNeu_\wedge)
 \end{align*}
-La demostración para $Idemp_\wedge$ es análoga.
+\end{proof}
+\begin{proof}[Demostración de $Idemp_\wedge$ (Dual)]
+Intercambiando los operadores y constantes de la prueba anterior paso a paso:
+\begin{align*}
+    a &= a \wedge \top & (ElemNeu_\wedge) \\
+      &= a \wedge (a \vee a') & (Comp_\vee) \\
+      &= (a \wedge a) \vee (a \wedge a') & (Dist_\wedge) \\
+      &= (a \wedge a) \vee \bot & (Comp_\wedge) \\
+      &= \bot \vee (a \wedge a) & (Comm_\vee) \\
+      &= a \wedge a & (ElemNeu_\vee)
+\end{align*}
 \end{proof}
 
 \begin{teorema}[Elementos absorbentes - $Abs_{\bot}, Abs_{\top}$]
@@ -131,7 +154,7 @@ La demostración para $Idemp_\wedge$ es análoga.
     \forall a \in \mathbb{B}, \quad a \wedge \bot &= \bot
 \end{align*}
 \end{teorema}
-\begin{proof}[Demostración para $\top$]
+\begin{proof}[Demostración de $a \vee \top = \top$]
 \begin{align*}
     a \vee \top &= (a \vee \top) \wedge \top & (ElemNeu_\wedge) \\
                &= (a \vee \top) \wedge (a \vee a') & (Comp_\vee) \\
@@ -140,7 +163,51 @@ La demostración para $Idemp_\wedge$ es análoga.
                &= a \vee a' & (ElemNeu_\wedge) \\
                &= \top & (Comp_\vee)
 \end{align*}
-Análogamente para $a \wedge \bot = \bot$.
+\end{proof}
+\begin{proof}[Demostración de $a \wedge \bot = \bot$ (Dual)]
+\begin{align*}
+    a \wedge \bot &= (a \wedge \bot) \vee \bot & (ElemNeu_\vee) \\
+               &= (a \wedge \bot) \vee (a \wedge a') & (Comp_\wedge) \\
+               &= a \wedge (\bot \vee a') & (Dist_\wedge) \\
+               &= a \wedge (a' \vee \bot) & (Comm_\vee) \\
+               &= a \wedge a' & (ElemNeu_\vee) \\
+               &= \bot & (Comp_\wedge)
+\end{align*}
+\end{proof}
+
+\begin{teorema}[Condición de Álgebra Trivial]
+Si los elementos neutros son iguales ($\bot = \top$), entonces el álgebra de Boole tiene un único elemento, es decir, $\mathbb{B} = \{\bot\} = \{\top\}$.
+\end{teorema}
+\begin{proof}
+Supongamos que $\bot = \top$. Sea $x \in \mathbb{B}$ un elemento cualquiera:
+\begin{align*}
+    x &= x \vee \bot & (ElemNeu_\vee) \\
+      &= x \vee \top & (\text{Hipótesis } \bot = \top) \\
+      &= \top & (Abs_\top)
+\end{align*}
+Por tanto, todo elemento $x$ del conjunto es idéntico a $\top$, lo que implica que $\mathbb{B} = \{\top\} = \{\bot\}$.
+\end{proof}
+
+\begin{teorema}[Complemento Idéntico implica Álgebra Trivial]
+Si existe un elemento $a \in \mathbb{B}$ que es igual a su propio complemento (es decir, $a' = a$), entonces $\mathbb{B} = \{\top\} = \{\bot\}$.
+\end{teorema}
+\begin{proof}
+Supongamos que existe $a \in \mathbb{B}$ tal que $a' = a$. Por el postulado del Complemento ($Comp_\vee$ y $Comp_\wedge$), sabemos que $a \vee a' = \top$ y $a \wedge a' = \bot$. Sustituyendo la hipótesis $a' = a$ en ambas ecuaciones, obtenemos:
+$$ a \vee a = \top \quad \text{y} \quad a \wedge a = \bot $$
+Aplicando el teorema de Idempotencia ($Idemp_\vee$ y $Idemp_\wedge$), sabemos que $a \vee a = a$ y $a \wedge a = a$. Por tanto:
+$$ a = \top \quad \text{y} \quad a = \bot $$
+Lo cual implica que $\bot = \top$. Aplicando el teorema anterior (Condición de Álgebra Trivial), concluimos que $\mathbb{B} = \{\top\} = \{\bot\}$.
+\end{proof}
+
+\begin{teorema}[Asociatividad - $Asoc_\vee, Asoc_\wedge$]
+Para cualesquiera $a, b, c \in \mathbb{B}$:
+\begin{align*}
+    a \vee (b \vee c) &= (a \vee b) \vee c \\
+    a \wedge (b \wedge c) &= (a \wedge b) \wedge c
+\end{align*}
+\end{teorema}
+\begin{proof}
+(La demostración completa de la asociatividad a partir de los postulados de Huntington requiere de una manipulación algebraica extensa que omitiremos por brevedad, pero es un resultado derivado puro y no un axioma).
 \end{proof}
 
 \begin{teorema}[Propiedades de absorción - $Abs_{\vee}, Abs_{\wedge}$]
@@ -157,21 +224,37 @@ Análogamente para $a \wedge \bot = \bot$.
                         &= a \wedge \top & (Abs_\top) \\
                         &= a & (ElemNeu_\wedge)
 \end{align*}
-Análogamente se demuestra $Abs_\wedge$.
+\end{proof}
+\begin{proof}[Demostración de $Abs_\wedge$ (Dual)]
+\begin{align*}
+    a \wedge (a \vee b) &= (a \vee \bot) \wedge (a \vee b) & (ElemNeu_\vee) \\
+                        &= a \vee (\bot \wedge b) & (Dist_\vee) \\
+                        &= a \vee (b \wedge \bot) & (Comm_\wedge) \\
+                        &= a \vee \bot & (Abs_\bot) \\
+                        &= a & (ElemNeu_\vee)
+\end{align*}
 \end{proof}
 
 \begin{teorema}[Propiedades de orden de retículo - $Prop_{\vee,\wedge}$]
 Para cualesquiera $a, b \in \mathbb{B}$:
 $$ a \vee b = a \iff a \wedge b = b $$
 \end{teorema}
-\begin{proof}
+\begin{proof}[Demostración de $\implies$]
 Supongamos que $a \vee b = a$.
 \begin{align*}
     a \wedge b &= b \wedge a & (Comm_\wedge) \\
                &= b \wedge (a \vee b) & (\text{Hipótesis } a \vee b = a) \\
                &= b & (Abs_\wedge)
 \end{align*}
-La implicación recíproca se demuestra de forma análoga asumiendo $a \wedge b = b$.
+\end{proof}
+\begin{proof}[Demostración de $\impliedby$ (Dual)]
+Supongamos que $a \wedge b = b$.
+\begin{align*}
+    a \vee b &= b \vee a & (Comm_\vee) \\
+               &= (a \wedge b) \vee a & (\text{Hipótesis } a \wedge b = b) \\
+               &= a \vee (a \wedge b) & (Comm_\vee) \\
+               &= a & (Abs_\vee)
+\end{align*}
 \end{proof}
 
 \begin{teorema}[Equivalencia de operaciones - $Equa_{\vee,\wedge}$]
@@ -204,6 +287,7 @@ Para cualesquiera $a, b, c \in \mathbb{B}$:
 $$ a \vee b = a \vee c \quad \text{y} \quad a \wedge b = a \wedge c \implies b = c $$
 \end{teorema}
 \begin{proof}
+Este teorema es automejor dualizable al ser sus hipótesis perfectamente simétricas.
 \begin{align*}
     b &= b \wedge (a \vee b) & (Abs_\wedge) \\
       &= b \wedge (a \vee c) & (\text{Hipótesis } a \vee b = a \vee c) \\
@@ -248,40 +332,78 @@ Esto demuestra que $a$ actúa como un complemento de $a'$. Por el teorema de uni
 
 \begin{teorema}[Leyes de De Morgan - $Mor_{\vee, \wedge}$]
 Para cualesquiera $a, b \in \mathbb{B}$:
-\begin{align*}
+\begin{align}
     (a \vee b)' &= a' \wedge b' \\
-    (a \wedge b)' &= a' \vee b'
-\end{align*}
+    (a \wedge b)' &= a' \vee b' 
+\end{align}
+De forma equivalente, aplicando la involución, podemos despejar las operaciones básicas:
+\begin{align}
+    a \vee b &= (a' \wedge b')' \\
+    a \wedge b &= (a' \vee b')' 
+\end{align}
 \end{teorema}
-\begin{proof}
-(Pendiente de expandir en base a la distributividad y propiedades previas, comprobando que $(a \vee b) \vee (a' \wedge b') = \top$ y $(a \vee b) \wedge (a' \wedge b') = \bot$, para luego aplicar $Unic_{comp}$).
-\end{proof}
-
-\begin{teorema}[Condición de Álgebra Trivial]
-Si los elementos neutros son iguales ($\bot = \top$), entonces el álgebra de Boole tiene un único elemento, es decir, $\mathbb{B} = \{\bot\} = \{\top\}$.
-\end{teorema}
-\begin{proof}
-Supongamos que $\bot = \top$. Sea $x \in \mathbb{B}$ un elemento cualquiera:
+\begin{proof}[Demostración de $(a \vee b)' = a' \wedge b'$]
+Debemos demostrar que $a' \wedge b'$ actúa como el complemento de $(a \vee b)$, satisfaciendo las dos condiciones de complemento. Para la suma:
 \begin{align*}
-    x &= x \vee \bot & (ElemNeu_\vee) \\
-      &= x \vee \top & (\text{Hipótesis } \bot = \top) \\
-      &= \top & (Abs_\top)
+    (a \vee b) \vee (a' \wedge b') &= ((a \vee b) \vee a') \wedge ((a \vee b) \vee b') & (Dist_\vee) \\
+    &= ((b \vee a) \vee a') \wedge ((a \vee b) \vee b') & (Comm_\vee) \\
+    &= (b \vee (a \vee a')) \wedge (a \vee (b \vee b')) & (Asoc_\vee) \\
+    &= (b \vee \top) \wedge (a \vee \top) & (Comp_\vee) \\
+    &= \top \wedge \top & (Abs_\top) \\
+    &= \top & (Idemp_\wedge)
 \end{align*}
-Por tanto, todo elemento $x$ del conjunto es idéntico a $\top$. Esto implica que el único elemento del conjunto es $\top$ (que a su vez es igual a $\bot$). Así, $\mathbb{B} = \{\top\} = \{\bot\}$.
+Para el producto:
+\begin{align*}
+    (a \vee b) \wedge (a' \wedge b') &= (a' \wedge b') \wedge (a \vee b) & (Comm_\wedge) \\
+    &= ((a' \wedge b') \wedge a) \vee ((a' \wedge b') \wedge b) & (Dist_\wedge) \\
+    &= (b' \wedge (a' \wedge a)) \vee (a' \wedge (b' \wedge b)) & (Asoc_\wedge, Comm_\wedge) \\
+    &= (b' \wedge \bot) \vee (a' \wedge \bot) & (Comp_\wedge) \\
+    &= \bot \vee \bot & (Abs_\bot) \\
+    &= \bot & (Idemp_\vee)
+\end{align*}
+Por el teorema de unicidad ($Unic_{comp}$), concluimos que $(a \vee b)' = a' \wedge b'$.
+\end{proof}
+\begin{proof}[Demostración de $(a \wedge b)' = a' \vee b'$ (Dual)]
+Intercambiando operaciones y constantes, demostramos que $a' \vee b'$ es el complemento de $(a \wedge b)$. Para el producto:
+\begin{align*}
+    (a \wedge b) \wedge (a' \vee b') &= ((a \wedge b) \wedge a') \vee ((a \wedge b) \wedge b') & (Dist_\wedge) \\
+    &= ((b \wedge a) \wedge a') \vee ((a \wedge b) \wedge b') & (Comm_\wedge) \\
+    &= (b \wedge (a \wedge a')) \vee (a \wedge (b \wedge b')) & (Asoc_\wedge) \\
+    &= (b \wedge \bot) \vee (a \wedge \bot) & (Comp_\wedge) \\
+    &= \bot \vee \bot & (Abs_\bot) \\
+    &= \bot & (Idemp_\vee)
+\end{align*}
+Para la suma:
+\begin{align*}
+    (a \wedge b) \vee (a' \vee b') &= (a' \vee b') \vee (a \wedge b) & (Comm_\vee) \\
+    &= ((a' \vee b') \vee a) \wedge ((a' \vee b') \vee b) & (Dist_\vee) \\
+    &= (b' \vee (a' \vee a)) \wedge (a' \vee (b' \vee b)) & (Asoc_\vee, Comm_\vee) \\
+    &= (b' \vee \top) \wedge (a' \vee \top) & (Comp_\vee) \\
+    &= \top \wedge \top & (Abs_\top) \\
+    &= \top & (Idemp_\wedge)
+\end{align*}
+Por el teorema de unicidad, concluimos que $(a \wedge b)' = a' \vee b'$.
 \end{proof}
 
-\begin{teorema}[Complemento Idéntico implica Álgebra Trivial]
-Si existe un elemento $a \in \mathbb{B}$ que es igual a su propio complemento (es decir, $a' = a$), entonces $\mathbb{B} = \{\top\} = \{\bot\}$.
-\end{teorema}
-\begin{proof}
-Supongamos que existe $a \in \mathbb{B}$ tal que $a' = a$. Por el postulado del Complemento ($Comp_\vee$ y $Comp_\wedge$), sabemos que:
-$$ a \vee a' = \top \quad \text{y} \quad a \wedge a' = \bot $$
-Sustituyendo la hipótesis $a' = a$ en ambas ecuaciones, obtenemos:
-$$ a \vee a = \top \quad \text{y} \quad a \wedge a = \bot $$
-Aplicando el teorema de Idempotencia ($Idemp_\vee$ y $Idemp_\wedge$), sabemos que $a \vee a = a$ y $a \wedge a = a$. Por tanto:
-$$ a = \top \quad \text{y} \quad a = \bot $$
-Lo cual implica que $\bot = \top$. Aplicando el teorema anterior (Condición de Álgebra Trivial), concluimos que $\mathbb{B} = \{\top\} = \{\bot\}$.
+\begin{proof}[Demostración de $a \vee b = (a' \wedge b')'$ y su dual]
+Partiendo de $(a' \wedge b')'$, aplicamos De Morgan a sus componentes:
+\begin{align*}
+    (a' \wedge b')' &= (a')' \vee (b')' & (Mor_\wedge) \\
+    &= a \vee b & (Comp_{inv})
+\end{align*}
+Dualizando la expresión, obtenemos de manera idéntica que $(a' \vee b')' = a \wedge b$.
 \end{proof}
+
+\section{Operadores Derivados: NAND y NOR}
+Las ecuaciones obtenidas a partir de las Leyes de De Morgan demuestran que las operaciones básicas $\vee$ y $\wedge$ pueden ser expresadas íntegramente en términos de la negación de su operación dual. Esto motiva la definición de dos operadores lógicos fundamentales en sistemas digitales, que por sí solos son funcionalmente completos:
+
+\begin{itemize}
+    \item \textbf{NAND (Barra de Sheffer)}: Denotado clásicamente con una barra vertical ($|$), se define como la negación del ínfimo.
+    \[ a \mid b = (a \wedge b)' = a' \vee b' \]
+    
+    \item \textbf{NOR (Flecha de Peirce)}: Denotado con una flecha hacia abajo ($\downarrow$), se define como la negación del supremo.
+    \[ a \downarrow b = (a \vee b)' = a' \wedge b' \]
+\end{itemize}
 
 \section{Conclusión}
 (Pendiente de redacción).
