@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow><mrow><msub><mn>0</mn><mrow><mo stretchy="false">B</mo></mrow></msub></mrow><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><msub><mn>1</mn><mo stretchy="false">ℕ</mo></msub></mrow></mrow></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
- {{0_{%setB}} := 1_setN} 
-}</annotation></semantics></math>

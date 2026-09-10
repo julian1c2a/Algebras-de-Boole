@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow><mrow><msub><mn>1</mn><mrow><mo stretchy="false">B</mo></mrow></msub></mrow><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mrow><munder><mo stretchy="false">∏</mo><mrow><mrow><mi>q</mi><mo stretchy="false">∈</mo><msub><mi>P</mi><mi>n</mi></msub></mrow></mrow></munder><mrow><mi>q</mi></mrow></mrow></mrow></mrow></mrow></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
- {{1_{%setB}} := {prod from{q in P_n} {q} }} 
-}</annotation></semantics></math>

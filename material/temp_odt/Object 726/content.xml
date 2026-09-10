@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo stretchy="false">⊕</mo><mrow><mrow><mfenced open="(" close=")"><mrow><mn>0</mn><mo stretchy="false">⋅</mo><mi>x</mi></mrow></mfenced><mo stretchy="false">=</mo><mi>x</mi></mrow><mo stretchy="false">=</mo><mi>x</mi></mrow><mo stretchy="false">⊕</mo><mn>0</mn></mrow><annotation encoding="StarMath 5.0">alignl x %exor left( 0 cdot x right) = x = x %exor 0</annotation></semantics></math>

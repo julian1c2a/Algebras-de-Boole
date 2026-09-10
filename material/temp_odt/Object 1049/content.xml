@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd><mrow><mrow><mrow><mn>0</mn><mo stretchy="false">+</mo><mn>1</mn></mrow><mo stretchy="false">=</mo><mn>1</mn></mrow><mtext> Elemento neutro de la suma.</mtext></mrow></mtd></mtr><mtr><mtd><mrow><mn>0</mn><mrow><mi/><mo stretchy="false">⋅</mo><mi/></mrow><mn>1</mn><mrow><mi/><mo stretchy="false">=</mo><mn>0</mn></mrow><mtext> Elemento neutro del producto.</mtext></mrow></mtd></mtr></mtable><annotation encoding="StarMath 5.0">alignl 0 + 1 = 1 &quot; Elemento neutro de la suma.&quot;newline
-alignl 0 `cdot` 1 `= 0  &quot; Elemento neutro del producto.&quot;</annotation></semantics></math>

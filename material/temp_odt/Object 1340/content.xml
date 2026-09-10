@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">∃</mo><mrow><mi>y</mi><mo stretchy="false">∈</mo><mo stretchy="false">B</mo></mrow><mrow><mrow><mi>y</mi><mo stretchy="false">⋅</mo><mover accent="true"><mo stretchy="false">Λ</mo><mo>¯</mo></mover></mrow><mo stretchy="false">=</mo><mover accent="true"><mo stretchy="false">Γ</mo><mo>¯</mo></mover></mrow></mrow><annotation encoding="StarMath 5.0">exists y in %setB y cdot overline{%LAMBDA}=overline{%GAMMA}</annotation></semantics></math>

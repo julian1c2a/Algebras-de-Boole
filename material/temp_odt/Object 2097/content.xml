@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="sans-serif"><mrow><mi mathvariant="italic">Nil</mi></mrow></mstyle><mo stretchy="false">B</mo><mo stretchy="false">≝</mo><mrow><mo stretchy="false">B</mo><mo stretchy="false">∖</mo><mrow><mstyle mathvariant="sans-serif"><mrow><mi mathvariant="italic">Ker</mi></mrow></mstyle><mo stretchy="false">B</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">{font sans{Nil}}{%setB} 
-%def 
-{%setB}setminus{{font sans{Ker}}{%setB}}</annotation></semantics></math>

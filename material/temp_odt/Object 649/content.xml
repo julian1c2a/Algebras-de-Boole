@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="normal"><mrow><mfenced open="[" close="]"><mrow><mi>Lema</mi><mn>3</mn></mrow></mfenced></mrow></mstyle><mo stretchy="false">∀</mo><mrow><mi>x</mi><mo stretchy="false">∈</mo><mo stretchy="false">B</mo></mrow><mn>0</mn><mo stretchy="false">⊕</mo><mrow><mi>x</mi><mo stretchy="false">=</mo><mi>x</mi></mrow></mrow><annotation encoding="StarMath 5.0">alignl nitalic{left[ Lema 3 right]} forall x in %setB {}{}{} 0 %exor x = x</annotation></semantics></math>

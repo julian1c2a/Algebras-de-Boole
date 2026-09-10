@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>x</mi><mo>¯</mo></mover><mo stretchy="false">@</mo><mrow><mrow><mover accent="true"><mi>x</mi><mo>¯</mo></mover><mo stretchy="false">=</mo><mover accent="true"><mover accent="true"><mi>x</mi><mo>¯</mo></mover><mo>¯</mo></mover></mrow><mo stretchy="false">=</mo><mi>x</mi></mrow></mrow><annotation encoding="StarMath 5.0">overline{x} {%nand} overline{x} = overline{overline{x}} = x</annotation></semantics></math>

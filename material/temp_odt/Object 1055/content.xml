@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="false">∀</mo><mrow><mi>x</mi><mo stretchy="false">∈</mo><mi>Y</mi></mrow><mi/><mrow><mi>x</mi><mo stretchy="false">∈</mo><mrow><mi>U</mi><mo stretchy="false">∖</mo><mi>X</mi></mrow></mrow><mo stretchy="false">⇒</mo><mrow><mi>x</mi><mo stretchy="false">∈</mo><mi>U</mi></mrow></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
-forall x in Y `` x in U setminus X drarrow x in U
-}</annotation></semantics></math>

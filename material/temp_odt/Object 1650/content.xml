@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover accent="true"><mover accent="true"><mrow><mi>x</mi><mo stretchy="false">+</mo><mover accent="true"><mrow><mi>y</mi><mo stretchy="false">+</mo><mi>z</mi></mrow><mo>¯</mo></mover></mrow><mo>¯</mo></mover><mo>¯</mo></mover><annotation encoding="StarMath 5.0">alignl{
-overline{{overline{{x + overline{y+z}}}}}
-}
- </annotation></semantics></math>

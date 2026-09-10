@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow/><mo stretchy="false">=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>x</mi><mrow><mo stretchy="false">@</mo></mrow><mi>y</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mrow><mo stretchy="false">@</mo></mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>x</mi><mrow><mo stretchy="false">@</mo></mrow><mi>z</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mi>&apos;</mi><mrow><mi>&apos;</mi><mo stretchy="false">=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>x</mi><mrow><mo stretchy="false">@</mo></mrow><mi>y</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">+</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>x</mi><mrow><mo stretchy="false">@</mo></mrow><mi>z</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mrow><mi>&apos;</mi><mo stretchy="false">=</mo><mrow/></mrow></mrow><annotation encoding="StarMath 5.0">{} = 
-{( {({x {%nand} y})} {%nand} {({x {%nand} z})} )}&apos;&apos;  
-=
-{( {({x {%nand} y})} + {({x {%nand} z})} )}&apos;
-= {}
-</annotation></semantics></math>

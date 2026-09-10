@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><msubsup><mrow><mstyle mathvariant="bold"><mrow><mrow><mi mathvariant="normal">I</mi></mrow></mrow></mstyle></mrow><mrow><mo stretchy="false">ℚ</mo></mrow><mrow><mstyle mathvariant="bold"><mrow><mrow><mi>GEN</mi></mrow></mrow></mstyle></mrow></msubsup></mrow><mrow><mfenced open="(" close=")"><mrow><mrow><mn>0,1</mn></mrow></mrow></mfenced></mrow><mo stretchy="false">≝</mo><mrow/></mrow><annotation encoding="StarMath 5.0">{{bold nitalic {I}}_{setQ}^{bold nitalic{GEN}}}{left({0,1}right)}
-%def {}
-</annotation></semantics></math>

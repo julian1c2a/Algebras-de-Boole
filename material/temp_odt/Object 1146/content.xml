@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>,</mi><mrow><mi>y</mi><mo stretchy="false">∈</mo><mo stretchy="false">B</mo></mrow><mi/><mrow><mrow><mi>x</mi><mo stretchy="false">≤</mo><mrow><mi>y</mi><mo stretchy="false">∧</mo><mi>y</mi></mrow></mrow><mo stretchy="false">≤</mo><mi>x</mi></mrow></mrow><annotation encoding="StarMath 5.0">x,y in %setB ~ x &lt;= y and y &lt;= x</annotation></semantics></math>

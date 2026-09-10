@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi mathvariant="italic">error</mi></msub><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1</mn><mi mathvariant="italic">bit</mi></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">≤</mo><mo stretchy="false">α</mo></mrow></mrow><annotation encoding="StarMath 5.0">p_{error}(1 bit)&lt;=%alpha</annotation></semantics></math>

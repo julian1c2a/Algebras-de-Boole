@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">∃</mo><mrow><mi>z</mi><mo stretchy="false">∈</mo><mrow><mrow><mstyle mathvariant="sans-serif"><mrow><mstyle mathvariant="normal"><mrow><mrow><mi>Nil</mi></mrow></mrow></mstyle></mrow></mstyle></mrow><mrow><mo stretchy="false">B</mo></mrow></mrow></mrow></mrow><annotation encoding="StarMath 5.0">exists z in {{font sans nitalic {Nil}}{%setB}}</annotation></semantics></math>

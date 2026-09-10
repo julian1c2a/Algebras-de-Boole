@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mi>r</mi></msub><mo stretchy="false">⊕</mo><mrow><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⊕</mo><msub><mi>z</mi><mi>r</mi></msub></mrow></mfenced><mo stretchy="false">=</mo><msub><mi>y</mi><mi>r</mi></msub></mrow><mo stretchy="false">⊕</mo><mn>0</mn></mrow><annotation encoding="StarMath 5.0">alignl y_r %exor left( x %exor z_r right) = y_r %exor 0</annotation></semantics></math>

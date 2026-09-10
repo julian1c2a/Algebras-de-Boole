@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mstyle mathvariant="bold"><mi mathvariant="normal">I</mi></mstyle><mi mathvariant="normal">ℚ</mi></msub><mi mathvariant="normal">≝</mi><msub><mrow><mo fence="true" stretchy="true">[</mo><mrow><mrow><mn>0</mn><mi>,</mi><mn>1</mn></mrow></mrow><mo fence="true" stretchy="true">]</mo></mrow><mi mathvariant="normal">ℚ</mi></msub></mrow><annotation encoding="StarMath 5.0">alignl{
-{bold nitalic I}_{setQ} %def {left[{ 0 , 1 }right]}_{setQ}
-}</annotation></semantics></math>

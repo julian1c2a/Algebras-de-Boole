@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>p</mi><mi mathvariant="italic">error</mi></msub><mrow><mfenced open="(" close=")"><mrow><mi>q</mi><mi mathvariant="italic">bits</mi><mi mathvariant="italic">distintos</mi></mrow></mfenced><mo stretchy="false">=</mo><msup><mfenced open="(" close=")"><mo stretchy="false">α</mo></mfenced><mi>q</mi></msup></mrow></mrow><annotation encoding="StarMath 5.0">p_{error}left( q bits distintos right)=left( %alpha right) ^ q</annotation></semantics></math>

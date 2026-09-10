@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⊕</mo><msub><mi>y</mi><mi>x</mi></msub></mrow></mfenced><mo stretchy="false">⊕</mo><mrow><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⊕</mo><msub><mi>y</mi><mi>x</mi></msub></mrow></mfenced><mo stretchy="false">=</mo></mrow></mrow><annotation encoding="StarMath 5.0">alignl {left({x %exor {y_x} }right)} %exor {left({x %exor {y_x}}right)}={}
-</annotation></semantics></math>

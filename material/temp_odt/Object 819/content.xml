@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="false">=</mo><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⊕</mo><mi>x</mi></mrow></mfenced></mrow><mo stretchy="false">⊕</mo><mrow><mn>1</mn><mo stretchy="false">=</mo></mrow></mrow><annotation encoding="StarMath 5.0">alignl {} = {left({x %exor x}right)} %exor 1 = {}</annotation></semantics></math>

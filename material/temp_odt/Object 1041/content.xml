@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfenced open="[" close="]"><mtable><mtr><mtd><mrow><mi>c</mi><mo stretchy="false">=</mo><mover accent="true"><mi>a</mi><mo>¯</mo></mover></mrow></mtd><mtd><mrow><mrow><mi>a</mi><mo stretchy="false">⋅</mo><mi>b</mi></mrow><mo stretchy="false">=</mo><mrow><mover accent="true"><mi>a</mi><mo>¯</mo></mover><mo stretchy="false">⋅</mo><mover accent="true"><mi>b</mi><mo>¯</mo></mover></mrow></mrow></mtd><mtd><mrow><mrow><mi>a</mi><mo stretchy="false">⋅</mo><mover accent="true"><mi>b</mi><mo>¯</mo></mover></mrow><mo stretchy="false">=</mo><mrow><mi>a</mi><mo stretchy="false">+</mo><mover accent="true"><mi>b</mi><mo>¯</mo></mover></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mi>a</mi><mo stretchy="false">⋅</mo><mi>b</mi></mrow><mo stretchy="false">=</mo><mrow><mover accent="true"><mi>a</mi><mo>¯</mo></mover><mo stretchy="false">⋅</mo><mover accent="true"><mi>b</mi><mo>¯</mo></mover></mrow></mrow></mtd><mtd><mrow><mi>d</mi><mo stretchy="false">=</mo><mover accent="true"><mi>b</mi><mo>¯</mo></mover></mrow></mtd><mtd><mrow><mrow><mi>a</mi><mo stretchy="false">⋅</mo><mover accent="true"><mi>b</mi><mo>¯</mo></mover></mrow><mo stretchy="false">=</mo><mrow><mi>a</mi><mo stretchy="false">+</mo><mover accent="true"><mi>b</mi><mo>¯</mo></mover></mrow></mrow></mtd></mtr></mtable></mfenced><annotation encoding="StarMath 5.0">alignl
-{left[{
-matrix{
-{c = overline{a}}#{{a cdot b} = {overline{a} cdot overline{b}}}#{a cdot overline{b} = a + overline{b}}##
-{{a cdot b} = {overline{a} cdot overline{b}}}#{d = overline {b}}#{a cdot overline{b} = a + overline{b}}
-}
-}right]}</annotation></semantics></math>

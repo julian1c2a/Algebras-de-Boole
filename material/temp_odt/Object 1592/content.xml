@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">=</mo><mrow><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⋅</mo><mover accent="true"><mi>z</mi><mo>¯</mo></mover></mrow></mfenced><mo stretchy="false">+</mo><mfenced open="(" close=")"><mrow><mi>y</mi><mo stretchy="false">⋅</mo><mi>z</mi></mrow></mfenced></mrow></mrow><annotation encoding="StarMath 5.0">alignl{ {} =
-left( x cdot overline{z} right) +
-left( y cdot z right) 
-}</annotation></semantics></math>

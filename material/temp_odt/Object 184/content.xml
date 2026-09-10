@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>P</mi><mi>n</mi></msub><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">{</mo><mrow><mrow><mn>2</mn><mi>,</mi><mn>3</mn><mi>,</mi><mo stretchy="false">…</mo><mi>,</mi><msub><mi>p</mi><mi>n</mi></msub></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">P_n := lbrace { 2 , 3 , dotslow , p_n } rbrace</annotation></semantics></math>

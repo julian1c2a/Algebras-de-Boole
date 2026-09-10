@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>Y</mi><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mi>U</mi><mo stretchy="false">∖</mo><mi>X</mi></mrow></mrow></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
-Y:=U setminus X
-}</annotation></semantics></math>

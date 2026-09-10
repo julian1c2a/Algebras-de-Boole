@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">∀</mo><mrow><mi>x</mi><mo stretchy="false">∈</mo><mo stretchy="false">B</mo></mrow><mrow><mrow><mi>x</mi><mo stretchy="false">+</mo><mo stretchy="false">Λ</mo></mrow><mo stretchy="false">≠</mo><mo stretchy="false">Γ</mo></mrow></mrow><annotation encoding="StarMath 5.0">forall x in %setB x + {%LAMBDA} &lt;&gt; {%GAMMA}</annotation></semantics></math>

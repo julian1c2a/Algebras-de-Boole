@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mrow><mi>x</mi><mo stretchy="false">⊕</mo><msub><mi>y</mi><mi>x</mi></msub></mrow></msub><mo stretchy="false">⊕</mo><mrow><mfenced open="(" close=")"><mrow><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⊕</mo><msub><mi>y</mi><mi>x</mi></msub></mrow></mfenced><mo stretchy="false">⊕</mo><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⊕</mo><msub><mi>y</mi><mi>x</mi></msub></mrow></mfenced></mrow></mfenced><mo stretchy="false">=</mo><mfenced open="(" close=")"><mrow><mi>x</mi><mo stretchy="false">⊕</mo><msub><mi>y</mi><mi>x</mi></msub></mrow></mfenced></mrow></mrow><annotation encoding="StarMath 5.0">alignl
-{u_{{x %exor {y_x}}}} %exor left( left( x %exor {y_x} right) %exor left( x %exor {y_x} right)
- right) =
-left( x %exor {y_x} right)</annotation></semantics></math>

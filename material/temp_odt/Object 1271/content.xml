@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mn>1</mn><mi mathvariant="normal">B</mi></msub><mi mathvariant="normal">≝</mi><mrow><mo fence="true" stretchy="false">⟦</mo><mrow><msub><mstyle mathvariant="bold"><mi mathvariant="normal">I</mi></mstyle><mi mathvariant="normal">ℚ</mi></msub></mrow><mo fence="true" stretchy="false">⟧</mo></mrow></mrow><annotation encoding="StarMath 5.0">1_{%setB} %def {ldbracket{{bold nitalic{I}}_{setQ}}rdbracket}</annotation></semantics></math>

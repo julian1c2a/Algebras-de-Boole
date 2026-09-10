@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">B</mo><mrow><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><msub><mo stretchy="false">B</mo><mn>4</mn></msub></mrow><mo stretchy="false">≡</mo><mrow><mo stretchy="false">{</mo><mrow><mn>0</mn><mi>,</mi><mi>a</mi><mi>,</mi><mi>b</mi><mi>,</mi><mn>1</mn></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">%setB := {%setB}_4 equiv lbrace { 0 , a , b , 1 } rbrace</annotation></semantics></math>

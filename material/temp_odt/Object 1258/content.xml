@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><msub><mfenced open="[" close="]"><mn>0,1</mn></mfenced><mo stretchy="false">ℚ</mo></msub><mn>1</mn></msup><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><msub><mfenced open="[" close="]"><mn>0,1</mn></mfenced><mo stretchy="false">ℚ</mo></msub></mrow></mrow><annotation encoding="StarMath 5.0">alignl {{{left[ 0,1 right]}_{setQ}}}^1 := {left[0,1 right]}_{setQ}</annotation></semantics></math>
