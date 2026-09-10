@@ -87,7 +87,7 @@ a \wedge b &= \bot \quad (Comp_\wedge)
 \end{align*}
 \end{postulado}
 
-\textit{Nota: Para evitar que el álgebra sea trivial (de un solo elemento), tradicionalmente se incluye un axioma de cardinalidad que asegura que $\bot \neq \top$.}
+\textit{Nota: A diferencia de algunas formulaciones clásicas que imponen un axioma de cardinalidad ($\bot \neq \top$) para evitar el álgebra trivial, en este desarrollo permitiremos la existencia del álgebra trivial.}
 
 \section{Teoremas Principales Derivados}
 
@@ -255,6 +255,32 @@ Para cualesquiera $a, b \in \mathbb{B}$:
 \end{teorema}
 \begin{proof}
 (Pendiente de expandir en base a la distributividad y propiedades previas, comprobando que $(a \vee b) \vee (a' \wedge b') = \top$ y $(a \vee b) \wedge (a' \wedge b') = \bot$, para luego aplicar $Unic_{comp}$).
+\end{proof}
+
+\begin{teorema}[Condición de Álgebra Trivial]
+Si los elementos neutros son iguales ($\bot = \top$), entonces el álgebra de Boole tiene un único elemento, es decir, $\mathbb{B} = \{\bot\} = \{\top\}$.
+\end{teorema}
+\begin{proof}
+Supongamos que $\bot = \top$. Sea $x \in \mathbb{B}$ un elemento cualquiera:
+\begin{align*}
+    x &= x \vee \bot & (ElemNeu_\vee) \\
+      &= x \vee \top & (\text{Hipótesis } \bot = \top) \\
+      &= \top & (Abs_\top)
+\end{align*}
+Por tanto, todo elemento $x$ del conjunto es idéntico a $\top$. Esto implica que el único elemento del conjunto es $\top$ (que a su vez es igual a $\bot$). Así, $\mathbb{B} = \{\top\} = \{\bot\}$.
+\end{proof}
+
+\begin{teorema}[Complemento Idéntico implica Álgebra Trivial]
+Si existe un elemento $a \in \mathbb{B}$ que es igual a su propio complemento (es decir, $a' = a$), entonces $\mathbb{B} = \{\top\} = \{\bot\}$.
+\end{teorema}
+\begin{proof}
+Supongamos que existe $a \in \mathbb{B}$ tal que $a' = a$. Por el postulado del Complemento ($Comp_\vee$ y $Comp_\wedge$), sabemos que:
+$$ a \vee a' = \top \quad \text{y} \quad a \wedge a' = \bot $$
+Sustituyendo la hipótesis $a' = a$ en ambas ecuaciones, obtenemos:
+$$ a \vee a = \top \quad \text{y} \quad a \wedge a = \bot $$
+Aplicando el teorema de Idempotencia ($Idemp_\vee$ y $Idemp_\wedge$), sabemos que $a \vee a = a$ y $a \wedge a = a$. Por tanto:
+$$ a = \top \quad \text{y} \quad a = \bot $$
+Lo cual implica que $\bot = \top$. Aplicando el teorema anterior (Condición de Álgebra Trivial), concluimos que $\mathbb{B} = \{\top\} = \{\bot\}$.
 \end{proof}
 
 \section{Conclusión}
