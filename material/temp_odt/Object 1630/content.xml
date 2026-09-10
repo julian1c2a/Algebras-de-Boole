@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfenced open="[" close="]"><mtable><mtr><mtd><mrow><mrow><mo stretchy="false">¬</mo></mrow></mrow></mtd><mtd><mn>0</mn></mtd><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd><mtd><mi>A</mi></mtd><mtd><mi>C</mi></mtd><mtd><mi>B</mi></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd/><mtd><mn>1</mn></mtd><mtd><mi>B</mi></mtd><mtd><mi>C</mi></mtd><mtd><mi>A</mi></mtd><mtd><mi>c</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>a</mi></mtd><mtd><mn>0</mn></mtd></mtr></mtable></mfenced><mi/><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mrow><msub><mo stretchy="false">B</mo><mn>8</mn></msub><mo stretchy="false">→</mo><mo stretchy="false">℘</mo></mrow><mrow><mo stretchy="false">{</mo><mrow><mo stretchy="false">α</mo><mi>,</mi><mo stretchy="false">β</mo><mi>,</mi><mo stretchy="false">γ</mo></mrow><mo stretchy="false">}</mo></mrow></mrow></mtd><mtd><mrow><mn>0</mn><mo stretchy="false">→</mo><mo stretchy="false">∅</mo></mrow></mtd></mtr><mtr><mtd><mrow><mi>a</mi><mo stretchy="false">→</mo><mrow><mo stretchy="false">{</mo><mo stretchy="false">α</mo><mo stretchy="false">}</mo></mrow></mrow></mtd><mtd><mrow><mi>b</mi><mo stretchy="false">→</mo><mrow><mo stretchy="false">{</mo><mo stretchy="false">β</mo><mo stretchy="false">}</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mi>c</mi><mo stretchy="false">→</mo><mrow><mo stretchy="false">{</mo><mo stretchy="false">γ</mo><mo stretchy="false">}</mo></mrow></mrow></mtd><mtd><mrow><mi>A</mi><mo stretchy="false">→</mo><mrow><mo stretchy="false">{</mo><mrow><mo stretchy="false">α</mo><mi>,</mi><mo stretchy="false">β</mo></mrow><mo stretchy="false">}</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mi>C</mi><mo stretchy="false">→</mo><mrow><mo stretchy="false">{</mo><mrow><mo stretchy="false">γ</mo><mi>,</mi><mo stretchy="false">α</mo></mrow><mo stretchy="false">}</mo></mrow></mrow></mtd><mtd><mrow><mi>B</mi><mo stretchy="false">→</mo><mrow><mo stretchy="false">{</mo><mrow><mo stretchy="false">β</mo><mi>,</mi><mo stretchy="false">γ</mo></mrow><mo stretchy="false">}</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mn>1</mn><mo stretchy="false">→</mo><mrow><mo stretchy="false">{</mo><mrow><mo stretchy="false">α</mo><mi>,</mi><mo stretchy="false">β</mo><mi>,</mi><mo stretchy="false">γ</mo></mrow><mo stretchy="false">}</mo></mrow></mrow></mtd><mtd><mrow><mrow><mi>x</mi><mo stretchy="false">⋅</mo><mi>y</mi></mrow><mo stretchy="false">→</mo><mrow><mi>x</mi><mo stretchy="false">∩</mo><mi>y</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mi>x</mi><mo stretchy="false">+</mo><mi>y</mi></mrow><mo stretchy="false">→</mo><mrow><mi>x</mi><mo stretchy="false">∪</mo><mi>y</mi></mrow></mrow></mtd><mtd><mrow><mover accent="true"><mi>x</mi><mo>¯</mo></mover><mo stretchy="false">→</mo><mrow><mrow><mo stretchy="false">{</mo><mrow><mo stretchy="false">α</mo><mi>,</mi><mo stretchy="false">β</mo><mi>,</mi><mo stretchy="false">γ</mo></mrow><mo stretchy="false">}</mo></mrow><mo stretchy="false">∖</mo><mi>x</mi></mrow></mrow></mtd></mtr></mtable></mfenced></mrow><annotation encoding="StarMath 5.0">alignl{
+{left[{
+matrix{
+{{}neg{}} # 0  # a  # b # c # A # C # B # 1 ##
+{}        # 1  # B  # C # A # c # b # a # 0 
+} 
+}right]}
+~~~~~~~~~~~~~~~
+{left lbrace{
+matrix{
+alignl %setB_8 toward %partesde  lbrace %alpha,%beta,%gamma rbrace # 
+alignl 0 toward emptyset ##
+alignl a toward { lbrace %alpha rbrace }		#
+alignl b toward { lbrace %beta rbrace }		##
+alignl c toward { lbrace %gamma rbrace }		#
+alignl A toward { lbrace %alpha,%beta rbrace }	   ##
+alignl C toward { lbrace %gamma,%alpha rbrace }	   #
+alignl B toward { lbrace %beta,%gamma rbrace }	   ##
+alignl 1 toward { lbrace %alpha,%beta,%gamma rbrace }  #
+alignl {x}cdot{y}  toward  {x}intersection{y} ##
+alignl {x}+{y}     toward  {x}union{y}        #
+alignl overline x  toward  lbrace{%alpha,%beta,%gamma}rbrace setminus x
+}
+}right rbrace}
+}
+</annotation></semantics></math>

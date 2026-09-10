@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfenced open="〈" close="〉"><mrow><mo stretchy="false">B</mo><mi>,</mi><mrow><mfenced open="{" close="}"><mrow><msub><mn>0</mn><mo stretchy="false">B</mo></msub><mi>,</mi><msub><mn>1</mn><mo stretchy="false">B</mo></msub></mrow></mfenced><mo stretchy="false">⊆</mo><mo stretchy="false">B</mo></mrow><mi>,</mi><mrow><msub><mn>0</mn><mo stretchy="false">B</mo></msub><mo stretchy="false">≠</mo><msub><mn>1</mn><mo stretchy="false">B</mo></msub></mrow><mi>,</mi><mrow><mi mathvariant="italic">op</mi><mfenced open="{" close="}"><mrow><mi mathvariant="italic">bin</mi><mi mathvariant="normal">:</mi><mfenced open="{" close="}"><mrow><mrow><mo stretchy="false">+</mo></mrow><mi>,</mi><mrow><mo stretchy="false">⋅</mo></mrow></mrow></mfenced></mrow></mfenced><mi>,</mi><mfenced open="{" close="}"><mrow><mi mathvariant="italic">una</mi><mi mathvariant="normal">:</mi><mfenced open="{" close="}"><mover accent="true"><mi/><mo>¯</mo></mover></mfenced></mrow></mfenced></mrow></mrow></mfenced><annotation encoding="StarMath 5.0">alignl { 
+{left langle {
+
+{%setB},
+
+{
+{left lbrace{ 
+{0_{%setB}},
+{1_{%setB}} 
+}right rbrace} 
+subseteq 
+{%setB}
+},
+
+{{0_{%setB}} &lt;&gt; {1_{%setB}}},
+
+{ 
+op  
+	{left lbrace{ 
+	bin :  
+		{left lbrace{
+			{{}+{},{}cdot{}}
+		}right rbrace} 
+	}right rbrace},  
+	{left lbrace{ 
+	una :  
+		{left lbrace{
+			{overline{~~~}}
+		}right rbrace} 
+	}right rbrace}
+}
+ 
+}right rangle}
+}
+
+</annotation></semantics></math>

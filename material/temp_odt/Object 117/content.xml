@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow><mrow><mrow><msub><mi>f</mi><msub><mstyle mathsize="9pt"><mrow><mo stretchy="false">B</mo></mrow></mstyle><mstyle mathvariant="bold"><mrow><mstyle mathsize="7pt"><mrow><mn>2</mn></mrow></mstyle></mrow></mstyle></msub></msub><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">=</mo><mrow><msub><mi>f</mi><msub><mo stretchy="false">B</mo><mn>2</mn></msub></msub><mrow><mo stretchy="false">(</mo><mrow><msub><mi>x</mi><mn>1,</mn></msub><msub><mi>x</mi><mn>2,...</mn></msub><mi>,</mi><msub><mi>x</mi><mi>n</mi></msub></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">=</mo><mrow><munder><mrow><mo stretchy="false">∑</mo></mrow><mrow><mo stretchy="false">ι</mo><mo stretchy="false">∈</mo><msup><msub><mstyle mathsize="9pt"><mrow><mo stretchy="false">B</mo></mrow></mstyle><mstyle mathvariant="bold"><mrow><mstyle mathsize="7pt"><mrow><mn>2</mn></mrow></mstyle></mrow></mstyle></msub><mstyle mathvariant="bold"><mrow><mstyle mathsize="7pt"><mrow><mi>n</mi></mrow></mstyle></mrow></mstyle></msup></mrow></munder><mrow><mo stretchy="false">(</mo><mrow><msubsup><mo stretchy="false">σ</mo><mn>1</mn><mo stretchy="false">ι</mo></msubsup><mrow><mrow><mo stretchy="false">(</mo><msub><mo stretchy="false">ι</mo><mn>1</mn></msub><mo stretchy="false">)</mo></mrow><mo stretchy="false">⋅</mo><msubsup><mo stretchy="false">σ</mo><mn>2</mn><mo stretchy="false">ι</mo></msubsup></mrow><mrow><mrow><mo stretchy="false">(</mo><msub><mo stretchy="false">ι</mo><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><mo stretchy="false">⋅</mo></mrow><mn>...</mn><mrow><mo stretchy="false">⋅</mo><msubsup><mo stretchy="false">σ</mo><mi>n</mi><mo stretchy="false">ι</mo></msubsup></mrow><mrow><mrow><mo stretchy="false">(</mo><msub><mo stretchy="false">ι</mo><mi>n</mi></msub><mo stretchy="false">)</mo></mrow><mo stretchy="false">⋅</mo><mrow><msub><mi>f</mi><msub><mo stretchy="false">B</mo><mn>2</mn></msub></msub><mrow><mo stretchy="false">(</mo><mo stretchy="false">ι</mo><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">=</mo><munder><mrow><mo stretchy="false">∑</mo></mrow><mrow><mo stretchy="false">ι</mo><mo stretchy="false">∈</mo><msup><msub><mstyle mathsize="9pt"><mrow><mo stretchy="false">B</mo></mrow></mstyle><mstyle mathvariant="bold"><mrow><mstyle mathsize="7pt"><mrow><mn>2</mn></mrow></mstyle></mrow></mstyle></msub><mstyle mathvariant="bold"><mrow><mstyle mathsize="7pt"><mrow><mi>n</mi></mrow></mstyle></mrow></mstyle></msup></mrow></munder></mrow><mrow><mo stretchy="false">(</mo><mrow><msup><mo stretchy="false">σ</mo><mo stretchy="false">ι</mo></msup><mo stretchy="false">⋅</mo><mrow><msub><mi>f</mi><msub><mo stretchy="false">B</mo><mn>2</mn></msub></msub><mrow><mo stretchy="false">(</mo><mo stretchy="false">ι</mo><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="StarMath 5.0">{{f_{{size 9 {%setB}}_{bold size 7 2}}}{(x)}}
+=
+{{f_{{%setB}_2}}{(x_1,x_2,...,x_n)}} 
+=
+{
+ {
+  {sum{}}csub{{%iota}in
+  {
+   {
+    { {size 9 {%setB}}_{bold size 7 2} } }^{bold size 7 n}}}
+ }
+ {
+  (
+   {{%sigma}_1^{%iota}}{({%iota}_1)} cdot {{%sigma}_2^{%iota}}{({%iota}_2)} cdot {}...{} cdot {{%sigma}_n^{%iota}}{({%iota}_n)}cdot{{f_{%setB_{2}}}(%iota)}
+  )
+ }
+} =
+{
+ {
+  {sum{}}csub{{%iota}in
+  {
+   {
+    { size 9 {%setB} }_{bold size 7 2} } 
+    }^{
+       bold size 7 n
+      }
+   }
+  }
+ }
+ {
+  (
+   {{%sigma}^{%iota}}cdot{{f_{%setB_{2}}}(%iota)}
+  )
+}</annotation></semantics></math>

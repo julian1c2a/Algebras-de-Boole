@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfenced open="[" close="]"><mtable><mtr><mtd><mrow><mo stretchy="false">+</mo></mrow></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable></mfenced><mfenced open="[" close="]"><mtable><mtr><mtd><mrow><mo stretchy="false">⋅</mo></mrow></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable></mfenced><mfenced open="[" close="]"><mtable><mtr><mtd><mover accent="true"><mi/><mo>¯</mo></mover></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd/><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr></mtable></mfenced></mrow><annotation encoding="StarMath 5.0">alignl {
+left[ matrix{
+{{}+{}} # 0 # 1 ##
+0       # 0 # 1 ##
+1       # 1 # 1 
+} right]
+left[ matrix{
+{{}cdot{}} # 0 # 1 ##
+0          # 0 # 0 ##
+1          # 0 # 1 
+} right]
+left[ matrix{
+{overline{~~}} # 0 # 1 ##
+{}             # 1 # 0  
+} right]
+}</annotation></semantics></math>

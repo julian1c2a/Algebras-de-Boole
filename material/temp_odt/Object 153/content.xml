@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="bold"><mrow><mstyle mathvariant="normal"><mrow><mrow><mo stretchy="false">[</mo><mi>Ax.Sh.5</mi><mo stretchy="false">]</mo></mrow></mrow></mstyle></mrow></mstyle><mrow><mo stretchy="false">(</mo><mrow><mi>x</mi><mo stretchy="false">@</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo stretchy="false">@</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow><mrow><mi>&apos;</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mi>&apos;</mi><mo stretchy="false">@</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">@</mo><mrow><mo stretchy="false">(</mo><mrow><mi>z</mi><mi>&apos;</mi><mo stretchy="false">@</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
+{bold nitalic{[Ax.Sh.5]}} {({x{%nor}{({y{%nor}z})}})}&apos;={({y&apos;{%nor}x})}{%nor}{({z&apos;{%nor}x})} 
+}
+</annotation></semantics></math>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo stretchy="false">∈</mo><mfenced open="(" close=")"><mrow><mo stretchy="false">B</mo><mo stretchy="false">∖</mo><mrow><mo stretchy="false">{</mo><mn>0,1</mn><mo stretchy="false">}</mo></mrow></mrow></mfenced></mrow><annotation encoding="StarMath 5.0">alignl {
+ x in left( %setB setminus lbrace 0,1 rbrace right)
+}</annotation></semantics></math>

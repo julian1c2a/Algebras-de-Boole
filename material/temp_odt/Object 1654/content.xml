@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mover accent="true"><mrow><mover accent="true"><mrow><mover accent="true"><mi>y</mi><mo>¯</mo></mover><mo stretchy="false">+</mo><mi>x</mi></mrow><mo>¯</mo></mover><mo stretchy="false">+</mo><mover accent="true"><mrow><mover accent="true"><mi>z</mi><mo>¯</mo></mover><mo stretchy="false">+</mo><mi>x</mi></mrow><mo>¯</mo></mover></mrow><mo>¯</mo></mover><annotation encoding="StarMath 5.0">alignl{
+overline{overline{overline{y}+x}+overline{overline{z}+x}}
+}</annotation></semantics></math>

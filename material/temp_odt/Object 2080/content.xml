@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="sans-serif"><mrow><mi mathvariant="italic">Ker</mi></mrow></mstyle><mo stretchy="false">B</mo><mo stretchy="false">≝</mo><mrow><mo stretchy="false">{</mo><mrow><mi>x</mi><mi>,</mi><mi>y</mi><mi>,</mi><mover accent="true"><mi>x</mi><mo>¯</mo></mover><mi>,</mi><mover accent="true"><mi>y</mi><mo>¯</mo></mover><mi>,</mi><mrow><mi>x</mi><mo stretchy="false">+</mo><mi>y</mi></mrow><mi>,</mi><mrow><mover accent="true"><mi>x</mi><mo>¯</mo></mover><mo stretchy="false">⋅</mo><mover accent="true"><mi>y</mi><mo>¯</mo></mover></mrow><mn>,1</mn><mn>,0</mn></mrow><mo stretchy="false">}</mo></mrow></mrow><annotation encoding="StarMath 5.0">{font sans{Ker}}{%setB} 
+%def 
+{lbrace{x,y,overline{x},overline{y},x+y,overline{x} cdot overline{y},1,0}rbrace}</annotation></semantics></math>

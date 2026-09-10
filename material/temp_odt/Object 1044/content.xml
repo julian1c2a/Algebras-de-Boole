@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><msup><mi mathvariant="normal">H</mi><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><mstyle mathvariant="bold"><mrow><mstyle mathsize="9pt"><mrow><mrow><mo stretchy="false">∗</mo></mrow></mrow></mstyle></mrow></mstyle></mrow></mstyle></mrow></mstyle></msup></mrow></mstyle></mrow></mstyle><mo stretchy="false">=</mo><mfenced open="(" close=")"><mstyle mathsize="12pt"><mrow><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable></mrow></mstyle></mfenced></mrow><annotation encoding="StarMath 5.0">alignl {font fixed nitalic {H}^{font fixed nitalic{bold size 9{{}*{}}}}}=
+left({size 12 {matrix{
+1#0#{1}#{0}##
+0#1#{0}#{1}
+}
+}
+}right)</annotation></semantics></math>

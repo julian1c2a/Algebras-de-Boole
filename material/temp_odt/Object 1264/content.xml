@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">△</mo><mrow><mi>B</mi><mo stretchy="false">=</mo><mi>B</mi></mrow><mo stretchy="false">△</mo><mi>A</mi><mn>.</mn><mo stretchy="false">⇒</mo><mn>.</mn><mi>A</mi><mo stretchy="false">≈</mo><mi>B</mi><mo stretchy="false">⇔</mo><mi>B</mi><mo stretchy="false">≈</mo><mi>A</mi></mrow><annotation encoding="StarMath 5.0"> A %simdifset B = B %simdifset A . drarrow . A %similar B dlrarrow B %similar A </annotation></semantics></math>

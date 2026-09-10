@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfenced open="(" close="]"><mo stretchy="false">B</mo></mfenced><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">{</mo><mrow><mrow><mi>A</mi><mo stretchy="false">⊂</mo><mo stretchy="false">B</mo></mrow><mrow><mo stretchy="false">∣</mo></mrow><mo stretchy="false">∃</mo><mrow><mi>x</mi><mo stretchy="false">∈</mo><mo stretchy="false">B</mo></mrow><mi/><mrow><mfenced open="[" close="]"><mrow><mi>A</mi><mo stretchy="false">=</mo><msub><mfenced open="[" close=")"><mrow><mn>1,</mn><mi>x</mi></mrow></mfenced><mo stretchy="false">B</mo></msub></mrow></mfenced><mo stretchy="false">∧</mo><mfenced open="[" close="]"><mrow><msub><mfenced open="(" close=")"><mrow><mn>1,</mn><mi>x</mi></mrow></mfenced><mo stretchy="false">B</mo></msub><mo stretchy="false">≠</mo><mo stretchy="false">∅</mo></mrow></mfenced></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">{left({%setB}right]}  := 
+{lbrace{
+A subset %setB
+{}divides{}
+exists x in %setB ~ left[ A = {left[ 1,x right)}_{%setB} right] and left[ {left({ 1,x }right)}_{%setB} &lt;&gt; emptyset right]
+}rbrace}</annotation></semantics></math>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>B</mi><mo stretchy="false">⋅</mo><mi>A</mi></mrow><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo></mrow><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mo stretchy="false">⟦</mo><mo stretchy="false">∅</mo><mo stretchy="false">⟧</mo></mrow></mtd><mtd><mrow><mi/><mo stretchy="false">⇐</mo></mrow></mtd><mtd><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mi>A</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">⟦</mo><mo stretchy="false">∅</mo><mo stretchy="false">⟧</mo></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mi>B</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">⟦</mo><mo stretchy="false">∅</mo><mo stretchy="false">⟧</mo></mrow></mrow></mtd></mtr></mtable></mfenced></mtd></mtr><mtr><mtd><mi>A</mi></mtd><mtd><mrow><mi/><mo stretchy="false">⇐</mo></mrow></mtd><mtd><mrow><mi>B</mi><mo stretchy="false">=</mo><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mi>B</mi></mtd><mtd><mrow><mi/><mo stretchy="false">⇐</mo></mrow></mtd><mtd><mrow><mi>A</mi><mo stretchy="false">=</mo><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><mo stretchy="false">⟦</mo><mo stretchy="false">∅</mo><mo stretchy="false">⟧</mo></mrow></mtd><mtd><mrow><mi/><mo stretchy="false">⇐</mo></mrow></mtd><mtd><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mo stretchy="false">∃</mo><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">B</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">∈</mo><mi>B</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mo stretchy="false">∃</mo><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">A</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">∈</mo><mi>A</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">B</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">⊆</mo><mover accent="true"><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">A</mi></mrow></mstyle></mrow></mstyle><mo>¯</mo></mover></mrow></mtd></mtr><mtr><mtd><mrow><mo stretchy="false">∨</mo></mrow></mtd></mtr><mtr><mtd><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">A</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">⊆</mo><mover accent="true"><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">B</mi></mrow></mstyle></mrow></mstyle><mo>¯</mo></mover></mrow></mtd></mtr></mtable></mfenced></mtd></mtr><mtr><mtd><mi>A</mi></mtd><mtd><mrow><mi/><mo stretchy="false">⇐</mo></mrow></mtd><mtd><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mo stretchy="false">∃</mo><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">B</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">∈</mo><mi>B</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mo stretchy="false">∃</mo><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">A</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">∈</mo><mi>A</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">A</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">⊆</mo><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">B</mi></mrow></mstyle></mrow></mstyle></mrow></mtd></mtr></mtable></mfenced></mtd></mtr><mtr><mtd><mi>B</mi></mtd><mtd><mrow><mi/><mo stretchy="false">⇐</mo></mrow></mtd><mtd><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mo stretchy="false">∃</mo><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">B</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">∈</mo><mi>B</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mo stretchy="false">∃</mo><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">A</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">∈</mo><mi>A</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">B</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">⊆</mo><mstyle mathvariant="normal"><mrow><mstyle mathsize="10pt"><mrow><mi mathvariant="normal">A</mi></mrow></mstyle></mrow></mstyle></mrow></mtd></mtr></mtable></mfenced></mtd></mtr></mtable></mfenced></mrow><annotation encoding="StarMath 5.0">alignl {
+
+{ B cdot A } 
+ 
+:= {} 
+
+{left lbrace{ 
+matrix{ 
+{ldbracket emptyset rdbracket} # 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{ dlarrow }  # 
+{ left lbrace { 
+stack{ 
+A = ldbracket emptyset rdbracket # 
+B = ldbracket emptyset rdbracket 
+} 
+} right rbrace }
+##
+
+{ A }       # 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{ dlarrow } # 
+{ B = 1 } 
+## 
+
+{ B } # 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{ dlarrow } # 
+{ A = 1 }
+##
+ 
+{ldbracket emptyset rdbracket} # 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{ dlarrow } #
+{left lbrace{
+stack{
+exists {nitalic size 10 {B}} in B #
+exists {nitalic size 10 {A}} in A #
+{ {nitalic size 10 B} subseteq {overline {nitalic size 10 A}} }
+#
+{}or{}
+#
+{ {nitalic size 10 A} subseteq {overline {nitalic size 10 B}} }
+}
+}right rbrace}
+##
+ 
+{ A } # 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{ dlarrow } # 
+{left lbrace{
+stack {
+{ exists {nitalic size 10 B } in B } #
+{ exists {nitalic size 10 A } in A } #
+{ {nitalic size 10 A} subseteq {nitalic size 10 B} } 
+}
+}right rbrace}
+##
+
+ 
+{ B } # 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~{ dlarrow } # 
+{
+{left lbrace{
+stack {
+{ exists {nitalic size 10 B } in B } #
+{ exists {nitalic size 10 A } in A } #
+{ {nitalic size 10 B} subseteq {nitalic size 10 A} } 
+}
+}right rbrace}
+} 
+
+
+}
+}right rbrace }
+}
+
+</annotation></semantics></math>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="italic">Fin</mi><mrow><mo fence="true" stretchy="true">(</mo><mrow><msub><mstyle mathvariant="normal"><mi mathvariant="normal">I</mi></mstyle><mi mathvariant="normal">ℚ</mi></msub></mrow><mo fence="true" stretchy="true">)</mo></mrow><mspace width="4em"/><mi mathvariant="normal">≝</mi><mspace width="4em"/><mrow><mo fence="true" stretchy="true">{</mo><mrow><mrow><mrow><mi>A</mi><mo stretchy="false">∈</mo><mi mathvariant="normal">℘</mi></mrow><mrow><mo fence="true" stretchy="true">(</mo><mrow><msub><mstyle mathvariant="normal"><mi mathvariant="normal">I</mi></mstyle><mi mathvariant="normal">ℚ</mi></msub></mrow><mo fence="true" stretchy="true">)</mo></mrow><mspace width="4em"/><mrow><mrow/><mo stretchy="false">∣</mo><mrow/></mrow><mspace width="4em"/><mi mathvariant="normal">#</mi><mrow><mrow><mo fence="true" stretchy="true">(</mo><mrow><mi>A</mi></mrow><mo fence="true" stretchy="true">)</mo></mrow><mo stretchy="false">∈</mo><msub><mi mathvariant="normal">ℕ</mi><mn>0</mn></msub></mrow></mrow></mrow><mo fence="true" stretchy="true">}</mo></mrow></mrow><annotation encoding="StarMath 5.0">Fin 
+{left({
+	{nitalic I}_{setQ} 
+}right)} 
+~~ %def ~~
+{left lbrace{
+	A in %partesde left( {nitalic I}_{setQ} right) 
+~~ {{}divides{}} ~~ 
+	%card left( A right) in {setN_0} 
+}right rbrace}</annotation></semantics></math>

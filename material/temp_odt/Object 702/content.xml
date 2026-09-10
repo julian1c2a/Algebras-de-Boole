@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mfenced open="{" close="}"><mn>0,1</mn></mfenced><mo stretchy="false">⊆</mo><mrow><mo stretchy="false">B</mo><mo stretchy="false">∧</mo><mn>0</mn></mrow></mrow><mo stretchy="false">≠</mo><mn>1</mn></mrow><annotation encoding="StarMath 5.0">alignl { left lbrace {0,1} right rbrace } subseteq %setB and  0&lt;&gt;1  </annotation></semantics></math>

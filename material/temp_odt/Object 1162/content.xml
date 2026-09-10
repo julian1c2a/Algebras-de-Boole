@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="italic">Htom</mi><mo stretchy="false">B</mo><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">{</mo><mrow><mrow><mi>x</mi><mo stretchy="false">∈</mo><msub><mfenced open="(" close="]"><mn>1,0</mn></mfenced><mo stretchy="false">B</mo></msub></mrow><mrow><mo stretchy="false">∣</mo></mrow><msub><mstyle mathvariant="sans-serif"><mrow><mi mathvariant="italic">htom</mi></mrow></mstyle><mo stretchy="false">B</mo></msub><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">Htom {%setB}  := 
+{lbrace{
+x in {left( 1,0 right]}_{%setB}
+{}divides{}
+{{font sans{htom}}_{%setB}}(x)
+}rbrace}</annotation></semantics></math>

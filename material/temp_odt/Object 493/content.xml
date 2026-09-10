@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mstyle mathvariant="normal"><mrow><mstyle mathvariant="monospace"><mrow><mfenced open="{" close="}"><mrow><mrow><msub><mi mathvariant="normal">d</mi><mstyle mathsize="9pt"><mrow><mn>10</mn></mrow></mstyle></msub><mo stretchy="false">≡</mo><mi mathvariant="normal">A</mi></mrow><mi mathvariant="normal">,</mi><mrow><msub><mi mathvariant="normal">d</mi><mstyle mathsize="9pt"><mrow><mn>11</mn></mrow></mstyle></msub><mo stretchy="false">≡</mo><mi mathvariant="normal">B</mi></mrow><mi mathvariant="normal">,</mi><mrow><msub><mi mathvariant="normal">d</mi><mstyle mathsize="9pt"><mrow><mn>12</mn></mrow></mstyle></msub><mo stretchy="false">≡</mo><mi mathvariant="normal">C</mi></mrow><mi mathvariant="normal">,</mi><mrow><msub><mi mathvariant="normal">d</mi><mstyle mathsize="9pt"><mrow><mn>13</mn></mrow></mstyle></msub><mo stretchy="false">≡</mo><mi mathvariant="normal">D</mi></mrow><mi mathvariant="normal">,</mi><mrow><msub><mi mathvariant="normal">d</mi><mstyle mathsize="9pt"><mrow><mn>14</mn></mrow></mstyle></msub><mo stretchy="false">≡</mo><mi mathvariant="normal">E</mi></mrow><mi mathvariant="normal">,</mi><mrow><msub><mi mathvariant="normal">d</mi><mstyle mathsize="9pt"><mrow><mn>15</mn></mrow></mstyle></msub><mo stretchy="false">≡</mo><mi mathvariant="normal">F</mi></mrow></mrow></mfenced></mrow></mstyle></mrow></mstyle><annotation encoding="StarMath 5.0">nitalic font fixed
+{ 
+ left lbrace 
+  {
+   {d_{size 9 {10}}} equiv A
+   ,
+   {d_{size 9 {11}}} equiv B
+   ,
+   {d_{size 9 {12}}} equiv C
+   ,
+   {d_{size 9 {13}}} equiv D
+   ,
+   {d_{size 9 {14}}} equiv E
+   ,
+   {d_{size 9 {15}}} equiv F
+  }
+ right rbrace
+}</annotation></semantics></math>

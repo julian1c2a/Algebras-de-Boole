@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">∀</mo><mrow><mi>z</mi><mo stretchy="false">∈</mo><msub><mfenced open="[" close="]"><mrow><mn>1,</mn><mi>x</mi></mrow></mfenced><mo stretchy="false">B</mo></msub></mrow><mi/><mrow><mrow><mn>1</mn><mo stretchy="false">⋅</mo><mi>z</mi></mrow><mo stretchy="false">=</mo><mi>z</mi></mrow></mrow><annotation encoding="StarMath 5.0">forall z in {left[ 1,x right]}_{%setB} ~ 1 cdot z = z </annotation></semantics></math>

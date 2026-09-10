@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathsize="9pt"><mrow><mtable><mtr><mtd><mrow><mrow><mi mathvariant="italic">Si</mi><mi>F</mi><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mi>,</mi><mi>b</mi><mi>,</mi><mi>c</mi></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">=</mo><mn>0</mn></mrow><mi/><mi>c</mi></mrow></mrow></mtd><mtd><mrow><mrow><mn>0</mn></mrow></mrow></mtd><mtd><mrow><mrow><mn>1</mn></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mi mathvariant="italic">ab</mi></mrow></mrow></mtd><mtd><mrow><mrow/></mrow></mtd><mtd><mrow><mrow/></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mn>00</mn></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mi>a</mi><mo stretchy="false">+</mo><mi>b</mi></mrow><mo stretchy="false">+</mo><mi>c</mi></mrow></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mi>a</mi><mo stretchy="false">+</mo><mi>b</mi></mrow><mo stretchy="false">+</mo><mover accent="true"><mi>c</mi><mo stretchy="false">̄</mo></mover></mrow></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mn>01</mn></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mi>a</mi><mo stretchy="false">+</mo><mover accent="true"><mi>b</mi><mo stretchy="false">̄</mo></mover></mrow><mo stretchy="false">+</mo><mi>c</mi></mrow></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mi>a</mi><mo stretchy="false">+</mo><mover accent="true"><mi>b</mi><mo stretchy="false">̄</mo></mover></mrow><mo stretchy="false">+</mo><mover accent="true"><mi>c</mi><mo stretchy="false">̄</mo></mover></mrow></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mn>11</mn></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mover accent="true"><mi>a</mi><mo stretchy="false">̄</mo></mover><mo stretchy="false">+</mo><mover accent="true"><mi>b</mi><mo stretchy="false">̄</mo></mover></mrow><mo stretchy="false">+</mo><mi>c</mi></mrow></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mover accent="true"><mi>a</mi><mo stretchy="false">̄</mo></mover><mo stretchy="false">+</mo><mover accent="true"><mi>b</mi><mo stretchy="false">̄</mo></mover></mrow><mo stretchy="false">+</mo><mover accent="true"><mi>c</mi><mo stretchy="false">̄</mo></mover></mrow></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mrow><mn>10</mn></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mover accent="true"><mi>a</mi><mo stretchy="false">̄</mo></mover><mo stretchy="false">+</mo><mi>b</mi></mrow><mo stretchy="false">+</mo><mi>c</mi></mrow></mrow></mrow></mtd><mtd><mrow><mrow><mrow><mrow><mover accent="true"><mi>a</mi><mo stretchy="false">̄</mo></mover><mo stretchy="false">+</mo><mi>b</mi></mrow><mo stretchy="false">+</mo><mover accent="true"><mi>c</mi><mo stretchy="false">̄</mo></mover></mrow></mrow></mrow></mtd></mtr></mtable></mrow></mstyle></mrow><annotation encoding="StarMath 5.0">size 9 matrix{{Si F(a,b,c)=0 ~~~~~ c}#{0}#{1}##{ab}#{}#{}##{00}#
+{a + b + c}
+#
+{a + b + bar c}
+##{01}#
+{a + bar b + c}
+#
+{a + bar b + bar c}
+##{11}#
+{bar a + bar b + c}
+#
+{bar a + bar b + bar c}
+##{10}#
+{bar a + b + c}
+#
+{bar a + b + bar c}
+}</annotation></semantics></math>

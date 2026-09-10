@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mtable><mtr><mtd><mn>00</mn></mtd><mtd><mn>00</mn></mtd><mtd><mn>000</mn></mtd></mtr><mtr><mtd><mn>01</mn></mtd><mtd><mn>01</mn></mtd><mtd><mn>001</mn></mtd></mtr><mtr><mtd><mn>11</mn></mtd><mtd><mn>11</mn></mtd><mtd><mn>011</mn></mtd></mtr><mtr><mtd><mn>10</mn></mtd><mtd><mn>10</mn></mtd><mtd><mn>010</mn></mtd></mtr><mtr><mtd><mi/></mtd><mtd><mn>10</mn></mtd><mtd><mn>110</mn></mtd></mtr><mtr><mtd><mi/></mtd><mtd><mn>11</mn></mtd><mtd><mn>111</mn></mtd></mtr><mtr><mtd><mi/></mtd><mtd><mn>01</mn></mtd><mtd><mn>101</mn></mtd></mtr><mtr><mtd><mi/></mtd><mtd><mn>00</mn></mtd><mtd><mn>100</mn></mtd></mtr></mtable><annotation encoding="StarMath 5.0">matrix{{00} # {00} # {000}  ##
+       {01} # {01} # {001}  ##
+       {11} # {11} # {011}  ##
+       {10} # {10} # {010}  ##
+       {~~} # {10} # {110}  ##
+       {~~} # {11} # {111}  ##
+       {~~} # {01} # {101}  ##
+       {~~} # {00} # {100}
+      } </annotation></semantics></math>

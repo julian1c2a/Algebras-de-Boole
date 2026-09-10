@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>D</mi><mstyle mathvariant="normal"><mrow><mrow><mi>min</mi><mi mathvariant="normal">H</mi></mrow></mrow></mstyle></msub><mfenced open="(" close=")"><msup><mi>C</mi><mstyle mathvariant="normal"><mrow><mi mathvariant="normal">n</mi></mrow></mstyle></msup></mfenced><mrow><mo stretchy="false">≝</mo></mrow><munderover><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><mstyle mathsize="12pt"><mrow><mi>mínimo</mi></mrow></mstyle></mrow></mstyle></mrow></mstyle><mrow><mi>a</mi><mo stretchy="false">≠</mo><mi>b</mi></mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>a</mi><mi>,</mi><mi>b</mi></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">∈</mo><mrow><msup><mi>C</mi><mstyle mathvariant="normal"><mrow><mi mathvariant="normal">n</mi></mrow></mstyle></msup><mo stretchy="false">×</mo><msup><mi>C</mi><mstyle mathvariant="normal"><mrow><mi mathvariant="normal">n</mi></mrow></mstyle></msup></mrow></mrow></munderover><mfenced open="(" close=")"><mrow><msubsup><mi>d</mi><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><mi mathvariant="normal">H</mi></mrow></mstyle></mrow></mstyle><mstyle mathvariant="normal"><mrow><mi mathvariant="normal">n</mi></mrow></mstyle></msubsup><mfenced open="(" close=")"><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><mrow><mi mathvariant="normal">a</mi><mi mathvariant="normal">,</mi><mi mathvariant="normal">b</mi></mrow></mrow></mstyle></mrow></mstyle></mfenced></mrow></mfenced></mrow><annotation encoding="StarMath 5.0">D_{nitalic{min H}}{left({C^{nitalic{n}}}right)}
+{{}{}{}{%def}{}{}{}}
+{font fixed bold nitalic size 12 {mínimo}}
+csup
+{(a,b) in {C^{nitalic n} times C^{nitalic n}}}
+csub
+{a&lt;&gt;b}
+{left({
+d_{font fixed nitalic {H}}^{nitalic n}
+{left({font fixed nitalic {a,b}}right)}
+}right)}</annotation></semantics></math>

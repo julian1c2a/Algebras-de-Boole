@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="false">=</mo><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mover accent="true"><mn>0</mn><mo>¯</mo></mover><mo stretchy="false">⇐</mo><mrow><mi>x</mi><mo stretchy="false">=</mo><mi>i</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mover accent="true"><mn>1</mn><mo>¯</mo></mover><mo stretchy="false">⇐</mo><mrow><mi>x</mi><mo stretchy="false">=</mo><mi>s</mi></mrow></mrow></mtd></mtr></mtable></mfenced></mrow><mo stretchy="false">=</mo></mrow><annotation encoding="StarMath 5.0">alignl {
+{}=
+{ left lbrace {
+stack{
+overline 0 dlarrow x=i #
+overline 1 dlarrow x=s 
+}
+} right rbrace }={}
+}</annotation></semantics></math>

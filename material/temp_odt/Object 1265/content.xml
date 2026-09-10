@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo stretchy="false">≈</mo><mrow><mi>B</mi><mo stretchy="false">∧</mo><mi>B</mi></mrow><mo stretchy="false">≈</mo><mi>C</mi><mo stretchy="false">⇒</mo><mi>A</mi><mo stretchy="false">≈</mo><mi>C</mi></mrow><annotation encoding="StarMath 5.0">A %similar B and B %similar C drarrow A %similar C</annotation></semantics></math>

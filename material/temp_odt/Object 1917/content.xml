@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>y</mi><mo stretchy="false">∈</mo><mrow><msub><mo stretchy="false">B</mo><mrow><mo stretchy="false">∗</mo></mrow></msub><mo stretchy="false">∧</mo><mn>1</mn></mrow></mrow><mo stretchy="false">∉</mo><msub><mo stretchy="false">B</mo><mrow><mo stretchy="false">∗</mo></mrow></msub></mrow><annotation encoding="StarMath 5.0">y in {%setB}_{{}*{}} and 1 notin {%setB}_{{}*{}}</annotation></semantics></math>

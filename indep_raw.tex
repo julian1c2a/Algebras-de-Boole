@@ -1,0 +1,789 @@
+\section{Independencia de los axiomas de Huntington de 1904.}
+
+
+
+	Para esto demostrar que los axiomas antes dados son independientes entre
+sí, primero daremos un modelo consistente y sencillo, en el que haremos
+variaciones y obtendremos modelos (ejemplos) de sistemas que cumplan todos
+los axiomas excepto uno de ellos. Si se logra quedará claro que no podemos
+deducir el axioma fallido del resto de axiomas que sí que se cumplen: el
+axioma fallido es lógicamente independiente del resto de axiomas. Esto es
+fácil de conseguir, comenzando con modelos de álgebras con base en un
+conjunto de dos elementos \({\setB}_2 = \set{0,1}\). En esto copiamos los
+modelos dados por Huntington en su artículo de 1904.
+
+
+
+\subsection{Modelo mínimo de álgebra de Boole.}
+
+
+
+	Definimos:
+\begin{flalign}
+{\setB}_2 &\mathdef \set{0,1} = \set{0} \cup \set{1} \\
+0 &\mathdef \emptyset \\
+1 &\mathdef \set{\emptyset} \cup \set{ \set{ \emptyset } } = \set{ \emptyset,
+\set{ \emptyset } } \\
+0 &\;\in\; 1 \\
+0 &\;\subsetneq\; 1 \\
+0 &\;\neq\; 1 \\
+\end{flalign}
+\begin{flalign}
+\bfsf{s} &:  {\setB}_2 \times {\setB}_2{\qquad}\fromto{\qquad} {\setB}_2\\
+\end{flalign}
+\begin{flalign}
+\bfsf{s} &:: \left({0,0}\right) {\qquad} \mapsto {\qquad} 0\\
+\bfsf{s} &:: \left({0,1}\right) {\qquad} \mapsto {\qquad} 1\\
+\bfsf{s} &:: \left({1,0}\right) {\qquad} \mapsto {\qquad} 1\\
+\bfsf{s} &:: \left({1,1}\right) {\qquad} \mapsto {\qquad} 1
+\end{flalign}
+\begin{flalign}
+\bfsf{p} &:  {\setB}_2 \times {\setB}_2{\qquad}\fromto{\qquad} {\setB}_2\\
+\end{flalign}
+\begin{flalign}
+\bfsf{p} &:: \left({0,0}\right) {\qquad} \mapsto {\qquad} 0\\
+\bfsf{p} &:: \left({0,1}\right) {\qquad} \mapsto {\qquad} 0\\
+\bfsf{p} &:: \left({1,0}\right) {\qquad} \mapsto {\qquad} 0\\
+\bfsf{p} &:: \left({1,1}\right) {\qquad} \mapsto {\qquad} 1
+\end{flalign}
+\begin{flalign}
+\bfsf{c} &:  {\setB}_2 {\qquad} \fromto {\qquad} {\setB}_2
+\end{flalign}
+\begin{flalign}
+\bfsf{c} &:: 0 {\qquad} \mapsto {\qquad} 1\\
+\bfsf{c} &:: 1 {\qquad} \mapsto {\qquad} 0
+\end{flalign}
+
+
+
+	El conjunto \({\setB}_2\) es conjunto en \textbf{ZFS}, desde el momento
+que la el axioma de unión nos asegura que \({\setB}_2\) es conjunto unión de
+dos conjuntos de un solo elemento, \({\setB}_2 \mathdef { \set{0} } \cup {
+\set{1} } \). Los elementos \(0 \mathdef \emptyset\) y  \(1 \mathdef \set{
+\emptyset, \set{ \emptyset } } \). De nuevo para definir \(1\) como conjunto
+necesitamos el axioma de unión (o de pares no ordenados) de \textbf{ZFS},
+siendo \(1 \mathdef \set{0}\cup\set{\set{0}}\). Podemos ver que \(0 \cap 1 =
+\emptyset \) por lo que \(0 \neq 1\). También \(0 \in 1\). Todo este párrafo
+constituye la satisfacción de los requerimientos \ref{axm:H0}.
+
+
+
+	Tal como hemos definido nuestro modelo de álgebra de Boole, lo primero
+que queda claro es que \(\funcsum\) y \(\funcprod\) son funciones binarias
+bien definidas, y esta última es además biyectiva. Luego los axiomas
+\ref{axm:H1s} y \ref{axm:H1p} quedan satisfechos. 
+
+
+
+	Los axiomas \ref{axm:H2s} y \ref{axm:H2p} (existencia del elemento
+neutro) quedan directamente satisfechos por simple inspección de las tablas. 
+
+
+
+	Para el axioma \ref{axm:H2s} observamos que \(\funcsumat{0}{0} = 0\) y
+\(\funcsumat{0}{1} = \funcsumat{1}{0} = 1\) nos muestra el elemento neutro de
+la suma, el elemento \(0\).
+
+
+
+	Para el axioma \ref{axm:H2p} observamos que \( \funcprodat{1}{0} =
+\funcprodat{0}{1} = 0\) y \(\funcprodat{1}{1} = 1\) nos muestra el elemento
+neutro del producto, el elemento \(1\).
+
+
+
+	Para los axiomas de conmutatividad solo hay que observar en la definición
+de las funciones binarias \(\funcsum,\funcprod : \setB_2 \times \setB_2
+\fromto \setB_2\), que \(\funcsumat{0}{1} = \funcsumat{1}{0} = 1\) y se
+cumple \ref{axm:H3s}, que \(\funcprodat{0}{1} = \funcprodat{1}{0} = 0\) y se
+cumple \ref{axm:H3p}. 
+
+
+
+	Para las distribuciones de una operación interna sobre otra elegiré
+construir unas tablas que muestren la igualdades necesarias.
+
+
+
+	Primero veremos la distribución de la suma sobre el producto, o, lo que
+es lo mismo, su inversa, sacar factor común. 
+
+
+
+	Lo haremos rellenando y comparando la siguiente tabla de verdad.
+
+
+
+	El método de relleno es fácil. Primero rellenamos las tres primeras
+columnas, corresponden a las variables independientes, que al ser tres con
+dos valores posibles en cada ocasión, son un total de ocho combinaciones
+distintas. Esas columnas están marcadas con \(1\) en la última fila (fila que
+se ve separada). A continuación rellenamos las columnas correspondientes a
+una operación binaria interna de dos variables independientes ya rellenas.
+Para rellenarlas, solo tenemos que buscar los valores en las tablas dadas
+para las operaciones internas en ka definición de este álgebra de Boole.
+Estas están marcadas con un \(2\) en la última línea, la línea separada.
+Corresponden con la cuarta columna, la suma \( \funcsumat{ \textsf{b} } {
+\textsf{c} } \), y con las columnas siete y ocho: la ocho es un producto
+\(\funcprodat{\textsf{a}}{\textsf{c}}\) y la siete otro \( \funcprodat{
+\textsf{a} } { \textsf{b} } \). Las columnas centrales, la cinco y la seis
+corresponden a todas las valoraciones posibles (y en el mismo orden de valor
+de las variables independientes) de las dos expresiones que queremos
+comparar, las afirmadas por el postulado \ref{axm:H4s}. Podemos ver que ambas
+columnas son idénticas, luego se cumple el citado postulado.
+
+
+
+\begin{flalign}
+\begin{matrix}
+\hline
+\textsf{a} & \textsf{b} & \textsf{c} &
+\funcsumat{\textsf{b}}{\textsf{c}} &
+\funcprodat{\textsf{a}}{\funcsumat{\textsf{b}}{\textsf{c}}} &
+\funcsumat{\funcprodat{\textsf{a}} {\textsf{b}}} {\funcprodat{\textsf{a}}
+{\textsf{c}}}
+&
+{\funcprodat{\textsf{a}}{\textsf{b}}}
+&
+{\funcprodat{\textsf{a}}{\textsf{c}}}
+\\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 & 0 & 0 & 0 & 0 \\
+1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 1 & 1 & 1 & 1 & 0 & 1 \\
+1 & 1 & 0 & 1 & 1 & 1 & 1 & 0 \\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 2 & 3 & 3 & 2 & 2 \\ 
+\hline
+\end{matrix}
+\end{flalign}
+
+
+
+	Por último veremos la distribución del producto sobre la suma, o, lo que
+es lo mismo, su inversa, sacar sumando común. El método es en todo idéntico
+al seguido para la otra distributiva.
+
+
+
+\begin{flalign}
+\begin{matrix}
+\hline
+\textsf{a} & \textsf{b} & \textsf{c} &
+\funcprodat{\textsf{b}}{\textsf{c}} &
+\funcsumat {\textsf{a}}
+           {\funcprodat{\textsf{b}}{\textsf{c}}} &
+\funcprodat{\funcsumat{\textsf{a}}{\textsf{b}}}
+           {\funcsumat{\textsf{a}}{\textsf{c}}}
+&
+{\funcsumat{\textsf{a}}{\textsf{b}}}
+&
+{\funcsumat{\textsf{a}}{\textsf{c}}}
+\\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 1 \\
+0 & 1 & 0 & 0 & 1 & 0 & 1 & 0 \\
+0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+1 & 0 & 0 & 0 & 1 & 1 & 1 & 1 \\
+1 & 0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 \\
+1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 \\
+\hline
+1 & 1 & 1 & 2 & 3 & 3 & 2 & 2 \\ 
+\hline
+\end{matrix}
+\end{flalign}
+
+
+
+
+	Para el axioma \ref{axm:H5} observamos que \(\funccomplat{0} = 1\) y
+\(\funccomplat{1} = 0\) y por inspección en las tablas vemos que
+\(\funcsumat{0}{\funccomplat{0}} = \funcsumat{0}{1} = 1\) y que
+\(\funcprodat{0}{\funccomplat{0}} = \funcprodat{0}{1} = 0\) cumpliendo para
+el elemento \(0\) se cumple que \(\exists 1 = \funccomplat{0} \in \setB_2 \)
+\(\funcsumat{1}{\funccomplat{1}} = \funcsumat{1}{0} = 1\), que coincide con
+la ecuación segunda (ecuación: 2.15) de \ref{eqn:H5} y
+\(\funcprodat{1}{\funccomplat{1}}=\funcprodat{1}{0} = 0\) que coincide con la
+tercera ecuación (ecuación: 2.16) de \ref{eqn:H5}, e igualmente para el
+elemento \( 1 \), \(\exists 0 = \funccomplat{1} \in \setB_2 \) \(
+\funcsumat{0}{\funccomplat{0}} = \funcsumat{0}{1} = 1\) (ecuación: 2.15) y
+\(\funcprodat{0}{\funccomplat{0}} =\funcprodat{0}{1} = 0\) (ecuación: 2.16)
+de \ref{eqn:H5}.
+
+
+
+
+	Como las ecuaciones 2.15 y 2.16 se cumplen para \(0\) y \(1\), esto es,
+\(\forall x \in \setB_2\) como se requiere en la ecuación 2.14, queda
+satisfecho el postulado \ref{axm:H5}.
+
+
+
+\subsection{Independencia de la suma está siempre definida.}
+
+
+
+Modelo en el que solo falla \ref{axm:H1s}, esto es, que la operación suma
+no es operación interna: no es función, pero en el sentido que \(1 + 1 \notin
+\setB\).
+
+
+\[
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {x} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \qquad\qquad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\]
+%% (H1s) 
+%% 0 + 0 = 0; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 = x; 
+%% 0 * 0 = 0; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1; 
+
+
+
+	Al ser \(1 + 1 = x\), dónde \(x\) es ningún elemento de $\setB$, o dicho
+de otro modo, \(1 + 1 \notin \setB\), vemos que sigue existiendo el elemento
+neutro de la suma, \(0\), que la suma sigue siendo conmutativa y las
+distributivas siguen valiendo mientras la suma tenga sentido (mientras no
+aparezca \(x\)). El complementario de \(0\) es \(1\) y el de \(1\) es \(0\).
+
+
+
+\subsection{Independencia de la unicidad de la definición de la suma.}
+
+Modelo en el que no se cumple \ref{axm:H1s}, en el sentido que \(1 + 1
+\mapsto 1\) y \(1 + 1 \mapsto 0\).
+
+
+\[
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {x=0 \vee x=1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \qquad\qquad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\]
+%% (H1s) 
+%% 0 + 0 = 0; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 \mapsto 0,1; 
+%% 0 * 0 = 0; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1; 
+
+
+
+Exactamente igual que en la versión anterior, se cumplen todos los demás
+postulados, sea cual sea el valor tomado para \(1 + 1\).
+
+
+
+\subsection{Independencia de el producto está siempre definido.}
+
+
+
+	Modelo en el que solo falla \ref{axm:H1p}, esto es, que la operación
+producto no es operación interna: no es función. Este es el caso en que
+\( 0 \cdot 0 \notin \setB \). Ponemos en ese caso \(0 \cdot 0 = x\) pero
+igualmente podríamos haber dejado en blanco ese lugar.
+
+
+
+\[
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {x} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\]
+%% (H1p) 
+%% 0 + 0 = 0; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 = 1; 
+%% 0 * 0 = x; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1; 
+
+
+
+	Como es fácil ver, existe elemento neutro tanto de la suma como del
+producto. Ambas operaciones son conmutativas y se dan las dos propiedades de
+distribución, siempre que tenga sentido el producto, esto es, no aparezca \(0 \cdot 0\). El complementario del \(0\) es \(\overline 0 = 1\) y el del
+\(1\) es \(\overline 1 = 0\).
+
+
+
+\subsection{Independencia de la unicidad de la definición del producto.}
+
+
+
+Modelo en el que solo falla \ref{axm:H1s}, esto es, en el sentido que \(0
+\cdot 0 \mapsto 0\) y también \(0 \cdot 0 \mapsto 1\).
+
+
+
+\[
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {x=0 \vee x=1} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\]
+%% (H2s) 
+%% 0 + 0 = 0  ; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 = 1; 
+%% 0 * 0 = 0,1; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1;
+
+
+
+\subsection{Independencia de la existencia de elemento neutro de la suma.}
+
+
+
+Modelo en el que solo falla \ref{axm:H2s}, esto es, la existencia de
+elemento neutro en la operación binaria interna suma.
+
+
+
+\[
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}             & \big{\vert} & {0} & {0} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\]
+%% II.a H2s 
+%% 0 + 0 = 0; 0 + 1 = 0; 1 + 0 = 0; 1 + 1 = 0; 
+%% 0 * 0 = 0; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1;
+
+
+	Primero, está claro que las operaciones internas están bien construidas
+en cuanto a que son funciones.
+
+
+	Queda claro que no hay elemento neutro de la suma pues \(\forall xy \in
+\setB \quad x + y = 0\).
+
+
+	Segundo, existe el elemento neutro del producto: \(0 \cdot 1 = 1 \cdot 0
+= 0 \) y \( 1 \cdot 1 = 1 \). Luego se cumple \ref{aciom:H2p}.
+
+
+
+	La conmutatividad se hace patente al ver las diagonales inversas de las
+tablas de operación, que muestran un único valor. \( 0 + 1 = 1 + 0 = 0\) y
+\(0 \cdot 1 = 1 \cdot 0 = 0\). Se cumplen \ref{axm:H3s} y \ref{axm:H3p}. 
+
+
+
+	En cuanto a la distribución del producto sobre la suma, veamos si podemos
+comprobarla de forma sencilla: \( a \cdot ( b + c ) = (a \cdot b) + (a \cdot
+c) \). Sabemos que \(b + c = 0\) siempre, y que, pongamos que \(a \cdot b = x
+\in \setB\) y que \(a \cdot c = y \in \setB\). Ahora bien \(x + y = 0\). Así
+que todo lo que tenemos que probar es que \(a \cdot 0 = 0\), pero esto es
+claro en la table del producto. Luego se cumple \ref{axm:H4s}.
+
+
+
+	Ahora la distribución de la suma sobre el producto. \( a + ( b \cdot c )
+= (a + b) \cdot (a + c) \). Sabemos que \(a + (b \cdot c) = 0\) siempre, y
+que, pongamos que \( a + b = 0 \) y que \(a + c = 0 \). Ahora bien \(0 \cdot
+0 = 0\). Luego se cumple \ref{axm:H4p}.
+
+
+	Nos queda encontrar un complemento para el \(0\). Pero encontrar el
+complemento solo tiene sentido si existen los dos elementos neutros, pero en
+este caso no existe el neutro de la suma: no tiene sentido buscar el
+complementario.
+
+
+
+\subsection{Independencia de la existencia de elemento neutro del producto.}
+
+
+
+	Exponemos un modelo en el que solo falla \ref{axm:H2p}, esto es, la existencia de elemento neutro en la operación binaria interna producto.
+
+
+
+\[
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {1} & {1} & \big{\vert} \\
+        {1}                   & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\]
+%% (H2p) 
+%% 0 + 0 = 0; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 = 1; 
+%% 0 * 0 = 1; 0 * 1 = 1; 1 * 0 = 1; 1 * 1 = 1;
+
+
+	Este modelo es completamente simétrico al anterior, por lo que no nos
+hará falta demostrar que se dan el resto de postulados. Solo hay que seguir
+el esquema de la sub-sección anterior.
+
+
+
+\subsection{Independencia de la conmutatividad de la suma.}
+
+
+
+	Modelo en que la conmutatividad de la suma \ref{axm:H3s} no se dá, pero
+si que se dan el resto de postulados.
+
+
+
+\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}
+%% (H3s) 
+%% 0 + 0 = 0; 0 + 1 = 0; 1 + 0 = 1; 1 + 1 = 1; 
+%% 0 * 0 = 0; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1;
+
+
+
+	Que la suma y el producto están bien definidos como función es inmediato.
+
+
+
+	Podemos comprobar que tanto \(\forall x \; x + 0 = x\) como que \(\forall
+x \; x + 1 = x\). Esto quiere decir que la suma tiene dos neutros, el \(0\) y
+el \(1\). Esto tendrá repercusiones sobre el elemento complementario. Podemos
+ver por otra parte que \(1 + 0 \neq 0 + 1\), por lo que efectivamente la suma
+no es conmutativa. Para el producto todo es idéntico, tiene elemento neutro
+general y único \(0\) y \(1\cdot 0 = 0\cdot 1\) por lo que el producto es
+conmutativo.
+
+
+
+	Por otro lado, vemos que el complementario de \(0\) es \(1\), \(0 + 1 =
+1\) -es neutro del producto- y \(0 * 1 = 0\) -es neutro de la suma-. Para ver
+que \(1\) tiene complementario, hay que ir con más cuidado, \(1 + 1 = 1\) -
+\(1\) es neutro del producto - y \(1 * 1 = 1\) - \(1\) es también neutro del
+producto -. Luego existe complementario de \(1\) y es \(1\).
+
+
+
+	Vamos ahora con las distribuciones:
+
+
+
+	Nos preguntamos si se cumple \( x \cdot ( y + z ) = ( x \cdot y ) + ( x
+\cdot z ) \) en el actual modelo. Si \(x = 0\) entonces \( 0 \cdot (x + y) =
+0 \) y la parte derecha de la igualdad se resuelve en \( ( 0 \cdot y ) + ( 0
+\cdot z ) \) pero como \( 0 \cdot x = 0 \) obtenemos que la distribución
+\ref{axm:H4s} será verdad para \(x = 0\) si \( 0 = 0 + 0 \), cosa que es
+cierta. Si \( x = 1 \), la igualdad a verificar quedaría \( 1 \cdot ( y + z )
+= ( 1 \cdot y ) + ( 1 \cdot z ) \) y por \ref{axm:H2p} queda \( y + z  =  y
++ z \) que no es más que la identidad lógica de la igualdad. Se satisface
+\ref{axm:H4s}.
+
+
+
+	Nos preguntamos por la satisfacción de \ref{axm:H4p} \( x + ( y \cdot z
+) = ( x + y ) \cdot ( x + z ) \) en el actual modelo. Procedemos como en el
+párrafo anterior, por casos. Si \(x = 0\) entonces \( x + ( y \cdot z ) = ( x
++ y ) \cdot ( x + z ) \) \(\Longrightarrow\) \(0 + ( y \cdot z ) = ( 0 + y )
+\cdot ( 0 + z )\) \(\Longrightarrow\) \( 0 = 0 \cdot 0\) lo que es cierto.
+Para el caso \(x = 1\),  obtenemos \( x + ( y \cdot z ) = ( x + y ) \cdot ( x
++ z ) \) \(\Longrightarrow\) \( 1 + ( y \cdot z ) = ( 1 + y ) \cdot ( 1 + z
+)\) \(\Longrightarrow\) \( 1 = 1 \cdot 1 \). Por lo tanto también se verifica
+\ref{axm:H4p}.
+
+
+
+	Queda comprobado que la conmutatividad de la suma \ref{axm:H3s} es independiente del resto de postulados.
+
+
+
+\subsection{Independencia de la conmutatividad del producto.}
+
+
+
+	Modelo en que la conmutatividad del producto \ref{axm:H3p} no se da,
+pero, si se satisfacen el resto de postulados.
+
+
+
+\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}
+%% H3p 
+%% 0 + 0 = 0; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 = 1; 
+%% 0 * 0 = 0; 0 * 1 = 0; 1 * 0 = 1; 1 * 1 = 1;
+
+
+
+	El modelo es totalmente simétrico al anterior por lo que se puede
+comprobar todo siguiendo los mismos pasos que en la sub-sección anterior.
+
+
+
+\subsection{Independencia de la distribución de la suma sobre el producto.}
+
+
+
+	El postulado del título no se cumple. Existen valores del modelo \(
+\exists x \in \setB \) que no cumplen \ref{axm:H4p}, \( x + ( y \cdot z )
+\neq ( x + y ) \cdot (x + z) \).
+
+
+
+\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {0} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {0} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}
+%% (H4s) 
+%% 0 + 0 = 0; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 = 0;
+%% 0 * 0 = 0; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1;
+
+
+
+	Este modelo es virtualmente idéntico al cuerpo sobre \(\setZ\) de restos
+módulo 2, \(\setZ/{\mod2}\). Ese es el cambio que se da en la suma. Ahora \(1
++ 1 = 0\).
+
+
+
+	Se dan por lo tanto todos los teoremas conocidos incluida la distribución
+\ref{axm:H4s} e incluso sabemos que las operaciones son asociativas.
+
+
+
+	Pero en aritmética no se da la dualidad que buscamos y la distribución
+del producto sobre la suma no es una verdad.
+
+
+
+	Solo nos queda ver si cumple la existencia de elemento complementario que
+se encuentra visualmente por inspección de las tablas: \(\overline{1} = 0\) y
+\(\overline{0} = 1\).
+
+
+	Nos queda verificar que efectivamente no se cumple la distribución de la suma sobre el producto (que intuitivamente vemos). Encontramos un caso, \( 1 + ( y \cdot z ) \neq ( 1 + y ) \cdot ( 1 + z ) \). Lo vemos a continuación.
+
+
+\begin{flalign}
+  x = 1 &{} \\
+  1 + ( y \cdot z ) &= ( 1 + y ) \cdot ( 1 + z ) \\
+  \overline{y \cdot z} &= \overline{y} \cdot \overline{z} \\
+  y = 0 &{} \\
+  \overline{0 \cdot z} &= \overline{0} \cdot \overline{z} \\
+  \overline{0} &= 1 \cdot \overline{z} \\
+  1 &= \overline{z} \\
+  z &= 0\\
+  x=1 \wedge y=0 \wedge z=1 &\Longrightarrow \neg\ref{axm:H4p}
+\end{flalign}
+
+
+
+	De dónde efectivamente este modelo no distribuye la suma sobre un
+producto. Y la independencia de \ref{axm:H4p} queda probada.
+
+
+
+\subsection{Independencia de la distribución del producto sobre la suma.}
+
+
+\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {1} & {0} & \big{\vert} \\
+        {1}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}
+%% (H4s) 
+%% 0 + 0 = 0; 0 + 1 = 0; 1 + 0 = 0; 1 + 1 = 1; 
+%% 0 * 0 = 1; 0 * 1 = 0; 1 * 0 = 0; 1 * 1 = 1;
+
+
+
+	Completamente simétrico al caso anterior.
+
+
+
+\subsection{Independencia de la existencia del elemento complementario.}
+
+
+
+	Por último presentamos un modelo que no cumple la existencia del
+complementario y si satisface el resto de postulados.
+
+
+
+\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}             & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}             & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
+        \hline
+        {0}                   & \big{\vert} & {0} & {1} & \big{\vert} \\
+        {1}                   & \big{\vert} & {1} & {1} & \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}
+%% (H5) 
+%% 0 + 0 = 0; 0 + 1 = 1; 1 + 0 = 1; 1 + 1 = 1;
+%% 0 * 0 = 0; 0 * 1 = 1; 1 * 0 = 1; 1 * 1 = 1;
+
+
+
+	Como podemos ver en este modelo la suma y el producto son idénticos, por
+lo que el \(0\) es el único neutro, tanto de la suma como del producto. La
+conmutatividad es evidente a primera vista. 
+
+
+	Veamos la distribución del producto respecto de la suma. Com la suma y el
+producto son idénticos, bastará con probar este caso únicamente.
+
+
+
+\begin{equation}
+x \cdot (y + z) = x + ( y + z ) = ( x + x ) + ( y + z ) = ( x + y ) + ( x + z
+) = ( x + y ) \cdot ( x + z )
+\end{equation}
+
+
+
+	Solo queda probar que \(x = x + x\) (que se hace por simple inspección
+visual de las tablas) y la propiedad asociativa para este modelo, que
+tendremos que probar. Lo haremos mediante una tabla.
+
+
+
+\begin{equation}
+  \begin{matrix}
+  \hline
+  \mathsf{a} & \mathsf{b} & \mathsf{c} & \mathsf{b}\cdot\mathsf{c} &
+  \mathsf{a}\cdot\left( \mathsf{b} \cdot \mathsf{c} \right) &
+  \left(\mathsf{a}\cdot \mathsf{b}\right) \cdot \mathsf{c} &
+  \mathsf{a}\cdot\mathsf{b}\\
+  \hline
+%%a   b   c   bc a(bc)(ab)c ab
+  0 & 0 & 0 & 0 & 0    & 0 & 0 \\
+  0 & 0 & 1 & 1 & 1    & 1 & 0 \\
+  0 & 1 & 0 & 1 & 1    & 1 & 1 \\
+  0 & 1 & 1 & 1 & 1    & 1 & 1 \\
+  1 & 0 & 0 & 0 & 1    & 1 & 1 \\
+  1 & 0 & 1 & 1 & 1    & 1 & 1 \\
+  1 & 1 & 0 & 1 & 1    & 1 & 1 \\
+  1 & 1 & 1 & 1 & 1    & 1 & 1 \\
+  \hline
+  1 & 1 & 1 & 2 & 3    & 3 & 2 \\
+  \hline
+  \end{matrix}
+\end{equation}
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="false">∀</mo><mrow><mi>X</mi><mo stretchy="false">∈</mo><mo stretchy="false">@</mo></mrow><mi>U</mi><mo stretchy="false">∃</mo><mrow><mi>Y</mi><mo stretchy="false">∈</mo><mo stretchy="false">@</mo></mrow><mi>U</mi><mi/><mrow><mi>Y</mi><mo stretchy="false">∈</mo><mover accent="true"><mi>X</mi><mo>¯</mo></mover></mrow></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
+ forall X in %partesde U exists Y in %partesde U `` Y in overline X
+}</annotation></semantics></math>

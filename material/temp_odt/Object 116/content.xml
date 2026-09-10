@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><msub><mi>f</mi><msub><mstyle mathsize="9pt"><mrow><mo stretchy="false">B</mo></mrow></mstyle><mstyle mathvariant="bold"><mrow><mstyle mathsize="7pt"><mrow><mn>2</mn></mrow></mstyle></mrow></mstyle></msub></msub><mrow><mo stretchy="false">(</mo><mrow><msub><mi>x</mi><mn>1,</mn></msub><msub><mi>x</mi><mn>2,...</mn></msub><mi>,</mi><msub><mi>x</mi><mi>n</mi></msub></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">=</mo><mrow><munderover><mrow><mo stretchy="false">∑</mo></mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><msub><mi>i</mi><mn>1,</mn></msub><msub><mi>i</mi><mn>2...,</mn></msub><msub><mi>i</mi><mi>n</mi></msub></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">=</mo><mrow><mo stretchy="false">(</mo><mrow><mn>0,...</mn><mn>,0</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mrow><mrow><mo stretchy="false">(</mo><mrow><mn>1,...</mn><mn>,1</mn></mrow><mo stretchy="false">)</mo></mrow><mtext>All Combinations</mtext></mrow></munderover><mrow><mo stretchy="false">(</mo><mrow><msubsup><mo stretchy="false">σ</mo><mn>1</mn><mrow><mo stretchy="false">(</mo><mrow><msub><mi>i</mi><mn>1,</mn></msub><msub><mi>i</mi><mn>2...,</mn></msub><msub><mi>i</mi><mi>n</mi></msub></mrow><mo stretchy="false">)</mo></mrow></msubsup><mrow><mrow><mo stretchy="false">(</mo><msub><mi>i</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow><mo stretchy="false">⋅</mo><msubsup><mo stretchy="false">σ</mo><mn>2</mn><mrow><mo stretchy="false">(</mo><mrow><msub><mi>i</mi><mn>1,</mn></msub><msub><mi>i</mi><mn>2...,</mn></msub><msub><mi>i</mi><mi>n</mi></msub></mrow><mo stretchy="false">)</mo></mrow></msubsup></mrow><mrow><mrow><mo stretchy="false">(</mo><msub><mi>i</mi><mn>2</mn></msub><mo stretchy="false">)</mo></mrow><mo stretchy="false">⋅</mo></mrow><mn>...</mn><mrow><mo stretchy="false">⋅</mo><msubsup><mo stretchy="false">σ</mo><mi>n</mi><mrow><mo stretchy="false">(</mo><mrow><msub><mi>i</mi><mn>1,</mn></msub><msub><mi>i</mi><mn>2...,</mn></msub><msub><mi>i</mi><mi>n</mi></msub></mrow><mo stretchy="false">)</mo></mrow></msubsup></mrow><mrow><mo stretchy="false">(</mo><msub><mi>i</mi><mi>n</mi></msub><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">{{f_{{size 9{%setB}}_{bold size 7 2}}}{(x_1,x_2,...,x_n)}} 
+=
+{
+ {
+  {sum{}}csub{{({i}_1,{i}_2...,{i}_n)}={(0,...,0)}}csup{{(1,...,1)}&quot;All Combinations&quot;}
+ }
+ {
+  (
+   {{%sigma}_1^{({i}_1,{i}_2...,{i}_n)}}{(i_1)} cdot {{%sigma}_2^{({i}_1,{i}_2...,{i}_n)}}{(i_2)} cdot {}...{} cdot {{%sigma}_n^{({i}_1,{i}_2...,{i}_n)}}{(i_n)}
+  )
+ }
+}</annotation></semantics></math>

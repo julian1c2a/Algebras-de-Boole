@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mfenced open="[" close="]"><mn>0,1</mn></mfenced><mo stretchy="false">ℚ</mo></msub><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mfenced open="[" close="]"><mn>0,1</mn></mfenced><mo stretchy="false">∩</mo><mo stretchy="false">ℚ</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">{{left[{ 0,1 }right]}_{setQ}} := {{left[{ 0,1 }right]}intersection{setQ}}</annotation></semantics></math>

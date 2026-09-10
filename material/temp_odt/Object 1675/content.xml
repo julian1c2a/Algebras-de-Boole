@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow><mi>x</mi><mo stretchy="false">⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo stretchy="false">+</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">=</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>x</mi><mi>&apos;</mi></mrow><mo stretchy="false">@</mo><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo stretchy="false">@</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow><mi>&apos;</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><mi>&apos;</mi><mrow><mi>&apos;</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">(</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mi>y</mi><mo stretchy="false">@</mo><mi>z</mi></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">@</mo><mrow><mi>x</mi><mi>&apos;</mi></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow><mi>&apos;</mi><mrow><mi>&apos;</mi><mo stretchy="false">=</mo></mrow></mrow><annotation encoding="StarMath 5.0">x cdot {({y + z})} 
+= 
+{( {x&apos;} {%nor} {({y {%nor} z})}&apos; )}&apos;&apos; 
+= 
+{( {({y {%nor} z})} {%nor} {x&apos;} )}&apos;&apos;  
+= {} 
+</annotation></semantics></math>

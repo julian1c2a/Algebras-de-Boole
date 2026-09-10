@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">∀</mo><mrow><mi mathvariant="italic">yz</mi><mo stretchy="false">∈</mo><msub><mfenced open="[" close="]"><mrow><mn>1,</mn><mi>x</mi></mrow></mfenced><mo stretchy="false">B</mo></msub></mrow><mi/><mrow><mrow><mi>y</mi><mo stretchy="false">⋅</mo><mi>z</mi></mrow><mo stretchy="false">≥</mo><mi>x</mi></mrow></mrow><annotation encoding="StarMath 5.0">forall yz in {{left[{1,x}right]}_{%setB}} ~ y cdot z &gt;= x</annotation></semantics></math>

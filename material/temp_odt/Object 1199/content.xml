@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mi>,</mi><mrow><mi>y</mi><mo stretchy="false">∈</mo><mo stretchy="false">B</mo></mrow><mi/><mrow><mi>x</mi><mo stretchy="false">≥</mo><mi>y</mi></mrow><mi/><mo stretchy="false">⇒</mo><mi/><msub><mfenced open="[" close="]"><mrow><mi>x</mi><mi>,</mi><mi>y</mi></mrow></mfenced><mo stretchy="false">B</mo></msub><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mo stretchy="false">{</mo><mrow><mrow><mi>z</mi><mo stretchy="false">∈</mo><mo stretchy="false">B</mo></mrow><mrow><mo stretchy="false">∣</mo></mrow><mrow><mrow><mi>y</mi><mo stretchy="false">≤</mo><mrow><mi>z</mi><mo stretchy="false">∧</mo><mi>x</mi></mrow></mrow><mo stretchy="false">≥</mo><mi>z</mi></mrow></mrow><mo stretchy="false">}</mo></mrow></mrow></mrow><annotation encoding="StarMath 5.0">x,y in %setB ~ ~ x &gt;= y ~drarrow~
+{left[ x,y right]}_{%setB} := 
+{lbrace{
+z in %setB 
+{}divides{}
+y &lt;= z and x &gt;= z}rbrace}</annotation></semantics></math>

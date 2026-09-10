@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>y</mi><mo stretchy="false">∈</mo><msub><mo stretchy="false">B</mo><mrow><mo stretchy="false">≥</mo><mi>x</mi></mrow></msub></mrow><mo stretchy="false">⇒</mo><mi>y</mi><mrow><mrow><mi>&apos;</mi><mo stretchy="false">⋅</mo><mi>y</mi></mrow><mo stretchy="false">=</mo><mrow><mi>x</mi><mo stretchy="false">∧</mo><mi>y</mi></mrow></mrow><mrow><mrow><mi>&apos;</mi><mo stretchy="false">+</mo><mi>y</mi></mrow><mo stretchy="false">=</mo><mn>1</mn></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
+ y in {%setB}_{{} &gt;= x} drarrow y&apos; cdot y = x and y&apos; + y = 1
+}</annotation></semantics></math>

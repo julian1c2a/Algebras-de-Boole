@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><msup><msub><mi mathvariant="normal">P</mi><mrow><mn>2</mn><mo stretchy="false">×</mo><mn>2</mn></mrow></msub><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><mstyle mathvariant="bold"><mrow><mstyle mathsize="9pt"><mrow><mrow><mi mathvariant="normal">T</mi></mrow></mrow></mstyle></mrow></mstyle></mrow></mstyle></mrow></mstyle></msup></mrow></mstyle></mrow></mstyle><mo stretchy="false">=</mo><mfenced open="(" close=")"><mstyle mathsize="12pt"><mrow><mtable><mtr><mtd><mi>a</mi></mtd><mtd><mi>c</mi></mtd></mtr><mtr><mtd><mi>b</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable></mrow></mstyle></mfenced></mrow><annotation encoding="StarMath 5.0">alignl {font fixed nitalic {P_{2 times 2}}^{font fixed nitalic{bold size 9{{}T{}}}}}=
+left({size 12 {matrix{
+{a}#{c}##
+{b}#{d}
+}
+}
+}right)</annotation></semantics></math>

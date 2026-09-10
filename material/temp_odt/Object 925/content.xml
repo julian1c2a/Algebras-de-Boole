@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mrow><mi>n</mi><mo stretchy="false">−</mo><mn>1</mn></mrow></msub><msub><mi>l</mi><mrow><mi>n</mi><mo stretchy="false">−</mo><mn>2</mn></mrow></msub><mo stretchy="false">…</mo><msub><mi>l</mi><mn>2</mn></msub><msub><mi>l</mi><mn>1</mn></msub><msub><mi>l</mi><mn>0</mn></msub></mrow><annotation encoding="StarMath 5.0">{l_{n-1}} {l_{n-2}} dotslow {l_2}{l_1}{l_0}</annotation></semantics></math>

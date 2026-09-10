@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow><msub><mover accent="true"><mi>Q</mi><mo stretchy="false">̃</mo></mover><mrow><mi>Z</mi><mrow><mo stretchy="false">(</mo><mrow><mi>X</mi><mi>,</mi><mi>Y</mi></mrow><mo stretchy="false">)</mo></mrow></mrow></msub><mo stretchy="false">=</mo><mfenced open="{" close="}"><mrow><mover accent="true"><mrow><mi mathvariant="italic">value</mi><mrow><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow></mrow><mo>¯</mo></mover><mo stretchy="false">+</mo><mover accent="true"><mrow><mi mathvariant="italic">value</mi><mrow><mo stretchy="false">(</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow></mrow><mo>¯</mo></mover></mrow></mfenced></mrow><mo stretchy="false">=</mo><mfenced open="{" close="}"><mover accent="true"><mfenced open="(" close=")"><mrow><mrow><mi mathvariant="italic">value</mi><mrow><mo stretchy="false">(</mo><mi>X</mi><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">⋅</mo><mrow><mi mathvariant="italic">value</mi><mrow><mo stretchy="false">(</mo><mi>Y</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mfenced><mo>¯</mo></mover></mfenced></mrow><mo stretchy="false">≠</mo><mo stretchy="false">∅</mo></mrow><annotation encoding="StarMath 5.0">{{tilde{Q}}_{Z(X,Y)}}
+=
+{left lbrace{
+	{overline{value(X)}}
+	+
+	{overline{value(Y)}}
+}right rbrace}
+=
+{left lbrace{
+overline 
+	{left({
+		{value(X)}
+		cdot
+		{value(Y)} 
+	}right)}
+}right rbrace}
+&lt;&gt;
+{emptyset}</annotation></semantics></math>

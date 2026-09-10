@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="false">=</mo><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mover accent="true"><mrow><mo stretchy="false">φ</mo><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></mrow><mo>¯</mo></mover><mo stretchy="false">⇐</mo><mrow><mi>x</mi><mo stretchy="false">=</mo><mi>i</mi></mrow></mrow></mtd></mtr><mtr><mtd><mrow><mover accent="true"><mrow><mo stretchy="false">φ</mo><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></mrow><mo>¯</mo></mover><mo stretchy="false">⇐</mo><mrow><mi>x</mi><mo stretchy="false">=</mo><mi>s</mi></mrow></mrow></mtd></mtr></mtable></mfenced></mrow><mo stretchy="false">=</mo><mover accent="true"><mrow><mo stretchy="false">φ</mo><mrow><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo></mrow></mrow><mo>¯</mo></mover></mrow><annotation encoding="StarMath 5.0">alignl {
+{}=
+{ left lbrace {
+stack{
+overline{ %diphi(i) } dlarrow x=i #
+overline{ %diphi(s) } dlarrow x=s 
+}
+} right rbrace }=overline{%diphi(x)}
+}</annotation></semantics></math>

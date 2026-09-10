@@ -1,0 +1,2651 @@
+% ----------------------------------------------------------------
+% AMS-LaTeX Paper ************************************************
+% **** -----------------------------------------------------------
+\documentclass{amsart}
+\usepackage [spanish] {babel}
+\usepackage{amsmath}
+\usepackage[cal=boondox]{mathalfa}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsbsy} % mas simbolitos
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsxtra}
+\usepackage{dsfont}
+\usepackage{upgreek} % para poner letras griegas sin cursiva
+\usepackage{cancel} % para tachar
+\usepackage{mathdots} % para el comando \iddots
+\usepackage{mathrsfs} % para formato de letra
+\usepackage{stackrel} % para el comando \stackbin
+%\usepackage{doublestroke}
+% ----------------------------------------------------------------
+\vfuzz2pt % Don't report over-full v-boxes if over-edge is small
+\hfuzz2pt % Don't report over-full h-boxes if over-edge is small
+% THEOREMS -------------------------------------------------------
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+% MATH -----------------------------------------------------------
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+
+\newcommand{\set}[1]{\left\lbrace{#1}\right\rbrace}
+\newcommand{\setprop}[2]{\left\lbrace{ #1 }\quad|\quad{ #2 }\right\rbrace}
+\newcommand{\setR}{\mathds R}
+\newcommand{\setN}{\mathds N}
+\newcommand{\setZ}{\mathds Z}
+\newcommand{\setQ}{\mathds Q}
+\newcommand{\setC}{\mathds C}
+\newcommand{\setH}{\mathds H}
+\newcommand{\setO}{\mathds O}
+\newcommand{\setPrimes}{\mathds P}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\fromto}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\ssA}{\mathcal{A}}
+\newcommand{\setsymbol}[1]{\textsf{#1}}
+\newcommand{\sA}{\setsymbol{A}}
+\newcommand{\sB}{\setsymbol{B}}
+\newcommand{\sC}{\setsymbol{C}}
+\newcommand{\sD}{\setsymbol{D}}
+\newcommand{\sE}{\setsymbol{E}}
+\newcommand{\sF}{\setsymbol{F}}
+\newcommand{\sG}{\setsymbol{G}}
+\newcommand{\sH}{\setsymbol{H}}
+\newcommand{\sI}{\setsymbol{I}}
+\newcommand{\sJ}{\setsymbol{J}}
+\newcommand{\sK}{\setsymbol{K}}
+\newcommand{\sL}{\setsymbol{L}}
+\newcommand{\sM}{\setsymbol{M}}
+\newcommand{\sN}{\setsymbol{N}}
+\newcommand{\sO}{\setsymbol{O}}
+\newcommand{\sP}{\setsymbol{P}}
+\newcommand{\sQ}{\setsymbol{Q}}
+\newcommand{\sR}{\setsymbol{R}}
+\newcommand{\sS}{\setsymbol{S}}
+\newcommand{\sT}{\setsymbol{T}}
+\newcommand{\sU}{\setsymbol{U}}
+\newcommand{\sV}{\setsymbol{V}}
+\newcommand{\sW}{\setsymbol{W}}
+\newcommand{\sX}{\setsymbol{X}}
+\newcommand{\sY}{\setsymbol{Y}}
+\newcommand{\sZ}{\setsymbol{Z}}
+\newcommand{\dsa}{\setsymbol{a}}
+\newcommand{\dsb}{\setsymbol{b}}
+\newcommand{\dsc}{\setsymbol{c}}
+\newcommand{\dsd}{\setsymbol{d}}
+\newcommand{\dse}{\setsymbol{e}}
+\newcommand{\dsf}{\setsymbol{f}}
+\newcommand{\dsg}{\setsymbol{g}}
+\newcommand{\dsh}{\setsymbol{h}}
+\newcommand{\dsi}{\setsymbol{i}}
+\newcommand{\dsj}{\setsymbol{j}}
+\newcommand{\dsk}{\setsymbol{k}}
+\newcommand{\dsl}{\setsymbol{l}}
+\newcommand{\dsm}{\setsymbol{m}}
+\newcommand{\dsn}{\setsymbol{n}}
+\newcommand{\dso}{\setsymbol{o}}
+\newcommand{\dsp}{\setsymbol{p}}
+\newcommand{\dsq}{\setsymbol{q}}
+\newcommand{\dsr}{\setsymbol{r}}
+\newcommand{\dss}{\setsymbol{s}}
+\newcommand{\dst}{\setsymbol{t}}
+\newcommand{\dsu}{\setsymbol{u}}
+\newcommand{\dsv}{\setsymbol{v}}
+\newcommand{\dsw}{\setsymbol{w}}
+\newcommand{\dsx}{\setsymbol{x}}
+\newcommand{\dsy}{\setsymbol{y}}
+\newcommand{\dsz}{\setsymbol{z}}
+\newcommand{\mthds}[1]{\setsymbol{#1}}
+
+\newcommand{\ssetetsymbol}[1]{\mathcal{#1}}
+\newcommand{\ssetA}{\ssetsymbol{A}}
+\newcommand{\ssetB}{\ssetsymbol{B}}
+\newcommand{\ssetC}{\ssetsymbol{C}}
+\newcommand{\ssetD}{\ssetsymbol{D}}
+\newcommand{\ssetE}{\ssetsymbol{E}}
+\newcommand{\ssetF}{\ssetsymbol{F}}
+\newcommand{\ssetG}{\ssetsymbol{G}}
+\newcommand{\ssetH}{\ssetsymbol{H}}
+\newcommand{\ssetI}{\ssetsymbol{I}}
+\newcommand{\ssetJ}{\ssetsymbol{J}}
+\newcommand{\ssetK}{\ssetsymbol{K}}
+\newcommand{\ssetL}{\ssetsymbol{L}}
+\newcommand{\ssetM}{\ssetsymbol{M}}
+\newcommand{\ssetN}{\ssetsymbol{N}}
+\newcommand{\ssetO}{\ssetsymbol{O}}
+\newcommand{\ssetP}{\ssetsymbol{P}}
+\newcommand{\ssetQ}{\ssetsymbol{Q}}
+\newcommand{\ssetR}{\ssetsymbol{R}}
+\newcommand{\ssetS}{\ssetsymbol{S}}
+\newcommand{\ssetT}{\ssetsymbol{T}}
+\newcommand{\ssetU}{\ssetsymbol{U}}
+\newcommand{\ssetV}{\ssetsymbol{V}}
+\newcommand{\ssetW}{\ssetsymbol{W}}
+\newcommand{\ssetX}{\ssetsymbol{X}}
+\newcommand{\ssetY}{\ssetsymbol{Y}}
+\newcommand{\ssetZ}{\ssetsymbol{Z}}
+\newcommand{\csseta}{\ssetsymbol{a}}
+\newcommand{\cssetb}{\ssetsymbol{b}}
+\newcommand{\cssetc}{\ssetsymbol{c}}
+\newcommand{\cssetd}{\ssetsymbol{d}}
+\newcommand{\cssete}{\ssetsymbol{e}}
+\newcommand{\cssetf}{\ssetsymbol{f}}
+\newcommand{\cssetg}{\ssetsymbol{g}}
+\newcommand{\csseth}{\ssetsymbol{h}}
+\newcommand{\csseti}{\ssetsymbol{i}}
+\newcommand{\cssetj}{\ssetsymbol{j}}
+\newcommand{\cssetk}{\ssetsymbol{k}}
+\newcommand{\cssetl}{\ssetsymbol{l}}
+\newcommand{\cssetm}{\ssetsymbol{m}}
+\newcommand{\cssetn}{\ssetsymbol{n}}
+\newcommand{\csseto}{\ssetsymbol{o}}
+\newcommand{\cssetp}{\ssetsymbol{p}}
+\newcommand{\cssetq}{\ssetsymbol{q}}
+\newcommand{\cssetr}{\ssetsymbol{r}}
+\newcommand{\cssets}{\ssetsymbol{s}}
+\newcommand{\cssett}{\ssetsymbol{t}}
+\newcommand{\cssetu}{\ssetsymbol{u}}
+\newcommand{\cssetv}{\ssetsymbol{v}}
+\newcommand{\cssetw}{\ssetsymbol{w}}
+\newcommand{\cssetx}{\ssetsymbol{x}}
+\newcommand{\cssety}{\ssetsymbol{y}}
+\newcommand{\cssetz}{\ssetsymbol{z}}
+\newcommand{\mthcl}[1]{\ssetsymbol{#1}}
+
+\newcommand{\card}[1]{\abs{#1}}
+\newcommand{\numeral}{\natural}
+
+\newcommand{\monrel}[1]{\mathbf{#1}}
+\newcommand{\monrelinv}[1]{\overset{\smallsmile}{\monrel{#1}}}
+\newcommand{\monrelat}[2]{\monrel{#1}{\left({#2}\right)}}
+\newcommand{\monrelinvat}[2]{\monrelinv{#1}{\left({#2}\right)}}
+
+
+\newcommand{\binrel}[1]{\monrel{#1}}
+\newcommand{\binrelinv}[1]{\overset{\smallsmile}{\binrel{#1}}}
+\newcommand{\binrelat}[3]{\binrel{#1}{\left({#2},\;{#3}\right)}}
+\newcommand{\binrelinvat}[3]{\binrelinv{#1}{\left({#2},\;{#3}\right)}}
+
+
+\newcommand{\funct}[1]{\monrel{#1}}
+\newcommand{\functinv}[1]{{\funct{#1}}^{-1}}
+\newcommand{\functat}[2]{\funct{#1}{\left({#2}\right)}}
+\newcommand{\functinvat}[2]{\functinv{#1}{\left({#2}\right)}}
+
+
+\newcommand{\defin}{\overset {def}{=}}
+\newcommand{\leqpot}{\preccurlyeq}
+\newcommand{\geqpot}{\succcurlyeq}
+\newcommand{\gpot}{\succ}
+\newcommand{\lpot}{\prec}
+% ----------------------------------------------------------------
+\begin{document}
+	
+	\title{Conjuntos y Números Cardinales}%
+	\author{Julián Calderón Almendros}%
+	\address{Málaga, España}%
+	\email{julian.calderon.almendros@gmail.com}%
+	
+	\thanks{Alba Calderón Muñoz}%
+	\subjclass{Teoría de Conjuntos Intuitiva}%
+	\keywords{Conjunto , Cardinal , Número}%
+	
+	\date{15/07/2023}%
+	\dedicatory{A Alba, que me inspiró}%
+	%\commby{}%
+	% ----------------------------------------------------------------
+	
+	\begin{abstract}
+		Este artículo pretende hacer ver como podemos ver los números de
+una manera distinta: a partir de ciertas comparaciones entre colecciones de
+objetos. Así, pienso, será más fácil introducir la teoría de conjuntos en
+principiantes.
+	\end{abstract}
+	\maketitle
+	% ----------------------------------------------------------------
+	\section{Las colecciones (o conjuntos)}
+	
+	
+	Lo primero es darnos cuenta que nuestro entorno más inmediato está
+repleto de cosas y de colecciones de cosas. Muchas de las cosas son, de
+hecho, colecciones de otras cosas.
+	
+	
+	Pongamos algún ejemplo. Yo estoy ahora mismo escribiendo este artículo.
+Delante de mí hay una pantalla, que veo como un todo pero que toma sentido
+cuando la vemos como una matriz -colección- de píxeles. Mientras tecleo un
+teclado mecánico: tecleo un conjunto ordenado de teclas que se corresponden
+con las letras del alfabeto español y algunos signos más. En este documento
+hay palabras, un montón. A mi alrededor hay un desorden completo: un montón
+de objetos indiferenciados.
+	
+	
+	Las colecciones son objetos habituales de nuestro mundo, o más bien, de
+la forma en que observamos y comprendemos el mundo.
+	
+	
+	
+	Ahora bien: ¿cómo relacionamos estos conjuntos entre sí? Decimos: -en
+esta colección hay más objetos que esta otra colección- o bien -estas dos
+colecciones son pares en número de elementos-. Pero aún no hemos introducido
+el concepto de número. Solo de colecciones. ¿Cómo podemos establecer una
+cierta igualdad entre las colecciones?
+	
+	
+	Llamaremos a dos colecciones, conjuntos, $\sA$ y $\sB$. Que $\sA$ sea un
+conjunto quiere decir que tiene ciertos elementos y que podemos al menos
+nombrarlos. Veamos como escribirlo. $\sA = \{a , b , c , d , e \}$. Y
+escribimos $\sB$ como $\sB = \{ 2 , 4 , 7 , 1 , 0 \}$. Esta será la primera
+forma de escribir los conjuntos en detalle. Tiene sus limitaciones (supón que
+tienes que describir la colección de palabras distintas que hay en \emph{El
+Quijote}), pero para nuestros propósitos valdrá.
+	
+	
+	Algo importante en los conjuntos es que los elementos son únicos.
+Pongamos el caso del conjunto $\sS\defin\{1,2,3,4,1,2,3,4\}$ y el conjunto
+$\sR\defin\{1,2,3,4\}$ y por último el conjunto $\sP\defin\{4,1,3,2\}$. Pues
+son el mismo conjunto. $\sS = \sR = \sP$.
+	
+	
+	¿Porqué son el mismo conjunto? Porque los conjuntos se diferencian solo
+en el caso que algún elemento de un conjunto no esté en otro y viceversa.
+Pongamos el caso de $\sS$ y $\sR$. 
+	
+	
+	Cojamos elementos de $\sR$. Por ejemplo, por orden de aparición.
+$1\in\sR$. Podemos observar que también $1\in\sS$. De acuerdo está dos veces,
+pero está.  $2\in\sR$. Podemos observar que también $2\in\sS$. De acuerdo
+también está dos veces, pero está en ambos. Así podemos seguir hasta
+$4\in\sR$. Podemos observar que también $4\in\sS$. Que también está dos
+veces. Para lo que nos importa: está. Como todo elemento de $\sR$ está en
+$\sS$ se dice que $\sR\subseteq\sS$ que en palabras se dice que el conjunto
+$\sR$ está incluido en $\sS$. Date cuneta que el símbolo elegido para estar
+incluido es muy parecido al de menor o igual ($\leq$).
+	
+	
+	Pero, ¿estará el conjunto $\sS$ incluido en $\sR$. Como antes vamos a ir
+elemento por elemento de $\sS$. Pero tenemos mucho trabajo hecho: los cuatro
+primeros elementos ya sabemos que son compartidos por los dos conjuntos.
+Comencemos por el quinto elemento en orden de aparición: $1\in\sS$ que
+sabemos que está en $\sR$. Es el primero en $\sR$ en orden de aparición.
+Parece que va a ser aburrido. Los siguientes son el 2, el 3 y el 4 que ya
+habíamos comprobado anteriormente. Así que efectivamente $\sS$ está incluido
+en $\sR$: $\sS\subseteq\sR$.
+	
+	
+	Pero entonces tenemos que $\sR\subseteq\sS$ y $\sS\subseteq\sR$. Todo
+elemento de $\sS$ está en $\sR$ y viceversa: todo elemento de $\sR$ está en
+$\sS$. No hay diferencias entre ambos conjuntos mirando sus elementos: pero
+es que un conjunto solo depende de sus elementos. Concluimos que $\sS=\sR$.
+Son exactamente la misma cosa. $\{1,2,3,4\}=\{1,2,3,4,1,2,3,4\}$. Y por más
+veces que repitamos un elemento en su representación entre llaves, sigue
+siendo exactamente lo mismo.
+	
+	
+	Comparemos ahora los conjuntos $\sR$ y $\sP$. Antes afirmé que se trata
+de dos conjuntos idénticos. Y si miramos el razonamiento anterior, que
+podemos fácilmente repetir sin cambios, veremos que así es. Primero
+llegaremos a que $\sR\subseteq\sP$ y luego a que $\sP\subseteq\sR$.
+Finalmente eso equivale a $\sR=\sP$. Y es lógico: tener un elemento en tu
+haber no dice nada del puesto en la representación. Nada de nada. O bien el
+elemento está o bien el elemento no está, es lo única propiedad que relaciona
+un elemento con un conjunto. El elemento $\mathbf{e}$ pertenece al conjunto
+$\sE$ o bien no lo hace. Ninguna otra propiedad relaciona a $\mathbf{e}$ y a
+$\sE$. De esas dos cosas solo podemos decir que $\mathbf{e}\in\sE$ o
+$\mathbf{e}\notin\sE$. Nada más. Un conjunto es el objeto matemático más
+sencillo que podemos encontrar.
+	
+	
+	Lo que acabamos de encontrar se dice en símbolos así:
+	
+	
+	Definimos $\sE\subseteq\sF$ como:
+	$$\forall \mathbf{e} \;\; \mathbf{e}\in\sE \;\Rightarrow\;
+\mathbf{e}\in\sF$$
+	$$\text{Para todo elemento }\; \mathbf{e} \;\; \text{ si
+}\;\mathbf{e}\in\sE \;\text{entonces}\; \mathbf{e}\in\sF$$
+	
+	
+	Por otra parte hemos llegado a la siguiente (y fundamental) conclusión:
+	
+	
+	Decimos que $\sE = \sF$ cuando:
+	$$\forall \mathbf{e} \;\; \mathbf{e}\in\sE \;\Rightarrow\;
+\mathbf{e}\in\sF\;\;\;\wedge\;\;\;\forall \mathbf{f} \;\; \mathbf{f}\in\sF
+\;\Rightarrow\; \mathbf{f}\in\sE$$
+	\begin{gather*}
+		\text{Para todo elemento }\; \mathbf{e} \;\; \text{ si
+}\;\mathbf{e}\in\sE \;\text{entonces}\; \mathbf{e}\in\sF\\
+		\text{ a la vez que } \\
+		\text{ para todo elemento }\; \mathbf{f} \;\; \text{ si
+}\;\mathbf{f}\in\sF \;\text{entonces}\; \mathbf{f}\in\sE
+	\end{gather*}
+	
+	
+	
+	Así llegamos a la conclusión que
+
+
+	$$ \sE = \sF \;\;\;\; \Leftrightarrow \;\;\;\;  \sE\subseteq\sF
+\;\;\wedge\;\;\sF\subseteq\sE$$
+	\begin{gather*}
+		\sE = \sF\\
+		\text{ si y solo si } \\
+		\sE \text{ está incluido en } \sF \text{ \textbf{y} }\sF \text{
+también está incluido en } \sE 
+	\end{gather*}
+	
+	
+	
+	Advertencia: habrá colecciones (la inmensa mayoría) que no podamos
+colocar entre llaves, designando uno por uno sus elementos. Ve pensando
+alguna.
+	
+	
+	\section{Las correspondencia entre conjuntos}
+	
+	
+	Cojamos dos conjuntos cualquiera, $\sA$ y $\sB$. Vamos a decir que el
+conjunto $\sA$ será nuestro \emph{conjunto de origen en la correspondencia}
+(también lo podemos llamar \emph{conjunto de inicial}), correspondencia que
+llamaremos $\monrel{f}$, y que $\sB$ será nuestro \emph{conjunto final}. Esto
+lo denotaremos así: $\monrel{f} : \sA \fromto \sB$. A veces acortaremos y
+diremos solamente $\monrel{f}$, pero esto solo es porque somos un poco vagos
+al escribir, el nombre ha de incluir también al conjunto inicial y al final.
+	
+	
+	¿Qué es una correspondencia? Es una relación que comienza en $\sA$ o
+\emph{conjunto inicial} y termina en $\sB$ o \emph{conjunto final}. Para
+decirlo de una forma coloquial, hay elementos del conjunto inicial que
+capturan elementos del conjunto final. Esta captura la expresamos con flechas
+con barra vertical en el origen $\mapsto$.
+	
+	
+	
+	¿Para qué necesitamos de las correspondencias?
+	
+	
+	Bueno, como veremos dentro de poco, los números se pueden ver como 
+relaciones entre colecciones. Las correspondencias hacen el papel de las 
+relaciones. Una correspondencia $\monrel{f}:\sA\fromto\sB$ es una relación de 
+la colección $\sA$ en la colección $\sB$.  Y ¿cómo es una correspondencia? Ya 
+sabemos que los conjuntos son sus elementos y ya está, pues una 
+correspondencia entre dos conjuntos será una asociación de elementos del 
+conjunto inicial con elementos del conjunto final. Pongamos que la colección 
+$\sF=\set{Pepe,Paco,Isabel,Alicia,Alba,Fernando}$ es conjunto inicial y final 
+a la vez. Esta será la correspondencia es "ser hermano de" y la denotaremos 
+por $\monrel{sh}: \sF\fromto\sF$.
+	Concretemos esta correspondencia $\monrel{sh}$:
+	
+	
+	\begin{alignat*}{4}
+		\monrel{sh} : &\sF &\fromto &\sF                   \\
+		&\text{José}     &\mapsto  &\text{Isabel}          \\
+		&\text{José}     &\mapsto  &\text{Alicia}          \\
+		&\text{Juan}     &\mapsto  &\text{Alba}            \\
+		&\text{Isabel}   &\mapsto  &\text{José}            \\
+		&\text{Isabel}   &\mapsto  &\text{Alicia}          \\
+		&\text{Alicia}   &\mapsto  &\text{José}            \\
+		&\text{Alicia}   &\mapsto  &\text{Isabel}          \\
+		&\text{Alba}     &\mapsto  &\text{Juan}            \\
+		&\text{Fernando} & \;      &\text{Fernando}
+	\end{alignat*}
+	
+	
+	Cualquier combinación de flechas del conjunto inicial llegando al 
+conjunto final (o falta de flechas) es válida en una correspondencia. Puede 
+no haber ninguna flecha o existir todas las flechas posibles de cada elemento 
+del conjunto original a los elementos del conjunto final.
+	
+	
+	Una forma de expresar una correspondencia que se ajusta bastante bien a 
+todo lo que acabamos de decir es mediante otro conjunto. Por ejemplo, tomando 
+el conjunto anterior, $\sF=\set{Pepe, Paco, Isabel, Alicia, Alba, Fernando}$,
+la correspondencia $\monrel{sh}:\sF\fromto\sF$ se puede expresar como
+	\begin{alignat*}{10}
+		\monrel{sh} : & \sF & \fromto & \sF & :: & \{ && \text{José}   &
+ \mapsto & \text{Isabel} & , & \\
+		&&&&&&& \text{José}   & \mapsto & \text{Alicia} & ,&\\ 
+		&&&&&&& \text{Juan}   & \mapsto & \text{Alba} & ,  &\\
+		&&&&&&& \text{Isabel} & \mapsto & \text{José} & ,  &\\
+		&&&&&&& \text{Isabel} & \mapsto & \text{Alicia} & ,&\\ 
+		&&&&&&& \text{Alicia} & \mapsto & \text{José} & ,  &\\
+		&&&&&&& \text{Alicia} & \mapsto & \text{Isabel} & ,&\\
+		&&&&&&& \text{Alba}   & \mapsto & \text{Juan}   && \} 
+	\end{alignat*} 
+	
+    
+    Como ves, aquí queda reflejada la correspondencia que anteriormente hemos
+    pintado completamente, esto es, no falta por expresar nada de la
+    correspondencia \emph{ser hermanos}, llamada $\monrel{sh}$ anteriormente
+    definida. Ahora voy a transformar un poco la notación: 
+	
+    
+    \begin{alignat*}{13}
+		\monrel{sh} : & \sF & \fromto & \sF & :: & \{ && ( & \text{José}   & 
+, & \text{Isabel} & ) & , & \\
+		&&&&&&& ( & \text{José}   & , & \text{Alicia} & ) & ,&\\ 
+		&&&&&&& ( & \text{Juan}   & , & \text{Alba} & ) & ,  &\\
+		&&&&&&& ( & \text{Isabel} & , & \text{José} & ) & ,  &\\
+		&&&&&&& ( & \text{Isabel} & , & \text{Alicia} & ) & ,&\\ 
+		&&&&&&& ( & \text{Alicia} & , & \text{José} & ) & ,  &\\
+		&&&&&&& ( & \text{Alicia} & , & \text{Isabel} & ) & ,&\\
+		&&&&&&& ( & \text{Alba}   & , & \text{Juan}  & ) & & \} 
+	\end{alignat*}  
+	
+    
+    A esta notación los llamaremos por \emph{parejas ordenadas}. El apelativo 
+    ordenadas es sencillo de explicar: el primer elemento de la pareja 
+    pertenece al conjunto inicial y el segundo al final. Aunque el conjunto 
+    inicial y el final sean el mismo sigue teniendo sentido, porque indica la 
+    dirección de la flecha. Del primer elemento de la pareja al segundo.
+	
+	\section{Las aplicaciones entre conjuntos}
+	
+	No nos vamos a detener en las correspondencias. Hay clases de 
+correspondencias muy chulas, esto es, correspondencias que reúnen ciertos 
+requisitos que las hacen muy parecidas a cosas como la ordenación o a la 
+igualdad. Pero ahora mismo vamos a seguir un camino más llano, más directo: 
+nos centraremos en una clase muy especial de correspondencias que llamamos 
+\emph{funciones} o \emph{aplicaciones}. 
+	
+	Cojamos los anteriores conjuntos, $\sA$ y $\sB$. Vamos a decir que el 
+conjunto $\sA$ será nuestro conjunto de origen en la correspondencia que será 
+una aplicación y a la que llamaremos $\monrel{f}$, y que $\sB$ será nuestro 
+conjunto final. Esto lo denotaremos así: $\funct{f} : \sA \fromto \sB$.
+	
+	
+	¿En qué consiste una aplicación? Por decirlo sencillamente, en una serie 
+de flechas que van de elementos de $\sA$ a elementos de $\sB$ (una 
+correspondencia).
+	
+	
+	Como nuestra intención es comparar conjuntos, impondremos un par de 
+condiciones a las correspondencias que nos ayudarán a hacer bien esas 
+comparaciones. Las condiciones serán: primero, de cada elemento del conjunto 
+origen $\sA$ ha de salir una flecha que ha de dar en el conjunto $\sB$ final. 
+Segundo, de cada elemento del conjunto origen, $\sA$ solo puede salir una 
+sola flecha al conjunto final $\sB$. Cambiando un poco el lenguaje, cada 
+elemento de $\sA$ ha de capturar un elemento de $\sB$, y solo uno. Si todo 
+esto ocurre, $\funct{f}$ será una \emph{aplicación} de $\sA$ en $\sB$.
+	
+	
+	
+	Ahora bien, la verdad es que hay muchas maneras de establecer la 
+aplicación. Algunas más interesantes que otras.
+	
+	
+	La primera forma de establecer la aplicación es fácil de explicar: cada 
+par de elementos distintos del conjunto origen, en símbolos, $a b \in \sA 
+\;,\; a \neq b$ capturará elementos diferentes del conjunto final, en 
+símbolos, $\funct{f}(a) \neq \funct{f}(b)$ (en palabras, si $a$ captura 
+mediante $\funct{f}$ y si $b$ captura mediante $\funct{f}$ y si $a \neq b$ 
+entonces los elementos capturados son diferentes: los cazadores del conjunto 
+inicial no pueden compartir su caza). Pongamos un ejemplo.
+	
+	
+	Vamos a construir una aplicación concreta de $\sA$ a $\sB$. Primero 
+comenzaremos por los elementos mencionados $a b \in \sA$.
+	
+	$$
+	\begin{matrix}
+		\funct{f}\; :\;   & A & \fromto & B \\
+		{}  & a & \mapsto & 2 \\
+		{}  & b & \mapsto & 4
+		% {}  & c & \mapsto & 7 \\
+		% {}  & d & \mapsto & 1 \\
+		% {}  & e & \mapsto & 0 \\
+	\end{matrix}
+	$$
+	
+	
+	Todavía no tenemos una aplicación. Faltan elementos de $\sA$ por capturar 
+algún elemento de $\sB$. Pero para $a \in \sA \mapsto \functat{f}{a} = 2 \in 
+\sB$, y $b\in \sA \mapsto \functat{f}{b} = 4 \in \sB$, y como $2 \neq 4$ 
+tenemos que $a$ y $b$ han capturado elementos distintos ($a \neq b$). Si 
+conseguimos seguir en esta tónica, tendremos una aplicación que además tendrá 
+la propiedad que buscamos.
+	
+	
+	$$
+	\begin{matrix}
+		\funct{f}\; :\;   & \sA & \fromto & \sB \\
+		{}  & a & \mapsto & 2 \\
+		{}  & b & \mapsto & 4 \\
+		{}  & c & \mapsto & 7 
+		% {}  & d & \mapsto & 1 \\
+		% {}  & e & \mapsto & 0 \\
+	\end{matrix}
+	$$
+	
+	
+	Ahora $\funct{f}(a) \neq \funct{f}(b)$, $\funct{f}(a)=2 \neq 
+\functat{f}{c}=7$ y  $\functat{f}{b}=4 \neq \funct{f}{c}=7$ con lo que 
+seguimos manteniendo la propiedad que elementos distintos del conjunto 
+inicial capturan elementos distintos del conjunto final. Ahora pondré los dos 
+elementos que quedan en la colección inicial y conseguiremos que $\funct{f} : 
+\sA \fromto \sB$ sea aplicación. Y además con la propiedad buscada.
+	
+	
+	
+	$$
+	\begin{matrix}
+		\funct{f}\; :\;   & \sA & \fromto & \sB \\
+		{}  & a & \mapsto & 2 \\
+		{}  & b & \mapsto & 4 \\
+		{}  & c & \mapsto & 7 \\
+		{}  & d & \mapsto & 1 \\
+		{}  & e & \mapsto & 0
+	\end{matrix}
+	$$
+	
+	
+	A la propiedad de las aplicaciones que hemos buscado y que se cumple para 
+$\funct{f}$ la llamamos \emph{inyectividad}. Ahora $\funct{f}$ es 
+\emph{aplicación inyectiva}.
+	
+	¿Para qué es interesante una aplicación inyectiva? Fijaos: ahora podemos 
+decir que $\sA \preceq \sB$ ($\sA$ es menor o igual que $\sB$). Piénsalo con 
+tranquilidad, no hay prisa. Intenta no meter números en tus pensamientos, 
+sólo los conjuntos, sus elementos y la aplicación que hemos establecido.
+	
+	
+	Aunque solo sea para ir fijando poco a poco el lenguaje 
+lógico-matemático, expondré lo visto en fórmulas:
+	
+	
+	Notación para conjuntos:
+	
+	
+	\begin{flalign*}
+		\sA & \;\text{es \textsc{conjunto}} \\
+		\sA & = \;\{ a , b , c , d , e \}\\
+		& a \in \sA \;\; b \in \sA \;\; c \in \sA \;\; d \in \sA \;\; e \in 
+\sA \\
+		\sB & \;\text{es \textsc{conjunto}} \\
+		\sB & = \;\{ 2 , 4 , 7 , 1 , 0 \}\\
+		& 2 \in \sB \;\; 4 \in \sB \;\; 7 \in \sB \;\; 1 \in \sB \;\; 0 \in 
+\sB
+	\end{flalign*}
+	
+	
+	
+	Notación para aplicaciones y aplicaciones inyectivas entre conjuntos:
+	
+	
+	\begin{flalign*}
+		\funct{f} \; : \; \sA \fromto \sB \;\text{es \textsc{aplicación}}\; & 
+\forall x \in \sA\;\; \exists ! z \in \sB \;\; \functat{f}{x}=z \\
+		\funct{f} \; : \; \sA \fromto \sB \;\text{es \textsc{inyectiva}}\; & 
+\forall x y \in \sA \; x \neq y \;\Rightarrow\; 
+\functat{f}{x}\neq\functat{f}{y}
+	\end{flalign*}
+	
+	
+	Tiene que quedar claro que si $\funct{f} : \sA \fromto \sB$ es 
+\emph{inyectiva} entonces podemos considerar que $\sA$ puede quedar embutido 
+en $\sB$, o dicho de otro modo, en $\sB$ hay suficientes elementos para 
+albergar todo $\sA$. Decimos que el \emph{cardinal} de $\sA$ es menor o igual 
+que el \emph{cardinal} de $\sB$. El cardinal se denota de varias formas, 
+nosotros usaremos el signo numeral $\sharp$ de forma que $\sharp \sA$ es el 
+cardinal de $\sA$ y $\sharp \sB$ el cardinal de $\sB$.
+	
+	
+	No importa nada si ahora no te dicen nada las fórmulas, son solo para que 
+las vayas viendo.
+	
+	
+	Quedan un par de ideas sobre aplicaciones por explicar. La primera a 
+explicar es la de \emph{correspondencia inversa}. Partamos de la que ya 
+tenemos hecha:
+	
+	
+	Si $\funct{f}$ es definido:
+	$$
+	\begin{matrix}
+		\funct{f}\; :\;   & \sA & \fromto & \sB \\
+		{}  & a & \mapsto & 2 \\
+		{}  & b & \mapsto & 4 \\
+		{}  & c & \mapsto & 7 \\
+		{}  & d & \mapsto & 1 \\
+		{}  & e & \mapsto & 0
+	\end{matrix}
+	$$
+	
+	
+	Entonces definimos la correspondencia inversa de $\funct{f}$ (denotada 
+como $\monrelinv{f}$):
+	
+	$$
+	\begin{matrix}
+		{\monrelinv{f}}\; :\;   & \sB & \fromto & \sA \\
+		{}  & 2 & \mapsto & a \\
+		{}  & 4 & \mapsto & b \\
+		{}  & 7 & \mapsto & c \\
+		{}  & 1 & \mapsto & d \\
+		{}  & 0 & \mapsto & e
+	\end{matrix}
+	$$
+	
+	
+	Es sencillo, si $\funct{f} : \sA \fromto \sB$ es una \emph{aplicación}, 
+la inversa es la \emph{correspondencia} ${\monrelinv{f}} : \sB \fromto \sA$ 
+dónde se han dado vuelta todas las flechas. Si utilizo la palabra 
+\emph{correspondencia} en vez de la palabra función es por un motivo 
+sencillo. Para que lo veas voy a definir un nueva aplicación $\funct{g}$ de 
+$\sA$ en $\sB$:
+	
+	
+	$$
+	\begin{matrix}
+		\funct{g}\; :\;   & \sA & \fromto & \sB \\
+		{}  & a & \mapsto & 2 \\
+		{}  & b & \mapsto & 2 \\
+		{}  & c & \mapsto & 7 \\
+		{}  & d & \mapsto & 7 \\
+		{}  & e & \mapsto & 0 \\
+	\end{matrix}
+	$$
+	
+	
+	Como puedes ver $\funct{g}$ es una \emph{aplicación}. Cada elemento del 
+conjunto origen ha capturado un elemento del conjunto final. Y de cada 
+elemento del conjunto inicial sale solo una flecha hacia el final.
+	
+	
+	Ahora vamos a ver como es la \emph{correspondencia inversa} 
+${\monrelinv{g}}$:
+	
+	
+	$$
+	\begin{matrix}
+		{\monrelinv{g}}\; :\;   & \sB & \fromto & \sA \\
+		{}  & 2 & \mapsto & a \\
+		{}  & 2 & \mapsto & b \\
+		{}  & 7 & \mapsto & c \\
+		{}  & 7 & \mapsto & d \\
+		{}  & 0 & \mapsto & e \\
+	\end{matrix}
+	$$
+	
+	
+	Puedes observar que ${\monrelinv{g}}$ \emph{no es aplicación}. Hay dos 
+elementos del conjunto inicial $\sB$, concretamente $1 4 \in \sB$ que no 
+capturan elementos del conjunto final. Pero, además, el elemento $2 \in \sB$ 
+captura dos elementos del final $a b \in \sA$, y el elemento $7 \in \sB$ 
+captura también dos elementos del final $c d \in \sA$. Las dos condiciones 
+que se piden para ser aplicación se incumplen. \emph{Por eso, en general, la 
+inversa de una aplicación es una correspondencia}. Pero a veces si que lo es 
+como en el caso de ${\funct{f}}$ y ${\monrelinv{f}}$ que son ambas 
+aplicaciones. Sin embargo ${\funct{g}}$ es aplicación y ${\monrelinv{g}}$ no 
+lo es.
+	
+	Cuando la inversa de una aplicación es también aplicación, como en el 
+caso de ${\funct{f}}$ denotaremos a la inversa como  ${\functinv{f}}$, solo 
+para diferenciar esos casos. 
+	
+	
+	El último concepto sobre aplicaciones que vamos a ver, se llama 
+\emph{sobreyectividad}. \textbf{\emph{Una aplicación es sobreyectiva cuando 
+todos los elementos del conjunto final son capturados}}.
+	
+	Por ejemplo $\funct{f}$ y ${\functinv{f}}$ son inyectivas y 
+sobreyectivas. Sin embargo $\funct{g}$ no es ni inyectiva ni sobreyectiva. En 
+este caso ${\monrelinv{g}}$ ni siquiera es aplicación.
+	
+	
+	Retomemos el hilo de cuando un conjunto es más grande que otro: 
+\textbf{\emph{si una aplicación cualquiera, digamos}} ${\funct{h}} : {\sX} 
+\fromto {\sY}$\textbf{\emph{, es inyectiva decimos que }}${\sX}$ 
+\textbf{\emph{es menor o igual (está embutido en) a }}${\sY}$.
+	
+	Ahora tenemos una nueva forma de ver estas cosas:  \textsf{\emph{si una 
+aplicación cualquiera, digamos ${\funct{k}} : {\sV} \fromto {\sW}$, es 
+sobreyectiva decimos que $\sV$ es mayor o igual (embute) a $\sW$}}.
+	
+	Con estas dos sencillas reglas podemos ver cuando dos conjuntos son igual 
+de grandes, si ${\funct{h}} : {\sX} \fromto {\sY}$ es a la vez inyectiva y 
+sobreyectiva, entonces decimos que $\sX$ y $\sY$ son igual de grandes o 
+equipotentes, en símbolos, ${\sX}{\simeq}{\sY}$ o utilizando el símbolo de 
+cardinal, $\sharp\sX = \sharp\sY$. Date cuenta que \textbf{\emph{si 
+$\funct{h}$ es aplicación inyectiva y sobreyectiva, entonces y solo entonces, 
+${\functinv{h}}$ es también aplicación}} (y también inyectiva y 
+sobreyectiva).
+	
+	
+	Ya tenemos los criterios para comparar dos colecciones de objetos: dada 
+una aplicación entre esas dos colecciones, si esa aplicación es inyectiva, el 
+conjunto inicial es menor o igual al final, si es sobreyectiva, el conjunto 
+inicial es mayor o igual al final. Finalmente, si esa aplicación es inyectiva 
+y sobreyectiva, entonces los dos conjuntos son iguales (equipotentes).
+
+
+
+
+	\emph{\textbf{Aviso a navegantes:} si esa aplicación no es inyectiva ni 
+sobreyectiva, esa aplicación no nos dice nada sobre los tamaños de los 
+conjuntos.}
+
+
+	\section{A comparar ...}
+
+
+	Ha llegado la hora de la verdad. 
+	
+	
+	Vamos a comparar conjuntos mediante funciones. 
+	
+	
+	Eso nos llevará a comprender qué es un número y mucho más...
+	
+	
+	Que entre dos conjuntos $\sA$ y $\sB$ haya un función $\funct{f}:\sA 
+\fromto \sB$ dice en principio poco sobre la relación general entre esos 
+conjuntos.
+	
+	
+	Pero ¿Qué pasa si decimos que $\funct{f}$ es inyectiva?
+	
+	
+	Recordemos qué quiere decir \emph{función inyectiva}. Decimos que 
+$\funct{f} : \sA \fromto \sB$ es \textsc{inyectiva} si para cada dos 
+elementos de $a b \in \sA$ tales que $a \neq b$ ocurre que lo que atrapa 
+$\funct{f}$ bajo $a$ es distinto de lo que atrapa bajo $b$, $\functat{f}{a} 
+\neq \functat{f}{b}$ dónde $\functat{f}{a} \in \sB$ y $\functat{f}{b} \in 
+\sB$. Hay suficiente caza en $\sB$ para que cada cazador de $\sA$ encuentre 
+su propia presa sin encontrarse con otro cazador. Decimos que $\sA \leqpot 
+\sB$ o bien que $\card{\sA} \leq \card{\sB}$. Así que una función inyectiva 
+de $\sA$ en $\sB$ embute el conjunto $\sA$ en el conjunto $\sB$ (como se mete 
+la carne condimentada en una tripa de cerdo para hacer chorizo). $\sA$ sería 
+la carne condimentada y $\sB$ la tripa de cerdo: $\sA$ cabe dentro de $\sB$.
+
+
+	¿Qué pasa si ahora encontramos una función $\funct{g}:\sB\fromto\sA$ de 
+forma que $\funct{g}$ sea \emph{una función inyectiva}?
+
+
+	Por haber encontrado $\funct{f}$ \emph{inyectiva} ahora sabemos que 
+$\sA\leqpot\sB$. Pero como hemos encontrado $\funct{g}$ también 
+\emph{inyectiva} y va en el sentido contrario (de $\sB$ a $\sA$), también 
+sabemos que $\sB \leqpot \sA$. Si nos dejamos llevar por nuestra intuición 
+(en este caso es peligroso) llegamos a que $\card{A}=\card{B}$.
+
+
+	Como he dicho, es peligroso fiarse de la intuición en estos casos, en que 
+tratamos con colecciones (conjuntos), no debidamente definidos. Ya veremos 
+que problemas trae esto.
+	
+	
+	Así que... ¿Qué pasa si ahora encontramos una función 
+$\funct{h}:\sA\fromto\sB$ de forma que $\funct{h}$ sea \textbf{\emph{una 
+función sobreyectiva}}?
+	
+	
+	Primero, antes de comenzar, ¿qué quiere decir que 
+$\funct{h}:\sA\fromto\sB$ sea \textbf{\emph{sobreyectiva}}? Recordemos que 
+por ser $\funct{h}$ función, todos los elementos del conjunto origen o 
+inicial tienen o capturan un elemento del final. La sobreyectividad es una 
+propiedad análoga a esta: todos los elementos del conjunto final son 
+capturados por algún elemento (y sólo ese elemento) del conjunto inicial. 
+Ahora es el conjunto final el que parece capturado dentro del conjunto 
+inicial. Cada elemento del conjunto inicial tiene uno del final y no queda 
+elemento del final sin capturar. El conjunto final está capturado dentro del 
+inicial, cabe dentro del inicial. El inicial es así más grande que el final: 
+$\sA \geqpot \sB$ o dicho de otra forma, $\card \sA \geq \card \sB$ o 
+también, de forma equivalente, $\numeral \sA \geq \numeral \sB$.
+
+
+
+	Por otro lado vamos a tratar la correspondencia inversa de un función 
+inyectiva $\funct{f}:\sA \fromto \sB$, que en general será $\monrelinv{f}:\sB 
+\fromto \sA$ y será una correspondencia, no necesariamente una función. ¿Cómo 
+podemos definir una función que sea inversa de $\funct{f}$? No queda más 
+remedio que quitarnos del medio los elementos de $\sB$ que no reciben 
+flechas: ${\sB}_{\mthds 1}\subseteq{\sB}$, tal que la función reducida 
+${\funct{f}}_{\prime} : \sA \fromto {\sB}_{\mthds 1}$ tal que $ 
+{\funct{f}}_{\mthds 1} \left( {x} \right) \defin \funct{f} \left( {x} 
+\right)$ y esto $\forall x \in \sA$. $ {\sB}_{\prime} $ se llama la imagen de 
+la función $\funct{f}$ denotado en símbolos como $\mathcal{Im}\;\funct{f}$ o 
+también $\functat{f}{\sA}$. Pensemos ahora. 
+${\funct{f}}_{\prime}:\mathcal{Im}\;\funct{f}\fromto\sA$ dónde 
+${\funct{f}}_{\prime}\left(x\right)=\functat{f}{x}$, nos describe una función 
+que es a la vez inyectiva y sobreyectiva, \textbf{\emph{una función 
+biyectiva}}. Estas son las funciones que al darles la vuelta (encontrar su 
+inversa) son también funciones. Pero por ahora eso no importa mucho. Lo que 
+sí que sabemos es que ${\funct{f}}_{\prime}^{-1} : \mathcal{Im} \; \funct{f} 
+\fromto \sA$ es función. Hemos hecho la trampa de quitar de enmedio los 
+elementos de $\sB$ huérfanos de elemento inicial. Ahora podemos ampliar 
+${\funct{f}}_{\prime}^{-1}$ de forma que vaya de $\sB$ a $\sA$ como función. 
+Es fácil: supongamos que cualquier elemento de $\sB$ que no esté en la imagen 
+por $\funct{f}$ de $\sA$, esto $\forall y \in \sB \setminus \mathcal{Im} \; 
+\funct{f}$ lo aplicamos a un elemento elegido cualquiera de $sA$, por ejemplo 
+$\exists x_0 \in \sA$, y ahora aplicamos $\forall y \in \sB \setminus 
+\mathcal{Im} \; \funct{f} \quad {{\funct{f}}_{\prime\prime}}^{ -1 } \left( y 
+\right) \defin x_0$. Todo lo demás queda igual. Ahora 
+${{\funct{f}}_{\prime\prime}}^{ -1 } \circ \funct{f} : \sA \fromto \sA = { 
+\funct{1} }_{ \sA }$.
+
+
+
+	Creo que he ido un poco rápido en el último párrafo. Intentaré 
+solucionarlo en éste. Supongamos que tenemos un par de conjuntos, primero es 
+el conjunto vacío, $ \emptyset $, y el segundo será un conjunto con un solo 
+elemento, $ \sA \defin \set{*} $. Intentemos ver cuáles son las posibles 
+funciones de $ \emptyset \fromto \set{*} $. Pero esto es sencillo: como en el 
+conjunto inicial no hay elementos, no puede salir ninguna flecha. Así que el 
+conjunto de funciones de $ \emptyset \fromto \set{*} $ no está vacío, tiene 
+un solo elemento $\funct{f} : \emptyset \fromto \set{*} :: \textsc{sin 
+asignaciones}$. Date cuenta que alrevés, $\set{*} \fromto \emptyset$ no 
+funciona, el conjunto de estas funciones es vacío, ya que si no pueden salir 
+flechas del conjunto inicial, y en el conjunto inicial hay al menos un 
+elemento, el que no haya flechas quiere decir que son correspondencias sin 
+flechas, pero no funciones. Así que la función antes hallada $\funct{f}$ no 
+tiene inversa, y no es biyectiva. Esto es $\monrelinv{f}$ no es función. 
+$\funct{f}$ es inyectiva pero no es sobreyectiva. Así sabemos que $\emptyset 
+\precnsim \set{*}$ y en este caso incluso $\emptyset \subsetneq \set{*}$. Si 
+\textbf{\emph{nombramos}} el cardinal del vacío por $0 \defin 
+\card{\emptyset}$ y si también \textbf{\emph{nombramos}} $1 \defin 
+\card{\set{*}}$ tenemos que $0 \lneqq 1$. Ahora tienes que darte cuenta que 
+dónde hemos puesto $\set{*}$ podíamos haber puesto cualquier otro conjunto 
+con uno o más elementos. Todos los razonamientos sería idénticos. Por lo 
+tanto, $0$ es el más pequeño de los cardinales posibles. De otro lado todo 
+conjunto es equipotente consigo mismo: $\emptyset \simeq \emptyset$. También 
+es aquí conveniente que te des cuenta de otra verdad: solo existe un conjunto 
+vacío. Dos conjuntos no se distinguen más que por sus elementos, y como el 
+conjunto vacío no tiene elementos, no puede variar de ninguna forma: hay un 
+solo conjunto vacío. Pongamos que hay dos conjuntos vacíos 
+$\emptyset^\prime\text{ y }\emptyset^{\prime\prime}$. Como $\forall x \in 
+\emptyset^\prime\quad x \in \emptyset^{\prime\prime}$, y viceversa, $\forall 
+y \in \emptyset^{\prime\prime}\quad y \in \emptyset^\prime$ no queda más que 
+$\emptyset^\prime = \emptyset^{\prime\prime} = \emptyset$.
+
+
+	Seguimos con el párrafo anterior. Ahora vamos a ver los conjuntos de un 
+solo elemento con conjuntos de, bien de uno, bien de dos elementos. El 
+conjunto inicial será $\set{*}$ y el final $\set{\clubsuit,\diamondsuit}$. 
+Veamos cuántas funciones podemos hacer:
+
+
+\begin{flalign*}
+  & \funct{f}_1 \quad : \quad \set{*} \fromto \quad 
+  \set{\clubsuit,\diamondsuit} &\\
+  & {\quad\quad} \quad :: \quad\quad * \mapsto \quad \clubsuit &\\
+  & {}           &\\
+  & \funct{f}_2 \quad : \quad \set{*} \fromto \quad 
+  \set{\clubsuit,\diamondsuit} &\\
+  & {\quad\quad} \quad :: \quad\quad * \mapsto \quad \diamondsuit &\\
+\end{flalign*}
+
+
+	Ahora veamos las relaciones reversas de éstas:
+
+
+\begin{flalign*}
+  & \monrelinv{f}_1 \quad : \quad \set{\clubsuit,\diamondsuit} \fromto \quad 
+  \set{*} &\\
+  & {\quad\quad} \quad :: \quad\quad \clubsuit \mapsto \quad * &\\
+  & {\quad\quad} \quad :: \quad\quad \diamondsuit \quad \quad\quad          
+  &\\
+  & \monrelinv{f}_2 \quad : \quad \set{\clubsuit,\diamondsuit} \fromto \quad 
+  \set{*} &\\
+  & {\quad\quad} \quad :: \quad\quad \diamondsuit \mapsto \quad * &\\
+  & {\quad\quad} \quad :: \quad\quad \clubsuit \quad \quad\quad          &\\
+\end{flalign*}
+
+
+	Es claro que ni $\monrelinv{f}_1$ ni $\monrelinv{f}_2$ son funciones (no 
+cumplen que cada elemento inicial capture uno del final). Por tanto podemos 
+ver que tanto $\funct{f}_1$ como $\funct{f}_2$ son funciones inyectivas y son 
+no sobreyectivas. No son funciones biyectivas. Llegamos a la conclusión que 
+$\set{*} \precnsim \set{\clubsuit,\diamondsuit}$. Si ahora 
+\textbf{\emph{llamamos}} a $2 \defin \card{\set{\clubsuit,\diamondsuit}}$ es 
+claro que $1 \lneq 2$.
+
+
+	A partir de aquí es fácil ver algunas propiedades curiosas: por ejemplo, 
+las funciones entre $\set{*}$ y $\set{\diamondsuit}$ son solo una, no puede 
+haber otra, y que además esa única función es necesariamente biyectiva: 
+$\functat{f}{*}={\diamondsuit}$ y $\functinvat{f}{\diamondsuit}={*}$.
+
+
+	Así que diremos (muy informalmente como ya veremos) que las funciones de 
+un conjunto de elemento en otro de un solo elemento son siempre biyectivas y 
+por lo tanto todos los conjuntos de un solo elemento tienen el mismo 
+cardinal, a saber, el que hemos definido como $1$. Además $1$ es 
+estrictamente menor que cualquier otro cardinal que no sea $0$ (cardinal de 
+$\emptyset$) o $1$.
+
+
+	Sigamos con los conjuntos tipo $\set{\diamondsuit,\clubsuit}$. Supongamos 
+que tenemos otro conjunto $\set{\heartsuit,\spadesuit}$. Veamos las funciones 
+de $\set{\diamondsuit,\clubsuit}\fromto\set{\heartsuit,\spadesuit}$.
+
+
+\begin{flalign*}
+& \funct{f}_1 : \set{\diamondsuit, \clubsuit} \fromto 
+\set{\heartsuit,\spadesuit} &\\
+& \quad :: \quad \diamondsuit \quad \mapsto \quad \heartsuit &\\
+& \quad :: \quad \clubsuit \quad \mapsto \quad \spadesuit &\\
+& &\\
+& \funct{f}_2 : \set{\diamondsuit, \clubsuit} \fromto 
+\set{\heartsuit,\spadesuit} &\\
+& \quad :: \quad \diamondsuit \quad \mapsto \quad \spadesuit &\\
+& \quad :: \quad \clubsuit \quad \mapsto \quad \heartsuit &\\
+& &\\
+& \funct{f}_3 : \set{\diamondsuit, \clubsuit} \fromto 
+\set{\heartsuit,\spadesuit} &\\
+& \quad :: \quad \diamondsuit \quad \mapsto \quad \heartsuit &\\
+& \quad :: \quad \clubsuit \quad \mapsto \quad \heartsuit &\\
+& &\\
+& \funct{f}_4 : \set{\diamondsuit, \clubsuit} \fromto 
+\set{\heartsuit,\spadesuit} &\\
+& \quad :: \quad \diamondsuit \quad \mapsto \quad \spadesuit &\\
+& \quad :: \quad \clubsuit \quad \mapsto \quad \spadesuit &
+\end{flalign*}
+
+
+	Y sus inversas:
+
+
+\begin{flalign*}
+& \functinv{f}_1 : \set{\heartsuit, \spadesuit} \fromto 
+\set{\diamondsuit,\clubsuit} &\\
+& \quad :: \quad \heartsuit \quad \mapsto \quad \diamondsuit &\\
+& \quad :: \quad \spadesuit \quad \mapsto \quad \clubsuit &\\
+& &\\
+& \functinv{f}_2 : \set{\heartsuit, \spadesuit} \fromto 
+\set{\diamondsuit,\clubsuit} &\\
+& \quad :: \quad \spadesuit \quad \mapsto \quad \diamondsuit &\\
+& \quad :: \quad \heartsuit \quad \mapsto \quad \clubsuit &\\
+& &\\
+& \monrelinv{f}_3 : \set{\heartsuit, \spadesuit} \fromto 
+\set{\diamondsuit,\clubsuit} &\\
+& \quad :: \quad \heartsuit \quad \mapsto \quad \diamondsuit &\\
+& \quad :: \quad \heartsuit \quad \mapsto \quad \clubsuit &\\
+& \quad :: \quad \spadesuit \quad \quad \quad \quad &\\
+& &\\
+& \monrelinv{f}_4 : \set{\heartsuit, \spadesuit} \fromto 
+\set{\diamondsuit,\clubsuit} &\\
+& \quad :: \quad \spadesuit \quad \mapsto \quad \diamondsuit &\\
+& \quad :: \quad \spadesuit \quad \mapsto \quad \clubsuit &\\
+& \quad :: \quad \heartsuit \quad \quad \quad \quad &
+\end{flalign*}
+
+
+	Podemos ver que $\funct{f}_1$ y $funct{f}_2$ son funciones biyectivas, 
+esto es, a cada elemento del conjunto inicial le corresponde uno del final, 
+distinto para cada uno (\emph{inyectividad}) y no queda ningún elemento del 
+conjunto final sin quedar capturado (ninguno queda sin elemento origen, 
+\emph{sobreyectividad}). Por ello, tanto $\functinv{f}_1$ como  
+$\functinv{f}_2$ son también funciones y además biyectivas.
+
+
+	Lo que realmente cuenta es la existencia de alguna función biyectiva. Aún 
+así podemos ver que $\funct{f}_3$ y $\funct{f}_4$ son funciones, pero no nos 
+interesan desde que ninguna de ellas es ni inyectiva ni sobreyectiva.
+
+
+	Por la existencia de las biyectividades $\funct{f}_1$ o $\funct{f}_2$ 
+podemos decir que estos dos conjuntos tienen la misma cardinalidad, 
+$\set{\heartsuit, \spadesuit} \simeq \set{\diamondsuit,\clubsuit}$, o de otra 
+forma $\card{\set{\heartsuit, \spadesuit}} = 
+\card{\set{\diamondsuit,\clubsuit}} = 2$. Podemos llamar $2$ a todas las 
+colecciones que sean equipotentes a las anteriores.
+
+
+	Como puedes ver, este proceso puede seguir, haciendo crecer los conjuntos 
+con nuevos elementos y obtendríamos nuevos cardinales. Parece que podemos ver 
+cada cardinal como la colección de colecciones equipotentes entre sí.
+
+
+	¿Hasta dónde puede llevarnos este proceso?
+
+
+	Podríamos seguir con un conjunto $\set{\nabla , \triangle, \square}$ y 
+otro $\set{\clubsuit,\diamondsuit,\spadesuit}$. Las únicas biyecciones entre 
+estos dos conjuntos son en total seis (se llaman permutaciones):
+\begin{flalign*}
+  & \funct{f}_1 : \set{\nabla , \triangle, \square} \fromto 
+  \set{\clubsuit,\diamondsuit,\spadesuit}&\\
+  & {\quad} :: {\quad\quad} \nabla {\quad\quad} \mapsto {\quad\quad} 
+  \clubsuit &\\
+  & {\quad} :: {\quad\quad} \triangle {\quad\quad} \mapsto {\quad\quad} 
+  \diamondsuit &\\
+  & {\quad} :: {\quad\quad} \square {\quad\quad} \mapsto {\quad\quad} 
+  \spadesuit &
+\end{flalign*}
+\begin{flalign*}
+  & \funct{f}_2 : \set{\nabla , \triangle, \square} \fromto 
+  \set{\clubsuit,\diamondsuit,\spadesuit}&\\
+  & {\quad} :: {\quad\quad} \nabla {\quad\quad} \mapsto {\quad\quad} 
+  \clubsuit &\\
+  & {\quad} :: {\quad\quad} \triangle {\quad\quad} \mapsto {\quad\quad} 
+  \spadesuit &\\
+  & {\quad} :: {\quad\quad} \square {\quad\quad} \mapsto {\quad\quad} 
+  \diamondsuit &
+\end{flalign*}
+\begin{flalign*}
+  & \funct{f}_3 : \set{\nabla , \triangle, \square} \fromto 
+  \set{\clubsuit,\diamondsuit,\spadesuit}&\\
+  & {\quad} :: {\quad\quad} \nabla {\quad\quad} \mapsto {\quad\quad} 
+  \diamondsuit &\\
+  & {\quad} :: {\quad\quad} \triangle {\quad\quad} \mapsto {\quad\quad} 
+  \clubsuit &\\
+  & {\quad} :: {\quad\quad} \square {\quad\quad} \mapsto {\quad\quad} 
+  \spadesuit &
+\end{flalign*}
+\begin{flalign*}
+  & \funct{f}_4 : \set{\nabla , \triangle, \square} \fromto 
+  \set{\clubsuit,\diamondsuit,\spadesuit}&\\
+  & {\quad} :: {\quad\quad} \nabla {\quad\quad} \mapsto {\quad\quad} 
+  \diamondsuit &\\
+  & {\quad} :: {\quad\quad} \triangle {\quad\quad} \mapsto {\quad\quad} 
+  \spadesuit &\\
+  & {\quad} :: {\quad\quad} \square {\quad\quad} \mapsto {\quad\quad} 
+  \clubsuit &
+\end{flalign*}
+\begin{flalign*}
+  & \funct{f}_5 : \set{\nabla , \triangle, \square} \fromto 
+  \set{\clubsuit,\diamondsuit,\spadesuit}&\\
+  & {\quad} :: {\quad\quad} \nabla {\quad\quad} \mapsto {\quad\quad} 
+  \spadesuit &\\
+  & {\quad} :: {\quad\quad} \triangle {\quad\quad} \mapsto {\quad\quad} 
+  \diamondsuit &\\
+  & {\quad} :: {\quad\quad} \square {\quad\quad} \mapsto {\quad\quad} 
+  \clubsuit &
+\end{flalign*}
+\begin{flalign*}
+  & \funct{f}_6 : \set{\nabla , \triangle, \square} \fromto 
+  \set{\clubsuit,\diamondsuit,\spadesuit}&\\
+  & {\quad} :: {\quad\quad} \nabla {\quad\quad} \mapsto {\quad\quad} 
+  \spadesuit &\\
+  & {\quad} :: {\quad\quad} \triangle {\quad\quad} \mapsto {\quad\quad} 
+  \clubsuit &\\
+  & {\quad} :: {\quad\quad} \square {\quad\quad} \mapsto {\quad\quad} 
+  \diamondsuit &
+\end{flalign*}
+
+
+	Como lo único que nos interesa es que haya una biyección, no volveremos a 
+hacer estas largas listas (conforme crezca el conjunto en elementos más 
+crecerá la lista de biyecciones, y en general de funciones).
+
+
+	Sin explicitarlo totalmente supongamos que ahora nuestros conjuntos son, 
+como conjunto original $\set{\nabla , \triangle, \square}$ y como conjunto 
+final $\set{\clubsuit,\diamondsuit,\spadesuit,\heartsuit}$. Podemos ver que 
+hay funciones inyectivas del conjunto origen en el final. Pero podemos ver 
+también que no hay ninguna función sobreyectiva del original en el final. 
+Esto es, podemos ver que $\set{\nabla , \triangle, \square} \precnsim 
+\set{\clubsuit,\diamondsuit,\spadesuit,\heartsuit}$. Si ahora cambiamos los 
+papeles, esto es, $\set{\clubsuit,\diamondsuit,\spadesuit,\heartsuit}$ será 
+ahora el conjunto inicial y $\set{\nabla , \triangle, \square}$ será ahora el 
+final, podemos ver fácilmente que hay funciones sobreyectivas pero que 
+ninguna es inyectiva. Por lo tanto, $\card{\set{\nabla , \triangle, \square}} 
+\lneq \card{\set{\clubsuit,\diamondsuit,\spadesuit,\heartsuit}}$, esto es, 
+menor y no igual, que se suele decir estrictamente menor. Además es fácil ver 
+que si añadimos nuevos elementos al conjunto mayor (el de los palos de la 
+baraja) la situación seguirá siendo la misma, el conjunto de figuras 
+geométricas seguirá siendo estrictamente menor que el de palos de la baraja 
+aumentada. Podríamos llamar a este cardinal $3$. Esto es $3 \defin 
+\card{\set{\nabla , \triangle, \square}}$. Lo podemos ver como la colección 
+(o clase) de los conjuntos equipotentes (con biyecciones) al actual conjunto 
+de formas geométricas.
+
+
+	Esta claro que este proceso podríamos llevarlo \emph{ad infinitum}. 
+Acabamos de reproducir los números normales y corrientes (los naturales, que 
+se suelen representar por $\sN$), con la pequeña diferencia que hemos 
+introducido el número (cardinal) $0 \defin \card{\emptyset}$, que no se suele 
+meter en ese conjunto.
+
+
+	Podríais decirme que para este viaje no necesitábamos estas alforjas. Y 
+tendríais razón si solo nos limitáramos a los conjuntos pequeños (o finitos).
+
+
+	Pero antes de seguir adelante podemos intentar ver un poco mejor qué es 
+lo que hemos visto.
+
+
+	Dadas dos colecciones, $\sA$ y $\sB$, un número natural sería (con lo 
+visto hasta ahora), el cardinal de un conjunto. Por ejemplo $a \defin 
+\card{\sA}$ y $b \defin \card{\sB}$. Veamos las relaciones que hemos visto 
+hasta ahora.
+
+\begin{thm}
+  Dados el conjunto $\sA$ con cardinal $a \defin \card{\sA}$ y el conjunto 
+  $\sB$ con cardinal $b \defin \card{\sB}$, la relación de orden o igualdad 
+  entre $a$ y $b$ vienen dadas por:
+  \begin{enumerate}
+  	\item Si existe una biyección de $\sA \fromto \sB$, entonces decimos 
+  que $\sA \simeq \sB$ y por lo tanto que $a = b$.
+    \item Si no existe una biyección entre $\sA$ y $\sB$, entonces, 
+    claramente, $a\neq b$.
+        \begin{enumerate}
+        \item Si existe una función inyectiva de $\sA \fromto \sB$, 
+        entonces, como no existen biyecciones, tampoco puede haber 
+        sobreyecciones de $\sA \fromto \sB$. Por la misma causa tenemos 
+        que no hay inyecciones de $\sB \fromto \sA$ (esto, como estamos 
+        en matemáticas, habría que probarlo). $\sA \precnsim \sB$ y $a = 
+        \card{\sA}\lneq \card{\sB} = b$.
+        \item Si existe una función sobreyectiva de $\sA \fromto \sB$, 
+        entonces, como no existen biyecciones, tampoco puede haber 
+        inyecciones de $\sA \fromto \sB$. Por la misma causa tenemos que 
+        no hay sobreyecciones de $\sB \fromto \sA$ (de nuevo, habría que 
+        probarlo). $\sB \precnsim \sA$ y $b = \card{\sB}\lneq \card{\sA} 
+        = a$.
+        \item No puede ocurrir que dados dos conjuntos entre los que se 
+        puede establecer algunas funciones, todas ellas sean a la vez no 
+        inyectivas y no sobreyectivas. Esto es, hay un orden completo 
+        entre los conjuntos (esto también hay que demostrarlo). Esto 
+        quiere decir que $a \lneq b \vee a \gneq b \vee a = b$.
+       \end{enumerate}
+  \end{enumerate}
+\end{thm}
+
+
+	Profundicemos algo más en lo que hemos estado haciendo todo este largo 
+capítulo de comparaciones.
+
+
+	Al principio partimos de un conjunto sin elementos $\emptyset \defin 
+\set{}$. Después añadimos un elemento. Esto se hace con una operación que se 
+llama \emph{unión}:
+
+$$
+\set{\diamondsuit} = \set{} \cup \set{\diamondsuit}
+$$
+
+
+	Por ahora esta operación entre conjuntos no parece muy útil. Pero lo 
+importante es que juntamos todos los elementos de los dos conjuntos en uno 
+solo. Así $\emptyset \cup \emptyset = \emptyset$. Es claro porque no hay 
+elementos que unir. De hecho, dado un conjunto cualquiera $\sA$, la unión con 
+el vacío no hace nada, $\emptyset \cup \sA = \sA$. Es como sumar cero, $1+0 = 
+1$ y $0 + 163749 = 163749$. En este caso concreto, cuando uno de los dos 
+conjuntos es vacío, el cardinal es la suma aritmética de los cardinales, y 
+coincide con el cardinal de la unión de los conjuntos.
+
+
+	Avancemos a otro caso. Tenemos el conjunto $\sA \defin 
+\set{\diamondsuit}$ y $\sB \defin \set{\clubsuit}$. Si queremos hacer la 
+unión de los dos conjuntos nos quedará:
+
+
+$$
+\sA\cup\sB = \set{\diamondsuit}\cup\set{\clubsuit} = 
+\set{\diamondsuit,\clubsuit}
+$$
+
+
+	En este caso es claro que $1 \defin \card{\sA}$ y $1 \defin \card{\sB}$, 
+y $2 \defin \card{\sA\cup\sB} = \card{\sA}+\card{\sB} = 1 + 1$.
+
+
+	Podríamos pensar que $\card{\sA\cup\sB}=\card{\sA}+\card{\sB}$: 
+¡\textbf{\emph{Pero es falso}}! Pongamos un contraejemplo simple: $\card{ 
+\set{ \triangle, \square} \cup \set{ \triangle, \bigcirc}} = \card{ \set{ 
+\triangle,\square,\bigcirc} }=3\neq 2 + 2$.
+
+
+	La verdad es que el contraejemplo es aún más fácil: $\card{ \set{*} \cup 
+\set{*}} = \card{ \set{*} } = 1 \neq 1 + 1$.
+
+
+	El problema son los elementos que se repiten. Para solucionar este 
+problema tendremos que ver otra operación entre conjuntos: la que nos da los 
+elementos repetidos. A esta operación la llamamos intersección.
+
+
+	La intersección de dos conjuntos $\sA\cap\sB$ es el conjunto de elementos 
+comunes o repetidos de esos conjuntos. Por ejemplo, $\set{*}\cap\set{*} = 
+\set{*}$. Otro ejemplo, $\emptyset \cap \sA =  \emptyset$, porque no puede 
+repetirse ningún elemento cuando una de las partes es el vacío. Aún más, como 
+todo conjunto tiene todos sus elementos repetidos consigo mismo $\sA \cap \sA 
+= \sA$.
+
+
+	¿Cómo nos soluciona esta operación el problema anterior? Es fácil, si 
+unimos dos conjuntos sale una suma de cardinales que puede ser mayor que el 
+cardinal de la unión. Porque los elementos pueden estar repetidos. Pues lo 
+único que tendremos que hacer es quitar el cardinal de los elementos 
+repetidos:
+
+
+$$
+\card{\sA \cup \sB} = \card{\sA} + \card{\sB} - \card{\sA \cap \sB}
+$$
+
+
+	O dicho de otra manera:
+
+
+$$
+\card{\sA\cup\sB}=\card{\sA}+\card{\sB}\quad \Leftrightarrow\quad \sA \cap 
+\sB = \emptyset
+$$
+
+
+	Otra operación entre conjuntos interesante es la resta de conjuntos: 
+$\sA\setminus\sB$ es el conjunto de elementos de $\sA$ que \textsc{no} están 
+en $\sB$.
+
+
+	Una forma técnica de describir lo anterior es:
+
+$$
+\sA \setminus \sB \quad \defin \quad \setprop {x\in\sA} {x\notin\sB}
+$$
+
+
+	De camino nos cuesta poco hacer lo mismo con la intersección:
+
+
+$$
+\sA \cap \sB \quad \defin \quad \setprop{x\in\sA}{x\in\sB}
+$$
+
+
+
+	Y lo mismo para la unión:
+
+
+$$
+\sA \cup \sB \quad \defin \quad \setprop{x}{x\in\sA \quad \text{\textsc {ó} } 
+\quad x\in\sB}
+$$
+
+
+\paragraph{}
+
+
+Veamos en qué punto estamos. Pongamos una lista de lo que hemos explicado:
+\begin{description}
+  \item[1] Hemos visto qué sea un conjunto: una colección de elementos.
+  \item[2] Que un conjunto se diferencia de otro porque tiene elementos 
+  distintos. Un conjunto no tiene elementos repetidos porque no podría 
+  diferenciarse del conjunto con elementos repetidos.
+  \item[3] Hemos visto las relaciones entre conjuntos. Hay que decir cual 
+  es el conjunto inicial y cual es el final, y decir como capturan los 
+  elementos del conjunto inicial a elementos del conjunto final. No hay 
+  ninguna restricción para las relaciones.
+  \item[4] Como nuestro cometido es comparar conjuntos en tanto si son más 
+  grandes o más pequeños o iguales que otros, hemos introducido unas 
+  restricciones a las relaciones que nos hacen conseguir funciones. Las 
+  funciones son relaciones que en su conjunto inicial todos los elementos 
+  cazan elementos del final y además se les pide que solo cacen uno.
+  \item[5] Aún con las restricciones dichas, no todas las funciones nos van 
+  a servir para comparar conjuntos. Si la función es tal que dos elementos 
+  (distintos) del conjunto inicial capturan elementos distintos del 
+  conjunto final, decimos que la función es inyectiva. De otro lado, cuando 
+  la función consigue no haya elementos del conjunto final sin capturar, la 
+  función es sobreyectiva.
+  \item[6] Si una función es inyectiva, entonces el conjunto inicial es 
+  menor o igual (de grande) que el conjunto final.
+  \item[7] Si una función es sobreyectiva, entonces, el conjunto inicial es 
+  mayor o igual (de grande) que el conjunto final.
+  \item[8] Si una función es inyectiva y sobreyectiva, la función se llama 
+  biyectiva, y nos indica que los dos conjuntos son igual de grandes. Las 
+  funciones biyectivas tienen sus relaciones invertidas que también son 
+  funciones, la función inversa. Y esta función inversa es de nuevo 
+  biyectiva.
+  \item[9] Si existe una biyección entre dos conjuntos (inicial y final), 
+  decimos que ambos conjuntos tienen el mismo cardinal. Podríamos decir que 
+  todos los conjuntos que tienen biyecciones entre si son el cardinal de 
+  cualquiera de ellos.
+  \item[10] Si no existe biyección entre dos conjuntos (inicial y final), 
+  pero existe una función inyectiva entre ellos, el cardinal del inicial es 
+  estrictamente menor que el cardinal del final. No puede haber (se cumple) 
+  en este caso, funciones sobreyectivas.
+  \item[11] Si no existe biyección entre dos conjuntos (inicial y final), 
+  pero existe una función sobreyectiva entre ellos, el cardinal del inicial 
+  es estrictamente mayor que el cardinal del final. No puede haber (se 
+  cumple) en este caso, funciones inyectivas.
+  \item[12] Para los conjuntos pequeños (que no tienen una infinidad de 
+  elementos, como por ejemplo los números), podemos ver que sus cardinales 
+  coinciden con los números naturales incluido el cero.
+  \item[13] Para ver el punto anterior hemos desarrollado una operación 
+  entre conjuntos que se llama unión. Vemos que para obtener conjuntos más 
+  grandes nos podemos servir de la unión, pero que ésta no siempre los hace 
+  crecer. A veces los deja igual.
+  \item[14] Hemos visto otra operación entre conjuntos: la intersección. 
+  Los elementos comunes, que nos da un conjunto o menor o igual que los 
+  originales.
+  \item[15] Aunque no vale directamente para lo que pretendemos, hemos 
+  introducido la operación entre conjuntos de diferencia o resta 
+  conjuntista.
+\end{description}
+
+
+\section{ ¿Se pueden comparar conjuntos realmente grandes? }
+
+
+	Hasta el momento hemos comparado conjuntos pequeños. Pero ¿qué me decís 
+de un conjunto como $\setN$ que decimos que es infinito y por ejemplo el 
+conjunto de los naturales pares, llamémosle $\textsf{Par}$. Cada número par 
+podemos ponerlo como $2 \cdot n \in \textsf{Par}$ siendo $n \in \setN$. Dicho 
+de la manera formal que introduje al final de la sección anterior: 
+$\textsf{Par} \defin \setprop{2 \cdot n}{n \in \setN}$. Evidentemente, 
+$\textsf{Par} \subsetneq \setN$. Está dentro porque los números pares son 
+números naturales como los demás. Y no son el mismo conjunto, porque $\setN$ 
+tiene muchos elementos, todos los impares $\set{1, 3, 5, 7, 9, ...}$ que no 
+están en los naturales.
+
+
+	Lo primero que se os puede venir a la cabeza es: pero si $\textsf{Par}$ 
+está completamente dentro de $\setN$ y además no tiene, ni mucho menos, todos 
+los elementos de $\setN$... ¿No debería ser el cardinal de los pares menor 
+que el de los naturales? Aquí desde luego no nos vale con contar como 
+haríamos habitualmente con conjuntos pequeños. ¿Que número utilizamos como el 
+cardinal?
+
+
+	Bien. Esto va a ser grande. Os digo que hay una biyección entre ambos 
+conjuntos. Os lo voy a demostrar:
+
+
+\begin{flalign*}
+  \funct{f} :\; & \textsf{Par} \fromto \setN & \\
+  {\phantom{\funct{f} :}}& \; 2\cdot n \; \mapsto \; n &
+\end{flalign*}
+
+
+	Lo primero que afirmo es $\funct{f}$ es una \textbf{\emph{función}}. No 
+hay número par que se quede sin su número corriente. Y todo número par atrapa 
+exactamente un número corriente y ninguno más. Vamos a deletrear la función 
+$\funct{f}$ un poco más:
+
+
+\begin{flalign*}
+  \funct{f} :\; & \textsf{Par} \fromto \setN & \\
+  {\phantom{\funct{f} :}}& \; 0 = 2 \cdot 0 \; \mapsto \; 0 &\\
+  {\phantom{\funct{f} :}}& \; 2 = 2 \cdot 1 \; \mapsto \; 1 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 4 = 2 \cdot 2 \; \mapsto \; 2 &\\
+  {\phantom{\funct{f} :}}& \; 6 = 2 \cdot 3 \; \mapsto \; 3 &\\
+  {\phantom{\funct{f} :}}& \; 8 = 2 \cdot 4 \; \mapsto \; 4 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \;10 = 2 \cdot 5 \; \mapsto \; 5 &\\
+  {\phantom{\funct{f} :}}& \;12 = 2 \cdot 6 \; \mapsto \; 6 &\\
+  {\phantom{\funct{f} :}}& \;14 = 2 \cdot 7 \; \mapsto \; 7 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \;16 = 2 \cdot 8 \; \mapsto \; 8 &\\
+  {\phantom{\funct{f} :}}& \;18 = 2 \cdot 9 \; \mapsto \; 9 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& ... &\\
+  {\phantom{\funct{f} :}}& \quad n_{par} \; \mapsto \; \frac{n_{par}}{2}&
+\end{flalign*}
+
+
+	Lo primero es: ¿no es verdad que todo número par es divisible por $2$ de 
+manera exacta (con resto $0$ o, lo que es lo mismo, sin resto)? Entonces para 
+cada número par existe un elementos de los naturales que es el par dividido 
+de forma exacta por dos. Y como esto ocurre para todos los pares no nos queda 
+más remedio que decir que la relación antes descrita \textbf{\emph{es una 
+función}}. \textbf{\textsf{Quod erat demostrandum}}.
+
+
+	La parte más sorprendente es que en la columna de los naturales parece 
+que aparecen todos los naturales. La afirmación que se sigue es que la 
+función $\funct{f}$ es \textbf{\emph{función sobreyectiva}}. Cogemos un 
+número cualquiera de $\setN$, digamos $n$, que está en el conjunto final. 
+Tendrá un elemento de los pares que lo atrape? Veamos, si multiplicamos $2 
+\cdot n$ nos sale un número par. Siempre podemos multiplicar por dos. Lo que 
+afirmo es que $n_{par} \defin 2 \cdot n$ es el número origen que atrapa al 
+número $n$ elegido (cualquiera puede ser). Efectivamente, $\frac{n_{par}}{2} 
+= \frac{2 \cdot n}{2} = \frac{n}{1} = n$. \textbf{\textsf{Quod erat 
+demostrandum}}.
+
+	Pero la afirmación que voy a hacer ahora también es válida. $\funct{f}$ 
+es una \textbf{\emph{función inyectiva}}. Si no te convence simplemente la 
+fórmula: dos números que se dividen de forma exacta entre dos y que son 
+distintos entre sí, al dividirlos por dos, de forma exacta darán dos números 
+diferentes como cocientes. Pongamos que no lo terminas de ver. Así que vamos 
+a suponer que para dos números distintos $n_{par}\neq m_{par}$ del conjunto 
+original obtiene el mismo número natural $p$ como imagen. Entonces al 
+multiplicar ese número por dos nos ha de dar los dos pares: $2 \cdot p = 
+n_{par}$ y $2 \cdot p = m_{par}$. La conclusión es $n_{par} = 2 \cdot p = 
+m_{par}$ y de ahí que $n_{par} = m_{par}$. Pero partíamos de $n_{par} \neq 
+m_{par}$. Conclusión primera: $n_{par} = m_{par} \quad \textsc{y} \quad 
+n_{par} \neq m_{par}$. Más claro aún: $\textsf{SI}\;\; n_{par} = m_{par} 
+\quad \textsc{y} \quad \textsf{NO}\;\; n_{par} = m_{par}$. \textsc{Absurdo}. 
+\textsc{Luego no existe }$p\in\textsf{Par}$ tal que 
+$p=\functat{f}{n_{par}}=\functat{f}{m_{par}}$. Y la función $\funct{f}$ es 
+\textbf{\emph{función inyectiva}}. \textsf{Quod erat demostrandum}.
+
+
+
+	Por último, al ser $\funct{f}$ función inyectiva y sobreyectiva 
+encontramos que la definición de función biyectiva. $\funct{f}$ es 
+\textbf{\emph{función biyectiva}}. \textbf{\textsf{Quod erat demostrandum}}.
+
+
+	Algunos dirán: pero decíamos que las funciones biyectivas tiene relación 
+reversa que es función y es además biyectiva. Y llevan razón. Pongo a 
+continuación la función inversa de $\funct{f}$:
+
+
+\begin{flalign*}
+  \functinv{f} :\; & \setN \fromto \mathsf{Par} & \\
+  {\phantom{\funct{f} :}}& \; 0 \; \mapsto \; 0 = 2 \cdot 0 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 1 \; \mapsto \; 2 = 2 \cdot 1 &\\
+  {\phantom{\funct{f} :}}& \; 2 \; \mapsto \; 4 = 2 \cdot 2 &\\
+  {\phantom{\funct{f} :}}& \; 3 \; \mapsto \; 6 = 2 \cdot 3 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 4 \; \mapsto \; 8 = 2 \cdot 4 &\\
+  {\phantom{\funct{f} :}}& \; 5 \; \mapsto \;10 = 2 \cdot 5 &\\
+  {\phantom{\funct{f} :}}& \; 6 \; \mapsto \;12 = 2 \cdot 6 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 7 \; \mapsto \;12 = 2 \cdot 7 &\\
+  {\phantom{\funct{f} :}}& \; 8 \; \mapsto \;12 = 2 \cdot 8 &\\
+  {\phantom{\funct{f} :}}& \; 9 \; \mapsto \;12 = 2 \cdot 9 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& ... &\\
+  {\phantom{\funct{f} :}}& \quad n \; \mapsto \; n_{par} = 2 \cdot n&
+\end{flalign*}
+
+
+	Vamos a componer $\funct{f}\circ\functinv{f} : \setN \fromto \textsf{Par} 
+\fromto \setN$.
+
+
+\begin{flalign*}
+  \funct{f}\circ\functinv{f} :\; & \setN \quad \fromto \quad \mathsf{Par} 
+  \quad \fromto \quad \setN& \\
+  {\phantom{\funct{f} :}}& \; 0 \; \mapsto \; 0 = 2 \cdot 0  \; \mapsto \; 0 
+  = \frac{0}{2} &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 1 \; \mapsto \; 2 = 2 \cdot 1  \; \mapsto \; 1 
+  = \frac{2}{2} &\\
+  {\phantom{\funct{f} :}}& \; 2 \; \mapsto \; 4 = 2 \cdot 2  \; \mapsto \; 2 
+  = \frac{4}{2} &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 3 \; \mapsto \; 6 = 2 \cdot 3  \; \mapsto \; 3 
+  = \frac{6}{2} &\\
+  {\phantom{\funct{f} :}}& \; 4 \; \mapsto \; 8 = 2 \cdot 4  \; \mapsto \; 4 
+  = \frac{8}{2} &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 5 \; \mapsto \;10 = 2 \cdot 5  \; \mapsto \; 5 
+  = \frac{10}{2} &\\
+  {\phantom{\funct{f} :}}& \; 6 \; \mapsto \;12 = 2 \cdot 6  \; \mapsto \; 6 
+  = \frac{12}{2} &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 7 \; \mapsto \;12 = 2 \cdot 7  \; \mapsto \; 7 
+  = \frac{14}{2} &\\
+  {\phantom{\funct{f} :}}& \; 8 \; \mapsto \;12 = 2 \cdot 8  \; \mapsto \; 8 
+  = \frac{16}{2} &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\funct{f} :}}& \; 9 \; \mapsto \;12 = 2 \cdot 9  \; \mapsto \; 9 
+  = \frac{18}{2} &\\
+  {\phantom{\funct{f} :}}& ... &\\
+  {\phantom{\funct{f} :}}& \; n \; \mapsto \;n_{par} = 2 \cdot n  \; \mapsto 
+  \; n = \frac{2\cdot n}{2} = \frac{n_{par}}{2} &
+\end{flalign*}
+
+
+	Como resumen $\funct{f}\circ\functinv{f} = \mathds{1}_{\setN}$, esto es, 
+la identidad en $\setN$, formalmente, $n \in \setN \Rightarrow 
+\funct{f}\circ\functinv{f}\left(n\right) = n$.
+
+
+	Con lo que acabamos de ver, queda demostrado que $\funct{f}$ es función 
+que tiene inversa $\functinv{f}$, ambas son biyectivas y 
+$\funct{f}\circ\functinv{f} = \mathds{1}_{\setN} : \setN \fromto \setN$.
+
+
+	Pero aún vamos a verificar la otra composición de aplicaciones, 
+$\functinv{f}\circ\funct{f}$ y veremos que coincide con 
+$\mathds{1}_{\textsf{Par}}$, la función unidad en el conjunto de los pares:
+
+
+
+\begin{flalign*}
+  \functinv{f}\circ\funct{f} :\; & \mathsf{Par} \quad \fromto \quad \setN 
+  \quad \fromto \quad \mathsf{Par}& \\
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 0 \; \mapsto \; 0 = 
+  \frac{0}{2}  \; \mapsto \; 0 = 2 \cdot 0 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 2 \; \mapsto \; 1 = 
+  \frac{2}{2}  \; \mapsto \; 2 = 2 \cdot 1 &\\
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 4 \; \mapsto \; 2 = 
+  \frac{4}{2}  \; \mapsto \; 4 = 2 \cdot 2 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 6 \; \mapsto \; 3 = 
+  \frac{6}{2}  \; \mapsto \; 6 = 2 \cdot 3 &\\
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 8 \; \mapsto \; 4 = 
+  \frac{8}{2}  \; \mapsto \; 8 = 2 \cdot 4 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 10 \; \mapsto \; 5 = 
+  \frac{10}{2}  \; \mapsto \; 10 = 2 \cdot 5 &\\
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 12 \; \mapsto \; 6 = 
+  \frac{12}{2}  \; \mapsto \; 12 = 2 \cdot 6 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 14 \; \mapsto \; 7 = 
+  \frac{14}{2}  \; \mapsto \; 14 = 2 \cdot 7 &\\
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 16 \; \mapsto \; 8 = 
+  \frac{16}{2}  \; \mapsto \; 16 = 2 \cdot 8 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; 18 \; \mapsto \; 9 = 
+  \frac{18}{2}  \; \mapsto \; 18 = 2 \cdot 9 &
+\end{flalign*}
+\begin{flalign*}
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& ... &\\
+  {\phantom{\functinv{f}\circ\funct{f} :\; }}& \; n_{par} \; \mapsto \;n = 
+  \frac{n_{par}}{2} = \frac{2 \cdot n}{2} = n  \; \mapsto \; n_{par} = 2\cdot 
+  n&
+\end{flalign*}
+
+
+	Ahora ya no debe quedar ninguna duda: los conjuntos $\setN$ y 
+$\textsf{Par}$ tienen el mismo cardinal, el nombre que se le suele dar es 
+$\aleph_0$. El subíndice $0$ viene del hecho que es el cardinal más pequeño 
+que hay entre los cardinales infinitos.
+
+
+
+	Por extraño que parezca, existen muchísimos subconjuntos de $\setN$, 
+cualquiera que sea infinito, que tiene su mismo cardinal: $\aleph_0 \defin 
+\card{\setN}$.
+
+
+
+	Queda por ver si realmente existen conjuntos más grandes que $\setN$. Por 
+ejemplo, podemos compararlo con un conjunto que sabemos que tiene más 
+elementos, como por ejemplo $\setZ$ y $\setQ$.
+
+
+
+	Por ejemplo ¿seremos capaces de encontrar una función biyectiva que vaya 
+de $\setZ$ a $\setN$? Por ejemplo: ordenemos los números enteros (elementos 
+del conjunto origen $\setZ$) de la siguiente forma:
+
+
+$$
+\begin{matrix}
+  0 & 1 & -1 & 2 & -2 & 3 \\
+  -3 & 4 & -4 & 5 & -5 & 6 \\
+  -6 & 7 & -7 & 8 & -8 & 9 \\
+  \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
+  -\iota & \iota+1 & -\iota+1 & \iota+2 & -\iota+2 & \iota+3 \\
+  \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
+\end{matrix}
+$$
+
+
+	Ahora ordenamos los del conjunto final $\setN$ en su forma habitual;
+
+
+$$
+\begin{matrix}
+  0 & 1 & 2 & 3 & 4 & 5 \\
+  6 & 7 & 8 & 9 & -5 & 10 \\
+  11 & 12 & 13 & 14 & 15 & 16 \\
+  \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
+  -\iota & \iota+1 & -\iota+1 & \iota+2 & -\iota+2 & \iota+3 \\
+  \ldots & \ldots & \ldots & \ldots & \ldots & \ldots \\
+\end{matrix}
+$$
+
+
+
+Ahora tomaremos las siguientes reglas a cualquier $z \in \setZ$:
+
+
+
+$$
+\functat{g}{z} =
+\left\{
+  \begin{array}{ll}
+    -2 \cdot z , & \hbox{si $z \leq 0$;} \texttt{ Salen números pares para 
+    los no positivos.}\\
+    2 \cdot z - 1, & \hbox{si $z \lneq 0$.} \texttt{ Salen numeros impares 
+    para los negativos.}
+  \end{array}
+\right.
+$$
+
+
+Si cogéis los elementos del conjuntos origen, los enteros, en el orden 
+explicado antes, y le aplicáis la regla dada por $\funct{g}$ de la última 
+fórmula, obtenéis los números naturales en el orden dado anteriormente. 
+$\funct{g} : \setZ \fromto \setN$ \textbf{\emph{es función biyectiva}}. 
+Además, $\functinv{g}$ existe y viene dada por:
+
+
+$$
+\functinvat{g}{n} =
+\left\{
+  \begin{array}{ll}
+    -\frac{n}{2} , & \hbox{si $\exists k \in \setN \quad n =  2 \cdot k $;} 
+    \texttt{ No positivos para los pares.}\\
+    \frac{n+1}{2}, & \hbox{si $\exists k \in \setN \quad n =  2 \cdot k-1 $.} 
+    \texttt{ Negativos para los impares.}
+  \end{array}
+\right.
+$$
+
+
+	Ahora vamos a componer $\funct{g}\circ\functinvat{g}{n} = 
+\functat{g}{\functinvat{g}{n}}$. Desarrollemos en dos pasos y por casos la 
+nueva función, dónde los casos son que sea $n$ par o impar.
+
+
+Primer paso (teniendo en cuanta que $n$ es par o no):
+$$
+\functat{g}{\functinvat{g}{n}} =
+\left\{
+  \begin{array}{ll}
+    \functat{g}{-\frac{n}{2}} , & n \in \textsf{Par}\text{;}\\
+    \functat{g}{\frac{n+1}{2}}, & n \in \textsf{Impar}\text{.}
+  \end{array}
+\right.
+$$
+
+
+Segundo paso (teniendo en cuenta si el resultado anterior es negativo o 
+positivo):
+$$
+\funct{g}\circ\functinv{g}\left({n}\right) =
+\left\{
+  \begin{array}{ll}
+    -2\cdot{-\frac{n}{2}} , & n \in \textsf{Par}\text{;}\\
+    2\cdot{\frac{n+1}{2}}-1, & n \in \textsf{Impar}\text{.}
+  \end{array}
+\right.
+$$
+
+
+Reuniéndolo todo. Conclusión:
+$$
+\funct{g}\circ\functinv{g}\left({n}\right) =
+\left\{
+  \begin{array}{ll}
+    n=2\cdot{\frac{n}{2}}=-2\cdot{-\frac{n}{2}} , & n \in 
+    \textsf{Par}\text{;}\\
+    n=(n+1)-1=2\cdot{\frac{n+1}{2}}-1, & n \in \textsf{Impar}\text{.}
+  \end{array}
+\right.
+$$
+$$
+{{\mathds{1}}_{\setN}{\left({n}\right)}=
+\funct{g}\circ\functinv{g}}{\left({n}\right)} = n \quad \forall n \in \setN
+$$
+
+
+	También le podemos dar la vuelta. Queremos ver cómo es la composición 
+$\functinv{g}\circ\functat{g}{z} = \functinvat{g}{\functat{g}{z}}$ para los 
+elementos $z \in \setZ$.  Volvemos a desarrollar en dos pasos y por casos la 
+nueva función, ahora los pasos son inversos a los anteriores, dónde los casos 
+ahora son que sea $z$ sea positivo ó no positivo.
+
+
+
+
+Primer paso (teniendo en cuenta que $z$ es positivo o no):
+$$
+\functinvat{g}{\functat{g}{z}} =
+\left\{
+  \begin{array}{ll}
+    \functinvat{g}{-2 \cdot z} , & z \leq 0 \text{;}\;\;{ n \defin -2\cdot z} 
+    \texttt{ y } {n \in \textsf{Par} \subset \setN}\\
+    \functinvat{g}{2 \cdot z - 1}, & z > 0 \text{.}\;\;{ n \defin 2\cdot z - 
+    1} \texttt{ y } {n \in \textsf{Impar} \subset \setN}
+  \end{array}
+\right.
+$$
+
+
+Segundo paso (teniendo en cuenta si el resultado anterior $n$ es par o 
+impar):
+$$
+\functinv{g}\circ\funct{g}\left({z}\right) =
+\left\{
+  \begin{array}{ll}
+    z = \frac{-2 \cdot z}{2} , & z \leq 0 \text{;}\;\;{ n \defin -2\cdot z} 
+    \texttt{ y } {n \in \textsf{Par} \subset \setN}\\
+    z = \frac{{2 \cdot z - 1} + 1}{2} , & z > 0 \text{.}\;\;{ n \defin 2\cdot 
+    z - 1} \texttt{ y } {n \in \textsf{Impar} \subset \setN}
+  \end{array}
+\right.
+$$
+
+
+Reuniéndolo todo:
+$$
+\functinv{g}\circ\funct{g}\left({z}\right) =
+\left\{
+  \begin{array}{ll}
+    z , & z \leq 0 \text{;}\;\;{z \in \setZ^{-}\cup\set{0} \subset \setZ}\\
+    z , & z > 0 \text{;}\text{.}\;\;{z \in \setZ^{+} \subset \setZ}
+  \end{array}
+\right.
+$$
+$$
+{{\mathds{1}}_{\setZ}{\left({z}\right)}=
+\functinv{g}\circ\funct{g}}{\left({z}\right)} = z\quad \forall z \in \setZ
+$$
+
+
+	Ahora hemos demostrado que $\card{\setZ} = \card{\setN} = 
+\card{\textsf{Par}} = \card{\textsf{Impar}}$ o dicho con la relación de 
+equipotencia, $\setZ \simeq \setN \simeq \textsf{Par} \simeq \textsf{Impar}$. 
+Extraño, realmente extraño. Más adelante indagaremos en qué es lo que nos 
+parece tan extraño de todos esto.
+
+
+	Pero por ahora seguiremos buscando un conjunto que sea realmente más 
+grande que $\setN$. Vamos a probar suerte con $\setQ^{+,0} \defin \setQ^+ 
+\cup \set{0}$, esto es con los números racionales que son positivos o cero.
+
+
+	Veamos algunas propiedades relevantes. Entre dos números consecutivos 
+naturales no hay ningún otro número. ¿Porqué nos puede importar eso? Porque 
+entre esos mismos dos números llevados a $\setQ$ hay una cantidad infinita de 
+números. Y como el infinito más pequeño es el de los conjuntos de cardinal 
+$\aleph_0$, entre cualquiera dos números consecutivos en $\setN$ encontramos 
+en $\setQ$ un conjunto de cardinal $\aleph_0$. Pero me quedo corto. 
+Concretemos, entre los números $0$ y $1$ tenemos que 
+$\card{\setprop{x\in\setN}{1 > x > 0}}=\card{\emptyset}=0$. Pero $\forall k 
+\in \setN \;\; \card{\setprop{x\in\setQ}{1 > x > 0}} > k$. O sea, que el 
+conjunto que llamaremos ${\left]0,1\right[}_{\setQ} \defin 
+\setprop{x\in\setQ}{1 > x > 0}$, es al menos tan grande como $\setN$. Pero 
+pongamos ahora ${\left]0,0.1\right[}_{\setQ} \defin \setprop{x\in\setQ}{0.1 > 
+x > 0}$. Podemos encontrar la siguiente serie dentro de ese conjunto 
+$$\textsf{Serie}\defin\set{0.1-\frac{0.1}{2},0.1-\frac{2\cdot 
+0.1}{3},0.1-\frac{3\cdot 0.1}{4},\ldots, 0.1-\frac{n\cdot 0.1}{n+1},\ldots}$$ 
+que podemos ver que es tan grande como $\setN$ ya que los referenciados $n$ 
+son todos los que hay en $\setN\setminus{0}$. Cojamos ahora dos elementos 
+sucesivos de $\textsf{Serie}$ como $n_1 \defin 0.1-\frac{3\cdot 0.1}{4} = 
+\frac{1}{40}$ y $n_2 \defin 0.1-\frac{2\cdot 0.1}{3} = \frac{2}{30} =  
+\frac{1}{15}$. Ahora solo nos interesa que $n_1 < n_2$ y que podemos realizar 
+una serie como $$\textsf{Serie}_2 \defin \set{\frac{n_1 + n_2}{2}, \frac{n_1 
++ 2 \cdot n_2}{3},\ldots,\frac{n_1 + \iota \cdot n_2}{\iota+1},\ldots}$$
+
+
+	Es importante darse cuenta que $n_1$ y $n_2$ podrían haber sido dos 
+números cualesquiera de $\setQ$ y siempre tendríamos que el conjunto contiene 
+infinitos números como en $\textsf{Serie}$ y $\textsf{Serie}_2$. Cualquier 
+intervalo entre dos números en $\setQ$ contiene una serie de números 
+infinita.
+
+
+	$\setQ$ parece un buen candidato para ser más grande que $\setN$, que 
+hasta ahora ha permanecido imbatible.
+
+
+\newcommand{\ordpair}[2]{\left({{#1},{#2}}\right)}
+
+
+	Pero nos vamos a servir de un truco: todo número fraccionario, racional, 
+se constituye de numerador y denominador. Así que usando la función $ 
+\funct{\iota}: \setQ^{0,+} \fromto \setN^{0}\times\setN^{0} :: \frac{n}{m} 
+\mapsto \ordpair{n}{m}$, que nos asegura que toda representación de un número 
+racional positivo, incluyendo el cero, tiene una imagen distinta (propia) 
+como pareja de números naturales (incluyendo el cero) ordenada. Esto es, 
+$\setQ^{0,+} \leqpot \setN^{0}\times\setN^{0}$. Por lo tanto si conseguimos 
+ver que existe alguna relación de cardinalidad entre $\setN^{0}$ y 
+$\setN^{0}\times\setN^{0}$, quizás podamos ver qué es lo que pasa entre 
+$\setN^{0}$ y $\setQ^{0,+}$ en términos de cardinalidad, de ver cuál es más
+grande o si son igual de grandes.
+
+
+	Veamos la siguiente construcción, dónde las cabeceras de columnas están 
+etiquetadas con $f_n$ dónde ese $n$ corresponde con el primer componente del 
+par, los pares de su columna, y en las filas, la etiqueta $f_m$, dónde $m$ 
+corresponde al segundo componente de los pares ordenados de esa fila:
+
+
+\newcommand{\ordpairlist}[1]{\ordpair{0}{#1} & \ordpair{1}{#1} &
+                             \ordpair{2}{#1} & \ordpair{3}{#1} &
+                             \ordpair{4}{#1} & \ordpair{5}{#1} &
+                             \ordpair{6}{#1} & \ordpair{7}{#1} }
+$$
+\begin{matrix}
+  {\setN}^{0}\times{\setN}^{0} & c_0 & c_1 & c_2 & c_3 & c_4 & c_5 & c_6 &
+  c_7 & \ldots \\
+  f_0 & \ordpairlist{0} & \ldots\\
+  f_1 & \ordpairlist{1} & \ldots\\
+  f_2 & \ordpairlist{2} & \ldots\\
+  f_3 & \ordpairlist{3} & \ldots\\
+  f_4 & \ordpairlist{4} & \ldots\\
+  f_5 & \ordpairlist{5} & \ldots\\
+  f_6 & \ordpairlist{6} & \ldots\\
+  f_7 & \ordpairlist{7} & \ldots\\
+  \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & 
+  \vdots & \ddots \\
+\end{matrix}
+$$
+
+
+	Bien, si te das cuenta, en el esquema anterior, vemos que aparecen todas 
+las posibles fracciones (no negativas, esto es , positivas o cero) pero 
+muchas aparecen muchas veces, por ejemplo, la columna $c_0$ representa toda 
+ella el número racional $0$ al ser el numerador $0$ en todas esas fracciones. 
+Incluso, la fila $0$ no tiene ningún sentido como representación de 
+racionales, pues el denominador no puede ser nunca $0$.
+El siguiente ejemplo sería la diagonal que parte de $f_1 c_1$ y todas las 
+casillas dónde el número subíndice de fila y columna coincidan: representan 
+al racional $1$, al ser iguales numerador y denominador. Y podéis ver muchos 
+otros ejemplos. Por ejemplo, la fila $f_1$ representa ella sola todos los 
+números naturales incluyendo el $0$. El conjunto $\setQ^{0,+}$ está dentro de 
+este conjunto representado en el esquema, conjunto que podemos denominar 
+$\setN^0\times\setN^0$. A ésta, la operación 
+representada por $\times$, la llamamos producto cartesiano de dos conjuntos.
+
+
+	Como el producto cartesiano es una operación con la que nos hemos 
+encontrado y nos encontraremos con frecuencia, la vamos a detallar un poco. 
+Lo importante: forma un conjunto a partir de los dos conjuntos que 
+intervienen en el producto cartesiano. También fundamental: los elementos del 
+conjunto resultante son \textbf{\emph{pares ordenados}}, esto es, parejas de 
+elementos. El primer elemento del par pertenece al primer conjunto del 
+producto cartesiano, y el segundo elemento de par pertenece al segundo 
+conjunto del producto. Además, ¿cómo caracterizamos un par ordenado? Es 
+fácil. $\left({a,b}\right)=\left({c,d}\right)$ si y solo si $a = c$ y $b = 
+d$. Con lo dicho bastaría, pero estamos tratando siempre con conjuntos y un 
+par ordenado no parece un conjunto. Sin embargo hay un montón de formas de 
+conseguir hacer pares ordenados con conjuntos, el más común es el siguiente:
+
+
+$$
+\forall x \in \sX \quad \forall y \in \sY \qquad \ordpair{x}{y} \in 
+\sX\times\sY
+$$
+es un conjunto tal que
+$$
+\ordpair{x}{y} \defin \set{\set{x},\set{x,y}}
+$$
+
+
+	Si llamamos ${\funct{p}_1} : {\sX\times\sY} \fromto {\sX}$ a la función 
+que nos da el primer elemento del par (este tipo de funciones se llaman 
+proyecciones), podríamos concretarla así: 
+${\funct{p}_1}{\left({\left({x,y}\right)}\right)}$ sería igual a $x$ que es 
+el elemento único de 
+$$\bigcup{\left({x,y}\right)} = \bigcup{\set{\set{x},\set{x,y}}} = 
+\set{x}\cap\set{x,y} = \set{x}$$
+De otro lado ${\funct{p}_2} : {\sX\times\sY} \fromto {\sY}$ lo podríamos 
+formalizar como el único elemento de:
+$$\set{x}\triangle\set{x,y}\defin\left({\set{x}}\setminus{\set{x,y}}\right)\cup
+\left({\set{x,y}}\setminus{\set{x}}\right) = 
+\set{}\cup\set{y} = \set{y}$$
+
+
+
+	Pongamos que $\left({a,b}\right)=\left({c,d}\right)$ querría decir que 
+$\set{\set{a},\set{a,b}} = \set{\set{c},\set{c,d}}$. Entonces $a = 
+\funct{p}_1{\left({\left({a,b}\right)}\right)}=
+\funct{p}_1{\left({\left({c,d}\right)}\right)}= c$ e igualmente $b = 
+\funct{p}_2{\left({\left({a,b}\right)}\right)}=
+\funct{p}_2{\left({\left({c,d}\right)}\right)}= d$.
+
+
+
+	Bien, ya sabemos que es el esquema que hemos encontrado al representar 
+todas las fracciones, como parejas de números, parejas con orden, dónde no da
+lo mismo dónde se encuentren los números, en un conjunto producto cartesiano.
+Podemos encontrar una función sobreyectiva de
+$\setN^{0}\times\setN\fromto\setQ^{0,+}$, y esta es
+$\funct{f}((n,m)) = \frac{p}{q}$ si $\frac{p}{q} = 
+\text{Irreducible}({\frac{n}{m}})$. Esto indica que 
+$\setN^{0}\times\setN\geqpot\setQ^{0,+}$.
+
+
+
+	Ahora vamos a encontrar una forma de poner en una sola línea todos los 
+elementos de $\setN^{0}\times\setN^{0}$. En el esquema anterior, vemos que la 
+esquina superior izquierda $f_0,c_0$ no corresponde con ningún número
+racional. De hecho, toda la fila $f_0$ no representa a ningún número 
+racional. La $f_0,c_0$ representada por $\ordpair{0}{0}$ dónde la 
+suma de sus proyecciones es $0$, no hay más elementos que su
+suma sea $0$. Ahora podemos ver la los elementos de la tabla $f_0,c_1$ y
+$f_1,c_0$ que son los pares de suma $1$. No hay más pares con esa suma. Ahora 
+podemos encontrar aquellas parejas que su suma sea $2$. Son pocas 
+$\ordpair{0}{2},\ordpair{1}{1},\ordpair{2}{1}$. Ya 
+no hay más de suma $2$. Ahora las de suma $3$,
+$\ordpair{0}{3},\ordpair{1}{2},\ordpair{2}{1},\ordpair{3}{0}$. Las
+de suma $4$ son
+$\ordpair{0}{4},\ordpair{1}{3},\ordpair{2}{2},\ordpair{3}{1},\ordpair{4}{0}$.
+
+
+	Y así podemos seguir...
+
+
+	Para suma $0$ tenemos $1$ solo elemento. Será el primer elemento de
+nuestra serie. $\textsf{s}_0 = \ordpair{0}{0}$. Para suma $1$ hay $2$
+elementos para la serie $\textsf{s}_1 = \ordpair{0}{1}$ y  $\textsf{s}_2 =
+\ordpair{1}{0}$.
+Para suma $2$ tenemos $3$ elementos, $\textsf{s}_3 = \ordpair{0}{2}$,
+$\textsf{s}_4 = \ordpair{1}{1}$ y $\textsf{s}_5 = \ordpair{2}{0}$. Para suma
+$3$ tenemos $4$ pares ordenados cuyas proyecciones (componentes, partes) 
+sumen $3$, $\textsf{s}_6 = \ordpair{0}{3}$,  $\textsf{s}_7 = \ordpair{1}{2}$,
+$\textsf{s}_8 = \ordpair{2}{1}$,  $\textsf{s}_9 = \ordpair{3}{0}$. Como
+último ejemplo, pondremos los siguientes, los de suma $4$. Estos son
+$\textsf{s}_{10} = \ordpair{0}{4}$,  $\textsf{s}_{11} = \ordpair{1}{3}$,
+$\textsf{s}_{12} = \ordpair{2}{2}$,  $\textsf{s}_{13} = \ordpair{3}{1}$ y por
+último $\textsf{s}_{14} = \ordpair{4}{0}$.
+
+
+\begin{multline*}
+  \quad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \textsf{s}_{0} =
+  \ordpair{0}{0} \; \\
+  \textsf{s}_{1} = \ordpair{0}{1} \;  \textsf{s}_{2} = \ordpair{1}{0}  \\
+  \textsf{s}_{3} = \ordpair{0}{2} \;  \textsf{s}_{4} = \ordpair{1}{1}  \;
+  \textsf{s}_{5} = \ordpair{2}{0} \;\\
+  \textsf{s}_{6} = \ordpair{0}{3} \;  \textsf{s}_{7} = \ordpair{1}{2}  \;
+  \textsf{s}_{8} = \ordpair{2}{1} \;  \textsf{s}_{9} = \ordpair{3}{0}  \;
+  \\
+  \textsf{s}_{10} = \ordpair{0}{4} \;  \textsf{s}_{11} = \ordpair{1}{3}  \;
+  \textsf{s}_{12} = \ordpair{2}{2} \;  \textsf{s}_{13} = \ordpair{3}{1}  \;
+  \textsf{s}_{14} = \ordpair{4}{0} \;
+  \\
+  \textsf{s}_{15} = \ordpair{0}{5} \;  \textsf{s}_{16} = \ordpair{1}{4}  \;
+  \textsf{s}_{17} = \ordpair{2}{3} \;  \textsf{s}_{18} = \ordpair{3}{2}  \;
+  \textsf{s}_{19} = \ordpair{4}{1} \;  \textsf{s}_{20} = \ordpair{5}{0}  \;
+  \\
+  \ldots \;  \ldots  \;  \ldots \;  \ldots  \;  \ldots \;  \ldots \; \ldots
+  \; \ldots \;  \ldots  \;  \ldots \;  \ldots  \;  \ldots \;  \ldots \;
+  \ldots \; \ldots \;  \ldots  \;  \ldots \;  \ldots  \;  \ldots \;  \ldots
+  \; \ldots \;
+\end{multline*}
+
+
+	La primera línea corresponde a los pares ordenados de suma $0$. La
+llamaremos grupo $g_0$. Hay $1$ par. $\numeral g_0 = 1$.
+
+
+	La segunda línea corresponde a los pares ordenados de suma $1$. La
+llamaremos grupo $g_1$. Hay $2$ pares. $\numeral g_1 = 2$.
+
+
+	La tercera línea corresponde a los pares ordenados de suma $2$. La
+llamaremos grupo $g_2$. Hay $3$ pares. $\numeral g_2 = 3$.
+
+
+	La cuarta línea corresponde a los pares ordenados de suma $3$. La
+llamaremos grupo $g_3$. Hay $4$ pares. $\numeral g_3 = 4$.
+
+
+	La quinta línea corresponde a los pares ordenados de suma $4$. La
+llamaremos grupo $g_4$. Hay $5$ pares. $\numeral g_4 = 5$.
+
+
+	La sexta línea corresponde a los pares ordenados de suma $5$. La
+llamaremos grupo $g_5$. Hay $6$ pares. $\numeral g_5 = 6$.
+
+
+	La enésima línea corresponde a los pares ordenados de suma $n-1$. La
+llamaremos grupo $g_{n-1}$. Hay $n$ pares. $\numeral g_{n-1} = n$.
+
+
+	¿Cuántos pares ordenados hay desde el principio hasta la sexta línea
+incluida? Habrá $1+2+3+4+5+6 = \numeral g_0 + \numeral g_1 + \numeral g_2 +
+\numeral g_3 + \numeral g_4 + \numeral g_5$ pares ordenados, esto es, $6
+\cdot 7 / 2 \; = \; 21$ pares ordenados (para incluir el grupo de suma
+$\numeral g_5 = 6$), según una conocida fórmula de las sumas de los primeros
+$\nu$ números: $1+2+\ldots+\nu \; = \; \nu \cdot (\nu + 1) / 2$. Aplicada a
+los grupos de misma suma, $\numeral g_0 = 1$ par ordenado, para el índice
+$0$, para los dos primeros grupos $g_0 , g_1$ tenemos $2\cdot 3/ 2 = 3$ pares
+ordenados en total, comenzando por el índice $0$ del $g_0$, y los índices $1$
+y $2$ para el grupo $g_1$. Para los tres primeros grupos $g_0, g_1, g_2$
+tenemos $3\cdot 4 / 2 = 6$, dónde el grupo $g_2$ va desde el índice $3$ hasta
+el $5$. Y, en general, para los $\nu$ primeros grupos, tenemos $(\nu + 1)
+\cdot (\nu + 2)/2$ elementos de la serie en total, siendo el grupo $g_{\nu}$
+el que va del índice $\nu \cdot \left(\nu + 1\right) / 2$ hasta el $\nu \cdot
+\left(\nu + 3\right) / 2$.
+
+
+	Conociendo esto podemos calcular para cada $g_{\nu}$ cuál es el índice
+mayor y el menor del grupo. El índice menor del grupo será: $\nu \cdot (\nu +
+1) / 2$ y el mayor $(\nu + 3) \cdot \nu / 2$. Así un índice $\iota$
+cualquiera de $\setN$ estará en un grupo $g_{\nu}$, de forma que
+
+
+$$
+\nu \cdot (\nu + 1) / 2 \leq \iota \leq \nu \cdot (\nu + 3) / 2
+$$,
+
+
+	y de esta desigualdad, multiplicando por $2$,
+
+
+$$
+{\nu}^2 + {\nu} \leq 2 \cdot \iota \leq {\nu}^2 + 3 \cdot \nu
+$$. 
+
+
+	De aquí saldrán dos ecuaciones:
+
+
+$$
+{\nu}^2 + {\nu} - 2 \cdot \iota = 0
+$$ y 
+$$
+{\nu}^2 + 3 \cdot {\nu} - 2 \cdot \iota = 0
+$$.
+
+
+	Que son sencillas ecuaciones cuadráticas, con soluciones que deben ser
+positivas y enteras:
+
+
+$$
+\functat{{\nu}_{\min}}{\iota} =
+\left\lfloor\frac{\sqrt{1+8\cdot\iota}-1}{2}\right\rfloor
+$$ y 
+$$
+\functat{{\nu}_{\max}}{\iota} =
+\left\lceil\frac{\sqrt{9+8\cdot\iota}-3}{2}\right\rceil
+$$.
+
+
+	Hagamos unos pocos cálculos:
+
+
+Cálculos para $\iota = 0$:
+
+
+$\functat{{\nu}_{\min}}{0} =
+\left\lfloor\frac{\sqrt{1+8\cdot 0}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{1}-1}{2}\right\rfloor =
+\left\lfloor\frac{0}{2}\right\rfloor =
+\left\lfloor{0}\right\rfloor = 0
+$
+
+
+$\functat{{\nu}_{\max}}{0} =
+\left\lceil\frac{\sqrt{9+8\cdot 0}-3}{2}\right\rceil =
+\left\lceil\frac{0}{2}\right\rceil =
+\left\lceil{0}\right\rceil = 0
+$
+
+
+$\functat{{\nu}_{\min}}{0} = 0$ y $\functat{{\nu}_{\max}}{0} = 0$
+
+
+Cálculos para $\iota = 1$:
+
+
+$\functat{{\nu}_{\min}}{1} =
+\left\lfloor\frac{\sqrt{1+8\cdot 1}-1}{2}\right\rfloor =
+\left\lfloor\frac{2}{2}\right\rfloor =
+\left\lfloor{1}\right\rfloor = 1
+$
+
+
+$\functat{{\nu}_{\max}}{1} =
+\left\lceil\frac{\sqrt{9+8\cdot 1}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{17}-3}{2}\right\rceil =
+\left\lceil\frac{1.123...}{2}\right\rceil =
+\left\lceil{0.56...}\right\rceil = 1
+$
+
+
+$\functat{{\nu}_{\min}}{1} = 1$ y $\functat{{\nu}_{\max}}{1} = 1$
+
+
+Cálculos para $\iota = 2$:
+
+
+$\functat{{\nu}_{\min}}{2} =
+\left\lfloor\frac{\sqrt{1+8\cdot 2}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{17}-1}{2}\right\rfloor =
+\left\lfloor\frac{2.12310...}{2}\right\rfloor =
+\left\lfloor{1.06155...}\right\rfloor = 1
+$
+
+
+$\functat{{\nu}_{\max}}{2} =
+\left\lceil\frac{\sqrt{9+8\cdot 2}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{25}-3}{2}\right\rceil =
+\left\lceil{1}\right\rceil = 1
+$
+
+
+$\functat{{\nu}_{\min}}{2} = 1$ y $\functat{{\nu}_{\max}}{2} = 1$
+
+
+Cálculos para $\iota = 3$:
+
+
+$\functat{{\nu}_{\min}}{3} =
+\left\lfloor\frac{\sqrt{1+8\cdot 3}-1}{2}\right\rfloor =
+\left\lfloor\frac{4}{2}\right\rfloor =
+\left\lfloor{2}\right\rfloor = 2
+$
+
+
+$\functat{{\nu}_{\max}}{3} =
+\left\lceil\frac{\sqrt{9+8\cdot 3}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{33}-3}{2}\right\rceil =
+\left\lceil\frac{2.7445...}{2}\right\rceil =
+\left\lceil{1.3722...}\right\rceil = 2
+$
+
+
+$\functat{{\nu}_{\min}}{3} = 2$ y $\functat{{\nu}_{\max}}{3} = 2$
+
+
+Cálculos para $\iota = 4$:
+
+
+$\functat{{\nu}_{\min}}{4} =
+\left\lfloor\frac{\sqrt{1+8\cdot 4}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{33}-1}{2}\right\rfloor =
+\left\lfloor\frac{4.7445...}{2}\right\rfloor =
+\left\lfloor{2.372...}\right\rfloor = 2
+$
+
+
+$\functat{{\nu}_{\max}}{4} =
+\left\lceil\frac{\sqrt{9+8\cdot 4}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{41}-3}{2}\right\rceil =
+\left\lceil\frac{3.4031...}{2}\right\rceil =
+\left\lceil{1.7015...}\right\rceil = 2
+$
+
+
+$\functat{{\nu}_{\min}}{4} = 2$ y $\functat{{\nu}_{\max}}{4} = 2$
+
+
+Cálculos para $\iota = 5$:
+
+
+$\functat{{\nu}_{\min}}{5} =
+\left\lfloor\frac{\sqrt{1+8\cdot 5}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{41}-1}{2}\right\rfloor =
+\left\lfloor\frac{5.403...}{2}\right\rfloor =
+\left\lfloor{2.701...}\right\rfloor = 2
+$
+
+
+$\functat{{\nu}_{\max}}{5} =
+\left\lceil\frac{\sqrt{9+8\cdot 5}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{49}-3}{2}\right\rceil =
+\left\lceil{2}\right\rceil = 2
+$
+
+
+$\functat{{\nu}_{\min}}{5} = 2$ y $\functat{{\nu}_{\max}}{5} = 2$
+
+
+Cálculos para $\iota = 6$:
+
+
+$\functat{{\nu}_{\min}}{6} =
+\left\lfloor\frac{\sqrt{1+8\cdot 6}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{49}-1}{2}\right\rfloor =
+\left\lfloor{3}\right\rfloor = 3
+$
+
+
+$\functat{{\nu}_{\max}}{6} =
+\left\lceil\frac{\sqrt{9+8\cdot 5}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{57}-3}{2}\right\rceil =
+\left\lceil\frac{4.5498...}{2}\right\rceil =
+\left\lceil{2.2749...}\right\rceil = 3
+$
+
+
+$\functat{{\nu}_{\min}}{6} = 3$ y $\functat{{\nu}_{\max}}{6} = 3$
+
+
+Cálculos para $\iota = 7$:
+
+
+$\functat{{\nu}_{\min}}{7} =
+\left\lfloor\frac{\sqrt{1+8\cdot 7}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{57}-1}{2}\right\rfloor =
+\left\lfloor\frac{6.5498...}{2}\right\rfloor =
+\left\lfloor{3.2749...}\right\rfloor = 3
+$
+
+
+$\functat{{\nu}_{\max}}{7} =
+\left\lceil\frac{\sqrt{9+8\cdot 7}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{65}-3}{2}\right\rceil =
+\left\lceil\frac{5.06225...}{2}\right\rceil =
+\left\lceil{2.5311...}\right\rceil = 3
+$
+
+
+$\functat{{\nu}_{\min}}{7} = 3$ y $\functat{{\nu}_{\max}}{7} = 3$
+
+
+Cálculos para $\iota = 8$:
+
+
+$\functat{{\nu}_{\min}}{8} =
+\left\lfloor\frac{\sqrt{1+8\cdot 8}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{65}-1}{2}\right\rfloor =
+\left\lfloor\frac{7.0622...}{2}\right\rfloor =
+\left\lfloor{3.5311...}\right\rfloor = 3
+$
+
+
+$\functat{{\nu}_{\max}}{8} =
+\left\lceil\frac{\sqrt{9+8\cdot 8}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{73}-3}{2}\right\rceil =
+\left\lceil\frac{5.544...}{2}\right\rceil =
+\left\lceil{2.772...}\right\rceil = 3
+$
+
+
+$\functat{{\nu}_{\min}}{8} = 3$ y $\functat{{\nu}_{\max}}{8} = 3$
+
+
+Cálculos para $\iota = 9$:
+
+
+$\functat{{\nu}_{\min}}{9} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 9}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{73}-1}{2}\right\rfloor =
+\left\lfloor\frac{7.0622...}{2}\right\rfloor =
+\left\lfloor{3.5311...}\right\rfloor = 3
+$
+
+
+$\functat{{\nu}_{\max}}{9} =
+\left\lceil\frac{\sqrt{9+8\cdot 9}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{81}-3}{2}\right\rceil =
+\left\lceil{3}\right\rceil = 3
+$
+
+
+$\functat{{\nu}_{\min}}{9} = 3$ y $\functat{{\nu}_{\max}}{9} = 3$
+
+
+Cálculos para $\iota = 10$:
+
+
+$\functat{{\nu}_{\min}}{10} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 10}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{81}-1}{2}\right\rfloor =
+\left\lfloor{4}\right\rfloor = 4
+$
+
+
+$\functat{{\nu}_{\max}}{10} =
+\left\lceil\frac{\sqrt{9+8\cdot 10}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{89}-3}{2}\right\rceil =
+\left\lceil\frac{6.433...}{2}\right\rceil =
+\left\lceil{3.216...}\right\rceil = 4
+$
+
+
+$\functat{{\nu}_{\min}}{10} = 4$ y $\functat{{\nu}_{\max}}{10} = 4$
+
+
+Cálculos para $\iota = 11$:
+
+
+$\functat{{\nu}_{\min}}{11} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 11}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{89}-1}{2}\right\rfloor =
+\left\lfloor\frac{8.433...}{2}\right\rfloor =
+\left\lfloor{4.416...}\right\rfloor = 4
+$
+
+
+$\functat{{\nu}_{\max}}{11} =
+\left\lceil\frac{\sqrt{9+8\cdot 11}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{97}-3}{2}\right\rceil =
+\left\lceil\frac{6.8488...}{2}\right\rceil =
+\left\lceil{3.4244...}\right\rceil = 4
+$
+
+
+$\functat{{\nu}_{\min}}{11} = 4$ y $\functat{{\nu}_{\max}}{11} = 4$
+
+
+Cálculos para $\iota = 12$:
+
+
+$\functat{{\nu}_{\min}}{12} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 12}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{97}-1}{2}\right\rfloor =
+\left\lfloor\frac{8.8488...}{2}\right\rfloor =
+\left\lfloor{4.4244...}\right\rfloor = 4
+$
+
+
+$\functat{{\nu}_{\max}}{12} =
+\left\lceil\frac{\sqrt{9+8\cdot 12}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{105}-3}{2}\right\rceil =
+\left\lceil\frac{7.24695...}{2}\right\rceil =
+\left\lceil{3.623475...}\right\rceil = 4
+$
+
+
+$\functat{{\nu}_{\min}}{12} = 4$ y $\functat{{\nu}_{\max}}{12} = 4$
+
+
+Cálculos para $\iota = 13$:
+
+
+$\functat{{\nu}_{\min}}{13} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 13}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{105}-1}{2}\right\rfloor =
+\left\lfloor\frac{9.24695...}{2}\right\rfloor =
+\left\lfloor{4.6234...}\right\rfloor = 4
+$
+
+
+$\functat{{\nu}_{\max}}{13} =
+\left\lceil\frac{\sqrt{9+8\cdot 13}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{113}-3}{2}\right\rceil =
+\left\lceil\frac{7.630...}{2}\right\rceil =
+\left\lceil{3.815...}\right\rceil = 4
+$
+
+
+$\functat{{\nu}_{\min}}{13} = 4$ y $\functat{{\nu}_{\max}}{13} = 4$
+
+
+Cálculos para $\iota = 14$:
+
+
+$\functat{{\nu}_{\min}}{14} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 14}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{113}-1}{2}\right\rfloor =
+\left\lfloor\frac{9.6301...}{2}\right\rfloor =
+\left\lfloor{4.815...}\right\rfloor = 4
+$
+
+
+$\functat{{\nu}_{\max}}{14} =
+\left\lceil\frac{\sqrt{9+8\cdot 14}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{121}-3}{2}\right\rceil =
+\left\lceil{4}\right\rceil = 4
+$
+
+
+$\functat{{\nu}_{\min}}{14} = 4$ y $\functat{{\nu}_{\max}}{14} = 4$
+
+
+Cálculos para $\iota = 15$:
+
+
+$\functat{{\nu}_{\min}}{15} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 15}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{121}-1}{2}\right\rfloor =
+\left\lfloor{5}\right\rfloor = 5
+$
+
+
+$\functat{{\nu}_{\max}}{15} =
+\left\lceil\frac{\sqrt{9+8\cdot 15}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{129}-3}{2}\right\rceil =
+\left\lceil\frac{8.3578...}{2}\right\rceil =
+\left\lceil{4.1789...}\right\rceil = 5
+$
+
+
+$\functat{{\nu}_{\min}}{15} = 5$ y $\functat{{\nu}_{\max}}{15} = 5$
+
+
+	Para el siguiente cálculo daremos un salto, y calcularemos por último $\iota = 20$ y $\iota = 21$:
+
+
+$\functat{{\nu}_{\min}}{20} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 20}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{161}-1}{2}\right\rfloor =
+\left\lfloor\frac{11.688...}{2}\right\rfloor =
+\left\lfloor{5.844...}\right\rfloor = 5
+$
+
+
+$\functat{{\nu}_{\max}}{20} =
+\left\lceil\frac{\sqrt{9+8\cdot 20}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{169}-3}{2}\right\rceil =
+\left\lceil{5}\right\rceil = 5
+$
+
+
+$\functat{{\nu}_{\min}}{20} = 5$ y $\functat{{\nu}_{\max}}{20} = 5$
+
+
+$\functat{{\nu}_{\min}}{21} =
+\left\lfloor\frac{\sqrt{1+8 \cdot 21}-1}{2}\right\rfloor =
+\left\lfloor\frac{\sqrt{169}-1}{2}\right\rfloor =
+\left\lfloor{6}\right\rfloor = 6
+$
+
+
+$\functat{{\nu}_{\max}}{21} =
+\left\lceil\frac{\sqrt{9+8\cdot 21}-3}{2}\right\rceil =
+\left\lceil\frac{\sqrt{177}-3}{2}\right\rceil =
+\left\lceil\frac{10.3041...}{2}\right\rceil =
+\left\lceil{5.152...}\right\rceil = 6
+$
+
+
+$\functat{{\nu}_{\min}}{21} = 6$ y $\functat{{\nu}_{\max}}{21} = 6$
+
+
+	Después de tanto calcular, no sé si os habréis dado cuenta que no hemos
+demostrado nada: hemos conseguido ver que en los primeros casos nuestras
+fórmulas funcionan bien. Y aunque creemos que van a funcionar siempre no lo
+sabemos.
+
+
+	Para demostrarlo, tendremos que volver a las fórmulas originales e
+intentar ver para qué índices $\iota \in \setN$ podemos calcular mediante las
+fórmulas como permanecen constantes los índices.
+
+
+$$
+\functat{{\nu^\prime}_{\min}}{\iota} =
+\frac{\sqrt{1+8\cdot\iota}-1}{2}
+$$ y 
+$$
+\functat{{\nu^\prime}_{\max}}{\iota} =
+\frac{\sqrt{9+8\cdot\iota}-3}{2} =
+\frac{\sqrt{1+8\cdot\left(\iota + 1\right)}-3}{2}
+$$.
+
+
+	Igualando las dos fórmulas podemos conseguir ver qué valores naturales
+cumplen la igualdad:
+
+
+$$
+\frac{\sqrt{1+8\cdot\iota}-1}{2} =
+\frac{\sqrt{1+8\cdot\left(\iota + 1\right)}-3}{2}
+$$
+$$
+\sqrt{1+8\cdot\iota}-1 =
+\sqrt{1+8\cdot\left(\iota + 1\right)}-3
+$$
+$$
+\sqrt{1+8\cdot\iota} =
+\sqrt{1+8\cdot\left(\iota + 1\right)}-2
+$$
+$$
+{1+8\cdot\iota} = {1+8\cdot\left(\iota + 1\right)} + 4 - 4 \cdot
+\sqrt{1+8\cdot\left(\iota + 1\right)}
+$$
+$$
+0 = 12 - 4 \cdot \sqrt{1+8\cdot\left(\iota + 1\right)}
+$$
+$$
+3 = \sqrt{1+8\cdot\left(\iota + 1\right)}
+$$
+$$
+9 = {1+8\cdot\left(\iota + 1\right)}
+$$
+$$
+\iota = 0
+$$
+
+
+	Como era de esperar, ya que exigimos la igualdad en $\setR$. Así que
+intentaremos acotar la diferencia cuanto dos índices distintos toman
+diferencias menores que $1$ y mayores que $0$:
+
+
+$$
+\imath > \jmath
+$$
+
+
+$$
+0 < 
+    \frac{\sqrt{1+8\cdot\imath}-1}{2}
+    -
+    \frac{\sqrt{1+8\cdot\jmath}-1}{2}
+< 1
+$$
+
+
+	Multiplicando por $2$, cancelando los términos iguales $-1$ en ambos lados de la igualdad:
+
+
+$$
+\imath > \jmath
+$$
+
+
+$$
+0 < \sqrt{1+8\cdot\imath}-\sqrt{1+8\cdot\jmath} < 2
+$$
+
+
+	Elevando al cuadrado todos los términos:
+
+
+$$
+0 <
+1 + 8 \cdot \imath + 1 + 8 \cdot \jmath -
+2 \cdot \sqrt{ 1 + 8 \cdot \imath } \cdot \sqrt{ 1 + 8 \cdot \jmath }
+< 4
+$$
+$$
+0 <
+1 + 4 \cdot \left(\imath + \jmath\right) -
+\sqrt{ 1 + 8 \cdot \imath } \cdot \sqrt{ 1 + 8 \cdot \jmath }
+< 2
+$$
+$$
+-1 <
+4 \cdot \left(\imath + \jmath\right) -
+\sqrt{ 1 + 8 \cdot \imath } \cdot \sqrt{ 1 + 8 \cdot \jmath }
+< 1
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	Lo más interesante es que a partir del índice $\iota$ de $\setN^{0}$, el
+elemento de la serie $\textsf{s}{\left({\iota}\right)}$ podemos calcular su
+grupo $g_{\nu}$ y de ahí el mínimo y el máximo índice de su grupo.
+
+
+	En general para suma $n$ tenemos $n+1$ elementos de la serie, supongamos
+que nos encontramos en $\textsf{s}_{m-1}$. Entonces tendremos
+$\textsf{s}_{m}=\ordpair{0}{m+1}$, $\textsf{s}_{m+1}=\ordpair{1}{m}$, ...,
+$\textsf{s}_{m+n}=\ordpair{n}{m+1-n}$.
+
+
+
+Así que nuestro único problema es encontrar la $l$ que anteriormente hemos
+mencionado en la serie.
+
+\newcommand {\mmin}[1]{l^{\min}_{#1}}
+\newcommand {\mmax}[1]{l^{\max}_{#1}}
+$$
+\begin{matrix}
+i = 1           & \mmin{1} = 1                & \mmax{1} = 1 \\
+i = 2, 3        & \mmin{2} = \mmin{1} + 1 = 2 & \mmax{2} = \mmin{1} + 2 =  3
+\\
+i = 4, 5, 6     & \mmin{3} = \mmin{2} + 2 = 4 & \mmax{3} = \mmin{2} + 3 =  6
+\\
+i = 7, 8, 9, 10 & \mmin{4} = \mmin{3} + 3 = 7 & \mmax{4} = \mmin{3} + 4 = 10
+\\
+\ldots          & \ldots         & \ldots\\
+i = \mmin{k-1}, ..., \mmin{k-1}+{k-1} & \mmin{k} = \mmin{k-1} + {k-1} &
+\mmax{k} = \mmin{k-1} + k \\
+\ldots & \ldots & \ldots
+\end{matrix}
+$$
+
+
+	Ahora podemos tener una formulita para las $m_{\iota}$. $m_{\iota} =
+m_{\iota - 1} + n_{\iota} = m_{\iota - 1} + \iota$. A este tipo de fórmulas
+se les llama recursivas, y son muy importantes en programación y
+computadores.
+
+
+	La fórmula anterior, que parte de $m_1 = 2$ y $m_{\iota} = m_{\iota - 1}
++ \iota$, se puede poner como $m_1 = 1 + 1$, $m_2 = 2 + 2 = 4$, $m_3 = 4 + 3
+= 7$, $m_4 = 7 + 4 = 11$, $m_{\kappa} = m_1 + n_2 + n_3 + \ldots +
+n_{\kappa}$, $m_{\kappa} = 2 + 2 + 3 + \ldots + \kappa$,
+$$
+m_{\kappa} = 1 + (1 + 2 + 3 + 4 + \ldots + \kappa) = 1 + \frac{\kappa \cdot
+\left({\kappa + 1}\right)}{2}
+$$
+
+
+	¿Para qué nos sirve esa fórmula? Supongamos que tenemos la fracción
+$\frac{l}{n}$. Sabemos que esta en un segmento la $m = l + n$. Su índice será
+$\frac{(l+n-1)(l+n)}{2}+l$. Así, $\frac{l}{n}$ ocupa el lugar $1 +
+\frac{\kappa \cdot \left({\kappa + 1}\right)}{2}$ en la serie que estamos
+formando.
+
+$$
+\functat{\iota}{\frac{l}{m}} = {1 + l + \frac{\left(l+m-1\right)
+\cdot \left(l+m\right)}{2}}
+$$
+
+
+
+
+
+
+
+
+
+
+
+	% ----------------------------------------------------------------
+	%\bibliographystyle{amsplain}
+	%\bibliography{}
+\end{document}
+% ----------------------------------------------------------------

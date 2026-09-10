@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfenced open="[" close="]"><mtable><mtr><mtd><mrow><mo stretchy="false">+</mo></mrow></mtd><mtd><mn>0</mn></mtd><mtd><mo stretchy="false">α</mo></mtd><mtd><mo stretchy="false">β</mo></mtd><mtd><mo stretchy="false">γ</mo></mtd><mtd><mo stretchy="false">δ</mo></mtd><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>0</mn></mtd><mtd><mo stretchy="false">α</mo></mtd><mtd><mo stretchy="false">β</mo></mtd><mtd><mo stretchy="false">γ</mo></mtd><mtd><mo stretchy="false">δ</mo></mtd><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">α</mo></mtd><mtd><mo stretchy="false">α</mo></mtd><mtd><mo stretchy="false">α</mo></mtd><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>c</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">β</mo></mtd><mtd><mo stretchy="false">β</mo></mtd><mtd><mi>a</mi></mtd><mtd><mo stretchy="false">β</mo></mtd><mtd><mi>d</mi></mtd><mtd><mi>e</mi></mtd><mtd><mi>a</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mi>d</mi></mtd><mtd><mi>e</mi></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">γ</mo></mtd><mtd><mo stretchy="false">γ</mo></mtd><mtd><mi>b</mi></mtd><mtd><mi>d</mi></mtd><mtd><mo stretchy="false">γ</mo></mtd><mtd><mi>f</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mi>b</mi></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mi>f</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">δ</mo></mtd><mtd><mo stretchy="false">δ</mo></mtd><mtd><mi>c</mi></mtd><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd><mtd><mo stretchy="false">δ</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mi>c</mi></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mi>e</mi></mtd><mtd><mi>f</mi></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mi>a</mi></mtd><mtd><mi>a</mi></mtd><mtd><mi>a</mi></mtd><mtd><mi>a</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mi>a</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mi>b</mi></mtd><mtd><mi>b</mi></mtd><mtd><mi>b</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mi>b</mi></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mi>b</mi></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>c</mi></mtd><mtd><mi>c</mi></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mi>c</mi></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mi>c</mi></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mi>d</mi></mtd><mtd><mi>d</mi></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mi>d</mi></mtd><mtd><mi>d</mi></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mi>d</mi></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mi>e</mi></mtd><mtd><mi>e</mi></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mi>e</mi></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mi>e</mi></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mi>e</mi></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mi>f</mi></mtd><mtd><mi>f</mi></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mi>f</mi></mtd><mtd><mi>f</mi></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mi>f</mi></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Α</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Β</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Γ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mo stretchy="false">Δ</mo></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr></mtable></mfenced><annotation encoding="StarMath 5.0">{ left [ { 
+matrix{ 
+
+{ { { { } + { } } } } # 
+{ 0 } # 
+{ %alpha } # { %beta } # { %gamma } # { %delta } # 
+{ a } # { b } # { c } # { d } # { e } # { f } # 
+{ %ALPHA } # { %BETA } # { %GAMMA } # { %DELTA } # 
+{ 1 } ##
+ 
+{ 0 } # 
+{ 0 } # 
+{ %alpha } # { %beta } # { %gamma } # { %delta } # 
+{ a } # { b } # { c } # { d } # { e } # { f } # 
+{ %ALPHA } # { %BETA } # { %GAMMA } # { %DELTA } # 
+{ 1 } ## 
+
+{ %alpha } # 
+{ %alpha } # 
+{ %alpha } # { a } # { b } # { c } # 
+{ a } # { b } # { c } # { %ALPHA } # { %BETA } # { %GAMMA } # 
+{ %ALPHA } # { %BETA } # { %GAMMA } # { 1 } # 
+{ 1 } ## 
+
+{ %beta } # 
+{ %beta } # 
+{ a } # { %beta } # { d } # { e } # 
+{ a } # { %ALPHA } # { %BETA } # { d } # { e } # { %DELTA } # 
+{ %ALPHA } # { %BETA } # { 1 } # { %DELTA } # 
+{ 1 } ##
+ 
+{ %gamma } # 
+{ %gamma } # 
+{ b } # { d } # { %gamma } # { f } # 
+{ %ALPHA } # { b } # { %BETA } # { %GAMMA } # { %DELTA } # { f } # 
+{ %ALPHA } # { 1 } # { %GAMMA } # { %DELTA } # 
+{ 1 } ##
+ 
+{ %delta } # 
+{ %delta } # 
+{ c } # { e } # { f } # { %delta } # 
+{ %BETA } # { %GAMMA } # { c } # { %DELTA } # { e } # { f } # 
+{ 1 } # { %BETA } # { %GAMMA } # { %DELTA } # 
+{ 1 } ##
+ 
+{ a } # 
+{ a } # 
+{ a } # { a } # { %ALPHA } # { %BETA } # 
+{ a } # { %ALPHA } # { %BETA } # { %ALPHA } # { %DELTA } # { 1 } # 
+{ %ALPHA } # { %BETA } # { 1 } # { 1 } # 
+{ 1 } ##
+ 
+{ b } # 
+{ b } # 
+{ b } # { %ALPHA } # { b } # { %GAMMA } # 
+{ %ALPHA } # { b } # { %BETA } # { %ALPHA } # { 1 } # { %GAMMA } # 
+{ %ALPHA } # { 1 } # { %GAMMA } # { 1 } # 
+{ 1 } ##
+ 
+{ c } # 
+{ c } # 
+{ c } # { %BETA } # { %GAMMA } # { c } # 
+{ %BETA } # { %GAMMA } # { c } # { 1 } # { %BETA } # { %GAMMA } # 
+{ 1 } # { %BETA } # { 1 } # { %DELTA } # 
+{ 1 } ##
+ 
+{ d } # 
+{ d } # 
+{ %ALPHA } # { d } # { d } # { %DELTA } # 
+{ %ALPHA } # { %ALPHA } # { 1 } # { d } # { %DELTA } # { %DELTA } # 
+{ %ALPHA } # { 1 } # { 1 } # { %DELTA } # 
+{ 1 } ##
+ 
+{ e } # 
+{ e } # 
+{ %BETA } # { e } # { %DELTA } # { e } # 
+{ %BETA } # { 1 } # { %BETA } # { %DELTA } # { e } # { %DELTA } # 
+{ 1 } # { %BETA } # { 1 } # { %DELTA } # 
+{ 1 } ##
+ 
+{ f } # 
+{ f } # 
+{ %GAMMA } # { %DELTA } # { f } # { f } # 
+{ 1 } # { %GAMMA } # { %GAMMA } # { %DELTA } # { %DELTA } # { f } # 
+{ 1 } # { 1 } # { %GAMMA } # { %DELTA } # 
+{ 1 } ##
+
+{ %ALPHA } # 
+{ %ALPHA } # 
+{ %ALPHA } # { %ALPHA } # { %ALPHA } # { 1 } # 
+{ %ALPHA } # { %ALPHA } # { 1 } # { %ALPHA } # { 1 } # { 1 } # 
+{ %ALPHA } # { 1 } # { 1 } # { 1 } # 
+{ 1 } ##
+ 
+{ %BETA } # 
+{ %BETA } # 
+{ %BETA } # { %BETA } # { 1 } # { %BETA } # 
+{ %BETA } # { 1 } # { %BETA } # { 1 } # { %BETA } # { 1 } # 
+{ 1 } # { %BETA } # { 1 } # { 1 } # 
+{ 1 } ## 
+
+{ %GAMMA } # 
+{ %GAMMA } # 
+{ %GAMMA } # { 1 } # { %GAMMA } # { %GAMMA } # 
+{ 1 } # { %GAMMA } # { %GAMMA } # { 1 } # { 1 } # { %GAMMA } # 
+{ 1 } # { 1 } # { %GAMMA } # { 1 } # 
+{ 1 } ##
+ 
+{ %DELTA } # 
+{ %DELTA } # 
+{ 1 } # { %DELTA } # { %DELTA } # { %DELTA } # 
+{ 1 } # { 1 } # { 1 } # { %DELTA } # { %DELTA } # { %DELTA } # 
+{ 1 } # { 1 } # { 1 } # { %DELTA } # 
+{ 1 } ##
+
+{ 1 } # 
+{ 1 } # 
+{ 1 } # { 1 } # { 1 } # { 1 } # 
+{ 1 } # { 1 } # { 1 } # { 1 } # { 1 } # { 1 } # 
+{ 1 } # { 1 } # { 1 } # { 1 } # 
+{ 1 } 
+
+} 
+} right ] } 
+</annotation></semantics></math>

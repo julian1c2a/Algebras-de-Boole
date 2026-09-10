@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow><mrow><mrow><mrow><mrow><mi>Y</mi><mo stretchy="false">+</mo><mi>X</mi></mrow><mo stretchy="false">=</mo><mrow><mi>Y</mi><mo stretchy="false">∪</mo><mi>X</mi></mrow></mrow><mo stretchy="false">=</mo><mrow><mrow><mo stretchy="false">(</mo><mrow><mrow><mi>U</mi><mo stretchy="false">∖</mo><mi>X</mi></mrow></mrow><mo stretchy="false">)</mo></mrow><mo stretchy="false">∪</mo><mi>X</mi></mrow></mrow><mo stretchy="false">=</mo><mi>U</mi></mrow><mo stretchy="false">=</mo><mn>1</mn></mrow></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
+Y + X = Y union X = (U setminus X) union X = U = 1
+}</annotation></semantics></math>

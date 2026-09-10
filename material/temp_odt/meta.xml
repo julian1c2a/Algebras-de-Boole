@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<office:document-meta xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:grddl="http://www.w3.org/2003/g/data-view#" office:version="1.2"><office:meta><meta:creation-date>2011-06-15T09:50:53</meta:creation-date><dc:date>2014-09-27T15:40:37.204000000</dc:date><meta:editing-duration>P12DT8H48M20S</meta:editing-duration><meta:editing-cycles>663</meta:editing-cycles><meta:generator>LibreOffice/4.3.1.2$Windows_x86 LibreOffice_project/958349dc3b25111dbca392fbc281a05559ef6848</meta:generator><dc:description>
+
+%%% OOoLatex Preamble %%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[usenames]{color}
+%\definecolor{myColor}{RGB}{0,128,255}
+%\pagecolor{white}\color{myColor}
+%%% End OOoLatex Preamble %%%%%%%%%%%%
+
+%%% OOoLatex Configuration %%%%%%%%%%%%
+GraphicDPI=600
+BaseLine=61740
+FileFormat=png
+Transparent=1
+Crop=1
+###
+ImpressCharSize=28
+ImpressEquationType=display
+WriterCharSize=12
+WriterEquationType=inline
+DisplayTopMargin=150
+DisplayBottomMargin=100
+%%% End OOoLatex Configuration %%%%%%%%%%</dc:description><dc:title>Fundamentos_de_Electronica_Parte_Digital</dc:title><dc:subject>Electrónica Digital y Fundamentos de Matemática Discreta.</dc:subject><meta:document-statistic meta:table-count="4" meta:image-count="0" meta:object-count="2204" meta:page-count="79" meta:paragraph-count="1815" meta:word-count="15305" meta:character-count="87188" meta:non-whitespace-character-count="72962"/><meta:user-defined meta:name="Información 1"/><meta:user-defined meta:name="Información 2"/><meta:user-defined meta:name="Información 3"/><meta:user-defined meta:name="Información 4"/><meta:auto-reload xlink:href="" meta:delay="PT1S"/></office:meta></office:document-meta>

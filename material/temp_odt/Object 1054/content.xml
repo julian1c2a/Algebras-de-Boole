@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="false">∀</mo><mrow><mi>X</mi><mo stretchy="false">∈</mo><mo stretchy="false">@</mo></mrow><mi>U</mi><mi/><mo stretchy="false">⇒</mo><mi/><mo stretchy="false">∃</mo><mi>Y</mi><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mrow><mi>U</mi><mo stretchy="false">∖</mo><mi>X</mi></mrow></mrow></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
+forall X in %partesde U `` drarrow `` exists Y:=U setminus X 
+}</annotation></semantics></math>

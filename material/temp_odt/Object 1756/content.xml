@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mn>1</mn><mo stretchy="false">B</mo></msub><mrow><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mi>T</mi></mrow><mo stretchy="false">≡</mo><mstyle mathvariant="bold"><mrow><mi mathvariant="italic">true</mi></mrow></mstyle></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
+ {{1_{%setB}} := T equiv bold{true}} 
+}</annotation></semantics></math>

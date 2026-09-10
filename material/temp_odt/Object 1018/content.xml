@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mfenced open="(" close=")"><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mi>a</mi></mtd><mtd><mi>c</mi></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mi>b</mi></mtd><mtd><mi>d</mi></mtd></mtr></mtable></mfenced><mo stretchy="false">⋅</mo><mfenced open="(" close=")"><mtable><mtr><mtd><mn>1</mn></mtd><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mn>0</mn></mtd><mtd><mn>1</mn></mtd><mtd><mn>1</mn></mtd></mtr><mtr><mtd><mi>a</mi></mtd><mtd><mi>b</mi></mtd><mtd><mrow><mi>a</mi><mo stretchy="false">⊕</mo><mi>b</mi></mrow></mtd></mtr><mtr><mtd><mi>c</mi></mtd><mtd><mi>d</mi></mtd><mtd><mrow><mi>c</mi><mo stretchy="false">⊕</mo><mi>d</mi></mrow></mtd></mtr></mtable></mfenced></mrow><mo stretchy="false">=</mo></mrow><annotation encoding="StarMath 5.0">alignl 
+{left({
+matrix{1#0#{a}#{c}##0#1#{b}#{d}}
+}right)}
+cdot
+{left({
+matrix{{1}#{0}#{1}##{0}#{1}#{1}##{a}#{b}#{a %exor b}##{c}#{d}#{c %exor d}}
+}right)}
+={}</annotation></semantics></math>

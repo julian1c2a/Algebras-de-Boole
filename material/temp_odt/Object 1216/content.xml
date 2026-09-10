@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mrow><mi>B</mi><mo stretchy="false">+</mo><mi>A</mi></mrow><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo></mrow></mrow><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mo stretchy="false">⟦</mo><mrow><mrow><msubsup><mi>a</mi><mn>1</mn><mi>A</mi></msubsup><mi>,</mi><msubsup><mi>b</mi><mn>1</mn><mi>B</mi></msubsup></mrow><mi>,</mi><mrow><msubsup><mi>a</mi><mn>2</mn><mi>B</mi></msubsup><mi>,</mi><msubsup><mi>b</mi><mn>2</mn><mi>B</mi></msubsup></mrow><mi>,</mi><mo stretchy="false">…</mo><mi>,</mi><mrow><msubsup><mi>a</mi><mi>n</mi><mi>B</mi></msubsup><mi>,</mi><msubsup><mi>b</mi><mi>n</mi><mi>B</mi></msubsup></mrow></mrow><mo stretchy="false">⟧</mo></mrow></mtd><mtd><mo stretchy="false">⇐</mo></mtd><mtd><mfenced open="{" close="}"><mtable><mtr><mtd><mrow><mi>m</mi><mo stretchy="false">=</mo><mn>1</mn></mrow></mtd></mtr><mtr><mtd><mrow><msubsup><mi>a</mi><mn>1</mn><mi>A</mi></msubsup><mo stretchy="false">≤</mo><msubsup><mi>a</mi><mn>1</mn><mi>B</mi></msubsup></mrow></mtd></mtr><mtr><mtd><mrow><msubsup><mi>b</mi><mn>1</mn><mi>A</mi></msubsup><mo stretchy="false">≥</mo><msubsup><mi>a</mi><mn>1</mn><mi>B</mi></msubsup></mrow></mtd></mtr><mtr><mtd><mrow><msubsup><mi>b</mi><mn>1</mn><mi>A</mi></msubsup><mo stretchy="false">≤</mo><msubsup><mi>b</mi><mn>1</mn><mi>B</mi></msubsup></mrow></mtd></mtr></mtable></mfenced></mtd></mtr></mtable></mfenced></mrow><annotation encoding="StarMath 5.0">
+alignl {
+
+{ B + A :={} }
+
+{left lbrace{
+ 
+matrix{
+{ ldbracket {
+  { 
+		{ a rsup A rsub 1 , b rsup B rsub 1 } 
+  } ,
+  { 
+		{ a rsup B rsub 2 , b rsup B rsub 2 } 
+  } ,
+  dotslow , 
+  { 
+  		{ a rsup B rsub n , b rsup B rsub n } 
+  } 
+} rdbracket } # 
+{ dlarrow }   # 
+{ left lbrace { 
+	stack{ 
+		m =1 # 
+		{ a rsup A rsub 1 &lt;= a rsup B rsub 1 } #  
+		{ b rsup A rsub 1 &gt;= a rsup B rsub 1 } #
+		{ b rsup A rsub 1 &lt;= b rsup B rsub 1 } 
+   }
+} right rbrace }
+} 
+} right rbrace } 
+}
+
+</annotation></semantics></math>

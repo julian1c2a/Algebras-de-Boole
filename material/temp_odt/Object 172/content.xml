@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mtext>                </mtext><mo stretchy="false">=</mo><mi>a</mi></mrow><mo stretchy="false">⊕</mo><mrow><mo stretchy="false">(</mo><mrow><mi>b</mi><mo stretchy="false">⊕</mo><mi>c</mi></mrow><mo stretchy="false">)</mo></mrow></mrow><annotation encoding="StarMath 5.0">alignl &quot;                &quot; = a %exor ( b %exor c )</annotation></semantics></math>

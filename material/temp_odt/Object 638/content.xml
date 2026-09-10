@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><mrow><msup><mi mathvariant="normal">L</mi><mfenced open="(" close=")"><mrow><mrow><mo stretchy="false">≤</mo><mi mathvariant="normal">n</mi></mrow><mi mathvariant="normal">,</mi><mrow><mo stretchy="false">∗</mo></mrow></mrow></mfenced></msup><mfenced open="(" close=")"><mi mathvariant="normal">A</mi></mfenced></mrow></mrow></mstyle></mrow></mstyle><mrow><mi/><mrow><mstyle mathvariant="monospace"><mrow><mstyle mathvariant="normal"><mrow><mi mathvariant="normal">:</mi></mrow></mstyle></mrow></mstyle><mo stretchy="false">=</mo><mi/></mrow></mrow><mfenced open="{" close="}"><mrow><mrow><mrow><mi>r</mi><mo stretchy="false">∈</mo><msup><mi>L</mi><mrow><mo stretchy="false">∗</mo></mrow></msup></mrow><mfenced open="(" close=")"><mi>A</mi></mfenced></mrow><mrow><mrow><mi/><mo stretchy="false">∣</mo><mi/></mrow></mrow><mi mathvariant="italic">long</mi><mrow><mfenced open="(" close=")"><mi>r</mi></mfenced><mo stretchy="false">≤</mo><mi>n</mi></mrow></mrow></mfenced></mrow><annotation encoding="StarMath 5.0">{
+	font fixed nitalic
+	{
+		L^{left({}&lt;={n},{}*{}right)}
+		{left ( {
+			A } right )}
+	}
+}
+{{}~{font fixed nitalic{:}}=~{}}
+{ left lbrace {
+		{r in L^{{}*{}}{left({ A }right) } }
+	{{}~divides~{}}
+	long { left ( {
+		r	} right ) } &lt;= n } 
+right rbrace }</annotation></semantics></math>

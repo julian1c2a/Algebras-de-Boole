@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mn>0</mn><mo stretchy="false">B</mo></msub><mrow><mrow><mi mathvariant="normal">:</mi><mo stretchy="false">=</mo><mi>F</mi></mrow><mo stretchy="false">≡</mo><mstyle mathvariant="bold"><mrow><mi mathvariant="italic">falso</mi></mrow></mstyle></mrow></mrow><annotation encoding="StarMath 5.0">alignl {
+ {{0_{%setB}} := F equiv bold{falso}} 
+}</annotation></semantics></math>
