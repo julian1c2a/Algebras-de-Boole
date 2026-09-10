@@ -543,7 +543,25 @@ Las ecuaciones obtenidas a partir de las Leyes de De Morgan demuestran que las o
     \[ a \downarrow b = \neg (a \vee b) = \neg a \wedge \neg b \]
 \end{itemize}
 
-\section{Conclusión}
-(Pendiente de redacción).
+\section{Conclusiones y Transición a la Lógica Digital}
+
+Tras haber establecido formalmente la estructura matemática del álgebra de Boole a partir de los postulados de Huntington, y haber demostrado rigurosamente sus propiedades fundamentales operando con la signatura clásica de la teoría de retículos ($\vee, \wedge, \bot, \top$), estamos en disposición de dar el salto al dominio de la ingeniería.
+
+En la electrónica digital, el interés recae de forma exclusiva sobre un modelo concreto de álgebra de Boole: el \textbf{Álgebra de Conmutación de Shannon}. Esta es el álgebra de Boole más sencilla posible, cuyo conjunto subyacente consta únicamente de dos elementos, $\mathbb{B}_2 = \{0, 1\}$. 
+
+A pesar de su aparente simplicidad, el álgebra de $\mathbb{B}_2$ cumple estrictamente todos los postulados de Huntington (y por ende, todos los teoremas que hemos derivado) y está contenida formalmente como subestructura en cualquier otra álgebra de Boole más compleja.
+
+Para adecuar nuestra matemática al diseño de circuitos y sistemas digitales, adoptaremos a partir de ahora la \textbf{notación ingenieril}, realizando el siguiente isomorfismo simbólico sobre nuestras operaciones y constantes:
+\begin{itemize}
+    \item \textbf{Constantes lógicas:} El elemento mínimo $\bot$ (falso) se denotará como \textbf{0} (ó nivel bajo de tensión, $L$). El elemento máximo $\top$ (verdadero) se denotará como \textbf{1} (ó nivel alto de tensión, $H$).
+    \item \textbf{Supremo (Join / Disyunción):} La operación $\vee$ se denotará mediante el operador suma $\mathbf{+}$. En circuitos lógicos, implementa la puerta \textbf{OR}.
+    \item \textbf{Ínfimo (Meet / Conjunción):} La operación $\wedge$ se denotará mediante el operador producto $\mathbf{\cdot}$ (frecuentemente omitido, escribiendo $ab$ en lugar de $a \cdot b$). Implementa la puerta \textbf{AND}.
+    \item \textbf{Complemento (Negación):} La operación de complemento $\neg a$ se denotará convencionalmente colocando una barra superior sobre la variable, $\mathbf{\overline{a}}$, o mediante una comilla $\mathbf{a'}$. Implementa la puerta \textbf{NOT} (inversor).
+\end{itemize}
+
+Esta notación algebraica clásica resulta mucho más ágil y familiar para la manipulación y simplificación de funciones lógicas complejas. Así, teoremas como el de la distributividad se reescriben de forma natural como $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$, y las leyes de De Morgan cobran su célebre forma visual:
+\[ \overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b} \]
+
+Con estos fundamentos matemáticos sólidamente establecidos, la transición hacia el diseño, análisis y simplificación de circuitos digitales queda completamente justificada y carente de ambigüedades.
 
 \end{document}
