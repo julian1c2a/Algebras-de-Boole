@@ -28,7 +28,36 @@ Texto para LaTeX:
 6. \textbf{Distributividad $\wedge$ sobre $\vee$:} $\forall a, b, c \in \mathbb{B}$ se tiene que $a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$. <!-- Nota a Antigravity: poner nota corta del estilo de $Dist_\wedge$ -->
 7. \textbf{Complementario:} $\forall a \in \mathbb{B} \exists b \in \mathbb{B}$ se tiene que $a \vee b = \top$ <!-- Nota a Antigravity: poner nombre corto como $Comp_\vee$ --> y $a \wedge b = \bot$ <!-- Nota a Antigravity: poner nombre corto como $Comp_\wedge$ -->.
 
+   <!-- Nota a Antigravity: En las pruebas vamos a poner la siguiente estructura , cuando se pueda ir en una línea de cálculo de igualdades de una punta a la otra, la estructura será el nuevo término de la igualdad y el axioma usado en esa transformación por línea -->
+
 - Teoremas principales derivados.
+
+Comenzaremos por Idempotencia.
+
+  $\forall a \in \mathbb{B}, \quad a \vee a = a \quad (Idemp_{\vee})$ <!-- La llamaremos Idemp_∨ -->
+
+  $\forall a \in \mathbb{B}, \quad a \wedge a = a \quad (Idemp_{\wedge})$ <!-- La llamaremos Idemp_∧ -->
+
+Unicidad de los elementos neutros.
+
+  $\exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a \vee e = a \Rightarrow e = \bot \quad (Unic_e)$ <!-- La llamaremos Unic_e -->
+
+  $\exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \wedge u = a \Rightarrow u = \top \quad (Unic_u)$ <!-- La llamaremos Unic_u -->
+
+<!-- Nota a Antigravity: Empezaremos a ver teoremas que se derivan de los axiomas, siempre pondremos el nombre del teorema y los axiomas usados, como los números de las sentencias, por ejemplo: $ElemNeu_∨, Comm_∨ \implies Idemp_∨$ -->
+<!-- Vamos a empezar por los más sencillos, aquellos que salen directamente de los axiomas y de los teoremas precedentes.-->
+<!-- Necesitamos un par de teoremas para ecuaciones: por ejemplo $x \vee y = x \wedge y \implies x = y$  $(Equa_{\vee,\wedge})$ -->
+<!-- Unicidad de los complementos y complemento del complemento, no sé muy bien el orden de estos últimos para que sea lo más simpel posible -->
+<!-- Ahora hay otro sobre ecuaciones, usando el hecho de que que la negación (hay definirla previamente) es única. a vee b = a vee c y a vee not b = a vee not c implica b = c. $(Equa\vee\neg)$ -->
+<!-- Ahora es el momento de las propiedades de retículo $a \vee b = a \implies a \wedge b = b$ y viceversa, la llamaremos $Prop_{\vee,\wedge}$. -->
+<!-- Elementos absorventes \top y \bot para \vee y \wedge respectivamente, su nombre podría ser $Abs_{\vee,\wedge}$ o algo por el estilo -->
+<!-- Propiedades de absorción $(Abs_{\vee,\wedge})$-->
+<!-- Teoremas de de Morgan $(Mor_{\vee,\wedge})$ -->
+
+
+
+
+
 - Conclusiones.
 
 (Ve guardando este archivo, y yo me encargaré de pasarlo a LaTeX)

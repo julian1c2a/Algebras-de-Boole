@@ -84,7 +84,172 @@ a \wedge b &= \bot \quad (Comp_\wedge)
 \textit{Nota: Para evitar que el álgebra sea trivial (de un solo elemento), tradicionalmente se incluye un axioma de cardinalidad que asegura que $\bot \neq \top$.}
 
 \section{Teoremas Principales Derivados}
-(Pendiente de redacción basada en los pre-axiomas y postulados).
+
+\begin{teorema}[Unicidad de los elementos neutros - $Unic_e, Unic_u$]
+\begin{align*}
+    \exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a \vee e &= a \implies e = \bot \quad (Unic_e) \\
+    \exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \wedge u &= a \implies u = \top \quad (Unic_u)
+\end{align*}
+\end{teorema}
+\begin{proof}[Demostración de $Unic_e$]
+Sea $e \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \vee e = a$. Tomando $a = \bot$:
+\begin{align*}
+    e &= e \vee \bot & (ElemNeu_\vee) \\
+      &= \bot \vee e & (Comm_\vee) \\
+      &= \bot & (\text{Hipótesis sobre } e)
+\end{align*}
+La demostración para $Unic_u$ es análoga por dualidad.
+\end{proof}
+
+\begin{teorema}[Idempotencia - $Idemp_\vee, Idemp_\wedge$]
+\begin{align*}
+    \forall a \in \mathbb{B}, \quad a \vee a &= a \quad (Idemp_\vee) \\
+    \forall a \in \mathbb{B}, \quad a \wedge a &= a \quad (Idemp_\wedge)
+\end{align*}
+\end{teorema}
+\begin{proof}[Demostración de $Idemp_\vee$]
+\begin{align*}
+    a &= a \vee \bot & (ElemNeu_\vee) \\
+      &= a \vee (a \wedge a') & (Comp_\wedge) \\
+      &= (a \vee a) \wedge (a \vee a') & (Dist_\vee) \\
+      &= (a \vee a) \wedge \top & (Comp_\vee) \\
+      &= \top \wedge (a \vee a) & (Comm_\wedge) \\
+      &= a \vee a & (ElemNeu_\wedge)
+\end{align*}
+La demostración para $Idemp_\wedge$ es análoga.
+\end{proof}
+
+\begin{teorema}[Elementos absorbentes - $Abs_{\bot}, Abs_{\top}$]
+\begin{align*}
+    \forall a \in \mathbb{B}, \quad a \vee \top &= \top \\
+    \forall a \in \mathbb{B}, \quad a \wedge \bot &= \bot
+\end{align*}
+\end{teorema}
+\begin{proof}[Demostración para $\top$]
+\begin{align*}
+    a \vee \top &= (a \vee \top) \wedge \top & (ElemNeu_\wedge) \\
+               &= (a \vee \top) \wedge (a \vee a') & (Comp_\vee) \\
+               &= a \vee (\top \wedge a') & (Dist_\vee) \\
+               &= a \vee (a' \wedge \top) & (Comm_\wedge) \\
+               &= a \vee a' & (ElemNeu_\wedge) \\
+               &= \top & (Comp_\vee)
+\end{align*}
+Análogamente para $a \wedge \bot = \bot$.
+\end{proof}
+
+\begin{teorema}[Propiedades de absorción - $Abs_{\vee}, Abs_{\wedge}$]
+\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \vee (a \wedge b) &= a \\
+    \forall a, b \in \mathbb{B}, \quad a \wedge (a \vee b) &= a
+\end{align*}
+\end{teorema}
+\begin{proof}[Demostración de $Abs_\vee$]
+\begin{align*}
+    a \vee (a \wedge b) &= (a \wedge \top) \vee (a \wedge b) & (ElemNeu_\wedge) \\
+                        &= a \wedge (\top \vee b) & (Dist_\wedge) \\
+                        &= a \wedge (b \vee \top) & (Comm_\vee) \\
+                        &= a \wedge \top & (Abs_\top) \\
+                        &= a & (ElemNeu_\wedge)
+\end{align*}
+Análogamente se demuestra $Abs_\wedge$.
+\end{proof}
+
+\begin{teorema}[Propiedades de orden de retículo - $Prop_{\vee,\wedge}$]
+Para cualesquiera $a, b \in \mathbb{B}$:
+$$ a \vee b = a \iff a \wedge b = b $$
+\end{teorema}
+\begin{proof}
+Supongamos que $a \vee b = a$.
+\begin{align*}
+    a \wedge b &= b \wedge a & (Comm_\wedge) \\
+               &= b \wedge (a \vee b) & (\text{Hipótesis } a \vee b = a) \\
+               &= b & (Abs_\wedge)
+\end{align*}
+La implicación recíproca se demuestra de forma análoga asumiendo $a \wedge b = b$.
+\end{proof}
+
+\begin{teorema}[Equivalencia de operaciones - $Equa_{\vee,\wedge}$]
+Para cualesquiera $a, b \in \mathbb{B}$:
+$$ a \vee b = a \wedge b \implies a = b $$
+\end{teorema}
+\begin{proof}
+Supongamos $a \vee b = a \wedge b$. Observamos que:
+\begin{align*}
+    a &= a \vee (a \wedge b) & (Abs_\vee) \\
+      &= a \vee (a \vee b) & (\text{Hipótesis})
+\end{align*}
+Aplicando $Prop_{\vee,\wedge}$, dado que $a \vee (a \vee b) = a$, deducimos que $a \wedge (a \vee b) = a \vee b$.
+\begin{align*}
+    a \vee b &= a \wedge (a \vee b) & (\text{Resultado anterior}) \\
+             &= a & (Abs_\wedge)
+\end{align*}
+De manera simétrica para $b$:
+\begin{align*}
+    b &= b \vee (a \wedge b) & (Abs_\vee) \\
+      &= b \vee (a \vee b) & (\text{Hipótesis}) \\
+      &= (a \vee b) \vee b & (Comm_\vee)
+\end{align*}
+Aplicando de nuevo $Prop_{\vee,\wedge}$ sobre esta igualdad, obtenemos que $(a \vee b) \wedge b = a \vee b$. Pero sabemos por $Abs_\wedge$ que $(a \vee b) \wedge b = b \wedge (a \vee b) = b$. 
+Por consiguiente, $a \vee b = b$. Finalmente, uniendo ambos resultados: $a = a \vee b = b$.
+\end{proof}
+
+\begin{teorema}[Teorema de Cancelación - $Equa_{canc}$]
+Para cualesquiera $a, b, c \in \mathbb{B}$:
+$$ a \vee b = a \vee c \quad \text{y} \quad a \wedge b = a \wedge c \implies b = c $$
+\end{teorema}
+\begin{proof}
+\begin{align*}
+    b &= b \wedge (a \vee b) & (Abs_\wedge) \\
+      &= b \wedge (a \vee c) & (\text{Hipótesis } a \vee b = a \vee c) \\
+      &= (b \wedge a) \vee (b \wedge c) & (Dist_\wedge) \\
+      &= (a \wedge b) \vee (b \wedge c) & (Comm_\wedge) \\
+      &= (a \wedge c) \vee (b \wedge c) & (\text{Hipótesis } a \wedge b = a \wedge c) \\
+      &= (c \wedge a) \vee (c \wedge b) & (Comm_\wedge \text{ aplicado dos veces}) \\
+      &= c \wedge (a \vee b) & (Dist_\wedge) \\
+      &= c \wedge (a \vee c) & (\text{Hipótesis } a \vee b = a \vee c) \\
+      &= c & (Abs_\wedge)
+\end{align*}
+\end{proof}
+
+\begin{teorema}[Unicidad del complemento - $Unic_{comp}$]
+Para todo $a \in \mathbb{B}$, su complemento $a'$ es único. Si existe $x \in \mathbb{B}$ tal que $a \vee x = \top$ y $a \wedge x = \bot$, entonces $x = a'$.
+\end{teorema}
+\begin{proof}
+\begin{align*}
+    x &= x \wedge \top & (ElemNeu_\wedge) \\
+      &= x \wedge (a \vee a') & (Comp_\vee) \\
+      &= (x \wedge a) \vee (x \wedge a') & (Dist_\wedge) \\
+      &= (a \wedge x) \vee (x \wedge a') & (Comm_\wedge) \\
+      &= \bot \vee (x \wedge a') & (\text{Hipótesis } a \wedge x = \bot) \\
+      &= (a \wedge a') \vee (x \wedge a') & (Comp_\wedge) \\
+      &= (a \vee x) \wedge a' & (Dist_\wedge) \\
+      &= \top \wedge a' & (\text{Hipótesis } a \vee x = \top) \\
+      &= a' \wedge \top & (Comm_\wedge) \\
+      &= a' & (ElemNeu_\wedge)
+\end{align*}
+\end{proof}
+
+\begin{teorema}[Involución - $Comp_{inv}$]
+Para todo $a \in \mathbb{B}$, $(a')' = a$.
+\end{teorema}
+\begin{proof}
+Por definición, el complemento de $a'$, denotado como $(a')'$, es el elemento único que satisface:
+$$ a' \vee (a')' = \top \quad \text{y} \quad a' \wedge (a')' = \bot $$
+Sin embargo, por la conmutatividad ($Comm_\vee$ y $Comm_\wedge$), sabemos que:
+$$ a' \vee a = a \vee a' = \top \quad \text{y} \quad a' \wedge a = a \wedge a' = \bot $$
+Esto demuestra que $a$ actúa como un complemento de $a'$. Por el teorema de unicidad del complemento ($Unic_{comp}$), concluimos necesariamente que $(a')' = a$.
+\end{proof}
+
+\begin{teorema}[Leyes de De Morgan - $Mor_{\vee, \wedge}$]
+Para cualesquiera $a, b \in \mathbb{B}$:
+\begin{align*}
+    (a \vee b)' &= a' \wedge b' \\
+    (a \wedge b)' &= a' \vee b'
+\end{align*}
+\end{teorema}
+\begin{proof}
+(Pendiente de expandir en base a la distributividad y propiedades previas, comprobando que $(a \vee b) \vee (a' \wedge b') = \top$ y $(a \vee b) \wedge (a' \wedge b') = \bot$, para luego aplicar $Unic_{comp}$).
+\end{proof}
 
 \section{Conclusión}
 (Pendiente de redacción).
