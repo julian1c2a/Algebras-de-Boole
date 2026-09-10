@@ -49,35 +49,35 @@ Para poder usar estos conceptos con mayor seguridad y flexibilidad en las futura
 \section{Los Postulados de Huntington (1904)}
 Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los pre-axiomas anteriores, diremos que forma un álgebra de Boole si satisface los siguientes postulados:
 
-\begin{postulado}[Elemento neutro $\vee$] \label{post:neutro_vee}
+\begin{postulado}[Elemento neutro $\vee$ - $ElemNeu_\vee$] \label{post:neutro_vee}
 $\forall a \in \mathbb{B}$ se tiene que $a \vee \bot = a$.
 \end{postulado}
 
-\begin{postulado}[Elemento neutro $\wedge$] \label{post:neutro_wedge}
+\begin{postulado}[Elemento neutro $\wedge$ - $ElemNeu_\wedge$] \label{post:neutro_wedge}
 $\forall a \in \mathbb{B}$ se tiene que $a \wedge \top = a$.
 \end{postulado}
 
-\begin{postulado}[Conmutatividad $\vee$] \label{post:conmut_vee}
+\begin{postulado}[Conmutatividad $\vee$ - $Comm_\vee$] \label{post:conmut_vee}
 $\forall a, b \in \mathbb{B}$ se tiene que $a \vee b = b \vee a$.
 \end{postulado}
 
-\begin{postulado}[Conmutatividad $\wedge$] \label{post:conmut_wedge}
+\begin{postulado}[Conmutatividad $\wedge$ - $Comm_\wedge$] \label{post:conmut_wedge}
 $\forall a, b \in \mathbb{B}$ se tiene que $a \wedge b = b \wedge a$.
 \end{postulado}
 
-\begin{postulado}[Distributividad $\vee$ sobre $\wedge$] \label{post:distrib_vee_wedge}
+\begin{postulado}[Distributividad $\vee$ sobre $\wedge$ - $Dist_\vee$] \label{post:distrib_vee_wedge}
 $\forall a, b, c \in \mathbb{B}$ se tiene que $a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$.
 \end{postulado}
 
-\begin{postulado}[Distributividad $\wedge$ sobre $\vee$] \label{post:distrib_wedge_vee}
+\begin{postulado}[Distributividad $\wedge$ sobre $\vee$ - $Dist_\wedge$] \label{post:distrib_wedge_vee}
 $\forall a, b, c \in \mathbb{B}$ se tiene que $a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$.
 \end{postulado}
 
-\begin{postulado}[Complementario] \label{post:comp}
+\begin{postulado}[Complementario - $Comp_\vee, Comp_\wedge$] \label{post:comp}
 $\forall a \in \mathbb{B}, \exists b \in \mathbb{B}$ tal que:
 \begin{align*}
-a \vee b &= \top \\
-a \wedge b &= \bot
+a \vee b &= \top \quad (Comp_\vee) \\
+a \wedge b &= \bot \quad (Comp_\wedge)
 \end{align*}
 \end{postulado}
 

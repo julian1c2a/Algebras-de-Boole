@@ -18,17 +18,15 @@ Para poder usarlo con más seguridad y flexibilidad vamos a poner nombre a cada 
 
 Cada uno de los prerequisitos debería tener un nombre corto con la idea de usarlo en las pruebas.
 
-\begin{enumerate}
-    \item \textbf{Elemento neutro $\vee$:} $\forall a \in \mathbb{B}$ se tiene que $a \vee \bot = a$.
-    \item \textbf{Elemento neutro $\wedge$:} $\forall a \in \mathbb{B}$ se tiene que $a \wedge \top = a$.
-    \item \textbf{Conmutatividad $\vee$:} $\forall a, b \in \mathbb{B}$ se tiene que $a \vee b = b \vee a$.
-    \item \textbf{Conmutatividad $\wedge$:} $\forall a, b \in \mathbb{B}$ se tiene que $a \wedge b = b \wedge a$.
-    \item \textbf{Distributividad $\vee$ sobre $\wedge$:} $\forall a, b, c \in \mathbb{B}$ se tiene que $a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$.
-    \item \textbf{Distributividad $\wedge$ sobre $\vee$:} $\forall a, b, c \in \mathbb{B}$ se tiene que $a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$.
-    \item \textbf{Complementario:} $\forall a \in \mathbb{B} \exists b \in \mathbb{B}$ se tiene que 
-      $a \vee b = \top$ y 
-      $a \wedge b = \bot$.
-\end{enumerate}
+Texto para LaTeX:
+
+1. \textbf{Elemento neutro $\vee$:} $\forall a \in \mathbb{B}$ se tiene que $a \vee \bot = a$. <<Nota: poner nota corta del estilo de $ElemNeu_\vee$>>
+2. \textbf{Elemento neutro $\wedge$:} $\forall a \in \mathbb{B}$ se tiene que $a \wedge \top = a$. <<Nota: poner nota corta del estilo de $ElemNeu_\wedge$>>
+3. \textbf{Conmutatividad $\vee$:} $\forall a, b \in \mathbb{B}$ se tiene que $a \vee b = b \vee a$. <<Nota: poner nota corta del estilo de $Comm_\vee$>>
+4. \textbf{Conmutatividad $\wedge$:} $\forall a, b \in \mathbb{B}$ se tiene que $a \wedge b = b \wedge a$. <<Nota: poner nota corta del estilo de $Comm_\wedge$>>
+5. \textbf{Distributividad $\vee$ sobre $\wedge$:} $\forall a, b, c \in \mathbb{B}$ se tiene que $a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$. <<Nota: poner nota corta del estilo de $Dist_\vee$>>
+6. \textbf{Distributividad $\wedge$ sobre $\vee$:} $\forall a, b, c \in \mathbb{B}$ se tiene que $a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$. <<Nota: poner nota corta del estilo de $Dist_\wedge$>>
+7. \textbf{Complementario:} $\forall a \in \mathbb{B} \exists b \in \mathbb{B}$ se tiene que $a \vee b = \top$ <<Nota: poner nombre corto como $Comp_\vee$>> y $a \wedge b = \bot$ <<Nota: poner nombre corto como $Comp_\wedge$>>.
 
 - Teoremas principales derivados.
 - Conclusiones.
