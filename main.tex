@@ -10,6 +10,14 @@
 % Definición de entornos para postulados y teoremas con tcolorbox
 \tcbuselibrary{theorems}
 
+\newtcbtheorem{preaxioma}{Pre-Axioma}{
+  colback=purple!5!white,
+  colframe=purple!60!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{prax}
+
 \newtcbtheorem{postulado}{Postulado}{
   colback=blue!5!white,
   colframe=blue!60!black,
@@ -54,25 +62,42 @@ Para evitar cualquier confusión conceptual con la aritmética tradicional, en e
 Antes de enunciar los postulados, debemos definir rigurosamente sobre qué elementos y operaciones estamos trabajando. 
 
 Partimos de un ente matemático $\mathbb{B}$.
-\begin{itemize}
-    \item \textbf{[EsConjunto($\mathbb{B}$)]}: Se requiere que $\mathbb{B}$ sea un conjunto.
-    \item \textbf{[Constantes]}: Este conjunto ha de cumplir que tiene dos elementos que llamaremos constantes, tales que $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En principio, no asumimos nada sobre la igualdad o desigualdad de estas constantes.
-\end{itemize}
+
+\begin{preaxioma}{Estructura de Conjunto - EsConjunto($\mathbb{B}$)}{esconj}
+Se requiere que $\mathbb{B}$ sea un conjunto.
+\end{preaxioma}
+
+\begin{preaxioma}{Elementos Constantes - Constantes}{constantes}
+Este conjunto ha de cumplir que tiene dos elementos que llamaremos constantes, tales que $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En principio, no asumimos nada sobre la igualdad o desigualdad de estas constantes.
+\end{preaxioma}
 
 Además, vamos a definir dos operaciones binarias internas que denotaremos por $\vee$ y $\wedge$. Estas deben satisfacer rigurosamente la definición de función:
-\begin{itemize}
-    \item \textbf{[OpBinInt\_$\vee$]}: $\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
-    \item \textbf{[OpBinInt\_$\wedge$]}: $\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
-\end{itemize}
+
+\begin{preaxioma}{Operación Binaria Interna $\vee$ - OpBinInt$_\vee$}{opbinint_vee}
+$\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+\end{preaxioma}
+
+\begin{preaxioma}{Operación Binaria Interna $\wedge$ - OpBinInt$_\wedge$}{opbinint_wedge}
+$\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+\end{preaxioma}
 
 Para poder usar estos conceptos con mayor seguridad y flexibilidad en las futuras demostraciones formales, asignaremos nombres cortos a las condiciones de existencia y unicidad de la imagen para estas operaciones:
 
-\begin{itemize}
-    \item \textbf{[Existencia\_$\vee$]}: Para todo par existe imagen en $\mathbb{B}$. Es decir, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists c \in \mathbb{B}$ tal que $a \vee b = c$.
-    \item \textbf{[Existencia\_$\wedge$]}: Análogamente, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists d \in \mathbb{B}$ tal que $a \wedge b = d$.
-    \item \textbf{[Unicidad\_$\vee$]}: Para un par solo existe una imagen. Esto es, si $a \vee b = c$ y $a \vee b = d$, entonces $c = d$.
-    \item \textbf{[Unicidad\_$\wedge$]}: De igual forma para el ínfimo, si $a \wedge b = c$ y $a \wedge b = d$, entonces $c = d$.
-\end{itemize}
+\begin{preaxioma}{Existencia $\vee$ - Existencia$_\vee$}{exist_vee}
+Para todo par existe imagen en $\mathbb{B}$. Es decir, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists c \in \mathbb{B}$ tal que $a \vee b = c$.
+\end{preaxioma}
+
+\begin{preaxioma}{Existencia $\wedge$ - Existencia$_\wedge$}{exist_wedge}
+Análogamente, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists d \in \mathbb{B}$ tal que $a \wedge b = d$.
+\end{preaxioma}
+
+\begin{preaxioma}{Unicidad $\vee$ - Unicidad$_\vee$}{unic_vee}
+Para un par solo existe una imagen. Esto es, si $a \vee b = c$ y $a \vee b = d$, entonces $c = d$.
+\end{preaxioma}
+
+\begin{preaxioma}{Unicidad $\wedge$ - Unicidad$_\wedge$}{unic_wedge}
+De igual forma para el ínfimo, si $a \wedge b = c$ y $a \wedge b = d$, entonces $c = d$.
+\end{preaxioma}
 
 \section{Los Postulados de Huntington (1904)}
 Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los pre-axiomas anteriores, diremos que forma un álgebra de Boole si satisface los siguientes postulados:
@@ -214,6 +239,7 @@ Cualquier elemento operado mediante $\vee$ con el máximo $\top$ es absorbido po
 
 \begin{teorema}{Condición de Álgebra Trivial}{trivial_cond}
 Si se da el caso extremo de que el elemento mínimo $\bot$ y el máximo $\top$ son exactamente el mismo, entonces estamos ante un álgebra que contiene un único elemento en todo su conjunto (el álgebra trivial):
+\[ \bot = \top \implies \mathbb{B} = \{\top\} = \{\bot\} \]
 \end{teorema}
 \desplegable{proof_trivial_cond}{
 \begin{proof}
@@ -229,6 +255,7 @@ Por tanto, todo elemento $x$ del conjunto es idéntico a $\top$, lo que implica 
 
 \begin{teorema}{Complemento Idéntico implica Álgebra Trivial}{trivial_comp}
 Si dentro de la estructura existe algún elemento que sea igual a su propio complemento ($\neg a = a$), entonces forzosamente todo el sistema colapsa en el álgebra trivial de un solo elemento:
+\[ (\exists a \in \mathbb{B} : \neg a = a) \implies \mathbb{B} = \{\top\} = \{\bot\} \]
 \end{teorema}
 \desplegable{proof_trivial_comp}{
 \begin{proof}
@@ -342,6 +369,7 @@ Este teorema es automejor dualizable al ser sus hipótesis perfectamente simétr
 
 \begin{teorema}{Unicidad del complemento - $Unic_{comp}$}{unic_comp}
 Todo elemento del conjunto tiene un complemento $\neg a$, y este es estrictamente único. Ningún otro elemento puede cumplir simultáneamente las dos condiciones del postulado del complemento para un mismo $a$:
+\[ \forall a, x \in \mathbb{B} : \quad (a \vee x = \top \quad \text{y} \quad a \wedge x = \bot) \implies x = \neg a \]
 \end{teorema}
 \desplegable{proof_unic_comp}{
 \begin{proof}
@@ -532,16 +560,178 @@ Al haber demostrado previamente las leyes de De Morgan, podemos probar la asocia
 \end{proof}
 }
 
-\section{Operadores Derivados: NAND y NOR}
-Las ecuaciones obtenidas a partir de las Leyes de De Morgan demuestran que las operaciones básicas $\vee$ y $\wedge$ pueden ser expresadas íntegramente en términos de la negación de su operación dual. Esto motiva la definición de dos operadores lógicos fundamentales en sistemas digitales, que por sí solos son funcionalmente completos:
+\section{Operadores Derivados: NAND, NOR, XOR y XNOR}
+Las ecuaciones obtenidas a partir de las Leyes de De Morgan demuestran que las operaciones básicas $\vee$ y $\wedge$ pueden ser expresadas íntegramente en términos de la negación de su operación dual. Esto motiva la definición de varios operadores lógicos fundamentales en sistemas digitales. Dos de ellos (NAND y NOR) son de gran relevancia por ser funcionalmente completos por sí solos, mientras que otros dos (XOR y XNOR) son esenciales para funciones aritméticas y de comprobación de paridad:
 
 \begin{itemize}
-    \item \textbf{NAND (Barra de Sheffer)}: Denotado clásicamente con una barra vertical ($|$), se define como la negación del ínfimo.
-    \[ a \mid b = \neg (a \wedge b) = \neg a \vee \neg b \]
+    \item \textbf{NAND (Barra de Sheffer)}: Denotado clásicamente con una flecha hacia arriba ($\uparrow$), se define como la negación del ínfimo.
+    \[ a \uparrow b = \neg (a \wedge b) = \neg a \vee \neg b \]
     
     \item \textbf{NOR (Flecha de Peirce)}: Denotado con una flecha hacia abajo ($\downarrow$), se define como la negación del supremo.
     \[ a \downarrow b = \neg (a \vee b) = \neg a \wedge \neg b \]
+
+    \item \textbf{XOR (O-exclusiva)}: Denotado con el símbolo de suma exclusiva ($\oplus$), evalúa a $\top$ cuando exactamente uno de los operandos es $\top$ y el otro $\bot$.
+    \[ a \oplus b = (a \wedge \neg b) \vee (\neg a \wedge b) \]
+
+    \item \textbf{XNOR (No-O-exclusiva o Equivalencia)}: Denotado frecuentemente con $\odot$ o $\leftrightarrow$, es la negación de la operación XOR y evalúa a $\top$ cuando ambos operandos son idénticos.
+    \[ a \odot b = \neg (a \oplus b) = (a \wedge b) \vee (\neg a \wedge \neg b) \]
 \end{itemize}
+
+\section{Comportamiento de los Operadores Derivados}
+Los operadores NAND ($\uparrow$) y NOR ($\downarrow$) presentan una serie de propiedades algebraicas particulares. Al ser operadores funcionalmente completos, permiten expresar cualquier otra operación booleana utilizando exclusivamente uno de ellos.
+
+\begin{teorema}{Idempotencia cruzada (Generación de NOT)}{idemp_cruzada}
+Operar un elemento consigo mismo usando NAND o NOR equivale a su complemento (negación):
+\begin{align*}
+    \forall a \in \mathbb{B}, \quad a \uparrow a &= \neg a \\
+    \forall a \in \mathbb{B}, \quad a \downarrow a &= \neg a
+\end{align*}
+\end{teorema}
+\desplegable{proof_idemp_cruzada}{
+\begin{proof}[Demostración]
+Para la operación NAND:
+\begin{align*}
+    a \uparrow a &= \neg (a \wedge a) & (\text{Definicion de NAND}) \\
+                 &= \neg a & (Idemp_\wedge)
+\end{align*}
+Para la operación NOR:
+\begin{align*}
+    a \downarrow a &= \neg (a \vee a) & (\text{Definicion de NOR}) \\
+                   &= \neg a & (Idemp_\vee)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Generación del Ínfimo y Supremo (AND y OR)}{gen_inf_sup}
+A partir de la propiedad anterior, podemos recuperar las operaciones básicas anidando las puertas consigo mismas:
+\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \wedge b &= \neg (a \uparrow b) = (a \uparrow b) \uparrow (a \uparrow b) \\
+    \forall a, b \in \mathbb{B}, \quad a \vee b &= \neg (a \downarrow b) = (a \downarrow b) \downarrow (a \downarrow b)
+\end{align*}
+\end{teorema}
+\desplegable{proof_gen_inf_sup}{
+\begin{proof}[Demostración]
+Para la generación del ínfimo (AND):
+\begin{align*}
+    \neg(a \uparrow b) &= \neg(\neg(a \wedge b)) & (\text{Definicion de NAND}) \\
+                       &= a \wedge b & (Involucion)
+\end{align*}
+Además, por la idempotencia cruzada demostrada anteriormente, $x \uparrow x = \neg x$, por tanto:
+\[ \neg(a \uparrow b) = (a \uparrow b) \uparrow (a \uparrow b) \]
+La demostración para la generación del supremo (OR) es idéntica por dualidad.
+\end{proof}
+}
+
+\begin{teorema}{Generación cruzada (Leyes de De Morgan para NAND/NOR)}{gen_cruzada}
+Podemos generar la operación opuesta (supremo desde NAND, e ínfimo desde NOR) negando previamente las entradas:
+\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \vee b &= (\neg a) \uparrow (\neg b) = (a \uparrow a) \uparrow (b \uparrow b) \\
+    \forall a, b \in \mathbb{B}, \quad a \wedge b &= (\neg a) \downarrow (\neg b) = (a \downarrow a) \downarrow (b \downarrow b)
+\end{align*}
+\end{teorema}
+\desplegable{proof_gen_cruzada}{
+\begin{proof}[Demostración]
+Para el supremo (OR):
+\begin{align*}
+    (\neg a) \uparrow (\neg b) &= \neg (\neg a \wedge \neg b) & (\text{Definicion de NAND}) \\
+                               &= \neg (\neg (a \vee b)) & (Mor_\vee) \\
+                               &= a \vee b & (Involucion)
+\end{align*}
+La demostración para el ínfimo (AND) sigue los mismos pasos de manera dual, aplicando $Mor_\wedge$.
+\end{proof}
+}
+
+\begin{teorema}{Conmutatividad}{conmut_deriv}
+Al igual que sus operaciones base, ambos operadores son perfectamente conmutativos:
+\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \uparrow b &= b \uparrow a \\
+    \forall a, b \in \mathbb{B}, \quad a \downarrow b &= b \downarrow a
+\end{align*}
+\end{teorema}
+\desplegable{proof_conmut_deriv}{
+\begin{proof}[Demostración]
+Para la operación NAND:
+\begin{align*}
+    a \uparrow b &= \neg (a \wedge b) & (\text{Definicion de NAND}) \\
+                 &= \neg (b \wedge a) & (Comm_\wedge) \\
+                 &= b \uparrow a & (\text{Definicion de NAND})
+\end{align*}
+Para la operación NOR, es análogo aplicando $Comm_\vee$.
+\end{proof}
+}
+
+\begin{teorema}{Inexistencia de Elemento Neutro}{no_neutro}
+No existe ningún elemento neutro para las operaciones NAND ni NOR en un álgebra de Boole general.
+\end{teorema}
+\desplegable{proof_no_neutro}{
+\begin{proof}[Demostración]
+Si existiera un neutro $e$ para la operación NAND, debería cumplirse que $\forall a, a \uparrow e = a$, es decir, $\neg(a \wedge e) = a$. Si probamos con $e=\top$, obtenemos $\neg a = a$, lo cual obliga al colapso en un álgebra trivial. Si probamos con $e=\bot$, obtenemos $\neg \bot = a \implies \top = a$, lo cual obviamente no se cumple para cualquier elemento $a$. Lo mismo aplica a la operación NOR.
+\end{proof}
+}
+
+\begin{teorema}{Comportamiento con las constantes (Fijación y Absorción)}{constantes_deriv}
+Fijar una constante específica en uno de los operandos genera directamente la negación, mientras que usar la constante opuesta actúa como un pseudo-elemento absorbente (devolviendo un valor constante inalterable por $a$):
+\begin{align*}
+    \text{Inversión: } & a \uparrow \top = \neg a \qquad & a \downarrow \bot &= \neg a \\
+    \text{Absorción: } & a \uparrow \bot = \top \qquad & a \downarrow \top &= \bot
+\end{align*}
+\end{teorema}
+\desplegable{proof_constantes_deriv}{
+\begin{proof}[Demostración]
+Para la inversión:
+\begin{align*}
+    a \uparrow \top &= \neg(a \wedge \top) = \neg a & (ElemNeu_\wedge) \\
+    a \downarrow \bot &= \neg(a \vee \bot) = \neg a & (ElemNeu_\vee)
+\end{align*}
+Para la absorción:
+\begin{align*}
+    a \uparrow \bot &= \neg(a \wedge \bot) = \neg \bot = \top & (Abs_\bot) \\
+    a \downarrow \top &= \neg(a \vee \top) = \neg \top = \bot & (Abs_\top)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Ausencia de Asociatividad}{no_asoc_deriv}
+A diferencia del supremo ($\vee$) y el ínfimo ($\wedge$), las operaciones NAND y NOR son positivamente NO asociativas:
+\begin{align*}
+    (a \uparrow b) \uparrow c &\neq a \uparrow (b \uparrow c) \\
+    (a \downarrow b) \downarrow c &\neq a \downarrow (b \downarrow c)
+\end{align*}
+\end{teorema}
+\desplegable{proof_no_asoc_deriv}{
+\begin{proof}[Demostración]
+Desarrollando el lado izquierdo para NAND:
+\[ (a \uparrow b) \uparrow c = \neg ( (\neg (a \wedge b)) \wedge c ) = (a \wedge b) \vee \neg c \]
+Desarrollando el lado derecho:
+\[ a \uparrow (b \uparrow c) = \neg ( a \wedge (\neg (b \wedge c)) ) = \neg a \vee (b \wedge c) \]
+Resulta evidente que $(a \wedge b) \vee \neg c \neq \neg a \vee (b \wedge c)$ para combinaciones arbitrarias de variables. El mismo razonamiento aplica de manera estricta y análoga para demostrar la carencia de asociatividad en la operación NOR ($\downarrow$).
+\end{proof}
+}
+
+\begin{teorema}{Definición de NAND y NOR de $n$ entradas}{def_n_entradas}
+Dado que las puertas NAND y NOR físicas a menudo tienen más de dos entradas, se definen algebraicamente para múltiples entradas como la negación de la conjunción o disyunción de todas ellas. En particular, para 3 entradas:
+\begin{align*}
+    \uparrow(a,b,c) &= \neg(a \wedge b \wedge c) \\
+    \downarrow(a,b,c) &= \neg(a \vee b \vee c)
+\end{align*}
+\end{teorema}
+
+\begin{teorema}{NAND/NOR múltiple vs agrupación binaria}{multiple_vs_binaria}
+Como consecuencia directa de su falta de asociatividad, una operación NAND o NOR de 3 entradas no es equivalente a la agrupación secuencial en cascada de operaciones de 2 entradas:
+\begin{align*}
+    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad \text{y} \qquad \uparrow(a,b,c) \neq a \uparrow (b \uparrow c) \\
+    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad \text{y} \qquad \downarrow(a,b,c) \neq a \downarrow (b \downarrow c)
+\end{align*}
+\end{teorema}
+\desplegable{proof_multiple_vs_binaria}{
+\begin{proof}[Demostración]
+Para la NAND de 3 entradas tenemos, por definición y leyes de De Morgan:
+\[ \uparrow(a,b,c) = \neg(a \wedge b \wedge c) = \neg a \vee \neg b \vee \neg c \]
+Sin embargo, la agrupación de dos en dos evaluada anteriormente daba:
+\[ (a \uparrow b) \uparrow c = (a \wedge b) \vee \neg c \]
+Evidentemente, $\neg a \vee \neg b \vee \neg c \neq (a \wedge b) \vee \neg c$. Lo mismo aplica a las agrupaciones derechas y a las operaciones NOR equivalentes.
+\end{proof}
+}
 
 \section{Conclusiones y Transición a la Lógica Digital}
 
@@ -563,5 +753,115 @@ Esta notación algebraica clásica resulta mucho más ágil y familiar para la m
 \[ \overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b} \]
 
 Con estos fundamentos matemáticos sólidamente establecidos, la transición hacia el diseño, análisis y simplificación de circuitos digitales queda completamente justificada y carente de ambigüedades.
+
+\newpage
+\section{Anexo: Resumen de Postulados y Teoremas (Notación Ingenieril)}
+
+En esta sección se recopilan los postulados de Huntington y los teoremas principales derivados, transcritos a la notación propia del álgebra de conmutación y la lógica digital ($+$, $\cdot$, $0$, $1$, $\overline{a}$), concebidos como hoja de referencia rápida.
+
+\subsection*{Postulados de Huntington}
+
+\begin{postulado}{Elemento neutro}{neutro_eng}
+\[ a + 0 = a \qquad \text{y} \qquad a \cdot 1 = a \]
+\end{postulado}
+
+\begin{postulado}{Conmutatividad}{conmut_eng}
+\[ a + b = b + a \qquad \text{y} \qquad a \cdot b = b \cdot a \]
+\end{postulado}
+
+\begin{postulado}{Distributividad}{distrib_eng}
+\[ a \cdot (b + c) = (a \cdot b) + (a \cdot c) \qquad \text{y} \qquad a + (b \cdot c) = (a + b) \cdot (a + c) \]
+\end{postulado}
+
+\begin{postulado}{Complementario}{comp_eng}
+Para cada elemento $a$, existe un complemento $\overline{a}$ tal que:
+\[ a + \overline{a} = 1 \qquad \text{y} \qquad a \cdot \overline{a} = 0 \]
+\end{postulado}
+
+\subsection*{Teoremas Fundamentales}
+
+\begin{teorema}{Unicidad de los elementos neutros}{unicidad_neutros_eng}
+El elemento neutro para la suma ($0$) y para el producto ($1$) son únicos.
+\end{teorema}
+
+\begin{teorema}{Idempotencia}{idempotencia_eng}
+\[ a + a = a \qquad \text{y} \qquad a \cdot a = a \]
+\end{teorema}
+
+\begin{teorema}{Elementos absorbentes}{absorbentes_eng}
+\[ a + 1 = 1 \qquad \text{y} \qquad a \cdot 0 = 0 \]
+\end{teorema}
+
+\begin{teorema}{Propiedades de absorción}{absorcion_eng}
+\[ a + (a \cdot b) = a \qquad \text{y} \qquad a \cdot (a + b) = a \]
+\end{teorema}
+
+\begin{teorema}{Leyes de De Morgan}{morgan_eng}
+\[ \overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b} \]
+\end{teorema}
+
+\begin{teorema}{Involución (Doble negación)}{involucion_eng}
+\[ \overline{\overline{a}} = a \]
+\end{teorema}
+
+\begin{teorema}{Asociatividad}{asociatividad_eng}
+\[ a + (b + c) = (a + b) + c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c \]
+\end{teorema}
+
+\begin{teorema}{Unicidad del complemento}{unic_comp_eng}
+El complemento $\overline{a}$ de un elemento $a$ es único.
+\end{teorema}
+
+\begin{teorema}{Otras propiedades equivalentes}{otras_prop_eng}
+\begin{itemize}
+    \item \textbf{Orden de retículo:} $a + b = a \iff a \cdot b = b$
+    \item \textbf{Equivalencia de operaciones:} $a + b = a \cdot b \implies a = b$
+    \item \textbf{Cancelación:} $(a + b = a + c \text{ y } a \cdot b = a \cdot c) \implies b = c$
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Casos de Álgebra Trivial}{trivial_eng}
+Si $0 = 1$, o si existe algún elemento tal que $\overline{a} = a$, entonces el álgebra contiene un único elemento (álgebra trivial).
+\end{teorema}
+
+\subsection*{Comportamiento de Operadores Derivados}
+
+\begin{teorema}{Idempotencia cruzada (NAND/NOR)}{idemp_cruzada_eng}
+\[ a \uparrow a = \overline{a} \qquad \text{y} \qquad a \downarrow a = \overline{a} \]
+\end{teorema}
+
+\begin{teorema}{Generación de AND y OR}{gen_inf_sup_eng}
+\[ a \cdot b = \overline{a \uparrow b} = (a \uparrow b) \uparrow (a \uparrow b) \qquad \text{y} \qquad a + b = \overline{a \downarrow b} = (a \downarrow b) \downarrow (a \downarrow b) \]
+\end{teorema}
+
+\begin{teorema}{Generación cruzada}{gen_cruzada_eng}
+\[ a + b = \overline{a} \uparrow \overline{b} = (a \uparrow a) \uparrow (b \uparrow b) \qquad \text{y} \qquad a \cdot b = \overline{a} \downarrow \overline{b} = (a \downarrow a) \downarrow (b \downarrow b) \]
+\end{teorema}
+
+\begin{teorema}{Conmutatividad}{conmut_deriv_eng}
+\[ a \uparrow b = b \uparrow a \qquad \text{y} \qquad a \downarrow b = b \downarrow a \]
+\end{teorema}
+
+\begin{teorema}{Comportamiento con las constantes}{constantes_deriv_eng}
+\begin{align*}
+    a \uparrow 1 &= \overline{a} \qquad & a \downarrow 0 &= \overline{a} \\
+    a \uparrow 0 &= 1 \qquad & a \downarrow 1 &= 0
+\end{align*}
+\end{teorema}
+
+\begin{teorema}{Ausencia de Asociatividad}{no_asoc_deriv_eng}
+\[ (a \uparrow b) \uparrow c \neq a \uparrow (b \uparrow c) \qquad \text{y} \qquad (a \downarrow b) \downarrow c \neq a \downarrow (b \downarrow c) \]
+\end{teorema}
+
+\begin{teorema}{NAND y NOR de 3 entradas}{n_entradas_eng}
+\[ \uparrow(a,b,c) = \overline{a \cdot b \cdot c} \qquad \text{y} \qquad \downarrow(a,b,c) = \overline{a + b + c} \]
+\end{teorema}
+
+\begin{teorema}{NAND/NOR múltiple vs cascada binaria}{multiple_vs_binaria_eng}
+\begin{align*}
+    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad & \uparrow(a,b,c) &\neq a \uparrow (b \uparrow c) \\
+    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad & \downarrow(a,b,c) &\neq a \downarrow (b \downarrow c)
+\end{align*}
+\end{teorema}
 
 \end{document}

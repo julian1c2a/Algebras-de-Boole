@@ -18,6 +18,8 @@ tests:
 	@echo "Construyendo tests en $(TEST_BUILD_DIR)... (Placeholder)"
 
 clean:
-	rm -rf $(BUILD_DIR)
+clean:
+	find $(BUILD_DIR) -type f -delete 2>/dev/null || true
+	rm -f $(PROJECT).aux $(PROJECT).log $(PROJECT).out $(PROJECT).toc $(PROJECT).pdf $(PROJECT).bbl $(PROJECT).blg $(PROJECT).fls $(PROJECT).fdb_latexmk $(PROJECT).synctex.gz
 
 .PHONY: all pdf tests clean
