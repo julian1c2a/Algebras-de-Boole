@@ -1,0 +1,193 @@
+\documentclass[12pt,a4paper,fleqn,spanish,final,openright]{extbook}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\synctex=1
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=4,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={Clasificación de los grupos hasta el orden 22},
+ pdfauthor={Julián Calderón Almendros},
+ pdfsubject={Trabajo Fin de Grado del Grado de Matemáticas UNED},
+ pdfkeywords={Álgebra, Grupos Finitos, Teoría de Números, Matemáticas Discretas}}
+
+\makeatletter
+
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{amscd}
+\usepackage{bbm}
+\usepackage{lplfitch}
+\usepackage{abraces}
+\usepackage{color}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{cmll}
+\usepackage{latexsym}
+\usepackage[mathscr]{euscript}
+\usepackage{color}
+\usepackage{units}
+\usepackage{wasysym}
+\usepackage{nomencl}
+% the following is useful when we have the old nomencl.sty package
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\makenomenclature
+\usepackage{microtype}
+\makeatletter
+\newtheorem{thm}{Teorema}[chapter]
+\newtheorem{example}[thm]{Ejemplo}
+\newtheorem{exercise}[thm]{Ejercicio}
+\newtheorem{axiom}[thm]{Axioma}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{lem}[thm]{Lema}
+%\newtheorem{cited}[thm]{Cita}
+\newtheorem{prop}[thm]{Proposici\'on}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definici\'on}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Nota}
+\newtheorem{fixed}[thm]{Fijaci\'on de Notaci\'on}
+\theoremstyle{proof}
+\newtheorem{formalproof}[thm]{Demostraci\'on Formal}
+\newtheorem{solution}[thm]{Soluci\'on}
+
+\makeatother
+
+\usepackage{listings}
+%\usepackage{polyglossia}
+%\setdefaultlanguage{spanish}
+%\def\eqdeclaration#1{, véase la ecuación\nobreakspace(#1)}
+%\def\pagedeclaration#1{, página\nobreakspace#1}
+%\def\nomname{Nomenclatura}
+%\renewcommand{\lstlistlistingname}{Listados de código}
+
+\begin{document}
+\tableofcontents{}
+
+\listoffigures
+
+\listoftables
+%\lstlistoflistings{}\settowidth{\nomlabelwidth}{${\bold{G}}:={\langle{G,+,e}\rangle}$}
+\printnomenclature{}
+
+\title{Clasificación de grupos finitos no isomorfos hasta el orden 22}
+
+\title{{\normalsize{}T.F.G. para el grado en Matemáticas de la UNED}}
+
+\author{Julián Calderón Almendros}
+
+\author{\textbf{\textsc{\emph{\small{}TUTORIZADO POR}}} Emilio Bujalance
+García}
+
+\date{24/04/2018}
+\maketitle
+
+\part{Preliminares teóricos}
+
+En estos capítulos que ahora escribo quiero dejar sentado los «hechos»
+que tomaré como ya probados, mayormente provenientes de la Unidad
+Didáctica I de la asignatura de Álgebra de 2º curso de la antigua
+licenciatura en Matemáticas, tomo dedicado precisamente a la teoría
+de grupos.\nomenclature{$\bold{G}:={\langle{G,*,u}\rangle}$}{Forma habitual de nombrar un grupo: el conjunto más la operación binaria, más la nularia del elemento neutro. Habitualmente como la operación es no conmuitativa, llamo al elemento neutro $u$ de unidad. El nombre del cdonjunto subyacente al grupo se nombra como todos los conjuntos de este mismo nivel y subconjuntos del mismo, en mayúsculas simples. Para nombrar el grupo propiamente dicho, nombro el conjunto subjacente con letras negritas.}
+\nomenclature{${\bold{G}}:={\langle{G,+,e}\rangle}$}{Forma habitual de nombrar un grupo abeliano: el conjunto más la operación binaria, más la nularia del elemento neutro.Esta vez la operación es conmuitativa,así que utilizamos notación aditiva y  llamo al elemento neutro $e$ de neutro.}
+
+\chapter{Algunas definiciones}
+
+
+Comenzaremos directamente. Los grupos cíclicos de un determinado orden
+$n$ lo denominaremos $\mathbf{C_{n}}$. El grupo trivial será denotado
+por $\mathbf{C_1}$. Los homomorfismos entre dos grupos, digamos
+de $G$ en $L$serán denotados como $Hom(G,L)$. Si estos son biyecciones
+se denotará como $Isom(G,L)$. Si los homomorfismos son de un grupo
+en sí mismo pondremos $End(G)$ y si son biyecciones $Aut(G)$. También
+serán de interés las biyecciones de un conjunto en sí mismo $Biy(S)$
+que es además un grupo bajo la composición de funciones como operación
+de grupo. Las operaciones entre grupos que utilizaremos serán $\rtimes$
+para el producto semidirecto, dónde, si escribimos $N\rtimes H$ siendo
+$N \trianglelefteq G$ subgrupo normal del grupo en el que están y
+$H     \preccurlyeq      G$ simplemente subgrupo. Esta forma de nombrar el
+producto directo es imprecisa, así que siendo $\varphi     \in Hom(H,Aut(N))$,
+el simbolismo completo será $N\rtimes_{\varphi }H$. Cuando ambos subgrupos
+sean normales simplemente escribiremos $N     \times      H$, que es el producto
+directo. A su vez el producto semidirecto será considerado como un
+caso particular del producto SZ, que solo requiere que ambos subconjuntos
+sean subgrupos, así que necesitaremos dos homomorfismos, $\alpha     \in Hom(N,Biy(H))$
+y $\beta     \in Hom(H,Biy(N))$, denotándose como $N_{\alpha \!}\bowtie_{\beta }H$
+. Más adelante desarrollaremos las relaciones entre estos productos
+y algunas de sus propiedades, y veremos las diferencias entre las
+versiones externa e interna de ellos. Además, cuando un subgrupo de
+$G$, pongamos $H     \preccurlyeq      G$, podemos definir dos relaciones
+de equivalencia $\mathcal{R}_{H}$ y $\mathcal{R}^{H}$, y el conjunto
+de particiones para una de ellas será $\nicefrac{G}{{\mathcal{R}}_{\mathrm{H}}}\triangleq\lbrace gH |g     \in G\rbrace$,
+y para la otra $\nicefrac{G}{{\mathcal{R}}^{\mathrm{H}}}\triangleq\lbrace Hg|g     \in G\rbrace$
+. Cuando $H\trianglelefteq G$ lo denotaremos por $\nicefrac{G}{H}$
+y además constituirá un grupo.
+
+Cuando un grupo sea hamiltoniano usaremos el símbolo $\boldsymbol{Q}_{8}$ ya
+que tiene alguna copia de él. Son importantes estos grupos porque
+no se pueden construir a través de los productos antes citados.
+
+Hay aún dos productos importantes que citar: uno es el producto wreath,
+denotado $N\wr H$, y que es un producto semidirecto a partir de
+$\sigma     \in Hom(H,Biy(N))$, dónde, si $h     \in H$ tenemos que $\sigma_{h}     \in Biy(N)$
+que se forma de una manera especial. El otro producto que nos queda
+es, sean $H$ y $K$ grupos, tales que tienen un subgrupo cada uno
+de ellos $I     \preccurlyeq     \mathsf{Z}(H)$ y $J     \preccurlyeq     \mathsf{Z}(K)$
+tales que podemos encontrar un isomorfismo $\delta     \in Isom(I,J)$
+con el que podemos crear $L\triangleq\lbrace(i,j)|i     \in I,j     \in J,\delta (i)*j=1\rbrace$.
+Ahora el producto central es $\nicefrac{H     \times      K}{L}$.
+
+De los subgrupos de un grupo dado nos interesan el ya mencionado $\mathsf{Z}(G)$
+o centro, y en general $\mathsf{C}_{G}(H)$, siendo $H     \preccurlyeq      G$,
+el normalizador del anterior subgrupo $\mathsf{N}_{G}(H)$. Para definir
+los siguientes subgrupos, vamos a definir las primicipales familias
+de subgrupos. $\mathcal{S}_{G}\triangleq\lbrace H     \subseteq G|H     \preccurlyeq      G\rbrace$,
+$\mathcal{N}_{G}\triangleq\lbrace H     \in \mathcal{S}_{G}|H\trianglelefteq G\rbrace$. Desde aquí podemos definir $\mathcal{\overline N}_{G}(K)\triangleq\lbrace H     \in \mathcal{N}_{G}|H  \subseteq G\rbrace$, y la definición de un grupo normal ${\overline{\mathsf{K}}}_{G}(K)\triangleq\bigcap\mathcal{\overline N}_{G}(K)$ y de otro ${\underline{\mathsf{K}}}_{G}(K)\triangleq\left\langle\bigcup\mathcal{\underline N}_{G}(K)\right\rangle$.
+También nos quedan los subgrupos característicos, invariantes ante
+isomorfismos cualquiera, $ H  \overset{\mathsf{{char}}}{\_} G $. Así definimos
+$\mathcal{C}_{G}\triangleq\lbrace H    \in \mathcal{N}_{G} \vert H  \overset{\mathsf{{char}}}{\_} G$.
+Además, será interesante el conjunto de los subgrupos maximales de $G$, $\mathcal{M}_{G} \triangleq
+\lbrace H   \in \left({\mathcal{S}_{G}}\setminus \lbrace G\rbrace\right) \vert    \exists    K    \in \left({\mathcal{S}_{G}}\setminus \lbrace G\rbrace\right)\; H    \subseteq K   \Rightarrow    H=K\rbrace$. Para subgrupos minimales tenemos dualmente $\mathcal{P}_{G} \triangleq
+\lbrace H   \in \left({\mathcal{S}_{G}}\setminus \lbrace \mathbf{C_1}\rbrace\right) \vert    \exists    K    \in \left({\mathcal{S}_{G}}\setminus \lbrace \mathbf{C_1}\rbrace\right)\; K    \subseteq H   \Rightarrow    H=K\rbrace$. Llamamos subgrupo de Frattini a $\Phi (G)\triangleq \bigcap \mathcal{M}_{G}$.
+
+De otro lado, un operador binario común entre elementos de un grupo es el \emph{conmutador}, $\left[ a,b \right] |\triangleq a^{-1}  \cdot b^{-1}   \cdot a   \cdot b$. Así $\left[{H,K}\right]\triangleq \left\lbrace\left[ h,k \right] | h  \in H \wedge k  \in K\right\rbrace $. El conmutador así definido de dos subgrupos no tiene porqué ser subgrupo, así se suele considerar $\left\langle{\left[{H,K}\right]}\right\rangle$ que es el subgrupo generado por el conmutador. A partir de aquí tenemos dos operadores sobre grupos. El primero es el suggrupo \emph{derivado} de diversos órdenes, $G^{(0)}\triangleq G$, $\forall i  \in \mathds{N}; G^{(i+1)}=\left\langle\left[ G^{(i)},G^{(i)}\right]\right\rangle$. Otro operador importante es $\mathsf{L}^{0}(G)\triangleq G$ y $\forall i   \in \mathds{N}\;\mathsf{L}^{i+1}(G)\triangleq \left\langle\left[{ \mathsf{L}^{i} , G }\right]\right\rangle$. Se dice que un grupo es \emph{nilpotente} si hay una natural $n  \in \mathds{N}$ tal que $\mathsf{L}^{n}(G)=\mathsf{C}_{1}$. Un grupo es \emph{nilpotente} de clase $n$ tal que $\mathsf{L}_{n-1}(G)  \neq   \mathsf{C}_1$ y $\mathsf{L}_{n}(G)=\mathsf{C}_1$.
+
+Un grupo se dice \emph{abelianizado} del grupo $G$ cuando nos referimos al cociente de $G$ por el primer subgrupo derivado $G^{(1)}$, esto es $G^{\textsf{ab}}\triangleq \nicefrac{G}{G^{(1)}}$.
+
+Así un grupo es \emph{perfecto} si su abelianizado es trivial, $G^{\textsf{ab}} = \mathsf{C}_1$, o dicho de otra manera, $G = G^{(1)}$.
+
+Un grupo $G$ se dice \emph{cuasisimple} si es perfecto, $G = G^{(1)}$, y $\nicefrac{G}{\mathsf{Z}(G)}$ es simple. Hay que entender que $\nicefrac{G}{G^{(1)}}\cong Int(G) \subseteq Aut(G)$, luego la condición anterior equivale a que $Int(G)$ sea simple.
+
+El subgrupo de Fitting de $G$, $\mathsf{F}(G)$, se define como $\mathsf{F}(G) \triangleq \left\langle{\left\lbrace{H  \in \mathcal{N}_G \vert H \textsf{ nilpotente}}\right\rbrace}\right\rangle$.
+
+Ahora definiremos un grupo \emph{semisimple}. Para esto tiene que existir $r \in \mathds{N}\setminus\lbrace 0 \rbrace$ tal que existe $S\triangleq \lbrace{G_i  \in \mathcal{S}_G \vert \forall i\; 0<i<r  \Rightarrow  G_i \textsf{ cuasisimple}}\rbrace$, y $\langle S \rangle = G$. Dicho en palabras, un grupo es semisimple si existe una subfamilia finita de subgrupos cuasisimples que lo genere.
+
+Un grupo es \emph{soluble} si existe una subfamilia de $\mathcal{N}_G$ ordenada como cadena (por ejemplo creciente) por la inclusión, tal que ya no quepan subgrupos intermedios (normales de $G$). Esta cadena iría desde $\mathsf{C}_1$ hasta $G$. Digamos que es $\mathsf{C}_1\triangleq H_0   \preccurlyeq   H_1   \preccurlyeq   \ldots   \preccurlyeq   H_{n-1}   \preccurlyeq   H_n \triangleq G$, de tal forma que $\forall i   \in \mathds{N}\;0  \neq   i\leq n  \Rightarrow   \nicefrac{H_i}{H_{i-1}} \textsf{ es abeliano}$.
+
+Un subgrupo $H$ de $G$ es \emph{subnormal} si existe una subfamilia de $\mathcal{S}_{G}$ finita y ordenada en una cadena por inclusión, de tipo ascendente, tal que $H\triangleq H_0 \lhd H_1 \lhd \ldots \lhd H_{n-1} \lhd H_n \triangleq G$. Es subnormal de clase $n$.
+
+Un subgrupo $H$ de $G$ se dice \emph{componente} si es subnormal y cuasisimple.
+
+Llamamos ``layer'' de un grupo $G$ al producto (que conmuta) de sus componentes. También podemos definirlo como el subgrupo normal semisimple más grande que hay en $G$. Digo más grande y no maximal porque es único. Se suele denominar $\mathsf{E}(G)$.
+
+El subgrupo de Fitting generalizado es $\mathsf{F}^{*}(G) \triangleq \mathsf{F}(G) \mathsf{E}(G)$.
+
+Sobre el cardinal del grupo finito $G$, lo denominamos por $\textsf{card }G = \left| G \right| = \mathsf{o}(G)$. Para los subgrupos utilizamos la misma denominación, y hablaremos habitualmente de orden de un grupo. Para un grupo $H$ cualquiera de $G$, hablaremos del índice de un grupo cuando queramos decir el cardinal de conjunto de las clases de equivalencia lateral inducidas, $\left[ G : H \right] = \left| \nicefrac{G}{\mathcal{R}_H} \right| =\left| \nicefrac{G}{\mathcal{R}^H} \right| $.
+
+Ahora tenemos el teorema de Lagrange, que nos dice que si $G$ es finito, $H\preccurlyeq G$ entonces ${\mathsf{o}(H)} \,\vert\, {{\mathsf{o}}(G)}$. Esto nos da en principio un punto de conexión con el teorema fundamental de la aritmética.
+
+De esta forma se hacen importantes los \emph{p-grupos} y los \emph{p-subgrupos}, que son en general aquellos grupos finitos cuyo orden o cardinal es $p^n$ donde $p$ es un número primo y $n\in\mathds{N}\setminus\lbrace 0\rbrace$.
+
+Llamamos ${\mathcal{S}\text{yl}}_{p}(G) \triangleq \left\lbrace H\in \mathcal{S}_{G} \vert \left| H \right|=p^n \, \wedge\, p^{n}\mid \left| G \right| \,\wedge\, p^{n+1}\nmid \left| G \right| \right\rbrace$.
+
+Así llamamos \emph{p-núcleo} de $G$ a $\mathsf{O}_{p}(G) \triangleq \bigcap {\mathcal{S}\text{yl}}_{p}(G)$.
+
+Emplearemos además los teoremas de Syllow, el teorema de Cauchy, el de Lagrange y demás hechos que iremos nombrando, aparte de los habituales sobre productos directos, semidirectos y otros que sirven para extender grupos, ya nombrados. 
+
+\end{document}

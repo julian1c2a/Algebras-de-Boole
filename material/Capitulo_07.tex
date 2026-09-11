@@ -1,0 +1,923 @@
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \item
+      Estructuras respectivas a 35 de espacio vectorial
+      de\[({B^{n}, \oplus})\]sobre el cuerpo \[({B, \oplus , \cdot})\] y
+      el dual de \[({B^{n}, \odot})\]sobre el cuerpo dual
+      \[({B, \odot , +})\]. Éste último es el caso cuando
+      \[{B = B_{2}} = {\{ 0,1\}}\]. Esto tendrá utilidad inmediata en
+      los códigos de Hamming.
+    \item
+      Para calcular los inversos en los cuerpos finitos de cardinal
+      \[2^{\mathbf{\mathrm{n}}}\] correspondientes hay que re\-solver
+      algunas ecuaciones sobre igualdades polinómicas. El producto del
+      cuerpo fi\-nito asociado (en número de elementos) a nuestro
+      álgebra de Boole no es en general igual al producto del ani\-llo
+      booleano asociado. Tiene que ver con los cuerpos de Galois
+      \[\mathit{GF}{(2^{n})}\]. Estos cuerpos y los polinomios
+      mencionados son de gran utilidad en teoría de codificación (no
+      sólo para álgebras de Boole).
+    \item
+      Existen formulas sencillas para poner la suma ``\[+\]'', el
+      producto ``\[\cdot\]'' en fun\-ción de las funciones
+      ``\[\oplus\]'' y ``\[\cdot\]'', y de ``\[\odot\]'' y ``\[+\]'':
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        \[{{a + b} = {({a \oplus b})}} \oplus {({a \cdot b})}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{({a \oplus b})} \oplus {{({a \cdot b})} =}\]
+        \item
+          \[{= {({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})}} \oplus {{({a \cdot b})} =}\]
+        \item
+          \[{= {{\lbrack{\overline{({{({\overline{a}\cdot b})}+{({a\cdot\overline{b}})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot \overline{({a\cdot b})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack{{({\overline{({\overline{a}\cdot b})} \cdot \overline{({a\cdot\overline{b}})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot {({\overline{a} + \overline{b}})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack{{({{({a + \overline{b}})} \cdot {({\overline{a} + b})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot {({\overline{a} + \overline{b}})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack{({a \cdot b})}\rbrack} + {\lbrack{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})}\rbrack}}} =\]
+        \item
+          \[{= {{{({a \cdot b})} + {({\overline{a} \cdot b})}} + {({a \cdot \overline{b}})}}} =\]
+        \item
+          \[{= {{\lbrack{{({a \cdot b})} + {({\overline{a} \cdot b})}}\rbrack} + {\lbrack{{({a \cdot b})} + {({a \cdot \overline{b}})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack b\rbrack} + {\lbrack a\rbrack}}} =\]
+        \item
+          \[= {a + b}\]
+        \end{enumerate}
+      \item
+        \[{{a \cdot b} = {({a \odot b})}} \odot {({a + b})}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{({a \odot b})} \odot {{({a + b})} =}\]
+        \item
+          \[{= {({{({\overline{a} + b})} \cdot {({a \cdot \overline{b}})}})}} \odot {{({a + b})} =}\]
+        \item
+          \[{= {{\lbrack{\overline{({{({\overline{a}+b})}\cdot{({a+\overline{b}})}})} + {({a + b})}}\rbrack} \cdot {\lbrack{{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + \overline{({a+b})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack{{({\overline{({\overline{a}+b})} + \overline{({a+\overline{b}})}})} + {({a + b})}}\rbrack} \cdot {\lbrack{{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + {({\overline{a} \cdot \overline{b}})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack{{({{({a + \overline{b}})} \cdot {({\overline{a} + b})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot {({\overline{a} + \overline{b}})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack{({a + b})}\rbrack} \cdot {\lbrack{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})}\rbrack}}} =\]
+        \item
+          \[{= {{{({a + b})} \cdot {({\overline{a} + b})}} \cdot {({a + \overline{b}})}}} =\]
+        \item
+          \[{= {{\lbrack{{({a + b})} \cdot {({\overline{a} + b})}}\rbrack} \cdot {\lbrack{{({a + b})} \cdot {({a + \overline{b}})}}\rbrack}}} =\]
+        \item
+          \[{= {{\lbrack b\rbrack} \cdot {\lbrack a\rbrack}}} =\]
+        \item
+          \[= {a \cdot b}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Si un anillo \[({B,0,1, \oplus , \cdot})\] es tal que
+      \[\forall{x \in B}{{x \cdot x} = x}\], define de manera unívoca un
+      álgebra de Boole (la estructura de la que hablamos se llama un
+      anillo de Boole). Esta proposición, con ser matemáticamente
+      importante, la vemos aquí como sólo una curiosidad. En el anillo
+      no exigimos que sea conmutativo. La conmutatividad de la suma está
+      asegurada para todo anillo, y la del producto está asegurada con
+      la con\-dición de idempotencia impuesta a todos los elementos del
+      anillo. La idempotencia de la suma también se deduce fácilmente de
+      la idempotencia del producto. La suma lógica la establecemos
+      \[{{x + y} = x} \oplus y \oplus {({x \cdot y})}\](como en 40.1,
+      solo que aquí no su\-ponemos nada sobre álgebras de Boole),
+      mientras que el producto lógico lo pone\-mos como idéntico al
+      producto del anillo (idénticamente a lo anteriormente dicho).
+      Nota: es importante darse cuenta que este anillo tendrá siempre
+      divisores de cero, esto es habrá para cada elemento otro,
+      distintos ambos de cero, que al multiplicarse dan cero, lo que
+      impide que este anillo de Boole sea un dominio de integridad y por
+      lo tanto también impide que sea cuerpo. El complementario,
+      siguiendo la misma tó\-nica que en 40.1, se define como
+      \[{\overline{x} = x} \oplus 1\]. Por la idempotencia de la suma,
+      la asociatividad de la suma y la existencia y unicidad de la suma
+      tenemos que la doble negación es igual a la identidad. Sólo
+      quedaría ver las distributividades. Cómo hasta ahora las
+      demostraciones son cálculos que verifican la aserción. Así tenemos
+      una forma de ir de cada álgebra de Boole a cada anillo de Boole, y
+      un camino (exacta\-mente el inverso), que nos llevaría de cada
+      anillo de Boole a cada álgebra de Boole. Las álgebras de Boole y
+      los anillos de Boole son categorías equivalentes. A los ca\-minos
+      los llamamos funtores. Daré solo un comienzo de estos teoremas:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        {[}Axioma R0{]}
+        \[\forall{\left( {x,y} \right) \in {B \times B}}\exists\mathtt{\mathrm{!}}{z \in B}x \oplus {y = z}\]
+      \item
+        {[}Axioma R1{]}
+        \[\forall x,y,{z \in B}\left( {x \oplus y} \right) \oplus {z = x} \oplus \left( {y \oplus z} \right)\]
+      \item
+        {[}Axioma R2{]}
+        \[\exists{0 \in B}\forall{x \in B}0 \oplus {x = x}\]
+      \item
+        {[}Axioma R3{]}
+        \[\forall{x \in B}\exists{y_{x} \in B}y_{x} \oplus {x = 0}\]
+      \item
+        {[}Axioma R4{]}
+        \[\forall x,{y \in B}\exists\mathtt{\mathrm{!}}{z \in B}{{x \cdot y} = z}\]
+      \item
+        {[}Axioma R5{]}
+        \[\forall x,y,{z \in B}{{\left( {x \cdot y} \right) \cdot z} = {x \cdot \left( {y \cdot z} \right)}}\]
+      \item
+        {[}Axioma R6{]}
+        \[\exists{1 \in B}\forall{x \in B}{{1 \cdot x} = x}\]
+      \item
+        {[}Axioma R7{]}
+        \[\exists 1{' \in B}\forall{x \in B}{x \cdot 1}{' = x}\]
+      \item
+        {[}Axioma R8{]}
+        \[{\left\{ 0,1 \right\} \subseteq {B \land 0}} \neq 1\]
+      \item
+        {[}Axioma R9{]}
+        \[\forall x,y,{z \in B}{{\left( {x \oplus y} \right) \cdot z} = \left( {x \cdot z} \right)} \oplus \left( {y \cdot z} \right)\]
+      \item
+        {[}Axioma
+        R10{]}\[\forall x,y,{z \in B}{{x \cdot \left( {y \oplus z} \right)} = \left( {x \cdot y} \right)} \oplus \left( {x \cdot z} \right)\]
+      \item
+        {[}Axioma BR{]}\[\forall{x \in B}{{x \cdot x} = x}\]
+      \item
+        \[\left\lbrack {{Lema}1} \right\rbrack\forall x,{y_{x} \in B}\left\lbrack {\left( {y_{x} \oplus x} \right) = 0} \right\rbrack\Rightarrow\left\lbrack {\left( {x \oplus y_{x}} \right) \oplus {\left( {x \oplus y_{x}} \right) = \left( {x \oplus y_{x}} \right)}} \right\rbrack\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {x \oplus y_{x}} \right) \oplus {\left( {x \oplus y_{x}} \right) =}\]
+        \item
+          \[{= \left( {x \oplus \left( {y_{x} \oplus \left( {x \oplus y_{x}} \right)} \right)} \right)} =\]
+        \item
+          \[{= \left( {x \oplus \left( {\left( {y_{x} \oplus x} \right) \oplus y_{x}} \right)} \right)} =\]
+        \item
+          \[{= \left( {x \oplus \left( {0 \oplus y_{x}} \right)} \right)} =\]
+        \item
+          \[= \left( {x \oplus y_{x}} \right)\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}2} \right\rbrack\forall x,{y_{x} \in B}{\left( {y_{x} \oplus x} \right) = 0}\Rightarrow{\left( {x \oplus y_{x}} \right) = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\forall x,{y_{x} \in B}\exists{u_{x + y_{x}} \in B}{{u_{x + y_{x}} \oplus \left( {x \oplus y_{x}} \right)} = 0}\]
+        \item
+          \[\left( {u_{x \oplus y_{x}} \oplus \left( {x \oplus y_{x}} \right)} \right) \oplus {\left( {x \oplus y_{x}} \right) = 0} \oplus \left( {x \oplus y_{x}} \right)\]
+        \item
+          \[u_{x \oplus y_{x}} \oplus {\left( {\left( {x \oplus y_{x}} \right) \oplus \left( {x \oplus y_{x}} \right)} \right) = \left( {x \oplus y_{x}} \right)}\]
+        \item
+          \[u_{x \oplus y_{x}} \oplus {\left( {x \oplus y_{x}} \right) = \left( {x \oplus y_{x}} \right)}\]
+        \item
+          \[0 = \left( {x \oplus y_{x}} \right)\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}3} \right\rbrack\forall{x \in B}0 \oplus {x = x}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\forall{x \in B}0 \oplus {x =}\]
+        \item
+          \[\forall{x \in B}\exists{y_{x} \in B}{= \left( {x \oplus y_{x}} \right)} \oplus {x =}\]
+        \item
+          \[\forall{x \in B}\exists{y_{x} \in B}{= x} \oplus {\left( {y_{x} \oplus x} \right) =}\]
+        \item
+          \[\forall{x \in B}{= x} \oplus {0 = 0}\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}4} \right\rbrack\forall{e \in B}\left( {\forall{x \in B}x \oplus {e = x}} \right)\Rightarrow\left( {e = 0} \right)\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\forall{x \in B}x \oplus {e = x}\]
+        \item
+          \[\forall{x \in B}\exists{y_{x} \in B}y_{x} \oplus {x = 0}\]
+        \item
+          \[\forall{x \in B}\exists{y_{x} \in B}y_{r} \oplus {\left( {x \oplus e} \right) = y_{r}} \oplus x\]
+        \item
+          \[\forall{x \in B}\exists{y_{x} \in B}y_{r} \oplus {\left( {x \oplus e} \right) = 0}\]
+        \item
+          \[\forall{x \in B}\exists{y_{x} \in B}\left( {y_{r} \oplus x} \right) \oplus {e = y_{r}} \oplus {x = 0}\]
+        \item
+          \[\forall{x \in B}\left( {y_{r} \oplus x} \right) \oplus {e = 0}\]
+        \item
+          \[\forall{x \in B}0 \oplus {e = 0}\]
+        \item
+          \[\forall{x \in B}{e = 0}\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}5} \right\rbrack\forall{x \in B}\forall y_{x},{z_{x} \in B}\left\lbrack {{{x + y_{r}} = {{0 \land x} + z_{r}}} = 0} \right\rbrack\Rightarrow\left\lbrack {y_{x} = z_{r}} \right\rbrack\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[y_{r} \oplus {\left( {x \oplus z_{r}} \right) = y_{r}} \oplus 0\]
+        \item
+          \[\left( {y_{r} \oplus x} \right) \oplus {z_{r} = y_{r}}\]
+        \item
+          \[0 \oplus {z_{r} = y_{r}}\]
+        \item
+          \[z_{r} = y_{r}\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Notación}1}\rbrack}{{{y_{x} + x} = {{0 \vee x} + y_{x}}} = 0}\Rightarrow\left( {- x} \right){: = y_{r}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{{{x + {({\overline{x} \cdot y})}} = {{({x + \overline{x}})} \cdot {({x + y})}}} = {1 \cdot {({x + y})}}} = {x + y}\]
+        \item
+          \[\forall x,{y \in B}{{x \cdot {({\overline{x} + y})}} = {x \cdot y}}\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}6} \right\rbrack\forall x,y,{z \in B}\left\lbrack {x \oplus {y = x} \oplus z} \right\rbrack\Rightarrow\left\lbrack {y = z} \right\rbrack\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {y_{r} = {0 \land x}} \oplus {z_{r} = 0}\]
+        \item
+          \[{({- x})} \oplus {{({x \oplus y})} = {({- x})}} \oplus {({x \oplus z})}\]
+        \item
+          \[\left( {{({- x})} \oplus x} \right) \oplus {y = \left( {{({- x})} \oplus x} \right)} \oplus z\]
+        \item
+          \[0 \oplus {y = 0} \oplus z\]
+        \item
+          \[y = z\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}7} \right\rbrack\forall x,y,{z \in B}\left\lbrack {{y + x} = {z + x}} \right\rbrack\Rightarrow\left\lbrack {y = z} \right\rbrack\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          \begin{enumerate}
+          \def\labelenumvi{\arabic{enumvi}.}
+          \tightlist
+          \item
+            \begin{enumerate}
+            \def\labelenumvii{\arabic{enumvii}.}
+            \tightlist
+            \item
+              Prueba:
+            \item
+              \[y \oplus {x = z} \oplus x\]
+            \item
+              \[{({- x})} \oplus {{({x \oplus y})} = {({- x})}} \oplus {({x \oplus z})}\]
+            \item
+              \[\left( {{({- x})} \oplus x} \right) \oplus {y = \left( {{({- x})} \oplus x} \right)} \oplus z\]
+            \item
+              \[y \oplus {0 = z} \oplus 0\]
+            \item
+              \[y = z\]
+            \end{enumerate}
+          \end{enumerate}
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}8} \right\rbrack\forall x,{y \in B}\exists\mathtt{\mathrm{!}}{z \in B}x \oplus {z = y}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[z{: = \left( {- x} \right)} \oplus y\]
+        \item
+          \[x \oplus {z = x} \oplus \left( {\left( {- x} \right) \oplus y} \right)\]
+        \item
+          \[x \oplus {z = \left( {x \oplus \left( {- x} \right)} \right)} \oplus y\]
+        \item
+          \[x \oplus {z = 0} \oplus y\]
+        \item
+          \[x \oplus {z = y}\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}9} \right\rbrack\forall x,{y \in B}\exists\mathtt{\mathrm{!}}{z \in B}z \oplus {x = y}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[z{: = y} \oplus \left( {- x} \right)\]
+        \item
+          \[z \oplus {x = \left( {y \oplus \left( {- x} \right)} \right)} \oplus x\]
+        \item
+          \[z \oplus {x = y} \oplus \left( {\left( {- x} \right) \oplus x} \right)\]
+        \item
+          \[z \oplus {x = y} \oplus 0\]
+        \item
+          \[z \oplus {x = y}\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}10} \right\rbrack\forall{x \in B}{\left( {- \left( {- x} \right)} \right) = x}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {\left( {- x} \right) = 0}\]
+        \item
+          \[\left( {- x} \right) \oplus {x = 0}\]
+        \item
+          \[x \oplus {\left( {- x} \right) = 0}\]
+        \item
+          \[x = \left( {- \left( {- x} \right)} \right)\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}11} \right\rbrack{\left( {- 0} \right) = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {- 0} \right) \oplus {0 = 0}\]
+        \item
+          \[\left( {- 0} \right) \oplus {0 = \left( {- 0} \right)}\]
+        \item
+          \[0 = \left( {- 0} \right)\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}12} \right\rbrack\forall{x \in B}{{0 \cdot x} = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {\left( {0 \cdot x} \right) =}\]
+        \item
+          \[{= \left( {1 \cdot x} \right)} \oplus {\left( {0 \cdot x} \right) =}\]
+        \item
+          \[{= {\left( {1 \oplus 0} \right) \cdot x}} =\]
+        \item
+          \[{= {1 \cdot x}} =\]
+        \item
+          \[= x\]
+        \item
+          \[x \oplus {{\left( {0 \cdot x} \right) = x} = x} \oplus 0\]
+        \item
+          \[\left( {0 \cdot x} \right) = 0\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}13} \right\rbrack\forall{x \in B}{{x \cdot 0} = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {x \cdot 0} \right) \oplus {x =}\]
+        \item
+          \[{= \left( {x \cdot 0} \right)} \oplus {\left( {x \cdot 1} \right) =}\]
+        \item
+          \[{= {x \cdot \left( {0 \oplus 1} \right)}} =\]
+        \item
+          \[{= {x \cdot 1}} =\]
+        \item
+          \[= x\]
+        \item
+          \[\left( {x \cdot 0} \right) \oplus {{0 = x} = 0} \oplus x\]
+        \item
+          \[\left( {x \cdot 0} \right) = 0\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}14} \right\rbrack\forall x,{y \in B}{\left( {- \left( {x \cdot y} \right)} \right) = {\left( {- x} \right) \cdot y}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {x \cdot y} \right) \oplus {\left( {\left( {- x} \right) \cdot y} \right) =}\]
+        \item
+          \[{\left( {(x) \oplus \left( {- x} \right)} \right) \cdot y} =\]
+        \item
+          \[{= {0 \cdot y}} =\]
+        \item
+          \[= 0\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}15} \right\rbrack\forall x,{y \in B}{\left( {- \left( {x \cdot y} \right)} \right) = {x \cdot \left( {- y} \right)}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {x \cdot y} \right) \oplus {\left( {x \cdot \left( {- y} \right)} \right) =}\]
+        \item
+          \[{= {x \cdot \left( {y \oplus \left( {- y} \right)} \right)}} =\]
+        \item
+          \[{= {x \cdot 0}} =\]
+        \item
+          \[= 0\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Lema}16}\rbrack}\forall x,{y \in B}{{x \cdot y} = {\left( {- x} \right) \cdot \left( {- y} \right)}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {- \left( {x \cdot y} \right)} \right) \oplus {\left( {\left( {- x} \right) \cdot \left( {- y} \right)} \right) =}\]
+        \item
+          \[{= \left( {\left( {- x} \right) \cdot y} \right)} \oplus {\left( {\left( {- x} \right) \cdot \left( {- y} \right)} \right) =}\]
+        \item
+          \[{= {\left( {- x} \right) \cdot \left( {y \oplus \left( {- y} \right)} \right)}} =\]
+        \item
+          \[{= \left( {- \left( {x \cdot 0} \right)} \right)} =\]
+        \item
+          \[{= \left( {- 0} \right)} =\]
+        \item
+          \[= 0\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}17} \right\rbrack\forall{x \in B}{{\left( {- 1} \right) \cdot x} = \left( {- x} \right)}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {\left( {- 1} \right) \cdot x} \right) \oplus {x =}\]
+        \item
+          \[{= \left( {\left( {- 1} \right) \cdot x} \right)} \oplus {\left( {1 \cdot x} \right) =}\]
+        \item
+          \[{= {\left( {\left( {- 1} \right) \oplus 1} \right) \cdot x}} =\]
+        \item
+          \[{= {0 \cdot x}} =\]
+        \item
+          \[= 0\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}18} \right\rbrack\forall{x \in B}1{' = 1}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left\{ {\left\lbrack {{Axioma}{BR6}} \right\rbrack \land \left\{ {x{: = 1}'} \right\}} \right\}\Rightarrow\left\{ {{1 \cdot 1}{' = 1}'} \right\}\]
+        \item
+          \[\left\{ {\left\lbrack {{Axioma}{BR7}} \right\rbrack \land \left\{ {x{: = 1}} \right\}} \right\}\Rightarrow\left\{ {{1 \cdot 1}{' = 1}} \right\}\]
+        \item
+          \[1{' = {1 \cdot 1}}{' = 1}\]
+        \end{enumerate}
+      \item
+        \[\left\lbrack {{Lema}19} \right\rbrack\forall{x \in B}{{x \cdot 1} = x}\]
+      \item
+        \[{\lbrack{{Notación}1}\rbrack}\text{En adelante no usaremos}1'\text{sino solamente}1\text{.}\]
+      \item
+        \[{\lbrack{{Lema}20}\rbrack}\forall{x \in B}{{x \cdot \left( {- 1} \right)} = \left( {- x} \right)}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{x \cdot \left( {- 1} \right)} =\]
+        \item
+          \[{= \left( {- \left( {x \cdot 1} \right)} \right)} =\]
+        \item
+          \[= \left( {- x} \right)\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Lema}21}\rbrack}\forall{e \in B}\left( {\left( {\forall{x \in B}{{e \cdot x} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {\left( {\forall{x \in B}{{e \cdot x} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)\]
+        \item
+          \[\left( {x{: = 1}} \right)\left( {{e \cdot 1} = 1} \right)\]
+        \item
+          \[{e \cdot 1} = e\]
+        \item
+          \[e = 1\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Lema}22}\rbrack}\forall{e \in B}\left( {\left( {\forall{x \in B}{{x \cdot e} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {\left( {\forall{x \in B}{{x \cdot e} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)\]
+        \item
+          \[\left( {x{: = 1}} \right)\]
+        \item
+          \[{1 \cdot e} = 1\]
+        \item
+          \[{1 \cdot e} = {e \cdot 1}\]
+        \item
+          \[{e \cdot 1} = e\]
+        \item
+          \[1 = e\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Lema}23}\rbrack}\forall x,{y \in B}{\left( {- \left( {x \oplus y} \right)} \right) = \left( {- y} \right)} \oplus \left( {- x} \right)\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {x \oplus y} \right) \oplus {\left( {\left( {- y} \right) \oplus \left( {- x} \right)} \right) =}\]
+        \item
+          \[{= \left( {x \oplus \left( {\left( {y \oplus \left( {- y} \right)} \right) \oplus \left( {- x} \right)} \right)} \right)} =\]
+        \item
+          \[{= \left( {x \oplus \left( {0 \oplus \left( {- x} \right)} \right)} \right)} =\]
+        \item
+          \[{= \left( {x \oplus \left( {- x} \right)} \right)} =\]
+        \item
+          \[= 0\]
+        \end{enumerate}
+      \end{enumerate}
+
+      Esta fórmula que acabamos de exponer es la fórmula universal para
+      el inverso en cualquier grupo, o in\-cluso, para cualquier
+      operación con neutro asociativa, siempre que existan los inversos,
+      tanto el total como los individuales.
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \setcounter{enumiv}{37}
+      \item
+        \[{\lbrack{{Teorema}1}\rbrack}\forall x,{y \in B}x \oplus {y = y} \oplus x\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[\left( {- \left( {x \oplus y} \right)} \right) =\]
+        \item
+          \[{= {\left( {- 1} \right) \cdot \left( {x \oplus y} \right)}} =\]
+        \item
+          \[{= \left( {\left( {- 1} \right) \cdot x} \right)} \oplus {\left( {\left( {- 1} \right) \cdot y} \right) =}\]
+        \item
+          \[{= \left( {- x} \right)} \oplus \left( {- y} \right)\]
+        \item
+          \[= \left( {- \left( {y \oplus x} \right)} \right)\]
+        \item
+          \[{- \left( {x \oplus y} \right)} = {- \left( {y \oplus x} \right)}\]
+        \item
+          \[\left( {{- \left( {x \oplus y} \right)} = {- \left( {y \oplus x} \right)}} \right)\Rightarrow\left( {x \oplus {y = y} \oplus x} \right)\]
+        \item
+          \[x \oplus {y = y} \oplus x\]
+        \end{enumerate}
+      \end{enumerate}
+
+      El grupo aditivo de un anillo con unidad multiplicativa por ambos
+      lados es siempre un grupo abeliano.
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \setcounter{enumiv}{38}
+      \item
+        \[{\lbrack{{Teorema}2}\rbrack}\forall{x \in B}x \oplus {x = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{0 = x} \oplus \left( {- x} \right)\]
+        \item
+          \[{0 = x} \oplus \left( {\left( {- x} \right) \cdot \left( {- x} \right)} \right)\]
+        \item
+          \[{0 = x} \oplus \left( {x \cdot x} \right)\]
+        \item
+          \[{0 = x} \oplus x\]
+        \end{enumerate}
+      \end{enumerate}
+
+      En el grupo aditivo de un anillo booleano \[B\] es siempre
+      \[\left( {- x} \right) = x\].
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \setcounter{enumiv}{39}
+      \item
+        \[{\lbrack{{Notación}2}\rbrack}\forall{x \in B}\overline{x}{: = x} \oplus 1\]
+      \item
+        \[{\lbrack{{Teorema}3}\rbrack}\forall{x \in B}{{x \cdot \overline{x}} = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{x \cdot \overline{x}} =\]
+        \item
+          \[{= {x \cdot \left( {x \oplus 1} \right)}} =\]
+        \item
+          \[{= {x^{2} \oplus {x \cdot 1}}} =\]
+        \item
+          \[{= {x \oplus x}} =\]
+        \item
+          \[= 0\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Notación}3}\rbrack}\forall x,{y \in B}{x + y}{: = \left( {x \oplus y} \right)} \oplus \left( {x \cdot y} \right)\]
+      \item
+        \[{\lbrack{{Teorema}3}\rbrack}\forall x,{y \in B}{{x \cdot y} = {y \cdot x}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{\lbrack A\rbrack}{{\left( {x + y} \right)^{2} = {{{x^{2} + {x \cdot y}} + {y \cdot x}} + y^{2}}} = {{{x + {x \cdot y}} + {y \cdot x}} + y}}\]
+        \item
+          \[{\lbrack B\rbrack}{\left( {x + y} \right)^{2} = {x + y}}\]
+        \item
+          \[\mathit{De}{\lbrack A\rbrack}y{\lbrack B\rbrack}:\]
+        \item
+          \[{x + y} = {{{x + {x \cdot y}} + {y \cdot x}} + y}\]
+        \item
+          \[0 = {{x \cdot y} + {y \cdot x}}\]
+        \item
+          \[{x \cdot y} = {{- y} \cdot x}\]
+        \item
+          \[{x \cdot y} = {y \cdot x}\]
+        \end{enumerate}
+      \end{enumerate}
+
+      La operación multiplicativa de un anillo de Boole \[B\] es siempre
+      abeliana. Un anillo de Boole es una subcategoría de la categoría
+      de los anillos conmutativos.
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \setcounter{enumiv}{43}
+      \item
+        \[{\lbrack{{Teorema}4}\rbrack}\forall{x \in B}{{x \cdot \overline{x}} = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{x \cdot \overline{x}} =\]
+        \item
+          \[{= {x \cdot \left( {x \oplus 1} \right)}} =\]
+        \item
+          \[{= {x^{2} \oplus {x \cdot 1}}} =\]
+        \item
+          \[{= {x \oplus x}} =\]
+        \item
+          \[= 0\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}5}\rbrack}\forall{x \in B}x \oplus {\overline{x} = 1}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {\overline{x} =}\]
+        \item
+          \[{= {x \oplus \left( {x \oplus 1} \right)}} =\]
+        \item
+          \[{= \left( {x \oplus x} \right)} \oplus {1 =}\]
+        \item
+          \[{= {0 \oplus 1}} =\]
+        \item
+          \[= 1\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}6}\rbrack}\forall{x \in B}{{x + \overline{x}} = 1}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{x + \overline{x}} =\]
+        \item
+          \[{= \left( {x \oplus \overline{x} \oplus \left( {x \cdot \overline{x}} \right)} \right)} =\]
+        \item
+          \[{= {1 \oplus 0}} =\]
+        \item
+          \[= 1\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}7}\rbrack}\forall{x \in B}{{x + x} = x}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{x + x} =\]
+        \item
+          \[{= \left( {x \oplus x \oplus \left( {x \cdot x} \right)} \right)} =\]
+        \item
+          \[{= {0 \oplus x}} =\]
+        \item
+          \[= x\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}8}\rbrack}\forall{x \in B}{{x + 0} = x}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{x + x} =\]
+        \item
+          \[{= \left( {\left( {x \oplus 0} \right) \oplus \left( {x \cdot 0} \right)} \right)} =\]
+        \item
+          \[{= {x \oplus 0}} =\]
+        \item
+          \[= x\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}9}\rbrack}\forall x,{y \in B}{{x + y} = {y + x}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{x + y} =\]
+        \item
+          \[{= \left( {x \oplus y} \right)} \oplus {\left( {x \cdot y} \right) =}\]
+        \item
+          \[{= \left( {y \oplus x} \right)} \oplus {\left( {y \cdot x} \right) =}\]
+        \item
+          \[= {y + x}\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}10}\rbrack}\forall x,y,{z \in B}{{\left( {x + y} \right) + z} = {x + \left( {y + z} \right)}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{\lbrack A\rbrack}{{{({x + y})} + z} =}\]
+        \item
+          \[{{({{({x \oplus y})} \oplus {({x \cdot y})}})} + z} =\]
+        \item
+          \[{= {({{({x \oplus y})} \oplus {({x \cdot y})}})}} \oplus z \oplus {{({{({{({x \oplus y})} \oplus {({x \cdot y})}})} \cdot z})} =}\]
+        \item
+          \[{= x} \oplus y \oplus {({x \cdot y})} \oplus z \oplus {({x \cdot z})} \oplus {({y \cdot z})} \oplus {({{x \cdot y} \cdot z})}\]
+        \item
+          \[{\lbrack B\rbrack}{{x + {({y + z})}} =}\]
+        \item
+          \[{= x} \oplus {({y + z})} \oplus {{({x \cdot {({y + z})}})} =}\]
+        \item
+          \[{= x} \oplus {({y \oplus z \oplus {({y \cdot z})}})} \oplus {{({x \cdot {({y \oplus z \oplus {({y \cdot z})}})}})} =}\]
+        \item
+          \[\text{De}{\lbrack A\rbrack}\text{y}{\lbrack B\rbrack}\text{obtenemos:}\]
+        \item
+          \[{= x} \oplus y \oplus z \oplus {({y \cdot z})} \oplus {({x \cdot y})} \oplus {({x \cdot z})} \oplus {({{x \cdot y} \cdot z})}\]
+        \item
+          \[{\left( {{({x + y})} + z} \right) + \left( {x + {({y + z})}} \right)} = 0\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}11}\rbrack}\forall x,y,{z \in B}{{{({x + y})} \cdot z} = {{({x \cdot z})} + {({y \cdot z})}}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{\lbrack A\rbrack}{{{({x + y})} \cdot z} =}\]
+        \item
+          \[{{({{({x \oplus y})} \oplus {({x \cdot y})}})} \cdot z} =\]
+        \item
+          \[{({{({x \cdot z})} \oplus {({y \cdot z})}})} \oplus {({{x \cdot y} \cdot z})}\]
+        \item
+          \[{\lbrack B\rbrack}{}{}{}{{{({x \cdot z})} + {({y \cdot z})}} =}\]
+        \item
+          \[{({{({x \cdot z})} \oplus {({y \cdot z})}})} \oplus {({{x \cdot y} \cdot z})}\]
+        \item
+          \[\text{De}{\lbrack A\rbrack}\text{y}{\lbrack B\rbrack}\text{se obtine la igualdad deseada.}\]
+        \end{enumerate}
+      \item
+        \[{\lbrack{{Teorema}12}\rbrack}\forall x,y,{z \in B}{}{}{}{{{({x \cdot y})} + z} = {{({x + z})} \cdot {({y + z})}}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{\lbrack A\rbrack}{}{}{}{{{({x \cdot y})} + z} =}\]
+        \item
+          \[{= {{({x \cdot y})} + z}} = {}\]
+        \item
+          \[{= {({{({x \cdot y})} \oplus z})}} \oplus {{({{({x \cdot y})} \cdot z})} =}\]
+        \item
+          \[{= {({x \cdot y})}} \oplus z \oplus {({{x \cdot y} \cdot z})}\]
+        \item
+          \[{\lbrack B\rbrack}{}{}{}{{{({x + z})} \cdot {({y + z})}} =}\]
+        \item
+          \[{= {{({{({x \oplus z})} \oplus {({x \cdot z})}})} \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}}} = {}\]
+        \item
+          \[{= {({{x \cdot {({y \oplus z})}} \oplus {x \cdot {({y \cdot z})}}})}} \oplus {({{z \cdot {({y \oplus z})}} \oplus {z \cdot {({y \cdot z})}}})} \oplus {{({{{x \cdot z} \cdot {({y \oplus z})}} \oplus {{x \cdot z} \cdot {({y \cdot z})}}})} =}\]
+        \item
+          \[{= {x \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}}} \oplus {z \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}} \oplus {{{x \cdot z} \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}} =}\]
+        \item
+          \[{= {({{({{x \cdot y} \oplus {x \cdot z}})} \oplus {({{x \cdot y} \cdot z})}})}} \oplus {({{({{z \cdot y} \oplus {z \cdot z}})} \oplus {({{z \cdot y} \cdot z})}})} \oplus {{({{({{{x \cdot z} \cdot y} \oplus {{x \cdot z} \cdot z}})} \oplus {({{{x \cdot z} \cdot y} \cdot z})}})} =}\]
+        \item
+          \[{= {x \cdot y}} \oplus {x \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {z \cdot y} \oplus {z \cdot z} \oplus {{z \cdot y} \cdot z} \oplus {{x \cdot z} \cdot y} \oplus {{x \cdot z} \cdot z} \oplus {{{{x \cdot z} \cdot y} \cdot z} =}\]
+        \item
+          \[{= {x \cdot y}} \oplus {x \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {y \cdot z} \oplus z \oplus {y \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {x \cdot z} \oplus {{{x \cdot y} \cdot z} =}\]
+        \item
+          \[{= {x \cdot y}} \oplus {{x \cdot y} \cdot z} \oplus {y \cdot z} \oplus z \oplus {y \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {{{x \cdot y} \cdot z} =}\]
+        \item
+          \[{= {x \cdot y}} \oplus {y \cdot z} \oplus z \oplus {y \cdot z} \oplus {{{x \cdot y} \cdot z} =}\]
+        \item
+          \[{= {x \cdot y}} \oplus z \oplus {{{x \cdot y} \cdot z} =}\]
+        \item
+          \[{= \left( {x \cdot y} \right)} \oplus z \oplus \left( {{x \cdot y} \cdot z} \right)\]
+        \item
+          \[\text{De}{\lbrack A\rbrack}\text{y}{\lbrack B\rbrack}\text{se obtine la igualdad deseada.}\]
+        \end{enumerate}
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}

@@ -1,0 +1,578 @@
+1.  1.  1.  Dualidad en el álgebra de Boole.
+
+            1.  Cambiando ***simultáneamente*** todos "0,1,+,\*" por
+                (respectivamente) "1,0,\*,+" (más en general, cambiando
+                cada valor de un **símbolo constante** de B por su
+                complementario, dejando las variables inalteradas,
+                aunque la prueba inicial la vamos a hacer permitiendo
+                sólo los símbolos "1,0") obtenemos a partir de una
+                ex­presión otra con el mismo valor de verdad que la
+                primera. A medida que vaya­mos introduciendo nuevos
+                operadores veremos como extender esta propiedad de
+                dualidad. Se demuestra por inducción sobre cualquier
+                expresión bien formada, teniendo en cuenta que todos los
+                axiomas son simétricos, duales.
+
+                1.  Prueba:
+
+> Primero hay que construir un lenguaje adecuado para las expresiones
+> booleanas (tal como está sirve para hacer un programa calculadora de
+> expresiones de Boo­le, aunque no programable, ni tampoco se pueden
+> definir variables nuevas).
+
+2.  1.  1.  1.  $$\begin{matrix}
+                {{\lbrack\mathbf{\mathit{Constante}}\rbrack}{\mathbf{C}{: =}\mathbf{0}o\mathbf{1}}} \\
+                {\mathbf{C}{: =}\mathbf{0}o\mathbf{1}o\mathbf{\Lambda}o\mathbf{\Lambda_{\mathrm{n}}}} \\
+                {\mathit{dónde}{\mathbf{n} \in \mathbb{N}}{({\mathit{ha}\mathit{de}\mathit{ser}\mathit{un}\mathit{número}\mathit{concreto}})}y} \\
+                {\mathbf{\Lambda},{\mathbf{\Lambda_{\mathrm{n}}} \in {{\{{\alpha,\beta,\gamma,\delta,\epsilon,\theta,\eta,\%,\iota,\chi,\kappa,\lambda,\mu,\nu,\psi,ο,\pi,\rho}\}} \cup}}} \\
+                {{\cup {\{{\sigma,\tau,\varepsilon,\varphi,\varsigma,\vartheta,\xi,\upsilon,\zeta,\omega,\varrho,\varpi}\}}}.} \\
+                {\mathit{El}\mathit{conjunto}\mathit{de}\mathit{símbolos}\mathit{constantes}\mathit{ha}\mathit{de}\mathit{tener}} \\
+                {\mathit{un}\mathit{cardinal}\mathit{menor}o\mathit{igual}\mathit{que}\mathbf{\# B}.} \\
+                {\mathit{Estos}\mathit{símbolos}\mathit{tienen}\mathit{un}\mathit{valor}\mathit{concreto}\mathit{booleano}} \\
+                {y\mathit{no}\mathit{toman}\mathit{otro}\mathit{valor.}\mathit{Puede}\mathit{haber}\mathit{dos}} \\
+                {\mathit{signos}\mathit{constantes}\mathit{distintos}\mathit{con}\mathit{el}\mathit{mismo}} \\
+                {\mathit{valor}\mathit{booleano},\mathit{en}\mathit{cuyo}\mathit{caso}\mathit{podemos}\mathit{escribir}\mathit{la}} \\
+                {\mathit{igualdad}\mathit{entre}\mathit{los}\mathit{símbolos}\mathit{constantes.}}
+                \end{matrix}$$
+
+                $$\begin{matrix}
+                {{\lbrack\mathbf{\mathit{Variable}}\rbrack}\mathbf{V}{: =}\mathbf{X}o\mathbf{X_{\mathrm{n}}}} \\
+                \mathit{dónde} \\
+                {\mathbf{X},{\mathbf{X_{\mathrm{n}}} \in {{\{{a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r}\}} \cup}}} \\
+                {{\cup {\{{s,t,u,v,w,x,y,z}\}}}\phantom{\{\}}} \\
+                {y\mathit{dónde}\mathbf{n}{\in}\mathbf{\mathbb{N}}.}
+                \end{matrix}$$
+
+                $$\begin{matrix}
+                {\mathit{Lo}\mathit{importante}\mathit{de}\mathit{la}\mathit{variable}\mathbf{X}\mathit{no}\mathit{es}\mathit{que}\mathit{varíe}\mathit{en}\mathit{todo}\mathbf{B},} \\
+                {\mathit{sino}\mathit{que}\mathit{varíe}\mathit{en}o\mathit{recorra}{\mathbf{Q_{X}} \subseteq \mathbf{B}},\mathit{tal}\mathit{que}{\mathbf{Q_{X}} \neq \varnothing}.} \\
+                {\mathit{Cuando}\mathit{decimos}\mathit{que}\mathit{el}\mathit{dual}\mathit{de}\mathit{una}\mathit{variable}\mathit{es}\mathit{la}\mathit{misma}\mathit{variable},} \\
+                {\mathit{no}\mathit{quiere}\mathit{decir}\mathit{que}\mathit{esta}\mathit{variable}\mathit{dual}\mathit{recorra}\mathit{el}\mathit{mismo}\mathit{conjunto}} \\
+                {\mathit{de}\mathit{booleanos}\mathit{que}\mathit{la}\mathit{inicial},\mathit{sino}\mathit{que}\mathit{si}\mathit{la}\mathit{inicial}\mathit{tenía}\mathit{elementos},} \\
+                {\mathit{la}\mathit{dual}\mathit{también}\mathit{los}\mathit{tiene.}}
+                \end{matrix}$$
+
+                $$\begin{matrix}
+                {{\lbrack\mathbf{\mathit{Literal}}\rbrack}\mathbf{\mathit{L.p}}{: =}\mathbf{V}o\mathbf{C}} \\
+                {\mathbf{L}{: =}\mathbf{\mathit{L.p}}o\overline{\mathbf{\mathit{L.p}}}}
+                \end{matrix}$$
+
+                $$\begin{matrix}
+                {{\lbrack\mathbf{\mathit{Término}\mathit{Simple}}\rbrack}\mathbf{\mathit{TS.p}}{: =}\mathbf{L}o\left( {{{\cdot \mathbf{L}} \cdot} + {{\cdot \mathbf{L}} \cdot}} \right)o\left( {{{{\cdot \mathbf{L}} \cdot \mathbf{\mathrm{\cdot}}} \cdot \mathbf{L}} \cdot} \right)o\overline{\mathbf{L}}} \\
+                {\mathbf{\mathit{TS}}{: =}\mathbf{\mathit{TS.p}}o\mathbf{\overline{\mathit{TS.p}}}} \\
+                {\mathit{dónde}\mathit{los}\mathit{signos} \cdot \mathit{débiles}\mathit{significan}\mathit{seguido}ó\mathit{concatenado.}}
+                \end{matrix}$$
+
+                $$\begin{matrix}
+                {{\lbrack\mathbf{\mathit{Término}}\rbrack}\mathbf{\mathit{T.p}}{: =}\mathbf{\mathit{TS}}o\left( {{{{\cdot \mathbf{\mathit{T.p}}} \cdot \mathbf{+}} \cdot \mathbf{\mathit{TS}}} \cdot} \right)o\left( {{{{\cdot \mathbf{\mathit{T.p}}} \cdot \mathbf{\mathrm{\cdot}}} \cdot \mathbf{\mathit{TS}}} \cdot} \right)} \\
+                {{\lbrack\mathbf{\mathit{Término}}\rbrack}\mathbf{T}{: =}\mathbf{\mathit{T.p}}o\overline{\mathbf{\mathit{T.p}}}} \\
+                {\mathit{dónde}\mathit{los}\mathit{signos} \cdot \mathit{débiles}\mathit{significan}\mathit{seguido}ó\mathit{concatenado.}}
+                \end{matrix}$$
+
+                $${\lbrack\mathbf{\mathit{Expresión}}\rbrack}\mathbf{E}{: =}\mathbf{T{=}T}o\mathbf{T{\neq}T}$$
+
+                Esquema de demostración:
+
+                47. Hay que demostrar que para cualquier expresión
+                    $$E$$pode­mos encontrar la dual
+                    $$\widetilde{E}$$(hasta aquí es sólo formalizar las
+                    reglas de los cambios) y que el valor de verdad de
+                    $$E$$ y de $$\widetilde{E}$$ son idénticos. Para
+                    ello vamos a demos­trarlo primero para igualdades
+                    entre literales y des­pués por recursividad para una
+                    expresión cualquiera con un literal, y por último
+                    para igualdades entre términos cualquiera. El método
+                    de demostración será el de induc­ción matemática
+                    sobre el número de términos simples en ambos
+                    términos de una expresión. Lo haremos
+                    indepen­dientemente para el caso de la expresión
+                    afirmada y para el caso de la expresión negada.
+                    Primero (1) se de­muestra cuando los términos son
+                    literales, después (2) se demuestra cuando los
+                    términos son términos simples. El siguiente paso (3)
+                    es asegurarlo cuando un término es un término simple
+                    y el otro un término operado con un término simple,
+                    y suponiendo que ya se da la duali­dad sin el añadido
+                    (HI), demostrar que se da la duali­dad con el
+                    añadidos. El siguiente paso (4) es suponer que si es
+                    demostrar cuando los dos son términos supo­niendo
+                    dado el caso que un término igual o desigual a un
+                    término simple está dado. Por último (5) dado que
+                    (HI) implica (3) y (HI) implica (4), suponiendo (2)
+                    de­mostramos el caso término operado término simple y
+                    tér­mino operado término simple (son 3 casos de
+                    operacio­nes) dado (HI). Estamos aprovechando para la
+                    demostra­ción la estructura de la gramática
+                    construida anterior­mente. En definitiva tendremos
+                    los puntos (a.1.cc) , (a.1.cv) , (a.1.vv) ,
+                    (a.1.lit.neg) , (a.2.lit.lit) , (a.2.cc+c) ,
+                    (a.2.vc+c) , (a.2.vv+c) , (a.2.cc+v) , (a.2.vc+v) ,
+                    (a.2.vv+v) , (a.2.cc\*c) , (a.2.vc\*c) , (a.2.vv\*c)
+                    , (a.2.cc\*v) , (a.2.vc\*v) , (a.2.vv\*v) ,
+                    (a.2.ts.neg) , (a.3.HI.tts+ts) , (a.3.HI.tts\*ts) ,
+                    (a.3.HI.tts+ts) , (a.4.HI.ttsts\*) ,
+                    (a.5.HI.tts+tts+) , (a.5.HI.tts\*tts\*) ,
+                    (a.5.HI.tts+tts\*) , (a.5.HI.t.neg) , y a
+                    continuación los puntos dónde se prueba que el dual
+                    de una desigual­dad es equivalente a la dual de la
+                    misma desigualdad. Habrá que ver previamente que ver
+                    cuál es el dual de un recorrido **Q** en **B**, que
+                    será el conjunto de los elementos de **B** que son
+                    inversos de los elementos de **Q**, ya que para cada
+                    constante o valor que tome una variable, el dual
+                    será el dual de esa constante o valor, esto es, el
+                    complemento de esa constante o valor. Para una
+                    variable **a**, el conjunto de valores que recorre
+                    es **Q**~**a**~ . Si necesi­tamos algún conjunto
+                    auxiliar lo llamaremos **A** y se de­finirá antes de
+                    su uso con la idea que no sea demasiado engorrosa la
+                    escritura. Si un conjunto **C** es sin el 1 lo
+                    denotaremos por **C**~**\***~ y si es sin el 0 lo
+                    denotaremos **C**^**\***^ y definimos
+                    **B**~**2**~**={0,1}** y si un conjunto **C** es sin
+                    0 y sin 1 lo denotamos por **C**^**X**^. Otro
+                    elemento importante son los paréntesis, que permiten
+                    una no asociatividad generali­zada entre las diversas
+                    operaciones, al no cambiar en absoluto en la
+                    expresión dual.
+
+                48. Casos en que la expresión $$E$$
+                    es$$T_{1} = T_{2}$$afirmativa:
+
+                    ***a.1.cc)*** $$\Lambda_{1} = \Lambda_{2}$$. La
+                    expresión dual es
+                    $$\overline{\Lambda_{1}} = \overline{\Lambda_{2}}$$.
+                    Existe equivalencia cla­ra entre estas 2 expresiones
+                    duales.
+
+                    ***a.1.cv)*** $$\Lambda = X$$. El conjunto
+                    $$Q_{X{(\Lambda)}} = \left\{ \Lambda \right\}$$ , y
+                    así es no vacío. El conjunto dual será
+                    $${\widetilde{Q}}_{X{(\Lambda)}} = \left\{ \overline{\Lambda} \right\}$$,
+                    que es evidentemente no vacía. La expresión dual es
+                    $$\overline{\Lambda} = X$$.
+
+                    ***a.1.vv)*** $$X = Y$$. El conjunto $$Q_{X} = B$$ ,
+                    y así es no vacío. El conjunto asociado a $$Y$$ es
+                    dependiente de los valores de $$X$$:
+                    $$Q_{Y{(X)}} = {B \smallsetminus {\{{\mathit{value}{(X)}}\}}}$$dónde
+                    $$\#{\left( \left\{ {\mathit{value}{(X)}} \right\} \right) = 1}$$.
+                    De aquí que el con­junto de valores que recorre
+                    $$Y$$no es vacío, esto es,
+                    $$Q_{Y{(X)}} \neq \varnothing$$. La ex­presión dual
+                    será $$\widetilde{X} = \widetilde{Y}$$ que se sigue
+                    traduciendo como $$X = Y$$, ya que los conjunto
+                    asociados duales que son
+                    $${{{\widetilde{Q}}_{X} = \left\{ {{\overline{\alpha} \in B} \mid {\alpha \in B}} \right\}} = B} = Q_{X}$$,
+                    y
+                    $${\widetilde{Q}}_{Y{(X)}} = {B \smallsetminus \left\{ \overline{\mathit{value}{(X)}} \right\}}$$sigue
+                    siendo no vacía. La expresión dual es evi­dentemente
+                    equivalente para cada valor de $$X$$.
+
+                    ***a.1.lit.neg)*** Cada literal negado
+                    $$\overline{L}$$ es o una variable negada o una
+                    cons­tante negada. Cada constante negada no es más
+                    que otra constante. Luego si el literal negado es
+                    una constante sigue valiendo idénticamente los
+                    puntos anteriores. Si el literal negado es una
+                    variable digamos $$\overline{X}$$ convertimos
+                    $$Q_{X} \neq \varnothing$$ en
+                    $$Q_{\overline{X}} = \left\{ {{\overline{x} \in B} \mid {x \in Q_{X}}} \right\}$$
+                    que es la misma expresión de
+                    $${\widetilde{Q}}_{X}$$, y por lo tanto
+                    $$\#{{(Q_{X})} = \#}{{(Q_{\overline{X}})} = \#}{({\widetilde{Q}}_{X})}$$y
+                    además
+                    $$\#{{({\widetilde{Q}}_{X})} = \#}{{({\widetilde{Q}}_{\overline{X}})} = \#}{{({\widetilde{\widetilde{Q}}}_{X})} = \#}{(Q_{X})}$$.
+                    Luego podemos también ver que se trata un caso
+                    reducido completamente a los anteriores. Queda
+                    demostrado que
+                    $${L_{1} = L_{2}}\Leftrightarrow{\widetilde{L_{1}} = \widetilde{L_{2}}}$$
+                    .
+
+                    ***a.2.lit.lit)*** Si
+                    $$\mathit{TS}_{1} = \mathit{TS}_{2}$$ es tal que
+                    $$\mathit{TS}_{1} = L_{1}$$ y
+                    $$\mathit{TS}_{2} = L_{2}$$ ya ha queda­do demostrado
+                    en el punto (a.1).
+
+                    ***a.2.cc+c)*** El caso
+                    $${\Lambda_{1} + \Lambda_{2}} = \Lambda_{3}$$ tiene
+                    como expresión dual
+                    $${\overline{\Lambda_{1}} \cdot \overline{\Lambda_{2}}} = \overline{\Lambda_{3}}$$que
+                    viene justificado por las leyes de De Morgan: ambas
+                    expresiones son equivalentes.
+
+                    ***a.2.vc+c)*** El caso $${X + \Lambda} = \Gamma$$
+                    tiene como expresión dual
+                    $${X \cdot \overline{\Lambda}} = \overline{\Gamma}$$
+                    que viene justificado por las leyes de De Morgan,
+                    con sólo asegurar que en am­bas expresiones
+                    $$X$$recorre un conjunto no vacío. Existen algunas
+                    posibili­dades que de inicio sea vacío el recorrido
+                    de $$X$$, por ejemplo si $$\Gamma = 0$$ y
+                    $$\Lambda = 1$$. En estos casos comprobaremos que
+                    $$\widetilde{X}$$ recorre un conjunto
+                    $$\varnothing$$. Supongamos que
+                    $$\forall{x \in B}{{x + \Lambda} \neq \Gamma}$$y
+                    supongamos que
+                    $$\exists{y \in B}{{y \cdot \overline{\Lambda}} = \overline{\Gamma}}$$.
+                    Y a la inversa: si existe un valor de $$X$$ que haga
+                    la ex­presión verdadera entonces existe al menos otro
+                    valor de $$\widetilde{X}$$ que hará a la expresión
+                    dual igualmente verdadera.
+
+                    Prueba cuando $$X$$ no tiene solución en la
+                    expresión:
+
+                    1.  1.  $$\forall{x \in B}{{x + \Lambda} \neq \Gamma}$$$$\land$$$$\exists{y \in B}{{y \cdot \overline{\Lambda}} = \overline{\Gamma}}$$.
+                        2.  $${y \cdot \overline{\Lambda}} = \overline{\Gamma}$$
+                        3.  $${\left( {y \cdot \overline{\Lambda}} \right) + \left( {x + \Lambda} \right)} = {\overline{\Gamma} + \left( {x + \Lambda} \right)}$$
+                        4.  $${\left( {y \cdot \Lambda} \right) + x} = {\overline{\Gamma} + \left( {x + \Lambda} \right)}$$
+                        5.  $${{\left( {y + \Lambda} \right) + \overline{\Gamma}} + x} = {\overline{\Gamma} + \left( {x + \Lambda} \right)}$$
+                        6.  $${y = 0} = \overline{\Gamma}$$
+                        7.  $$\Gamma = 1$$
+                        8.  Haciendo $$x = \overline{\Lambda}$$ tenemos
+                            que 1. es falso.
+                        9.  $$\forall{x \in B}{{x + \Lambda} \neq \Gamma}$$$$\Rightarrow$$$$\forall{x \in B}{{x \cdot \overline{\Lambda}} \neq \overline{\Gamma}}$$.
+
+                    Prueba cuando $$X$$ no tiene solución en la
+                    expresión dual:
+
+                    1.  1.  $$\exists{x \in B}{{x + \Lambda} = \Gamma}$$$$\land$$$$\forall{y \in B}{{y \cdot \overline{\Lambda}} \neq \overline{\Gamma}}$$.
+                        2.  $${x + \Lambda} = \Gamma$$
+                        3.  $${\left( {y \cdot \overline{\Lambda}} \right) + \left( {x + \Lambda} \right)} = {\overline{\Gamma} + \left( {x + \Lambda} \right)}$$
+                        4.  $${\left( {x + \overline{\Lambda}} \right) \cdot y} = {\Gamma \cdot \left( {y \cdot \overline{\Lambda}} \right)}$$
+                        5.  $${\left( {x + \overline{\Lambda}} \right) \cdot {({y \cdot \Gamma})}} = {\Gamma \cdot \left( {y \cdot \overline{\Lambda}} \right)}$$
+                        6.  $$1 = {x \cdot \overline{\Gamma}}$$
+                        7.  $$\Gamma = 0$$
+                        8.  Haciendo $$y = \Lambda$$ tenemos que 1. es
+                            falso.
+                        9.  $$\forall{x \in B}{{x \cdot \overline{\Lambda}} \neq \overline{\Gamma}}$$$$\Rightarrow$$$$\forall{x \in B}{{x + \Lambda} \neq \Gamma}$$.
+
+                    Prueba cuando $$X$$ tiene solución en la expresión:
+
+                    1.  1.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\xi + \Lambda} = \Gamma}$$
+                        2.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\overline{\xi} \cdot \overline{\Lambda}} = \overline{\Gamma}}$$
+                        3.  $$\exists{\widetilde{Q_{X}} \neq \varnothing}{\widetilde{Q_{X}} \subseteq B}\forall{\xi \in \widetilde{Q_{X}}}{{\xi \cdot \overline{\Lambda}} = \overline{\Gamma}}$$
+                        4.  $${X \cdot \overline{\Lambda}} = \overline{\Gamma}$$
+                        5.  $${X + \Lambda} = \Gamma$$ $$\Rightarrow$$
+                            $${X \cdot \overline{\Lambda}} = \overline{\Gamma}$$
+
+                    Prueba cuando $$X$$ tiene solución en la expresión
+                    dual:
+
+                    1.  1.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\xi \cdot \overline{\Lambda}} = \overline{\Gamma}}$$
+                        2.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\overline{\xi} + \Lambda} = \Gamma}$$
+                        3.  $$\exists{\widetilde{Q_{X}} \neq \varnothing}{\widetilde{Q_{X}} \subseteq B}\forall{\xi \in \widetilde{Q_{X}}}{{\xi + \Lambda} = \Gamma}$$
+                        4.  $${X + \Lambda} = \Gamma$$
+                        5.  $${X \cdot \overline{\Lambda}} = \overline{\Gamma}$$
+                            $$\Rightarrow$$ $${X + \Lambda} = \Gamma$$
+
+                    ***a.2.vv+c)*** $${X + Y} = \Gamma$$y esta expresión
+                    va a ser verdadera. Tenemos que ver su dual
+                    $${X + Y} = \overline{\Gamma}$$es también verdadero.
+                    Para esto vemos la forma que to­man los conjuntos
+                    asociados a las variables $$X\text{e}Y$$. Sea
+                    $$Q_{X} = {\{{{\alpha \cdot \Gamma} \mid {\alpha \in B}}\}}$$
+                    y
+                    $$Q_{Y{(X)}} = {\{{{\overline{\mathit{value}{(X)}} \cdot \Gamma} \mid \mathit{value}{{(X)} \in Q_{X}}}\}}$$.
+                    Así en la expresión dual
+                    $$\widetilde{Q_{X}} = {\{{{\overline{\alpha} + \overline{\Gamma}} \mid {\alpha \in B}}\}}$$
+                    y en
+                    $$Q_{Y{(X)}} = {\{{{{\mathit{value}{(X)}} + \overline{\Gamma}} \mid \mathit{value}{{(X)} \in \widetilde{Q_{X}}}}\}}$$,
+                    no son vacíos ninguno de los con­juntos asociados,
+                    como en la expresión no dual. De hecho a pares
+                    tienen el mismo cardinal. Por lo tanto si uno de
+                    ellos fuera vacío para una variable también lo sería
+                    la en expresión dual, y viceversa.
+
+                    ***a.2.cc+v)*** Veamos el caso
+                    $${\Gamma + \Lambda} = X$$. La variable solo puede
+                    tomar un va­lor, pero este existe
+                    $$Q_{X} = \left\{ {\Gamma + \Lambda} \right\}$$.
+                    Luego $$Q_{X}$$no es vacío. La expresión dual
+                    $${\overline{\Gamma} \cdot \overline{\Lambda}} = X$$es
+                    tal que $$X$$recorre
+                    $${{\widetilde{Q}}_{X} = \left\{ {\overline{\alpha} \mid {\alpha \in Q_{X}}} \right\}} = \left\{ {\overline{\Gamma} \cdot \overline{\Lambda}} \right\}$$,
+                    que es no vacío, y con el mismo cardinal que
+                    $$Q_{X}$$. El camino inverso es similar, probado ya
+                    que los cardinales son los mismos.
+
+                    ***a.2.vc+v)*** Este caso corresponde a
+                    $${X + \Gamma} = Y$$. Su expresión dual sería
+                    $${X \cdot \overline{\Gamma}} = Y$$. Si la expresión
+                    es verdadera $${Q_{X} = B} \neq \varnothing$$y
+                    $${Q_{Y{(X)}} = \left\{ {\mathit{value}{{(X)} + \Gamma}} \right\}} \neq \varnothing$$.
+                    La expresión de los conjuntos asociados a las
+                    variables $$X$$ e $$Y$$ en la expresión dual sería
+                    $${{\widetilde{Q}}_{X} = B} \neq \varnothing$$, y
+                    $${{\widetilde{Q}}_{Y{(X)}} = \left\{ {{\mathit{value}{(X)}} \cdot \overline{\Gamma}} \right\}} \neq \varnothing$$.
+                    Al tener los mismos cardinales queda demos­trado lo
+                    que queríamos demostrar para el caso afirmativo.
+                    Esta expresión y su dual son siempre verdaderas.
+
+                    ***a.2.vv+v)*** El caso $${X + Y} = Z$$ tiene como
+                    dual $${X \cdot Y} = Z$$. Solo tenemos que ver los
+                    conjuntos asociados $${Q_{X} = B} \neq \varnothing$$
+                    , $${Q_{Y} = B} \neq \varnothing$$ ,
+                    $${Q_{Z{({X,Y})}} = \left\{ {{\mathit{value}{(X)}} + {\mathit{value}{(Y)}}} \right\}} \neq \varnothing$$
+                    , $${{\widetilde{Q}}_{X} = B} \neq \varnothing$$ ,
+                    $${{\widetilde{Q}}_{Y} = B} \neq \varnothing$$ ,
+                    $${{{\widetilde{Q}}_{Z{({X,Y})}} = {\overline{\mathit{value}{(X)}} \cdot \overline{\mathit{value}{(Y)}}}} = \overline{{\mathit{value}{(X)}}+\overline{\mathit{value}{(Y)}}}} \neq \varnothing$$
+                    . Los cardinales de ambos jue­gos de conjuntos
+                    asociados, los del original y los del dual son
+                    iguales. Esta expresión y su dual son siempre
+                    verdaderas.
+
+                    ***a.2.cc\*c)*** El caso
+                    $${\Lambda_{1} \cdot \Lambda_{2}} = \Lambda_{3}$$
+                    tiene como expresión dual
+                    $${\overline{\Lambda_{1}} + \overline{\Lambda_{2}}} = \overline{\Lambda_{3}}$$que
+                    viene justificado por las leyes de De Morgan: ambas
+                    expresiones son equivalentes.
+
+                    ***a.2.vc\*c)*** El caso
+                    $${X \cdot \Lambda} = \Gamma$$ tiene como expresión
+                    dual
+                    $${X + \overline{\Lambda}} = \overline{\Gamma}$$ que
+                    viene justificado por las leyes de De Morgan, con
+                    sólo asegurar que en am­bas expresiones $$X$$recorre
+                    un conjunto no vacío. Existen algunas posibili­dades
+                    que de inicio sea vacío el recorrido de $$X$$, por
+                    ejemplo si $$\Gamma = 1$$ y $$\Lambda = 0$$. En
+                    estos casos comprobaremos que $$\widetilde{X}$$
+                    recorre un conjunto $$\varnothing$$. Supongamos que
+                    $$\forall{x \in B}{{x \cdot \Lambda} \neq \Gamma}$$y
+                    supongamos que
+                    $$\exists{y \in B}{{y + \overline{\Lambda}} = \overline{\Gamma}}$$.
+                    Y a la inversa: si existe un valor de $$X$$ que haga
+                    la expresión verdadera entonces existe al menos otro
+                    valor de $$\widetilde{X}$$ que hará a la expresión
+                    dual igualmente verdadera.
+
+                    Prueba cuando $$X$$ no tiene solución en la
+                    expresión:
+
+                    1.  1.  $$\forall{x \in B}{{x \cdot \Lambda} \neq \Gamma}$$$$\land$$$$\exists{y \in B}{{y + \overline{\Lambda}} = \overline{\Gamma}}$$
+                        2.  $${y + \overline{\Lambda}} = \overline{\Gamma}$$
+                        3.  $${\left( {y + \overline{\Lambda}} \right) + \left( {x \cdot \Lambda} \right)} = {\overline{\Gamma} + \left( {x \cdot \Lambda} \right)}$$
+                        4.  $${\left( {y + \overline{\Lambda}} \right) + x} = {\overline{\Gamma} + \left( {x \cdot \Lambda} \right)}$$
+                        5.  $${{\left( {y + \overline{\Lambda}} \right) + \overline{\Gamma}} + x} = {\overline{\Gamma} + \left( {x \cdot \Lambda} \right)}$$
+                        6.  $${{\left( {y \cdot \Lambda} \right) + {\overline{\Gamma} \cdot \Lambda}} + {x \cdot \Lambda}} = {{\overline{\Gamma} \cdot \Lambda} + \left( {x \cdot \Lambda} \right)}$$
+                        7.  $${y \cdot \Lambda} = 0$$
+                        8.  $$y = \overline{\Lambda}$$ y de ahí
+                            $$\Gamma = \Lambda$$
+                        9.  Haciendo $$x = 1$$ tenemos que 1. es falso.
+                        10. $$\forall{x \in B}{{x \cdot \Lambda} \neq \Gamma}$$$$\Rightarrow$$$$\forall{y \in B}{{y + \overline{\Lambda}} \neq \overline{\Gamma}}$$
+
+                    Prueba cuando $$X$$ no tiene solución en la
+                    expresión dual:
+
+                    1.  1.  $$\forall{x \in B}{{x + \overline{\Lambda}} \neq \overline{\Gamma}}$$$$\land$$$$\exists{y \in B}{{y \cdot \Lambda} = \Gamma}$$
+                        2.  $${y \cdot \Lambda} = \Gamma$$
+                        3.  $${{{({y \cdot \Lambda})} + x} + \overline{\Lambda}} = {{\Gamma + x} + \overline{\Lambda}}$$
+                        4.  $${{y + \Lambda} + x} = {{\Gamma + x} + \overline{\Lambda}}$$
+                        5.  $${{{\Gamma + y} + \Lambda} + x} = {{\Gamma + x} + \overline{\Lambda}}$$
+                        6.  $$y = 0$$
+                        7.  $$\Gamma = 0$$
+                        8.  $$\forall{x \in B}{{{x + \overline{\Lambda}} \neq \overline{\Gamma}} = 1}$$
+                        9.  Haciendo $$x = \Gamma$$ tenemos que 8. es
+                            falso y 1. es falso.
+                        10. $$\forall{x \in B}{{x + \overline{\Lambda}} \neq \overline{\Gamma}}$$$$\Rightarrow$$$$\forall{y \in B}{{y \cdot \Lambda} \neq \Gamma}$$.
+
+                    Prueba cuando $$X$$ tiene solución en la expresión:
+
+                    1.  1.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\xi \cdot \Lambda} = \Gamma}$$.
+                        2.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\overline{\xi} + \overline{\Lambda}} = \overline{\Gamma}}$$
+                        3.  $$\exists{\widetilde{Q_{X}} \neq \varnothing}{\widetilde{Q_{X}} \subseteq B}\forall{\xi \in \widetilde{Q_{X}}}{{\xi + \overline{\Lambda}} = \overline{\Gamma}}$$
+                        4.  $${X \cdot \overline{\Lambda}} = \overline{\Gamma}$$
+                        5.  $${X + \Lambda} = \Gamma$$ $$\Rightarrow$$
+                            $${X \cdot \overline{\Lambda}} = \overline{\Gamma}$$
+
+                    Prueba cuando $$X$$ tiene solución en la expresión
+                    dual:
+
+                    1.  1.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\xi + \overline{\Lambda}} = \overline{\Gamma}}$$
+                        2.  $$\exists{Q_{X} \neq \varnothing}{Q_{X} \subseteq B}\forall{\xi \in Q_{X}}{{\overline{\xi} \cdot \Lambda} = \Gamma}$$
+                        3.  $$\exists{\widetilde{Q_{X}} \neq \varnothing}{\widetilde{Q_{X}} \subseteq B}\forall{\xi \in \widetilde{Q_{X}}}{{\xi \cdot \Lambda} = \Gamma}$$
+                        4.  $${X \cdot \Lambda} = \Gamma$$
+                        5.  $${X + \overline{\Lambda}} = \overline{\Gamma}$$
+                            $$\Rightarrow$$
+                            $${X \cdot \Lambda} = \Gamma$$
+
+                    ***a.2.cc\*v)*** Veamos el caso
+                    $${\Gamma + \Lambda} = X$$. La variable solo puede
+                    tomar un va­lor, pero este existe
+                    $$Q_{X} = \left\{ {\Gamma + \Lambda} \right\}$$.
+                    Luego $$Q_{X}$$no es vacío. La expresión dual
+                    $${\overline{\Gamma} \cdot \overline{\Lambda}} = X$$es
+                    tal que $$X$$recorre
+                    $${{\widetilde{Q}}_{X} = \left\{ {\overline{\alpha} \mid {\alpha \in Q_{X}}} \right\}} = \left\{ {\overline{\Gamma} \cdot \overline{\Lambda}} \right\}$$,
+                    que es no vacío, y con el mismo cardinal que
+                    $$Q_{X}$$. El camino inverso es similar, probado ya
+                    que los cardinales son los mismos.
+
+                    ***a.2.vc\*v)*** Este caso corresponde a
+                    $${X + \Gamma} = Y$$. Su expresión dual sería
+                    $${X \cdot \overline{\Gamma}} = Y$$. Si la expresión
+                    es verdadera $${Q_{X} = B} \neq \varnothing$$y
+                    $${Q_{Y{(X)}} = \left\{ {\mathit{value}{{(X)} + \Gamma}} \right\}} \neq \varnothing$$.
+                    La expresión de los conjuntos asociados a las
+                    variables $$X$$ e $$Y$$ en la expresión dual sería
+                    $${{\widetilde{Q}}_{X} = B} \neq \varnothing$$, y
+                    $${{\widetilde{Q}}_{Y{(X)}} = \left\{ {{\mathit{value}{(X)}} \cdot \overline{\Gamma}} \right\}} \neq \varnothing$$.
+                    Al tener los mismos cardinales queda demos­trado lo
+                    que queríamos demostrar para el caso afirmativo.
+                    Esta expresión y su dual son siempre verdaderas.
+
+                    a.2.vv\*c)$${X \cdot Y} = \Gamma$$y esta expresión
+                    va a ser verdadera. Tenemos que ver su dual
+                    $${X \cdot Y} = \overline{\Gamma}$$es también
+                    verdadero. Para esto vemos la forma que toman los
+                    conjuntos asociados a las variables $$X\text{e}Y$$.
+                    Sea
+                    $$Q_{X} = {\{{{\alpha + \Gamma} \mid {\alpha \in B}}\}}$$
+                    y
+                    $$Q_{Y{(X)}} = {\{{{\overline{\mathit{value}{(X)}} + \Gamma} \mid \mathit{value}{{(X)} \in Q_{X}}}\}}$$.
+                    Así en la expresión dual
+                    $$\widetilde{Q_{X}} = {\{{{\overline{\alpha} \cdot \overline{\Gamma}} \mid {\alpha \in B}}\}}$$
+                    y en
+                    $$Q_{Y{(X)}} = {\{{{{\mathit{value}{(X)}} \cdot \overline{\Gamma}} \mid \mathit{value}{{(X)} \in \widetilde{Q_{X}}}}\}}$$,
+                    no son vacíos ninguno de los conjuntos asociados,
+                    como en la expresión no dual. De hecho a pares
+                    tienen el mismo cardinal. Por lo tanto si uno de
+                    ellos fuera va­cío para una variable también lo sería
+                    la en expresión dual, y viceversa.
+
+                    ***a.2.vv\*v)*** El caso $${X \cdot Y} = Z$$ tiene
+                    como dual $${X + Y} = Z$$. Solo tenemos que ver los
+                    conjuntos asociados $${Q_{X} = B} \neq \varnothing$$
+                    , $${Q_{Y} = B} \neq \varnothing$$ ,
+                    $${Q_{Z{({X,Y})}} = \left\{ {{\mathit{value}{(X)}} \cdot {\mathit{value}{(Y)}}} \right\}} \neq \varnothing$$
+                    , $${{\widetilde{Q}}_{X} = B} \neq \varnothing$$ ,
+                    $${{\widetilde{Q}}_{Y} = B} \neq \varnothing$$ ,
+                    $${{{\widetilde{Q}}_{Z{({X,Y})}} = \left\{ {\overline{\mathit{value}{(X)}} + \overline{\mathit{value}{(Y)}}} \right\}} = \left\{ \overline{\left( {{\mathit{value}{(X)}}\cdot{\mathit{value}{(Y)}}} \right)} \right\}} \neq \varnothing$$
+                    . Los cardi­nales de ambos juegos de conjuntos
+                    asociados, los del original y los del dual son
+                    iguales. Esta expresión y su dual son siempre
+                    verdaderas.
+
+                    ***a.2.ts.neg)*** El caso
+                    $$\mathit{TS} = \overline{\mathit{TS.p}}$$, queda
+                    reducido a los casos anteriores ya que
+                    $$\mathit{TS.p} = L$$ ,
+                    $$\mathit{TS.p} = \left( {L + L} \right)$$ ,
+                    $$\mathit{TS.p} = \left( {L \cdot L} \right)$$, que
+                    tienen como térmi­nos duales a
+                    $${\mathit{TS.p} = \widetilde{L}} = L$$ ,
+                    $${\mathit{TS.p} = \left( {\widetilde{L} \cdot \widetilde{L}} \right)} = \left( {L \cdot L} \right)$$
+                    ,
+                    $${\mathit{TS.p} = \left( {\widetilde{L} + \widetilde{L}} \right)} = \left( {L + L} \right)$$
+                    , que son casos todos ellos anteriores.
+
+                    ***a.3.HI.tts+ts)*** La expresión sería una del tipo
+                    $${T + \mathit{TS}_{1}} = \mathit{TS}_{2}$$ ,
+                    $$T{{{' + \mathit{TS}_{0}} + \mathit{TS}_{1}} = \mathit{TS}_{2}}$$,
+                    dónde $$T'$$suponemos (HI) que los valores de ver­dad
+                    de $$T_{1}{' = T_{2}}'$$ son idénticos a
+                    $$\widetilde{T_{1}}{' = \widetilde{T_{2}}}'$$. Sólo
+                    tenemos que de­mostrar que
+                    $$T_{1}{{{' + \mathit{TS}_{0}} + \mathit{TS}_{1}} = T_{2}}'$$.
+                    Ahora bien $$\mathit{TS}_{0} + \mathit{TS}_{1}$$
+                    podemos re­ducirlo finalmente a un literal por
+                    evaluación, concretamente a una variable $$X$$ o a
+                    una constante $$\Gamma$$. Así nos queda
+                    $$T_{1}{{' + L} = T_{2}}{' + 0}$$que entra dentro de
+                    la $$\mathit{HI}$$. Así queda demostrado este caso.
+
+                    ***a.3.HI.tts\*ts)*** La expresión sería una del
+                    tipo $${T \cdot \mathit{TS}_{1}} = \mathit{TS}_{2}$$
+                    ,
+                    $$T{{{' \cdot \mathit{TS}_{0}} \cdot \mathit{TS}_{1}} = \mathit{TS}_{2}}$$,
+                    dónde $$T'$$suponemos (HI) que los valores de ver­dad
+                    de $$T_{1}{' = T_{2}}'$$ son idénticos a
+                    $$\widetilde{T_{1}}{' = \widetilde{T_{2}}}'$$. Sólo
+                    tenemos que de­mostrar que
+                    $$T_{1}{{{' \cdot \mathit{TS}_{0}} \cdot \mathit{TS}_{1}} = T_{2}}'$$.
+                    Ahora bien $$\mathit{TS}_{0} \cdot \mathit{TS}_{1}$$
+                    podemos reducir­lo finalmente a un literal por
+                    evaluación, concretamente a una variable $$X$$ o a
+                    una constante $$\Gamma$$. Así nos queda
+                    $$T_{1}{{' \cdot L} = T_{2}}{' \cdot 1}$$que entra
+                    dentro de la $$\mathit{HI}$$. Así queda demostrado
+                    este caso.
+
+                    ***a.5.HI.tts+tts+)*** La expresión sería una del
+                    tipo
+                    $${T_{1} + \mathit{TS}_{2}} = {T_{2} + \mathit{TS}_{3}}$$
+                    ,
+                    $$T_{1}{{{' + \mathit{TS}_{0}} + \mathit{TS}_{2}} = T_{2}}{{' + \mathit{TS}_{1}} + \mathit{TS}_{3}}$$,
+                    dónde para $$T'$$ suponemos (HI), que los valores de
+                    verdad de
+                    $$T_{1}{{' + \mathit{TS}_{2}} = T_{2}}{' + \mathit{TS}_{3}}$$
+                    son idénticos a los de
+                    $$\widetilde{T_{1}}{{' \cdot \widetilde{\mathit{TS}_{2}}} = \widetilde{T_{2}}}{' \cdot \widetilde{\mathit{TS}_{3}}}$$
+                    y viceversa. Ahora bien
+                    $$\mathit{TS}_{0} + \mathit{TS}_{2}$$ podemos
+                    redu­cirlo finalmente a un literal por evaluación,
+                    concretamente a una variable $$X$$ o a una constante
+                    $$\Gamma$$, e idénticamente para
+                    $$\mathit{TS}_{1} + \mathit{TS}_{3}$$. Así nos queda
+                    $$T_{1}{{' + L_{1}} = T_{2}}{' + L_{2}}$$que entra
+                    dentro de la $$\mathit{HI}$$. Así queda demos­trado
+                    este caso.
+
+                    ***a.5.HI.tts\*tts\*)*** La expresión sería una del
+                    tipo
+                    $${T_{1} \cdot \mathit{TS}_{2}} = {T_{2} \cdot \mathit{TS}_{3}}$$
+                    ,
+                    $$T_{1}{{{' \cdot \mathit{TS}_{0}} \cdot \mathit{TS}_{2}} = T_{2}}{{' \cdot \mathit{TS}_{1}} \cdot \mathit{TS}_{3}}$$,
+                    dónde para $$T'$$ suponemos (HI), que los valores de
+                    verdad de
+                    $$T_{1}{{' \cdot \mathit{TS}_{2}} = T_{2}}{' \cdot \mathit{TS}_{3}}$$
+                    son idénticos a los de
+                    $$\widetilde{T_{1}}{{' + \widetilde{\mathit{TS}_{2}}} = \widetilde{T_{2}}}{' + \widetilde{\mathit{TS}_{3}}}$$
+                    y viceversa. Ahora bien
+                    $$\mathit{TS}_{0} \cdot \mathit{TS}_{2}$$ podemos
+                    redu­cirlo finalmente a un literal por evaluación,
+                    concretamente a una variable $$X$$ o a una constante
+                    $$\Gamma$$, e idénticamente para
+                    $$\mathit{TS}_{1} \cdot \mathit{TS}_{3}$$. Así nos
+                    que­da
+                    $$T_{1}{{' \cdot L_{1}} = T_{2}}{' \cdot L_{2}}$$que
+                    entra dentro de la $$\mathit{HI}$$. Así queda
+                    demostrado este caso.
+
+                    ***a.5.HI.tts+tts\*)*** La expresión sería una del
+                    tipo
+                    $${T_{1} \cdot \mathit{TS}_{2}} = {T_{2} \cdot \mathit{TS}_{3}}$$
+                    ,
+                    $${\left( {T_{1}{' + \mathit{TS}_{0}}} \right) + \mathit{TS}_{2}} = {\left( {T_{2}{' + \mathit{TS}_{1}}} \right) \cdot \mathit{TS}_{3}}$$,
+                    dónde para $$T'$$ suponemos (HI), que los valores de
+                    verdad de
+                    $$T_{1}{{' + \mathit{TS}_{2}} = T_{2}}{' + \mathit{TS}_{3}}$$
+                    son idénticos a los de
+                    $$\widetilde{T_{1}}{{' \cdot \widetilde{\mathit{TS}_{2}}} = \widetilde{T_{2}}}{' \cdot \widetilde{\mathit{TS}_{3}}}$$
+                    y viceversa. Ahora bien
+                    $$\mathit{TS}_{0} + \mathit{TS}_{2}$$ podemos
+                    redu­cirlo finalmente a un literal por evaluación,
+                    concretamente a una variable $$X$$ o a una constante
+                    $$\Gamma$$, e idénticamente para
+                    $$\mathit{TS}_{1} \cdot \mathit{TS}_{3}$$.
+                    $$T_{2}{' \cdot \mathit{TS}_{3}}$$es lo mismo que
+                    una $$T_{3}$$ cualquiera (de cualquier longitud).
+                    Así nos queda
+                    $$T_{1}{{' + L_{1}} = {T_{3} \cdot L_{2}}}$$que ya
+                    ha sido demostrado en *a.5.tts+tts+)*. Así queda
+                    demostrado este caso.
+
+                    a.5.HI.t.neg) Cualquier T.p negado es susceptible de
+                    ser desarrollado (por las leyes de De Morgan) como
+                    un T.p y se aplica *a.5.HI.\**.
+
+                49. Casos en que la expresión $$E$$
+                    es$$T_{1} \neq T_{2}$$afirmativa:
+
+                    Estos casos se reducen a que alguna variable siempre
+                    es vacía tanto en la ex­presión original como en la
+                    dual. Se reducen a los casos anteriores.

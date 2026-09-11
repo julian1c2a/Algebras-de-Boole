@@ -1,0 +1,2254 @@
+\documentclass[12pt,a4paper,fleqn,spanish,final,openright]{extbook}
+\usepackage{amsbsy}
+\usepackage{amssymb}
+\usepackage{fontspec}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\synctex=1
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=4,
+ breaklinks=false,pdfborder={0 0 1},backref=section,colorlinks=true]
+ {hyperref}
+\hypersetup{pdftitle={Clasificación de los grupos hasta el orden 22},
+ pdfauthor={Julián Calderón Almendros},
+ pdfsubject={Trabajo Fin de Grado del Grado de Matemáticas UNED},
+ pdfkeywords={Álgebra, Grupos Finitos, Teoría de Números, Matemáticas Discretas}}
+
+\makeatletter
+
+\usepackage[spanish]{babel}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amsxtra}
+\usepackage{amscd}
+\usepackage{bbm}
+\usepackage{lplfitch}
+\usepackage{abraces}
+\usepackage{color}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+\usepackage{cmll}
+\usepackage{latexsym}
+\usepackage[mathscr]{euscript}
+\usepackage{color}
+\usepackage{units}
+\usepackage{wasysym}
+\usepackage{nomencl}
+% the following is useful when we have the old nomencl.sty package
+\providecommand{\printnomenclature}{\printglossary}
+\providecommand{\makenomenclature}{\makeglossary}
+\makenomenclature
+\usepackage{microtype}
+\makeatletter
+\newtheorem{thm}{Teorema}[chapter]
+\newtheorem{example}[thm]{Ejemplo}
+\newtheorem{exercise}[thm]{Ejercicio}
+\newtheorem{axiom}[thm]{Axioma}
+\newtheorem{cor}[thm]{Corolario}
+\newtheorem{lem}[thm]{Lema}
+\newtheorem{prop}[thm]{Proposici\'on}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definici\'on}
+\theoremstyle{remark}
+\newtheorem{rem}[thm]{Nota}
+\newtheorem{fixed}[thm]{Fijaci\'on de Notaci\'on}
+\newtheorem{formalproof}[thm]{Demostraci\'on Formal}
+\newtheorem{solution}[thm]{Soluci\'on}
+
+\makeatother
+
+\usepackage{listings}
+\usepackage{tikz}
+%\usepackage{polyglossia}
+%\setdefaultlanguage{spanish}
+%\def\eqdeclaration#1{, véase la ecuación\nobreakspace(#1)}
+%\def\pagedeclaration#1{, página\nobreakspace#1}
+%\def\nomname{Nomenclatura}
+%\renewcommand{\lstlistlistingname}{Listados de código}
+
+\begin{document}
+\tableofcontents{}
+
+\listoffigures
+
+\listoftables
+%\lstlistoflistings{}\settowidth{\nomlabelwidth}{${\bold{G}}:={\langle{G,+,e}\rangle}$}
+\printnomenclature{}
+
+\title{Clasificación de grupos finitos no isomorfos hasta el orden 22}
+
+\title{{\normalsize{}T.F.G. para el grado en Matemáticas de la UNED}}
+
+\author{Julián Calderón Almendros}
+
+\author{\textsc{\small{}TUTORIZADO POR} \textbf{Emilio Bujalance
+García}}
+
+\date{24/04/2018}
+\maketitle
+
+\part{Preliminares teóricos}
+
+En estos capítulos que ahora escribo quiero dejar sentado los «hechos»
+que tomaré como ya probados, mayormente provenientes de la Unidad
+Didáctica I de la asignatura de Álgebra de 2º curso de la antigua
+licenciatura en Matemáticas, tomo dedicado precisamente a la teoría
+de grupos.\nomenclature{$\bold{G}:={\langle{G,*,u}\rangle}$}{Forma 
+habitual de nombrar un grupo: el conjunto más la operación binaria, 
+más la nularia del elemento neutro. Habitualmente como la operación es 
+no conmuitativa, llamo al elemento neutro $u$ de unidad. El nombre del 
+conjunto subyacente al grupo se nombra como todos los conjuntos de este 
+mismo nivel y subconjuntos del mismo, en mayúsculas simples. Para nombrar 
+el grupo propiamente dicho, nombro el conjunto subyacente con letras negritas.}
+\nomenclature{${\bold{G}}:={\langle{G,+,e}\rangle}$}{Forma habitual de nombrar 
+un grupo abeliano: el conjunto más la operación binaria, más la nularia del 
+elemento neutro.Esta vez la operación es conmutativa,así que utilizamos notación 
+aditiva y  llamo al elemento neutro $e$ de neutro.}
+
+\chapter{Algunas definiciones}
+
+
+Comenzaremos directamente. Los grupos cíclicos de un determinado orden
+$n$ lo denominaremos $\mathbf{C_{n}}$. El grupo trivial será denotado
+por $\mathbf{C_1}$. Los homomorfismos entre dos grupos, digamos
+de $G$ en $L$serán denotados como $Hom(G,L)$. Si estos son biyecciones
+se denotará como $Isom(G,L)$. Si los homomorfismos son de un grupo
+en sí mismo pondremos $End(G)$ y si son biyecciones $Aut(G)$. También
+serán de interés las biyecciones de un conjunto en sí mismo $Biy(S)$
+que es además un grupo bajo la composición de funciones como operación
+de grupo. Las operaciones entre grupos que utilizaremos serán $\rtimes$
+para el producto semidirecto, dónde, si escribimos $N\rtimes H$ siendo
+$N \trianglelefteq G$ subgrupo normal del grupo en el que están y
+$H \preccurlyeq G$ simplemente subgrupo. Esta forma de nombrar el
+producto directo es imprecisa, así que siendo $\varphi \in Hom(H,Aut(N))$,
+el simbolismo completo será $N\rtimes_{\varphi }H$. Cuando ambos subgrupos
+sean normales simplemente escribiremos $N\times  H$, que es el producto
+directo. A su vez el producto semidirecto será considerado como un
+caso particular del producto SZ, que solo requiere que ambos subconjuntos
+sean subgrupos, así que necesitaremos dos homomorfismos, $\alpha \in Hom(N,Biy(H))$
+y $\beta \in Hom(H,Biy(N))$, denotándose como $N_{\alpha \!}\bowtie_{\beta }H$
+. Más adelante desarrollaremos las relaciones entre estos productos
+y algunas de sus propiedades, y veremos las diferencias entre las
+versiones externa e interna de ellos. Además, cuando un subgrupo de
+$G$, pongamos $H \preccurlyeq G$, podemos definir dos relaciones
+de equivalencia $\mathcal{R}_{H}$ y $\mathcal{R}^{H}$, y el conjunto
+de particiones para una de ellas será $\nicefrac{G}{{\mathcal{R}}_{\mathrm{H}}}
+\triangleq\lbrace gH \vert g\in G\rbrace$,
+y para la otra 
+$\nicefrac{G}{{\mathcal{R}}^{\mathrm{H}}}\triangleq\lbrace Hg|g\in G\rbrace$
+. Cuando $H\trianglelefteq G$ lo denotaremos por $\nicefrac{G}{H}$
+y además constituirá un grupo.
+
+Cuando un grupo sea hamiltoniano usaremos el símbolo $\boldsymbol{Q}_{8}$ ya
+que tiene alguna copia de él. Son importantes estos grupos porque
+no se pueden construir a través de los productos antes citados (al menos en 
+sus formas más elementales).
+
+Hay aún dos productos importantes que citar: uno es el producto wreath,
+denotado $N\wr H$, y que es un producto semidirecto a partir de
+$\sigma \in Hom(H,Biy(N))$, dónde, si $h \in H$ tenemos que $\sigma_{h} \in Biy(N)$
+que se forma de una manera especial. El otro producto que nos queda
+es, sean $H$ y $K$ grupos, tales que tienen un subgrupo cada uno
+de ellos $I \preccurlyeq \mathsf{Z}(H)$ y $J \preccurlyeq \mathsf{Z}(K)$
+tales que podemos encontrar un isomorfismo $\delta \in Isom(I,J)$
+con el que podemos crear $L\triangleq\lbrace(i,j) \vert i\in I,j\in J,\delta (i)*j=1\rbrace$.
+Ahora el producto central es $\nicefrac{H\times K}{L}$.
+
+De los subgrupos de un grupo dado nos interesan el ya mencionado $\mathsf{Z}(G)$
+o centro, y en general $\mathsf{C}_{G}(H)$, siendo $H \preccurlyeq G$,
+el normalizador del anterior subgrupo $\mathsf{N}_{G}(H)$. Para definir
+los siguientes subgrupos, vamos a definir las primicipales familias
+de subgrupos. 
+$\mathcal{S}_{G}\triangleq\lbrace H \subseteq G\vert H \preccurlyeq G\rbrace$,
+$\mathcal{N}_{G}\triangleq\lbrace H \in \mathcal{S}_{G}|H\trianglelefteq G\rbrace$. 
+Desde aquí podemos definir 
+$\mathcal{\overline N}_{G}(K)\triangleq\lbrace H \in \mathcal{N}_{G}\vert H\subseteq G\rbrace$, 
+y la definición de un grupo normal 
+${\overline{\mathsf{K}}}_{G}(K)\triangleq\bigcap\mathcal{\overline N}_{G}(K)$ 
+y de otro 
+${\underline{\mathsf{K}}}_{G}(K)\triangleq\left\langle\bigcup\mathcal{\underline N}_{G}(K)\right\rangle$.
+También nos quedan los subgrupos característicos, invariantes ante
+isomorfismos cualquiera, $ H \overset{\mathsf{{char}}}{\_} G $. Así definimos
+$\mathcal{C}_{G}\triangleq\lbrace H \in \mathcal{N}_{G} \vert H \overset{\mathsf{{char}}}{\_} G$.
+Además, será interesante el conjunto de los subgrupos maximales de $G$, 
+$\mathcal{M}_{G} \triangleq
+\lbrace H \in \left({\mathcal{S}_{G}}\setminus \lbrace G\rbrace\right) \vert
+\exists K\in \left({\mathcal{S}_{G}}\setminus \lbrace G\rbrace\right)\; 
+H \subseteq K \Rightarrow H=K\rbrace$. 
+Para subgrupos minimales tenemos dualmente 
+$\mathcal{P}_{G} \triangleq
+\lbrace H \in \left({\mathcal{S}_{G}}\setminus \lbrace \mathsf{C}_{1}\rbrace\right) 
+\vert \exists K \in \left({\mathcal{S}_{G}}\setminus \lbrace 
+\mathsf{C}_{1}\rbrace\right)\; K \subseteq H \Rightarrow H=K\rbrace$. 
+Llamamos subgrupo de Frattini a $\Phi (G)\triangleq \bigcap \mathcal{M}_{G}$.
+
+De otro lado, un operador binario común entre elementos de un grupo es el \emph{conmutador}, 
+$\left[ a,b \right] |\triangleq a^{-1} \cdot b^{-1} \cdot a \cdot b$. 
+Así $\left[{H,K}\right]\triangleq \left\lbrace\left[ h,k \right] 
+\vert h  \in H \wedge k \in K\right\rbrace $. 
+El conmutador así definido de dos subgrupos no tiene porqué 
+ser subgrupo, así se suele considerar $\left\langle{\left[{H,K}\right]}\right\rangle$ 
+que es el subgrupo generado por el conmutador. A partir de aquí tenemos dos operadores 
+sobre grupos. El primero es el subgrupo \emph{derivado} de diversos órdenes, 
+$G^{(0)}\triangleq G$, $\forall i \in \mathds{N}; G^{(i+1)}=
+\left\langle\left[ G^{(i)},G^{(i)}\right]\right\rangle$. 
+Otro operador importante es $\mathsf{L}^{0}(G)\triangleq G$ y $\forall i \in \mathds{N}\;
+\mathsf{L}^{i+1}(G)\triangleq \left\langle\left[{\mathsf{L}^{i},G }\right]\right\rangle$. 
+Se dice que un grupo es \emph{nilpotente} si hay una natural $n \in \mathds{N}$ tal que 
+$\mathsf{L}^{n}(G)=\mathsf{C}_{1}$. Un grupo es \emph{nilpotente} de clase $n$ tal que 
+$\mathsf{L}_{n-1}(G) \neq \mathsf{C}_1$ y $\mathsf{L}_{n}(G)=\mathsf{C}_1$.
+
+Un grupo se dice \emph{abelianizado} del grupo $G$ cuando nos referimos al cociente 
+de $G$ por el primer subgrupo derivado $G^{(1)}$, esto es 
+$G^{\textsf{ab}}\triangleq \nicefrac{G}{G^{(1)}}$.
+
+Así un grupo es \emph{perfecto} si su abelianizado es trivial, 
+$G^{\textsf{ab}} = \mathsf{C}_1$, o dicho de otra manera, 
+$G = G^{(1)}$.
+
+Un grupo $G$ se dice \emph{cuasisimple} si es perfecto, $G = G^{(1)}$, y 
+$\nicefrac{G}{\mathsf{Z}(G)}$ es simple. Hay que entender que 
+$\nicefrac{G}{G^{(1)}} \cong Inn(G) \subseteq Aut(G)$, luego la condición 
+anterior equivale a que $Inn(G)$ sea simple.
+
+El subgrupo de Fitting de $G$, $\mathsf{F}(G)$, se define como 
+$\mathsf{F}(G) \triangleq \left\langle{\left\lbrace{H \in \mathcal{N}_G \vert 
+H \textsf{ nilpotente}}\right\rbrace}\right\rangle$.
+
+Ahora definiremos un grupo \emph{semisimple}. Para esto tiene que existir 
+$r \in \mathds{N}\setminus\lbrace 0 \rbrace$ tal que existe 
+$S\triangleq \lbrace{G_i \in \mathcal{S}_G \vert 
+\forall i\; 0<i<r \Rightarrow G_i \textsf{ cuasisimple}}\rbrace$, 
+y $\langle S \rangle = G$. Dicho en palabras, un grupo es semisimple si existe 
+una subfamilia finita de subgrupos cuasisimples que lo genere.
+
+Un grupo es \emph{soluble} si existe una subfamilia de $\mathcal{N}_G$ ordenada 
+como cadena (por ejemplo creciente) por la inclusión, tal que ya no quepan 
+subgrupos intermedios (normales de $G$). Esta cadena iría desde 
+$\mathsf{C}_{1}$ hasta $G$. Digamos que es 
+$\mathsf{C}_{1}\triangleq H_0 \preccurlyeq H_1 \preccurlyeq \ldots 
+\preccurlyeq H_{n-1} \preccurlyeq H_n \triangleq G$, de tal forma que 
+$\forall i \in \mathds{N}\;0 \neq i\leq n \Rightarrow 
+\nicefrac{H_i}{H_{i-1}} \textsf{ es abeliano}$.
+
+Un subgrupo $H$ de $G$ es \emph{subnormal} si existe una subfamilia de $\mathcal{S}_{G}$ 
+finita y ordenada en una cadena por inclusión, de tipo ascendente, tal que 
+$H\triangleq H_0 \lhd H_1 \lhd \ldots \lhd H_{n-1} \lhd H_n \triangleq G$. 
+Es subnormal de clase $n$.
+
+Un subgrupo $H$ de $G$ se dice \emph{componente} si es subnormal y cuasisimple.
+
+Llamamos ``layer'' de un grupo $G$ al producto (que conmuta) de sus componentes. 
+También podemos definirlo como el subgrupo normal semisimple más grande que hay en $G$. 
+Digo más grande y no maximal porque es único. Se suele denominar $\mathsf{E}(G)$.
+
+El subgrupo de Fitting generalizado es 
+$\mathsf{F}^{*}(G) \triangleq \mathsf{F}(G) \mathsf{E}(G)$.
+
+Sobre el cardinal del grupo finito $G$, lo denominamos por 
+$\textsf{card }G = \left| G \right| = \mathsf{o}(G)$. 
+Para los subgrupos utilizamos la misma denominación, y hablaremos 
+habitualmente de orden de un grupo. Para un grupo $H$ cualquiera 
+de $G$, hablaremos del índice de un grupo cuando queramos decir 
+el cardinal de conjunto de las clases de equivalencia lateral inducidas, 
+$\left[ G : H \right] = \left| \nicefrac{G}{\mathcal{R}_H} \right| =
+\left| \nicefrac{G}{\mathcal{R}^H} \right| $.
+
+Ahora tenemos el teorema de Lagrange, que nos dice que si $G$ es finito, 
+$H   \preccurlyeq    G$ entonces ${\mathsf{o}(H)} \,\vert\, {{\mathsf{o}}(G)}$. 
+Esto nos da en principio un punto de conexión con el teorema fundamental de la aritmética.
+
+De esta forma se hacen importantes los \emph{p-grupos} y los 
+\emph{p-subgrupos}, que son en general aquellos grupos finitos cuyo 
+orden o cardinal es $p^n$ donde $p$ es un número primo y 
+$n \in \mathds{N}\setminus\lbrace 0\rbrace$.
+
+Llamamos ${\mathcal{S}\text{yl}}_{p}(G) \triangleq \left\lbrace H \in \mathcal{S}_{G} 
+\vert \left| H \right|=p^n \, \wedge \, p^{n}∣\left| G \right| \, \wedge \, p^{n+1}
+\nmid \left| G \right| \right\rbrace$.
+
+Así llamamos \emph{p-núcleo} de $G$ a 
+$\mathsf{O}_{p}(G) \triangleq \bigcap {\mathcal{S}\text{yl}}_{p}(G)$.
+
+Emplearemos además los teoremas de Syllow, el teorema de Cauchy, el de Lagrange y 
+demás hechos que iremos nombrando, aparte de los habituales sobre productos directos, 
+semidirectos y otros que sirven para extender grupos, ya nombrados.
+
+\chapter{Los grupos trivial y cíclicos simples}
+
+Partiremos de los que hemos llamado grupos cíclicos (que incluyen el trivial), 
+pero considerando solo los de orden primo. Sea 
+$\mathds{P} \triangleq {\left\lbrace{{p    \in \mathds{N}}∣{p>1\,   
+\wedge   
+\,\forall n   
+\in \mathds{N}\setminus{\left\lbrace{0,1,p}\right\rbrace}\; n\nmid p}}\right\rbrace}$.
+
+Para comenzar, los grupos de un orden primo $p$ son todos isomorfos entre sí. 
+Sean G y H grupos de orden $p   \in \mathds{P}$. La prueba es clara. 
+Si $p    \in \mathds{P}$, cualquier subgrupo 
+$G^\prime    \preccurlyeq    G$ y $H^\prime    \preccurlyeq    H$ 
+tendrán, por el teorema de Lagrange, orden $1$ o $p$. El subgrupo de orden $1$ 
+solo puede ser 
+$G^\prime = \left\lbrace 1\right\rbrace    \cong    \mathsf{C}_1$, 
+o bien $G^\prime = \left\lbrace g   \in G∣g   \neq    1
+\right\rbrace    \cong    \mathsf{C}_p$. Idénticamente en 
+$H$, $H^\prime = \left\lbrace 1\right\rbrace    \cong    \mathsf{C}_1$, 
+o bien $H^\prime = \left\lbrace h   \in G∣h   \neq    1\right\rbrace    
+\cong    \mathsf{C}_p$. Como el orden de $G$ y de $H$ es $p>1$, 
+$   \exists    g   \in G\setminus\{1\}   \wedge       
+\exists    g   \in G\setminus\{1\}$. Forzosamente esos $g$ y $h$ tienen orden $p$, 
+ya que si tuviesen orden $1$ serían $g=1$ y $h=1$, que por elección no es así. 
+La aplicación, siempre que $g   \in G\setminus\{1\}$ y que $h \in H\setminus\{1\}$, 
+$\varphi \,:\,G \longrightarrow H\,::\, g^n \mapsto h^n \; n \in \mathds{N}$ es 
+isomorfismo de grupos.
+
+De esta forma los $\mathsf{C}_{p}\;p \in \mathds{P}$, son los grupos que de forma 
+inicial es claro que no tienen estructura interna alguna, esto es, 
+$\mathcal{S}_{G}{(\mathsf{C}_{p})} = \mathcal{N}_{G}{(\mathsf{C}_{p})} = 
+\mathcal{C}_{G}{(\mathsf{C}_{p})} = \left\lbrace{\{1\},G}\right\rbrace$. 
+No tienen composición alguna. Aunque posteriormente encontremos grupos simples 
+no cíclicos, serán no abelianos y tienen cierta estructura interna ya que por el 
+teorema de Cauchy, existirá al menos un elemento de orden $p \in \mathds{P}$ 
+para cada $p∣\left|G\right|$ y por lo tanto tendrá subgrupos de esos órdenes 
+(de hecho subgrupos cíclicos de orden primo, para cada primo que divida al orden).
+
+En la clasificación que nos ocupa, esto nos da que salvo isomorfismo de grupos, 
+todos los grupos de orden $p   \in \mathds{P}$ y también los de orden $1$, son 
+únicos. Además como todos los grupos cíclicos son abelianos (esta característica 
+es propia de la suma de exponentes naturales con los que se pueden representar 
+estos grupos, suma módulo el orden del grupo cíclico).
+
+Para cada grupo cíclico, el grupo de automorfismos internos es trivial, 
+y en general $Aut(\mathsf{C}_p)   \cong    \mathsf{C}_{p-1}$. Es fácil ver que 
+para orden $p^n , p   \in \mathds{P} , n   \in \mathds{N}\setminus\{0\}$, 
+$Aut(\mathsf{C}_{p^n})   \cong    \mathsf{C}_{p^{n-1}    \cdot (p-1)}$. 
+Esta función que asigna a cada primo su predecesor, a cada potencia de un primo 
+le asigna el producto de la potencia anterior por el predecesor del primo, y que 
+además preserva la multiplicación cuando los factores son coprimos, es la función 
+$\phi_{E}$ de Euler, que nos da la cantidad de divisores de un número dado, 
+menores que ese número (que es el argumento). Así, si 
+$n \in \mathds{N}\setminus\{0\}$, por el teorema fundamental de la aritmética, 
+existen una cantidad finita de primos, 
+$\left\lbrace p_1 , p_2 , \ldots , p_r \right\rbrace    \subset \mathds{P}$ con 
+$r   \in \mathds{N}\,   \wedge   \, r>1$ y una cantidad similar de naturales 
+estrictamente positivos, $\left\lbrace n_1, n_2 , \ldots , n_r \right\rbrace 
+\subset \mathds{N}\setminus\{0\}$ tales que $n = {\prod}_{k=1}^{r} p_k^{n_k}$. 
+Así $Aut(\mathsf{C}_n)   \cong    \mathsf{C}_{{\phi_E}(n)}$.
+
+Para cualquier grupo cíclico de orden primo $p$, el diagrama de Hasse de 
+los subgrupos es:
+
+\begin{center}
+\begin{tikzpicture}
+    \label{tab:GruposCíclicosSimples}
+    % First, locate each of the nodes and name them
+    \node (top) at (0,0) {$\mathsf{C}_p$};
+    \node (bottom) [below of=top] {$\{1_{\mathsf{C}_p}\}$};
+    % Now draw the lines:
+    \draw [black, thick] (top) -- (bottom);
+\end{tikzpicture}
+\end{center}
+
+Además tenemos una tabla de grupos y órdenes con algunas propiedades:
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Grupos cíclicos de orden primo o trivial}
+    \label{tab:GruposCíclicosSimples}
+    \begin{tabular}{|c|c|c|c|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    \hline
+      \textbf{} & \textbf{número} &\textbf{numeración} & \textbf{Nombre} & \textbf{} & \textbf{}\\
+      \textbf{Orden} & \textbf{de} &\textbf{dentro} & \textbf{del} & \textbf{absolu-} & \textbf{trivial}\\
+      \textbf{Orden} & \textbf{grupos} &\textbf{del} & \textbf{del} & \textbf{tamente} & \textbf{}\\
+      \textbf{} & \textbf{no} &\textbf{orden} & \textbf{grupo} & \textbf{simple} & \textbf{}\\
+      \textbf{} & \textbf{isomorfos} &\textbf{} & \textbf{} & \textbf{} & \textbf{}\\
+      \hline\\
+      \hline
+      1 & 1 & 1 & $\textsf{C}_1$ & Si & Si\\
+      \hline
+      2 & 1 & 1  & $\textsf{C}_2$ & Si & No\\
+      \hline
+      3 & 1 & 1  & $\textsf{C}_3$ & Si & No\\
+      \hline
+      5 & 1 & 1  & $\textsf{C}_5$ & Si & No\\
+      \hline
+      7 & 1 & 1  & $\textsf{C}_7$ & Si & No\\
+      \hline
+      11 & 1 & 1  & $\textsf{C}_{11}$ & Si & No\\
+      \hline
+      13 & 1 & 1  & $\textsf{C}_{13}$ & Si & No\\
+      \hline
+      17 & 1 & 1  & $\textsf{C}_{17}$ & Si & No\\
+      \hline
+      19 & 1 & 1  & $\textsf{C}_{19}$ & Si & No\\
+      \hline
+      23 & 1 & 1  & $\textsf{C}_{23}$ & Si & No\\
+      \hline
+      29 & 1 & 1  & $\textsf{C}_{29}$ & Si & No\\
+      \hline
+      31 & 1 & 1  & $\textsf{C}_{31}$ & Si & No\\
+      \hline
+      37 & 1 & 1  & $\textsf{C}_{37}$ & Si & No\\
+      \hline
+      39 & 1 & 1  & $\textsf{C}_{39}$ & Si & No\\
+      \hline
+      41 & 1 & 1  & $\textsf{C}_{41}$ & Si & No\\
+      \hline
+      43 & 1 & 1  & $\textsf{C}_{43}$ & Si & No\\
+      \hline
+      47 & 1 & 1  & $\textsf{C}_{47}$ & Si & No\\
+      \hline
+      53 & 1 & 1  & $\textsf{C}_{53}$ & Si & No\\
+      \hline
+      59 & 1 & 1  & $\textsf{C}_{59}$ & Si & No\\
+      \hline
+      61 & 1 & 1  & $\textsf{C}_{61}$ & Si & No\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\chapter{Primeros grupos compuestos: orden 4}
+
+Ahora nos ocupa el orden $4$. Directamente caben al menos dos posibilidades, $\textsf{C}_{2^2}$ que tiene un solo grupo normal de orden $2$, un elemento de orden $4$ y que es evidentemente abeliano por ser cíclico, y el grupo $\textsf{C}_{2}  \times  \textsf{C}_{2}$ que es también abeliano por serlo cada subgrupo que forma el producto. Además, tiene $3$ grupos normales de orden $2$ y ningún elemento de orden $4$.
+
+En cuanto a si puede haber más grupos no isomorfos a los anteriores, tenemos que ver que, o bien tiene elemento de orden $4$ o no, y necesariamente, por Cauchy, tienen elementos de orden $2$. Si tiene elemento de orden $4$ solo puede ser el grupo cíclico, por definición de grupo cíclico, y si no, ha de tener más de un elemento de orden $2$. Y tienen que ser exactamente $3$. Si tuviese más elementos (necesariamente de orden $2$), tendríamos más de $4$ elementos y el orden ya no sería $4$. En caso de ensayar alguna forma no abeliana con elementos de orden $2$, tomando $2$ generadores (menos sería cíclico), obtenemos siempre más elementos que en el caso abeliano, por lo que incluso con solo $2$ generadores solo cabe el caso abeliano.
+
+El diagrama de Hasse para el grupo cíclico:
+
+\begin{center}
+\begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (arriba) at (0,0) {$\mathsf{C}_{2^2}=\{1,x,x^2,x^3\}$};
+    \node[below of=arriba] (medio) {$\mathsf{C}_{2}  \cong  \{1,x^2\}$};
+    \node[below of=medio] (abajo) {$\mathsf{C}_{1}  \cong  \{1_{\textsf{C}_{2^2}}\}$};
+
+    % Now draw the lines:
+    \draw [black, thick] (arriba) -- (medio);
+    \draw [black, thick] (medio) -- (abajo);
+\end{tikzpicture}
+\end{center}
+
+Y para el producto:
+
+\begin{center}
+\begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (arriba) at (0,0) {$\mathsf{C}_{2}   \times   \mathsf{C}_{2}   \cong   \{1,a,b,a  \cdot b=b  \cdot a\}$};
+    \node (mediocentro) at (0,-2) {$\mathsf{C}_{2}  \cong  \{1,a  \cdot b\}$};
+    \node (medioderecha) at (-3,-2) {$\mathsf{C}_{2}  \cong  \{1,a\}$};
+    \node (medioizquierda) at (3,-2) {$\mathsf{C}_{2}  \cong  \{1,b\}$};
+    \node (abajo) at (0,-4) {$\mathsf{C}_{1}  \cong  \{1_{\mathsf{C}_{2}   \times   \mathsf{C}_{2}}\}$};
+    % Now draw the lines:
+    \draw [black, thick] (arriba) -- (medioderecha);
+    \draw [black, thick] (arriba) -- (mediocentro);
+    \draw [black, thick] (arriba) -- (medioizquierda);
+    \draw [black, thick] (medioderecha) -- (abajo);
+    \draw [black, thick] (mediocentro) -- (abajo);
+    \draw [black, thick] (medioizquierda) -- (abajo);
+\end{tikzpicture}
+\end{center}
+
+
+\begin{table}[h!]
+  \begin{center}
+    \caption{Grupos de orden $4$}
+    \label{tab:GruposOrden4}
+    \begin{tabular}{c|c|c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \textbf{} & \textbf{número} &\textbf{numeración} & \textbf{Nombre} & \textbf{} & \textbf{}\\
+      \textbf{} & \textbf{de} &\textbf{dentro} & \textbf{del} & \textbf{} & \textbf{}\\
+      \textbf{orden} & \textbf{grupos} &\textbf{del} & \textbf{grupo} & \textbf{Simple} & \textbf{abeliano}\\
+      \textbf{} & \textbf{no} &\textbf{orden} & \textbf{} & \textbf{} & \textbf{}\\
+      \textbf{} & \textbf{isomorfos} &\textbf{} & \textbf{} & \textbf{} & \textbf{}\\
+      \hline\\
+      \hline
+      4 & 2 & 1 & $\textsf{C}_4$ & No & Si\\
+      \hline
+      4 & 2 & 2  & ${\textsf{C}_2}  \times  {\textsf{C}_2}$ & No & Si\\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\chapter{Grupos de orden $2p$ dónde $p \in \mathds{P}_{>2}$}
+
+Colocamos esta clase de grupos en este lugar porque el siguiente orden en el ascenso que nos ocupa es el $6$ y es del tipo dicho, $6=2  \cdot 3$ y $3  \in \mathds{P}_{>2}$ y toda esta clase de órdenes tiene una estructura de grupos muy similar.
+
+Por una parte está el grupo cíclico que siempre existe, que es abeliano, y que además es único por el teorema de clasificación de grupos abelianos finitos. Este grupo tiene $2$ subgrupos normales, característicos, uno de orden $2$ y otro de orden $p$. Así estos órdenes tienen un solo grupo abeliano y es, entonces, necesariamente, el cíclico. Por el teorema de Cauchy tienen un elemento $a$ de orden $2$ y otro $b$ de orden $p$. Entonces $ab$ tendrá orden $mcm(2,p)=2p$ y así es cíclico.
+
+De otro lado están los grupos no abelianos si existiesen. Pero podemos comprobar que el homomorfismo inyectivo $\varphi : \mathsf{C}_2   \longrightarrow   \mathtt{Aut}(\mathsf{C}_p)$ tal que $\varphi (1)=Id_{\mathsf{C}_{p}}$ y siendo $x  \in {\mathsf{C}_{p}}\setminus\{1\}$ el valor $\varphi (x)$ es el automorfismo que asigna $x   \mapsto x^{p-1}$ y de ahí asigna a $x^k \mapsto x^{k(p-1)}$ obtenemos el producto semidirecto $\textsf{C}_{p} {\rtimes}_{\varphi } \mathsf{C}_{2}$. Aquí los $p$ subgrupos de orden $2$ son no-normales, y el de orden $p$ es único, y por lo tanto no solo normal sino característico. Estos grupos se suelen denominar $\mathsf{Dih}_{p} \equiv \mathsf{C}_{p} {\rtimes}_{\varphi } \mathsf{C}_{2}$, y ya tenemos lo necesario para confeccionar su tabla de Cayley. Optaremos por denominar a la imagen del homomorfismo $\varphi_x  \equiv  \varphi (x)$ por razones de mejor legibilidad y escritura más corta.
+
+Sea $(1,a) \in \left(\textsf{C}_{p} \times \textsf{C}_{2}\right)\setminus\left\lbrace{(1,1)}\right\rbrace$, entonces ha de ser $\varphi_{a}(f^\imath)=f^{(p-1)\imath}$, así, $(1,a) \cdot (b^\imath,a^\jmath)=(1 \cdot \varphi_a (b^\imath),a  \cdot a^\jmath)=(b^{(p-1)\imath},a^{\jmath + 1})$. De otro lado, $(b^\imath,a^\jmath) \cdot (1,a)=(b^\imath  \cdot \varphi_a (1),a^\jmath  \cdot a)=(b^{\imath},a^{\jmath + 1})$, y como $(1,a) \cdot (b^\imath,a^\jmath)=(b^{(p-1)\imath},a^{\jmath + 1})  \neq  (b^{\imath},a^{\jmath + 1}) = (b^\imath,a^\jmath) \cdot (1,a)$, al menos para algún valor de $\imath$, $\mathsf{Dih}_{p}$ es necesariamente no-conmutativo.
+
+\[
+    (b^i,a^j)*(b^k,a^l) =
+    \begin{cases}
+        (b^{i+k},a^{l}) & \Leftarrow j = 0 \\
+        (b^{i-k},a^{1+l})& \Leftarrow j = 1
+    \end{cases}
+\]
+
+Y partiendo del resultado anterior hallamos el inverso de $(b^i,a^j)$:
+
+\[
+(b^i,a^j)^{-1} =
+\begin{cases}
+(b^{-i},1) & \Leftarrow j = 0 \\
+(b^{i},a)& \Leftarrow j = 1
+\end{cases}
+\]
+
+Renombrando $\mathfrak{f}\triangleq (b,1)$ y $\mathfrak{g}\triangleq (1,a)$, tenemos una forma de escribir los elementos del grupo de forma más sencilla y corta. Podemos ver que el elemento $(b^i,a^j)=(b^i,1)*(1,a^j)=(b,1)^i * (1,a)^j$ se puede escribir (es igual a) como $\mathfrak{f}^i \mathfrak{g}^j$. De la misma manera $(1,a^j)*(b^i,1)=(\varphi_{a^j}(b^i),a^j)$ y dependiendo del valor de $j$ podremos ponerla como:
+
+\[
+(1,a^j)*(b^i,1) = 
+\begin{cases}
+(b^{i},1) & \Leftarrow j = 0 \\
+(b^{-i},a)& \Leftarrow j = 1
+\end{cases}
+\]
+\[
+(b^i,a^j)=
+(b^i,1)*(1,a^j)=
+ \mathfrak{f}^i \mathfrak{g}^j
+\]
+Y ahora podemos traducir
+\[
+\mathfrak{g}^j \mathfrak{f}^i = 
+\begin{cases}
+\mathfrak{f}^i & \Leftarrow j = 0 \\
+\mathfrak{f}^{-i} \mathfrak{g}& \Leftarrow j = 1
+\end{cases}
+\]
+En definitiva tenemos una regla de la multiplicación dihédrica:
+\[
+\mathfrak{g} \mathfrak{f}^i = 
+\mathfrak{f}^{-i} \mathfrak{g}
+\]
+Para los inversos tenemos:
+\[
+(\mathfrak{f}^i\mathfrak{g}^j)^{-1} =
+\begin{cases}
+\mathfrak{f}^{-i} & \Leftarrow j = 0 \\
+\mathfrak{f}^{i} \mathfrak{g}& \Leftarrow j = 1
+\end{cases}
+\]
+
+Vemos por lo tanto que $\mathfrak{f}^{i} \mathfrak{g} = \mathfrak{g} \mathfrak{f}^{-i}$ es elemento de orden $2$ para todo $i$.
+
+La correspondiente tabla de Cayley es:
+\begin{align*}
+\begin{array}{|c|c|c|c|c|c|c|c|}
+\hline
+1&\mathfrak{f}&\mathfrak{f}^2&\mathfrak{g}&\mathfrak{gf}&\mathfrak{gf}^2\\
+\hline
+\mathfrak{f}&\mathfrak{f}^2&1&\mathfrak{gf}^2&\mathfrak{g}&\mathfrak{gf}\\
+\hline
+\mathfrak{f}^2&1&\mathfrak{f}&\mathfrak{gf}&\mathfrak{gf}^2&\mathfrak{g}\\
+\hline
+\mathfrak{g}&\mathfrak{gf}&\mathfrak{gf}^2&1&\mathfrak{f}&\mathfrak{gf}^2\\
+\hline
+\mathfrak{gf}&\mathfrak{gf}^2&\mathfrak{g}&\mathfrak{f}^2&1&\mathfrak{f}\\
+\hline
+\mathfrak{gf}^2&\mathfrak{g}&\mathfrak{gf}&\mathfrak{f}&\mathfrak{f}^2&1\\
+\hline
+\end{array}
+\end{align*}
+
+Podemos ver ahora como es la conjugación de un elemento:
+
+\begin{align}
+(\mathfrak{f}^i\mathfrak{g})(\mathfrak{f}^k\mathfrak{g}^l)(\mathfrak{f}^i\mathfrak{g})^{-1} &=&\\
+&=\mathfrak{f}^i\mathfrak{g}\mathfrak{f}^k\mathfrak{g}^l(\mathfrak{f}^i\mathfrak{g})^{-1}=&\\
+&=\mathfrak{f}^i\mathfrak{f}^{-k}\mathfrak{g}^{1+l}(\mathfrak{f}^i\mathfrak{g})^{-1}=&\\
+&= \mathfrak{f}^{i-k}\mathfrak{g}^{1+l}\mathfrak{g} \mathfrak{f}^{-i} =& \\
+&= \mathfrak{f}^{i-k}\mathfrak{g}^{2+l} \mathfrak{f}^{-i} =& \\
+&= \mathfrak{f}^{i-k}\mathfrak{g}^{l} \mathfrak{f}^{-i} =& \\
+&&=\begin{cases}
+\mathfrak{f}^{2i-k} \mathfrak{g} & \Leftarrow l = 1\\
+\mathfrak{f}^{-k} & \Leftarrow l = 0
+\end{cases}
+\end{align}
+
+Y desde aquí vemos que $\left\langle \mathfrak f \right\rangle \lhd \mathsf{Dih}_{p}$.
+
+Y como de hecho no hemos utilizado la primalidad de $p$ en ningún sitio, los grupos $\mathsf{Dih}_{n} \triangleq \mathsf{C}_{n}\rtimes_{\varphi }\mathsf{C}_{2}$, $n \in \mathds{N}_{{}>2}$, siendo $\varphi : \mathsf{C}_{2}  \longrightarrow  Aut(\mathsf{C}_{n})$, de forma que $\varphi_1 = Id_{\mathsf{C}_{n}}$ y $\varphi_{a \neq  1}(b^{k \mod n}) = b^{(n-1)k \mod n}$. El orden de $\mathsf{o}(\mathsf{Dih}_{n})=\left|\mathsf{C}_{n} \times  \mathsf{C}_{2}\right|=2n$, y será no-conmutativo.
+Podemos ver por cálculo directo en la fórmula general, que los elementos $\mathfrak{g},\mathfrak{gf},\mathfrak{gf}^2, \ldots , \mathfrak{gf}^{n-1}$ son de orden $2$, que son conjugados entre si, y por lo tanto generan subgrupos no-normales y que el subgrupo generado por $\mathfrak{f}$ es característico. La única diferencia entre que sea primo o no, es que cuando no sea primo aparecerán otros subgrupos, que serán subgrupos de $\left\langle\mathfrak{f}\right\rangle$, amén del grupo de automorfismos, que diferirá en su tamaño, ya que si $n$ es primo hay un total de $n-1$ automorfismos de $Aut(\left\langle\mathfrak{f}\right\rangle) = \left\lbrace{\mathfrak{f}\mapsto \mathfrak{f},\mathfrak{f}\mapsto \mathfrak{f}^2,\mathfrak{f}\mapsto \mathfrak{f}^3,\ldots ,\mathfrak{f}\mapsto \mathfrak{f}^{n-1} }\right\rbrace$. De esta forma $\left|Aut(\left\langle\mathfrak{f}\right\rangle)\right|=n-1$ si $n\in\mathds{P}\setminus\{2\}$. De forma más general, el orden será $\phi_{E}(n)$, la función de Euler que cuenta los coprimos con $n$ que son menores que $n$.
+Para los elementos de orden $2$, podemos buscar los siguientes isomorfismos: $\left\{{\mathfrak{g}\mapsto\mathfrak{g},\mathfrak{g}\mapsto\mathfrak{g}\mathfrak{f},\mathfrak{g}\mapsto\mathfrak{g}\mathfrak{f}^2,\ldots,,\mathfrak{g}\mapsto\mathfrak{g}\mathfrak{f}^{n-1}}\right\}$ que nos da un total de $n$ elecciones. Así $Aut(\mathsf{Dih}_{n})$ tiene $n\phi_{E}(n)$ elecciones posibles. En el caso que $n=p$ primo, el orden del grupo de automorfismos es $p(p-1)$.
+
+El subgrupo de Frattini de ${\mathsf{Dih}}_{p}$ lo confeccionaremos explicitando primero la familia de maximales:
+${\mathcal{M}}_{{\mathsf{Dih}}_{p}} = \left\{ { \langle \mathfrak{f} \rangle,\langle \mathfrak{g} \rangle,\langle
+\mathfrak{gf}\rangle,\ldots,\langle \mathfrak{gf}^{p-1}\rangle } \right\} $. Así queda $\Phi_{{\mathsf{Dih}}_{p}} =
+\bigcap\mathcal{M}_{{\mathsf{Dih}}_{p}} = \{1\}$.
+
+Además, el centro de este grupo es claramente $\mathsf{Z}\left({{\mathsf{Dih}}_{p}}\right)=\{1\}$, de dónde $Int\left({{\mathsf{Dih}}_{p}}\right)\cong\nicefrac{{{\mathsf{Dih}}_{p}}}{\mathsf{Z}({{\mathsf{Dih}}_{p}})}\cong{{\mathsf{Dih}}_{p}}$, con lo que ordinal de los automorfismos interiores es $2p$, de los $(p-1)^2$ del total de automorfismos.
+
+El subgrupo de Fitting es el generado por los subgrupos normales y nilpotentes, por lo tanto solo tenemos que ver si $\langle \mathfrak{f} \rangle$ es nilpotente. Pero esto es claro porque es un grupo cíclico, y por lo tanto abeliano, por lo que el subgrupo derivado ${\langle \mathfrak{f} \rangle}^{(1)} = \{1\}$. Como no hay otros normales, $\mathsf{F}({\mathsf{Dih}}_{p})=\langle \mathfrak{f} \rangle$.
+
+El subgrupo derivado primero del grupo dihedral es $\left\{ \left[ \mathfrak{g}^{i}\mathfrak{f}^{j},\mathfrak{g}^{k}\mathfrak{f}^{l} \right]=\mathfrak{f}^{2(j-l)} \right\} = \langle \mathfrak{f} \rangle$. Así $\mathsf{Dih}_{p}^{(1)} = \langle \mathfrak{f} \rangle$. Sin embargo ${\mathsf{L}}_{2}\left( {\mathsf{Dih}}_{p}
+\right) = {\mathsf{L}}_{1}\left( {\mathsf{Dih}}_{p} \right) = \mathsf{Dih}_{p}^{(1)} = \langle \mathfrak{f} \rangle$.
+ Sin embargo ${\mathsf{Dih}}_{p}^{(2)} = \left\{1\right\}$.
+ 
+
+Para el caso del grupo cíclico $Aut(\mathsf{C}_{2p})\cong \mathsf{C}_{p-1}$.
+
+
+El diagrama de Hasse de los subgrupos para $\mathsf{C}_{2p}$ será:
+
+\begin{center}
+    \begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (arriba) at (0,0) {$\mathsf{C}_{2p}   \cong   \{1,a,c\triangleq a^2,\ldots,b\triangleq a^p,\ldots,a^{2p-1}\}$};
+    \node (medioarriba) at (3,-2) {$\mathsf{C}_{p}  \cong  \{1,c,\ldots,c^{p-1}\}$};
+    \node (medioabajo) at (-3,-4) {$\mathsf{C}_{2}  \cong  \{1,b\}$};
+    \node (abajo) at (0,-6) {$\mathsf{C}_{1}  \cong  \{1_{\mathsf{C}_{2p}}\}$};
+    
+    % Now draw the lines:
+    \draw [black, thick] (arriba) -- (medioarriba);
+    \draw [black, thick] (arriba) -- (medioabajo);
+    \draw [black, thick] (medioarriba) -- (abajo);
+    \draw [black, thick] (medioabajo) -- (abajo);
+    \end{tikzpicture}
+\end{center}
+
+El diagrama de Hasse de los subgrupos para $\mathsf{Dih}_{p}$ será:
+
+
+\begin{center}
+    \begin{tikzpicture}
+    \label{tab:GruposOrden2p}
+    % First, locate each of the nodes and name them
+    \node (arriba) at (0,0) {$\mathsf{Dih}_{p}   \cong   \left\langle \mathfrak{g},\mathfrak{f} \right\rangle$};
+    \node (medioarriba) at (2,-2) {$\mathsf{C}_{p}  \cong  \{1,\mathfrak{f},\ldots,{\mathfrak{f}}^{p-1}\}$};
+    \node (medioabajo1) at (-2,-4) {$\cong\{1,\mathfrak{g}\}$};
+    \node (medioabajo2) at (-4,-4) {$\cong\{1,\mathfrak{gf}\}$};
+    \node (medioabajo3) at (-6,-4) {$\ldots$};
+    \node (medioabajo4) at (-8,-4) {$\mathsf{C}_{2}  \cong  \{1,{\mathfrak{gf}}^{p-1}\}\cong$};
+    \node (abajo) at (0,-6) {$\mathsf{C}_{1}  \cong  \{1_{\mathsf{Dih}_{p}}\}$};
+    
+    % Now draw the lines:
+    \draw [black, thick] (arriba) -- (medioarriba);
+    \draw [blue, thick] (arriba) -- (medioabajo1);
+    \draw [blue, thick] (arriba) -- (medioabajo2);
+    \draw [blue, thick] (arriba) -- (medioabajo4);
+    \draw [black, thick] (medioarriba) -- (abajo);
+    \draw [black, thick] (medioabajo1) -- (abajo);
+    \draw [black, thick] (medioabajo2) -- (abajo);    
+    \draw [black, thick] (medioabajo4) -- (abajo);
+    \end{tikzpicture}
+\end{center}
+
+
+
+
+
+La tabla con la que ya podemos aumentar las tablas de grupos por órdenes es:
+
+
+
+
+
+\begin{table}[h!]
+    \begin{center}
+        \caption{Grupos de orden $2p$}
+        \label{tab:GruposOrden2p}
+        \begin{tabular}{c|c|c|c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+            \textbf{} & \tiny\textbf{número} &\tiny\textbf{numeración} & \tiny\textbf{nombre} & \textbf{} & {} & {} \\
+            \textbf{} & \tiny\textbf{de} &\tiny\textbf{dentro} & \tiny\textbf{del} & \tiny\textbf{} & {} & {} \\
+            \tiny\textbf{orden} & \tiny\textbf{grupos} & \tiny\textbf{del} & \tiny\textbf{grupo} & \tiny\textbf{abeliano}  & \tiny\textbf{nilpotente} & \tiny\textbf{resoluble} \\
+            \textbf{} & \tiny\textbf{no} & \tiny\textbf{orden} & \textbf{} & \textbf{} & {} & {} \\
+            \textbf{} & \tiny\textbf{isomorfos} &\textbf{} & \textbf{} & \textbf{} & {} & {} \\
+            \hline
+            6 & 2 & 1 & ${\textsf{C}}_{2*3}$ & Si & Si & Si \\
+            \hline
+            6 & 2 & 2  & ${{\textsf{Dih}}_{3}}  \cong  {{\textsf{C}}_{3}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            10 & 2 & 1 & ${\textsf{C}}_{2*5}$ & Si & Si & Si \\
+            \hline
+            10 & 2 & 2  & ${{\textsf{Dih}}_{5}}  \cong  {{\textsf{C}}_{5}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            14 & 2 & 1 & ${\textsf{C}}_{2*7}$ & Si & Si & Si \\
+            \hline
+            14 & 2 & 2  & ${{\textsf{Dih}}_{7}}  \cong  {{\textsf{C}}_{7}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            22 & 2 & 1 & ${\textsf{C}}_{2*11}$ & Si & Si & Si \\
+            \hline
+            22 & 2 & 2  & ${{\textsf{Dih}}_{11}}  \cong  {{\textsf{C}}_{11}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            26 & 2 & 1 & ${\textsf{C}}_{2*13}$ & Si & Si & Si \\
+            \hline
+            26 & 2 & 2  & ${{\textsf{Dih}}_{13}}  \cong  {{\textsf{C}}_{13}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            34 & 2 & 1 & ${\textsf{C}}_{2*17}$ & Si & Si & Si \\
+            \hline
+            34 & 2 & 2  & ${{\textsf{Dih}}_{17}}  \cong  {{\textsf{C}}_{17}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            38 & 2 & 1 & ${\textsf{C}}_{2*19}$ & Si & Si & Si \\
+            \hline
+            38 & 2 & 2  & ${{\textsf{Dih}}_{19}}  \cong  {{\textsf{C}}_{19}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            46 & 2 & 1 & ${\textsf{C}}_{2*23}$ & Si & Si & Si \\
+            \hline
+            46 & 2 & 2  & ${{\textsf{Dih}}_{23}}  \cong  {{\textsf{C}}_{23}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            58 & 2 & 1 & ${\textsf{C}}_{2*29}$ & Si & Si & Si \\
+            \hline
+            58 & 2 & 2  & ${{\textsf{Dih}}_{29}}  \cong  {{\textsf{C}}_{29}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+            62 & 2 & 1 & ${\textsf{C}}_{2*31}$ & Si & Si & Si \\
+            \hline
+            62 & 2 & 2  & ${{\textsf{Dih}}_{31}}  \cong  {{\textsf{C}}_{31}}\rtimes{{{\textsf{C}}_{2}}}$ & No & No & Si \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+
+
+
+
+
+
+
+    Queda aún una pregunta por responder: ¿Hay más grupos que los dichos del orden $2p$?
+    
+    De tipo abeliano claramente no, ya se dio la explicación, pero también se puede aludir al teorema de clasificación de los grupos abelianos y finitos.
+    
+    Para el caso no-abeliano, no cabe que existan más subgrupos normales, pues en ese caso el grupo pasaría a ser abeliano por ser ambas partes del producto abelianas. 
+    
+    Pensando en p-subgrupos y p-subgrupos de Syllow, siempre tendremos $2$ familias de subgrupos de Syllow, $\mathcal{S}yl_2 (G)$ y $\mathcal{S}yl_p (G)$. Los p-subgrupos serán necesariamente normales porque $[G:H_p]=2$, de dónde los elementos de $\mathcal{S}yl_2 (G)$ serán no-normales. Así que lo que queda por dilucidar es si puede ser $\left|\mathcal{S}yl_{p}(G)\right|>1$. Pongamos que sea así: entonces existirán $H_p^1,H_p^2$ p-subgrupos. Como son diferentes, por hipótesis, $H_p^1 \cap H_p^2 = \{1\}$, y así, si hay $r$ p-subgrupos, tendremos un total de $r(p-1)+1$ elementos debido a los p-subgrupos, y $r\le 2$, de dónde $r=2$ significa que solo habría un 2-subgrupo, pero entonces el 2-subgrupo habría de ser normal y de ahí el grupo abeliano. Luego no hay más grupos no-abelianos que ${\mathsf{Dih}}_{p}$.
+    
+    \chapter{Grupos de orden $8$}
+    
+    Los grupos de orden $8$ podrían ser tratados como grupos de orden $p^3$ con $p\in\mathds{P}$, de la misma forma que los grupos de orden $4$ podrían haber sido tratados como los grupos de orden $p^2$. No lo hago así por algunas diferencias entre lo grupos con orden potencia de un primo impar y los grupos con orden potencia de $2$.
+    
+    Los grupos abelianos de orden $8$ son fáciles de enumerar gracias al teorema de clasificación de los grupos finitos abelianos. Salvo isomorfismo solo pueden ser $\mathsf{C}_{2}\times\mathsf{C}_{2}\times\mathsf{C}_{2}$, $\mathsf{C}_{4}\times\mathsf{C}_{2}$ y $\mathsf{C}_{8}$. Al ser abelianos y por su construcción mediante producto directo podemos reconstruir fácilmente su tablas de Cayley, su retículo de subgrupos (se invierte el teorema de Lagrange) y todos son normales.
+    
+    Los diagramas de Hasse correpondientes son:
+    
+    
+    
+    
+    \begin{flushleft}
+        \begin{tikzpicture}
+        % First, locate each of the nodes and name them
+        \node (C8) at (3,0) {$\mathsf{C}_{8}\cong\langle a\vert a^8\rangle$};
+        \node (C4xC2) at (-1,0) {$\mathsf{C}_4\times\mathsf{C}_2 \cong  \left\langle a,b \vert a^4=b^2 \right\rangle$};
+        \node (C2xC2xC2) at (-7,0) {$\mathsf{C}_2 \times\mathsf{C}_2 \times\mathsf{C}_2 \cong\left\langle a,b,c \vert a^2=b^2=c^2\right\rangle $};
+        \node (C8C4) at (3,-2) {$\cong\left\langle a^2\right\rangle $};
+        \node (C8C4C2) at (3,-4) {$\cong\left\langle{a^4}\right\rangle$};
+        \node (C8abajo) at (3,-6) {$\cong\left\langle{1_{\mathsf{C}_8}}\right\rangle$};
+        \node (C4xC2C4) at (-2,-2) {$\mathsf{C}_4 \cong\left\langle{a}\right\rangle$};
+        \node (C4xC2C4C2) at (-2,-4) {$\cong\left\langle{a^2}\right\rangle$};
+        \node (C4xC2C2) at (1,-4) {$\cong\left\langle{b}\right\rangle$};
+        \node (C4xC2abajo) at (-1,-6) {$\cong\left\langle{1_{\mathsf{C}_4 \times \mathsf{C}_2}}\right\rangle$};
+        \node (C2xC2xC21) at (-5,-2) {$\cong\left\langle{a,b}\right\rangle$};
+        \node (C2xC2xC22) at (-7,-2) {$\cong\left\langle{a,c}\right\rangle$};
+        \node (C2xC2xC23) at (-9,-2) {$\mathsf{C}_{2}\times\mathsf{C}_{2}\cong\left\langle{b,c}\right\rangle$};
+        \node (C2xC2xC212) at (-5,-4) {$\cong\left\langle{a}\right\rangle$};
+        \node (C2xC2xC222) at (-7,-4) {$\cong\left\langle{b}\right\rangle$};
+        \node (C2xC2xC232) at (-9,-4) {$\mathsf{C}_{2}\cong\left\langle{c}\right\rangle$};
+        \node (C2xC2xC2abajo) at (-7,-6) {$\mathsf{C}_{1}\cong\left\langle{1_{\mathsf{C}_2 \times\mathsf{C}_2 \times\mathsf{C}_2}}\right\rangle$};
+        % Now draw the lines:
+        \draw [black, thick] (C8) -- (C8C4);
+        \draw [black, thick] (C8C4) -- (C8C4C2);
+        \draw [black, thick] (C8C4C2) -- (C8abajo);
+        \draw [black, thick] (C4xC2) -- (C4xC2C4);
+        \draw [black, thick] (C4xC2) -- (C4xC2C2);
+        \draw [black, thick] (C4xC2C4) -- (C4xC2C4C2);
+        \draw [black, thick] (C4xC2C2) -- (C4xC2abajo);
+        \draw [black, thick] (C4xC2C4C2) -- (C4xC2abajo);
+        \draw [black, thick] (C2xC2xC2) -- (C2xC2xC21);%ab
+        \draw [black, thick] (C2xC2xC2) -- (C2xC2xC22);%ac
+        \draw [black, thick] (C2xC2xC2) -- (C2xC2xC23);%bc
+        \draw [black, thick] (C2xC2xC21) -- (C2xC2xC212);%ab->a
+        \draw [black, thick] (C2xC2xC21) -- (C2xC2xC222);%ab->b
+        \draw [black, thick] (C2xC2xC22) -- (C2xC2xC212);%ac->a
+        \draw [black, thick] (C2xC2xC22) -- (C2xC2xC232);%ac->c
+        \draw [black, thick] (C2xC2xC23) -- (C2xC2xC222);%bc->b
+        \draw [black, thick] (C2xC2xC23) -- (C2xC2xC232);%bc->c
+        \draw [black, thick] (C2xC2xC212) -- (C2xC2xC2abajo);
+        \draw [black, thick] (C2xC2xC222) -- (C2xC2xC2abajo);
+        \draw [black, thick] (C2xC2xC232) -- (C2xC2xC2abajo);    
+        \end{tikzpicture}
+    \end{flushleft}
+    
+     
+    
+    
+    Los grupos no-abelianos han de tener $\mathsf{o}\left(\mathsf{Z}(G)\right) \in \{2,4\}$, por ser un 2-grupo. Si el orden del centro fuese $2$, $\nicefrac{G}{\mathsf{Z}_{G}}\cong \mathsf{C}_{4}$ ó $\nicefrac{G}{\mathsf{Z}_{G}}\cong \mathsf{C}_{2}\times\mathsf{C}_{2}$. Pero el caso $\nicefrac{G}{\mathsf{Z}_{G}}\cong \mathsf{C}_{4}$ hemos de rechazarlo, por que si ese cociente es cíclico entonces $G$ es abeliano contra la hipótesis. Si el orden del centro fuese $4$, $\nicefrac{G}{\mathsf{Z}_{G}}\cong \mathsf{C}_{2}$, sería cíclico y por lo tanto abeliano contra la hipótesis.
+    
+    Luego $G$ no-abeliano, $\mathsf{G}=8$, entonces $\mathsf{Z}\left(G\right)\cong\mathsf{C}_{2}$, y $\nicefrac{G}{\mathsf{Z}_{G}}\cong \mathsf{C}_{2}\times\mathsf{C}_{2}$.
+    
+    Ahora falta ver si $\mathcal{S}yl_{2}(G)=\left\lbrace H\preccurlyeq G \vert \mathsf{o}(H)=4 \right\rbrace$ contiene grupos normales o no-normales, pero en cualquier caso isomorfos entre sí. Caben dos posibilidades, que $\left| \mathcal{S}yl_2 (G)\right|=1$ y que $\left| {{\mathcal{S}yl}_{2}}(G)\right|>1$.
+    
+    Exploremos $\left| {{\mathcal{S}yl}_{2}}(G)\right|>1$:
+    
+    El primer caso es $\left| {{\mathcal{S}yl}_{2}}(G)\right|=2$, 
+tomando que la intersección es $\{1\}$, hacen un total de $2(4-1)+1=7$ elementos 
+en los 2-subgrupos de Syllow, de dónde necesitaríamos un elemento extra que sería 
+de orden $2$. Esto hace que el número de elementos final se duplicara y excediera 
+el orden buscado. Pongamos por lo tanto que la intersección de los 2-subgrupos de 
+Syllow es un subgrupo de orden $2$, de dónde $2(4-2)+2=6$, y necesitaríamos de nuevo 
+algún elemento extra de orden $2$, que haría que el orden de $G$ fuese mayor que $8$. 
+Por lo tanto este caso se puede desechar.
+    
+    El segundo caso es $\left| {{\mathcal{S}yl}_{2}}(G)\right|=3$, pero $3*4=12 > 8$, 
+por lo que habremos de tomar que todos los subgrupos de Syllow tienen una intersección 
+común de orden $2$. Salen $3(4-2)+2=8$ elementos exactamente. De aquí sabemos 
+que ha de existir en cada subgrupo de Syllow $2$ elementos que sólo están en ese subgrupo. 
+Llamemos $ {{\mathcal{S}yl}_{2}}\left(G\right)=\left\{ N_1,N_2,N_3 \right\} $, 
+llamemos 
+$H = N_1 \cap N_2 = N_1 \cap N_3 = N_2 \cap N_3 = 
+N_1 \cap N_2 \cap N_3 = \left\{ \overline{1},1 \right\}$. 
+Sea $N_1=\left\{ \overline{a},a\right\}\cup H$, $N_2=\left\{\overline{b},b\right\}\cup H$ y 
+$N_3=\left\{ \overline{c},c\right\}\cup H$. Ahora la pregunta es ¿cuales pueden ser los
+ordenes de $a$? Pueden ser $2$ o $4$. Si fuese $2$, $K_1 = \{1,a\}$, $K_2 = \{1,\overline{a}\}$, 
+y así con $b$ y $c$. Pero entonces todos los subgrupos de orden $2$ serían isomorfos, 
+y los subgrupos de Syllow serían el 4-grupo de Klein, pero 
+también lo serían $\{1,a\}\times\{1,b\}$ y saldrían muchas más de $3$ grupos de Syllow. 
+Así que solo nos queda que los 
+grupos de Syllow sean isomorfos a $\mathsf{C}_{4}$. 
+Por lo tanto el orden de los elementos $\{a,\overline{a},b,\overline{b},c,\overline{c}\}$ 
+será $4$. Sabemos que $a^2\neq\overline{a}$ pues si no su orden ya
+sería mayor que $4$. Por lo tanto solo queda 
+$a^2=\overline{a}^2=b^2=\overline{b}^2=c^2=\overline{c}^2=\overline{1}$ y 
+además $\overline{1}^2=1$. Sólo queda ver cómo son el resto de productos. Por lo pronto
+$a\overline{1}=\overline{1}a=\overline{a}$, $\overline{a}\overline{1}=\overline{1}\overline{a}=a$, 
+e igualmente con $b$ y $c$. A todo esto ha de quedar ya claro que $a^{-1}=\overline{a}$ 
+y así con $b$ y $c$, y que $\overline{1}^{-1}=\overline{1}$.
+               
+    Queda ver solamente como es el producto $ab$ etc. Sabemos que $ab\neq\overline{1}$ 
+porque entonces $b=\overline{a}$, y con el mismo tipo de argumento llegamos a que 
+$ab \in \{c,\overline{c}\}$. Haremos la prueba con $ab=c$, $bc=a$, $ca=b$, y por la 
+no-conmutatividad $ba=\overline{c}$, $cb=\overline{a}$, $ac=\overline{b}$. 
+Si hacemos la prueba con $ab=\overline{c}$, $bc=a$, $ca=b$, y por la no-conmutatividad  
+$ba=c$, $cb=a$, $ac=b$, y obtenemos un grupo isomorfo al anterior.
+    
+    Nos quedamos con $ab=c$, $bc=a$, $ca=b$, $ba=\overline{c}$, $cb=\overline{a}$, 
+$ac=\overline{b}$, $a\overline{1}=\overline{1}a=\overline{a}$, 
+$\overline{a}\overline{1}=\overline{1}\overline{a}=a$, 
+$b\overline{1}=\overline{1}b=\overline{b}$, 
+$\overline{b}\overline{1}=\overline{1}\overline{b}=b$, 
+$c\overline{1}=\overline{1}c=\overline{c}$, 
+$\overline{c}\overline{1}=\overline{1}\overline{c}=c$, 
+$a^2=\overline{a}^2=b^2=\overline{b}^2=c^2=\overline{c}^2=1$, 
+$a\overline{a}=b\overline{b}=c\overline{c}=\overline{1}^2=1$.
+    
+    Definimos al grupo del párrafo anterior como $\mathsf{Q}_8 = \langle a,b | a^4=b^4=(ab)^4=1, a^2=b^2=(ab)^2, ab=a^{-1}b^{-1} \rangle$. Es fácil ver que $\langle a\rangle \lhd \mathsf{Q}_8$, $\langle b\rangle \lhd \mathsf{Q}_8$, $\langle ab\rangle \lhd \mathsf{Q}_8$ (son todos los subgrupos de orden $4$) y que $\mathsf{Z}(\mathsf{Q}_8)=\{1,\overline{1}\}\lhd\mathsf{Q}_8$ que es único subgrupo de orden $2$. Es un grupo hamiltoniano (dedekind no-abeliano).
+    
+    El diagrama de Hasse de $\mathsf{Q}_8$ será:
+    
+    
+    \begin{center}
+        \begin{tikzpicture}
+        \label{tab:DiagramaDeHasseParaElGrupoQuaternion8}
+        % First, locate each of the nodes and name them
+        \node (arriba) at (0,0) {$\mathsf{Q}_{8}   \cong   \left\langle a,b \right\rangle$};
+        \node (medioarribaderecha) at (2,-2) {$\cong  \left\langle ab \right\rangle$};
+        \node (medioarriba) at (0,-2) {$\cong\left\langle b\right\rangle $};
+        \node (medioarribaizquierda) at (-2,-2) {$\mathsf{C}_{4}  \cong\left\langle a\right\rangle $};
+        \node (medioabajo) at (0,-4) {$\mathsf{C}_{2}\cong\left\langle{a^2=b^2=(ab)^2}\right\rangle$};
+        \node (abajo) at (0,-6) {$\mathsf{C}_{1}  \cong  \{1_{\mathsf{Q}_{8}}\}$};
+        
+        % Now draw the lines:
+        \draw [black, thick] (arriba) -- (medioarribaderecha);
+        \draw [black, thick] (arriba) -- (medioarriba);
+        \draw [black, thick] (arriba) -- (medioarribaizquierda);
+        \draw [black, thick] (medioarribaderecha) -- (medioabajo);
+        \draw [black, thick] (medioarriba) -- (medioabajo);
+        \draw [black, thick] (medioarribaizquierda) -- (medioabajo);    
+        \draw [black, thick] (medioabajo) -- (abajo);
+        \end{tikzpicture}
+    \end{center}
+    
+    Antes de pasar a los subgurpos característicos y con nombre propio o a los grupos de automorfismos aún podemos ver algo interesante. Veamos como se factoriza (split) el grupo $\mathsf{Q}_{8}$ en una secuencia exacta corta desde $\mathsf{C}_{4}$ hasta $\mathsf{C}_{2}$:
+
+
+
+\begin{center}
+\begin{align*}
+& \bold{1} 
+\longrightarrow 
+\langle a \rangle 
+\underset{{\substack{{a\mapsto a}\\{b\mapsto b}}}}{\overset{\alpha }{\longrightarrow}}
+\mathsf{Q}_{8} 
+\underset{{\substack{{a\mapsto 1}\\{b\mapsto \overline{1}}}}}{\overset{\beta_a }{\longrightarrow}}
+\langle \overline{1} \rangle 
+\longrightarrow 
+\bold{1}\\
+& \bold{1} 
+\longrightarrow 
+\langle b \rangle 
+\underset{{\substack{{a\mapsto a}\\{b\mapsto b}}}}{\overset{\alpha }{\longrightarrow}}
+\mathsf{Q}_{8} 
+\underset{{\substack{{a\mapsto \overline{1}}\\{b\mapsto 1}}}}{\overset{\beta_b }{\longrightarrow}}
+\langle \overline{1} \rangle 
+\longrightarrow 
+\bold{1} 
+\end{align*}
+\end{center}    
+
+
+	De aquí podemos pensar en modelar una acción de $\mathsf{C}_{4}$ en $\mathsf{C}_{2}$ que nos de la operación propia de $\mathsf{Q}_{8}\equiv\mathsf{Dic}_{2}$. Expongo primero la dos acciones, (la operación tiene que variar del producto semidirecto, y resulta haber una segunda acción de $\mathsf{C}_{2} \times \mathsf{C}_{2}$ sobre $\mathsf{C}_{4}$ y que depende de las dos entradas de orden $2$ en el par ordenado, consistiendo la acción por la multiplicación a derechas por un determinado elemento de $\mathsf{C}_{4}$ determinado por la pareja de ${\mathsf{C}_{2}}{\times}{\mathsf{C}_{2}}$): 
+
+\begin{align*}
+&\phi \;:\;\mathsf{C}_{2} \longrightarrow \mathtt{Aut}⁡\left(\mathsf{C}_{4}\right)\; ::\; y \mapsto \langle x^k\mapsto x^{4-k}\rangle
+\end{align*}
+	
+	La siguiente función elije un elemento de $\mathsf{C}_{4}$ en función de $\mathsf{C}_{2}\times\mathsf{C}_{2}$ (constituye un homomorfismo): 
+
+\begin{align*}
+&\zeta \;:\; 
+{{{\mathsf{C}}_{2}}{\times}{{\mathsf{C}}_{2}}}
+\longrightarrow
+{{\mathsf{C}}_{4}}\;::\;\left(y,z\right) \mapsto
+\begin{cases}
+b^2 \Leftarrow {y=z\neq 1}\\
+1 \Leftarrow (y\neq z)\vee(y=z=1)
+\end{cases}
+\end{align*}
+
+	Ahora la acción que buscamos es la multiplicación por la derecha del segundo componente del par por el valor devuelto por $\zeta$.
+
+\begin{align*}
+&\theta \;:\; 
+{{{\mathsf{C}}_{2}}{\times}{{\mathsf{C}}_{2}}{\times}{{\mathsf{C}}_{4}}}
+\longrightarrow
+{{\mathsf{C}}_{4}}\;::\;\left(y,z,w\right) \mapsto w\zeta\left(y,z\right)
+\end{align*}
+
+
+	Desempaquetada la acción queda:
+
+
+\begin{align*}
+&\theta \;:\; 
+{{{\mathsf{C}}_{2}}{\times}{{\mathsf{C}}_{2}}{\times}{{\mathsf{C}}_{4}}}
+\longrightarrow
+{{\mathsf{C}}_{4}}\;::\;\left(y,z,w\right) \mapsto
+\begin{cases}
+wf^2 \Leftarrow {y=z\neq 1}\\
+w \Leftarrow (y\neq z)\vee(y=z=1)
+\end{cases}
+\end{align*}
+
+
+	La operación quedaría:
+	
+\begin{align*}
+&(x_1,y_1),(x_2,y_2)\in \mathsf{C}_{2}\times\mathsf{C}_{4}\\
+&\{a,1\}\cong\mathsf{C}_{2}\\
+&\{f,f^2,f^3,1\}\cong\mathsf{C}_{4}\\
+&(x_1,y_1)⋅(x_2,y_2)=(x_1⋅x_2, \phi(x_2)(y_1)⋅y_2 \zeta(x_1,x_2)⋅)\\
+&(x_1,y_1) (x_2,y_2)=
+\begin{cases}
+&(x_1,y_1 y_2\zeta(x_1,1) \Leftarrow x_2 = 1\\
+&(x_1 a,y_1^{-1} y_2\zeta(x_1,a)) \Leftarrow x_2 = a
+\end{cases}
+\end{align*}
+
+	Hasta el momento, la operación sería la del grupo $\mathsf{Dih}_{4}$ si no fuese por el aditamento de la acción 
+$\theta : \mathsf{C}_{2} \times \mathsf{C}_{2}\times \mathsf{C}_{4} \longleftarrow \mathsf{C}_{4}$, que actúa sobre 
+la segunda componente del operando derecho. Hagamos ya las sustitución:
+	
+\begin{align*}
+&(x_1,y_1),(x_2,y_2)\in \mathsf{C}_{2}\times\mathsf{C}_{4}\\
+&\{a,1\}\cong\mathsf{C}_{2}\\
+&\{f,f^2,f^3,1\}\cong\mathsf{C}_{4}\\
+&(x_1,y_1) (x_2,y_2)=
+\begin{cases}
+&(x_1,y_1 y_2 \zeta(x_1,1) \Leftarrow x_2 = 1\\
+&(x_1 a,y_1^{-1} y_2 \zeta(x_1,a) \Leftarrow x_2 = a
+\end{cases}
+\\
+&(x_1,y_1) (x_2,y_2)=
+\begin{cases}
+&(1,y_1 y_2) \Leftarrow \left(x_2 = 1 \wedge x_1 = 1\right)\\
+&(a,y_1 y_2) \Leftarrow \left(x_2 \neq x_1 \right)\\
+&(1,y_1^{-1} y_2 f^2) \Leftarrow \left(x_2 = a \wedge x_1 = a\right)
+\end{cases}
+\end{align*}
+
+	Resumiendo, la operación binaria de grupo de $\mathsf{Q}_{8}$ quedaría:
+
+\begin{align*}
+&(x_1,y_1),(x_2,y_2)\in \mathsf{C}_{2}\times\mathsf{C}_{4}\\
+&\{a,1\}\cong\mathsf{C}_{2}\\
+&\{f,f^2,f^3,1\}\cong\mathsf{C}_{4}\\
+&(x_1,y_1) (x_2,y_2)=
+\begin{cases}
+&(1,y_1 y_2 ) \Leftarrow \left(x_2 = x_1 = 1\right)\\
+&(a,y_1 y_2 ) \Leftarrow \left(x_2\neq x_1\right)\\
+&(1,y_1^{-1} y_2 f^2) \Leftarrow \left(x_2 = x_1 = a\right)
+\end{cases}
+\end{align*}
+
+	Concretando la ecuación con los valores que pueden tomar las variables $y_1 , y_2$ que no son otra cosa que potencias de $f$ :
+	
+\begin{align*}
+&\{a,1\}\cong\mathsf{C}_{2}\\
+&\{f,f^2,f^3,1\}\cong\mathsf{C}_{4}\\
+&(x_1,f^k),(x_2,f^l)\in \mathsf{C}_{2}\times\mathsf{C}_{4}\\
+&(x_1,f^k) (x_2,f^l)=
+\begin{cases}
+&(1,f^{k+l}) \Leftarrow \left(x_2 = x_1 = 1\right)\\
+&(a,f^{k+l}) \Leftarrow \left(x_2 \neq x_1 \right)\\
+&(1,f^{2l-k}) \Leftarrow \left(x_2 = x_1 = a\right)
+\end{cases}
+\end{align*}
+     
+	Para la implementación de esta operación con aritmética modular, nos quedamos exclusivamente con los exponentes, consiguiendo así el algoritmo a implementar en el programa informático que nos dará la tabla, los subgrupos y otros tratamientos del grupo:
+	
+\begin{align*}
+&\{a,1\}\cong\mathsf{C}_{2}\\
+&\{f,f^2,f^3,1\}\cong\mathsf{C}_{4}\\
+&(a^i,f^k),(a^j,f^l)\in \mathsf{C}_{2}\times\mathsf{C}_{4}
+\end{align*}
+
+
+\begin{align*}
+&(i,k)(j,l)=
+\begin{cases}
+(0,k+l) &\Leftarrow {\left(j = i = 0\right)}\\
+(1,k+l) &\Leftarrow {\left( (j = 0 \wedge i=1)\vee(j=1 \wedge i=0) \right)}\\
+(0,2l-k) &\Leftarrow {\left(j = i = 1\right)}
+\end{cases}
+\end{align*}
+
+
+	La tabla de la operación de grupo resultante (quitado la fila y la columna de argumentos), o tabla de Cayley es, una vez cambiados todas las apariciones de $f^2$ por ${-1}$, y si no aparece solo el elemento ${-1}$, por ejemplo en $x{-1}$, cambiamos la expresion por ${-x}$. Hacemos otra trasformación, cambiamos $a$ por $\imath$, $f$ por $\jmath$ y $af$ por $\kappa$, y vemos si se parece más al grupo cuaternión en su forma habitual:
+
+
+\begin{align*}
+\begin{array}{|c|c|c|c|c|c|c|c|}
+\hline
+1&{\jmath}&{-1}&{-{\jmath}}&{\imath}&{\kappa}&{-{\imath}}&{-{\kappa}}\\
+\hline
+{\jmath}&{-1}&{-{\jmath}}&1&{-{\kappa}}&{\imath}&{\kappa}&{-{\imath}}\\
+\hline
+{-1}&{-{\jmath}}&1&{\jmath}&{-{\imath}}&{-{\kappa}}&{\imath}&{\kappa}\\
+\hline
+{-{\jmath}}&1&{\jmath}&{-1}&{\kappa}&{-{\imath}}&{-{\kappa}}&{\imath}\\
+\hline
+{\imath}&{\kappa}&{-{\imath}}&{-{\kappa}}&{-1}&{-{\jmath}}&1&{\jmath}\\
+\hline
+{\kappa}&{-{\imath}}&{-{\kappa}}&{\imath}&{\jmath}&{-1}&{-{\jmath}}&1\\
+\hline
+{-{\imath}}&{-{\kappa}}&{\imath}&{\kappa}&1&{\jmath}&{-1}&{-{\jmath}}\\
+\hline
+{-{\kappa}}&{\imath}&{\kappa}&{-{\imath}}&{-{\jmath}}&1&{\jmath}&{-1}\\
+\hline
+\end{array}
+\end{align*}
+
+	\begin{quote}
+		Es importante darse cuenta que este método extiende $\mathsf{C}_{4}\times\mathsf{C}_{2}$, de forma disitnta a como lo hace el producto directo y el semidirecto. Así, para los grupos de orden $4n$, aplicando este método obtendremos los grupos $\mathsf{Dic}_{n}$, e incluso podemos pensar que en general tendremos una generalización para los grupos de la forma $p^2 n$.
+	\end{quote}	
+	
+	
+		
+	Seguimos con el estudio habitual de este grupo.	
+     
+    Como $\mathsf{C}_{4}\cong\langle a\rangle\cong\langle b\rangle\cong\langle ab\rangle$ son nilpotentes y normales, al igual que $\mathsf{C}_{2}\cong\langle\overline{1}\rangle$, el subgrupo de Fitting es $\mathsf{F}(\mathsf{Q}_8)=\mathsf{Q}_8$, y el grupo de Frattini, $\Phi_{\mathsf{Q}_8}=\langle \overline{1}\rangle$ y coincide con el centro $\Phi_{\mathsf{Q}_8}=\mathsf{Z}(\mathsf{Q}_8)$.
+    
+    En cuanto a $D_{\mathsf{Q}_8}^{(1)}=\left[{\mathsf{Q}_8,\mathsf{Q}_8}\right]=\langle \overline{1}\rangle$. Por último $D_{\mathsf{Q}_8}^{(2)}=\{1\}$, luego es resoluble.
+    
+    Para ver si es nilpotente, tenemos $\mathsf{L}_{1}(\mathsf{Q}_8)=D_{\mathsf{Q}_8}^{(1)}=\Phi_{\mathsf{Q}_8}=\mathsf{Z}(\mathsf{Q}_8)=\langle{\overline{1}}\rangle$. Ahora $\mathsf{L}_{2}(\mathsf{Q}_8)=\left[\mathsf{Q}_8,\mathsf{L}_1(\mathsf{Q}_8)\right]=\left[\langle{a,b}\rangle,\langle{\overline{1}}\rangle\right]$. Esto nos da $\mathsf{L}_{2}(\mathsf{Q}_8)=\{1\}$, de dónde es nilpotente.
+    
+    En cuanto a los automorfismos internos $\mathtt{Int}(\mathsf{Q}_8)\cong \nicefrac{\mathsf{Q}_8}{\mathsf{Z}(\mathsf{Q}_8)}\cong\mathsf{C}_4$. Para los automorfismos en general habría que mantener fijo el centro (es característico), y solo quedan $a\mapsto a,a\mapsto\overline{a},a\mapsto b,a\mapsto\overline{b},a\mapsto {ab},a\mapsto\overline{ab}$ e idénticamente con $b$ en el origen, aunque no todas las elecciones son compatibles: da un máximo de $36$ y tiene que ser menor. Tiene que ser múltiplo de $3$ y de $4$, de dónde sale $\mathsf{o}\left(\mathtt{Aut}(\mathsf{Q}_8)\right)=24$. $\mathtt{Int}(\mathtt{Q}_8)\cong\mathsf{C}_4$ y sin prueba vemos que $\mathtt{Aut}(\mathtt{Q}_8)\cong\mathsf{S}_4$.
+    
+    Ahora nos quedamos con el caso que queda: $\mathcal{S}yl_2 (G)=\{N\}$. Sabemos que $\mathsf{Z}(G)$ es orden $2$, dónde $\nicefrac{G}{\mathsf{Z}(\mathsf{G})}\cong {{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}$. Sabemos que $N\lhd G$ porque $[G:N]=2$, ya que $\mathsf{o}(N)=4$. Ha de existir un grupo de orden $2$ por Cauchy, pero buscamos alguno que no sea normal en $G$. Sea ese grupo $H=\{1,g\}$ y $N=\{1,f,f^2,f^3\}$, nos proponemos hacer $\mathsf{C}_{4}\rtimes_{\varphi}\mathsf{C}_{2}$ dónde $\forall k \;\varphi_g (f^k)=f^{4-k}$ y $\forall k\;\varphi_1 (f^k)=f^k$. Obtenemos el grupo $G\cong\mathsf{Dih}_{4}$. En este caso queda claro que $K \triangleq\mathsf{Z}\left(\mathsf{Dih}_4\right)={1,f^2}$. Como todos los subgrupos son abelianos todos los subgrupos son nilpotentes. Normales solo serán $N$ y $K$. ${\mathsf{D}}_{\mathsf{Dih}_4}^{(1)} = N$ y ${\mathsf{D}}_{\mathsf{Dih}_4}^{(2)} = \{1\}$ luego es resoluble. Además, $\mathsf{L}_{1}(\mathsf{Dih}_4)=N$, y de aquí $\mathsf{L}_{2}(\mathsf{Dih}_4)=\left[\mathsf{Dih}_4,N\right]=\{1\}$ luego es nilpotente. El subgrupo de Fitting es $\mathsf{F}(\mathsf{Dih}_4)=\langle f\rangle$ y el de Frattini $\Phi_{\mathsf{Dih}_4} = \{1\}$.
+    
+    La tabla de Cayley es:
+    
+\begin{align*}
+\begin{array}{|c|c|c|c|c|c|c|c|}
+\hline
+1&f&f^2&f^3&g&gf&gf^2&gf^3\\
+\hline
+f&f^2&f^3&1&gf^3&g&gf&gf^2\\
+\hline
+f^2&f^3&1&f&gf^2&gf^3&g&gf\\
+\hline
+f^3&1&f&f^2&gf&gf^2&gf^3&g\\
+\hline
+g&gf&gf^2&gf^3&1&f&f^2&f^3\\
+\hline
+gf&gf^2&gf^3&g&f^3&1&f&f^2\\
+\hline
+gf^2&gf^3&g&gf&f^2&f^3&1&f\\
+\hline
+gf^3&g&gf&gf^2&f&f^2&f^3&1\\
+\hline
+\end{array}
+\end{align*}
+    
+    El diagrama de Hasse de este grupo es:
+    
+    
+    
+    \begin{center}
+        \begin{tikzpicture}
+        % First, locate each of the nodes and name them
+        \node (arriba) at (0,0) {$\mathsf{Dih}_{4}   \cong   \left\langle g,f \right\rangle$};
+        \node (N) at (4,-2) {$\mathsf{C}_4 \cong  \left\langle f \right\rangle$};
+        \node (Z) at (4,-4) {$\cong\left\langle f^2\right\rangle $};
+        \node (H) at (0,-4) {$\cong\left\langle g\right\rangle $};
+        \node (H1) at (-2,-4) {$\cong\left\langle{gf}\right\rangle$};
+        \node (H2) at (-4,-4) {$\cong\left\langle{gf^2}\right\rangle$};
+        \node (H3) at (-6,-4) {$\mathsf{C}_{2}\cong\left\langle{gf^3}\right\rangle$};
+        \node (abajo) at (0,-6) {$\mathsf{C}_{1}  \cong  \{1_{\mathsf{Dih}_{4}}\}$};
+        
+        % Now draw the lines:
+        \draw [black, thick] (arriba) -- (N);
+        \draw [blue, thick] (arriba) -- (H);
+        \draw [blue, thick] (arriba) -- (H1);
+        \draw [blue, thick] (arriba) -- (H2);
+        \draw [blue, thick] (arriba) -- (H3);
+        \draw [black, thick] (N) -- (Z);
+        \draw [black, thick] (H) -- (abajo);
+        \draw [black, thick] (H1) -- (abajo);    
+        \draw [black, thick] (H2) -- (abajo);
+        \draw [black, thick] (H3) -- (abajo);
+        \draw [black, thick] (Z) -- (abajo);
+        \end{tikzpicture}
+    \end{center}
+    
+    
+    
+    
+
+
+
+
+\begin{table}[h!]
+    \begin{center}
+        \caption{Grupos de orden $8$}
+        \label{tab:GruposOrden2p}
+        \begin{tabular}{c|c|c|c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+            \textbf{} & \tiny\textbf{número} &\tiny\textbf{numeración} & \tiny\textbf{nombre} & \textbf{} & {} & {} \\
+            \textbf{} & \tiny\textbf{de} &\tiny\textbf{dentro} & \tiny\textbf{del} & \tiny\textbf{} & {} & {} \\
+            \tiny\textbf{orden} & \tiny\textbf{grupos} & \tiny\textbf{del} & \tiny\textbf{grupo} & \tiny\textbf{abeliano}  & \tiny\textbf{nilpotente} & \tiny\textbf{resoluble} \\
+            \textbf{} & \tiny\textbf{no} & \tiny\textbf{orden} & \textbf{} & \textbf{} & {} & {} \\
+            \textbf{} & \tiny\textbf{isomorfos} &\textbf{} & \textbf{} & \textbf{} & {} & {} \\
+            \hline
+            8 & 5 & 1 & ${\textsf{C}}_{8}$ & Si & Si & Si \\
+            \hline
+            8 & 5 & 2  & ${{\textsf{C}}_{4}}\times{{\textsf{C}}_{2}}$ & Si & Si & Si \\
+            \hline
+            8 & 5 & 3 & ${{\textsf{C}}_{2}}\times{{\textsf{C}}_{2}}\times{{\textsf{C}}_{2}}$ & Si & Si & Si \\
+            \hline
+            8 & 5 & 4  & ${{\textsf{Q}}_{8}}$ & No & Si & Si \\
+            \hline
+            8 & 5 & 5 & ${{\textsf{Dih}}_{4}}  \cong  {{\textsf{C}}_{4}}\rtimes{{{\textsf{C}}_{2}}}$ & No & Si & Si \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+
+
+\chapter{Grupos de orden $p^2$ dónde $p \in {\mathds{P}}_{>2}$}
+
+
+Para abordar los grupos de orden $9$, dado que $9=3^2$, será igualmente fácil tratar el caso general.
+
+Comenzaremos por los grupos abelianos: o bien tiene un elemento $a$ de orden $p^2$ y entonces es cíclico y tenemos $\mathsf{C}_{p^2}\triangleq\langle{a\vert a^{p^2}=1}\rangle$, o bien no tiene ese elemento y tendrá elementos de orden $p$, digamos $b$ y $c$, y tenemos (a la manera del grupo 4 de Klein) $\mathsf{C}_{p}\times\mathsf{C}_{p}\triangleq\langle{b,c\vert b^{p}=c^{p}=1}\rangle$. El diagrama de su retículo de subgrupos es:
+
+
+
+
+
+
+\begin{center}
+    \begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (Cp2) at (3,0) {$\mathsf{C}_{p^2}\cong\langle a\vert a^{(p^2)}\rangle$};
+    \node (Cp2Cp) at (3,-2) {$\cong\left\langle a^p\right\rangle $};
+    \node (Cp2abajo) at (3,-4) {$\cong\left\{1_{\mathsf{C}_{p^2}}\right\}$};
+    \node (CpxCp) at (-3,0) {$\mathsf{C}_p\times\mathsf{C}_p \cong  \left\langle b,c \vert b^p=c^p \right\rangle$};
+    \node (CpxCpCp1) at (-5,-2) {$\mathsf{C}_p \cong\left\langle{b}\right\rangle$};
+    \node (CpxCpCp2) at (-3,-2) {$\cong\left\langle{c}\right\rangle$};
+    \node (CpxCpCp3) at (-1,-2) {$\cong\left\langle{bc}\right\rangle$};
+    \node (CpxCpabajo) at (-3,-4) {$\textsf{C}_{1}\cong\left\{1_{\mathsf{C}_2 \times \mathsf{C}_2}\right\}$};
+% Now draw the lines:
+    \draw [black, thick] (Cp2) -- (Cp2Cp);
+    \draw [black, thick] (Cp2Cp) -- (Cp2abajo);
+    \draw [black, thick] (CpxCp) -- (CpxCpCp1);
+    \draw [black, thick] (CpxCp) -- (CpxCpCp2);
+    \draw [black, thick] (CpxCp) -- (CpxCpCp3);
+    \draw [black, thick] (CpxCpCp1) -- (CpxCpabajo);
+    \draw [black, thick] (CpxCpCp2) -- (CpxCpabajo);
+    \draw [black, thick] (CpxCpCp3) -- (CpxCpabajo);
+    \end{tikzpicture}
+\end{center}
+
+
+A partir de aquí tenemos que buscar los grupos no abelianos. Pero sabemos que al se un p-grupo, $\mathsf{Z}\left(G\right)\neq\{1\}$, y al ser no-abeliano solo queda $\mathsf{Z}\left(G\right)\cong\mathsf{C}_{p}$,
+de dónde $\nicefrac{G}{\mathsf{Z}\left(G\right)} \cong \mathsf{C}_{p}$ que es cíclico, y por lo tanto $G$ es abeliano, contra la hipótesis. No existen grupos no abelianos de orden $p^2$.
+
+
+
+
+\begin{table}[h!]
+    \begin{center}
+        \caption{Grupos de orden $p^2$}
+        \label{tab:GruposOrden2p}
+        \begin{tabular}{c|c|c|c|c|c|c} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+            \textbf{} & \tiny\textbf{número} &\tiny\textbf{numeración} & \tiny\textbf{nombre} & \textbf{} & {} & {} \\
+            \textbf{} & \tiny\textbf{de} &\tiny\textbf{dentro} & \tiny\textbf{del} & \tiny\textbf{} & {} & {} \\
+            \tiny\textbf{orden} & \tiny\textbf{grupos} & \tiny\textbf{del} & \tiny\textbf{grupo} & \tiny\textbf{abeliano}  & \tiny\textbf{nilpotente} & \tiny\textbf{resoluble} \\
+            \textbf{} & \tiny\textbf{no} & \tiny\textbf{orden} & \textbf{} & \textbf{} & {} & {} \\
+            \textbf{} & \tiny\textbf{isomorfos} &\textbf{} & \textbf{} & \textbf{} & {} & {} \\
+            \hline
+            9 & 2 & 1 & ${\textsf{C}}_{9}$ & Si & Si & Si \\
+            \hline
+            9 & 2 & 2  & ${{\textsf{C}}_{3}}\times{{\textsf{C}}_{3}}$ & Si & Si & Si \\
+            \hline
+            25 & 2 & 1 & ${{\textsf{C}}_{25}}$ & Si & Si & Si \\
+            \hline
+            25 & 2 & 2 & ${{\textsf{C}}_{5}}\times{{\textsf{C}}_{5}}$ & Si & Si & Si \\
+            \hline
+            49 & 2 & 1 & ${{\textsf{C}}_{49}}$ & Si & Si & Si \\
+            \hline
+            49 & 2 & 2 & ${{\textsf{C}}_{7}}\times{{\textsf{C}}_{7}}$ & Si & Si & Si \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{table}
+
+
+\chapter{Grupos de orden $12$}
+
+Veremos estos grupos de forma específica, porque el orden $12$ tiene cierta peculiaridad (el grupo alternante) que no tiene análogos en los órdenes $4p$ dónde hay dos familias, $p=1 \mod 4$ y $p=3\mod 4$ (esta última sería la correspondiente al orden $12$).
+
+Primero enumeramos los grupos abelianos de ese orden: $\mathsf{C}_{2}\times\mathsf{C}_{6} \triangleq \langle a,b\vert a^2=b^6=1 \rangle$ y $\mathsf{C}_{12} \triangleq \langle c \vert c^{12}=1 \rangle$.
+
+Sus diagramas de Hasse del retículo de sus subgrupos:
+
+
+
+\begin{center}
+    \begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (C12) at (5,15) {$\mathsf{C}_{12}\cong\langle a\vert a^{12}=1\rangle$};
+    \node (C12C6) at (12,12) {$\mathsf{C}_{6}\cong\left\langle a^2\right\rangle $};
+    \node (C12C4) at (0,9) {$\mathsf{C}_{4}\cong\left\langle a^3\right\rangle $};
+    \node (C12C3) at (12,6) {$\mathsf{C}_{3}\cong\left\langle a^4\right\rangle $};
+    \node (C12C4C2) at (0,3) {$\mathsf{C}_{2}\cong\left\langle a^6\right\rangle $};
+    \node (C12abajo) at (5,0) {$\mathsf{C}_{1}\cong\left\{1_{\mathsf{C}_{12}}\right\}$};
+    % Now draw the lines:
+    \draw [black, thick] (C12) -- (C12C6);
+    \draw [black, thick] (C12) -- (C12C4);
+    \draw [black, thick] (C12C6) -- (C12C3);
+    \draw [black, thick] (C12C6) -- (C12C4C2);
+    \draw [black, thick] (C12C4) -- (C12C4C2);
+    \draw [black, thick] (C12C4C2) -- (C12abajo);
+    \draw [black, thick] (C12C3) -- (C12abajo);
+    \end{tikzpicture}
+\end{center}
+
+
+
+\begin{center}
+    \begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (a-b) at (6,12)
+    {$\mathsf{C}_{6}\times\mathsf{C}_{2}\cong\left\langle{a,b\vert a^6=b^2=1}\right\rangle$};
+    \node (a2b) at (3,9) 
+    {$\cong \left\langle{a^2 b}\right\rangle$};
+    \node (a) at (0,9) 
+    {$\mathsf{C}_{6}\cong\left\langle{a}\right\rangle$};
+    \node (ab) at (12,9) 
+    {$\cong\left\langle{ab}\right\rangle$};
+    \node (a3-b) at (9,6) 
+    {$\mathsf{C}_{2}\times\mathsf{C}_{2}\cong\left\langle{a^3,b}\right\rangle$};
+    \node (a2) at (3,3) 
+    {$\mathsf{C}_{3}\cong\left\langle{a^2}\right\rangle$};
+    \node (b) at (9,0) 
+    {$\cong\left\langle{b}\right\rangle$};
+    \node (a3) at (0,0) 
+    {$\mathsf{C}_{2}\cong\left\langle{a^3}\right\rangle$};
+    \node (a3b) at (12,0) 
+    {$\cong\left\langle{a^3 b}\right\rangle$};
+    \node (1) at (6,-3) 
+    {$\mathsf{C}_{1}\cong\left\langle{1_{\mathsf{C}_{6}\times\mathsf{C}_{2}}}\right\rangle$};
+   % Now draw the lines:
+    \draw [black, thick] (a-b) -- (ab);
+    \draw [black, thick] (a-b) -- (a);
+    \draw [black, thick] (a-b) -- (a2b);
+    \draw [black, thick] (a-b) -- (a3-b);
+    \draw [black, thick] (ab) -- (a3b);
+    \draw [black, thick] (ab) -- (a2);
+    \draw [black, thick] (a) -- (a2);
+    \draw [black, thick] (a) -- (a3);
+    \draw [black, thick] (a2b) -- (a2);
+    \draw [black, thick] (a2b) -- (b);
+    \draw [black, thick] (a3-b) -- (a3b);
+    \draw [black, thick] (a3-b) -- (a3);
+    \draw [black, thick] (a3-b) -- (b);
+    \draw [black, thick] (a2) -- (1);
+    \draw [black, thick] (a3b) -- (1);
+    \draw [black, thick] (a3) -- (1);
+    \draw [black, thick] (b) -- (1);
+    \end{tikzpicture}
+\end{center}
+
+Ahora comenzaremos con los grupos no abelianos.
+
+Para comenzar veamos las posibilidades que tenemos en cuanto al centro: podría ser $\mathsf{Z}\left(G\right)$ el subgrupo
+trivial. También podría ser de órdenes $6$, $4$, $3$ y $2$. Como el centro es abeliano solo puede ser 
+$\mathsf{Z}\left(G\right)\cong \mathsf{C}_{6} \;\acute{o}\; \cong \mathsf{C}_{4} \;\acute{o}\; 
+\cong \mathsf{C}_{2}\times\mathsf{C}_{2} \;\acute{o}\; \cong \mathsf{C}_{3} \;\acute{o}\; \cong \mathsf{C}_{2} 
+\;\acute{o}\; \cong \mathsf{C}_{1}$. Podemos descartar como centro $\mathsf{C}_{6}$ pues el cociente sería 
+cíclico, y por lo tanto, $G$ sería abeliano. Podemos utilizar el mismo argumento con los grupos de orden $4$.
+
+ Quedaría las siguientes posibilidades: 
+\begin{align}
+\mathsf{Z}\left(G\right) &\cong \mathsf{C}_{3} &\text{ si }\quad\quad\quad\quad& 
+\nicefrac{G}{\mathsf{Z}\left(G\right)}\cong \mathsf{C}_{2}\times \mathsf{C}_{2}\\
+&\cong \mathsf{C}_{2}  &\text{ si }\quad\quad\quad\quad& \nicefrac{G}{\mathsf{Z}\left(G\right)}
+\cong \mathsf{C}_{3}\times \mathsf{C}_{2}\\
+&\cong \mathsf{C}_{1}&&
+\end{align}
+
+Ahora podemos pensar en grupos según tengan un grupos de determinados órdenes normales o no.
+
+Podemos pensar que tenga subgrupos normales de orden $6$, llamémos a uno de ellos $N_6$, o bien que algún grupo de 
+orden $6$ sea normal. Este último caso no se puede dar, porque en el caso que hubiese uno solo, digamos $H_6$, entonces $[G:H_6]=2$ y automáticamente $H_6$ sería normal. Luego si hay subgrupos de orden $6$ han de ser normales.
+
+Pero siempre tendremos elementos de orden $3$ y $2$ por el teorema de Cauchy. Subgrupos de orden $4$ existirán por el primer teorema de Syllow. Supondremos que este subgrupo maximal es normal, $N_4$, y el de orden $3$, digamos $H_3$ no lo puede ser, por que sino tenemos que el grupo es abeliano. Estos casos serán del tipo $N_4\rtimes H_3$, o bien a la inversa, y tendríamos $N_3\rtimes H_4$ teniendo en cuenta que los grupos de orden $4$ pueden ser bien $\mathsf{C}_{4}$, bien $\mathsf{C}_{2} \times \mathsf{C}_{2}$.
+
+Enumerando las opciones:
+\begin{align}
+\mathsf{C}_{4}\rtimes \mathsf{C}_{3}\\
+\mathsf{C}_{3}\rtimes \mathsf{C}_{4}\\
+\left(\mathsf{C}_{2}\times\mathsf{C}_{2}\right)\rtimes \mathsf{C}_{3}\\
+\mathsf{C}_{3}\rtimes \left(\mathsf{C}_{2}\times\mathsf{C}_{2}\right)
+\end{align}
+
+En el caso que consideremos que existe grupo de orden $6$ (por lo tanto normal), tendremos las siguientes posibilidades:
+
+\begin{align}
+\mathsf{Dih}_{6}\cong\mathsf{C}_{6}\rtimes_{\langle{g\mapsto g\,,\,f\mapsto f^{-1}}\rangle} \mathsf{C}_{2}\\
+\mathsf{Dih}_{3} \times \mathsf{C}_{2}\\
+\mathsf{Dih}_{3} \rtimes \mathsf{C}_{2}
+\end{align}
+
+Para hacer los cálculos necesarios debemos tener los grupos de automorfismos. 
+
+Los automorfismos del grupo dihédrico de orden $6$ son:
+\begin{align}
+&\texttt{Aut}(\mathsf{Dih}_{3})=\nonumber\\ 
+&=\quad
+    \left\lbrace \right.
+        \varphi_0\triangleq\binom{g\mapsto g}{f\mapsto f}, 
+        \varphi_1\triangleq\binom{g\mapsto g}{f\mapsto f^2}, 
+        \varphi_2\triangleq\binom{g\mapsto gf}{f\mapsto f},\nonumber\\
+&\phantom{=}\quad\varphi_3\triangleq\binom{g\mapsto gf}{f\mapsto f^2}, 			
+	\varphi_4\triangleq\binom{g\mapsto gf^2}{f
+	\mapsto f}, \varphi_5\triangleq\binom{g\mapsto gf^2}{f\mapsto f^2}
+    \left. \right\rbrace\nonumber \cong \mathsf{Dih}_{3}
+\end{align}
+
+Los automorfismos del grupo $4$ de Klein son:
+\begin{align}
+&\texttt{Aut}(\mathsf{C}_{2}\times\mathsf{C}_{2})=\nonumber\\ 
+&=\quad
+	\left\lbrace \right.
+	\phi_0\triangleq\binom{a\mapsto a}{b\mapsto b}, 
+	\phi_1\triangleq\binom{a\mapsto a}{b\mapsto ab}, 
+	\phi_2\triangleq\binom{a\mapsto ab}{b\mapsto b},\nonumber\\
+&\phantom{=}\quad
+	\phi_3\triangleq\binom{a\mapsto ab}{b\mapsto a}, 			
+	\phi_4\triangleq\binom{a\mapsto b}{b\mapsto ab}, 
+	\phi_5\triangleq\binom{a\mapsto b}{b\mapsto a}
+	\left. \right\rbrace\nonumber \cong \mathsf{Dih}_{3}
+\end{align}
+
+Los automorfismos del grupo $\mathsf{C}_{4}$ son:
+
+\begin{align}
+&\texttt{Aut}(\mathsf{C}_{4})=
+	\left\lbrace
+		\psi_0\triangleq\left({a\mapsto a}\right), 
+		\psi_1\triangleq\left({a\mapsto a^3}\right)
+	\right\rbrace 
+	\cong \mathsf{C}_{2}
+\end{align}
+
+Los automorfismos del grupo $\mathsf{C}_{3}$ son:
+
+\begin{align}
+&\texttt{Aut}(\mathsf{C}_{3})=
+\left\lbrace
+	\vartheta_0\triangleq\left({a\mapsto a}\right), 
+	\vartheta_1\triangleq\left({a\mapsto a^2}\right)
+\right\rbrace 
+\cong \mathsf{C}_{2}
+\end{align}
+
+Una vez enumerados los distintos grupos de automorfismos plantearemos las acciones 
+que se utilizarán en los productos semidirectos, mediante homomorfismos de un grupo 
+(el no necesariamente normal) al grupo de automorfismos del otro grupo 
+(el que será normal).
+
+Para $\mathsf{C}_{4}\rtimes\mathsf{C}_{3}$ tenemos solo el homomorfismo identidad, pues si 
+$\langle a\rangle=\mathsf{C}_{3}$, y teniendo en cuenta $\psi_1$ es de orden 
+$2$, $a \mapsto \psi_1$ entonces, por ser homomorfismo, 
+$a^2 \mapsto \psi_1\circ\psi_1=\psi_0=Id$. Ahora $a^3=1 \mapsto \psi_1$ 
+y llegamos a que no puede ser homomorfismo, ya que esto exigiría $a^3=1 \mapsto \psi_0 = Id$. 
+Por lo tanto, por este camino podemos desechar 
+$\mathsf{C}_{4}\rtimes_{Id}\mathsf{C}_{3} = 
+\mathsf{C}_{4}\times\mathsf{C}_{3}\cong \mathsf{C}_{12}$ 
+que es abeliano y ya hemos dado cuenta de él. 
+
+Para $\mathsf{C}_{3}\rtimes\mathsf{C}_{4}$ tenemos una única acción:
+
+\begin{align*}
+& \Psi : \mathsf{C}_{4} \longrightarrow \texttt{Aut}\left( \mathsf{C}_{3} \right) \\
+& \qquad        1				\mapsto		{\vartheta}_0 = Id \\
+& \qquad		a				\mapsto		{\vartheta}_1 \\
+& \qquad		a^2				\mapsto		{\vartheta}_0 \\
+& \qquad		a^3				\mapsto		{\vartheta}_1
+\end{align*}
+
+Así, tomando el conjunto base $\mathsf{C}_{4}\times\mathsf{C}_{3}$ establecemos la 
+operación de grupo para $\mathsf{C}_{3}\rtimes_{\Psi} \mathsf{C}_{4}$:
+
+\begin{align*}
+& a^4=1 \\
+& b^3=1 \\
+& (a^i,b^j)(a^k,b^m) \triangleq (a^{i+k} ,{\Psi}_{a^k}(b^j) {b^{m}}) \\
+&
+(a^i,b^j)(a^k,b^m) = 
+	\begin{cases}
+		\left( a^{i  } , \vartheta_0(b^{j}){b^m} \right)   &\Leftarrow k=0\\
+		\left( a^{i+1} , \vartheta_1(b^{j}){b^m} \right)   &\Leftarrow k=1\\
+		\left( a^{i+2} , \vartheta_0(b^{j}){b^m} \right)   &\Leftarrow k=2\\
+		\left( a^{i+3} , \vartheta_1(b^{j}){b^m} \right)   &\Leftarrow k=3
+	\end{cases} 
+\end{align*}
+
+Ahora sustituimos por el valor de $\vartheta_t$:
+
+\begin{align*}
+& a^4=1 \\
+& b^3=1 \\
+& (a^i,b^j)(a^k,b^m) \triangleq (a^{i+k} ,{\Psi}_{a^k}(b^j) {b^{j}}) \\
+&
+(a^i,b^j)(a^k,b^m) = 
+	\begin{cases}
+		\left( a^{i  } , {b^{j}} {b^m} \right)   &\Leftarrow k=0\\
+		\left( a^{i+1} , {b^{2j}}{b^m} \right)   &\Leftarrow k=1\\
+		\left( a^{i+2} , {b^{j}} {b^m} \right)   &\Leftarrow k=2\\
+		\left( a^{i+3} , {b^{2j}}{b^m} \right)   &\Leftarrow k=3
+	\end{cases} 
+\end{align*}
+
+
+Y obtenemos ya la expresión final:
+
+
+\begin{align*}
+& a^4=1 \\
+& b^3=1 \\
+& (a^i,b^j)(a^k,b^m) \triangleq (a^{i+k} ,{\Psi}_{a^k}(b^j) {b^{j}}) \\
+&
+(a^i,b^j)(a^k,b^m) = 
+	\begin{cases}
+		\left( a^{i  } , {b^{m+j}}  \right)   &\Leftarrow k=0\\
+		\left( a^{i+1} , {b^{m+2j}} \right)   &\Leftarrow k=1\\
+		\left( a^{i+2} , {b^{m+j}}  \right)   &\Leftarrow k=2\\
+		\left( a^{i+3} , {b^{m+2j}} \right)   &\Leftarrow k=3
+	\end{cases} 
+\end{align*}
+
+
+En la siguiente tabla de Cayley, en vez de poner $(a^k,b^m)$ 
+pondré solo $(k,m)$. La multiplicación cogiendo solo los 
+exponentes quedaría así:
+
+
+\begin{align*}
+& a^4=1 \\
+& b^3=1 \\
+& (a^i,b^j)(a^k,b^m) \triangleq (a^{i+k} ,{\Psi}_{a^k}(b^j) {b^{m}}) \cong\\
+& \cong  (i,j)(k,m) \triangleq ({i+k}\mod 4 ,\exp{({\Psi}_{a^k}(b^j))}+m \mod 3) \\
+&
+(i,j)(k,m) = 
+	\begin{cases}
+		\left( {i  }\mod 4 , {m+j}  \mod 3 \right)   &\Leftarrow k=0\\
+		\left( {i+1}\mod 4 , {m+2j} \mod 3 \right)   &\Leftarrow k=1\\
+		\left( {i+2}\mod 4 , {m+j}  \mod 3 \right)   &\Leftarrow k=2\\
+		\left( {i+3}\mod 4 , {m+2j} \mod 3 \right)   &\Leftarrow k=3
+	\end{cases} 
+\end{align*}
+
+Ahora llamando $1 \triangleq (0,0)$, $a^k \triangleq (k,0)$ y $b^m \triangleq (0,m)$, y sabiendo que $a^k b^m = (k,0)(0,m)$:
+\\
+
+\begin{flushleft}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+ $1$ & $b$ & $b^2$ & $a$ & $ab$ & $ab^2$ & $a^2$ & $a^2b$ & $a^2b^2$ & $a^3$ & $a^3b$ & $a^3b^2$ \\
+\hline
+ $b$ & $b^2$ & $1$ & $ab^2$ & $a$ & $ab$ & $a^2b$ & $a^2b^2$ & $a^2$ & $a^3b^2$ & $a^3$ & $a^3b$ \\
+\hline
+ $b^2$ & $1$ & $b$ & $ab$ & $ab^2$ & $a$ & $a^2b^2$ & $a^2$ & $a^2b$ & $a^3b$ & $a^3b^2$ & $a^3$ \\
+\hline
+ $a$ & $ab$ & $ab^2$ & $a^2$ & $a^2b$ & $a^2b^2$ & $a^3$ & $a^3b$ & $a^3b^2$ & $1$ & $b$ & $b^2$ \\
+\hline
+ $ab$ & $ab^2$ & $a$ & $a^2b^2$ & $a^2$ & $a^2b$ & $a^3b$ & $a^3b^2$ & $a^3$ & $b^2$ & $1$ & $b$ \\
+\hline
+ $ab^2$ & $a$ & $ab$ & $a^2b$ & $a^2b^2$ & $a^2$ & $a^3b^2$ & $a^3$ & $a^3b$ & $b$ & $b^2$ & $1$ \\
+\hline
+ $a^2$ & $a^2b$ & $a^2b^2$ & $a^3$ & $a^3b$ & $a^3b^2$ & $1$ & $b$ & $b^2$ & $a$ & $ab$ & $ab^2$ \\
+\hline
+ $a^2b$ & $a^2b^2$ & $a^2$ & $a^3b^2$ & $a^3$ & $a^3b$ & $b$ & $b^2$ & $1$ & $ab^2$ & $a$ & $ab$ \\
+\hline
+ $a^2b^2$ & $a^2$ & $a^2b$ & $a^3b$ & $a^3b^2$ & $a^3$ & $b^2$ & $1$ & $b$ & $ab$ & $ab^2$ & $a$ \\
+\hline
+ $a^3$ & $a^3b$ & $a^3b^2$ & $1$ & $b$ & $b^2$ & $a$ & $ab$ & $ab^2$ & $a^2$ & $a^2b$ & $a^2b^2$ \\
+\hline
+ $a^3b$ & $a^3b^2$ & $a^3$ & $b^2$ & $1$ & $b$ & $ab$ & $ab^2$ & $a$ & $a^2b^2$ & $a^2$ & $a^2b$ \\
+\hline
+ $a^3b^2$ & $a^3$ & $a^3b$ & $b$ & $b^2$ & $1$ & $ab^2$ & $a$ & $ab$ & $a^2b$ & $a^2b^2$ & $a^2$ \\
+\hline
+\end{tabular} 
+\end{flushleft}
+
+Los órdenes de cada uno de los elementos es:
+
+\begin{align*}
+&\mathsf{o}\left(1\right)=1\\
+&\mathsf{o}\left(a^2\right)=2\\
+&\mathsf{o}\left(b\right)=3\\
+&\mathsf{o}\left(b^2\right)=3\\
+&\mathsf{o}\left(a\right)=4\\
+&\mathsf{o}\left(ab\right)=4\\
+&\mathsf{o}\left(ab^2\right)=4\\
+&\mathsf{o}\left(a^3\right)=4\\
+&\mathsf{o}\left(a^3b\right)=4\\
+&\mathsf{o}\left(a^3b^2\right)=4\\
+&\mathsf{o}\left(a^2b\right)=6\\
+&\mathsf{o}\left(a^2b^2\right)=6
+\end{align*}
+
+Por lo pronto podemos ver que se invierte el teorema de Lagrange en este grupo.
+
+Como $a^2$ tiene orden $2$, y es el único elemento de ese orden, es normal luego 
+$\langle a^2\rangle\lhd \mathsf{C}_{3}\rtimes_{\Psi} \mathsf{C}_{4}$, 
+entonces ha de estar en el centro: 
+
+\[a^2 \in \mathsf{Z}(\mathsf{C}_{3}\rtimes_{\Psi} \mathsf{C}_{4})\]
+
+Además los subgrupos cíclicos son los únicos subgrupos propios (siendo el grupo entero 
+el único que no es cíclico) :
+
+\begin{align*}
+{\mathcal{L}}\left({{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\right) =
+\begin{cases}
+&{\left\langle{1}\right\rangle}={\left\lbrace{1}\right\rbrace}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{1}\right\rangle}\right)}=1\\
+&{\left\langle{a^2}\right\rangle}={\left\lbrace{1,a^2}\right\rbrace}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{a^2}\right\rangle}\right)}=2\\
+&{\left\langle{b}\right\rangle}={\left\lbrace{1,b,b^2}\right\rbrace}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{b}\right\rangle}\right)}=3\\
+&{\left\langle{a}\right\rangle}={\left\lbrace{1,a,a^2,a^3}\right\rbrace}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{a}\right\rangle}\right)}=4\\
+&{\left\langle{a b}\right\rangle}={\left\lbrace{1,ab,a^2,a^3b}\right\rbrace}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{a b}\right\rangle}\right)}=4\\
+&{\left\langle{a b^2}\right\rangle}={\left\lbrace{1,ab^2,a^2,a^3b^2}\right\rbrace}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{a b^2}\right\rangle}\right)}=4\\
+&{\left\langle{a^2 b}\right\rangle}={\left\lbrace{1,b,b^2,a^2,a^2b,a^2b^2}\right\rbrace}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{a^2 b}\right\rangle}\right)}=6\\
+&{\left\langle{a , b}\right\rangle}={{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\\
+&\qquad {\mathsf{o}}{\left({\left\langle{a , b}\right\rangle}\right)}=12
+\end{cases}
+\end{align*}
+
+
+El subgrupo centro (característico):
+
+\begin{align*}
+&\mathsf{Z}\left({{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\right) 
+= {\left\langle{a^2}\right\rangle}
+\end{align*}
+
+Los subgrupos normalizadores de cada subgrupo en el grupo de estudio, 
+nos dará también la información de qué subgrupos son normales:
+
+\begin{align*}
+&{\mathsf{N}}_{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\left({\left\lbrace{1}\right\rbrace}\right) = 
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\\
+&{\mathsf{N}}_{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\left({\left\langle{a^2}\right\rangle}\right) = 
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\\
+&{\mathsf{N}}_{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\left({\left\lbrace{1,b,b^2}\right\rbrace}\right) = 
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\\
+&{\mathsf{N}}_{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\left({\left\langle{a}\right\rangle}\right) = 
+{\left\langle{a}\right\rangle}\\
+&{\mathsf{N}}_{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\left({\left\langle{ab}\right\rangle}\right) = 
+{\left\langle{ab}\right\rangle}\\
+&{\mathsf{N}}_{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\left({\left\langle{ab^2}\right\rangle}\right) = 
+{\left\langle{ab^2}\right\rangle}\\
+&{\mathsf{N}}_{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\left({\left\langle{a^2b}\right\rangle}\right) = 
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\\
+\end{align*}
+
+Los centralizadores de cada uno de los subgrupos en el subgrupo de estudio o ambiente son:
+
+\begin{align*}
+&{\mathsf{C}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}}
+\left({\left\lbrace{1}\right\rbrace}\right) = 
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\\
+&{\mathsf{C}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}}
+\left({\left\langle{a^2}\right\rangle}\right) = 
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\\
+&{\mathsf{C}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}}
+\left({\left\langle{b}\right\rangle}\right) = 
+{\left\langle{a^2b}\right\rangle}\\
+&{\mathsf{C}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}}
+\left({\left\langle{a}\right\rangle}\right) = 
+{\left\langle{a}\right\rangle}\\
+&{\mathsf{C}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}}
+\left({\left\langle{ab}\right\rangle}\right) = 
+{\left\langle{ab}\right\rangle}\\
+&{\mathsf{C}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}}
+\left({\left\langle{ab^2}\right\rangle}\right) = 
+{\left\langle{ab^2}\right\rangle}\\
+&{\mathsf{C}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}}
+\left({\left\langle{a^2b}\right\rangle}\right) = 
+{\left\langle{a^2b}\right\rangle}
+\end{align*}
+
+Los subgrupos derivados son:
+
+\begin{align*}
+&{\left\langle{a^2}\right\rangle}^{(1)} = {\left\lbrace{1}\right\rbrace}\\
+&{\left\langle{b}\right\rangle}^{(1)} = {\left\lbrace{1}\right\rbrace}\\
+&{\left\langle{a}\right\rangle}^{(1)} = {\left\lbrace{1}\right\rbrace}\\
+&{\left\langle{ab}\right\rangle}^{(1)} = {\left\lbrace{1}\right\rbrace}\\
+&{\left\langle{ab^2}\right\rangle}^{(1)} = {\left\lbrace{1}\right\rbrace}\\
+&{\left\langle{a^2b}\right\rangle}^{(1)} = {\left\lbrace{1}\right\rbrace}\\
+&{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}^{(1)} ={\left\langle{a^2}\right\rangle}\\
+&{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}^{(2)} ={\left\lbrace{1}\right\rbrace}
+\end{align*}
+
+De aquí que el grupo que nos ocupa es resoluble.
+
+Los subgrupos característicos que nos dicen si el grupo nilpotente:
+
+\begin{align*}
+&\mathsf{L}_{1}\left({\left\langle{a^2}\right\rangle}\right) 
+= 
+{\left\lbrace{1}\right\rbrace}\\
+&\mathsf{L}_{1}\left({\left\langle{b}\right\rangle}\right) 
+= 
+{\left\lbrace{1}\right\rbrace}\\
+&\mathsf{L}_{1}\left({\left\langle{a}\right\rangle}\right) 
+= 
+{\left\lbrace{1}\right\rbrace}\\
+&\mathsf{L}_{1}\left({\left\langle{ab}\right\rangle}\right) 
+= 
+{\left\lbrace{1}\right\rbrace}\\
+&\mathsf{L}_{1}\left({\left\langle{ab^2}\right\rangle}\right) 
+= 
+{\left\lbrace{1}\right\rbrace}\\
+&\mathsf{L}_{1}\left({\left\langle{a^2b}\right\rangle}\right) 
+= 
+{\left\lbrace{1}\right\rbrace}\\
+&{\mathsf{L}}_{1,2 ...}
+\left(
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}
+\right) 
+= 
+{\left\langle{b}\right\rangle} \Rightarrow 
+{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}} 
+\mbox{ NO ES NILPOTENTE}
+\end{align*}
+
+El subgrupo de Frattini de ${{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}$ es 
+$
+\left\langle{ a^2 b}\right\rangle 
+\cap 
+\left\langle{a}\right\rangle 
+\cap 
+\left\langle{a b^2}\right\rangle
+\cap
+\left\langle{a b}\right\rangle
+= 
+{
+\left\langle
+{a^2}
+\right\rangle
+}$. 
+Así: 
+\[
+{\Phi}_{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}} = 
+{\mathsf{Z}}{\left({{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\right)}=
+{\left\langle{a^2}\right\rangle}
+\]
+
+Para el grupo de Fitting solo tenemos que coger los subgrupos nilpotentes normales, esto es, 
+los subgrupos normales y y dar con el subgrupo generado por estos: ${\mathsf{F}}
+{\left({{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\right)}=
+{\left\langle{a^2 b}\right\rangle}$ ya que 
+${\left\langle{a^2}\right\rangle}\subset{\left\langle{a^2 b}\right\rangle}$ 
+y ${\left\langle{b}\right\rangle}\subset{\left\langle{a^2 b}\right\rangle}$, 
+de forma que ${\left\langle{a^2 b}\right\rangle}={\left\langle{a^2 , b}\right\rangle}$.
+
+
+Faltaría ver a qué equivale 
+$\nicefrac{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}{\left\langle{a^2}\right\rangle}$
+, de la misma forma que sería interesante ver 
+$\nicefrac{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}{\left\langle{b}\right\rangle}$
+y $\nicefrac{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}{\left\langle{a^2 b}\right\rangle}$.
+Como el grupo del denominador es el centro cualquier conjugado constituye un clase de 
+equivalencia que incluye $x,y,z$ no necesariamente distintas, talque, $xy=1 \wedge xz=a^2$:
+
+\begin{align*}
+&\overline{1}
+&\triangleq&\quad
+{1}\cdot{\left\langle{a^2}\right\rangle}
+&\equiv&\quad
+{\left\lbrace{1,a^2}\right\rbrace}\\
+&\overline{a}
+&\triangleq&\quad
+{a}\cdot{\left\langle{a^2}\right\rangle}
+&\equiv&\quad
+{\left\lbrace{a,a^3}\right\rbrace}\\
+&\overline{ab}
+&\triangleq&\quad
+{ab}\cdot{\left\langle{a^2}\right\rangle}
+&\equiv&\quad
+{\left\lbrace{ab,a^3b}\right\rbrace}\\
+&\overline{ab^2}
+&\triangleq&\quad
+{ab^2}\cdot{\left\langle{a^2}\right\rangle}
+&\equiv&\quad
+{\left\lbrace{ab^2,a^3b^2}\right\rbrace}
+\\
+&\overline{b}
+&\triangleq&\quad 
+{b}\cdot{\left\langle{a^2}\right\rangle}
+&\equiv&\quad
+{\left\lbrace{b,a^2b}\right\rbrace}\\
+&\overline{b^2}
+&\triangleq&\quad 
+{b^2}\cdot{\left\langle{a^2}\right\rangle}
+&\equiv&\quad
+{\left\lbrace{b^2,a^2b^2}\right\rbrace}
+\end{align*}
+
+En cuanto a la operación heredada, tenemos:
+
+\begin{align*}
+&\overline{1}\cdot\overline{x}=\overline{x}\cdot\overline{1}=\overline{x}\quad \mbox{conforma el grupo trivial}\\
+&{\overline{b}}^{-1}={\overline{b^2}}\quad \mbox{conforman un grupo cíclico de orden 3}\\
+&{\overline{a}}^{-1}={\overline{a}}\quad \mbox{conforman un grupo cíclico de orden 2}\\
+&{\overline{ab}}^{-1}={\overline{ab}}\quad \mbox{conforman un grupo cíclico de orden 2}\\
+&{\overline{ab^2}}^{-1}={\overline{ab^2}}\quad \mbox{conforman un grupo cíclico de orden 2}\\
+&{\overline{b}}\cdot{\overline{a}}=\overline{ab^2}\\
+&{\overline{a}}\cdot{\overline{b}}=\overline{ab}\\
+&{\overline{b}}\cdot{\overline{a}}=\overline{ab^2}\neq\overline{ab}={\overline{a}}\cdot{\overline{b}}\\
+&\nicefrac{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}{\left\langle a^2 \right\rangle} \cong{{\mathsf{Dih}}_{3}}\cong {\mathtt{Int}\left({{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}\right)}
+\end{align*}
+ 
+En cuanto a todos los automorfismos sabemos que tienen que cumplir que $1 \mapsto 1 , a^2 \mapsto a^2$ y tenemos las posibilidades $a \mapsto x , \mathsf{o}(x)=4, ab \mapsto y, \mathsf{o}(y)=4$ y $b\mapsto b,b\mapsto b^2$ de forma que sean compatibles, que da un máximo de $12$ posibilidades. Como medida de control, todo automorfismo en el grupo total, cuando se restringe a $\langle a^2 b\rangle$ ha de ser también un automorfismo de $\mathtt{Aut}\left(\langle a^2 b\rangle\right)\cong\mathtt{Aut}\left({{\mathsf{C}}_{6}}\right)\cong {{\mathsf{C}}_{2}}$.
+
+Por último también tenemos $\nicefrac{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}{\left\langle b \right\rangle} \cong {{\mathsf{C}}_{4}}$, y muy claramente , $\nicefrac{{{{\mathsf{C}}_{3}}\rtimes{{\mathsf{C}}_{4}}}}{\left\langle a^2 b \right\rangle} \cong {{\mathsf{C}}_{2}}$.
+
+El diagrama de Hasse quedaría:
+
+
+\begin{center}
+    \begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (a-b) at (0,12)
+    {$\mathsf{C}_{3}\rtimes\mathsf{C}_{4}\cong\left\langle{a,b\vert a^4=b^3=1,xa^2=a^2x,ab=b^2a}\right\rangle$};
+    \node (a2b) at (3,10) 
+    {$\mathsf{C}_{6}\cong \left\langle{a^2 b}\right\rangle$};
+    \node (a) at (1,8) 
+    {$\cong\left\langle{a}\right\rangle$};
+    \node (ab) at (-1,8) 
+    {$\cong\left\langle{ab}\right\rangle$};
+    \node (ab2) at (-3,8) 
+    {$\mathsf{C}_{4}\cong\left\langle{ab^2}\right\rangle$};
+    \node (b) at (3,6) 
+    {$\mathsf{C}_{3}\cong\left\langle{b}\right\rangle$};
+    \node (a2) at (0,4) 
+    {$\mathsf{C}_{2}\cong\left\langle{a^2}\right\rangle$};
+    \node (1) at (0,0) 
+    {${\mathsf{C}_{1}}\cong{\left\langle{1_{\mathsf{C}_{3}\rtimes\mathsf{C}_{4}}}\right\rangle}$};
+   % Now draw the lines:
+    \draw [black, thick] (a-b) -- (a2b);
+    \draw [blue, thick] (a-b) -- (a);
+    \draw [blue, thick] (a-b) -- (ab);
+    \draw [blue, thick] (a-b) -- (ab2);
+    \draw [black, thick] (a2b) -- (b);
+    \draw [black, thick] (a2b) -- (a2);
+    \draw [black, thick] (a) -- (a2);
+    \draw [black, thick] (ab) -- (a2);
+    \draw [black, thick] (ab2) -- (a2);
+    \draw [black, thick] (b) -- (1);
+    \draw [black, thick] (a2) -- (1);
+    \end{tikzpicture}
+\end{center}
+
+El siguiente grupo no abeliano lo buscaremos también por los productos semidirectos de grupos de orden $4$ y de orden $3$. Se nos plantea el mismo problema que antes, ver si son posibles ${\left({{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}}\right)}\rtimes{{\mathsf{C}}_{3}}$ y/o ${{\mathsf{C}}_{3}}\rtimes{\left({{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}}\right)}$. Comenzamos por el último, esto es, si es posible construir un homomorfismo $\Psi : {{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}} \longrightarrow {\mathtt{Aut}}{\left({{\mathsf{C}}_{3}}\right)}\cong{{\mathsf{C}}_{2}}$.
+
+Veamos:
+\begin{flushleft}
+\begin{align*}
+&{{\mathsf{C}}_{3}} &\triangleq \qquad&{\left\langle{c\mid c^3=1}\right\rangle}&&\\
+&{{\mathsf{C}}_{2}} &\triangleq \qquad&{\left\langle{a,b\mid a^2=b^2=1, ab=ba}\right\rangle}&&\\
+&{\mathtt{Aut}}{\left({{\mathsf{C}}_{3}}\right)} &\triangleq \qquad&\left\lbrace{\left\langle c\mapsto c \right\rangle,\left\langle c\mapsto c^2 \right\rangle}\right\rbrace&&
+\end{align*}
+
+\begin{align*}
+&\Psi_0 : &{{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}}\qquad &\longrightarrow &{\mathtt{Aut}}{\left({{\mathsf{C}}_{3}}\right)}\cong{{\mathsf{C}}_{2}}&\\
+&&a&\mapsto\qquad & \left\langle c\mapsto c \right\rangle&\\
+&&b&\mapsto\qquad & \left\langle c\mapsto c \right\rangle&\\
+&&1&\mapsto\qquad & \left\langle c\mapsto c \right\rangle &\mbox{ en todo homomorfismo}\\
+&&ab&\mapsto\qquad & \left\langle c\mapsto c \right\rangle &\mbox{ conclusión}\\
+&\Psi_1 : &{{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}}\qquad &\longrightarrow &{\mathtt{Aut}}{\left({{\mathsf{C}}_{3}}\right)}\cong{{\mathsf{C}}_{2}}&\\
+&&a&\mapsto\qquad & \left\langle c\mapsto c^2 \right\rangle&\\
+&&b&\mapsto\qquad & \left\langle c\mapsto c^2 \right\rangle&\\
+&&1&\mapsto\qquad & \left\langle c\mapsto c \right\rangle &\mbox{ en todo homomorfismo}\\ 
+&&ab&\mapsto\qquad & \left\langle c\mapsto c \right\rangle &\mbox{ conclusión}
+\end{align*}
+\end{flushleft}
+
+Tomando $\Phi_1$ como nuestro homomorfismo, puesto que $\Phi_0$ no es mas que la identidad, que nos daría un producto directo y por lo tanto abeliano. La acción quedaría así:
+
+\begin{flushright}
+\begin{align*}
+&\Psi_1 : &{{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}}\times{{\mathsf{C}}_{3}} &\longrightarrow &{{\mathsf{C}}_{3}}\\
+&&a^ib^jc^k&\mapsto\qquad & c^l
+\end{align*}
+
+
+\begin{align*}
+&l=
+\begin{cases}
+-k \Rightarrow (i\neq j)\\
+k \;\Rightarrow (i=j)
+\end{cases}
+\\
+& i,j \in \left\lbrace 0,1 \right\rbrace\\ 
+& k,l \in \left\lbrace 0,1,2 \right\rbrace
+\end{align*}
+\end{flushright}
+
+	Aplicando esta acción al producto directo sale la siguiente tabla de multiplicar:
+
+
+\begin{align*}
+\begin{array}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+1&g&g^2&b&bg&bg^2&a&ag&ag^2&ab&abg&abg^2\\
+\hline
+g&g^2&1&bg^2&b&bg&ag^2&a&ag&abg&abg^2&ab\\
+\hline
+g^2&1&g&bg&bg^2&b&ag&ag^2&a&abg^2&ab&abg\\
+\hline
+b&bg&bg^2&1&g&g^2&ab&abg&abg^2&a&ag&ag^2\\
+\hline
+bg&bg^2&b&g^2&1&g&abg^2&ab&abg&ag&ag^2&a\\
+\hline
+bg^2&b&bg&g&g^2&1&abg&abg^2&ab&ag^2&a&ag\\
+\hline
+a&ag&ag^2&ab&abg&abg^2&1&g&g^2&b&bg&bg^2\\
+\hline
+ag&ag^2&a&abg^2&ab&abg&g^2&1&g&bg&bg^2&b\\
+\hline
+ag^2&a&ag&abg&abg^2&ab&g&g^2&1&bg^2&b&bg\\
+\hline
+ab&abg&abg^2&a&ag&ag^2&b&bg&bg^2&1&g&g^2\\
+\hline
+abg&abg^2&ab&ag^2&a&ag&bg^2&b&bg&g&g^2&1\\
+\hline
+abg^2&ab&abg&ag&ag^2&a&bg&bg^2&b&g^2&1&g\\
+\hline
+\end{array}
+\end{align*}
+
+Primero vemos que el orden de los elementos es:
+
+\begin{align*}
+&\mathsf{o}{\left({1}\right)} = 1\quad &&\mathsf{o}{\left({g}\right)} = 3\quad &&\mathsf{o}{\left({g^2}\right)} = 3\\
+&\mathsf{o}{\left({b}\right)} = 2\quad &&\mathsf{o}{\left({bg}\right)} = 2\quad &&\mathsf{o}{\left({bg^2}\right)} = 2\\
+&\mathsf{o}{\left({a}\right)} = 2\quad &&\mathsf{o}{\left({ag}\right)} = 2\quad &&\mathsf{o}{\left({ag^2}\right)} = 2\\
+&\mathsf{o}{\left({ab}\right)} = 2\quad &&\mathsf{o}{\left({abg}\right)} = 6\quad &&\mathsf{o}{\left({abg^2}\right)} = 6
+\end{align*}
+
+De aquí ya podemos decir que subgrupos cíclicos tiene nuestro grupo:
+
+\begin{align*}
+&{\mathcal{L}_{1}}{\left({G}\right)}\triangleq{\left\lbrace{\langle x \rangle\vert x\in G}\right\rbrace}\\
+&\\ 
+&{\mathcal{L}_{1}}{\left({{\mathsf{C}_{3}}\rtimes{\mathsf{C}_{2}\times\mathsf{C}_{2}}}\right)} = {\left\lbrace\right.}
+{\left\lbrace{1}\right\rbrace},{\left\lbrace{1,b}\right\rbrace},\\
+&\qquad\qquad\qquad\qquad{\left\lbrace{1,bg}\right\rbrace},
+{\left\lbrace{1,bg^2}\right\rbrace},\\
+&\qquad\qquad\qquad\qquad{\left\lbrace{1,a}\right\rbrace},
+{\left\lbrace{1,ag}\right\rbrace},
+{\left\lbrace{1,ag^2}\right\rbrace},
+{\left\lbrace{1,ag}\right\rbrace},\\
+&\qquad\qquad\qquad\qquad{\left\lbrace{1,g,g^2}\right\rbrace},
+{\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace}{\left.\right\rbrace}
+\end{align*}
+
+Los subgrupos generados estrictamente por $2$ elementos son:
+
+\begin{align*}
+&{\mathcal{L}_{2}}{\left({G}\right)}\triangleq
+{\left\lbrace{
+\langle x,y \rangle
+\vert 
+(x,y\in G) \wedge (\nexists z \in G \;\langle x,y \rangle = \langle z\rangle)
+}\right\rbrace}\\
+&\\
+&{\mathcal{L}_{2}}{\left({{\mathsf{C}_3}\rtimes{({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}}\right)}=\left\lbrace\right.
+{\left\lbrace{1,b,a,ab}\right\rbrace},
+{\left\lbrace{1,bg,ag,ab}\right\rbrace},
+{\left\lbrace{1,bg^2,ag^2,ab}\right\rbrace},\\
+&\qquad\qquad\qquad\qquad\qquad\;\,{\left\lbrace{1,g,g^2,b,bg,bg^2,a,ag,ag^2,ab,abg,abg^2}\right\rbrace}
+\left.\right\rbrace
+\end{align*}
+
+Con esto queda claro que no hay subgrupos propiamente generados por $3$ elementos de forma minimal, pues con $2$ elementos se genera todo el grupo.
+
+El centro del grupo es: 
+\[
+\mathsf{Z}\left({{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\right) = {\left\lbrace{1,ab}\right\rbrace}
+\]
+
+
+Los subgrupos que son " absolutamente no normales ", esto es, aquellos que coinciden con su normalizador:
+
+
+\begin{align*}
+&
+\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left(
+{\left\lbrace
+{1,b,a,ab}
+\right\rbrace}
+\right) = 
+{\left\lbrace
+{1,b,a,ab}
+\right\rbrace}\\
+&
+\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left(
+{\left\lbrace
+{1,bg,ag,ab}
+\right\rbrace}
+\right) = 
+{\left\lbrace
+{1,bg,ag,ab}
+\right\rbrace}\\
+&
+\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left(
+{\left\lbrace
+{1,bg^2,ag^2,ab}
+\right\rbrace}
+\right) = 
+{\left\lbrace
+{1,bg^2,ag^2,ab}
+\right\rbrace}
+\end{align*}
+
+A continuación, los que tienen un normalizador estrictamente mayor que ellos mismos, pero sin ser normales, son:
+
+\begin{align*}
+&\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left({\left\lbrace{1,b}\right\rbrace}\right) =
+\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left({\left\lbrace{1,a}\right\rbrace}\right) = 
+\left\lbrace{1,b,a,ab}\right\rbrace
+\\
+&\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left({\left\lbrace{1,bg}\right\rbrace}\right) = 
+\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left({\left\lbrace{1,ag}\right\rbrace}\right) = 
+{\left\lbrace{1,bg,ag,ab}\right\rbrace}
+\\
+&\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left({\left\lbrace{1,bg^2}\right\rbrace}\right) = 
+\mathsf{N}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}
+\left({\left\lbrace{1,ag^2}\right\rbrace}\right) = 
+{\left\lbrace{1,bg^2,ag^2,ab}\right\rbrace}
+\end{align*}
+
+Los subgrupos normales quedan:
+
+\begin{align*}
+&{\mathcal{L}}_{{{\mathsf{C}}_{3}}\rtimes
+{\left({
+{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}
+}\right)}}=
+{\left\lbrace\right.}
+{\left\lbrace{1}\right\rbrace},
+{\left\lbrace{1,ab}\right\rbrace},
+{\left\lbrace{1,g,g^2}\right\rbrace},
+{\left\lbrace{1,g,g^2,b,bg,bg^2}\right\rbrace},\\
+&{\left\lbrace{1,g,g^2,a,ag,ag^2}\right\rbrace},
+{\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace},
+{{\mathsf{C}}_{3}}
+\rtimes
+{\left({
+{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}
+}\right)}
+{\left.\right\rbrace}
+\end{align*}
+
+De estos hay $2$ subgrupos no abelianos de orden $6$ que no son nilpotentes, y de hecho son isomorfos a $\mathsf{Dih}_{3}$, a saber son ${\left\lbrace{1,g,g^2,b,bg,bg^2}\right\rbrace}$y ${\left\lbrace{1,g,g^2,a,ag,ag^2}\right\rbrace}$. Por lo tanto el retículo de subgrupos nilpotentes normales es:
+
+\begin{align*}
+&{\mathcal{L}}_{{{\mathsf{C}}_{3}}\rtimes
+{\left({
+{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}
+}\right)}}^{\mathcal{NIL}}=
+\left\lbrace
+{\left\lbrace{1}\right\rbrace},
+{\left\lbrace{1,ab}\right\rbrace},
+{\left\lbrace{1,g,g^2}\right\rbrace},
+{\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace}
+\right\rbrace\\
+&\left\langle{\bigcup{\mathcal{L}}_{{{\mathsf{C}}_{3}}\rtimes
+{\left({
+{{\mathsf{C}}_{2}}\times{{\mathsf{C}}_{2}}
+}\right)}}^{\mathcal{NIL}}}\right\rangle = {\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace} = \left\langle abg \right\rangle
+\end{align*}
+
+Buscamos ahora los centralizadores de cada subgrupo en el grupo ambiente, quitando el trivial, el impropio y el centro que ya se ha hallado.
+Primero buscamos los subgrupos propios abelianos (lo son todos los propios) pero que su centralizador es el mismo subgrupo:
+
+\begin{align*}
+&\mathsf{C}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,b,a,ab}\right\rbrace}\right) = {\left\lbrace{1,b,a,ab}\right\rbrace}\\
+&\mathsf{C}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,bg,ag,ab}\right\rbrace}\right) = {\left\lbrace{1,bg,ag,ab}\right\rbrace}\\
+&\mathsf{C}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,bg^2,ag^2,ab}\right\rbrace}\right) = {\left\lbrace{1,bg^2,ag^2,ab}\right\rbrace}\\
+&\mathsf{C}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace}\right) = {\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace}
+\end{align*}
+
+A continuación aquellos subgrupos que tienen centralizador mayor que ellos mismos:
+
+\begin{align*}
+&\mathsf{C}_{{\mathsf{C}_{3}}\rtimes
+({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,b}\right\rbrace}\right) =
+\mathsf{C}_{{\mathsf{C}_{3}}\rtimes
+({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,a}\right\rbrace}\right) = 
+{\left\lbrace{1,b,a,ab}\right\rbrace}\\
+&\mathsf{C}_{{\mathsf{C}_{3}}\rtimes
+({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,bg}\right\rbrace}\right) =
+\mathsf{C}_{{\mathsf{C}_{3}}
+\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,ag}\right\rbrace}\right) = 
+{\left\lbrace{1,bg,ag,ab}\right\rbrace}\\
+&\mathsf{C}_{{\mathsf{C}_{3}}
+\rtimes
+({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,bg^2}\right\rbrace}\right) = 
+\mathsf{C}_{{\mathsf{C}_{3}}
+\rtimes
+({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,ag^2}\right\rbrace}\right) = {\left\lbrace{1,bg^2,ag^2,ab}\right\rbrace}\\
+&\mathsf{C}_{{\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})}\left({\left\lbrace{1,g,g^2,abg}\right\rbrace}\right) = {\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace}
+\end{align*}
+
+
+Los subgrupos derivados vienen:
+
+\begin{align*}
+&\mathsf{D^{(1)}}{\left({\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})\right)} = {\left\lbrace{1,g,g^2}\right\rbrace}\\
+&\mathsf{D^{(2)}}{\left({\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})\right)} = {\left\lbrace{1}\right\rbrace}
+\end{align*}
+
+De dónde vemos que el grupo ${\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})$ \textsc{ es resoluble}.
+
+Los subgrupos L-derivados del grupo máximo (en el retículo):
+
+\begin{align*}
+\mathsf{L_{(1)}}{\left({\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})
+\right)} = \mathsf{L_{(2)}}{\left({\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})
+\right)} = {\left\lbrace{1,g,g^2}\right\rbrace}
+\end{align*}
+
+De dónde vemos que el grupo 
+${\mathsf{C}_{3}}\rtimes({\mathsf{C}_{2}}\times{\mathsf{C}_{2}})$ \textsc{no es nilpotente}.
+
+Para aclararnos un poco entre tanto elemento y subgrupo veamos como se pueden generar los 
+subgrupos:
+
+\begin{align*}
+&{\left\langle{b}\right\rangle} = {\left\lbrace{1,b}\right\rbrace}\\
+&{\left\langle{bg}\right\rangle} = {\left\lbrace{1,bg}\right\rbrace}\\
+&{\left\langle{bg^2}\right\rangle} = {\left\lbrace{1,bg^2}\right\rbrace}\\
+&{\left\langle{a}\right\rangle} = {\left\lbrace{1,a}\right\rbrace}\\
+&{\left\langle{ag}\right\rangle} = {\left\lbrace{1,ag}\right\rbrace}\\
+&{\left\langle{ag^2}\right\rangle} = {\left\lbrace{1,ag^2}\right\rbrace}\\
+&{\left\langle{ab}\right\rangle} = {\left\lbrace{1,ab}\right\rbrace}\\
+&{\left\langle{g,b}\right\rangle} = {\left\langle{g^2,b}\right\rangle} = {\left\langle{g,bg}\right\rangle} = {\left\langle{g,bg^2}\right\rangle} = {\left\lbrace{1,g,g^2,b,bg,bg^2}\right\rbrace}\\
+&{\left\langle{g,a}\right\rangle} = {\left\langle{g^2,a}\right\rangle} ={\left\langle{g,ag}\right\rangle} = {\left\langle{g,ag^2}\right\rangle} = {\left\lbrace{1,g,g^2,a,ag,ag^2}\right\rbrace}\\
+&{\left\langle{g}\right\rangle} = {\left\lbrace{1,g,g^2}\right\rbrace}\\
+&{\left\langle{abg}\right\rangle} =
+{\left\langle{g,ab}\right\rangle} = {\left\langle{g^2,ab}\right\rangle} =  
+{\left\lbrace{1,g,g^2,ab,abg,abg^2}\right\rbrace}\\
+&{\left\langle{b,a}\right\rangle} = {\left\langle{b,ab}\right\rangle} = {\left\lbrace{1,b,a,ab}\right\rbrace}\\
+&{\left\langle{bg,ag}\right\rangle} = {\left\langle{bg,ab}\right\rangle} = {\left\lbrace{1,bg,ag,ab}\right\rbrace}\\
+&{\left\langle{bg^2,ag^2}\right\rangle} = {\left\langle{bg^2,ab}\right\rangle} = {\left\lbrace{1,bg^2,ag^2,ab}\right\rbrace}\\
+&{\left\langle{g,b,a}\right\rangle} = {\left\lbrace{1,g,g^2,b,bg,bg^2,a,ag,ag^2,ab,abg,abg^2}\right\rbrace}
+\end{align*}
+
+El subgrupo de Frattini, la intersección de los subgrupos maximales, es el subgrupo trivial, ${\Phi}_{\mathsf{C}_{3}}\rtimes{\left({\mathsf{C}_{2}}\times{\mathsf{C}_{2}}\right)}= \lbrace 1\rbrace$. El subgrupo de Fitting, la suma de todos los subgrupos nilpotentes (todos excepto el propio) normales, coincidirá con el ya hallado anteriormente, $\mathsf{F}\left(\mathsf{C}_{3}\rtimes\left({\mathsf{C}_{2}}\times{\mathsf{C}_{2}}\right)\right)=\langle abg \rangle$.
+
+Solo nos queda ver como se factoriza el grupo, primero a través del centro:
+ 
+\begin{align*}
+&
+\nicefrac
+{\mathsf{C}_{3}\rtimes\left({\mathsf{C}_{2}}\times{\mathsf{C}_{2}}\right)}
+{\left\langle ab \right\rangle}
+=
+\left\lbrace\right.
+1{\left\langle{ab}\right\rangle},
+g{\left\langle{ab}\right\rangle},
+g^2{\left\langle{ab}\right\rangle},
+b{\left\langle{ab}\right\rangle}=
+a{\left\langle{ab}\right\rangle},
+bg{\left\langle{ab}\right\rangle}
+=
+ag{\left\langle{ab}\right\rangle},\\
+&
+bg^2{\left\langle{ab}\right\rangle}
+=
+ag^2{\left\langle{ab}\right\rangle}
+\left.\right\rbrace
+\end{align*}
+
+Que tomando representantes:
+
+\begin{align*}
+&
+\nicefrac
+{\mathsf{C}_{3}\rtimes\left({\mathsf{C}_{2}}\times{\mathsf{C}_{2}}\right)}
+{\left\langle ab \right\rangle}
+=
+\left\lbrace
+\overline{1},
+\overline{g},
+\overline{g^2},
+\overline{a},
+\overline{ag},
+\overline{ag^2}
+\right\rbrace
+\end{align*}
+
+Que tiene la estructura del grupo $\mathsf{Dih}_{3}$ y el completo tiene la apariencia de $\mathsf{Dih}_{3}\times\mathsf{C}_{2}$. 
+
+Para empezar, $ab$ conmuta con todo el grupo, y $\langle a,g \rangle\cong\mathsf{Dih}_{3}$ es también grupo normal. De otro lado $\langle ab\rangle \cap \langle a,g \rangle = \lbrace 1 \rbrace$. Por lo tanto: 
+\[
+{\mathsf{C}_{3}\rtimes\left({\mathsf{C}_{2}\times\mathsf{C}_{2}}\right)}\cong{\mathsf{Dih}_{3}\times\mathsf{C}_{2}}
+\]
+
+Si llamamos a $\mathtt{f}\triangleq abg$, $\mathtt{g}\triangleq a$ y $\mathtt{a} \triangleq ab$ explicitamos el isomorfismo antes dicho. 
+
+Observamos con facilidad que ${\mathsf{C}_{3}}\rtimes{\left({{\mathsf{C}_{2}}\times{\mathsf{C}_{2}}}\right)}\cong\mathsf{Dih}_{6}$. Veamos esto último. Sustituimos $abg$ por $\mathfrak{f}\triangleq abg$, siendo $(abg)^2 = g^2$ de dónde  $\mathfrak{f}^{2}\triangleq g^2$, ${(abg)}^{3}=ab$, obtenemos $\mathfrak{f}^{3}\triangleq ab$, $(abg)^{4}= g$ que nos da $\mathfrak{f}^{4}\triangleq g$ y por último $(abg)^{5}= abg^2$ que se traslada a $\mathfrak{f}^{5}\triangleq abg^2$.  Podemos escoger $b$ como elemento no normal y de orden $2$ del grupo dihédrico, escogeremos $\mathfrak{g}\triangleq b$. Como resultado $\mathfrak{gf}=a$, y tenemos solo $2$ generadores como habíamos deducido al generar con la herramienta el grupo total. Via las sustituciones hechas, vemos que:
+ 
+\[{\mathsf{C}_{3}}\rtimes{\left({{\mathsf{C}_{2}}\times{\mathsf{C}_{2}}}\right)}\cong{\mathsf{C}_{6}}\rtimes{\mathsf{C}_{2}}\cong\mathsf{Dih}_{6}\cong{\mathsf{Dih}_{3}}\rtimes{\mathsf{C}_{2}}\] 
+
+Vemos como factoriza a través de $\langle abg\rangle$:
+
+\begin{align*}
+\overline{a}\triangleq{\left\lbrace{a,b,ag,ag^2,bg,bg^2}\right\rbrace},
+\overline{1}\triangleq{\left\lbrace{1,g^2,g,ab,abg,abg^2}\right\rbrace}
+\end{align*}
+
+Que no es otra cosa que el grupo cíclico de orden $2$. Por eso no tiene sentido hacer el cociente por los otros subgrupos de orden $6$, puesto que partírán el grupo en dos partes, la unidad y un elemento de orden $2$.
+
+El diagrama de Hasse es notablemente más complicado que  los anteriores:
+
+
+\begin{center}
+    \begin{tikzpicture}
+    % First, locate each of the nodes and name them
+    \node (a-b-g) at (-6,12)
+    {$\mathsf{Dih}_{6}
+    \cong
+    {\left\langle{a,b,g\vert a^2=b^2=g^3=1,xab=abx,ag=g^2a,bg=g^b}\right\rangle}$};
+    \node (b-g) at (-12,9) 
+    {$\left\langle{b,g\vert b^2=g^3=1,bg=g^2b}\right\rangle$};
+    \node (a-g) at (-6,9) 
+    {$\left\langle{a,g\vert a^2=g^3=1,ag=g^2a}\right\rangle$};
+    \node (abg) at (0,9) 
+    {$\cong\left\langle{abg\vert \left(ab\right)^6=1}\right\rangle$};
+    \node (a-b) at (-10,6) 
+    {$\left\langle{a,b\vert a^2=b^2=1}\right\rangle$};
+    \node (ag-bg) at (-4,6) 
+	{$\left\langle{ag,bg\vert (ag)^2=(bg)^2=1}\right\rangle$};
+    \node (ag2-bg2) at (2,6) 
+    {$\left\langle{ag^2,bg^2\vert (ag^2)^2=(bg^2)^2=1}\right\rangle$};
+    \node (g) at (-6,3) 
+	{$\left\langle{g\vert g^3=1}\right\rangle$};    
+    \node (ab) at (-12,0) 
+    {$\left\langle{ab}\right\rangle$};
+    \node (b) at (-8,0) 
+    {$\left\langle{b}\right\rangle$};
+    \node (a) at (-4,0) 
+    {$\left\langle{a}\right\rangle$};
+    \node (bg) at (0,0) 
+	{$\left\langle{bg}\right\rangle$};
+    \node (ag) at (4,0) 
+    {$\left\langle{ag}\right\rangle$};
+    \node (bg2) at (8,0) 
+    {$\left\langle{bg^2}\right\rangle$};
+    \node (ag2) at (12,0) 
+    {$\left\langle{ag^2}\right\rangle$};
+	\node (1) at (-6,-3) 
+    {$\left\langle{1}\right\rangle$};
+   % Now draw the lines:
+    \draw [black, thick] (a-b-g) -- (abg);
+    \draw [black, thick] (a-b-g) -- (a-g);
+    \draw [black, thick] (a-b-g) -- (b-g);
+    \draw [black, thick] (a-b-g) -- (a-b);
+    \draw [black, thick] (a-b-g) -- (ag-bg);
+    \draw [black, thick] (a-b-g) -- (ag2-bg2);
+    \draw [black, thick] (abg) -- (g);
+    \draw [black, thick] (abg) -- (ab);
+    \draw [black, thick] (a-g) -- (a);
+    \draw [black, thick] (a-g) -- (ag);
+    \draw [black, thick] (a-g) -- (ag2);
+    \draw [black, thick] (a-g) -- (g);
+    \draw [black, thick] (b-g) -- (b);
+    \draw [black, thick] (b-g) -- (bg);
+    \draw [black, thick] (b-g) -- (bg2);
+    \draw [black, thick] (b-g) -- (g);
+    \draw [black, thick] (a-b) -- (a);
+    \draw [black, thick] (a-b) -- (ab);
+    \draw [black, thick] (a-b) -- (b);
+    \draw [black, thick] (ag-bg) -- (ag);
+    \draw [black, thick] (ag-bg) -- (bg);
+    \draw [black, thick] (ag2-bg2) -- (ag2);
+    \draw [black, thick] (ag2-bg2) -- (bg2);
+    \draw [black, thick] (g) -- (1);
+    \draw [black, thick] (ab) -- (1);
+    \draw [black, thick] (ag) -- (1);
+    \draw [black, thick] (bg) -- (1);
+    \draw [black, thick] (ag2) -- (1);
+    \draw [black, thick] (bg2) -- (1);
+    \end{tikzpicture}
+\end{center}
+
+
+
+
+\end{document}

@@ -1,0 +1,1038 @@
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Algunos convenios.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \[0 \notin \mathbb{N}\]. Ante la definición de los naturales
+    nosotros adoptamos este convenio.
+  \item
+    \[\widetilde{\mathbb{N}} ≝ \left( {\mathbb{N} \cup \left\{ 0 \right\}} \right)\].
+    Conjunto de los naturales españoles que ya tiene el cero.
+  \item
+    Definición recurrente de los conjuntos
+    \[\lbrack 0,1\rbrack_{\mathbb{Q}}\]y
+    \[\lbrack 0,1\rbrack_{\mathbb{Q}}^{n}\], dónde
+    \[{n \in \mathbb{N}}{n > 1}\]:
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \tightlist
+    \item
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        \[\lbrack 0,1\rbrack_{\mathbb{Q}}{: = {\lbrack 0,1\rbrack \cap \mathbb{Q}}}\].
+      \item
+        \[{\lbrack 0,1\rbrack_{\mathbb{Q}}}^{1}{: = \lbrack 0,1\rbrack_{\mathbb{Q}}}\].
+      \item
+        \[{\lbrack 0,1\rbrack_{\mathbb{Q}}}^{n}{: = {{\lbrack 0,1\rbrack_{\mathbb{Q}}}^{n - 1} \times {\lbrack 0,1\rbrack_{\mathbb{Q}}}^{1}}}\]
+      \end{enumerate}
+    \end{enumerate}
+  \item
+    Por lo general los elementos de un conjunto se representarán por
+    letras minúsculas (alfa\-betos griego y latino) con o sin
+    suscriptores (ejemplo:\[a_{3}\]o\[b\]o\[\gamma_{1547}\]o\[\delta\])
+    y dí\-gitos decimales (\[\{{0,1,\ldots,9}\}\]), mientras que los
+    conjuntos se representarán por letras mayúsculas (alfabeto griego y
+    latino), igualmente con o sin suscriptores. Este convenio será
+    válido a excepción que se exprese de forma explícita otro nombre
+    para elementos y/o conjuntos.
+  \item
+    En ocasiones aseguraremos que existe un conjunto asociado a un
+    elemento: en general serán letras mayúsculas como corresponde a un
+    conjunto, pero con un subscriptor que escrito exactamente como el
+    elemento. La única excepción que se dará es un elemento cubierto con
+    la tilde circunflejo, para expresar el conjunto de elementos
+    complementa\-rios con uno dado.
+  \item
+    A veces aparecerá una operación binaria,
+    digamos\[{\cdot \ast} \cdot\], dónde los puntos se sustitu\-yen con
+    los argumentos. Cuando expresemos \[a \ast B\], osea, el elemento
+    \[a\]operado con un conjunto \[B\], se trata una operación binaria
+    que no es la original. Se interpreta\-rá como
+    \[{a \ast B} = {\{{{a \ast b} \mid \forall{b \in B}}\}}\] , esto es,
+    un conjunto. Igualmente puede ocurrir que esta misma operación
+    aparezca entre dos conjuntos:
+    \[{A \ast B} = {\{{{a \ast b} \mid {\forall{a \in A}\forall{b \in B}}}\}}\].
+  \item
+    El universo en el que nos moveremos será\[B\], por lo que para el
+    cuantificador univer\-sal (que evitaremos en lo posible) no
+    pondremos ningún símbolo de forma que, cuando aparezca una variable
+    o conjunto o constante sin haber sido cuantificada supondremos que
+    se aplica el cuantificador universal a la variable o constante
+    situándolo dentro de \[B\]. Si el cuantificador universal debiera
+    aplicarse a una variable sobre otro conjunto subconjunto del \[B\]
+    se omitirá el cuantificador universal pero se precederá la sentencia
+    con una indicación sobre la pertenencia del elemento. Para cualquier
+    elemento en el que no aparezca su pertenencia es porque pertenece al
+    universal \[B\]. Al igual, cuando una variable que asume un valor
+    que es un conjunto este será parte de
+    \[{\wp{(B)}} \smallsetminus \left\{ \varnothing \right\}\], que no
+    aparecerá de forma explícita. Para las variable conjunto se repite
+    todo lo anterior con la diferencia de cambiar \[B\] por
+    \[\langle{B,{{\{{0_{B},1_{B}}\}} \subseteq B},{0_{B} \neq 1_{B}},{\mathit{op}{\{{\mathit{bin}:{\{{+ , \cdot}\}}}\}}}}\rangle\].
+  \end{enumerate}
+\item
+  Axiomas para un Álgebra de Boole.
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    Axiomas para un álgebra de Boole
+    \[\langle{B,{{\{{0_{B},1_{B}}\}} \subseteq B},{0_{B} \neq 1_{B}},{\mathit{op}{\{{\mathit{bin}:{\{{+ , \cdot}\}}}\}}}}\rangle\].
+
+    La operación unaria que se utilizará frecuentemente (la
+    complementación), en los axio\-mas será introducida como definición
+    y no supuesta inicialmente más que como la exis\-tencia de un
+    conjunto de elementos no vacío asociados a otro que cumplen unos
+    requisi\-tos. Sin embargo esto último es tan importante en las
+    álgebras de Boole que la forma normal de escribirse la estructura es
+    \[\left\langle {B,{\left\{ {0_{B},1_{B}} \right\} \subseteq B},{0_{B} \neq 1_{B}},{\mathit{op}\left\{ {\mathit{bin}:\left\{ {+ , \cdot} \right\}} \right\},\left\{ {\mathit{una}:\left\{ \overline{} \right\}} \right\}}} \right\rangle\].
+    Además, la distinción entre los dos neutros no siempre se requiere.
+    Esto tiene poco impacto ya que el único álgebra de Boole dónde los
+    dos neutros son iguales coincide con el álgebra de Boole con un solo
+    elemento, que es el álgebra de Boole trivial.
+
+    Los postulados de Huntington (artículos en 1904,1932 -este último
+    desarrolla un con\-junto de 3 axiomas, uno de ellos llamado
+    específicamente Axioma de Huntington, y no es el caso aquí
+    expuesto-) definen qué es un álgebra de Boole
+    \[\langle{\mathtt{\mathrm{B}},{\{{\mathtt{\mathrm{0}},\mathtt{\mathrm{1}}}\}},{\{{+ , \cdot}\}}}\rangle\]:
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \item
+      {[}Axioma H1{]} Existencia del elemento identidad:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        {[}H1.1{]} Para la suma \[+\]: \[\forall{x \in B}{{x + 0} = x}\]
+      \item
+        {[}H1.2{]} Para la multiplicación \[\cdot\]:
+        \[\forall{x \in B}{}{}{}{{x \cdot 1} = x}\]
+      \end{enumerate}
+    \item
+      {[}Axioma H2{]} Conmutabilidad:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        {[}H2.1{]} Para la suma \[+\]:
+        \[\forall x,{y \in B}{{x + y} = {y + x}}\]
+      \item
+        {[}H2.2{]} Para la multiplicación\[\cdot\]:
+        \[\forall x,{y \in B}{{x \cdot y} = {y \cdot x}}\]
+      \end{enumerate}
+    \item
+      {[}Axioma H3{]} Propiedad distributiva:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        {[}H3.1{]} Para la suma \[+\] sobre el
+        producto\[\cdot\]:\[\forall x,y,{z \in B}{{x + {({y \cdot z})}} = {{({x + y})} \cdot {({x + z})}}}\]
+      \item
+        {[}H3.2{]} Para el producto\[\cdot\]sobre la suma
+        \[+\]:\[\forall x,y,{z \in B}{{x \cdot {({y + z})}} = {{({x \cdot y})} + {({x \cdot z})}}}\]
+      \end{enumerate}
+    \item
+      {[}Axioma H4{]} Existencia de complementario :
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        {[}H4{]}\[\forall{x \in B}{}{}{}\exists{\widehat{x} \subseteq B}{}{}{}{}\left\lbrack {{\widehat{x} \neq \varnothing} \land {\forall{y \in \widehat{x}}\left\lbrack {{\lbrack{{x + y} = 1}\rbrack} \land {\lbrack{{x \cdot y} = 0}\rbrack}} \right\rbrack}} \right\rbrack\]
+        De este axioma pondremos dos subfórmulas que utilizaremos de
+        forma expresa:
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          {[}sH4.1{]}\[\forall{x \in B}\forall{y \in \widehat{x}}\left( {{x + y} = 1} \right)\]
+        \item
+          {[}sH4.2{]}\[\forall{x \in B}\forall{y \in \widehat{x}}\left( {{x \cdot y} = 0} \right)\]
+        \end{enumerate}
+      \item
+        Una forma más breve de expresarlo, pero que a nosotros nos
+        conviene menos es :
+        \[\forall{x \in B}{}{}{}\exists{y \in B}{}{}{}{}\left\lbrack {\left\lbrack {{x + y} = 1} \right\rbrack \land \left\lbrack {{x \cdot y} = 0} \right\rbrack} \right\rbrack\]
+      \end{enumerate}
+    \end{enumerate}
+  \end{enumerate}
+
+  Como ejemplos que cumplen los anteriores postulados o axiomas vamos a
+  desarrollar unos cuántos. Para que este sistema de axiomas sea
+  relativamente consistente (al sistema ZFC por ejemplo) bastará ver la
+  independencia de unos axiomas de otros.
+
+  \textbf{{[}Ejemplo 1{]}} El primero y más sencillo de ver es el
+  álgebra de las partes de un conjunto. Dado un conjunto
+  cualquiera\[U \neq \varnothing\],
+  \[{@U} = {\{{X \mid {X \subseteq U}}\}}\], esto es,
+  \[{@U} = {\{{X \mid {{\forall x}\left( {{({x \in X})}\Rightarrow{({x \in U})}} \right)}}\}}\],
+  dónde se verifica
+  que\[\left( {{\varnothing \in @}U} \right) \land \left( {{U \in @}U} \right)\].
+  Ha\-remos\[\left( {B{: = @}U} \right),\left( {0{: = \varnothing}} \right)y\left( {1{: = U}} \right)\],
+  como producto lógico pondremos la intersección de
+  conjuntos\[\forall X,{Y \in @}U{X \cdot Y}{: = {X \cap Y}}\], como
+  suma lógica pondremos la unión de
+  conjuntos\[\forall X,{Y \in @}U{X + Y}{: = {X \cup Y}}\]. Las tres
+  primeras (dobles) propiedades son di\-rectamente cumplidas por la
+  estructura construida y la existencia del complementario es fá\-cil de
+  ver. Sea
+  \[\forall{X \in @}U\Rightarrow\exists Y{: = {U \smallsetminus X}}\]y a
+  partir de ahí sabemos que\[{Y \in @}U\]puesto
+  que\[\forall{x \in Y}{x \in {U \smallsetminus X}}\Rightarrow{x \in U}\]y
+  en el caso que\[X = U\]tenemos que
+  \[{{Y = {U \smallsetminus X}} = {U \smallsetminus U}} = \varnothing\]de
+  forma que\[{\varnothing \in @}U\]por definición. Ahora sólo se trata
+  de ver
+  que\[{{{{Y \cdot X} = {Y \cap X}} = {{({U \smallsetminus X})} \cap X}} = \varnothing} = 0\]y
+  que la propiedad dual a
+  cumplir\[{{{{Y + X} = {Y \cup X}} = {{({U \smallsetminus X})} \cup X}} = U} = 1\].
+  Ya tenemos
+  que\[\forall{X \in @}U\exists{Y \in @}U{Y \in \overline{X}}\]ha\-biendo
+  tomado\[Y{: = {U \smallsetminus X}}\].
+
+  \textbf{{[}Ejemplo 2{]}} Un ejemplo interesante fácil de construir es
+  el álgebra de Boole de los números que son producto de los primeros
+  núme\-ros primos (cantidad finita de ellos) y sus divisores.
+  Consideramos el conjunto \[P_{n}{: = {\{{2,3,\ldots,p_{n}}\}}}\],
+  con\-sideraremos el \[1\] booleano cómo
+  \[1_{B}{: = {\prod\limits_{q \in P_{n}}q}}\]y el \[0\]
+  cómo\[0_{B}{: = 1_{\mathbb{N}}}\]. Consideramos a
+  \[B{: = {\{{{n \in \mathbb{N}} \mid {n \mid \left( {\prod P_{n}} \right)}}\}}}\],
+  y las operaciones serán el mínimo común múltiplo como suma booleana y
+  el máximo común divisor como producto booleano. El complemento de un
+  ele\-mento resulta ser
+  \[\forall{k \in B}{{\overline{k} = {1_{B}/k}} = {\prod\limits_{q \in {\{{{{p \in P_{n}} \mid p} \nmid k}\}}}q}}\].
+  Éste es un modelo fácil de desarrollar para poner ejemplos.
+
+  \textbf{{[}Ejemplo 3{]} }Partimos de un álgebra de Boole cualquiera y
+  un elemento no \[0\] ni \[1\] cualquie\-ra tal
+  que\[x \in \left( {B \smallsetminus {\{ 0,1\}}} \right)\]. Definimos
+  ahora un
+  conjunto\[B_{\leq x}{: = {\{{{{y \in B} \mid {x \cdot y}} = y}\}}}\]y\[B_{\geq x}{: = {\{{{{y \in B} \mid {x \cdot y}} = x}\}}}\].
+  Las álgebras de Boole nuevas a considerar son
+  \[\langle{B_{\leq x},{\{{{0 \equiv 0_{B}},{1 \equiv x}}\}},{\{{+_{B}, \cdot_{B}}\}}}\rangle\]
+  y
+  \[\langle{B_{\geq x},{\{{{0 \equiv x},{1 \equiv 1_{B}}}\}},{\{{+_{B}, \cdot_{B}}\}}}\rangle\].
+  Consideramos el mismo producto booleano que en el conjunto inicial e
+  idéntica\-mente con la suma booleana. Sólo varía el complemento, de la
+  siguiente
+  forma\[{y \in B_{\geq x}}\Rightarrow y{' = {\overline{y} + x}}\]y\[{y \in B_{\leq x}}\Rightarrow y{' = {\overline{y} \cdot x}}\].
+  Es fácil comprobar la validez de esta definición de un álgebra de
+  Boole, de manera más concreta, que las operaciones son internas y el
+  complemento declarado es también interno y se comporta como
+  complemento del nuevo álgebra, esto
+  es,\[{y \in B_{\geq x}}\Rightarrow y{{' \cdot y} = {x \land y}}{{' + y} = 1}\]
+  que\[{y \in B_{\leq x}}\Rightarrow y{{' \cdot y} = {0 \land y}}{{' + y} = x}\].
+
+  \textbf{{[}Ejemplo 4{]}} El álgebra de las proposiciones. Éste es sin
+  duda, el primer desarrollo que se hizo del álgebra de Boole, hecha por
+  el propio George Boole en mitad del siglo XIX (edición 1851). Lo
+  desarrolló como una ``Una investigación en las leyes del
+  pensamiento''. Amigo suyo que lo ayudó a penetrar los ambientes
+  académi\-cos es Augustus De Morgan. Desde Aristóteles (que funda por
+  primera vez la ló\-gica como ciencia analítica) en el siglo IV a. C.
+  no había habido ningún adelanto sustancial en la lógica. Kant (medio
+  siglo antes de Boole) había considerado que la lógica era un cuerpo de
+  doctrina cerrado y completo (esto es, no había nada más que decir que
+  lo que ya había desarrollado y escrito Aristóteles en sus ``Tra\-tados
+  de Lógica'' u ``Órganon'', hacía ya 2.300 años). Aunque la verdadera
+  revolu\-ción se da algunos años más tarde con Frege, el lógico más
+  importante desde Aristóteles. Si doy estos datos sobre la historia de
+  la lógica que todos asociaréis más a la filosofía, que parece queda
+  muy lejos del propósito de unos apuntes de matemáticas discretas que
+  cubran de la forma más amplia posible los Fundamentos de Electró\-nica
+  en su parte Digital, es porque no queda tan lejos. La idea de hacer un
+  len\-guaje dónde el razonamiento siguiera unas pautas claras de forma
+  que siempre quedara todo tan cierto como en las matemáticas era ya
+  antiguo. Aristóteles ya advertía de una cierta in-definición
+  insuperable de los términos más importantes de la filosofía (en
+  realidad de casi todos los conceptos de la vida ordinaria):
+  ``exis\-ten conceptos o ideas que corresponden con la realidad que no
+  se usan de forma equívoca -- esto es, su uso no es equívoco, este
+  mismo concepto, palabra o idea que hablamos no se refiere a realidades
+  distintas y diferenciadas, de forma que nos llevan a confusión -- pero
+  tampoco de forma unívoca -- como las definiciones desde axiomas en un
+  lenguaje formal matemático, así tenemos que existen con\-ceptos
+  análogos'' (es una glosa de palabras de Aristóteles). En la
+  Modernidad, dado que el concepto de analogía lleva aparejado un
+  tratamiento difícil que no lleva fácilmente a certeza, se intentan
+  buscar criterios de certeza absoluta y unas definiciones que
+  aparentemente son unívocas y se tratan como tales. Es significativo el
+  nombre (y la estructura interna) de una importante obra de Spino\-za:
+  ``Ética demostrada según el orden geométrico''. Será Leibniz quién
+  escriba ya cumplidamente sobre la necesidad de establecer un léxico
+  completamente unívoco (una tarea mastodonte, o mejor, imposible) y un
+  ``cálculo'' del pensamiento, de forma que ``una cuestión como la
+  existencia de Dios pueda ser resuelto mediante la resolución de unas
+  ecuaciones de pensamiento'' (de nuevo es una glosa). Se empezaba a
+  buscar con ansiedad una mecanización del pensamiento. Esta idea fue
+  muy fructífera, dando un primer paso hacia ella George Boole que hace
+  un ál\-gebra de las proposiciones. Esta álgebra no era más amplia que
+  la de Aristóteles, pero permitía el cálculo al modo matemático. De
+  aquí a la llegada de Frege, ya, Charles Babbage diseña y realiza (sin
+  éxito debido al trabajo de mecanizado ex\-cesivamente minucioso que
+  requería el diseño) una computadora universal me\-cánica (mediante
+  engranajes) prácticamente similar al modelo de Von Neumann. La condesa
+  de Lovelace (Ada) es el matemático que hace los primeros progra\-mas
+  en lenguaje ensamblador de la máquina de Babbage. La primera
+  programa\-dora de la historia. Después de Frege siguen los desarrollos
+  con gente como Ber\-trand Russell, David Hilbert y otros, hasta los
+  increíbles resultados de Gödel que ponen punto final a muchas de las
+  pretensiones de mecanización del pensamiento, pero que son ya base de
+  la computación moderna, siendo los trabajos definitivos los de Alan
+  Turing. Como veis el camino recorrido es largo y complicado, siendo el
+  momento crucial para el arranque de la ingeniería digital los trabajos
+  de George Boole. No he mencionado el papel de las máquinas de cifrado
+  y descifrado de mensajes en la Gran Guerra y la II Guerra Mundial (en
+  las que intervinieron muchos de las mentes antes mencionadas).
+
+  De manera un tanto informal podemos ver una proposición (una frase que
+  afirma o niega una propiedad de un objeto, una relación entre objetos
+  o la existencia del mismo, una frase que ha de ser o verdadero,
+  \[1_{B}{{: = V} \equiv \mathbf{\mathit{true}}}\], a falso,
+  \[0_{B}{{: = F} \equiv \mathbf{\mathit{false}}}\]) o conjunto de
+  proposiciones pueden ser operadas mediante la conjunción `y', A `y' B
+  es verdadero si A es verdadero y B es verdadero a la vez y falso en
+  cualquier otro caso. La disyunción sería la `o', siendo A `o' B
+  verdadero con que A sea verdadero o lo sea B, siendo falso sólo cuando
+  A es falso y B es falso a la vez. La notación más habitual es
+  \[{{+ {: = \vee}} \equiv \text{or}} \equiv {\mid \mid}\]y\[{{\cdot {: = \land}} \equiv \text{and}} \equiv {\&\&}\].
+  Para el `no' (negación) tenemos
+  que\[{{\overline{\phantom{A}}{: = {\neg\phantom{A}}}} \equiv \text{not}}{\phantom{A} \equiv {/\phantom{A}}}\].
+  El conjunto de Boole es el conjunto de proposiciones de la que
+  partamos.
+
+  De manera más formal se considera un elemento del álgebra de Boole de
+  la lógica a las clases de equivalencia de las proposiciones
+  equivalentes lógicamente (en su valor de verdad o falsedad) entre sí.
+
+  \textbf{{[}Ejemplo 5{]}} El álgebra de conmutación. Este es el álgebra
+  de Boole más sencillo que hay. \[B{{: = B_{2}} \equiv {\{{0,1}\}}}\].
+  Las operaciones las concretaremos en tablas:
+
+  \[\begin{bmatrix}
+   + & 0 & 1 \\
+  0 & 0 & 1 \\
+  1 & 1 & 1
+  \end{bmatrix}\begin{bmatrix}
+   \cdot & 0 & 1 \\
+  0 & 0 & 0 \\
+  1 & 0 & 1
+  \end{bmatrix}\begin{bmatrix}
+  \overline{} & 0 & 1 \\
+   & 1 & 0
+  \end{bmatrix}\]
+
+  y podréis comprobar fácilmente que se cumplen todos los postulados de
+  Huntington. Ésta será usada frecuentemente durante el curso. Esta
+  álgebra está contenido en todo álgebra de Boole.
+
+  \textbf{{[}Ejemplo 6{]}} El álgebra de Boole de 4 elementos. Este es
+  el álgebra de Boole generada por un conjunto de 2 elementos. Es
+  singular en el sentido que sólo tiene 3 niveles, el más bajo
+  \[\{{0{{: = {\{\}}} \equiv \varnothing}}\}\], el intermedio
+  \[\{{{\{\alpha\}},{\{\beta\}}}\}\], y el superior
+  \[\{{1{: = {\{{\alpha,\beta}\}}}}\}\].
+  \[B{{: = B_{4}} \equiv {\{{0,a,b,1}\}}}\]. Las operaciones las
+  concretaremos en tablas:
+
+  \[\begin{bmatrix}
+   + & 0 & a & b & 1 \\
+  0 & 0 & a & b & 1 \\
+  a & a & a & 1 & 1 \\
+  b & b & 1 & b & 1 \\
+  1 & 1 & 1 & 1 & 1
+  \end{bmatrix}\begin{bmatrix}
+   + & 0 & a & b & 1 \\
+  0 & 0 & 0 & 0 & 0 \\
+  a & 0 & a & 0 & a \\
+  b & 0 & 0 & b & b \\
+  1 & 0 & a & b & 1
+  \end{bmatrix}\begin{bmatrix}
+  \overline{} & 0 & a & b & 1 \\
+   & 1 & b & a & 0
+  \end{bmatrix}\]
+
+  y podréis comprobar fácilmente que se cumplen todos los postulados de
+  Huntington si cam\-biáis \[a\] por \[\{\alpha\}\], \[b\] por
+  \[\{\beta\}\], \[1\] por \[\{{{\{\alpha\}},{\{\beta\}}}\}\] y \[0\]
+  por el conjunto vacío \[\varnothing\].
+
+  \textbf{{[}Ejemplo 7{]}} El álgebra de Boole de 8 elementos. Este es
+  el álgebra de Boole generada por un conjunto de 3 elementos. Es
+  singular en el sentido que sólo tiene 4 niveles, el más bajo
+  \[\{ 0\}\], el de átomos \[\{{a,b,c}\}\], el de hiperátomos
+  \[\{{A,B,C}\}\] y el superior \[\{ 1\}\]. Los niveles de átomos y de
+  hiperátomos son especialmente importantes, siendo esta álge\-bra de
+  Boole, la más pequeña que los diferencia. Sería:
+
+  \[B{{: = B_{8}} \equiv {\{{0,a,b,c,A,C,B,1}\}}}\].
+
+  Las operaciones las concretaremos en tablas:
+
+  \[\begin{bmatrix}
+   + & 0 & a & b & c & A & C & B & 1 \\
+  0 & 0 & a & b & c & A & C & B & 1 \\
+  a & a & a & A & C & A & C & 1 & 1 \\
+  b & b & A & b & B & A & 1 & B & 1 \\
+  c & c & C & B & c & 1 & C & B & 1 \\
+  A & A & A & A & 1 & A & 1 & 1 & 1 \\
+  C & C & C & 1 & C & 1 & C & 1 & 1 \\
+  B & B & 1 & B & B & 1 & 1 & B & 1 \\
+  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+  \end{bmatrix}\begin{bmatrix}
+   \cdot & 0 & a & b & c & A & C & B & 1 \\
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  a & 0 & a & 0 & 0 & a & a & 0 & a \\
+  b & 0 & 0 & b & 0 & b & 0 & b & b \\
+  c & 0 & 0 & 0 & c & 0 & c & c & c \\
+  A & 0 & a & b & 0 & A & a & b & A \\
+  C & 0 & a & 0 & c & a & C & c & C \\
+  B & 0 & 0 & b & c & b & c & B & B \\
+  1 & 0 & a & b & c & A & C & B & 1
+  \end{bmatrix}\]
+
+  \[\begin{bmatrix}
+  \neg & 0 & a & b & c & A & C & B & 1 \\
+   & 1 & B & C & A & c & b & a & 0
+  \end{bmatrix}\begin{Bmatrix}
+  {{B_{8}\rightarrow\wp}{\{{\alpha,\beta,\gamma}\}}} & {0\rightarrow\varnothing} \\
+  {a\rightarrow{\{\alpha\}}} & {b\rightarrow{\{\beta\}}} \\
+  {c\rightarrow{\{\gamma\}}} & {A\rightarrow{\{{\alpha,\beta}\}}} \\
+  {C\rightarrow{\{{\gamma,\alpha}\}}} & {B\rightarrow{\{{\beta,\gamma}\}}} \\
+  {1\rightarrow{\{{\alpha,\beta,\gamma}\}}} & {{x \cdot y}\rightarrow{x \cap y}} \\
+  {{x + y}\rightarrow{x \cup y}} & {\overline{x}\rightarrow{{\{{\alpha,\beta,\gamma}\}} \smallsetminus x}}
+  \end{Bmatrix}\]
+
+  y podréis comprobar fácilmente que se cumplen todos los postulados de
+  Huntington si te\-néis en cuenta los cambios aconsejados en el cuadro
+  entre llaves, dónde las flechas quieren decir ``substituir por''.
+
+  \textbf{{[}Ejemplo 8{]}} El álgebra de Boole de 16 elementos. Este es
+  el álgebra de Boole generada por un conjunto de 4 elementos. Es ya un
+  álgebra de Boole completamente regular. Tiene 5 niveles, el más bajo
+  el \[\{ 0\}\], el de átomos \[\{{\alpha,\beta,\gamma,\delta}\}\], el
+  de hiperátomos \[\{{Α,Β,\Gamma,\Delta}\}\], el intermedio
+  \[\{{a,b,c,d,e,f}\}\]y finalmente el nivel superior con el \[\{ 1\}\].
+  Sería:
+
+  \[B{{: = B_{16}} \equiv {\{{0,\alpha,\beta,\gamma,\delta,a,b,c,d,e,f,Α,Β,\Gamma,\Delta,1}\}}}\].
+
+  Las operaciones las concretaremos en tablas:
+
+  \[\begin{bmatrix}
+   + & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & Α & Β & \Gamma & \Delta & 1 \\
+  0 & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & Α & Β & \Gamma & \Delta & 1 \\
+  \alpha & \alpha & \alpha & a & b & c & a & b & c & Α & Β & \Gamma & Α & Β & \Gamma & 1 & 1 \\
+  \beta & \beta & a & \beta & d & e & a & Α & Β & d & e & \Delta & Α & Β & 1 & \Delta & 1 \\
+  \gamma & \gamma & b & d & \gamma & f & Α & b & Β & \Gamma & \Delta & f & Α & 1 & \Gamma & \Delta & 1 \\
+  \delta & \delta & c & e & f & \delta & Β & \Gamma & c & \Delta & e & f & 1 & Β & \Gamma & \Delta & 1 \\
+  a & a & a & a & Α & Β & a & Α & Β & Α & \Delta & 1 & Α & Β & 1 & 1 & 1 \\
+  b & b & b & Α & b & \Gamma & Α & b & Β & Α & 1 & \Gamma & Α & 1 & \Gamma & 1 & 1 \\
+  c & c & c & Β & \Gamma & c & Β & \Gamma & c & 1 & Β & \Gamma & 1 & Β & 1 & \Delta & 1 \\
+  d & d & Α & d & d & \Delta & Α & Α & 1 & d & \Delta & \Delta & Α & 1 & 1 & \Delta & 1 \\
+  e & e & Β & e & \Delta & e & Β & 1 & Β & \Delta & e & \Delta & 1 & Β & 1 & \Delta & 1 \\
+  f & f & \Gamma & \Delta & f & f & 1 & \Gamma & \Gamma & \Delta & \Delta & f & 1 & 1 & \Gamma & \Delta & 1 \\
+  Α & Α & Α & Α & Α & 1 & Α & Α & 1 & Α & 1 & 1 & Α & 1 & 1 & 1 & 1 \\
+  Β & Β & Β & Β & 1 & Β & Β & 1 & Β & 1 & Β & 1 & 1 & Β & 1 & 1 & 1 \\
+  \Gamma & \Gamma & \Gamma & 1 & \Gamma & \Gamma & 1 & \Gamma & \Gamma & 1 & 1 & \Gamma & 1 & 1 & \Gamma & 1 & 1 \\
+  \Delta & \Delta & 1 & \Delta & \Delta & \Delta & 1 & 1 & 1 & \Delta & \Delta & \Delta & 1 & 1 & 1 & \Delta & 1 \\
+  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+  \end{bmatrix}\]
+\end{enumerate}
+
+\[\begin{bmatrix}
+\neg & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & Α & Β & \Gamma & \Delta & 1 \\
+ & 1 & \Delta & \Gamma & Β & Α & f & e & d & c & b & a & \delta & \gamma & \beta & \alpha & 0
+\end{bmatrix}\]
+
+\[\begin{bmatrix}
+ \cdot & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & Α & Β & \Gamma & \Delta & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\alpha & \alpha & \alpha & 0 & 0 & 0 & \alpha & \alpha & \alpha & 0 & 0 & 0 & \alpha & \alpha & \alpha & 0 & \alpha \\
+\beta & \beta & 0 & \beta & 0 & 0 & \beta & 0 & 0 & \beta & \beta & 0 & \beta & \beta & 0 & \beta & \beta \\
+\gamma & \gamma & 0 & 0 & \gamma & 0 & 0 & \gamma & 0 & \gamma & 0 & \gamma & \gamma & 0 & \gamma & \gamma & \gamma \\
+\delta & \delta & 0 & 0 & 0 & \delta & 0 & 0 & \delta & 0 & \delta & \delta & 0 & \delta & \delta & \delta & \delta \\
+a & a & \alpha & \beta & 0 & 0 & a & \alpha & \alpha & \beta & \beta & 0 & a & a & \alpha & \beta & a \\
+b & b & \alpha & 0 & \gamma & 0 & \alpha & b & \alpha & \gamma & 0 & \gamma & a & a & \alpha & \beta & b \\
+c & c & \alpha & 0 & 0 & \delta & \alpha & \alpha & c & 0 & \delta & \delta & \alpha & c & c & \delta & c \\
+d & d & 0 & \beta & \gamma & 0 & \beta & \gamma & 0 & d & \beta & \gamma & d & \beta & \gamma & d & d \\
+e & e & 0 & \beta & 0 & \delta & \beta & 0 & \delta & \beta & e & \delta & \beta & e & \delta & e & e \\
+f & f & 0 & 0 & \gamma & \delta & 0 & \gamma & \delta & \gamma & \delta & f & \gamma & \delta & f & f & f \\
+Α & Α & \alpha & \beta & \gamma & 0 & a & b & \alpha & d & e & \gamma & Α & a & b & d & Α \\
+Β & Β & \alpha & \beta & 0 & \delta & a & \alpha & c & \beta & e & \delta & a & Β & c & d & Β \\
+\Gamma & \Gamma & \alpha & 0 & \gamma & \delta & \alpha & b & c & \gamma & \delta & f & b & c & \Gamma & f & \Gamma \\
+\Delta & \Delta & 0 & \beta & \gamma & \delta & \beta & \gamma & \delta & d & e & f & d & e & f & \Delta & \Delta \\
+1 & 1 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & Α & Β & \Gamma & \Delta & 1
+\end{bmatrix}\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\item
+  y podréis comprobar fácilmente que se cumplen todos los postulados de
+  Huntington, con solo tener en cuenta que todos los elementos se pueden
+  poner en función de \[\alpha\beta\gamma\delta\]y sumas de ellos. Las
+  sumas de dos de los anteriores elementos son \[abcdef\]y las sumas de
+  tres de ellos son \[ΑΒ\Gamma\Delta\].
+
+  \textbf{{[}Ejemplo 9{]}} El álgebra de Boole de los conjuntos que se
+  pueden expresar como \textbf{unión des\-junta finita de subintervalos
+  genéricos de \[\lbrack 0,1\rbrack \cap \mathbb{Q}\]. Definimos por
+  conveniencia
+  \[\mathbf{\mathrm{I}}_{\mathbb{Q}} ≝ \left\lbrack {0,1} \right\rbrack_{\mathbb{Q}}\]}.
+  Para esto haremos abs\-tracción de cualquier conjunto finito de puntos
+  de \textbf{\[\mathbf{\mathrm{I}}_{\mathbb{Q}}\]}, esto es,
+  consideraremos que dos conjuntos son iguales si su diferencia
+  simétrica (la unión de las diferencias, los elementos que no son
+  comunes de ambos conjuntos) es vacía o es un conjunto finito de
+  puntos. Esta álgebra de Boole tiene un cardinal infinito numerable
+  (como el cardinal de los números naturales). Lo más importante es que
+  no puede desarrollarse de manera semejante a como desarrolla\-mos el
+  álgebra de las partes de un conjunto. Lo formalizaremos del siguiente
+  modo:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \setcounter{enumii}{1}
+  \item
+    \[a,{b \in \mathbf{\mathrm{I}}_{\mathbb{Q}}}{a < b}\Rightarrow\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}} ≝ {\left\lbrack {a,b} \right\rbrack \cap \mathbb{Q}} ≝ \left\{ {{x \in \mathbf{\mathrm{I}}_{\mathbb{Q}}} \mid {{a \leq x} \leq b}} \right\}\]
+
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \item
+      Si escribimos \[\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}}\]
+      entonces \[{a < {b \land a}} \neq b\].
+    \item
+      Sea
+      \[\mathbf{II}_{\mathbb{Q}} ≝ \left\{ {\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}} \mid {a,{{{b \in {I_{\mathbb{Q}} \land a}} < {b \land a}} \neq b}}} \right\}\].
+    \item
+      Sea
+      \[\mathbf{\mathrm{III}}_{\mathbb{Q}} ≝ {\left\{ {{A \in {\wp\left( I_{\mathbb{Q}} \right)}} \mid {{A = \mathbf{\cup}_{\lambda \in \Lambda}}I_{\lambda}\forall{\lambda \in \Lambda}{I_{\lambda} \in {\mathbf{\mathrm{II}}_{\mathbb{Q}}{{\#\left( \Lambda \right)} \in \widetilde{\mathbb{N}}}}}}} \right\} \cup \left\{ \varnothing \right\}}\]
+      .
+    \item
+      Sea
+      \[\mathit{Fin}\left( I_{\mathbb{Q}} \right) ≝ \left\{ {{A \in \wp}\left( I_{\mathbb{Q}} \right) \mid \#{(A) \in \widetilde{\mathbb{N}}}} \right\}\].
+    \item
+      \[A,B{\in}{\wp\left( \mathbf{\mathrm{I}}_{\mathbb{Q}} \right)}{A \approx B} ≝ {\#{\left( {A \bigtriangleup B} \right) \in \widetilde{\mathbb{N}}}}\].
+      Esta relación es de equivalencia.
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        Reflexiva
+        \[\#{\left( {A \bigtriangleup A} \right) = \#}{{(\varnothing) = 0} \in \widetilde{\mathbb{N}}}\].
+        Luego \[A \approx A\].
+      \item
+        Simétrica
+        \[A \bigtriangleup {B = B} \bigtriangleup A.\Rightarrow.A \approx B\Leftrightarrow B \approx A\].
+      \item
+        Transitiva
+        \[A \approx {B \land B} \approx C\Rightarrow A \approx C\].
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          \[\#{{\left( {A \bigtriangleup B} \right) = n_{1}} \in {\widetilde{\mathbb{N}} \land \#}}{{\left( {B \bigtriangleup C} \right) = n_{2}} \in \widetilde{\mathbb{N}}}.\Rightarrow.\#{{\left( {A \bigtriangleup C} \right) \leq {n_{1} + n_{2}}} \in \widetilde{\mathbb{N}}}\].
+          Y queda de\-mostrada la propiedad transitiva.
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      A partir de aquí hablaremos de \[⟦A⟧\]para hablar de la clase de
+      equivalencia de \[A \in \mathbf{\mathrm{III}}_{\mathbb{Q}}\]bajo
+      la relación de equivalencia \[\approx\].
+    \item
+      A partir de aquí hablaremos de nuestro conjunto
+      \[\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1) ≝ \left\{ {{⟦A⟧} \mid {A \in \mathbf{\mathrm{III}}_{\mathbb{Q}}}} \right\}\]
+    \item
+      Nuestro conjunto de Boole será
+      \[B ≝ {\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1)}\].
+    \item
+      El \[0 ≝ {⟦\varnothing ⟧}\].
+    \item
+      El \[1 ≝ {⟦\mathbf{\mathrm{I}}_{\mathbb{Q}}⟧}\].
+    \item
+      Ahora veremos unas operaciones muy cercanas a la unión, la
+      intersección y el com\-plemento, que realmente nos dan un álgebra
+      de Boole sobre
+      \[\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}\]:
+
+      \[\begin{matrix}
+      {{⟦A⟧},{{⟦B⟧} \in \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}}} \\
+      {{{⟦A⟧} + {⟦B⟧}} ≝ {⟦{A \cup B}⟧}} \\
+      {{{⟦A⟧} \cdot {⟦B⟧}} ≝ {⟦{A \cap B}⟧}} \\
+      {\overline{⟦A⟧} ≝ {⟦{\lbrack 0,1\rbrack_{\mathbb{Q}} \smallsetminus A}⟧}}
+      \end{matrix}\]
+    \item
+      Convenio de
+      notación:\[{⟦{a,b}⟧} ≝ {⟦\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}}⟧}\].
+      Estos conjuntos serán nuestros subintervalos genéricos del
+      intervalo genérico unidad.
+    \item
+      Sea una sucesión finita de un número par \[2 \cdot n\] de
+      elementos de \[\lbrack 0,1\rbrack_{\mathbb{Q}}\], estricta\-mente
+      creciente
+      \[{{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < a_{2}} < b_{2}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}\]
+      dispuestos como
+
+      \[⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧\]definirán los
+      elementos de
+      \[\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}\],
+      aparte de
+      \[{⟦⟧} ≝ {{{{⟦\varnothing ⟧} = {⟦{\{ 0\}}⟧}} = {⟦{\{ 1\}}⟧}} = 0_{\mathbf{\mathrm{I}}_{B}^{\mathbf{\mathrm{GEN}}}}}\].
+    \item
+      Si escribimos \[⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧\],
+      significamos ya (suponemos que es un hecho que)
+      \[{{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < a_{2}} < b_{2}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}\].
+    \item
+      Ahora ya definimos (notación):
+
+      \[\begin{matrix}
+      {{⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧} ≝ {{⟦{\{{{x \in {\lbrack 0,1\rbrack}_{\mathbb{Q}}} \mid \exists{{{1 \leq k} \leq n} \in \mathbb{N}}{x \in {\lbrack{a_{k},b_{k}}\rbrack}_{\mathbb{Q}}}}\}}⟧} \equiv}} \\
+      {\equiv {⟦{\mathbf{\cup}_{k = 1}^{n}{\lbrack{a_{k},b_{k}}\rbrack}}⟧}}
+      \end{matrix}\].
+    \item
+      Ahora ya tenemos el conjunto de Boole que buscábamos:
+
+      \[\left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}} ≝ {\left\{ {{⟦{a_{1,}b_{1,}\ldots,a_{n},b_{n}}⟧} \mid {\exists{n \in \mathbb{N}}{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}}}} \right\} \cup \left\{ {⟦⟧} \right\}}\].
+    \end{enumerate}
+  \end{enumerate}
+
+  Que las uniones, complementos e intersecciones de intervalos genéricos
+  finitos siguen siendo intervalos genéricos finitos es claro desde el
+  principio. Sin embargo voy a exponer la cabalística, hacer las cuentas
+  vamos, para que no quede lugar a dudas. Con toda esta comprobación (o
+  re-definición) de que \[B\] es cerrado bajo las distintas operaciones
+  es laborioso, un tanto enojoso.
+
+  La operación de complemento queda de la siguiente manera, y aunque aún
+  no podemos comprobar aún su corrección, si queda claro que es un
+  operación unaria interna:
+
+  \[\begin{matrix}
+  {\forall{A \in B}\forall{A \in A}A^{I}{: = {⟦{\mathbf{\mathrm{I}}_{\mathbb{Q}} \smallsetminus A}⟧}}} \\
+  {\text{Sea}{A = \underset{k = 1}{\overset{n}{\cup}}}\left\lbrack {a_{k},b_{k}} \right\rbrack} \\
+  {A^{I} \equiv \begin{Bmatrix}
+  {⟦{{0,a_{1}},{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}},{b_{n},1}}⟧} & \Leftarrow & {{a_{1} \neq {0 \land b_{n}}} \neq 1} \\
+  {⟦{{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}},{b_{n},1}}⟧} & \Leftarrow & {{a_{1} = {0 \land b_{n}}} \neq 1} \\
+  {⟦{{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}}}⟧} & \Leftarrow & {{a_{1} = {0 \land b_{n}}} = 1} \\
+  {⟦{{0,a_{1}},{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}}}⟧} & \Leftarrow & {{a_{1} \neq {0 \land b_{n}}} = 1} \\
+  {⟦\varnothing ⟧} & \Leftarrow & {{a_{1} = {0 \land b_{1}}} = 1} \\
+  {⟦0,1⟧} & \Leftarrow & {{\{\varnothing\}} \in A}
+  \end{Bmatrix}}
+  \end{matrix}\]
+
+  De dónde obtenemos\[\forall{A \in B}\exists{A^{I} \in B}\].
+
+  Tenemos que \[{0 \in B}0{{: = {⟦\varnothing ⟧}} \equiv {⟦⟧}}\]y
+  \[{1 \in B}1{: = {⟦0,1⟧}}\]y \[{0^{I} = {1 \land 1^{I}}} = 0\]. Además
+  observamos con claridad que
+  \[\forall{A \in B}\exists{A^{I} \in B}\]tal
+  que\[{{A + A^{I}} = {⟦\mathbf{\mathrm{I}}_{\mathbb{Q}}⟧}} = 1\]y
+  \[{{A \cdot A^{I}} = {⟦⟧}} = 0\], además de
+  \[\forall{A \in B}{{A^{I}}^{I} = A}\]. Así nos queda
+  \[A^{I} \equiv \overline{A}\]si se verifican los demás axiomas.
+
+  La suma quedará de la siguiente forma :
+
+  \[\forall A,{B \in \left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}}}\exists{\left( {A,B} \right) \subset \left( {A \times B} \right)}{A + B} ≝ {⟦{A \cup B}⟧}\]
+
+  El producto seguirá un camino par:
+
+  \[\forall A,{B \in \left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}}}\exists{\left( {A,B} \right) \subset \left( {A \times B} \right)}{A \cdot B} ≝ {⟦{A \cap B}⟧}\]
+
+  Sólo queda ver que efectivamente las operaciones son internas:
+
+  Prueba:
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \item
+      Ahora vamos a desarrollar la suma de forma recurrente:
+
+      \[A{B \in \left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}}}{B = {⟦{a_{1}^{B},b_{1}^{B},\ldots,a_{n}^{B},b_{n}^{B}}⟧}}{A = {⟦{a_{1}^{A},b_{1}^{A},\ldots,a_{m}^{A},b_{m}^{A}}⟧}}\]
+
+      Comenzaremos por \[m = 0\]y algunos casos especiales:
+    \end{enumerate}
+  \end{enumerate}
+
+  \[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦\varnothing ⟧} & {\Leftarrow} & \begin{Bmatrix}
+  {A = {⟦⟧}} \\
+  {B = {⟦⟧}}
+  \end{Bmatrix} \\
+  A & {\Leftarrow} & {B = {⟦\varnothing ⟧}} \\
+  B & {\Leftarrow} & {A = {⟦\varnothing ⟧}} \\
+  1 & {\Leftarrow} & \begin{Bmatrix}
+  {\exists{A \in A}} \\
+  {\exists{B \in B}} \\
+  {\overline{B} \subseteq A} \\
+   \vee \\
+  {\overline{A} \subseteq B}
+  \end{Bmatrix} \\
+  A & {\Leftarrow} & \begin{Bmatrix}
+  {\exists{B \in B}} \\
+  {\exists{A \in A}} \\
+  {B \subseteq A}
+  \end{Bmatrix} \\
+  B & {\Leftarrow} & \begin{Bmatrix}
+  {\exists{A \in A}} \\
+  {\exists{B \in B}} \\
+  {A \subseteq B}
+  \end{Bmatrix}
+  \end{Bmatrix}\]
+
+  Distintos casos con \[m = 1\]
+
+  \[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{1}^{A}},{a_{1}^{B},b_{1}^{B}},\ldots,{a_{n}^{B},a_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq a_{1}^{B}} \\
+  {b_{1}^{A} \leq a_{1}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]
+
+  \[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{1}^{B}},{a_{2}^{B},b_{2}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq a_{1}^{B}} \\
+  {b_{1}^{A} \geq a_{1}^{B}} \\
+  {b_{1}^{A} \leq b_{1}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\] \[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}},{a_{1}^{B},b_{1}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \geq b_{n}^{B}} \\
+  {b_{1}^{A} \geq b_{n}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{n - 1}^{B},b_{n - 1}^{B}},{a_{n}^{B},b_{1}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq b_{n}^{B}} \\
+  {a_{1}^{A} \geq a_{n}^{B}} \\
+  {b_{1}^{A} \geq b_{n}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq a_{1}^{B}} \\
+  {\exists{k < n}} \\
+  {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+  {b_{1}^{A} \leq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{k}^{B}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq a_{1}^{B}} \\
+  {\exists{k < n}} \\
+  {b_{1}^{A} \geq a_{k}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]
+
+  \[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}},{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {\exists{k < n}} \\
+  {a_{1}^{A} \geq b_{k - 1}^{B}} \\
+  {a_{1}^{A} \leq a_{k}^{B}} \\
+  {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+  {b_{1}^{A} \leq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[\begin{matrix}
+  {{B + A}{: =}}
+  \end{matrix}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{1}^{A},b_{k}^{B}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \leq a_{l}^{B}} \\
+  {a_{1}^{A} \geq b_{l - 1}^{B}} \\
+  {b_{1}^{A} \geq a_{k}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[\begin{matrix}
+  {{B + A}{: =}}
+  \end{matrix}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{k}^{B}},{a_{k + l}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \geq a_{l}^{B}} \\
+  {a_{1}^{A} \leq b_{l}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}} \\
+  {b_{1}^{A} \geq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{1}^{A}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & {\Leftarrow\begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \geq a_{l}^{B}} \\
+  {a_{1}^{A} \leq b_{l}^{B}} \\
+  {b_{1}^{A} \geq b_{k}^{B}} \\
+  {b_{1}^{A} \leq a_{k + 1}^{B}}
+  \end{Bmatrix}}
+  \end{Bmatrix}\] \[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{l}^{B}},{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & {\Leftarrow\begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \geq b_{l}^{B}} \\
+  {a_{1}^{A} \leq a_{l + 1}^{B}} \\
+  {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+  {b_{1}^{A} \leq a_{k}^{B}}
+  \end{Bmatrix}}
+  \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{l}^{B}},{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & {\Leftarrow\begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \leq a_{l + 1}^{B}} \\
+  {a_{1}^{A} \geq b_{l}^{B}} \\
+  {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+  {b_{1}^{A} \leq a_{k}^{B}}
+  \end{Bmatrix}}
+  \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{k}^{B}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \geq a_{l}^{B}} \\
+  {a_{1}^{A} \leq b_{l}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}} \\
+  {b_{1}^{A} \geq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]
+
+  Para el caso \[m = 1\] o \[m = 0\] y especiales queda demostrada el
+  cerramiento de \[B\]bajo esta suma reducida. El caso siguiente se
+  construye con facilidad por recurrencia en cualquier número finito de
+  pasos. Si hacemos sumas comprobadas ya un número de veces finita,
+  queda claro que ya no hay más que demostrar.
+
+  Para cualquier \[m > 1\]:
+
+  \[{{B + A}{: =}}\begin{Bmatrix}
+  \begin{matrix}
+  {B_{1}{: = {B + {⟦{a_{1}^{A},b_{1}^{A}}⟧}}}} \\
+  {B_{i}{: = {B_{i - 1} + {⟦{a_{i}^{A},b_{i}^{A}}⟧}}}} \\
+   \vdots \\
+  {B_{m}{: = {B_{m - 1} + {⟦{a_{m}^{A},b_{m}^{A}}⟧}}}}
+  \end{matrix} & {\Leftarrow} & \begin{Bmatrix}
+  {{1 \leq i} \leq m} \\
+  {A_{0}{: = {⟦\varnothing ⟧}}} \\
+  {A_{1}{: = {A_{0} + {⟦{a_{1}^{A},b_{1}^{A}}⟧}}}} \\
+  {A_{i + 1}{: = {A_{i} + {⟦{a_{i}^{A},b_{i}^{A}}⟧}}}} \\
+  {A{: = A_{m}}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]
+
+  Queda demostrado que toda suma da como resultado un conjunto finito de
+  intervalos gené\-ricos.
+
+  A su vez el producto lo vamos a definir de forma re cursiva también,
+  comenzando primero con \[A\] siendo la clase de un solo intervalo
+  genérico, o la clase del vacío, además de algu\-nos casos especiales.
+
+  \[{B \cdot A}{: =}\begin{Bmatrix}
+  {⟦\varnothing ⟧} & {\Leftarrow} & \begin{Bmatrix}
+  {A = {⟦\varnothing ⟧}} \\
+  {B = {⟦\varnothing ⟧}}
+  \end{Bmatrix} \\
+  A & {\Leftarrow} & {B = 1} \\
+  B & {\Leftarrow} & {A = 1} \\
+  {⟦\varnothing ⟧} & {\Leftarrow} & \begin{Bmatrix}
+  {\exists{B \in B}} \\
+  {\exists{A \in A}} \\
+  {B \subseteq \overline{A}} \\
+   \vee \\
+  {A \subseteq \overline{B}}
+  \end{Bmatrix} \\
+  A & {\Leftarrow} & \begin{Bmatrix}
+  {\exists{B \in B}} \\
+  {\exists{A \in A}} \\
+  {A \subseteq B}
+  \end{Bmatrix} \\
+  B & {\Leftarrow} & \begin{Bmatrix}
+  {\exists{B \in B}} \\
+  {\exists{A \in A}} \\
+  {B \subseteq A}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},a_{k - 1}^{B}}}⟧} & {\Leftarrow} & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq a_{1}^{B}} \\
+  {\exists{k < n}} \\
+  {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+  {b_{1}^{A} \leq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}},{a_{k}^{B},b_{1}^{A}}}⟧} & {\Leftarrow} & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq a_{1}^{B}} \\
+  {\exists{k < n}} \\
+  {b_{1}^{A} \geq a_{k}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{1}^{B}},\ldots,{a_{k - 1}^{B},a_{k - 1}^{B}}}⟧} & {\Leftarrow} & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \geq a_{1}^{B}} \\
+  {a_{1}^{A} \leq b_{1}^{B}} \\
+  {\exists{k < n}} \\
+  {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+  {b_{1}^{A} \leq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{1}^{B}},{a_{2}^{B},b_{2}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{A}},{a_{k}^{B},b_{k}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \geq a_{1}^{B}} \\
+  {a_{1}^{A} \leq b_{1}^{B}} \\
+  {\exists{k < n}} \\
+  {b_{1}^{A} \leq b_{k}^{B}} \\
+  {b_{1}^{A} \geq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}},{a_{k}^{B},b_{1}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {a_{1}^{A} \leq a_{1}^{B}} \\
+  {\exists{k < n}} \\
+  {b_{1}^{A} \geq a_{k}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},a_{l}^{B}},\ldots,{a_{i}^{B},b_{i}^{B}},\ldots,{a_{k}^{B},b_{1}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \leq a_{l}^{B}} \\
+  {a_{1}^{A} \geq b_{l - 1}^{B}} \\
+  {b_{1}^{A} \geq a_{k}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{l}^{B}},\ldots,{a_{i}^{B},b_{i}^{B}},\ldots,{a_{k}^{B},b_{1}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \geq a_{l}^{B}} \\
+  {a_{1}^{A} \leq b_{l}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}} \\
+  {b_{1}^{A} \geq a_{k}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {⟦{{a_{1}^{A},b_{l}^{B}},\ldots,{a_{i}^{B},b_{i}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+  {m = 1} \\
+  {\exists{{l < k} < n}} \\
+  {a_{1}^{A} \geq a_{l}^{B}} \\
+  {a_{1}^{A} \leq b_{l}^{B}} \\
+  {b_{1}^{A} \leq b_{k}^{B}} \\
+  {b_{1}^{A} \geq a_{k - 1}^{B}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]
+
+  Para el caso \[m = 1\] o \[m = 0\] y especiales queda demostrada el
+  cerramiento de \[B\]bajo esta suma reducida. El caso siguiente se
+  construye con facilidad por recurrencia en cualquier número finito de
+  pasos. Si hacemos sumas comprobadas ya un número de veces finita,
+  queda claro que ya no hay más que demostrar.
+
+  Para el caso \[m > 1\]:
+
+  \[{{B \cdot A}{: =}}\begin{Bmatrix}
+  {\sum\limits_{i{: = 1}}^{m}\left( {B \cdot {⟦{a_{i}^{A},b_{i}^{A}}⟧}} \right)} & \Leftarrow & \begin{Bmatrix}
+  {{1 < i} \leq m} \\
+  {A_{0}{: = {⟦\varnothing ⟧}}} \\
+  {A_{1}{: = {A_{0} + {⟦{a_{1}^{A},b_{1}^{A}}⟧}}}} \\
+  {A_{i + 1}{: = {A_{i} + {⟦{a_{i}^{A},b_{i}^{A}}⟧}}}} \\
+  {A{: = A_{m}}}
+  \end{Bmatrix}
+  \end{Bmatrix}\]
+
+  Y queda demostrado que la forma del conjunto producto es una clase de
+  unión finita de subintervalos genéricos. Luego pertenece a nuestro
+  álgebra de Boole.
+
+  Este sistema es muy parecido a un álgebra de conjuntos subálgebra de
+  algún conjunto po\-tencia, por lo que es fácil determinar que se trata
+  de un álgebra de Boole. Sin embargo su cardinal es
+  \[\#{\left( {\left( {\mathbb{Q} \times \mathbb{Q}} \right) \times \left( {\mathbb{N} \times \mathbb{N}} \right)} \right) = \#}\left( \mathbb{N} \right)\].
+  Veámoslo:
+
+  \[{{\#\left( \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}} \right)} = {\#\left( {\mathbf{\mathrm{\cup}}\begin{Bmatrix}
+  {{⟦\varnothing ⟧},} & & & & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & & & & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & & & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & {{⟦{a_{3,}b_{3}}⟧},} & & & & \\
+   \vdots & \vdots & \vdots & \ddots & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & {{⟦{a_{3,}b_{3}}⟧},} & \ldots & {{⟦{a_{n},b_{n}}⟧},} & & \\
+   \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \\
+  \ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots
+  \end{Bmatrix}} \right)}} \leq\]\[{{\leq {1 + {\#\left( {\underset{i \in \mathbb{N}}{\mathbf{\mathrm{\cup}}}\underset{j \in \mathbb{N}}{\mathbf{\mathrm{\cup}}}{\mathbb{Q} \times \mathbb{Q}}} \right)}}} = \#}{\left( {{{\mathbb{N} \times \mathbb{N}} \times \mathbb{Q}} \times \mathbb{Q}} \right) = \#}{\mathbb{N} = \aleph_{0}}\]
+
+  En definitiva es un álgebra numerable (del mismo cardinal que los
+  números naturales). Puesto que el cardinal de los números naturales
+  \[\mathbb{N}\]no es conmensurable con el de la potencia de ningún
+  conjunto (es del cardinal infinito más pequeño posible y ningún
+  conjunto finito tiene como potencia uno infinito), no existe ningún
+  conjunto para el cual esta álgebra de Boole sea semejante (isomorfa) a
+  un álgebra de las potencias de un conjunto. Este ejemplo será de
+  utilidad más adelante, además de darnos un curioso ejemplo de álgebra
+  de Boole nada común.
+
+  \textbf{{[}Ejemplo 10{]}} El álgebra de las funciones de un álgebra de
+  Boole sobre otra. Supongamos \[f:{B\rightarrow B}'\]dónde \[f\] es una
+  función. Llamaremos
+  \[{\mathtt{F}{({B,B'})}} = {\{{f:{B\rightarrow B}' \mid \forall{x \in B}\exists!{y \in B}'f{{(x)} = y}}\}}\]
+  a nuestro conjunto de Boole. \[f_{0'}\] es la función que asigna el
+  cero de \[B'\] a cualquier elemento de \[B\]. Igualmente \[f_{1'}\] es
+  la función que asigna el uno de \[B'\] a cualquier elemento de \[B\].
+  Las operaciones internas a introducir son:
+
+  La suma de funciones:
+  \[\forall{x \in B}{\lbrack{f + g}\rbrack}{(x)}{: = f}{{(x)} + g}{(x)}\]
+  .
+
+  La multiplicación de funciones:
+  \[\forall{x \in B}{\lbrack{f \cdot g}\rbrack}{(x)}{: = f}{{(x)} \cdot g}{(x)}\].
+
+  La función complemento:
+  \[\forall{f \in \mathtt{F}}{({B,B'})}\forall{x \in B}\overline{f}{(x)}{: = \overline{f{(x)}}}\].
+
+  De esta álgebra podemos entresacar otros conjuntos de funciones
+  interesantes, como. Por ejemplo:
+
+  \[{\mathtt{\mathit{Hom}}{({B,B'})}} = \begin{Bmatrix}
+  f & : & B & \rightarrow & {B'} & \mathbf{\mid} \\
+  {\forall{x \in B}} & {\exists!} & {{y \in B}'} & {f{{(x)} = y}} & \mathbf{\mathrm{:}} & \\
+   & & & & {f{{(0)} = 0}'} & \land \\
+   & & & & {f{{(1)} = 1}'} & \land \\
+   & & {\forall x,{y \in B}} & & {f{{({x + y})} = f}{{(x)} + f}{(y)}} & \land \\
+   & & {\forall x,{y \in B}} & & {f{{({x \cdot y})} = f}{{(x)} \cdot f}{(y)}} & \land \\
+   & & {\forall{x \in B}} & & {f{{(\overline{x})} = \overline{f{(x)}}}} & 
+  \end{Bmatrix}\]
+
+  y aún otros subconjuntos más pequeños serían las inyecciones de los
+  anteriores homomorfismos. Si \[{B'} \equiv B\]entonces uno de los
+  conjuntos de aplicaciones más interesantes son los endomorfimos o
+  isomorfimos en sí mismo.
+
+  Además el kernel de cualquier homomorfismo es un subálgebra de \[B\].
+  Los homomorfismos de las álgebras booleanas tienen propiedades
+  interesantes que no veremos aquí.
+\end{enumerate}

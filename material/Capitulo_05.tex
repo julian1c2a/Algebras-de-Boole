@@ -1,0 +1,480 @@
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii}.}
+  \item
+    \begin{enumerate}
+    \def\labelenumiii{\arabic{enumiii}.}
+    \item
+      Operadores ``nor'' y ``nand'' que representaremos respectivamente
+      como \[\downarrow\]y \[\uparrow\].
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        Definición de ``nor'':
+        \[{x\downarrow y}{: =}{{\overline{x} \cdot \overline{y}} = \overline{x+y}}\].
+      \item
+        Definición de ``nand'':
+        \[{x\uparrow y}{: =}{{\overline{x} + \overline{y}} = \overline{x\cdot y}}\].
+      \end{enumerate}
+    \item
+      No asociatividad en general de ``nor'' y de ``nand''. Dar algún
+      ejemplo en \[B_{2}\].
+    \item
+      Cualquier expresión de las que hasta ahora se ha podido utilizar
+      es expresable con solo funciones ``nand'' y con solo funciones
+      ``nor''.
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        ``NOR'':
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          \[{{x + y} = {({x\downarrow y})}}\downarrow{({x\downarrow y})}\]
+        \item
+          \[{x \cdot y} = {({{({x\downarrow x})}}\downarrow{({y\downarrow y})})}\]
+        \item
+          \[\overline{x} = {x\downarrow x}\]
+        \end{enumerate}
+      \item
+        ``NAND'':
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          \[{{x \cdot y} = {({x\uparrow y})}}\uparrow{({x\uparrow y})}\]
+        \item
+          \[{{x + y} = {({x\uparrow x})}}\uparrow{({y\uparrow y})}\]
+        \item
+          \[\overline{x} = {x\uparrow x}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Ahora podemos establecer el álgebra de Boole en solo función de
+      operadores ``nor'' o sólo de operadores ``nand''. Los postulados
+      de Huntington se establecieron de esta manera, aunque con una
+      propiedad que acortaba la longitud total del sistema de axiomas.
+      Actualmente se han desarrollado en formas cada vez más cortas
+      mediante el postulado de Robinson y los de Wolfram más
+      recientemente. (La legibilidad de estos sistemas queda
+      definitivamente aniquilada, ya que el sistema de pruebas es por lo
+      general un software probador de teoremas automático).
+    \item
+      Extensión de la dualidad: solo hay que añadir que hay que
+      intercambiar todos los operadores ``nor'' por ``nand'' y
+      viceversa, además de las sustituciones ya enunciadas en 18.1.
+    \item
+      Nuevos operadores ``exor'' y ``exnor''.
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        Definición del operador ``exor'':
+        \[{x \oplus y}{: =}{{{({x \cdot \bar{y}})} + {({\bar{x} \cdot y})}} = {{({x + y})} \cdot {({\bar{x} + \bar{y}})}}}\]
+      \item
+        Definición del operador ``exnor'':
+        \[{x \odot y}{: =}{{{({x + \bar{y}})} \cdot {({\bar{x} + y})}} = {{({x \cdot y})} + {({\bar{x} \cdot \bar{y}})}}}\]
+      \end{enumerate}
+    \item
+      Nueva extensión del teorema de dualidad: solo hay que intercambiar
+      ``exor'' por ``ex\-nor '' y viceversa, además de todos los
+      intercambios que anteriormente se han des\-crito en 22.
+    \item
+      Propiedad de elemento inverso (el inverso de cada elemento existe
+      y es él mismo):
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        Para la operación ``exor'' :
+        \[\forall{x \in B}x \oplus {x = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {{{x = {{({x \cdot \overline{x}})} + {({\overline{x} \cdot x})}}} = {0 + 0}} = 0}\]
+        \end{enumerate}
+      \item
+        Para la operación ``exnor'': \[\forall{x \in B}x \odot {x = 1}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \odot {{{x = {{({x + \overline{x}})} \cdot {({\overline{x} + x})}}} = {1 \cdot 1}} = 1}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Valor para un elemento operado con su complementario:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        \[\forall{x \in B}x \oplus {\bar{x} = 1}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {{{{\bar{x} = {{({x \cdot \overline{\overline{x}}})} + {({\overline{x} \cdot \overline{x}})}}} = {({{({x \cdot x})} + \overline{x}})}} = {x + \overline{x}}} = 1}\]
+        \end{enumerate}
+      \item
+        \[\forall{x \in B}x \odot {\bar{x} = 0}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \odot {{{{\overline{x} = {{({x + \overline{\overline{x}}})} \cdot {({\overline{x} + \overline{x}})}}} = {({{({x + x})} \cdot \overline{x}})}} = {x \cdot \overline{x}}} = 0}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Más valores de estas operaciones:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        \[\forall{x \in B}x \oplus {1 = \bar{x}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {{{{1 = {{({\overline{x} \cdot 1})} + {({x \cdot \overline{1}})}}} = {\overline{x} + {({x \cdot 0})}}} = {\overline{x} + 0}} = \overline{x}}\]
+        \end{enumerate}
+      \item
+        \[\forall{x \in B}x \odot {0 = \bar{x}}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \odot {{{{0 = {{({\overline{x} + 0})} \cdot {({x + \overline{0}})}}} = {\overline{x} \cdot {({x + 1})}}} = {\overline{x} + 1}} = \overline{x}}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Elementos neutros:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        \[\forall{x \in B}x \oplus {0 = x}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \oplus {{{0 = {{({\overline{x} \cdot 0})} + {({x \cdot \overline{0}})}}} = {0 + {({x \cdot 1})}}} = x}\]
+        \end{enumerate}
+      \item
+        \[\forall{x \in B}x \odot {1 = x}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[x \odot {{{1 = {{({\overline{x} + 1})} \cdot {({x + \overline{1}})}}} = {1 \cdot {({x + 0})}}} = x}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Una propiedad de simetría:
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        \[\forall a,{b \in B}a \oplus {b = \bar{a}} \oplus \bar{b}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[a \oplus {{{b = {{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}}} = {{\lbrack{{({\overline{a} \cdot b})} + a}\rbrack} \cdot {\lbrack{{({\overline{a} \cdot b})} + \overline{b}}\rbrack}}} = {{\lbrack{a + b}\rbrack} \cdot {\lbrack{\overline{a} + \overline{b}}\rbrack}}}\]
+        \item
+          \[\overline{a} \oplus {{{{\overline{b} = {{\lbrack{\overline{a} + \overline{b}}\rbrack} \cdot {\lbrack{\overline{\overline{a}} + \overline{\overline{b}}}\rbrack}}} = {{\lbrack{\overline{a} + \overline{b}}\rbrack} \cdot {\lbrack{a + b}\rbrack}}} = {{\lbrack{a + b}\rbrack} \cdot {\lbrack{\overline{a} + \overline{b}}\rbrack}}} = a} \oplus b\]
+        \end{enumerate}
+      \item
+        \[\forall a,{b \in B}a \odot {b = \bar{a}} \odot \bar{b}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[a \odot {{{b = {{({\overline{a} + b})} \cdot {({a + \overline{b}})}}} = {{\lbrack{{({\overline{a} + b})} \cdot a}\rbrack} + {\lbrack{{({\overline{a} + b})} \cdot \overline{b}}\rbrack}}} = {{\lbrack{a \cdot b}\rbrack} + {\lbrack{\overline{a} \cdot \overline{b}}\rbrack}}}\]
+        \item
+          \[\overline{a} \odot {{{{\overline{b} = {{\lbrack{\overline{a} \cdot \overline{b}}\rbrack} + {\lbrack{\overline{\overline{a}} \cdot \overline{\overline{b}}}\rbrack}}} = {{\lbrack{\overline{a} \cdot \overline{b}}\rbrack} + {\lbrack{a \cdot b}\rbrack}}} = {{\lbrack{a \cdot b}\rbrack} + {\lbrack{\overline{a} \cdot \overline{b}}\rbrack}}} = a} \odot b\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Los operadores negados ``nexor'' y ``nexnor'' coinciden
+      respectivamente con ``exnor'' y ``exor'' (y así no se producen
+      nuevos operadores):
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        \[\forall a,{b \in B}{{\bar{a\oplus b} \equiv \overline{a\oplus b}} = \overline{a}} \oplus {b = a} \oplus {\overline{b} = a} \odot b\]
+      \item
+        \[\forall a,{b \in B}{{\bar{a\odot b} \equiv \overline{a\odot b}} = \overline{a}} \odot {b = a} \odot {\overline{b} = a} \oplus b\]
+      \end{enumerate}
+    \item
+      Asociatividad de los nuevos operadores ``exor'' y ``exnor'':
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        \[\forall a,b,{c \in B}{({a \oplus b})} \oplus {c = a} \oplus {({b \oplus c})}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{({a \oplus b})} \oplus {c =}\]
+        \item
+          \[{= {({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})}} \oplus {c =}\]
+        \item
+          \[{= {{({\overline{({{({\overline{a}\cdot b})}+{({a\cdot\overline{b}})}})} \cdot c})} + {({{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot \overline{c}})}}} =\]
+        \item
+          \[{= {{({\overline{({{({\overline{a}\cdot b})}+{({a\cdot\overline{b}})}})} \cdot c})} + {({{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot \overline{c}})}}} =\]
+        \item
+          \[{= {{{({{({\overline{({\overline{a}\cdot b})} \cdot \overline{({a\cdot\overline{b}})}})} \cdot c})} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =\]
+        \item
+          \[{= {{{({{({{({a + \overline{b}})} \cdot {({\overline{a} + b})}})} \cdot c})} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =\]
+        \item
+          \[{= {{{{({{a \cdot b} \cdot c})} + {({{\overline{a} \cdot \overline{b}} \cdot c})}} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =\]
+        \item
+          \[{= {{({a \cdot {({{({b \cdot c})} + {({\overline{b} \cdot \overline{c}})}})}})} + {({\overline{a} \cdot {({{({\overline{b} \cdot c})} + {({b + \overline{c}})}})}})}}} =\]
+        \item
+          \[{= {{({a \cdot {({b \odot c})}})} + {({\overline{a} \cdot {({b \oplus c})}})}}} =\]
+        \item
+          \[{= {{({a \cdot \overline{({b\oplus c})}})} + {({\overline{a} \cdot {({b \oplus c})}})}}} =\]
+        \item
+          \[{= a} \oplus {({b \oplus c})}\]
+        \end{enumerate}
+      \item
+        \[\forall a,b,{c \in B}{({a \odot b})} \odot {c = a} \odot {({b \odot c})}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{({a \odot b})} \odot {c =}\]
+        \item
+          \[{= {({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})}} \odot {c =}\]
+        \item
+          \[{= {{({\overline{({{({\overline{a}+b})}\cdot{({a+\overline{b}})}})} + c})} \cdot {({{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + \overline{c}})}}} =\]
+        \item
+          \[{= {{({\overline{({{({\overline{a}+b})}\cdot{({a+\overline{b}})}})} + c})} \cdot {({{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + \overline{c}})}}} =\]
+        \item
+          \[{= {{{({{({\overline{({\overline{a}+b})} + \overline{({a+\overline{b}})}})} + c})} \cdot {({{\overline{a} + b} + \overline{c}})}} \cdot {({{a + \overline{b}} + \overline{c}})}}} =\]
+        \item
+          \[{= {{{({{({{({a \cdot \overline{b}})} + {({\overline{a} \cdot b})}})} + c})} \cdot {({{\overline{a} + b} + \overline{c}})}} \cdot {({{a + \overline{b}} + \overline{c}})}}} =\]
+        \item
+          \[{= {{{{({{a \cdot b} \cdot c})} + {({{\overline{a} \cdot \overline{b}} \cdot c})}} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =\]
+        \item
+          \[{= {{({a \cdot {({{({b \cdot c})} + {({\overline{b} \cdot \overline{c}})}})}})} + {({\overline{a} \cdot {({{({\overline{b} \cdot c})} + {({b + \overline{c}})}})}})}}} =\]
+        \item
+          \[{= {{({a + {({b \oplus c})}})} \cdot {({\overline{a} + {({b \odot c})}})}}} =\]
+        \item
+          \[{= {{({a \cdot \overline{({b\oplus c})}})} + {({\overline{a} \cdot {({b \oplus c})}})}}} =\]
+        \item
+          \[{= a} \odot {({b \odot c})}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Distributividad de ``\[\oplus\]'' respecto del producto lógico
+      ``\[\cdot\]'' y de ``\[\odot\]'' res\-pecto de la suma lógica
+      ``\[+\]'':
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \item
+        \[\forall x,y,{z \in B}{{x \cdot {({y \oplus z})}} = {({x \cdot y})}} \oplus {({x \cdot z})}\]
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{{x \cdot {({y \oplus z})}} = {({x \cdot y})}} \oplus {({x \cdot z})}\]
+        \item
+          \[{\lbrack\mathbf{A}\rbrack}{{{({x \cdot {({y \oplus z})}})} \cdot \overline{({{({x\cdot y})}\oplus{({x\cdot z})}})}} =}\]
+        \item
+          \[{= {{({x \cdot {({y \oplus z})}})} \cdot {({{({x \cdot y})} \odot {({x \cdot z})}})}}} =\]
+        \item
+          \[{= {{({x \cdot {({y \oplus z})}})} \cdot {({\overline{({x\cdot y})} \oplus {({x \cdot z})}})}}} =\]
+        \item
+          \[{= {{({x \cdot {({{({\overline{y} \cdot z})} + {({y \cdot \overline{z}})}})}})} \cdot {({{({{({x \cdot y})} \cdot {({x \cdot z})}})} + {({\overline{({x\cdot y})} \cdot \overline{({x\cdot z})}})}})}}} =\]
+        \item
+          \[{= {{{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({{x \cdot y} \cdot z})}} + {{{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({\overline{x} + \overline{y}})}} \cdot {({\overline{x} + \overline{z}})}}}} =\]
+        \item
+          \[{= {{{{({x\overline{y}z})} \cdot {({xyz})}} + {{({xy\overline{z}})} \cdot {({xyz})}}} + {{({{({x\overline{y}z})} + {({xy\overline{z}})}})} \cdot {({{\overline{x} + \overline{x}}{\overline{z} + \overline{x}}{\overline{y} + \overline{y}}\overline{z}})}}}} =\]
+        \item
+          \[{= {{0 + 0} + {{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({\overline{x} + {\overline{y} \cdot \overline{z}}})}}}} =\]
+        \item
+          \[{= {{{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot \overline{x}} + {{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({\overline{y} \cdot \overline{z}})}}}} =\]
+        \item
+          \[{= {{{{x \cdot {({{\overline{y} \cdot z} + {y \cdot \overline{z}}})}} \cdot \overline{x}} + {{({{x \cdot \overline{y}} \cdot z})} \cdot {({\overline{y} \cdot \overline{z}})}}} + {{({{x \cdot y} \cdot \overline{z}})} \cdot {({\overline{y} \cdot \overline{z}})}}}} =\]
+        \item
+          \[{= {{0 + 0} + 0}} = 0\]
+        \item
+          \[{\lbrack\mathbf{B}\rbrack}{{{({x \cdot {({y \oplus z})}})} + \overline{({{({x\cdot y})}\oplus{({x\cdot z})}})}} =}\]
+        \item
+          \[{= {{({x \cdot {({y \oplus z})}})} + {({{({x \cdot y})} \odot {({x \cdot z})}})}}} =\]
+        \item
+          \[{= {{({x \cdot {({y \oplus z})}})} + {({\overline{({x\cdot y})} \oplus {({x \cdot z})}})}}} =\]
+        \item
+          \[{= {{({x \cdot {({{({\overline{y} \cdot z})} + {({y \cdot \overline{z}})}})}})} + {({{({{({x \cdot y})} \cdot {({x \cdot z})}})} + {({\overline{({x\cdot y})} \cdot \overline{({x\cdot z})}})}})}}} =\]
+        \item
+          \[{= {{{{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}} + {({{x \cdot y} \cdot z})}} + {({{({\overline{x} + \overline{y}})} \cdot {({\overline{x} + \overline{z}})}})}}} =\]
+        \item
+          \[{= {{{{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}} + {({{x \cdot y} \cdot z})}} + {({\overline{x} + {\overline{y} \cdot \overline{z}}})}}} =\]
+        \item
+          \[{= {{{{{{x \cdot \overline{y}} \cdot z} + {{x \cdot y} \cdot \overline{z}}} + {{x \cdot y} \cdot z}} + \overline{x}} + {\overline{y} \cdot \overline{z}}}} =\]
+        \item
+          \[{= {{{{{{{{{{x \cdot \overline{y}} \cdot z} + {{x \cdot y} \cdot \overline{z}}} + {{x \cdot y} \cdot z}} + {{\overline{x} \cdot y} \cdot z}} + {{\overline{x} \cdot y} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot z}} + {{x \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot \overline{z}}}} =\]
+        \item
+          \[{= {{{{{{{{{x \cdot \overline{y}} \cdot z} + {{x \cdot y} \cdot \overline{z}}} + {{x \cdot y} \cdot z}} + {{x \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot y} \cdot z}} + {{\overline{x} \cdot y} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot z}}} =\]
+        \item
+          \[{= {{x \cdot {({{{{\overline{y} \cdot z} + {y \cdot \overline{z}}} + {y \cdot z}} + {\overline{y} \cdot \overline{z}}})}} + {\overline{x} \cdot {({{{{y \cdot z} + {y \cdot \overline{z}}} + {\overline{y} \cdot \overline{z}}} + {\overline{y} \cdot z}})}}}} =\]
+        \item
+          \[{= {{{{\overline{y} \cdot z} + {y \cdot \overline{z}}} + {y \cdot z}} + {\overline{y} \cdot \overline{z}}}} =\]
+        \item
+          \[{= {{\overline{y} \cdot {({z + \overline{z}})}} + {y \cdot {({z + \overline{z}})}}}} =\]
+        \item
+          \[{= {z + \overline{z}}} = 1\]
+        \item
+          \[\text{De}{\lbrack\mathbf{A}\rbrack}\text{y de}{\lbrack\mathbf{B}\rbrack}\text{se obtiene que}{\overline{({x\cdot{({y\oplus z})}})} = \overline{({{({x\cdot y})}\oplus{({x\cdot z})}})}}\]
+        \item
+          \[\text{Y de aquí, por la unicidad del complementario obtenemos}\]
+        \item
+          \[{{x \cdot {({y \oplus z})}} = {({x \cdot y})}} \oplus {({x \cdot z})}\]
+        \end{enumerate}
+
+        Es seguro que la prueba anterior puede ser acortada
+        drásticamente, así que si al\-guno encuentra una forma (quizás
+        más directa) la pondremos en su lugar.
+      \item
+        \[\forall x,y,{z \in B}{{x + {({y \odot z})}} = {({x + y})}} \odot {({x + z})}\]Se
+        prueba como en el caso anterior, sólo que cambiando los
+        operadores duales, y las dos constantes \[\{{0,1}\}\] entre sí y
+        obtenemos el resultado que hemos enunciado.
+
+        \begin{enumerate}
+        \def\labelenumv{\arabic{enumv}.}
+        \tightlist
+        \item
+          Prueba:
+        \item
+          \[{{x + {({y \odot z})}} = {({x + y})}} \odot {({x + z})}\]
+        \item
+          \[{\lbrack\mathbf{A}\rbrack}{{{({x + {({y \odot z})}})} + \overline{({{({x+y})}\odot{({x+z})}})}} =}\]
+        \item
+          \[{= {{({x + {({y \odot z})}})} + {({{({x + y})} \oplus {({x + z})}})}}} =\]
+        \item
+          \[{= {{({x + {({y \odot z})}})} + {({\overline{({x+y})} \odot {({x + z})}})}}} =\]
+        \item
+          \[{= {{({x + {({{({\overline{y} + z})} \cdot {({y + \overline{z}})}})}})} + {({{({{({x + y})} + {({x + z})}})} \cdot {({\overline{({x+y})} + \overline{({x+z})}})}})}}} =\]
+        \item
+          \[{= {{{{({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})} + {{({{x + y} + z})} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}}} + {({\overline{x} \cdot \overline{y}})}} + {({\overline{x} \cdot \overline{z}})}}} =\]
+        \item
+          \[= {{{{({{x + \overline{y}} + z})} + {{({{x + y} + z})} \cdot {({{x + y} + \overline{z}})}}} + {{({{x + y} + z})} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}}} +}\]
+        \item
+          \[{+ {({{{{\overline{x} \cdot \overline{x}} + {\overline{z} \cdot \overline{x}}} + {\overline{y} \cdot \overline{y}}} + \overline{z}})}} =\]
+        \item
+          \[{= {{{1 \cdot 1} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}} + {({{\overline{x} \cdot \overline{y}} + \overline{z}})}}} =\]
+        \item
+          \[{= {{{({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})} + {\overline{x} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}}} + {({\overline{y} + \overline{z}})}}} =\]
+        \item
+          \[{= {{{{x + {({{\overline{y} + {z \cdot y}} + \overline{z}})}} + {\overline{x} \cdot {({{x + \overline{y}} + z})}}} + {{({\overline{y} + \overline{z}})} \cdot {({{x + y} + \overline{z}})}}} + {({\overline{y} + \overline{z}})}}} =\]
+        \item
+          \[{= {{1 \cdot 1} \cdot 1}} = 1\]
+        \item
+          \[{\lbrack\mathbf{B}\rbrack}{{{({x + {({y \odot z})}})} \cdot \overline{({{({x+y})}\odot{({x+z})}})}} =}\]
+        \item
+          \[{= {{({x + {({y \odot z})}})} \cdot {({{({x + y})} \oplus {({x + z})}})}}} =\]
+        \item
+          \[{= {{({x + {({y \odot z})}})} \cdot {({\overline{({x+y})} \odot {({x + z})}})}}} =\]
+        \item
+          \[{= {{({x + {({{({\overline{y} + z})} \cdot {({y + \overline{z}})}})}})} \cdot {({{({{({x + y})} + {({x + z})}})} \cdot {({\overline{({x+y})} + \overline{({x+z})}})}})}}} =\]
+        \item
+          \[{= {{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot \left( {\left( {\overline{x} \cdot \overline{y}} \right) + \left( {\overline{x} \cdot \overline{z}} \right)} \right)}} =\]
+        \item
+          \[{= {{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot {({\overline{x} \cdot {({\overline{y} + \overline{z}})}})}}} =\]
+        \item
+          \[= {{{{{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot {({{\overline{x} + y} + z})}} \cdot {({{\overline{x} + y} + \overline{z}})}} \cdot {({{\overline{x} + \overline{y}} + \overline{z}})}} \cdot}\]\[{{{\cdot {({{\overline{x} + \overline{y}} + z})}} \cdot {({{x + \overline{y}} + \overline{z}})}} \cdot {({{\overline{x} + \overline{y}} + \overline{z}})}} =\]
+        \item
+          \[= {{{{{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot {({{x + \overline{y}} + \overline{z}})}} \cdot {({{\overline{x} + y} + z})}} \cdot {({{\overline{x} + y} + \overline{z}})}} \cdot}\]\[{{\cdot {({{\overline{x} + \overline{y}} + \overline{z}})}} \cdot {({{\overline{x} + \overline{y}} + z})}} =\]
+        \item
+          \[{= {{({x + {({{{{({\overline{y} + z})} \cdot {({y + \overline{z}})}} \cdot {({y + z})}} \cdot {({\overline{y} + \overline{z}})}})}})} \cdot {({\overline{x} + {({{{{({y + z})} \cdot {({y + \overline{z}})}} \cdot {({\overline{y} + \overline{z}})}} \cdot {({\overline{y} + z})}})}})}}} =\]
+        \item
+          \[{= {{{{({\overline{y} + z})} \cdot {({y + \overline{z}})}} \cdot {({y + z})}} \cdot {({\overline{y} + \overline{z}})}}} =\]
+        \item
+          \[{= {{({\overline{y} + {({z \cdot \overline{z}})}})} \cdot {({y + {({z \cdot \overline{z}})}})}}} =\]
+        \item
+          \[{= {z \cdot \overline{z}}} = 0\]
+        \item
+          \[\text{De}{\lbrack\mathbf{A}\rbrack}\text{y de}{\lbrack\mathbf{B}\rbrack}\text{se obtiene que}{\overline{({x+{({y\odot z})}})} = \overline{({{({x+y})}\odot{({x+z})}})}}\]
+        \item
+          \[\text{Y de aquí, por la unicidad del complementario obtenemos}\]
+        \item
+          \[{{x + {({y \odot z})}} = {({x + y})}} \odot {({x + z})}\]
+        \end{enumerate}
+      \end{enumerate}
+    \item
+      Estructuras de anillo conmutativo con elemento unidad (es claro
+      desde todas las pro\-piedades anteriormente demostradas):
+
+      \begin{enumerate}
+      \def\labelenumiv{\arabic{enumiv}.}
+      \tightlist
+      \item
+        La más normal sería:
+        \[({B,{{\{ 0,1\}} \subseteq B},{0 \neq 1}, \oplus , \cdot})\]
+      \item
+        Su forma dual es
+        :\[({B,{{\{ 0,1\}} \subseteq B},{0 \neq 1}, \odot , +})\]
+      \end{enumerate}
+    \item
+      Estructuras respectivas a 33 de bimódulo
+      de\[({B^{n}, \oplus})\]sobre el anillo \[({B, \oplus , \cdot})\] y
+      el dual, de \[({B^{n}, \odot})\]sobre el anillo
+      \[({B, \odot , +})\].
+    \end{enumerate}
+  \end{enumerate}
+\end{enumerate}
