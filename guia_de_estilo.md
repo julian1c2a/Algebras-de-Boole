@@ -66,7 +66,8 @@ Para las líneas de deducción lógica en las demostraciones (especialmente en l
 ## 4. Tipografía y Mapeo de Caracteres en LaTeX
 
 1. **Símbolo de Igualdad por Definición**:
-   - Usar `\triangleq` ($\triangleq$) o la macro `\newunicodechar{≝}{\triangleq}`. Evitar meter el carácter UTF-8 sin declarar.
+   - Todas las definiciones deben hacerse con el **triangulito sobre la igualdad**.
+   - Usar `\triangleq` ($\triangleq$) o la macro `\newunicodechar{≝}{\triangleq}`. Evitar usar `=` simple o caracteres UTF-8 sin declarar para definiciones formales.
 
 2. **Clases de Equivalencia y Corchetes Dobles**:
    - Usar `\llbracket` y `\rrbracket` (`\usepackage{stmaryrd}`) para representar $\llbracket A \rrbracket$.

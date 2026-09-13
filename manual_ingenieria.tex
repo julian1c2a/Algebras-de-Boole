@@ -1,0 +1,915 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{newunicodechar}
+\newunicodechar{≝}{\triangleq}
+\usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{circuitikz}
+\usepackage{graphicx}
+
+% Definición de entornos para postulados y teoremas con tcolorbox
+\tcbuselibrary{theorems}
+
+\newtcbtheorem{preaxioma}{Pre-Axioma}{
+  colback=purple!5!white,
+  colframe=purple!60!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{prax}
+
+\newtcbtheorem{postulado}{Postulado}{
+  colback=blue!5!white,
+  colframe=blue!60!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{post}
+
+\newtcbtheorem{teorema}{Teorema}{
+  colback=green!5!white,
+  colframe=green!50!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{teo}
+
+\newtcbtheorem{definicion}{Definición}{
+  colback=cyan!5!white,
+  colframe=cyan!60!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{def}
+
+\title{Manual de Ingeniería Digital: Álgebras de Boole}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{Introducción a las Puertas Lógicas}
+
+En la ingeniería y el diseño digital, las operaciones abstractas del álgebra de Boole se implementan físicamente mediante circuitos integrados denominados \textbf{puertas lógicas}. 
+Existen dos normativas principales para representar gráficamente estas puertas:
+
+\begin{itemize}
+    \item \textbf{Normativa Tradicional Distintiva (MIL-STD-806B / ANSI Y32.14)}: Es la representación clásica donde cada operación se asocia a una forma geométrica distinta. Es el estándar de facto en la enseñanza, en los diagramas de ingeniería y en la mayoría de herramientas de diseño (CAD).
+    \item \textbf{Normativa Rectangular Moderna (IEEE Std 91-1984 / IEC 60617)}: Utiliza bloques rectangulares uniformes, diferenciando la operación mediante un símbolo identificador interno (por ejemplo, \texttt{\&} para AND, \texttt{$\ge 1$} para OR, \texttt{=1} para XOR). Aunque es el estándar internacional vigente, su uso es menos intuitivo visualmente y, por tanto, menos popular.
+\end{itemize}
+
+A continuación se comparan ambas nomenclaturas para las puertas fundamentales y derivadas. En el resto del documento utilizaremos la representación tradicional distintiva (ANSI) por su claridad visual.
+
+\subsection{Puertas Lógicas Universales y Derivadas}
+
+\begin{table}[h]
+\centering
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Operación} & \textbf{Símbolo Tradicional (ANSI)} & \textbf{Símbolo Rectangular (IEEE/IEC)} & \textbf{Notación} \\
+\hline
+\textbf{NOT} (Inversor) & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[american not port, scale=0.5] (P) {}; \end{circuitikz} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[european not port, scale=0.5] (P) {}; \end{circuitikz} & 
+$a'$ (o $\overline{a}$) \\
+\hline
+\textbf{AND} (Conjunción) & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[american and port] (P) {}; \end{circuitikz} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[european and port] (P) {}; \end{circuitikz} & 
+$a \cdot b$ \\
+\hline
+\textbf{OR} (Disyunción) & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[american or port] (P) {}; \end{circuitikz} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[european or port] (P) {}; \end{circuitikz} & 
+$a + b$ \\
+\hline
+\textbf{NAND} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[american nand port] (P) {}; \end{circuitikz} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[european nand port] (P) {}; \end{circuitikz} & 
+$(a \cdot b)'$ \\
+\hline
+\textbf{NOR} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[american nor port] (P) {}; \end{circuitikz} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[european nor port] (P) {}; \end{circuitikz} & 
+$(a + b)'$ \\
+\hline
+\textbf{XOR} (Exclusiva) & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[american xor port] (P) {}; \end{circuitikz} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[european xor port] (P) {}; \end{circuitikz} & 
+$a \oplus b$ \\
+\hline
+\textbf{XNOR} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[american xnor port] (P) {}; \end{circuitikz} & 
+\begin{circuitikz}[scale=0.8, transform shape] \node[european xnor port] (P) {}; \end{circuitikz} & 
+$(a \oplus b)'$ \\
+\hline
+\end{tabular}
+}
+\caption{Representación gráfica de las operaciones lógicas}
+\end{table}
+
+\section{Postulados de Huntington (Versión Circuital)}
+
+Los postulados del álgebra de Boole se pueden representar de forma circuital asumiendo que los valores booleanos $0$ y $1$ son niveles lógicos (GND y VCC respectivamente).
+
+\begin{preaxioma}{Operaciones básicas}{operaciones_ing}
+Existen dos operaciones lógicas fundamentales (AND y OR) y una operación unaria (NOT).
+\begin{center}
+\begin{circuitikz}[scale=0.8, transform shape]
+  \node[american and port] (and) at (0,0) {};
+  \node[left] at (and.in 1) {$a$};
+  \node[left] at (and.in 2) {$b$};
+  \node[right] at (and.out) {$a \cdot b$};
+  
+  \node[american or port] (or) at (4,0) {};
+  \node[left] at (or.in 1) {$a$};
+  \node[left] at (or.in 2) {$b$};
+  \node[right] at (or.out) {$a + b$};
+  
+  \node[american not port, scale=0.5] (not) at (8,0) {};
+  \node[left] at (not.in) {$a$};
+  \node[right] at (not.out) {$a'$};
+\end{circuitikz}
+\end{center}
+\end{preaxioma}
+
+\begin{postulado}{Elemento Neutro}{neutro_ing}
+\begin{itemize}
+    \item Para la suma lógica (OR), el elemento neutro es el $0$: 
+    \[ a + 0 = a \]
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american or port] (or) at (0,0) {};
+      \node[left] at (or.in 1) {$a$};
+      \node[left] at (or.in 2) {$0$};
+      \node[right] at (or.out) {$a$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item Para el producto lógico (AND), el elemento neutro es el $1$:
+    \[ a \cdot 1 = a \]
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american and port] (and) at (0,0) {};
+      \node[left] at (and.in 1) {$a$};
+      \node[left] at (and.in 2) {$1$};
+      \node[right] at (and.out) {$a$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{postulado}
+
+\begin{postulado}{Conmutatividad}{conmut_ing}
+El orden de conexión de las entradas a una puerta no altera la salida.
+\begin{itemize}
+    \item $a + b = b + a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american or port] (or1) at (0,0) {};
+      \node[left] at (or1.in 1) {$a$};
+      \node[left] at (or1.in 2) {$b$};
+      \node[right] at (or1.out) {$a+b$};
+      
+      \node at (2.5,0) {\Large $=$};
+      
+      \node[american or port] (or2) at (5,0) {};
+      \node[left] at (or2.in 1) {$b$};
+      \node[left] at (or2.in 2) {$a$};
+      \node[right] at (or2.out) {$b+a$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $a \cdot b = b \cdot a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american and port] (and1) at (0,0) {};
+      \node[left] at (and1.in 1) {$a$};
+      \node[left] at (and1.in 2) {$b$};
+      \node[right] at (and1.out) {$a \cdot b$};
+      
+      \node at (2.5,0) {\Large $=$};
+      
+      \node[american and port] (and2) at (5,0) {};
+      \node[left] at (and2.in 1) {$b$};
+      \node[left] at (and2.in 2) {$a$};
+      \node[right] at (and2.out) {$b \cdot a$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{postulado}
+
+\begin{postulado}{Distributividad}{distrib_ing}
+\begin{itemize}
+    \item Del producto sobre la suma: $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      % Left side
+      \node[american or port] (or1) at (0,-0.5) {};
+      \node[left] at (or1.in 1) {$b$};
+      \node[left] at (or1.in 2) {$c$};
+      
+      \node[american and port] (and1) at (2.5,0) {};
+      \node[left] at (and1.in 1) {$a$};
+      \draw (or1.out) -| (and1.in 2);
+      
+      \node at (4.5,-0.25) {\Large $=$};
+      
+      % Right side
+      \node[american and port] (and2) at (7,0.5) {};
+      \node[left] at (and2.in 1) {$a$};
+      \node[left] at (and2.in 2) {$b$};
+      
+      \node[american and port] (and3) at (7,-1) {};
+      \node[left] at (and3.in 1) {$a$};
+      \node[left] at (and3.in 2) {$c$};
+      
+      \node[american or port] (or2) at (9.5,-0.25) {};
+      \draw (and2.out) -| (or2.in 1);
+      \draw (and3.out) -| (or2.in 2);
+    \end{circuitikz}
+    \end{center}
+    
+    \item De la suma sobre el producto: $a + (b \cdot c) = (a + b) \cdot (a + c)$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      % Left side
+      \node[american and port] (and1) at (0,-0.5) {};
+      \node[left] at (and1.in 1) {$b$};
+      \node[left] at (and1.in 2) {$c$};
+      
+      \node[american or port] (or1) at (2.5,0) {};
+      \node[left] at (or1.in 1) {$a$};
+      \draw (and1.out) -| (or1.in 2);
+      
+      \node at (4.5,-0.25) {\Large $=$};
+      
+      % Right side
+      \node[american or port] (or2) at (7,0.5) {};
+      \node[left] at (or2.in 1) {$a$};
+      \node[left] at (or2.in 2) {$b$};
+      
+      \node[american or port] (or3) at (7,-1) {};
+      \node[left] at (or3.in 1) {$a$};
+      \node[left] at (or3.in 2) {$c$};
+      
+      \node[american and port] (and2) at (9.5,-0.25) {};
+      \draw (or2.out) -| (and2.in 1);
+      \draw (or3.out) -| (and2.in 2);
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{postulado}
+
+\begin{postulado}{Existencia de Elementos Inversos (Complementos)}{inverso_ing}
+Para cada variable, existe un inversor lógico tal que:
+\begin{itemize}
+    \item $a + a' = 1$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american not port, scale=0.5] (not) at (0,-0.5) {};
+      \node[left] at (not.in) {$a$};
+      
+      \node[american or port] (or) at (2.5,0) {};
+      \node[left] at (or.in 1) {$a$};
+      \draw (not.out) -| (or.in 2);
+      
+      \node at (4,0) {\Large $=$};
+      \node[right] at (4.5,0) {\Large $1$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $a \cdot a' = 0$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american not port, scale=0.5] (not) at (0,-0.5) {};
+      \node[left] at (not.in) {$a$};
+      
+      \node[american and port] (and) at (2.5,0) {};
+      \node[left] at (and.in 1) {$a$};
+      \draw (not.out) -| (and.in 2);
+      
+      \node at (4,0) {\Large $=$};
+      \node[right] at (4.5,0) {\Large $0$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{postulado}
+
+\section{Teoremas Fundamentales}
+
+\begin{teorema}{Idempotencia}{idemp_ing}
+\begin{itemize}
+    \item $a + a = a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american or port] (or) at (0,0) {};
+      \node[left] at (or.in 1) {$a$};
+      \node[left] at (or.in 2) {$a$};
+      
+      \node at (2.5,0) {\Large $=$};
+      \node[right] at (3,0) {\Large $a$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $a \cdot a = a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american and port] (and) at (0,0) {};
+      \node[left] at (and.in 1) {$a$};
+      \node[left] at (and.in 2) {$a$};
+      
+      \node at (2.5,0) {\Large $=$};
+      \node[right] at (3,0) {\Large $a$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Identidad (Elementos Absorbentes)}{identidad_ing}
+\begin{itemize}
+    \item $a + 1 = 1$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american or port] (or) at (0,0) {};
+      \node[left] at (or.in 1) {$a$};
+      \node[left] at (or.in 2) {$1$};
+      
+      \node at (2.5,0) {\Large $=$};
+      \node[right] at (3,0) {\Large $1$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $a \cdot 0 = 0$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american and port] (and) at (0,0) {};
+      \node[left] at (and.in 1) {$a$};
+      \node[left] at (and.in 2) {$0$};
+      
+      \node at (2.5,0) {\Large $=$};
+      \node[right] at (3,0) {\Large $0$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Absorción}{absorcion_ing}
+\begin{itemize}
+    \item $a + (a \cdot b) = a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american and port] (and) at (0,-0.5) {};
+      \node[left] at (and.in 1) {$a$};
+      \node[left] at (and.in 2) {$b$};
+      
+      \node[american or port] (or) at (2.5,0) {};
+      \node[left] at (or.in 1) {$a$};
+      \draw (and.out) -| (or.in 2);
+      
+      \node at (4.5,0) {\Large $=$};
+      \node[right] at (5,0) {\Large $a$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $a \cdot (a + b) = a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american or port] (or) at (0,-0.5) {};
+      \node[left] at (or.in 1) {$a$};
+      \node[left] at (or.in 2) {$b$};
+      
+      \node[american and port] (and) at (2.5,0) {};
+      \node[left] at (and.in 1) {$a$};
+      \draw (or.out) -| (and.in 2);
+      
+      \node at (4.5,0) {\Large $=$};
+      \node[right] at (5,0) {\Large $a$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Leyes de De Morgan}{demorgan_ing}
+\begin{itemize}
+    \item $(a + b)' = a' \cdot b'$ (Una puerta NOR equivale a una AND con entradas negadas)
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nor port] (nor) at (0,0) {};
+      \node[left] at (nor.in 1) {$a$};
+      \node[left] at (nor.in 2) {$b$};
+      \node[right] at (nor.out) {$(a+b)'$};
+      
+      \node at (3.5,0) {\Large $=$};
+      
+      \node[american and port] (and) at (7.5,0) {};
+      \node[american not port, scale=0.5] (not1) at (4.5,0.7) {};
+      \node[american not port, scale=0.5] (not2) at (4.5,-0.7) {};
+      \node[left] at (not1.in) {$a$};
+      \node[left] at (not2.in) {$b$};
+      \draw (not1.out) |- (and.in 1);
+      \draw (not2.out) |- (and.in 2);
+      \node[right] at (and.out) {$a' \cdot b'$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $(a \cdot b)' = a' + b'$ (Una puerta NAND equivale a una OR con entradas negadas)
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nand port] (nand) at (0,0) {};
+      \node[left] at (nand.in 1) {$a$};
+      \node[left] at (nand.in 2) {$b$};
+      \node[right] at (nand.out) {$(a \cdot b)'$};
+      
+      \node at (3.5,0) {\Large $=$};
+      
+      \node[american or port] (or) at (7.5,0) {};
+      \node[american not port, scale=0.5] (not1) at (4.5,0.7) {};
+      \node[american not port, scale=0.5] (not2) at (4.5,-0.7) {};
+      \node[left] at (not1.in) {$a$};
+      \node[left] at (not2.in) {$b$};
+      \draw (not1.out) |- (or.in 1);
+      \draw (not2.out) |- (or.in 2);
+      \node[right] at (or.out) {$a' + b'$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Involución (Doble Negación)}{involucion_ing}
+$(a')' = a$
+\begin{center}
+\begin{circuitikz}[scale=0.8, transform shape]
+  \node[american not port, scale=0.5] (not1) at (0,0) {};
+  \node[american not port, scale=0.5] (not2) at (2,0) {};
+  \node[left] at (not1.in) {$a$};
+  \draw (not1.out) -- (not2.in);
+  
+  \node at (4,0) {\Large $=$};
+  \node[right] at (4.5,0) {\Large $a$};
+\end{circuitikz}
+\end{center}
+\end{teorema}
+
+\begin{teorema}{Asociatividad}{asoc_ing}
+\begin{itemize}
+    \item $a + (b + c) = (a + b) + c$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american or port] (or1) at (0,-0.5) {};
+      \node[left] at (or1.in 1) {$b$};
+      \node[left] at (or1.in 2) {$c$};
+      
+      \node[american or port] (or2) at (2.5,0) {};
+      \node[left] at (or2.in 1) {$a$};
+      \draw (or1.out) -| (or2.in 2);
+      
+      \node at (4.5,0) {\Large $=$};
+      
+      \node[american or port] (or3) at (6.5,0.5) {};
+      \node[left] at (or3.in 1) {$a$};
+      \node[left] at (or3.in 2) {$b$};
+      
+      \node[american or port] (or4) at (9,0) {};
+      \draw (or3.out) -| (or4.in 1);
+      \node[left] at (or4.in 2) {$c$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $a \cdot (b \cdot c) = (a \cdot b) \cdot c$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american and port] (and1) at (0,-0.5) {};
+      \node[left] at (and1.in 1) {$b$};
+      \node[left] at (and1.in 2) {$c$};
+      
+      \node[american and port] (and2) at (2.5,0) {};
+      \node[left] at (and2.in 1) {$a$};
+      \draw (and1.out) -| (and2.in 2);
+      
+      \node at (4.5,0) {\Large $=$};
+      
+      \node[american and port] (and3) at (6.5,0.5) {};
+      \node[left] at (and3.in 1) {$a$};
+      \node[left] at (and3.in 2) {$b$};
+      
+      \node[american and port] (and4) at (9,0) {};
+      \draw (and3.out) -| (and4.in 1);
+      \node[left] at (and4.in 2) {$c$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Orden de Retículo}{orden_ing}
+La equivalencia entre que una compuerta OR ignore una entrada y una compuerta AND fuerce la otra:
+\[ a + b = a \iff a \cdot b = b \]
+\begin{center}
+\begin{circuitikz}[scale=0.8, transform shape]
+  \node[american or port] (or) at (0,0) {};
+  \node[left] at (or.in 1) {$a$};
+  \node[left] at (or.in 2) {$b$};
+  \node[right] at (or.out) {$a$};
+  
+  \node at (3,0) {\Large $\iff$};
+  
+  \node[american and port] (and) at (6,0) {};
+  \node[left] at (and.in 1) {$a$};
+  \node[left] at (and.in 2) {$b$};
+  \node[right] at (and.out) {$b$};
+\end{circuitikz}
+\end{center}
+\end{teorema}
+
+\begin{teorema}{Equivalencia de Operaciones}{equa_op_ing}
+Si una puerta OR y una puerta AND con las mismas entradas producen el mismo resultado $Y$, entonces ambas entradas deben ser idénticas:
+\[ a + b = a \cdot b \implies a = b \]
+\begin{center}
+\begin{circuitikz}[scale=0.8, transform shape]
+  \node[american or port] (or) at (0,1) {};
+  \node[american and port] (and) at (0,-1) {};
+  \node[left] at (or.in 1) {$a$};
+  \node[left] at (or.in 2) {$b$};
+  \node[left] at (and.in 1) {$a$};
+  \node[left] at (and.in 2) {$b$};
+  \node[right] at (or.out) {$Y$};
+  \node[right] at (and.out) {$Y$};
+  
+  \node at (3,0) {\Large $\implies$};
+  \node[right] at (4,0) {\Large $a = b$};
+\end{circuitikz}
+\end{center}
+\end{teorema}
+
+\section{Propiedades de los Operadores Derivados}
+
+\begin{teorema}{Conmutatividad (NAND y NOR)}{conmut_deriv_ing}
+\begin{itemize}
+    \item NAND: $(a \cdot b)' = (b \cdot a)'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nand port] (nand1) at (0,0) {};
+      \node[left] at (nand1.in 1) {$a$};
+      \node[left] at (nand1.in 2) {$b$};
+      
+      \node at (2.5,0) {\Large $=$};
+      
+      \node[american nand port] (nand2) at (5,0) {};
+      \node[left] at (nand2.in 1) {$b$};
+      \node[left] at (nand2.in 2) {$a$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item NOR: $(a + b)' = (b + a)'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nor port] (nor1) at (0,0) {};
+      \node[left] at (nor1.in 1) {$a$};
+      \node[left] at (nor1.in 2) {$b$};
+      
+      \node at (2.5,0) {\Large $=$};
+      
+      \node[american nor port] (nor2) at (5,0) {};
+      \node[left] at (nor2.in 1) {$b$};
+      \node[left] at (nor2.in 2) {$a$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{definicion}{Ausencia de Asociatividad (NAND y NOR)}{no_asoc_ing}
+A diferencia de AND y OR, las operaciones NAND y NOR \textbf{no son asociativas}. Por lo tanto, no se pueden conectar en cascada de forma directa manteniendo la misma función.
+\[ ((a \cdot b)' \cdot c)' \neq (a \cdot (b \cdot c)')' \]
+\[ ((a + b)' + c)' \neq (a + (b + c)')' \]
+\end{definicion}
+
+\begin{teorema}{Operaciones Exclusivas (XOR y XNOR)}{xor_xnor_ing}
+La operación XOR produce un 1 solo si las entradas son diferentes. La operación XNOR produce un 1 solo si las entradas son iguales.
+\begin{itemize}
+    \item XOR: $a \oplus b = a'b + ab'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american xor port] (xor) at (0,0) {};
+      \node[left] at (xor.in 1) {$a$};
+      \node[left] at (xor.in 2) {$b$};
+      \node[right] at (xor.out) {$a \oplus b$};
+      
+      \node at (3,0) {\Large $=$};
+      
+      \node[american and port] (and1) at (6,0.8) {};
+      \node[american not port, scale=0.5] (not1) at (4,1.5) {};
+      \node[left] at (not1.in) {$a$};
+      \draw (not1.out) |- (and1.in 1);
+      \draw (4,0.1) |- (and1.in 2);
+      \node[left] at (4,0.1) {$b$};
+      
+      \node[american and port] (and2) at (6,-0.8) {};
+      \node[american not port, scale=0.5] (not2) at (4,-1.5) {};
+      \node[left] at (not2.in) {$b$};
+      \draw (not2.out) |- (and2.in 2);
+      \draw (4,-0.1) |- (and2.in 1);
+      \node[left] at (4,-0.1) {$a$};
+      
+      \node[american or port] (or) at (8.5,0) {};
+      \draw (and1.out) -| (or.in 1);
+      \draw (and2.out) -| (or.in 2);
+    \end{circuitikz}
+    \end{center}
+    
+    \item XNOR: $(a \oplus b)' = a'b' + ab$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american xnor port] (xnor) at (0,0) {};
+      \node[left] at (xnor.in 1) {$a$};
+      \node[left] at (xnor.in 2) {$b$};
+      \node[right] at (xnor.out) {$(a \oplus b)'$};
+      
+      \node at (3,0) {\Large $=$};
+      
+      \node[american and port] (and1) at (6,0.8) {};
+      \node[american not port, scale=0.5] (not1) at (4,1.5) {};
+      \node[american not port, scale=0.5] (not2) at (4,0.1) {};
+      \node[left] at (not1.in) {$a$};
+      \node[left] at (not2.in) {$b$};
+      \draw (not1.out) |- (and1.in 1);
+      \draw (not2.out) |- (and1.in 2);
+      
+      \node[american and port] (and2) at (6,-0.8) {};
+      \node[left] at (4,-0.1) {$a$};
+      \node[left] at (4,-1.5) {$b$};
+      \draw (4,-0.1) |- (and2.in 1);
+      \draw (4,-1.5) |- (and2.in 2);
+      
+      \node[american or port] (or) at (8.5,0) {};
+      \draw (and1.out) -| (or.in 1);
+      \draw (and2.out) -| (or.in 2);
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Conmutatividad y Asociatividad de XOR}{asoc_xor_ing}
+La puerta XOR es conmutativa y asociativa.
+\begin{itemize}
+    \item Conmutatividad: $a \oplus b = b \oplus a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american xor port] (xor1) at (0,0) {};
+      \node[left] at (xor1.in 1) {$a$};
+      \node[left] at (xor1.in 2) {$b$};
+      
+      \node at (2.5,0) {\Large $=$};
+      
+      \node[american xor port] (xor2) at (5,0) {};
+      \node[left] at (xor2.in 1) {$b$};
+      \node[left] at (xor2.in 2) {$a$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item Asociatividad: $a \oplus (b \oplus c) = (a \oplus b) \oplus c$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american xor port] (xor1) at (0,-0.5) {};
+      \node[left] at (xor1.in 1) {$b$};
+      \node[left] at (xor1.in 2) {$c$};
+      
+      \node[american xor port] (xor2) at (2.5,0) {};
+      \node[left] at (xor2.in 1) {$a$};
+      \draw (xor1.out) -| (xor2.in 2);
+      
+      \node at (4.5,0) {\Large $=$};
+      
+      \node[american xor port] (xor3) at (6.5,0.5) {};
+      \node[left] at (xor3.in 1) {$a$};
+      \node[left] at (xor3.in 2) {$b$};
+      
+      \node[american xor port] (xor4) at (9,0) {};
+      \draw (xor3.out) -| (xor4.in 1);
+      \node[left] at (xor4.in 2) {$c$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Idempotencia Cruzada (NAND/NOR como NOT)}{idemp_cruzada_ing}
+\begin{itemize}
+    \item $(a \cdot a)' = a'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nand port] (nand) at (0,0) {};
+      \node[left] at (-2, 0) {$a$};
+      \draw (-2,0) -- (-1.5,0);
+      \draw (-1.5,0) |- (nand.in 1);
+      \draw (-1.5,0) |- (nand.in 2);
+      
+      \node at (2.5,0) {\Large $=$};
+      
+      \node[american not port, scale=0.5] (not) at (5,0) {};
+      \node[left] at (not.in) {$a$};
+      \node[right] at (not.out) {$a'$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item $(a + a)' = a'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nor port] (nor) at (0,0) {};
+      \node[left] at (-2, 0) {$a$};
+      \draw (-2,0) -- (-1.5,0);
+      \draw (-1.5,0) |- (nor.in 1);
+      \draw (-1.5,0) |- (nor.in 2);
+      
+      \node at (2.5,0) {\Large $=$};
+      
+      \node[american not port, scale=0.5] (not) at (5,0) {};
+      \node[left] at (not.in) {$a$};
+      \node[right] at (not.out) {$a'$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Generación Universal Básica}{gen_univ_ing}
+\begin{itemize}
+    \item AND desde NAND: $(a \cdot b) = ((a \cdot b)')'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nand port] (nand1) at (0,0) {};
+      \node[american nand port] (nand2) at (3,0) {};
+      \node[left] at (nand1.in 1) {$a$};
+      \node[left] at (nand1.in 2) {$b$};
+      \draw (nand1.out) -- (1.5,0);
+      \draw (1.5,0) |- (nand2.in 1);
+      \draw (1.5,0) |- (nand2.in 2);
+      
+      \node at (5.5,0) {\Large $=$};
+      
+      \node[american and port] (and) at (8,0) {};
+      \node[left] at (and.in 1) {$a$};
+      \node[left] at (and.in 2) {$b$};
+      \node[right] at (and.out) {$a \cdot b$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item OR desde NOR: $(a + b) = ((a + b)')'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nor port] (nor1) at (0,0) {};
+      \node[american nor port] (nor2) at (3,0) {};
+      \node[left] at (nor1.in 1) {$a$};
+      \node[left] at (nor1.in 2) {$b$};
+      \draw (nor1.out) -- (1.5,0);
+      \draw (1.5,0) |- (nor2.in 1);
+      \draw (1.5,0) |- (nor2.in 2);
+      
+      \node at (5.5,0) {\Large $=$};
+      
+      \node[american or port] (or) at (8,0) {};
+      \node[left] at (or.in 1) {$a$};
+      \node[left] at (or.in 2) {$b$};
+      \node[right] at (or.out) {$a + b$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Generación Universal Cruzada (De Morgan)}{gen_cruz_ing}
+\begin{itemize}
+    \item OR desde NAND: $a + b = (a' \cdot b')'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nand port] (nand_a) at (0,1) {};
+      \node[american nand port] (nand_b) at (0,-1) {};
+      \node[american nand port] (nand_out) at (3,0) {};
+      
+      \node[left] at (-2, 1) {$a$};
+      \draw (-2,1) -- (-1.5,1);
+      \draw (-1.5,1) |- (nand_a.in 1);
+      \draw (-1.5,1) |- (nand_a.in 2);
+      
+      \node[left] at (-2, -1) {$b$};
+      \draw (-2,-1) -- (-1.5,-1);
+      \draw (-1.5,-1) |- (nand_b.in 1);
+      \draw (-1.5,-1) |- (nand_b.in 2);
+      
+      \draw (nand_a.out) |- (nand_out.in 1);
+      \draw (nand_b.out) |- (nand_out.in 2);
+      
+      \node at (5.5,0) {\Large $=$};
+      
+      \node[american or port] (or) at (8,0) {};
+      \node[left] at (or.in 1) {$a$};
+      \node[left] at (or.in 2) {$b$};
+      \node[right] at (or.out) {$a + b$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item AND desde NOR: $a \cdot b = (a' + b')'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nor port] (nor_a) at (0,1) {};
+      \node[american nor port] (nor_b) at (0,-1) {};
+      \node[american nor port] (nor_out) at (3,0) {};
+      
+      \node[left] at (-2, 1) {$a$};
+      \draw (-2,1) -- (-1.5,1);
+      \draw (-1.5,1) |- (nor_a.in 1);
+      \draw (-1.5,1) |- (nor_a.in 2);
+      
+      \node[left] at (-2, -1) {$b$};
+      \draw (-2,-1) -- (-1.5,-1);
+      \draw (-1.5,-1) |- (nor_b.in 1);
+      \draw (-1.5,-1) |- (nor_b.in 2);
+      
+      \draw (nor_a.out) |- (nor_out.in 1);
+      \draw (nor_b.out) |- (nor_out.in 2);
+      
+      \node at (5.5,0) {\Large $=$};
+      
+      \node[american and port] (and) at (8,0) {};
+      \node[left] at (and.in 1) {$a$};
+      \node[left] at (and.in 2) {$b$};
+      \node[right] at (and.out) {$a \cdot b$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Fijación y Absorción (NAND/NOR)}{constantes_deriv_ing}
+\begin{itemize}
+    \item Fijación (Inversión): $(a \cdot 1)' = a'$ \quad y \quad $(a + 0)' = a'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nand port] (nand) at (0,0) {};
+      \node[left] at (nand.in 1) {$a$};
+      \node[left] at (nand.in 2) {$1$};
+      \node[right] at (nand.out) {$a'$};
+      
+      \node[american nor port] (nor) at (6,0) {};
+      \node[left] at (nor.in 1) {$a$};
+      \node[left] at (nor.in 2) {$0$};
+      \node[right] at (nor.out) {$a'$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item Absorción (Salida constante): $(a \cdot 0)' = 1$ \quad y \quad $(a + 1)' = 0$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american nand port] (nand) at (0,0) {};
+      \node[left] at (nand.in 1) {$a$};
+      \node[left] at (nand.in 2) {$0$};
+      \node[right] at (nand.out) {$1$};
+      
+      \node[american nor port] (nor) at (6,0) {};
+      \node[left] at (nor.in 1) {$a$};
+      \node[left] at (nor.in 2) {$1$};
+      \node[right] at (nor.out) {$0$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\begin{teorema}{Elementos Inversores (XOR/XNOR)}{inv_xor_ing}
+La puerta XOR actúa como inversor controlado si una entrada es 1, y como buffer si es 0. La XNOR se comporta de forma dual.
+\begin{itemize}
+    \item Buffer: $a \oplus 0 = a$ \quad y \quad $(a \oplus 1)' = a$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american xor port] (xor) at (0,0) {};
+      \node[left] at (xor.in 1) {$a$};
+      \node[left] at (xor.in 2) {$0$};
+      \node[right] at (xor.out) {$a$};
+      
+      \node[american xnor port] (xnor) at (6,0) {};
+      \node[left] at (xnor.in 1) {$a$};
+      \node[left] at (xnor.in 2) {$1$};
+      \node[right] at (xnor.out) {$a$};
+    \end{circuitikz}
+    \end{center}
+    
+    \item Inversor: $a \oplus 1 = a'$ \quad y \quad $(a \oplus 0)' = a'$
+    \begin{center}
+    \begin{circuitikz}[scale=0.8, transform shape]
+      \node[american xor port] (xor) at (0,0) {};
+      \node[left] at (xor.in 1) {$a$};
+      \node[left] at (xor.in 2) {$1$};
+      \node[right] at (xor.out) {$a'$};
+      
+      \node[american xnor port] (xnor) at (6,0) {};
+      \node[left] at (xnor.in 1) {$a$};
+      \node[left] at (xnor.in 2) {$0$};
+      \node[right] at (xnor.out) {$a'$};
+    \end{circuitikz}
+    \end{center}
+\end{itemize}
+\end{teorema}
+
+\end{document}
