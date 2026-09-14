@@ -1,0 +1,373 @@
+\chapter{Instanciación en Álgebras Finitas: Trivial y Bivaluada}
+
+La teoría desarrollada en los capítulos anteriores es aplicable a cualquier álgebra de Boole, sin importar el número de elementos que contenga el conjunto $B$ (siempre que se cumplan los postulados de Huntington). Sin embargo, existen dos álgebras finitas de interés particular por su extrema simplicidad y su aplicación directa en la teoría de circuitos.
+
+\subsection{Álgebra Trivial ($|B| = 1$)}
+Si definimos el conjunto soporte con un único elemento, $B = \{ c \}$, nos encontramos ante el álgebra de Boole trivial o degenerada. 
+
+Dado que los postulados de Huntington (Postulado 2) exigen la existencia de un elemento neutro para la disyunción ($\bot \in B$) y otro para la conjunción ($\top \in B$), y puesto que el conjunto solo contiene un único elemento, estos deben forzosamente coincidir:
+\[ \bot = \top = c \]
+
+Al instanciar cualquier operación definida sobre este conjunto, los resultados siempre evalúan a dicha constante $c$. 
+\begin{itemize}
+    \item \textbf{Negación:} Por el postulado del complemento, $c \vee \neg c = c$ y $c \wedge \neg c = c$, lo que implica que $\neg c = c$.
+    \item \textbf{Disyunción y Conjunción:} Por la propiedad de idempotencia, $c \vee c = c$ y $c \wedge c = c$.
+    \item \textbf{Operadores Derivados:} Por definición, $c \uparrow c = \neg (c \wedge c) = \neg c = c$. Lo mismo sucede con el resto de operadores.
+\end{itemize}
+
+Visualizar esto en tablas de operación (comúnmente conocidas como tablas de verdad) resulta en estructuras degeneradas de una sola celda, donde $\circ \in \{ \vee, \wedge, \uparrow, \downarrow, \oplus, \odot \}$:
+
+\begin{center}
+\begin{tabular}{c|c}
+$a$ & $\neg a$ \\
+\hline
+$c$ & $c$
+\end{tabular}
+\qquad
+\begin{tabular}{cc|c}
+$a$ & $b$ & $a \circ b$ \\
+\hline
+$c$ & $c$ & $c$
+\end{tabular}
+\end{center}
+
+\subsection{Álgebra Bivaluada ($|B| = 2$)}
+El caso más importante para la ingeniería es el álgebra de Boole bivaluada, donde el conjunto soporte consta exactamente de los dos elementos garantizados por los postulados: el neutro disyuntivo y el neutro conjuntivo. 
+\[ B = \{ \bot, \top \} \]
+(Asumiendo lógicamente que $\bot \neq \top$).
+
+Procederemos a deducir el comportamiento (las tablas de operación) instanciando los teoremas y postulados axiomáticos en estos dos únicos valores.
+
+\subsubsection{Operaciones Básicas ($\neg$, $\vee$, $\wedge$)}
+
+\textbf{1. Negación (Operación unaria $\neg$)} \\
+El Postulado 5 (Complemento) exige que:
+\[ \bot \vee \neg \bot = \top \quad \text{y} \quad \top \vee \neg \top = \top \]
+Al existir solo dos elementos en el conjunto, el único valor que sumado a $\bot$ (que es el neutro disyuntivo, por lo que no altera el resultado) da $\top$, es el propio $\top$. Por lo tanto, deducimos que $\neg \bot = \top$. De igual manera, por dualidad, $\neg \top = \bot$.
+
+\textbf{2. Disyunción (Operación binaria $\vee$)} \\
+Calculamos los cuatro casos posibles instanciando los valores:
+\begin{itemize}
+    \item $\bot \vee \bot = \bot$ (Por Idempotencia, Teorema 1).
+    \item $\bot \vee \top = \top$ (Por ser $\bot$ el elemento neutro, Postulado 2a).
+    \item $\top \vee \bot = \top$ (Por Conmutatividad, Postulado 3a).
+    \item $\top \vee \top = \top$ (Por Idempotencia, Teorema 1).
+\end{itemize}
+
+\textbf{3. Conjunción (Operación binaria $\wedge$)} \\
+Análogamente:
+\begin{itemize}
+    \item $\top \wedge \top = \top$ (Por Idempotencia, Teorema 1).
+    \item $\top \wedge \bot = \bot$ (Por ser $\top$ el elemento neutro, Postulado 2b).
+    \item $\bot \wedge \top = \bot$ (Por Conmutatividad, Postulado 3b).
+    \item $\bot \wedge \bot = \bot$ (Por Idempotencia, Teorema 1).
+\end{itemize}
+
+\subsubsection{Operadores Derivados ($\uparrow, \downarrow, \oplus, \odot$)}
+Podemos obtener las tablas de los operadores derivados aplicando directamente sus definiciones algebraicas sobre las tablas básicas ya obtenidas:
+
+\textbf{1. NAND y NOR} \\
+Dado que $a \uparrow b = \neg(a \wedge b)$ y $a \downarrow b = \neg(a \vee b)$, los resultados consisten simplemente en aplicar el operador complemento ($\neg$) a las tablas de conjunción y disyunción calculadas previamente.
+
+\textbf{2. XOR y XNOR} \\
+Recordando la definición algebraica $a \oplus b = (a \wedge \neg b) \vee (\neg a \wedge b)$, se puede evaluar caso por caso (por ejemplo, $\top \oplus \bot = (\top \wedge \top) \vee (\bot \wedge \bot) = \top \vee \bot = \top$), pero también podemos usar directamente los teoremas derivados anteriormente:
+\begin{itemize}
+    \item $a \oplus \bot = a$ (Elemento neutro). Por lo tanto: $\bot \oplus \bot = \bot$, y $\top \oplus \bot = \top$.
+    \item $a \oplus \top = \neg a$ (Inversor). Por lo tanto: $\bot \oplus \top = \top$, y $\top \oplus \top = \bot$.
+\end{itemize}
+Por dualidad, y sabiendo que el XNOR es la negación del XOR, se obtiene trivialmente que $a \odot b = \neg(a \oplus b)$.
+
+\subsubsection{Resumen: Tablas de Operación Bivaluadas}
+A continuación, presentamos la consolidación matricial de todas las operaciones deducidas, conformando las tablas de verdad definitivas del álgebra de dos valores:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c||c}
+\hline
+$a$ & $\neg a$ \\
+\hline\hline
+$\bot$ & $\top$ \\
+$\top$ & $\bot$ \\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{cc||c|c|c|c|c|c}
+\hline
+$a$ & $b$ & $a \vee b$ & $a \wedge b$ & $a \uparrow b$ & $a \downarrow b$ & $a \oplus b$ & $a \odot b$ \\
+\hline\hline
+$\bot$ & $\bot$ & $\bot$ & $\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ \\
+$\bot$ & $\top$ & $\top$ & $\bot$ & $\top$ & $\bot$ & $\top$ & $\bot$ \\
+$\top$ & $\bot$ & $\top$ & $\bot$ & $\top$ & $\bot$ & $\top$ & $\bot$ \\
+$\top$ & $\top$ & $\top$ & $\top$ & $\bot$ & $\bot$ & $\bot$ & $\top$ \\
+\hline
+\end{tabular}
+\caption{Tablas de Verdad consolidadas para las Operaciones del Álgebra de Boole de 2 elementos.}
+\label{tab:tablas_bivaluadas}
+\end{table}
+
+\section{Conclusiones y Transición a la Lógica Digital}
+
+Tras haber establecido formalmente la estructura matemática del álgebra de Boole a partir de los postulados de Huntington, y haber demostrado rigurosamente sus propiedades fundamentales operando con la signatura clásica de la teoría de retículos ($\vee, \wedge, \bot, \top$), estamos en disposición de dar el salto al dominio de la ingeniería.
+
+En la electrónica digital, el interés recae de forma exclusiva sobre un modelo concreto de álgebra de Boole: el \textbf{Álgebra de Conmutación de Shannon}. Esta es el álgebra de Boole más sencilla posible, cuyo conjunto subyacente consta únicamente de dos elementos, $\mathbb{B}_2 = \{0, 1\}$. 
+
+A pesar de su aparente simplicidad, el álgebra de $\mathbb{B}_2$ cumple estrictamente todos los postulados de Huntington (y por ende, todos los teoremas que hemos derivado) y está contenida formalmente como subestructura en cualquier otra álgebra de Boole más compleja.
+
+Para adecuar nuestra matemática al diseño de circuitos y sistemas digitales, adoptaremos a partir de ahora la \textbf{notación ingenieril}, realizando el siguiente isomorfismo simbólico sobre nuestras operaciones y constantes:
+\begin{itemize}
+    \item \textbf{Constantes lógicas:} El elemento mínimo $\bot$ (falso) se denotará como \textbf{0} (ó nivel bajo de tensión, $L$). El elemento máximo $\top$ (verdadero) se denotará como \textbf{1} (ó nivel alto de tensión, $H$).
+    \item \textbf{Supremo (Join / Disyunción):} La operación $\vee$ se denotará mediante el operador suma $\mathbf{+}$. En circuitos lógicos, implementa la puerta \textbf{OR}.
+    \item \textbf{Ínfimo (Meet / Conjunción):} La operación $\wedge$ se denotará mediante el operador producto $\mathbf{\cdot}$ (frecuentemente omitido, escribiendo $ab$ en lugar de $a \cdot b$). Implementa la puerta \textbf{AND}.
+    \item \textbf{Complemento (Negación):} La operación de complemento $\neg a$ se denotará convencionalmente colocando una barra superior sobre la variable, $\mathbf{\overline{a}}$, o mediante una comilla $\mathbf{a'}$. Implementa la puerta \textbf{NOT} (inversor).
+    \item \textbf{Operadores Derivados (NAND y NOR):} Las operaciones $\uparrow$ y $\downarrow$ mantienen sus símbolos, o bien se expresan directamente como el complemento del producto o de la suma ($\overline{a \cdot b}$, $\overline{a+b}$). Representan las puertas universales \textbf{NAND} y \textbf{NOR}, fundamentales en el diseño de circuitos integrados.
+    \item \textbf{Suma Exclusiva y Equivalencia (XOR y XNOR):} Las operaciones introducidas como suma exclusiva y equivalencia lógica se denotan mediante $\mathbf{\oplus}$ y $\mathbf{\odot}$. Representan las puertas \textbf{XOR} (útiles en sumadores o detectores de paridad) y \textbf{XNOR} (comparadores de igualdad).
+    \item \textbf{Operadores n-arios:} Las versiones generalizadas para múltiples variables formarán estructuras de puertas lógicas de $n$ entradas. Se denotarán mediante los operadores $\sum$ (puerta OR de $n$ entradas), $\prod$ (puerta AND de $n$ entradas), $\bigoplus$ (puerta XOR de $n$ entradas) y $\bigodot$ (puerta XNOR de $n$ entradas).
+\end{itemize}
+
+Esta notación algebraica clásica resulta mucho más ágil y familiar para la manipulación y simplificación de funciones lógicas complejas. Así, teoremas como el de la distributividad se reescriben de forma natural como $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$, y las leyes de De Morgan cobran su célebre forma visual:
+\[ \overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b} \]
+De igual modo, la estructura de las operaciones derivadas queda plasmada directamente en ecuaciones como $a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b)$.
+
+Además, gracias a nuestra previa instanciación en el álgebra bivaluada ($|B|=2$), sabemos que las tablas de operación algebraicas que hemos deducido analíticamente se corresponden de manera idéntica y biunívoca con las \textbf{tablas de verdad} de las puertas lógicas físicas.
+
+Con estos fundamentos matemáticos sólidamente establecidos, la transición hacia el diseño, análisis y simplificación de circuitos digitales queda completamente justificada y carente de ambigüedades.
+
+\newpage
+\section{Anexo: Resumen de Postulados y Teoremas (Notación Ingenieril)}
+\makeatletter
+
+En esta sección se recopilan los postulados de Huntington y los teoremas principales derivados, transcritos a la notación propia del álgebra de conmutación y la lógica digital ($+$, $\cdot$, $0$, $1$, $\overline{a}$), concebidos como hoja de referencia rápida.
+
+\subsection*{Pre-Axiomas de la Estructura}
+
+\setcounter{tcb@cnt@preaxioma}{0}
+\begin{preaxioma}{Estructura de Conjunto}{esconj_eng}
+Se requiere que se defina sobre un conjunto (por ejemplo, $\mathbb{B}_2 = \{0, 1\}$).
+\end{preaxioma}
+
+\setcounter{tcb@cnt@preaxioma}{1}
+\begin{preaxioma}{Constantes Lógicas}{constantes_eng}
+Este conjunto contiene dos constantes fundamentales: $0$ (falso) y $1$ (verdadero).
+\end{preaxioma}
+
+\setcounter{tcb@cnt@preaxioma}{2}
+\begin{preaxioma}{Operaciones Binarias Internas}{opbinint_eng}
+Se definen dos operaciones binarias internas, la suma ($+$) y el producto ($\cdot$):
+\begin{align*}
++ &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2 \\
+\cdot &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2
+\end{align*}
+\end{preaxioma}
+
+\setcounter{tcb@cnt@preaxioma}{4}
+\begin{preaxioma}{Existencia y Unicidad de Imagen}{exist_unic_eng}
+Para cada par de elementos del conjunto, las operaciones $+$ y $\cdot$ siempre producen un resultado que también pertenece al conjunto, y ese resultado es siempre único.
+\end{preaxioma}
+
+\subsection*{Postulados de Huntington}
+
+\setcounter{tcb@cnt@postulado}{0}
+\begin{postulado}{Elemento neutro}{neutro_eng}
+\[ a + 0 = a \qquad \text{y} \qquad a \cdot 1 = a \]
+\end{postulado}
+
+\setcounter{tcb@cnt@postulado}{2}
+\begin{postulado}{Conmutatividad}{conmut_eng}
+\[ a + b = b + a \qquad \text{y} \qquad a \cdot b = b \cdot a \]
+\end{postulado}
+
+\setcounter{tcb@cnt@postulado}{4}
+\begin{postulado}{Distributividad}{distrib_eng}
+\[ a \cdot (b + c) = (a \cdot b) + (a \cdot c) \qquad \text{y} \qquad a + (b \cdot c) = (a + b) \cdot (a + c) \]
+\end{postulado}
+
+\setcounter{tcb@cnt@postulado}{6}
+\begin{postulado}{Complementario}{comp_eng}
+Para cada elemento $a$, existe un complemento $\overline{a}$ tal que:
+\[ a + \overline{a} = 1 \qquad \text{y} \qquad a \cdot \overline{a} = 0 \]
+\end{postulado}
+
+\subsection*{Teoremas Fundamentales}
+
+\setcounter{tcb@cnt@teorema}{0}
+\begin{teorema}{Unicidad de los elementos neutros}{unicidad_neutros_eng}
+El elemento neutro para la suma ($0$) y para el producto ($1$) son únicos.
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{1}
+\begin{teorema}{Idempotencia}{idempotencia_eng}
+\[ a + a = a \qquad \text{y} \qquad a \cdot a = a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{2}
+\begin{teorema}{Elementos absorbentes}{absorbentes_eng}
+\[ a + 1 = 1 \qquad \text{y} \qquad a \cdot 0 = 0 \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{5}
+\begin{teorema}{Propiedades de absorción}{absorcion_eng}
+\[ a + (a \cdot b) = a \qquad \text{y} \qquad a \cdot (a + b) = a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{11}
+\begin{teorema}{Leyes de De Morgan}{morgan_eng}
+\[ \overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b} \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{10}
+\begin{teorema}{Involución (Doble negación)}{involucion_eng}
+\[ \overline{\overline{a}} = a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{12}
+\begin{teorema}{Asociatividad}{asociatividad_eng}
+\[ a + (b + c) = (a + b) + c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{9}
+\begin{teorema}{Unicidad del complemento}{unic_comp_eng}
+El complemento $\overline{a}$ de un elemento $a$ es único.
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{6}
+\begin{teorema}{Otras propiedades equivalentes}{otras_prop_eng}
+\begin{itemize}
+    \item \textbf{Orden de retículo:} $a + b = a \iff a \cdot b = b$
+    \item \textbf{Equivalencia de operaciones:} $a + b = a \cdot b \implies a = b$
+    \item \textbf{Cancelación:} $(a + b = a + c \text{ y } a \cdot b = a \cdot c) \implies b = c$
+\end{itemize}
+\end{teorema}
+
+\setcounter{tcb@cnt@definicion}{0}
+\begin{definicion}{Generalización a $n$ variables}{gen_n_vars_eng}
+Las operaciones disyunción y conjunción pueden extenderse a un número $n$ de variables mediante los símbolos sumatorio y productorio:
+\[ \sum_{i=1}^{n} x_i = x_1 + x_2 + \dots + x_n \]
+\[ \prod_{i=1}^{n} x_i = x_1 \cdot x_2 \cdot \dots \cdot x_n \]
+\end{definicion}
+
+\setcounter{tcb@cnt@teorema}{3}
+\begin{teorema}{Casos de Álgebra Trivial}{trivial_eng}
+Si $0 = 1$, o si existe algún elemento tal que $\overline{a} = a$, entonces el álgebra contiene un único elemento (álgebra trivial).
+\end{teorema}
+
+\subsection*{Comportamiento de Operadores Derivados}
+
+\setcounter{tcb@cnt@teorema}{13}
+\begin{teorema}{Idempotencia cruzada (NAND/NOR)}{idemp_cruzada_eng}
+\[ a \uparrow a = \overline{a} \qquad \text{y} \qquad a \downarrow a = \overline{a} \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{14}
+\begin{teorema}{Generación de AND y OR}{gen_inf_sup_eng}
+\[ a \cdot b = \overline{a \uparrow b} = (a \uparrow b) \uparrow (a \uparrow b) \qquad \text{y} \qquad a + b = \overline{a \downarrow b} = (a \downarrow b) \downarrow (a \downarrow b) \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{15}
+\begin{teorema}{Generación cruzada}{gen_cruzada_eng}
+\[ a + b = \overline{a} \uparrow \overline{b} = (a \uparrow a) \uparrow (b \uparrow b) \qquad \text{y} \qquad a \cdot b = \overline{a} \downarrow \overline{b} = (a \downarrow a) \downarrow (b \downarrow b) \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{16}
+\begin{teorema}{Conmutatividad}{conmut_deriv_eng}
+\[ a \uparrow b = b \uparrow a \qquad \text{y} \qquad a \downarrow b = b \downarrow a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{18}
+\begin{teorema}{Comportamiento con las constantes}{constantes_deriv_eng}
+\begin{align*}
+    a \uparrow 1 &= \overline{a} \qquad & a \downarrow 0 &= \overline{a} \\
+    a \uparrow 0 &= 1 \qquad & a \downarrow 1 &= 0
+\end{align*}
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{19}
+\begin{teorema}{Ausencia de Asociatividad}{no_asoc_deriv_eng}
+\[ (a \uparrow b) \uparrow c \neq a \uparrow (b \uparrow c) \qquad \text{y} \qquad (a \downarrow b) \downarrow c \neq a \downarrow (b \downarrow c) \]
+\end{teorema}
+
+\setcounter{tcb@cnt@definicion}{6}
+\begin{definicion}{NAND y NOR de 3 entradas}{n_entradas_eng}
+\[ \uparrow(a,b,c) = \overline{a \cdot b \cdot c} \qquad \text{y} \qquad \downarrow(a,b,c) = \overline{a + b + c} \]
+\end{definicion}
+
+\setcounter{tcb@cnt@teorema}{20}
+\begin{teorema}{NAND/NOR múltiple vs cascada binaria}{multiple_vs_binaria_eng}
+\begin{align*}
+    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad & \uparrow(a,b,c) &\neq a \uparrow (b \uparrow c) \\
+    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad & \downarrow(a,b,c) &\neq a \downarrow (b \downarrow c)
+\end{align*}
+\end{teorema}
+\subsection*{Comportamiento de los Operadores XOR y XNOR}
+
+\setcounter{tcb@cnt@definicion}{4}
+\begin{definicion}{Definición de XOR y XNOR}{def_xor_xnor_eng}
+\[ a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b) \qquad \text{y} \qquad a \odot b = \overline{a \oplus b} = (a \cdot b) + (\overline{a} \cdot \overline{b}) \]
+\end{definicion}
+
+\setcounter{tcb@cnt@teorema}{22}
+\begin{teorema}{Conmutatividad}{conmut_xor_eng}
+\[ a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{23}
+\begin{teorema}{Elementos Neutros e Inversores}{neutros_xor_eng}
+\begin{align*}
+    a \oplus 0 &= a \qquad & a \odot 1 &= a \\
+    a \oplus 1 &= \overline{a} \qquad & a \odot 0 &= \overline{a}
+\end{align*}
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{24}
+\begin{teorema}{Elemento Inverso de sí mismo (Grupo Abeliano)}{idemp_nula_eng}
+\[ a \oplus a = 0 \qquad \text{y} \qquad a \odot a = 1 \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{25}
+\begin{teorema}{Propiedades de Negación}{neg_xor_eng}
+\[ \overline{a \oplus b} = \overline{a} \oplus b = a \oplus \overline{b} = a \odot b \]
+\[ \overline{a \odot b} = \overline{a} \odot b = a \odot \overline{b} = a \oplus b \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{26}
+\begin{teorema}{Asociatividad y Generalización}{asoc_gen_xor_eng}
+Ambos operadores son asociativos:
+\[ a \oplus (b \oplus c) = (a \oplus b) \oplus c \qquad \text{y} \qquad a \odot (b \odot c) = (a \odot b) \odot c \]
+Lo cual permite su generalización a un número arbitrario $n$ de entradas:
+\[ \bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n \qquad \text{y} \qquad \bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{28}
+\begin{teorema}{Distributividad con el producto y la suma}{dist_xor_eng}
+\[ a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot c) \qquad \text{y} \qquad a + (b \odot c) = (a + b) \odot (a + c) \]
+\end{teorema}
+
+\subsection*{Tablas de Verdad Bivaluadas}
+
+Resumen de las tablas de operación del álgebra de Boole para el caso de dos elementos ($B=\{0,1\}$), transcritas al lenguaje ingenieril:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c||c}
+\hline
+$a$ & $\overline{a}$ \\
+\hline\hline
+$0$ & $1$ \\
+$1$ & $0$ \\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{cc||c|c|c|c|c|c}
+\hline
+$a$ & $b$ & $a + b$ & $a \cdot b$ & $a \uparrow b$ & $a \downarrow b$ & $a \oplus b$ & $a \odot b$ \\
+\hline\hline
+$0$ & $0$ & $0$ & $0$ & $1$ & $1$ & $0$ & $1$ \\
+$0$ & $1$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ \\
+$1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ \\
+$1$ & $1$ & $1$ & $1$ & $0$ & $0$ & $0$ & $1$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\makeatother

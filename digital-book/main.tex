@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{book}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{newunicodechar}
+\newunicodechar{≝}{\triangleq}
+\usepackage{hyperref}
+\usepackage[most]{tcolorbox}
+\usepackage{ocgx2}
+
+% Definición de entornos para postulados y teoremas con tcolorbox
+\tcbuselibrary{theorems}
+
+\newtcbtheorem{preaxioma}{Pre-Axioma}{
+  colback=purple!5!white,
+  colframe=purple!60!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{prax}
+
+\newtcbtheorem{postulado}{Postulado}{
+  colback=blue!5!white,
+  colframe=blue!60!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{post}
+
+\newtcbtheorem{teorema}{Teorema}{
+  colback=green!5!white,
+  colframe=green!50!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{teo}
+
+\newtcbtheorem{definicion}{Definición}{
+  colback=cyan!5!white,
+  colframe=cyan!60!black,
+  fonttitle=\bfseries,
+  arc=2mm,
+  boxrule=1pt
+}{def}
+
+% Macro para pruebas desplegables
+\newcommand{\desplegable}[2]{%
+  \par\vspace{1ex}\noindent
+  \switchocg{#1}{\fcolorbox{gray!50}{gray!10}{\textsf{\textbf{\small $\blacktriangledown$ Mostrar/Ocultar Demostración}}}}
+  \begin{ocg}{Demostración}{#1}{off}
+  \vspace{1ex}
+  #2
+  \end{ocg}
+  \par\vspace{1ex}
+}
+
+% Macro para listas de pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\title{Desarrollo del Álgebra de Boole \\ \large Desde los Postulados de Huntington}
+\author{}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\include{capitulo_01}
+\include{capitulo_02}
+\include{capitulo_03}
+\include{capitulo_04}
+\include{capitulo_05}
+\include{capitulo_06}
+\include{capitulo_07}
+\include{capitulo_08}
+\include{capitulo_09}
+
+\end{document}

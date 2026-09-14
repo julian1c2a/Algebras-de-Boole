@@ -1,0 +1,89 @@
+\chapter{Introducción}
+El álgebra de Boole, originalmente introducida por George Boole en su obra de 1854 \textit{The Laws of Thought}, fue posteriormente axiomatizada de forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye Huntington presentó un conjunto de postulados independientes que definen formalmente una estructura de álgebra de Boole. 
+
+Para evitar cualquier confusión conceptual con la aritmética tradicional, en esta fase inicial emplearemos la signatura propia de la teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y $\wedge$ (ínfimo o meet), junto a los elementos constantes $\bot$ (mínimo) y $\top$ (máximo). El complemento se denotará con el símbolo clásico de la negación lógica $\neg$. Más adelante, y por conveniencia práctica, transitaremos hacia la notación clásica de sistemas digitales ($+$, $\cdot$, $0$, $1$).
+
+\section{Pre-Axiomas de la Estructura}
+Antes de enunciar los postulados, debemos definir rigurosamente sobre qué elementos y operaciones estamos trabajando. 
+
+Partimos de un ente matemático $\mathbb{B}$.
+
+\begin{preaxioma}{Estructura de Conjunto - EsConjunto($\mathbb{B}$)}{esconj}
+Se requiere que $\mathbb{B}$ sea un conjunto.
+\end{preaxioma}
+
+\begin{preaxioma}{Elementos Constantes - Constantes}{constantes}
+Este conjunto ha de cumplir que tiene dos elementos que llamaremos constantes, tales que $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En principio, no asumimos nada sobre la igualdad o desigualdad de estas constantes.
+\end{preaxioma}
+
+Además, vamos a definir dos operaciones binarias internas que denotaremos por $\vee$ y $\wedge$. Estas deben satisfacer rigurosamente la definición de función:
+
+\begin{preaxioma}{Operación Binaria Interna $\vee$ - OpBinInt$_\vee$}{opbinint_vee}
+$\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+\end{preaxioma}
+
+\begin{preaxioma}{Operación Binaria Interna $\wedge$ - OpBinInt$_\wedge$}{opbinint_wedge}
+$\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+\end{preaxioma}
+
+Para poder usar estos conceptos con mayor seguridad y flexibilidad en las futuras demostraciones formales, asignaremos nombres cortos a las condiciones de existencia y unicidad de la imagen para estas operaciones:
+
+\begin{preaxioma}{Existencia $\vee$ - Existencia$_\vee$}{exist_vee}
+Para todo par existe imagen en $\mathbb{B}$. Es decir, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists c \in \mathbb{B}$ tal que $a \vee b = c$.
+\end{preaxioma}
+
+\begin{preaxioma}{Existencia $\wedge$ - Existencia$_\wedge$}{exist_wedge}
+Análogamente, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists d \in \mathbb{B}$ tal que $a \wedge b = d$.
+\end{preaxioma}
+
+\begin{preaxioma}{Unicidad $\vee$ - Unicidad$_\vee$}{unic_vee}
+Para un par solo existe una imagen. Esto es, si $a \vee b = c$ y $a \vee b = d$, entonces $c = d$.
+\end{preaxioma}
+
+\begin{preaxioma}{Unicidad $\wedge$ - Unicidad$_\wedge$}{unic_wedge}
+De igual forma para el ínfimo, si $a \wedge b = c$ y $a \wedge b = d$, entonces $c = d$.
+\end{preaxioma}
+
+\section{Los Postulados de Huntington (1904)}
+Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los pre-axiomas anteriores, diremos que forma un álgebra de Boole si satisface los siguientes postulados:
+
+\begin{postulado}{Elemento neutro $\vee$ - $ElemNeu_\vee$}{neutro_vee}
+Todo elemento operado mediante $\vee$ con el mínimo $\bot$ da como resultado el mismo elemento; es decir, $\bot$ no altera el valor original:
+\[ \forall a \in \mathbb{B}, \quad a \vee \bot = a \]
+\end{postulado}
+
+\begin{postulado}{Elemento neutro $\wedge$ - $ElemNeu_\wedge$}{neutro_wedge}
+Todo elemento operado mediante $\wedge$ con el máximo $\top$ da como resultado el mismo elemento, quedando inalterado:
+\[ \forall a \in \mathbb{B}, \quad a \wedge \top = a \]
+\end{postulado}
+
+\begin{postulado}{Conmutatividad $\vee$ - $Comm_\vee$}{conmut_vee}
+El orden de los operandos al aplicar la operación $\vee$ es indiferente, obteniéndose exactamente el mismo resultado:
+\[ \forall a, b \in \mathbb{B}, \quad a \vee b = b \vee a \]
+\end{postulado}
+
+\begin{postulado}{Conmutatividad $\wedge$ - $Comm_\wedge$}{conmut_wedge}
+De la misma forma, el orden de los operandos al aplicar la operación $\wedge$ tampoco altera el resultado final:
+\[ \forall a, b \in \mathbb{B}, \quad a \wedge b = b \wedge a \]
+\end{postulado}
+
+\begin{postulado}{Distributividad $\vee$ sobre $\wedge$ - $Dist_\vee$}{distrib_vee_wedge}
+La operación $\vee$ se distribuye sobre la operación $\wedge$. Operar un elemento con el resultado de un $\wedge$ equivale a operar con $\vee$ cada componente individualmente y luego aplicar $\wedge$:
+\[ \forall a, b, c \in \mathbb{B}, \quad a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c) \]
+\end{postulado}
+
+\begin{postulado}{Distributividad $\wedge$ sobre $\vee$ - $Dist_\wedge$}{distrib_wedge_vee}
+De manera equivalente, el ínfimo ($\wedge$) se reparte de forma distributiva entre los componentes de un supremo ($\vee$):
+\[ \forall a, b, c \in \mathbb{B}, \quad a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c) \]
+\end{postulado}
+
+\begin{postulado}{Complementario - $Comp_\vee, Comp_\wedge$}{comp}
+Todo elemento del conjunto posee al menos un "complemento" (o elemento opuesto). Al operarlo con su complemento mediante $\vee$ siempre alcanzamos el máximo $\top$, y mediante $\wedge$ siempre caemos al mínimo $\bot$:
+\begin{align*}
+\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \\
+a \wedge b &= \bot \quad (Comp_\wedge)
+\end{align*}
+\end{postulado}
+
+\textit{Nota: A diferencia de algunas formulaciones clásicas que imponen un axioma de cardinalidad ($\bot \neq \top$) para evitar el álgebra trivial, en este desarrollo permitiremos la existencia del álgebra trivial.}
+

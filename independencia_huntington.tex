@@ -139,37 +139,37 @@ modelos dados por Huntington en su artículo de 1904.
 
 
 
-	El conjunto \({\setB}_2\) es conjunto en \textbf{ZFS}, desde el momento
+	El conjunto \({\setB}_2\) es conjunto en \textbf{ZF}, desde el momento
 que la el axioma de unión nos asegura que \({\setB}_2\) es conjunto unión de
 dos conjuntos de un solo elemento, \({\setB}_2 \mathdef { \set{0} } \cup {
 \set{1} } \). Los elementos \(0 \mathdef \emptyset\) y  \(1 \mathdef \set{
 \emptyset, \set{ \emptyset } } \). De nuevo para definir \(1\) como conjunto
-necesitamos el axioma de unión (o de pares no ordenados) de \textbf{ZFS},
+necesitamos el axioma de unión (o de pares no ordenados) de \textbf{ZF},
 siendo \(1 \mathdef \set{0}\cup\set{\set{0}}\). Podemos ver que \(0 \cap 1 =
 \emptyset \) por lo que \(0 \neq 1\). También \(0 \in 1\). Todo este párrafo
-constituye la satisfacción de los requerimientos \ref{axm:H0}.
+constituye la satisfacción de los requerimientos VI\footnote{Postulado VI: Existen al menos dos elementos distintos en la clase.}.
 
 
 
 	Tal como hemos definido nuestro modelo de álgebra de Boole, lo primero
 que queda claro es que \(\funcsum\) y \(\funcprod\) son funciones binarias
 bien definidas, y esta última es además biyectiva. Luego los axiomas
-\ref{axm:H1s} y \ref{axm:H1p} quedan satisfechos. 
+Ia\footnote{Postulado Ia: Clausura bajo la suma.} y Ib\footnote{Postulado Ib: Clausura bajo el producto.} quedan satisfechos. 
 
 
 
-	Los axiomas \ref{axm:H2s} y \ref{axm:H2p} (existencia del elemento
+	Los axiomas IIa\footnote{Postulado IIa: Existencia de elemento neutro para la suma.} y IIb\footnote{Postulado IIb: Existencia de elemento neutro para el producto.} (existencia del elemento
 neutro) quedan directamente satisfechos por simple inspección de las tablas. 
 
 
 
-	Para el axioma \ref{axm:H2s} observamos que \(\funcsumat{0}{0} = 0\) y
+	Para el axioma IIa observamos que \(\funcsumat{0}{0} = 0\) y
 \(\funcsumat{0}{1} = \funcsumat{1}{0} = 1\) nos muestra el elemento neutro de
 la suma, el elemento \(0\).
 
 
 
-	Para el axioma \ref{axm:H2p} observamos que \( \funcprodat{1}{0} =
+	Para el axioma IIb observamos que \( \funcprodat{1}{0} =
 \funcprodat{0}{1} = 0\) y \(\funcprodat{1}{1} = 1\) nos muestra el elemento
 neutro del producto, el elemento \(1\).
 
@@ -178,8 +178,8 @@ neutro del producto, el elemento \(1\).
 	Para los axiomas de conmutatividad solo hay que observar en la definición
 de las funciones binarias \(\funcsum,\funcprod : \setB_2 \times \setB_2
 \fromto \setB_2\), que \(\funcsumat{0}{1} = \funcsumat{1}{0} = 1\) y se
-cumple \ref{axm:H3s}, que \(\funcprodat{0}{1} = \funcprodat{1}{0} = 0\) y se
-cumple \ref{axm:H3p}. 
+cumple IIIa\footnote{Postulado IIIa: Conmutatividad de la suma.}, que \(\funcprodat{0}{1} = \funcprodat{1}{0} = 0\) y se
+cumple IIIb\footnote{Postulado IIIb: Conmutatividad del producto.}. 
 
 
 
@@ -212,7 +212,7 @@ Corresponden con la cuarta columna, la suma \( \funcsumat{ \textsf{b} } {
 \textsf{a} } { \textsf{b} } \). Las columnas centrales, la cinco y la seis
 corresponden a todas las valoraciones posibles (y en el mismo orden de valor
 de las variables independientes) de las dos expresiones que queremos
-comparar, las afirmadas por el postulado \ref{axm:H4s}. Podemos ver que ambas
+comparar, las afirmadas por el postulado IVb\footnote{Postulado IVb: Distributividad del producto sobre la suma.}. Podemos ver que ambas
 columnas son idénticas, luego se cumple el citado postulado.
 
 
@@ -285,26 +285,26 @@ al seguido para la otra distributiva.
 
 
 
-	Para el axioma \ref{axm:H5} observamos que \(\funccomplat{0} = 1\) y
+	Para el axioma V\footnote{Postulado V: Existencia de elemento complementario.} observamos que \(\funccomplat{0} = 1\) y
 \(\funccomplat{1} = 0\) y por inspección en las tablas vemos que
 \(\funcsumat{0}{\funccomplat{0}} = \funcsumat{0}{1} = 1\) y que
 \(\funcprodat{0}{\funccomplat{0}} = \funcprodat{0}{1} = 0\) cumpliendo para
 el elemento \(0\) se cumple que \(\exists 1 = \funccomplat{0} \in \setB_2 \)
 \(\funcsumat{1}{\funccomplat{1}} = \funcsumat{1}{0} = 1\), que coincide con
-la ecuación segunda (ecuación: 2.15) de \ref{eqn:H5} y
+la ecuación segunda (ecuación: 2.15) de postulado V y
 \(\funcprodat{1}{\funccomplat{1}}=\funcprodat{1}{0} = 0\) que coincide con la
-tercera ecuación (ecuación: 2.16) de \ref{eqn:H5}, e igualmente para el
+tercera ecuación (ecuación: 2.16) de postulado V, e igualmente para el
 elemento \( 1 \), \(\exists 0 = \funccomplat{1} \in \setB_2 \) \(
 \funcsumat{0}{\funccomplat{0}} = \funcsumat{0}{1} = 1\) (ecuación: 2.15) y
 \(\funcprodat{0}{\funccomplat{0}} =\funcprodat{0}{1} = 0\) (ecuación: 2.16)
-de \ref{eqn:H5}.
+de postulado V.
 
 
 
 
 	Como las ecuaciones 2.15 y 2.16 se cumplen para \(0\) y \(1\), esto es,
 \(\forall x \in \setB_2\) como se requiere en la ecuación 2.14, queda
-satisfecho el postulado \ref{axm:H5}.
+satisfecho el postulado V.
 
 
 
@@ -312,7 +312,7 @@ satisfecho el postulado \ref{axm:H5}.
 
 
 
-Modelo en el que solo falla \ref{axm:H1s}, esto es, que la operación suma
+Modelo en el que solo falla Ia, esto es, que la operación suma
 no es operación interna: no es función, pero en el sentido que \(1 + 1 \notin
 \setB\).
 
@@ -350,7 +350,7 @@ aparezca \(x\)). El complementario de \(0\) es \(1\) y el de \(1\) es \(0\).
 
 \subsection{Independencia de la unicidad de la definición de la suma.}
 
-Modelo en el que no se cumple \ref{axm:H1s}, en el sentido que \(1 + 1
+Modelo en el que no se cumple Ia, en el sentido que \(1 + 1
 \mapsto 1\) y \(1 + 1 \mapsto 0\).
 
 
@@ -386,7 +386,7 @@ postulados, sea cual sea el valor tomado para \(1 + 1\).
 
 
 
-	Modelo en el que solo falla \ref{axm:H1p}, esto es, que la operación
+	Modelo en el que solo falla Ib, esto es, que la operación
 producto no es operación interna: no es función. Este es el caso en que
 \( 0 \cdot 0 \notin \setB \). Ponemos en ese caso \(0 \cdot 0 = x\) pero
 igualmente podríamos haber dejado en blanco ese lugar.
@@ -427,7 +427,7 @@ distribución, siempre que tenga sentido el producto, esto es, no aparezca \(0 \
 
 
 
-Modelo en el que solo falla \ref{axm:H1s}, esto es, en el sentido que \(0
+Modelo en el que solo falla Ia, esto es, en el sentido que \(0
 \cdot 0 \mapsto 0\) y también \(0 \cdot 0 \mapsto 1\).
 
 
@@ -459,7 +459,7 @@ Modelo en el que solo falla \ref{axm:H1s}, esto es, en el sentido que \(0
 
 
 
-Modelo en el que solo falla \ref{axm:H2s}, esto es, la existencia de
+Modelo en el que solo falla IIa, esto es, la existencia de
 elemento neutro en la operación binaria interna suma.
 
 
@@ -495,13 +495,13 @@ en cuanto a que son funciones.
 
 
 	Segundo, existe el elemento neutro del producto: \(0 \cdot 1 = 1 \cdot 0
-= 0 \) y \( 1 \cdot 1 = 1 \). Luego se cumple \ref{aciom:H2p}.
+= 0 \) y \( 1 \cdot 1 = 1 \). Luego se cumple IIb\footnote{Postulado IIb: Existencia de elemento neutro para el producto.}.
 
 
 
 	La conmutatividad se hace patente al ver las diagonales inversas de las
 tablas de operación, que muestran un único valor. \( 0 + 1 = 1 + 0 = 0\) y
-\(0 \cdot 1 = 1 \cdot 0 = 0\). Se cumplen \ref{axm:H3s} y \ref{axm:H3p}. 
+\(0 \cdot 1 = 1 \cdot 0 = 0\). Se cumplen IIIa y IIIb. 
 
 
 
@@ -510,14 +510,14 @@ comprobarla de forma sencilla: \( a \cdot ( b + c ) = (a \cdot b) + (a \cdot
 c) \). Sabemos que \(b + c = 0\) siempre, y que, pongamos que \(a \cdot b = x
 \in \setB\) y que \(a \cdot c = y \in \setB\). Ahora bien \(x + y = 0\). Así
 que todo lo que tenemos que probar es que \(a \cdot 0 = 0\), pero esto es
-claro en la table del producto. Luego se cumple \ref{axm:H4s}.
+claro en la table del producto. Luego se cumple IVb.
 
 
 
 	Ahora la distribución de la suma sobre el producto. \( a + ( b \cdot c )
 = (a + b) \cdot (a + c) \). Sabemos que \(a + (b \cdot c) = 0\) siempre, y
 que, pongamos que \( a + b = 0 \) y que \(a + c = 0 \). Ahora bien \(0 \cdot
-0 = 0\). Luego se cumple \ref{axm:H4p}.
+0 = 0\). Luego se cumple IVa\footnote{Postulado IVa: Distributividad de la suma sobre el producto.}.
 
 
 	Nos queda encontrar un complemento para el \(0\). Pero encontrar el
@@ -531,7 +531,7 @@ complementario.
 
 
 
-	Exponemos un modelo en el que solo falla \ref{axm:H2p}, esto es, la existencia de elemento neutro en la operación binaria interna producto.
+	Exponemos un modelo en el que solo falla IIb, esto es, la existencia de elemento neutro en la operación binaria interna producto.
 
 
 
@@ -567,7 +567,7 @@ el esquema de la sub-sección anterior.
 
 
 
-	Modelo en que la conmutatividad de la suma \ref{axm:H3s} no se dá, pero
+	Modelo en que la conmutatividad de la suma IIIa no se dá, pero
 si que se dan el resto de postulados.
 
 
@@ -625,15 +625,15 @@ producto -. Luego existe complementario de \(1\) y es \(1\).
 \cdot z ) \) en el actual modelo. Si \(x = 0\) entonces \( 0 \cdot (x + y) =
 0 \) y la parte derecha de la igualdad se resuelve en \( ( 0 \cdot y ) + ( 0
 \cdot z ) \) pero como \( 0 \cdot x = 0 \) obtenemos que la distribución
-\ref{axm:H4s} será verdad para \(x = 0\) si \( 0 = 0 + 0 \), cosa que es
+IVb será verdad para \(x = 0\) si \( 0 = 0 + 0 \), cosa que es
 cierta. Si \( x = 1 \), la igualdad a verificar quedaría \( 1 \cdot ( y + z )
-= ( 1 \cdot y ) + ( 1 \cdot z ) \) y por \ref{axm:H2p} queda \( y + z  =  y
+= ( 1 \cdot y ) + ( 1 \cdot z ) \) y por IIb queda \( y + z  =  y
 + z \) que no es más que la identidad lógica de la igualdad. Se satisface
-\ref{axm:H4s}.
+IVb.
 
 
 
-	Nos preguntamos por la satisfacción de \ref{axm:H4p} \( x + ( y \cdot z
+	Nos preguntamos por la satisfacción de IVa \( x + ( y \cdot z
 ) = ( x + y ) \cdot ( x + z ) \) en el actual modelo. Procedemos como en el
 párrafo anterior, por casos. Si \(x = 0\) entonces \( x + ( y \cdot z ) = ( x
 + y ) \cdot ( x + z ) \) \(\Longrightarrow\) \(0 + ( y \cdot z ) = ( 0 + y )
@@ -641,11 +641,11 @@ párrafo anterior, por casos. Si \(x = 0\) entonces \( x + ( y \cdot z ) = ( x
 Para el caso \(x = 1\),  obtenemos \( x + ( y \cdot z ) = ( x + y ) \cdot ( x
 + z ) \) \(\Longrightarrow\) \( 1 + ( y \cdot z ) = ( 1 + y ) \cdot ( 1 + z
 )\) \(\Longrightarrow\) \( 1 = 1 \cdot 1 \). Por lo tanto también se verifica
-\ref{axm:H4p}.
+IVa.
 
 
 
-	Queda comprobado que la conmutatividad de la suma \ref{axm:H3s} es independiente del resto de postulados.
+	Queda comprobado que la conmutatividad de la suma IIIa es independiente del resto de postulados.
 
 
 
@@ -653,7 +653,7 @@ Para el caso \(x = 1\),  obtenemos \( x + ( y \cdot z ) = ( x + y ) \cdot ( x
 
 
 
-	Modelo en que la conmutatividad del producto \ref{axm:H3p} no se da,
+	Modelo en que la conmutatividad del producto IIIb no se da,
 pero, si se satisfacen el resto de postulados.
 
 
@@ -691,7 +691,7 @@ comprobar todo siguiendo los mismos pasos que en la sub-sección anterior.
 
 
 	El postulado del título no se cumple. Existen valores del modelo \(
-\exists x \in \setB \) que no cumplen \ref{axm:H4p}, \( x + ( y \cdot z )
+\exists x \in \setB \) que no cumplen IVa, \( x + ( y \cdot z )
 \neq ( x + y ) \cdot (x + z) \).
 
 
@@ -726,7 +726,7 @@ módulo 2, \(\setZ/{\mod2}\). Ese es el cambio que se da en la suma. Ahora \(1
 
 
 	Se dan por lo tanto todos los teoremas conocidos incluida la distribución
-\ref{axm:H4s} e incluso sabemos que las operaciones son asociativas.
+IVb e incluso sabemos que las operaciones son asociativas.
 
 
 
@@ -752,13 +752,13 @@ se encuentra visualmente por inspección de las tablas: \(\overline{1} = 0\) y
   \overline{0} &= 1 \cdot \overline{z} \\
   1 &= \overline{z} \\
   z &= 0\\
-  x=1 \wedge y=0 \wedge z=1 &\Longrightarrow \neg\ref{axm:H4p}
+  x=1 \wedge y=0 \wedge z=1 &\Longrightarrow \neg\mathrm{IVa}
 \end{flalign}
 
 
 
 	De dónde efectivamente este modelo no distribuye la suma sobre un
-producto. Y la independencia de \ref{axm:H4p} queda probada.
+producto. Y la independencia de IVa queda probada.
 
 
 

@@ -1,6 +1,6 @@
 # Makefile para compilar el proyecto LaTeX
 
-PROJECTS = main manual_ingenieria
+PROJECTS = main manual_ingenieria independencia_huntington
 BUILD_DIR = build
 TEST_BUILD_DIR = $(BUILD_DIR)/build_tests
 
