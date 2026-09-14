@@ -610,6 +610,12 @@ Denotado frecuentemente con $\odot$ o $\leftrightarrow$, es la negación de la o
 \[ a \odot b \triangleq \neg (a \oplus b) = (a \wedge b) \vee (\neg a \wedge \neg b) \]
 \end{definicion}
 
+\begin{definicion}{Generalización a $n$ variables de NAND y NOR}{gen_nand_nor}
+A diferencia de los operadores $\vee$, $\wedge$ y $\oplus$, los operadores NAND ($\uparrow$) y NOR ($\downarrow$) \textbf{no son asociativos}. Sin embargo, debido a su inmensa importancia práctica en la construcción de circuitos digitales, se define convencionalmente su generalización a $n$ variables como la negación de la conjunción o disyunción múltiple, respectivamente:
+\[ \text{NAND}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigwedge_{i=1}^n x_i \right) \]
+\[ \text{NOR}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigvee_{i=1}^n x_i \right) \]
+\end{definicion}
+
 \section{Comportamiento de los Operadores Derivados}
 Los operadores NAND ($\uparrow$) y NOR ($\downarrow$) presentan una serie de propiedades algebraicas particulares. Al ser operadores funcionalmente completos, permiten expresar cualquier otra operación booleana utilizando exclusivamente uno de ellos.
 
@@ -821,7 +827,7 @@ Las pruebas para XNOR son totalmente duales.
 \end{proof}
 }
 
-\begin{teorema}{Idempotencia nula (Autoinverso)}{idemp_nula_xor}
+\begin{teorema}{Elemento Inverso de sí mismo (Grupo Abeliano)}{idemp_nula_xor}
 La combinación de un elemento consigo mismo produce una anulación (devuelve el neutro de la operación correspondiente), actuando cada elemento como su propio inverso:
 \[ a \oplus a = \bot \qquad \text{y} \qquad a \odot a = \top \]
 \end{teorema}
@@ -1240,7 +1246,7 @@ Si $0 = 1$, o si existe algún elemento tal que $\overline{a} = a$, entonces el 
 \end{teorema}
 
 \setcounter{tcb@cnt@teorema}{24}
-\begin{teorema}{Idempotencia nula}{idemp_nula_eng}
+\begin{teorema}{Elemento Inverso de sí mismo (Grupo Abeliano)}{idemp_nula_eng}
 \[ a \oplus a = 0 \qquad \text{y} \qquad a \odot a = 1 \]
 \end{teorema}
 
