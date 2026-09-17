@@ -1,0 +1,1547 @@
+# Introducción
+
+El álgebra de Boole, originalmente introducida por George Boole en su
+obra de 1854 *The Laws of Thought*, fue posteriormente axiomatizada de
+forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye
+Huntington presentó un conjunto de postulados independientes que definen
+formalmente una estructura de álgebra de Boole.
+
+Para evitar cualquier confusión conceptual con la aritmética
+tradicional, en esta fase inicial emplearemos la signatura propia de la
+teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y
+$\wedge$ (ínfimo o meet), junto a los elementos constantes $\bot$
+(mínimo) y $\top$ (máximo). El complemento se denotará con el símbolo
+clásico de la negación lógica $\neg$. Más adelante, y por conveniencia
+práctica, transitaremos hacia la notación clásica de sistemas digitales
+($+$, $\cdot$, $0$, $1$).
+
+# Pre-Axiomas de la Estructura
+
+Antes de enunciar los postulados, debemos definir rigurosamente sobre
+qué elementos y operaciones estamos trabajando.
+
+Partimos de un ente matemático $\mathbb{B}$.
+
+::: preaxioma
+Estructura de Conjunto - EsConjunto($\mathbb{B}$)esconj Se requiere que
+$\mathbb{B}$ sea un conjunto.
+:::
+
+::: preaxioma
+Elementos Constantes - Constantesconstantes Este conjunto ha de cumplir
+que tiene dos elementos que llamaremos constantes, tales que
+$\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En principio, no asumimos
+nada sobre la igualdad o desigualdad de estas constantes.
+:::
+
+Además, vamos a definir dos operaciones binarias internas que
+denotaremos por $\vee$ y $\wedge$. Estas deben satisfacer rigurosamente
+la definición de función:
+
+::: preaxioma
+Operación Binaria Interna $\vee$ - OpBinInt$_\vee$opbinint_vee
+$\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación
+binaria interna.
+:::
+
+::: preaxioma
+Operación Binaria Interna $\wedge$ - OpBinInt$_\wedge$opbinint_wedge
+$\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación
+binaria interna.
+:::
+
+Para poder usar estos conceptos con mayor seguridad y flexibilidad en
+las futuras demostraciones formales, asignaremos nombres cortos a las
+condiciones de existencia y unicidad de la imagen para estas
+operaciones:
+
+::: preaxioma
+Existencia $\vee$ - Existencia$_\vee$exist_vee Para todo par existe
+imagen en $\mathbb{B}$. Es decir,
+$\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$,
+$\exists c \in \mathbb{B}$ tal que $a \vee b = c$.
+:::
+
+::: preaxioma
+Existencia $\wedge$ - Existencia$_\wedge$exist_wedge Análogamente,
+$\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$,
+$\exists d \in \mathbb{B}$ tal que $a \wedge b = d$.
+:::
+
+::: preaxioma
+Unicidad $\vee$ - Unicidad$_\vee$unic_vee Para un par solo existe una
+imagen. Esto es, si $a \vee b = c$ y $a \vee b = d$, entonces $c = d$.
+:::
+
+::: preaxioma
+Unicidad $\wedge$ - Unicidad$_\wedge$unic_wedge De igual forma para el
+ínfimo, si $a \wedge b = c$ y $a \wedge b = d$, entonces $c = d$.
+:::
+
+# Los Postulados de Huntington (1904)
+
+Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los
+pre-axiomas anteriores, diremos que forma un álgebra de Boole si
+satisface los siguientes postulados:
+
+::: postulado
+Elemento neutro $\vee$ - $ElemNeu_\vee$neutro_vee Todo elemento operado
+mediante $\vee$ con el mínimo $\bot$ da como resultado el mismo
+elemento; es decir, $\bot$ no altera el valor original:
+$$\forall a \in \mathbb{B}, \quad a \vee \bot = a$$
+:::
+
+::: postulado
+Elemento neutro $\wedge$ - $ElemNeu_\wedge$neutro_wedge Todo elemento
+operado mediante $\wedge$ con el máximo $\top$ da como resultado el
+mismo elemento, quedando inalterado:
+$$\forall a \in \mathbb{B}, \quad a \wedge \top = a$$
+:::
+
+::: postulado
+Conmutatividad $\vee$ - $Comm_\vee$conmut_vee El orden de los operandos
+al aplicar la operación $\vee$ es indiferente, obteniéndose exactamente
+el mismo resultado:
+$$\forall a, b \in \mathbb{B}, \quad a \vee b = b \vee a$$
+:::
+
+::: postulado
+Conmutatividad $\wedge$ - $Comm_\wedge$conmut_wedge De la misma forma,
+el orden de los operandos al aplicar la operación $\wedge$ tampoco
+altera el resultado final:
+$$\forall a, b \in \mathbb{B}, \quad a \wedge b = b \wedge a$$
+:::
+
+::: postulado
+Distributividad $\vee$ sobre $\wedge$ - $Dist_\vee$distrib_vee_wedge La
+operación $\vee$ se distribuye sobre la operación $\wedge$. Operar un
+elemento con el resultado de un $\wedge$ equivale a operar con $\vee$
+cada componente individualmente y luego aplicar $\wedge$:
+$$\forall a, b, c \in \mathbb{B}, \quad a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$$
+:::
+
+::: postulado
+Distributividad $\wedge$ sobre $\vee$ - $Dist_\wedge$distrib_wedge_vee
+De manera equivalente, el ínfimo ($\wedge$) se reparte de forma
+distributiva entre los componentes de un supremo ($\vee$):
+$$\forall a, b, c \in \mathbb{B}, \quad a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$$
+:::
+
+::: postulado
+Complementario - $Comp_\vee, Comp_\wedge$comp Todo elemento del conjunto
+posee al menos un \"complemento\" (o elemento opuesto). Al operarlo con
+su complemento mediante $\vee$ siempre alcanzamos el máximo $\top$, y
+mediante $\wedge$ siempre caemos al mínimo $\bot$: $$\begin{align*}
+\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \\
+a \wedge b &= \bot \quad (Comp_\wedge)
+\end{align*}$$
+:::
+
+*Nota: A diferencia de algunas formulaciones clásicas que imponen un
+axioma de cardinalidad ($\bot \neq \top$) para evitar el álgebra
+trivial, en este desarrollo permitiremos la existencia del álgebra
+trivial.*
+
+# El Principio de Dualidad
+
+Si observamos los postulados de Huntington, notaremos una perfecta
+simetría entre las operaciones $\vee$ y $\wedge$, y entre las constantes
+$\bot$ y $\top$. Si en cualquier postulado intercambiamos $\vee$ por
+$\wedge$ y $\bot$ por $\top$, obtenemos otro postulado válido del
+sistema.
+
+Este rasgo estructural da lugar al **Principio de Dualidad**: toda
+proposición o teorema deducido a partir de estos axiomas tiene un
+*teorema dual* que también es válido. La demostración de un teorema dual
+se construye manipulando la prueba original y aplicando sistemáticamente
+el intercambio de operaciones ($\vee \leftrightarrow \wedge$) y
+constantes ($\bot \leftrightarrow \top$). En las siguientes pruebas no
+evitaremos repetir las versiones duales; al contrario, haremos hincapié
+en cómo se manipula la prueba de uno para obtener la del otro.
+
+# Teoremas Principales Derivados
+
+::: teorema
+Unicidad de los elementos neutros - $Unic_e, Unic_u$unicidad_neutros Los
+elementos neutros descritos en los postulados son únicos. No existe
+ningún otro elemento en el conjunto que se comporte como el mínimo
+$\bot$ para la operación $\vee$, ni ningún otro que actúe como el máximo
+$\top$ para la operación $\wedge$: $$\begin{align*}
+    \exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a \vee e &= a \implies e = \bot \quad (Unic_e) \\
+    \exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \wedge u &= a \implies u = \top \quad (Unic_u)
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $Unic_e$.* Sea $e \in \mathbb{B}$ tal que
+$\forall a \in \mathbb{B}, a \vee e = a$. Tomando $a = \bot$:
+$$\begin{align*}
+    e &= e \vee \bot & (ElemNeu_\vee) \\
+      &= \bot \vee e & (Comm_\vee) \\
+      &= \bot & (\text{Hipótesis sobre } e)
+\end{align*}$$ ◻
+:::
+
+::: proof
+*Demostración de $Unic_u$ (Dual).* Para obtener la prueba dual,
+intercambiamos $\vee$ por $\wedge$ y $\bot$ por $\top$. Sea
+$u \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \wedge u = a$.
+Tomando $a = \top$: $$\begin{align*}
+    u &= u \wedge \top & (ElemNeu_\wedge) \\
+      &= \top \wedge u & (Comm_\wedge) \\
+      &= \top & (\text{Hipótesis sobre } u)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Idempotencia - $Idemp_\vee, Idemp_\wedge$idempotencia Operar un elemento
+consigo mismo, independientemente de si usamos $\vee$ o $\wedge$, no
+altera su valor. El elemento se mantiene idéntico a sí mismo:
+$$\begin{align*}
+    \forall a \in \mathbb{B}, \quad a \vee a &= a \quad (Idemp_\vee) \\
+    \forall a \in \mathbb{B}, \quad a \wedge a &= a \quad (Idemp_\wedge)
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $Idemp_\vee$.* $$\begin{align*}
+    a &= a \vee \bot & (ElemNeu_\vee) \\
+      &= a \vee (a \wedge \neg a) & (Comp_\wedge) \\
+      &= (a \vee a) \wedge (a \vee \neg a) & (Dist_\vee) \\
+      &= (a \vee a) \wedge \top & (Comp_\vee) \\
+      &= \top \wedge (a \vee a) & (Comm_\wedge) \\
+      &= a \vee a & (ElemNeu_\wedge)
+\end{align*}$$ ◻
+:::
+
+::: proof
+*Demostración de $Idemp_\wedge$ (Dual).* Intercambiando los operadores y
+constantes de la prueba anterior paso a paso: $$\begin{align*}
+    a &= a \wedge \top & (ElemNeu_\wedge) \\
+      &= a \wedge (a \vee \neg a) & (Comp_\vee) \\
+      &= (a \wedge a) \vee (a \wedge \neg a) & (Dist_\wedge) \\
+      &= (a \wedge a) \vee \bot & (Comp_\wedge) \\
+      &= \bot \vee (a \wedge a) & (Comm_\vee) \\
+      &= a \wedge a & (ElemNeu_\vee)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Elementos absorbentes - $Abs_{\bot}, Abs_{\top}$absorbentes Cualquier
+elemento operado mediante $\vee$ con el máximo $\top$ es absorbido por
+este, dando como resultado $\top$. De igual manera, operar cualquier
+elemento mediante $\wedge$ con el mínimo $\bot$ siempre resulta en
+$\bot$: $$\begin{align*}
+    \forall a \in \mathbb{B}, \quad a \vee \top &= \top \\
+    \forall a \in \mathbb{B}, \quad a \wedge \bot &= \bot
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $a \vee \top = \top$.* $$\begin{align*}
+    a \vee \top &= (a \vee \top) \wedge \top & (ElemNeu_\wedge) \\
+               &= (a \vee \top) \wedge (a \vee \neg a) & (Comp_\vee) \\
+               &= a \vee (\top \wedge \neg a) & (Dist_\vee) \\
+               &= a \vee (\neg a \wedge \top) & (Comm_\wedge) \\
+               &= a \vee \neg a & (ElemNeu_\wedge) \\
+               &= \top & (Comp_\vee)
+\end{align*}$$ ◻
+:::
+
+::: proof
+*Demostración de $a \wedge \bot = \bot$ (Dual).* $$\begin{align*}
+    a \wedge \bot &= (a \wedge \bot) \vee \bot & (ElemNeu_\vee) \\
+               &= (a \wedge \bot) \vee (a \wedge \neg a) & (Comp_\wedge) \\
+               &= a \wedge (\bot \vee \neg a) & (Dist_\wedge) \\
+               &= a \wedge (\neg a \vee \bot) & (Comm_\vee) \\
+               &= a \wedge \neg a & (ElemNeu_\vee) \\
+               &= \bot & (Comp_\wedge)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Condición de Álgebra Trivialtrivial_cond Si se da el caso extremo de que
+el elemento mínimo $\bot$ y el máximo $\top$ son exactamente el mismo,
+entonces estamos ante un álgebra que contiene un único elemento en todo
+su conjunto (el álgebra trivial):
+$$\bot = \top \implies \mathbb{B} = \{\top\} = \{\bot\}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Proof.* Supongamos que $\bot = \top$. Sea $x \in \mathbb{B}$ un
+elemento cualquiera: $$\begin{align*}
+    x &= x \vee \bot & (ElemNeu_\vee) \\
+      &= x \vee \top & (\text{Hipótesis } \bot = \top) \\
+      &= \top & (Abs_\top)
+\end{align*}$$ Por tanto, todo elemento $x$ del conjunto es idéntico a
+$\top$, lo que implica que $\mathbb{B} = \{\top\} = \{\bot\}$. ◻
+:::
+
+::: teorema
+Complemento Idéntico implica Álgebra Trivialtrivial_comp Si dentro de la
+estructura existe algún elemento que sea igual a su propio complemento
+($\neg a = a$), entonces forzosamente todo el sistema colapsa en el
+álgebra trivial de un solo elemento:
+$$(\exists a \in \mathbb{B} : \neg a = a) \implies \mathbb{B} = \{\top\} = \{\bot\}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Proof.* Supongamos que existe $a \in \mathbb{B}$ tal que $\neg a = a$.
+Por el postulado del Complemento ($Comp_\vee$ y $Comp_\wedge$), sabemos
+que $a \vee \neg a = \top$ y $a \wedge \neg a = \bot$. Sustituyendo la
+hipótesis $\neg a = a$ en ambas ecuaciones, obtenemos:
+$$a \vee a = \top \quad \text{y} \quad a \wedge a = \bot$$ Aplicando el
+teorema de Idempotencia ($Idemp_\vee$ y $Idemp_\wedge$), sabemos que
+$a \vee a = a$ y $a \wedge a = a$. Por tanto:
+$$a = \top \quad \text{y} \quad a = \bot$$ Lo cual implica que
+$\bot = \top$. Aplicando el teorema anterior (Condición de Álgebra
+Trivial), concluimos que $\mathbb{B} = \{\top\} = \{\bot\}$. ◻
+:::
+
+::: teorema
+Propiedades de absorción - $Abs_{\vee}, Abs_{\wedge}$absorcion Cuando se
+combinan ambas operaciones anidando un elemento consigo mismo y con un
+tercero, el elemento repetido \"absorbe\" al otro, independientemente
+del valor del segundo: $$\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \vee (a \wedge b) &= a \\
+    \forall a, b \in \mathbb{B}, \quad a \wedge (a \vee b) &= a
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $Abs_\vee$.* $$\begin{align*}
+    a \vee (a \wedge b) &= (a \wedge \top) \vee (a \wedge b) & (ElemNeu_\wedge) \\
+                        &= a \wedge (\top \vee b) & (Dist_\wedge) \\
+                        &= a \wedge (b \vee \top) & (Comm_\vee) \\
+                        &= a \wedge \top & (Abs_\top) \\
+                        &= a & (ElemNeu_\wedge)
+\end{align*}$$ ◻
+:::
+
+::: proof
+*Demostración de $Abs_\wedge$ (Dual).* $$\begin{align*}
+    a \wedge (a \vee b) &= (a \vee \bot) \wedge (a \vee b) & (ElemNeu_\vee) \\
+                        &= a \vee (\bot \wedge b) & (Dist_\vee) \\
+                        &= a \vee (b \wedge \bot) & (Comm_\wedge) \\
+                        &= a \vee \bot & (Abs_\bot) \\
+                        &= a & (ElemNeu_\vee)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Propiedades de orden de retículo - $Prop_{\vee,\wedge}$prop_reticulo
+Existe una correspondencia biunívoca fundamental entre las dos
+operaciones: afirmar que un elemento domina a otro mediante $\vee$
+equivale matemáticamente a afirmar que el segundo se impone al primero
+mediante $\wedge$:
+$$\forall a, b \in \mathbb{B}: \quad a \vee b = a \iff a \wedge b = b$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $\implies$.* Supongamos que $a \vee b = a$.
+$$\begin{align*}
+    a \wedge b &= b \wedge a & (Comm_\wedge) \\
+               &= b \wedge (a \vee b) & (\text{Hipótesis } a \vee b = a) \\
+               &= b & (Abs_\wedge)
+\end{align*}$$ ◻
+:::
+
+::: proof
+*Demostración de $\impliedby$ (Dual).* Supongamos que $a \wedge b = b$.
+$$\begin{align*}
+    a \vee b &= b \vee a & (Comm_\vee) \\
+               &= (a \wedge b) \vee a & (\text{Hipótesis } a \wedge b = b) \\
+               &= a \vee (a \wedge b) & (Comm_\vee) \\
+               &= a & (Abs_\vee)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Equivalencia de operaciones - $Equa_{\vee,\wedge}$equa_operaciones Si
+operar dos elementos mediante $\vee$ da exactamente el mismo resultado
+que operarlos mediante $\wedge$, esto sólo es lógicamente posible si
+ambos elementos son en realidad el mismo:
+$$\forall a, b \in \mathbb{B}: \quad a \vee b = a \wedge b \implies a = b$$
+:::
+
+**Demostración:**
+
+::: proof
+*Proof.* Supongamos $a \vee b = a \wedge b$. Observamos que:
+$$\begin{align*}
+    a &= a \vee (a \wedge b) & (Abs_\vee) \\
+      &= a \vee (a \vee b) & (\text{Hipótesis})
+\end{align*}$$ Aplicando $Prop_{\vee,\wedge}$, dado que
+$a \vee (a \vee b) = a$, deducimos que $a \wedge (a \vee b) = a \vee b$.
+$$\begin{align*}
+    a \vee b &= a \wedge (a \vee b) & (\text{Resultado anterior}) \\
+             &= a & (Abs_\wedge)
+\end{align*}$$ De manera simétrica para $b$: $$\begin{align*}
+    b &= b \vee (a \wedge b) & (Abs_\vee) \\
+      &= b \vee (a \vee b) & (\text{Hipótesis}) \\
+      &= (a \vee b) \vee b & (Comm_\vee)
+\end{align*}$$ Aplicando de nuevo $Prop_{\vee,\wedge}$ sobre esta
+igualdad, obtenemos que $(a \vee b) \wedge b = a \vee b$. Pero sabemos
+por $Abs_\wedge$ que $(a \vee b) \wedge b = b \wedge (a \vee b) = b$.
+Por consiguiente, $a \vee b = b$. Finalmente, uniendo ambos resultados:
+$a = a \vee b = b$. ◻
+:::
+
+::: teorema
+Teorema de Cancelación - $Equa_{canc}$equa_canc Si un elemento $a$ se
+opera mediante $\vee$ con $b$ y con $c$ dando el mismo resultado, y
+además se opera mediante $\wedge$ con $b$ y con $c$ coincidiendo también
+los resultados, entonces forzosamente $b$ y $c$ son el mismo elemento:
+$$\forall a, b, c \in \mathbb{B}: \quad a \vee b = a \vee c \quad \text{y} \quad a \wedge b = a \wedge c \implies b = c$$
+:::
+
+**Demostración:**
+
+::: proof
+*Proof.* Este teorema es automejor dualizable al ser sus hipótesis
+perfectamente simétricas. $$\begin{align*}
+    b &= b \wedge (a \vee b) & (Abs_\wedge) \\
+      &= b \wedge (a \vee c) & (\text{Hipótesis } a \vee b = a \vee c) \\
+      &= (b \wedge a) \vee (b \wedge c) & (Dist_\wedge) \\
+      &= (a \wedge b) \vee (b \wedge c) & (Comm_\wedge) \\
+      &= (a \wedge c) \vee (b \wedge c) & (\text{Hipótesis } a \wedge b = a \wedge c) \\
+      &= (c \wedge a) \vee (c \wedge b) & (Comm_\wedge \text{ aplicado dos veces}) \\
+      &= c \wedge (a \vee b) & (Dist_\wedge) \\
+      &= c \wedge (a \vee c) & (\text{Hipótesis } a \vee b = a \vee c) \\
+      &= c & (Abs_\wedge)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Unicidad del complemento - $Unic_{comp}$unic_comp Todo elemento del
+conjunto tiene un complemento $\neg a$, y este es estrictamente único.
+Ningún otro elemento puede cumplir simultáneamente las dos condiciones
+del postulado del complemento para un mismo $a$:
+$$\forall a, x \in \mathbb{B} : \quad (a \vee x = \top \quad \text{y} \quad a \wedge x = \bot) \implies x = \neg a$$
+:::
+
+**Demostración:**
+
+::: proof
+*Proof.* Supongamos que existe $x \in \mathbb{B}$ tal que
+$a \vee x = \top$ y $a \wedge x = \bot$. $$\begin{align*}
+    x &= x \wedge \top & (ElemNeu_\wedge) \\
+      &= x \wedge (a \vee \neg a) & (Comp_\vee) \\
+      &= (x \wedge a) \vee (x \wedge \neg a) & (Dist_\wedge) \\
+      &= (a \wedge x) \vee (x \wedge \neg a) & (Comm_\wedge) \\
+      &= \bot \vee (x \wedge \neg a) & (\text{Hipótesis } a \wedge x = \bot) \\
+      &= (a \wedge \neg a) \vee (x \wedge \neg a) & (Comp_\wedge) \\
+      &= (a \vee x) \wedge \neg a & (Dist_\wedge) \\
+      &= \top \wedge \neg a & (\text{Hipótesis } a \vee x = \top) \\
+      &= \neg a \wedge \top & (Comm_\wedge) \\
+      &= \neg a & (ElemNeu_\wedge)
+\end{align*}$$ Por tanto, si $x$ cumple las condiciones de complemento,
+$x$ tiene que ser necesariamente $\neg a$. ◻
+:::
+
+::: teorema
+Involución - $Comp_{inv}$comp_inv Aplicar la operación de complemento (o
+negación) dos veces consecutivas sobre un mismo elemento cancela su
+efecto, devolviendo el elemento original intacto:
+$$\forall a \in \mathbb{B}, \quad \neg (\neg a) = a$$
+:::
+
+**Demostración:**
+
+::: proof
+*Proof.* Por definición, el complemento de $\neg a$, denotado como
+$\neg (\neg a)$, es el elemento único que satisface:
+$$\neg a \vee \neg (\neg a) = \top \quad \text{y} \quad \neg a \wedge \neg (\neg a) = \bot$$
+Sin embargo, por la conmutatividad ($Comm_\vee$ y $Comm_\wedge$),
+sabemos que:
+$$\neg a \vee a = a \vee \neg a = \top \quad \text{y} \quad \neg a \wedge a = a \wedge \neg a = \bot$$
+Esto demuestra que $a$ actúa como un complemento de $\neg a$. Por el
+teorema de unicidad del complemento ($Unic_{comp}$), concluimos
+necesariamente que $\neg (\neg a) = a$. ◻
+:::
+
+::: teorema
+Leyes de De Morgan - $Mor_{\vee, \wedge}$morgan La negación matemática
+se distribuye sobre las operaciones, pero al hacerlo, invierte la
+operación original: un supremo ($\vee$) negado se convierte en el ínfimo
+($\wedge$) de las negaciones, y viceversa: $$\begin{align}
+    \neg (a \vee b) &= \neg a \wedge \neg b \\
+    \neg (a \wedge b) &= \neg a \vee \neg b
+\end{align}$$ De forma equivalente, aislando las variables mediante la
+involución, podemos expresar las operaciones básicas exclusivamente a
+partir de su dual negada: $$\begin{align}
+    a \vee b &= \neg (\neg a \wedge \neg b) \\
+    a \wedge b &= \neg (\neg a \vee \neg b)
+\end{align}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $\neg (a \vee b) = \neg a \wedge \neg b$.* Para
+demostrarlo sin recurrir a la asociatividad, usaremos las propiedades de
+absorción. Comprobemos primero la suma:
+$(a \vee b) \vee (\neg a \wedge \neg b) = \top$. Sabemos por
+$Abs_\wedge$ que $a \wedge (a \vee b) = a$. $$\begin{align*}
+    \neg a \vee (a \wedge (a \vee b)) &= \neg a \vee a = \top & (Comp_\vee) \\
+    (\neg a \vee a) \wedge (\neg a \vee (a \vee b)) &= \top & (Dist_\vee) \\
+    \top \wedge (\neg a \vee (a \vee b)) &= \top & (Comp_\vee) \\
+    \neg a \vee (a \vee b) &= \top & (ElemNeu_\wedge)
+\end{align*}$$ Simétricamente, como
+$b \wedge (a \vee b) = b \wedge (b \vee a) = b$, obtenemos
+$\neg b \vee (a \vee b) = \top$. Por tanto: $$\begin{align*}
+    (a \vee b) \vee (\neg a \wedge \neg b) &= ((a \vee b) \vee \neg a) \wedge ((a \vee b) \vee \neg b) & (Dist_\vee) \\
+    &= (\neg a \vee (a \vee b)) \wedge (\neg b \vee (a \vee b)) & (Comm_\vee) \\
+    &= \top \wedge \top & (\text{Resultados anteriores}) \\
+    &= \top & (Idemp_\wedge)
+\end{align*}$$
+
+Segundo, comprobemos el producto:
+$(a \vee b) \wedge (\neg a \wedge \neg b) = \bot$. Sabemos por
+$Abs_\vee$ que $\neg a \vee (\neg a \wedge \neg b) = \neg a$.
+$$\begin{align*}
+    a \wedge (\neg a \vee (\neg a \wedge \neg b)) &= a \wedge \neg a = \bot & (Comp_\wedge) \\
+    (a \wedge \neg a) \vee (a \wedge (\neg a \wedge \neg b)) &= \bot & (Dist_\wedge) \\
+    \bot \vee (a \wedge (\neg a \wedge \neg b)) &= \bot & (Comp_\wedge) \\
+    a \wedge (\neg a \wedge \neg b) &= \bot & (ElemNeu_\vee)
+\end{align*}$$ Simétricamente, como
+$\neg b \vee (\neg a \wedge \neg b) = \neg b \vee (\neg b \wedge \neg a) = \neg b$,
+obtenemos $b \wedge (\neg a \wedge \neg b) = \bot$. Por tanto:
+$$\begin{align*}
+    (a \vee b) \wedge (\neg a \wedge \neg b) &= (\neg a \wedge \neg b) \wedge (a \vee b) & (Comm_\wedge) \\
+    &= ((\neg a \wedge \neg b) \wedge a) \vee ((\neg a \wedge \neg b) \wedge b) & (Dist_\wedge) \\
+    &= (a \wedge (\neg a \wedge \neg b)) \vee (b \wedge (\neg a \wedge \neg b)) & (Comm_\wedge) \\
+    &= \bot \vee \bot & (\text{Resultados anteriores}) \\
+    &= \bot & (Idemp_\vee)
+\end{align*}$$ Por el teorema de unicidad ($Unic_{comp}$), concluimos
+que $\neg (a \vee b) = \neg a \wedge \neg b$. ◻
+:::
+
+::: proof
+*Demostración de $\neg (a \wedge b) = \neg a \vee \neg b$ (Dual).*
+Intercambiando operaciones y constantes, comprobamos el producto:
+$(a \wedge b) \wedge (\neg a \vee \neg b) = \bot$. Sabemos por
+$Abs_\vee$ que $a \vee (a \wedge b) = a$. $$\begin{align*}
+    \neg a \wedge (a \vee (a \wedge b)) &= \neg a \wedge a = \bot & (Comp_\wedge) \\
+    (\neg a \wedge a) \vee (\neg a \wedge (a \wedge b)) &= \bot & (Dist_\wedge) \\
+    \bot \vee (\neg a \wedge (a \wedge b)) &= \bot & (Comp_\wedge) \\
+    \neg a \wedge (a \wedge b) &= \bot & (ElemNeu_\vee)
+\end{align*}$$ Simétricamente, $\neg b \wedge (a \wedge b) = \bot$. Por
+tanto: $$\begin{align*}
+    (a \wedge b) \wedge (\neg a \vee \neg b) &= ((a \wedge b) \wedge \neg a) \vee ((a \wedge b) \wedge \neg b) & (Dist_\wedge) \\
+    &= (\neg a \wedge (a \wedge b)) \vee (\neg b \wedge (a \wedge b)) & (Comm_\wedge) \\
+    &= \bot \vee \bot = \bot & (\text{Resultados anteriores})
+\end{align*}$$
+
+Comprobemos la suma: $(a \wedge b) \vee (\neg a \vee \neg b) = \top$.
+Sabemos por $Abs_\wedge$ que
+$\neg a \wedge (\neg a \vee \neg b) = \neg a$. $$\begin{align*}
+    a \vee (\neg a \wedge (\neg a \vee \neg b)) &= a \vee \neg a = \top & (Comp_\vee) \\
+    (a \vee \neg a) \wedge (a \vee (\neg a \vee \neg b)) &= \top & (Dist_\vee) \\
+    \top \wedge (a \vee (\neg a \vee \neg b)) &= \top & (Comp_\vee) \\
+    a \vee (\neg a \vee \neg b) &= \top & (ElemNeu_\wedge)
+\end{align*}$$ Simétricamente, $b \vee (\neg a \vee \neg b) = \top$. Por
+tanto: $$\begin{align*}
+    (a \wedge b) \vee (\neg a \vee \neg b) &= (\neg a \vee \neg b) \vee (a \wedge b) & (Comm_\vee) \\
+    &= ((\neg a \vee \neg b) \vee a) \wedge ((\neg a \vee \neg b) \vee b) & (Dist_\vee) \\
+    &= (a \vee (\neg a \vee \neg b)) \wedge (b \vee (\neg a \vee \neg b)) & (Comm_\vee) \\
+    &= \top \wedge \top = \top & (\text{Resultados anteriores})
+\end{align*}$$ Por $Unic_{comp}$,
+$\neg (a \wedge b) = \neg a \vee \neg b$. ◻
+:::
+
+::: proof
+*Demostración de $a \vee b = \neg (\neg a \wedge \neg b)$ y su dual.*
+Partiendo de $\neg (\neg a \wedge \neg b)$, aplicamos De Morgan a sus
+componentes: $$\begin{align*}
+    \neg (\neg a \wedge \neg b) &= \neg (\neg a) \vee \neg (\neg b) & (Mor_\wedge) \\
+    &= a \vee b & (Comp_{inv})
+\end{align*}$$ Dualizando la expresión, obtenemos de manera idéntica que
+$\neg (\neg a \vee \neg b) = a \wedge b$. ◻
+:::
+
+::: teorema
+Asociatividad - $Asoc_\vee, Asoc_\wedge$asociatividad El orden en el que
+se agrupan tres o más elementos al aplicar de forma consecutiva la misma
+operación ($\vee$ o $\wedge$) no altera el resultado final. Al ubicar
+este teorema después de De Morgan, podemos simplificar enormemente su
+demostración: $$\begin{align*}
+    a \vee (b \vee c) &= (a \vee b) \vee c \\
+    a \wedge (b \wedge c) &= (a \wedge b) \wedge c
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $a \vee (b \vee c) = (a \vee b) \vee c$.* Primero,
+demostraremos un pequeño **Lema de Igualdad por Casos**: Si
+$x \wedge y = x \wedge z$ y $\neg x \wedge y = \neg x \wedge z$,
+entonces $y = z$. $$\begin{align*}
+    y &= \top \wedge y & (ElemNeu_\wedge) \\
+      &= (x \vee \neg x) \wedge y & (Comp_\vee) \\
+      &= (x \wedge y) \vee (\neg x \wedge y) & (Dist_\wedge) \\
+      &= (x \wedge z) \vee (\neg x \wedge z) & (\text{Por hipótesis del Lema}) \\
+      &= (x \vee \neg x) \wedge z & (Dist_\wedge) \\
+      &= \top \wedge z = z & (Comp_\vee, ElemNeu_\wedge)
+\end{align*}$$ Sea $L = a \vee (b \vee c)$ y $R = (a \vee b) \vee c$.
+Aplicaremos el lema usando $x = a$, por lo que debemos demostrar que
+$a \wedge L = a \wedge R$ y $\neg a \wedge L = \neg a \wedge R$.
+
+1\) Comprobamos $a \wedge L = a \wedge R$: $$\begin{align*}
+    a \wedge L &= a \wedge (a \vee (b \vee c)) = a & (Abs_\wedge) \\
+    a \wedge R &= a \wedge ((a \vee b) \vee c) \\
+               &= (a \wedge (a \vee b)) \vee (a \wedge c) & (Dist_\wedge) \\
+               &= a \vee (a \wedge c) = a & (Abs_\wedge, Abs_\vee)
+\end{align*}$$ Por tanto, $a \wedge L = a \wedge R$.
+
+2\) Comprobamos $\neg a \wedge L = \neg a \wedge R$: $$\begin{align*}
+    \neg a \wedge L &= \neg a \wedge (a \vee (b \vee c)) \\
+                    &= (\neg a \wedge a) \vee (\neg a \wedge (b \vee c)) & (Dist_\wedge) \\
+                    &= \bot \vee (\neg a \wedge (b \vee c)) & (Comp_\wedge) \\
+                    &= \neg a \wedge (b \vee c) & (ElemNeu_\vee)
+\end{align*}$$ $$\begin{align*}
+    \neg a \wedge R &= \neg a \wedge ((a \vee b) \vee c) \\
+                    &= (\neg a \wedge (a \vee b)) \vee (\neg a \wedge c) & (Dist_\wedge) \\
+                    &= ((\neg a \wedge a) \vee (\neg a \wedge b)) \vee (\neg a \wedge c) & (Dist_\wedge) \\
+                    &= (\bot \vee (\neg a \wedge b)) \vee (\neg a \wedge c) & (Comp_\wedge) \\
+                    &= (\neg a \wedge b) \vee (\neg a \wedge c) & (ElemNeu_\vee) \\
+                    &= \neg a \wedge (b \vee c) & (Dist_\wedge)
+\end{align*}$$ Como $\neg a \wedge L = \neg a \wedge R$, aplicando el
+Lema concluimos que $L = R$, es decir,
+$a \vee (b \vee c) = (a \vee b) \vee c$. ◻
+:::
+
+::: proof
+*Demostración de $a \wedge (b \wedge c) = (a \wedge b) \wedge c$ (Dual
+mediante De Morgan).* Al haber demostrado previamente las leyes de De
+Morgan, podemos probar la asociatividad del ínfimo de forma directa y
+elegante sin necesidad de repetir la manipulación algebraica de la
+demostración dual: $$\begin{align*}
+    a \wedge (b \wedge c) &= \neg (\neg a \vee \neg (b \wedge c)) & (Mor_\wedge \text{ y } Comp_{inv}) \\
+                          &= \neg (\neg a \vee (\neg b \vee \neg c)) & (Mor_\wedge) \\
+                          &= \neg ((\neg a \vee \neg b) \vee \neg c) & (Asoc_\vee \text{ demostrada arriba}) \\
+                          &= \neg (\neg (a \wedge b) \vee \neg c) & (Mor_\wedge) \\
+                          &= (a \wedge b) \wedge c & (Mor_\wedge \text{ y } Comp_{inv})
+\end{align*}$$ ◻
+:::
+
+# Generalización a $n$ variables
+
+Habiendo demostrado la asociatividad ($Asoc_\vee$ y $Asoc_\wedge$) de
+las operaciones fundamentales del álgebra de Boole, el orden en el que
+se agrupan las variables al aplicar consecutivamente una misma operación
+resulta irrelevante. Esto nos permite prescindir de los paréntesis y
+extender de forma natural las operaciones binarias a un número
+arbitrario $n$ de operandos.
+
+::: definicion
+Disyunción (Supremo) de $n$ variablesor_n_variables La disyunción
+múltiple de $n$ variables, denotada de forma compacta mediante el
+operador $\bigvee$, se define como la aplicación sucesiva de la
+operación $\vee$:
+$$\bigvee_{i=1}^n x_i \triangleq x_1 \vee x_2 \vee \dots \vee x_n$$
+:::
+
+::: definicion
+Conjunción (Ínfimo) de $n$ variablesand_n_variables De manera análoga,
+la conjunción múltiple de $n$ variables, denotada mediante el operador
+$\bigwedge$, se define como la aplicación sucesiva de la operación
+$\wedge$:
+$$\bigwedge_{i=1}^n x_i \triangleq x_1 \wedge x_2 \wedge \dots \wedge x_n$$
+:::
+
+La existencia de estas operaciones múltiples bien definidas es un pilar
+fundamental para desarrollar formas canónicas (como la suma de productos
+o producto de sumas) y, como veremos a continuación, servirá de base
+para extender el número de entradas de los operadores derivados.
+
+# Operadores Derivados: NAND, NOR, XOR y XNOR
+
+Las ecuaciones obtenidas a partir de las Leyes de De Morgan demuestran
+que las operaciones básicas $\vee$ y $\wedge$ pueden ser expresadas
+íntegramente en términos de la negación de su operación dual. Esto
+motiva la definición de varios operadores lógicos fundamentales en
+sistemas digitales. Dos de ellos (NAND y NOR) son de gran relevancia por
+ser funcionalmente completos por sí solos, mientras que otros dos (XOR y
+XNOR) son esenciales para funciones aritméticas y de comprobación de
+paridad:
+
+::: definicion
+Operador NAND (Barra de Sheffer)nand Denotado clásicamente con una
+flecha hacia arriba ($\uparrow$), se define como la negación del ínfimo.
+$$a \uparrow b \triangleq \neg (a \wedge b) = \neg a \vee \neg b$$
+:::
+
+::: definicion
+Operador NOR (Flecha de Peirce)nor Denotado con una flecha hacia abajo
+($\downarrow$), se define como la negación del supremo.
+$$a \downarrow b \triangleq \neg (a \vee b) = \neg a \wedge \neg b$$
+:::
+
+::: definicion
+Operador XOR (O-exclusiva)xor Denotado con el símbolo de suma exclusiva
+($\oplus$), evalúa a $\top$ cuando exactamente uno de los operandos es
+$\top$ y el otro $\bot$.
+$$a \oplus b \triangleq (a \wedge \neg b) \vee (\neg a \wedge b)$$
+:::
+
+::: definicion
+Operador XNOR (No-O-exclusiva o Equivalencia)xnor Denotado
+frecuentemente con $\odot$ o $\leftrightarrow$, es la negación de la
+operación XOR y evalúa a $\top$ cuando ambos operandos son idénticos.
+$$a \odot b \triangleq \neg (a \oplus b) = (a \wedge b) \vee (\neg a \wedge \neg b)$$
+:::
+
+::: definicion
+Generalización a $n$ variables de NAND y NORgen_nand_nor A diferencia de
+los operadores $\vee$, $\wedge$ y $\oplus$, los operadores NAND
+($\uparrow$) y NOR ($\downarrow$) **no son asociativos**. Sin embargo,
+debido a su inmensa importancia práctica en la construcción de circuitos
+digitales, se define convencionalmente su generalización a $n$ variables
+como la negación de la conjunción o disyunción múltiple,
+respectivamente:
+$$\text{NAND}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigwedge_{i=1}^n x_i \right)$$
+$$\text{NOR}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigvee_{i=1}^n x_i \right)$$
+:::
+
+# Comportamiento de los Operadores Derivados
+
+Los operadores NAND ($\uparrow$) y NOR ($\downarrow$) presentan una
+serie de propiedades algebraicas particulares. Al ser operadores
+funcionalmente completos, permiten expresar cualquier otra operación
+booleana utilizando exclusivamente uno de ellos.
+
+::: teorema
+Idempotencia cruzada (Generación de NOT)idemp_cruzada Operar un elemento
+consigo mismo usando NAND o NOR equivale a su complemento (negación):
+$$\begin{align*}
+    \forall a \in \mathbb{B}, \quad a \uparrow a &= \neg a \\
+    \forall a \in \mathbb{B}, \quad a \downarrow a &= \neg a
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para la operación NAND: $$\begin{align*}
+    a \uparrow a &\triangleq \neg (a \wedge a) & (\text{Definicion de NAND}) \\
+                 &= \neg a & (Idemp_\wedge)
+\end{align*}$$ Para la operación NOR: $$\begin{align*}
+    a \downarrow a &\triangleq \neg (a \vee a) & (\text{Definicion de NOR}) \\
+                   &= \neg a & (Idemp_\vee)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Generación del Ínfimo y Supremo (AND y OR)gen_inf_sup A partir de la
+propiedad anterior, podemos recuperar las operaciones básicas anidando
+las puertas consigo mismas: $$\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \wedge b &= \neg (a \uparrow b) = (a \uparrow b) \uparrow (a \uparrow b) \\
+    \forall a, b \in \mathbb{B}, \quad a \vee b &= \neg (a \downarrow b) = (a \downarrow b) \downarrow (a \downarrow b)
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para la generación del ínfimo (AND): $$\begin{align*}
+    \neg(a \uparrow b) &\triangleq \neg(\neg(a \wedge b)) & (\text{Definicion de NAND}) \\
+                       &= a \wedge b & (Involucion)
+\end{align*}$$ Además, por la idempotencia cruzada demostrada
+anteriormente, $x \uparrow x = \neg x$, por tanto:
+$$\neg(a \uparrow b) = (a \uparrow b) \uparrow (a \uparrow b)$$ La
+demostración para la generación del supremo (OR) es idéntica por
+dualidad. ◻
+:::
+
+::: teorema
+Generación cruzada (Leyes de De Morgan para NAND/NOR)gen_cruzada Podemos
+generar la operación opuesta (supremo desde NAND, e ínfimo desde NOR)
+negando previamente las entradas: $$\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \vee b &= (\neg a) \uparrow (\neg b) = (a \uparrow a) \uparrow (b \uparrow b) \\
+    \forall a, b \in \mathbb{B}, \quad a \wedge b &= (\neg a) \downarrow (\neg b) = (a \downarrow a) \downarrow (b \downarrow b)
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para el supremo (OR): $$\begin{align*}
+    (\neg a) \uparrow (\neg b) &\triangleq \neg (\neg a \wedge \neg b) & (\text{Definicion de NAND}) \\
+                               &= \neg (\neg (a \vee b)) & (Mor_\vee) \\
+                               &= a \vee b & (Involucion)
+\end{align*}$$ La demostración para el ínfimo (AND) sigue los mismos
+pasos de manera dual, aplicando $Mor_\wedge$. ◻
+:::
+
+::: teorema
+Conmutatividadconmut_deriv Al igual que sus operaciones base, ambos
+operadores son perfectamente conmutativos: $$\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \uparrow b &= b \uparrow a \\
+    \forall a, b \in \mathbb{B}, \quad a \downarrow b &= b \downarrow a
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para la operación NAND: $$\begin{align*}
+    a \uparrow b &\triangleq \neg (a \wedge b) & (\text{Definicion de NAND}) \\
+                 &= \neg (b \wedge a) & (Comm_\wedge) \\
+                 &\triangleq b \uparrow a & (\text{Definicion de NAND})
+\end{align*}$$ Para la operación NOR, es análogo aplicando
+$Comm_\vee$. ◻
+:::
+
+::: teorema
+Inexistencia de Elemento Neutrono_neutro No existe ningún elemento
+neutro para las operaciones NAND ni NOR en un álgebra de Boole general.
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Si existiera un neutro $e$ para la operación NAND,
+debería cumplirse que $\forall a, a \uparrow e = a$, es decir,
+$\neg(a \wedge e) = a$. Si probamos con $e=\top$, obtenemos
+$\neg a = a$, lo cual obliga al colapso en un álgebra trivial. Si
+probamos con $e=\bot$, obtenemos $\neg \bot = a \implies \top = a$, lo
+cual obviamente no se cumple para cualquier elemento $a$. Lo mismo
+aplica a la operación NOR. ◻
+:::
+
+::: teorema
+Comportamiento con las constantes (Fijación y Absorción)constantes_deriv
+Fijar una constante específica en uno de los operandos genera
+directamente la negación, mientras que usar la constante opuesta actúa
+como un pseudo-elemento absorbente (devolviendo un valor constante
+inalterable por $a$): $$\begin{align*}
+    \text{Inversión: } & a \uparrow \top = \neg a \qquad & a \downarrow \bot &= \neg a \\
+    \text{Absorción: } & a \uparrow \bot = \top \qquad & a \downarrow \top &= \bot
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para la inversión: $$\begin{align*}
+    a \uparrow \top &= \neg(a \wedge \top) = \neg a & (ElemNeu_\wedge) \\
+    a \downarrow \bot &= \neg(a \vee \bot) = \neg a & (ElemNeu_\vee)
+\end{align*}$$ Para la absorción: $$\begin{align*}
+    a \uparrow \bot &= \neg(a \wedge \bot) = \neg \bot = \top & (Abs_\bot) \\
+    a \downarrow \top &= \neg(a \vee \top) = \neg \top = \bot & (Abs_\top)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Ausencia de Asociatividadno_asoc_deriv A diferencia del supremo ($\vee$)
+y el ínfimo ($\wedge$), las operaciones NAND y NOR son positivamente NO
+asociativas: $$\begin{align*}
+    (a \uparrow b) \uparrow c &\neq a \uparrow (b \uparrow c) \\
+    (a \downarrow b) \downarrow c &\neq a \downarrow (b \downarrow c)
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Desarrollando el lado izquierdo para NAND:
+$$(a \uparrow b) \uparrow c = \neg ( (\neg (a \wedge b)) \wedge c ) = (a \wedge b) \vee \neg c$$
+Desarrollando el lado derecho:
+$$a \uparrow (b \uparrow c) = \neg ( a \wedge (\neg (b \wedge c)) ) = \neg a \vee (b \wedge c)$$
+Resulta evidente que
+$(a \wedge b) \vee \neg c \neq \neg a \vee (b \wedge c)$ para
+combinaciones arbitrarias de variables. El mismo razonamiento aplica de
+manera estricta y análoga para demostrar la carencia de asociatividad en
+la operación NOR ($\downarrow$). ◻
+:::
+
+::: definicion
+NAND y NOR de $n$ entradasdef_n_entradas Dado que las puertas NAND y NOR
+físicas a menudo tienen más de dos entradas, se definen algebraicamente
+para múltiples entradas como la negación de la conjunción o disyunción
+de todas ellas: $$\begin{align*}
+    \uparrow(x_1, x_2, \dots, x_n) &\triangleq \neg \left( \bigwedge_{i=1}^n x_i \right) \\
+    \downarrow(x_1, x_2, \dots, x_n) &\triangleq \neg \left( \bigvee_{i=1}^n x_i \right)
+\end{align*}$$ En particular, para el caso de 3 entradas que
+estudiaremos a continuación: $$\begin{align*}
+    \uparrow(a,b,c) &\triangleq \neg(a \wedge b \wedge c) \\
+    \downarrow(a,b,c) &\triangleq \neg(a \vee b \vee c)
+\end{align*}$$
+:::
+
+::: teorema
+NAND/NOR múltiple vs agrupación binariamultiple_vs_binaria Como
+consecuencia directa de su falta de asociatividad, una operación NAND o
+NOR de 3 entradas no es equivalente a la agrupación secuencial en
+cascada de operaciones de 2 entradas: $$\begin{align*}
+    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad \text{y} \qquad \uparrow(a,b,c) \neq a \uparrow (b \uparrow c) \\
+    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad \text{y} \qquad \downarrow(a,b,c) \neq a \downarrow (b \downarrow c)
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para la NAND de 3 entradas tenemos, por definición y
+leyes de De Morgan:
+$$\uparrow(a,b,c) \triangleq \neg(a \wedge b \wedge c) = \neg a \vee \neg b \vee \neg c$$
+Sin embargo, la agrupación de dos en dos evaluada anteriormente daba:
+$$(a \uparrow b) \uparrow c = (a \wedge b) \vee \neg c$$ Evidentemente,
+$\neg a \vee \neg b \vee \neg c \neq (a \wedge b) \vee \neg c$. Lo mismo
+aplica a las agrupaciones derechas y a las operaciones NOR
+equivalentes. ◻
+:::
+
+::: teorema
+Extensión del Principio de Dualidad (NAND y NOR)dualidad_nand_nor La
+inclusión de los operadores derivados expande el Principio de Dualidad
+establecido en los postulados iniciales. La expresión dual de cualquier
+teorema o identidad que contenga operaciones NAND o NOR se obtiene
+intercambiando los operadores $\uparrow$ y $\downarrow$ (además de los
+ya conocidos $\vee \leftrightarrow \wedge$ y
+$\bot \leftrightarrow \top$).
+:::
+
+## Comportamiento de los Operadores XOR y XNOR
+
+A diferencia de los operadores NAND y NOR, que destacan por su
+universalidad funcional pero carecen de propiedades algebraicas
+deseables (como asociatividad o elemento neutro), los operadores XOR
+($\oplus$) y XNOR ($\odot$) exhiben una rica estructura algebraica. A
+continuación demostraremos estas propiedades.
+
+::: teorema
+Conmutatividadconmut_xor Ambos operadores son conmutativos:
+$$a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para XOR: $$\begin{align*}
+    a \oplus b &\triangleq (a \wedge \neg b) \vee (\neg a \wedge b) & (\text{Definición de XOR}) \\
+               &= (\neg a \wedge b) \vee (a \wedge \neg b) & (Comm_\vee) \\
+               &= (b \wedge \neg a) \vee (\neg b \wedge a) & (Comm_\wedge) \\
+               &\triangleq b \oplus a & (\text{Definición de XOR})
+\end{align*}$$ La demostración para XNOR sigue pasos idénticos
+aprovechando la conmutatividad del ínfimo y el supremo. ◻
+:::
+
+::: teorema
+Elementos Neutros e Inversoresneutro_xor El elemento $\bot$ actúa como
+neutro para la XOR, y $\top$ actúa como inversor. De manera dual, $\top$
+es el neutro de la XNOR, y $\bot$ actúa como inversor: $$\begin{align*}
+    a \oplus \bot &= a & a \oplus \top &= \neg a \\
+    a \odot \top &= a & a \odot \bot &= \neg a
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración para XOR.* Para el elemento $\bot$ (neutro):
+$$\begin{align*}
+    a \oplus \bot &\triangleq (a \wedge \neg \bot) \vee (\neg a \wedge \bot) & (\text{Definición}) \\
+                  &= (a \wedge \top) \vee \bot & (Comp_{inv} \text{ y } Fij_\wedge) \\
+                  &= a \vee \bot & (ElemNeu_\wedge) \\
+                  &= a & (ElemNeu_\vee)
+\end{align*}$$ Para el elemento $\top$ (inversor): $$\begin{align*}
+    a \oplus \top &\triangleq (a \wedge \neg \top) \vee (\neg a \wedge \top) & (\text{Definición}) \\
+                  &= (a \wedge \bot) \vee \neg a & (Comp_{inv} \text{ y } ElemNeu_\wedge) \\
+                  &= \bot \vee \neg a & (Fij_\wedge) \\
+                  &= \neg a & (ElemNeu_\vee)
+\end{align*}$$ Las pruebas para XNOR son totalmente duales. ◻
+:::
+
+::: teorema
+Elemento Inverso de sí mismo (Grupo Abeliano)idemp_nula_xor La
+combinación de un elemento consigo mismo produce una anulación (devuelve
+el neutro de la operación correspondiente), actuando cada elemento como
+su propio inverso:
+$$a \oplus a = \bot \qquad \text{y} \qquad a \odot a = \top$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración.* Para XOR: $$\begin{align*}
+    a \oplus a &\triangleq (a \wedge \neg a) \vee (\neg a \wedge a) \\
+               &= \bot \vee \bot & (Comp_\wedge \text{ y } Comm_\wedge) \\
+               &= \bot & (Idemp_\vee)
+\end{align*}$$ Para XNOR: $$\begin{align*}
+    a \odot a &\triangleq (a \wedge a) \vee (\neg a \wedge \neg a) \\
+              &= a \vee \neg a & (Idemp_\wedge) \\
+              &= \top & (Comp_\vee)
+\end{align*}$$ ◻
+:::
+
+::: teorema
+Propiedades de Negaciónnegacion_xor Negar cualquiera de las entradas de
+forma independiente equivale a negar la operación completa, lo que a su
+vez alterna entre XOR y XNOR: $$\begin{align*}
+    \neg (a \oplus b) &= \neg a \oplus b = a \oplus \neg b = a \odot b \\
+    \neg (a \odot b) &= \neg a \odot b = a \odot \neg b = a \oplus b
+\end{align*}$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de $a \oplus \neg b = \neg(a \oplus b)$.* $$\begin{align*}
+    a \oplus \neg b &\triangleq (a \wedge \neg(\neg b)) \vee (\neg a \wedge \neg b) \\
+                    &= (a \wedge b) \vee (\neg a \wedge \neg b) & (Involucion) \\
+                    &\triangleq a \odot b & (\text{Definición de XNOR})
+\end{align*}$$ Sabiendo por definición que
+$a \odot b \triangleq \neg(a \oplus b)$, se concluye de forma inmediata
+que $a \oplus \neg b = \neg (a \oplus b)$. ◻
+:::
+
+::: teorema
+Asociatividadasoc_xor Tanto XOR como XNOR son operadores algebraicamente
+asociativos:
+$$(a \oplus b) \oplus c = a \oplus (b \oplus c) \qquad \text{y} \qquad (a \odot b) \odot c = a \odot (b \odot c)$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración para XOR.* Primero evaluaremos el miembro izquierdo
+$(a \oplus b) \oplus c$. Llamaremos $X = a \oplus b$. $$\begin{align*}
+    X \oplus c &\triangleq (X \wedge \neg c) \vee (\neg X \wedge c) \\
+               &= \big( ((a \wedge \neg b) \vee (\neg a \wedge b)) \wedge \neg c \big) \vee \big( \neg ((a \wedge \neg b) \vee (\neg a \wedge b)) \wedge c \big) \\
+               &= \big( ((a \wedge \neg b) \vee (\neg a \wedge b)) \wedge \neg c \big) \vee \big( (a \odot b) \wedge c \big) \quad (\text{Definición de XNOR}) \\
+               &= \big( (a \wedge \neg b \wedge \neg c) \vee (\neg a \wedge b \wedge \neg c) \big) \vee \big( ((a \wedge b) \vee (\neg a \wedge \neg b)) \wedge c \big) \quad (Dist_\wedge) \\
+               &= (a \wedge \neg b \wedge \neg c) \vee (\neg a \wedge b \wedge \neg c) \\
+               &\quad \vee (a \wedge b \wedge c) \vee (\neg a \wedge \neg b \wedge c) \quad (Dist_\wedge)
+\end{align*}$$ Ahora evaluaremos el miembro derecho
+$a \oplus (b \oplus c)$. Llamaremos $Y = b \oplus c$. $$\begin{align*}
+    a \oplus Y &\triangleq (a \wedge \neg Y) \vee (\neg a \wedge Y) \\
+               &= (a \wedge (b \odot c)) \vee (\neg a \wedge ((b \wedge \neg c) \vee (\neg b \wedge c))) \\
+               &= (a \wedge ((b \wedge c) \vee (\neg b \wedge \neg c))) \vee (\neg a \wedge b \wedge \neg c) \vee (\neg a \wedge \neg b \wedge c) \\
+               &= (a \wedge b \wedge c) \vee (a \wedge \neg b \wedge \neg c) \\
+               &\quad \vee (\neg a \wedge b \wedge \neg c) \vee (\neg a \wedge \neg b \wedge c)
+\end{align*}$$ Como podemos observar, ambas expansiones resultan
+exactamente en los mismos cuatro minitérminos. Reordenándolos por
+conmutatividad ($Comm_\vee$) demostramos que son idénticos. ◻
+:::
+
+::: teorema
+Generalización n-aria (XOR y XNOR)gen_xor Dado que ambos operadores han
+demostrado ser asociativos y conmutativos, es posible omitir los
+paréntesis y generalizar la operación a un número arbitrario $n$ de
+variables. Se denotan mediante los operadores de sumatoria y productorio
+modificados:
+$$\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n$$
+$$\bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n$$
+:::
+
+::: teorema
+Distributividad (AND sobre XOR y OR sobre XNOR)dist_xor El producto
+(AND) se distribuye sobre la suma exclusiva (XOR), y dualmente, la suma
+(OR) se distribuye sobre la equivalencia (XNOR):
+$$a \wedge (b \oplus c) = (a \wedge b) \oplus (a \wedge c)$$
+$$a \vee (b \odot c) = (a \vee b) \odot (a \vee c)$$
+:::
+
+**Demostración:**
+
+::: proof
+*Demostración de AND sobre XOR.* Desarrollando el lado derecho (RHS):
+$$\begin{align*}
+    (a \wedge b) \oplus (a \wedge c) &\triangleq ((a \wedge b) \wedge \neg(a \wedge c)) \vee (\neg(a \wedge b) \wedge (a \wedge c)) \\
+                                     &= (a \wedge b \wedge (\neg a \vee \neg c)) \vee ((\neg a \vee \neg b) \wedge a \wedge c) \quad (Mor_\wedge) \\
+                                     &= ((a \wedge b \wedge \neg a) \vee (a \wedge b \wedge \neg c)) \\
+                                     &\quad \vee ((a \wedge c \wedge \neg a) \vee (a \wedge c \wedge \neg b)) \quad (Dist_\wedge) \\
+                                     &= (\bot \vee (a \wedge b \wedge \neg c)) \vee (\bot \vee (a \wedge \neg b \wedge c)) \quad (Comp_\wedge \text{ y } Fij_\wedge) \\
+                                     &= (a \wedge b \wedge \neg c) \vee (a \wedge \neg b \wedge c) \quad (ElemNeu_\vee) \\
+                                     &= a \wedge ((b \wedge \neg c) \vee (\neg b \wedge c)) \quad (Dist_\wedge \text{ a la inversa}) \\
+                                     &\triangleq a \wedge (b \oplus c) \quad (\text{Def. XOR})
+\end{align*}$$ Lo cual demuestra la igualdad. La demostración de la
+distributividad para XNOR es rigurosamente dual. ◻
+:::
+
+::: teorema
+Extensión del Principio de Dualidad (XOR y XNOR)dualidad_xor_xnor De
+forma análoga a la relación entre NAND y NOR, los operadores XOR y XNOR
+son mutuamente duales. Para obtener la expresión dual de cualquier
+proposición que involucre estos operadores, se deben intercambiar
+$\oplus$ y $\odot$, manteniendo las reglas de dualidad estándar para los
+demás elementos y constantes.
+:::
+
+# Instanciación en Álgebras Finitas: Trivial y Bivaluada
+
+La teoría desarrollada en los capítulos anteriores es aplicable a
+cualquier álgebra de Boole, sin importar el número de elementos que
+contenga el conjunto $B$ (siempre que se cumplan los postulados de
+Huntington). Sin embargo, existen dos álgebras finitas de interés
+particular por su extrema simplicidad y su aplicación directa en la
+teoría de circuitos.
+
+## Álgebra Trivial ($|B| = 1$)
+
+Si definimos el conjunto soporte con un único elemento, $B = \{ c \}$,
+nos encontramos ante el álgebra de Boole trivial o degenerada.
+
+Dado que los postulados de Huntington (Postulado 2) exigen la existencia
+de un elemento neutro para la disyunción ($\bot \in B$) y otro para la
+conjunción ($\top \in B$), y puesto que el conjunto solo contiene un
+único elemento, estos deben forzosamente coincidir: $$\bot = \top = c$$
+
+Al instanciar cualquier operación definida sobre este conjunto, los
+resultados siempre evalúan a dicha constante $c$.
+
+- **Negación:** Por el postulado del complemento, $c \vee \neg c = c$ y
+  $c \wedge \neg c = c$, lo que implica que $\neg c = c$.
+
+- **Disyunción y Conjunción:** Por la propiedad de idempotencia,
+  $c \vee c = c$ y $c \wedge c = c$.
+
+- **Operadores Derivados:** Por definición,
+  $c \uparrow c = \neg (c \wedge c) = \neg c = c$. Lo mismo sucede con
+  el resto de operadores.
+
+Visualizar esto en tablas de operación (comúnmente conocidas como tablas
+de verdad) resulta en estructuras degeneradas de una sola celda, donde
+$\circ \in \{ \vee, \wedge, \uparrow, \downarrow, \oplus, \odot \}$:
+
+::: center
+   $a$   $\neg a$
+  ----- ----------
+   $c$     $c$
+
+   $a$   $b$   $a \circ b$
+  ----- ----- -------------
+   $c$   $c$       $c$
+:::
+
+## Álgebra Bivaluada ($|B| = 2$)
+
+El caso más importante para la ingeniería es el álgebra de Boole
+bivaluada, donde el conjunto soporte consta exactamente de los dos
+elementos garantizados por los postulados: el neutro disyuntivo y el
+neutro conjuntivo. $$B = \{ \bot, \top \}$$ (Asumiendo lógicamente que
+$\bot \neq \top$).
+
+Procederemos a deducir el comportamiento (las tablas de operación)
+instanciando los teoremas y postulados axiomáticos en estos dos únicos
+valores.
+
+### Operaciones Básicas ($\neg$, $\vee$, $\wedge$)
+
+**1. Negación (Operación unaria $\neg$)**\
+El Postulado 5 (Complemento) exige que:
+$$\bot \vee \neg \bot = \top \quad \text{y} \quad \top \vee \neg \top = \top$$
+Al existir solo dos elementos en el conjunto, el único valor que sumado
+a $\bot$ (que es el neutro disyuntivo, por lo que no altera el
+resultado) da $\top$, es el propio $\top$. Por lo tanto, deducimos que
+$\neg \bot = \top$. De igual manera, por dualidad, $\neg \top = \bot$.
+
+**2. Disyunción (Operación binaria $\vee$)**\
+Calculamos los cuatro casos posibles instanciando los valores:
+
+- $\bot \vee \bot = \bot$ (Por Idempotencia, Teorema 1).
+
+- $\bot \vee \top = \top$ (Por ser $\bot$ el elemento neutro, Postulado
+  2a).
+
+- $\top \vee \bot = \top$ (Por Conmutatividad, Postulado 3a).
+
+- $\top \vee \top = \top$ (Por Idempotencia, Teorema 1).
+
+**3. Conjunción (Operación binaria $\wedge$)**\
+Análogamente:
+
+- $\top \wedge \top = \top$ (Por Idempotencia, Teorema 1).
+
+- $\top \wedge \bot = \bot$ (Por ser $\top$ el elemento neutro,
+  Postulado 2b).
+
+- $\bot \wedge \top = \bot$ (Por Conmutatividad, Postulado 3b).
+
+- $\bot \wedge \bot = \bot$ (Por Idempotencia, Teorema 1).
+
+### Operadores Derivados ($\uparrow, \downarrow, \oplus, \odot$)
+
+Podemos obtener las tablas de los operadores derivados aplicando
+directamente sus definiciones algebraicas sobre las tablas básicas ya
+obtenidas:
+
+**1. NAND y NOR**\
+Dado que $a \uparrow b = \neg(a \wedge b)$ y
+$a \downarrow b = \neg(a \vee b)$, los resultados consisten simplemente
+en aplicar el operador complemento ($\neg$) a las tablas de conjunción y
+disyunción calculadas previamente.
+
+**2. XOR y XNOR**\
+Recordando la definición algebraica
+$a \oplus b = (a \wedge \neg b) \vee (\neg a \wedge b)$, se puede
+evaluar caso por caso (por ejemplo,
+$\top \oplus \bot = (\top \wedge \top) \vee (\bot \wedge \bot) = \top \vee \bot = \top$),
+pero también podemos usar directamente los teoremas derivados
+anteriormente:
+
+- $a \oplus \bot = a$ (Elemento neutro). Por lo tanto:
+  $\bot \oplus \bot = \bot$, y $\top \oplus \bot = \top$.
+
+- $a \oplus \top = \neg a$ (Inversor). Por lo tanto:
+  $\bot \oplus \top = \top$, y $\top \oplus \top = \bot$.
+
+Por dualidad, y sabiendo que el XNOR es la negación del XOR, se obtiene
+trivialmente que $a \odot b = \neg(a \oplus b)$.
+
+### Resumen: Tablas de Operación Bivaluadas
+
+A continuación, presentamos la consolidación matricial de todas las
+operaciones deducidas, conformando las tablas de verdad definitivas del
+álgebra de dos valores:
+
+::: {#tab:tablas_bivaluadas}
+    $a$     $\neg a$
+  -------- ----------
+   $\bot$    $\top$
+   $\top$    $\bot$
+
+  : Tablas de Verdad consolidadas para las Operaciones del Álgebra de
+  Boole de 2 elementos.
+:::
+
+::: {#tab:tablas_bivaluadas}
+    $a$      $b$     $a \vee b$   $a \wedge b$   $a \uparrow b$   $a \downarrow b$   $a \oplus b$   $a \odot b$
+  -------- -------- ------------ -------------- ---------------- ------------------ -------------- -------------
+   $\bot$   $\bot$     $\bot$        $\bot$          $\top$            $\top$           $\bot$        $\top$
+   $\bot$   $\top$     $\top$        $\bot$          $\top$            $\bot$           $\top$        $\bot$
+   $\top$   $\bot$     $\top$        $\bot$          $\top$            $\bot$           $\top$        $\bot$
+   $\top$   $\top$     $\top$        $\top$          $\bot$            $\bot$           $\bot$        $\top$
+
+  : Tablas de Verdad consolidadas para las Operaciones del Álgebra de
+  Boole de 2 elementos.
+:::
+
+# Conclusiones y Transición a la Lógica Digital
+
+Tras haber establecido formalmente la estructura matemática del álgebra
+de Boole a partir de los postulados de Huntington, y haber demostrado
+rigurosamente sus propiedades fundamentales operando con la signatura
+clásica de la teoría de retículos ($\vee, \wedge, \bot, \top$), estamos
+en disposición de dar el salto al dominio de la ingeniería.
+
+En la electrónica digital, el interés recae de forma exclusiva sobre un
+modelo concreto de álgebra de Boole: el **Álgebra de Conmutación de
+Shannon**. Esta es el álgebra de Boole más sencilla posible, cuyo
+conjunto subyacente consta únicamente de dos elementos,
+$\mathbb{B}_2 = \{0, 1\}$.
+
+A pesar de su aparente simplicidad, el álgebra de $\mathbb{B}_2$ cumple
+estrictamente todos los postulados de Huntington (y por ende, todos los
+teoremas que hemos derivado) y está contenida formalmente como
+subestructura en cualquier otra álgebra de Boole más compleja.
+
+Para adecuar nuestra matemática al diseño de circuitos y sistemas
+digitales, adoptaremos a partir de ahora la **notación ingenieril**,
+realizando el siguiente isomorfismo simbólico sobre nuestras operaciones
+y constantes:
+
+- **Constantes lógicas:** El elemento mínimo $\bot$ (falso) se denotará
+  como **0** (ó nivel bajo de tensión, $L$). El elemento máximo $\top$
+  (verdadero) se denotará como **1** (ó nivel alto de tensión, $H$).
+
+- **Supremo (Join / Disyunción):** La operación $\vee$ se denotará
+  mediante el operador suma $\mathbf{+}$. En circuitos lógicos,
+  implementa la puerta **OR**.
+
+- **Ínfimo (Meet / Conjunción):** La operación $\wedge$ se denotará
+  mediante el operador producto $\mathbf{\cdot}$ (frecuentemente
+  omitido, escribiendo $ab$ en lugar de $a \cdot b$). Implementa la
+  puerta **AND**.
+
+- **Complemento (Negación):** La operación de complemento $\neg a$ se
+  denotará convencionalmente colocando una barra superior sobre la
+  variable, $\mathbf{\overline{a}}$, o mediante una comilla
+  $\mathbf{a'}$. Implementa la puerta **NOT** (inversor).
+
+- **Operadores Derivados (NAND y NOR):** Las operaciones $\uparrow$ y
+  $\downarrow$ mantienen sus símbolos, o bien se expresan directamente
+  como el complemento del producto o de la suma ($\overline{a \cdot b}$,
+  $\overline{a+b}$). Representan las puertas universales **NAND** y
+  **NOR**, fundamentales en el diseño de circuitos integrados.
+
+- **Suma Exclusiva y Equivalencia (XOR y XNOR):** Las operaciones
+  introducidas como suma exclusiva y equivalencia lógica se denotan
+  mediante $\mathbf{\oplus}$ y $\mathbf{\odot}$. Representan las puertas
+  **XOR** (útiles en sumadores o detectores de paridad) y **XNOR**
+  (comparadores de igualdad).
+
+- **Operadores n-arios:** Las versiones generalizadas para múltiples
+  variables formarán estructuras de puertas lógicas de $n$ entradas. Se
+  denotarán mediante los operadores $\sum$ (puerta OR de $n$ entradas),
+  $\prod$ (puerta AND de $n$ entradas), $\bigoplus$ (puerta XOR de $n$
+  entradas) y $\bigodot$ (puerta XNOR de $n$ entradas).
+
+Esta notación algebraica clásica resulta mucho más ágil y familiar para
+la manipulación y simplificación de funciones lógicas complejas. Así,
+teoremas como el de la distributividad se reescriben de forma natural
+como $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$, y las leyes de De
+Morgan cobran su célebre forma visual:
+$$\overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b}$$
+De igual modo, la estructura de las operaciones derivadas queda plasmada
+directamente en ecuaciones como
+$a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b)$.
+
+Además, gracias a nuestra previa instanciación en el álgebra bivaluada
+($|B|=2$), sabemos que las tablas de operación algebraicas que hemos
+deducido analíticamente se corresponden de manera idéntica y biunívoca
+con las **tablas de verdad** de las puertas lógicas físicas.
+
+Con estos fundamentos matemáticos sólidamente establecidos, la
+transición hacia el diseño, análisis y simplificación de circuitos
+digitales queda completamente justificada y carente de ambigüedades.
+
+# Anexo: Resumen de Postulados y Teoremas (Notación Ingenieril)
+
+En esta sección se recopilan los postulados de Huntington y los teoremas
+principales derivados, transcritos a la notación propia del álgebra de
+conmutación y la lógica digital ($+$, $\cdot$, $0$, $1$,
+$\overline{a}$), concebidos como hoja de referencia rápida.
+
+## Pre-Axiomas de la Estructura {#pre-axiomas-de-la-estructura-1 .unnumbered}
+
+::: preaxioma
+Estructura de Conjuntoesconj_eng Se requiere que se defina sobre un
+conjunto (por ejemplo, $\mathbb{B}_2 = \{0, 1\}$).
+:::
+
+::: preaxioma
+Constantes Lógicasconstantes_eng Este conjunto contiene dos constantes
+fundamentales: $0$ (falso) y $1$ (verdadero).
+:::
+
+::: preaxioma
+Operaciones Binarias Internasopbinint_eng Se definen dos operaciones
+binarias internas, la suma ($+$) y el producto ($\cdot$):
+$$\begin{align*}
++ &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2 \\
+\cdot &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2
+\end{align*}$$
+:::
+
+::: preaxioma
+Existencia y Unicidad de Imagenexist_unic_eng Para cada par de elementos
+del conjunto, las operaciones $+$ y $\cdot$ siempre producen un
+resultado que también pertenece al conjunto, y ese resultado es siempre
+único.
+:::
+
+## Postulados de Huntington {#postulados-de-huntington .unnumbered}
+
+::: postulado
+Elemento neutroneutro_eng
+$$a + 0 = a \qquad \text{y} \qquad a \cdot 1 = a$$
+:::
+
+::: postulado
+Conmutatividadconmut_eng
+$$a + b = b + a \qquad \text{y} \qquad a \cdot b = b \cdot a$$
+:::
+
+::: postulado
+Distributividaddistrib_eng
+$$a \cdot (b + c) = (a \cdot b) + (a \cdot c) \qquad \text{y} \qquad a + (b \cdot c) = (a + b) \cdot (a + c)$$
+:::
+
+::: postulado
+Complementariocomp_eng Para cada elemento $a$, existe un complemento
+$\overline{a}$ tal que:
+$$a + \overline{a} = 1 \qquad \text{y} \qquad a \cdot \overline{a} = 0$$
+:::
+
+## Teoremas Fundamentales {#teoremas-fundamentales .unnumbered}
+
+::: teorema
+Unicidad de los elementos neutrosunicidad_neutros_eng El elemento neutro
+para la suma ($0$) y para el producto ($1$) son únicos.
+:::
+
+::: teorema
+Idempotenciaidempotencia_eng
+$$a + a = a \qquad \text{y} \qquad a \cdot a = a$$
+:::
+
+::: teorema
+Elementos absorbentesabsorbentes_eng
+$$a + 1 = 1 \qquad \text{y} \qquad a \cdot 0 = 0$$
+:::
+
+::: teorema
+Propiedades de absorciónabsorcion_eng
+$$a + (a \cdot b) = a \qquad \text{y} \qquad a \cdot (a + b) = a$$
+:::
+
+::: teorema
+Leyes de De Morganmorgan_eng
+$$\overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b}$$
+:::
+
+::: teorema
+Involución (Doble negación)involucion_eng
+$$\overline{\overline{a}} = a$$
+:::
+
+::: teorema
+Asociatividadasociatividad_eng
+$$a + (b + c) = (a + b) + c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c$$
+:::
+
+::: teorema
+Unicidad del complementounic_comp_eng El complemento $\overline{a}$ de
+un elemento $a$ es único.
+:::
+
+::: teorema
+Otras propiedades equivalentesotras_prop_eng
+
+- **Orden de retículo:** $a + b = a \iff a \cdot b = b$
+
+- **Equivalencia de operaciones:** $a + b = a \cdot b \implies a = b$
+
+- **Cancelación:**
+  $(a + b = a + c \text{ y } a \cdot b = a \cdot c) \implies b = c$
+:::
+
+::: definicion
+Generalización a $n$ variablesgen_n_vars_eng Las operaciones disyunción
+y conjunción pueden extenderse a un número $n$ de variables mediante los
+símbolos sumatorio y productorio:
+$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \dots + x_n$$
+$$\prod_{i=1}^{n} x_i = x_1 \cdot x_2 \cdot \dots \cdot x_n$$
+:::
+
+::: teorema
+Casos de Álgebra Trivialtrivial_eng Si $0 = 1$, o si existe algún
+elemento tal que $\overline{a} = a$, entonces el álgebra contiene un
+único elemento (álgebra trivial).
+:::
+
+## Comportamiento de Operadores Derivados {#comportamiento-de-operadores-derivados .unnumbered}
+
+::: teorema
+Idempotencia cruzada (NAND/NOR)idemp_cruzada_eng
+$$a \uparrow a = \overline{a} \qquad \text{y} \qquad a \downarrow a = \overline{a}$$
+:::
+
+::: teorema
+Generación de AND y ORgen_inf_sup_eng
+$$a \cdot b = \overline{a \uparrow b} = (a \uparrow b) \uparrow (a \uparrow b) \qquad \text{y} \qquad a + b = \overline{a \downarrow b} = (a \downarrow b) \downarrow (a \downarrow b)$$
+:::
+
+::: teorema
+Generación cruzadagen_cruzada_eng
+$$a + b = \overline{a} \uparrow \overline{b} = (a \uparrow a) \uparrow (b \uparrow b) \qquad \text{y} \qquad a \cdot b = \overline{a} \downarrow \overline{b} = (a \downarrow a) \downarrow (b \downarrow b)$$
+:::
+
+::: teorema
+Conmutatividadconmut_deriv_eng
+$$a \uparrow b = b \uparrow a \qquad \text{y} \qquad a \downarrow b = b \downarrow a$$
+:::
+
+::: teorema
+Comportamiento con las constantesconstantes_deriv_eng $$\begin{align*}
+    a \uparrow 1 &= \overline{a} \qquad & a \downarrow 0 &= \overline{a} \\
+    a \uparrow 0 &= 1 \qquad & a \downarrow 1 &= 0
+\end{align*}$$
+:::
+
+::: teorema
+Ausencia de Asociatividadno_asoc_deriv_eng
+$$(a \uparrow b) \uparrow c \neq a \uparrow (b \uparrow c) \qquad \text{y} \qquad (a \downarrow b) \downarrow c \neq a \downarrow (b \downarrow c)$$
+:::
+
+::: definicion
+NAND y NOR de 3 entradasn_entradas_eng
+$$\uparrow(a,b,c) = \overline{a \cdot b \cdot c} \qquad \text{y} \qquad \downarrow(a,b,c) = \overline{a + b + c}$$
+:::
+
+::: teorema
+NAND/NOR múltiple vs cascada binariamultiple_vs_binaria_eng
+$$\begin{align*}
+    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad & \uparrow(a,b,c) &\neq a \uparrow (b \uparrow c) \\
+    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad & \downarrow(a,b,c) &\neq a \downarrow (b \downarrow c)
+\end{align*}$$
+:::
+
+## Comportamiento de los Operadores XOR y XNOR {#comportamiento-de-los-operadores-xor-y-xnor-1 .unnumbered}
+
+::: definicion
+Definición de XOR y XNORdef_xor_xnor_eng
+$$a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b) \qquad \text{y} \qquad a \odot b = \overline{a \oplus b} = (a \cdot b) + (\overline{a} \cdot \overline{b})$$
+:::
+
+::: teorema
+Conmutatividadconmut_xor_eng
+$$a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a$$
+:::
+
+::: teorema
+Elementos Neutros e Inversoresneutros_xor_eng $$\begin{align*}
+    a \oplus 0 &= a \qquad & a \odot 1 &= a \\
+    a \oplus 1 &= \overline{a} \qquad & a \odot 0 &= \overline{a}
+\end{align*}$$
+:::
+
+::: teorema
+Elemento Inverso de sí mismo (Grupo Abeliano)idemp_nula_eng
+$$a \oplus a = 0 \qquad \text{y} \qquad a \odot a = 1$$
+:::
+
+::: teorema
+Propiedades de Negaciónneg_xor_eng
+$$\overline{a \oplus b} = \overline{a} \oplus b = a \oplus \overline{b} = a \odot b$$
+$$\overline{a \odot b} = \overline{a} \odot b = a \odot \overline{b} = a \oplus b$$
+:::
+
+::: teorema
+Asociatividad y Generalizaciónasoc_gen_xor_eng Ambos operadores son
+asociativos:
+$$a \oplus (b \oplus c) = (a \oplus b) \oplus c \qquad \text{y} \qquad a \odot (b \odot c) = (a \odot b) \odot c$$
+Lo cual permite su generalización a un número arbitrario $n$ de
+entradas:
+$$\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n \qquad \text{y} \qquad \bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n$$
+:::
+
+::: teorema
+Distributividad con el producto y la sumadist_xor_eng
+$$a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot c) \qquad \text{y} \qquad a + (b \odot c) = (a + b) \odot (a + c)$$
+:::
+
+## Tablas de Verdad Bivaluadas {#tablas-de-verdad-bivaluadas .unnumbered}
+
+Resumen de las tablas de operación del álgebra de Boole para el caso de
+dos elementos ($B=\{0,1\}$), transcritas al lenguaje ingenieril:
+
+   $a$   $\overline{a}$
+  ----- ----------------
+   $0$        $1$
+   $1$        $0$
+
+   $a$   $b$   $a + b$   $a \cdot b$   $a \uparrow b$   $a \downarrow b$   $a \oplus b$   $a \odot b$
+  ----- ----- --------- ------------- ---------------- ------------------ -------------- -------------
+   $0$   $0$     $0$         $0$            $1$               $1$              $0$            $1$
+   $0$   $1$     $1$         $0$            $1$               $0$              $1$            $0$
+   $1$   $0$     $1$         $0$            $1$               $0$              $1$            $0$
+   $1$   $1$     $1$         $1$            $0$               $0$              $0$            $1$

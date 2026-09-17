@@ -3,6 +3,25 @@ El álgebra de Boole, originalmente introducida por George Boole en su obra de 1
 
 Para evitar cualquier confusión conceptual con la aritmética tradicional, en esta fase inicial emplearemos la signatura propia de la teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y $\wedge$ (ínfimo o meet), junto a los elementos constantes $\bot$ (mínimo) y $\top$ (máximo). El complemento se denotará con el símbolo clásico de la negación lógica $\neg$. Más adelante, y por conveniencia práctica, transitaremos hacia la notación clásica de sistemas digitales ($+$, $\cdot$, $0$, $1$).
 
+\section{Nomenclatura y Convenios}
+Antes de comenzar con el desarrollo formal del álgebra, estableceremos una serie de convenios notacionales que utilizaremos a lo largo de este texto:
+
+\begin{itemize}
+    \item $0 \notin \mathbb{N}$. Ante la definición de los números naturales, nosotros adoptamos este convenio excluyendo al cero.
+    \item $\widetilde{\mathbb{N}} \triangleq \left( \mathbb{N} \cup \{0\} \right)$. Representará el conjunto de los naturales extendidos que incluye el cero.
+    \item Definición recurrente de los conjuntos $\lbrack 0,1 \rbrack_{\mathbb{Q}}$ y $\lbrack 0,1 \rbrack_{\mathbb{Q}}^n$, donde $n \in \mathbb{N}$ y $n > 1$:
+    \begin{itemize}
+        \item $\lbrack 0,1 \rbrack_{\mathbb{Q}} := \lbrack 0,1 \rbrack \cap \mathbb{Q}$
+        \item $\lbrack 0,1 \rbrack_{\mathbb{Q}}^1 := \lbrack 0,1 \rbrack_{\mathbb{Q}}$
+        \item $\lbrack 0,1 \rbrack_{\mathbb{Q}}^n := \lbrack 0,1 \rbrack_{\mathbb{Q}}^{n-1} \times \lbrack 0,1 \rbrack_{\mathbb{Q}}^1$
+    \end{itemize}
+    \item Por lo general, los elementos de un conjunto se representarán por letras minúsculas (alfabetos griego y latino) con o sin subíndices (ejemplo: $a_3$, $b$, $\gamma_{1547}$, $\delta$) y dígitos decimales ($\{0, 1, \ldots, 9\}$). Por el contrario, los conjuntos se representarán por letras mayúsculas (alfabeto griego y latino), igualmente con o sin subíndices. Este convenio será válido a excepción de que se exprese de forma explícita otro nombre para elementos o conjuntos.
+    \item En ocasiones aseguraremos que existe un conjunto asociado a un elemento: en general serán letras mayúsculas, como corresponde a un conjunto, pero con un subíndice escrito exactamente como el elemento asociado. 
+    \item Cuando expresemos $a \ast B$, es decir, el elemento $a$ operado con un conjunto $B$ mediante una operación binaria $\ast$, nos estaremos refiriendo al conjunto formado por operar $a$ con todos los elementos de $B$: $a \ast B = \{ a \ast b \mid b \in B \}$. De igual manera, la operación entre dos conjuntos se entenderá como: $A \ast B = \{ a \ast b \mid a \in A \land b \in B \}$.
+    \item El universo de discurso principal será un conjunto $\mathbb{B}$. Para aligerar la notación, evitaremos en lo posible el uso explícito del cuantificador universal ($\forall$). Cuando aparezca una variable, conjunto o constante sin cuantificar, asumiremos implícitamente una cuantificación universal sobre los elementos de $\mathbb{B}$. Si la cuantificación debiera aplicarse a un subconjunto particular, se omitirá el símbolo $\forall$ pero se precederá la proposición con la relación de pertenencia. 
+    \item De igual forma, cuando una variable asuma como valor un conjunto, se entenderá implícitamente que pertenece al conjunto partes $\wp(\mathbb{B}) \smallsetminus \{ \varnothing \}$. 
+\end{itemize}
+
 \section{Pre-Axiomas de la Estructura}
 Antes de enunciar los postulados, debemos definir rigurosamente sobre qué elementos y operaciones estamos trabajando. 
 

@@ -1,5 +1,6 @@
 \documentclass[12pt,a4paper]{article}
 
+\usepackage[a4paper, left=2.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb, amsthm}
@@ -44,14 +45,13 @@
   boxrule=1pt
 }{def}
 
-% Macro para pruebas desplegables
+% Macro para pruebas (ahora siempre visibles)
 \newcommand{\desplegable}[2]{%
   \par\vspace{1ex}\noindent
-  \switchocg{#1}{\fcolorbox{gray!50}{gray!10}{\textsf{\textbf{\small $\blacktriangledown$ Mostrar/Ocultar Demostración}}}}
-  \begin{ocg}{Demostración}{#1}{off}
+  \textbf{Demostración:}
   \vspace{1ex}
+  
   #2
-  \end{ocg}
   \par\vspace{1ex}
 }
 

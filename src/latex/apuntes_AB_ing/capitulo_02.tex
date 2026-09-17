@@ -1,0 +1,435 @@
+\chapter{El Principio de Dualidad}
+Si observamos los postulados de Huntington, notaremos una perfecta simetría entre las operaciones $+$ y $\cdot$, y entre las constantes $0$ y $1$. Si en cualquier postulado intercambiamos $+$ por $\cdot$ y $0$ por $1$, obtenemos otro postulado válido del sistema. 
+
+Este rasgo estructural da lugar al \textbf{Principio de Dualidad}: toda proposición o teorema deducido a partir de estos axiomas tiene un \textit{teorema dual} que también es válido. La demostración de un teorema dual se construye manipulando la prueba original y aplicando sistemáticamente el intercambio de operaciones ($+ \leftrightarrow \cdot$) y constantes ($0 \leftrightarrow 1$). En las siguientes pruebas no evitaremos repetir las versiones duales; al contrario, haremos hincapié en cómo se manipula la prueba de uno para obtener la del otro.
+
+\section{Teoremas Principales Derivados}
+
+\begin{teorema}{Unicidad de los elementos neutros - $Unic_e, Unic_u$}{unicidad_neutros}
+Los elementos neutros descritos en los postulados son únicos. No existe ningún otro elemento en el conjunto que se comporte como el mínimo $0$ para la operación $+$, ni ningún otro que actúe como el máximo $1$ para la operación $\cdot$:
+\begin{align*}
+    \exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a + e &= a \implies e = 0 \quad (Unic_e) \\
+    \exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \cdot u &= a \implies u = 1 \quad (Unic_u)
+\end{align*}
+\end{teorema}
+\desplegable{proof_unic}{
+\begin{proof}[Demostración de $Unic_e$]
+Sea $e \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a + e = a$. Tomando $a = 0$:
+\begin{align*}
+    e &= e + 0 & (ElemNeu_+) \\
+      &= 0 + e & (Comm_+) \\
+      &= 0 & (\text{Hipótesis sobre } e)
+\end{align*}
+\end{proof}
+\begin{proof}[Demostración de $Unic_u$ (Dual)]
+Para obtener la prueba dual, intercambiamos $+$ por $\cdot$ y $0$ por $1$.
+Sea $u \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \cdot u = a$. Tomando $a = 1$:
+\begin{align*}
+    u &= u \cdot 1 & (ElemNeu_\cdot) \\
+      &= 1 \cdot u & (Comm_\cdot) \\
+      &= 1 & (\text{Hipótesis sobre } u)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Idempotencia - $Idemp_+, Idemp_\cdot$}{idempotencia}
+Operar un elemento consigo mismo, independientemente de si usamos $+$ o $\cdot$, no altera su valor. El elemento se mantiene idéntico a sí mismo:
+\begin{align*}
+    \forall a \in \mathbb{B}, \quad a + a &= a \quad (Idemp_+) \\
+    \forall a \in \mathbb{B}, \quad a \cdot a &= a \quad (Idemp_\cdot)
+\end{align*}
+\end{teorema}
+\desplegable{proof_idemp}{
+\begin{proof}[Demostración de $Idemp_+$]
+\begin{align*}
+    a &= a + 0 & (ElemNeu_+) \\
+      &= a + (a \cdot \overline{a}) & (Comp_\cdot) \\
+      &= (a + a) \cdot (a + \overline{a}) & (Dist_+) \\
+      &= (a + a) \cdot 1 & (Comp_+) \\
+      &= 1 \cdot (a + a) & (Comm_\cdot) \\
+      &= a + a & (ElemNeu_\cdot)
+\end{align*}
+\end{proof}
+\begin{proof}[Demostración de $Idemp_\cdot$ (Dual)]
+Intercambiando los operadores y constantes de la prueba anterior paso a paso:
+\begin{align*}
+    a &= a \cdot 1 & (ElemNeu_\cdot) \\
+      &= a \cdot (a + \overline{a}) & (Comp_+) \\
+      &= (a \cdot a) + (a \cdot \overline{a}) & (Dist_\cdot) \\
+      &= (a \cdot a) + 0 & (Comp_\cdot) \\
+      &= 0 + (a \cdot a) & (Comm_+) \\
+      &= a \cdot a & (ElemNeu_+)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Elementos absorbentes - $Abs_{0}, Abs_{1}$}{absorbentes}
+Cualquier elemento operado mediante $+$ con el máximo $1$ es absorbido por este, dando como resultado $1$. De igual manera, operar cualquier elemento mediante $\cdot$ con el mínimo $0$ siempre resulta en $0$:
+\begin{align*}
+    \forall a \in \mathbb{B}, \quad a + 1 &= 1 \\
+    \forall a \in \mathbb{B}, \quad a \cdot 0 &= 0
+\end{align*}
+\end{teorema}
+\desplegable{proof_absorbentes}{
+\begin{proof}[Demostración de $a + 1 = 1$]
+\begin{align*}
+    a + 1 &= (a + 1) \cdot 1 & (ElemNeu_\cdot) \\
+               &= (a + 1) \cdot (a + \overline{a}) & (Comp_+) \\
+               &= a + (1 \cdot \overline{a}) & (Dist_+) \\
+               &= a + (\overline{a} \cdot 1) & (Comm_\cdot) \\
+               &= a + \overline{a} & (ElemNeu_\cdot) \\
+               &= 1 & (Comp_+)
+\end{align*}
+\end{proof}
+\begin{proof}[Demostración de $a \cdot 0 = 0$ (Dual)]
+\begin{align*}
+    a \cdot 0 &= (a \cdot 0) + 0 & (ElemNeu_+) \\
+               &= (a \cdot 0) + (a \cdot \overline{a}) & (Comp_\cdot) \\
+               &= a \cdot (0 + \overline{a}) & (Dist_\cdot) \\
+               &= a \cdot (\overline{a} + 0) & (Comm_+) \\
+               &= a \cdot \overline{a} & (ElemNeu_+) \\
+               &= 0 & (Comp_\cdot)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Condición de Álgebra Trivial}{trivial_cond}
+Si se da el caso extremo de que el elemento mínimo $0$ y el máximo $1$ son exactamente el mismo, entonces estamos ante un álgebra que contiene un único elemento en todo su conjunto (el álgebra trivial):
+\[ 0 = 1 \implies \mathbb{B} = \{1\} = \{0\} \]
+\end{teorema}
+\desplegable{proof_trivial_cond}{
+\begin{proof}
+Supongamos que $0 = 1$. Sea $x \in \mathbb{B}$ un elemento cualquiera:
+\begin{align*}
+    x &= x + 0 & (ElemNeu_+) \\
+      &= x + 1 & (\text{Hipótesis } 0 = 1) \\
+      &= 1 & (Abs_1)
+\end{align*}
+Por tanto, todo elemento $x$ del conjunto es idéntico a $1$, lo que implica que $\mathbb{B} = \{1\} = \{0\}$.
+\end{proof}
+}
+
+\begin{teorema}{Complemento Idéntico implica Álgebra Trivial}{trivial_comp}
+Si dentro de la estructura existe algún elemento que sea igual a su propio complemento ($\overline{a} = a$), entonces forzosamente todo el sistema colapsa en el álgebra trivial de un solo elemento:
+\[ (\exists a \in \mathbb{B} : \overline{a} = a) \implies \mathbb{B} = \{1\} = \{0\} \]
+\end{teorema}
+\desplegable{proof_trivial_comp}{
+\begin{proof}
+Supongamos que existe $a \in \mathbb{B}$ tal que $\overline{a} = a$. Por el postulado del Complemento ($Comp_+$ y $Comp_\cdot$), sabemos que $a + \overline{a} = 1$ y $a \cdot \overline{a} = 0$. Sustituyendo la hipótesis $\overline{a} = a$ en ambas ecuaciones, obtenemos:
+$$ a + a = 1 \quad \text{y} \quad a \cdot a = 0 $$
+Aplicando el teorema de Idempotencia ($Idemp_+$ y $Idemp_\cdot$), sabemos que $a + a = a$ y $a \cdot a = a$. Por tanto:
+$$ a = 1 \quad \text{y} \quad a = 0 $$
+Lo cual implica que $0 = 1$. Aplicando el teorema anterior (Condición de Álgebra Trivial), concluimos que $\mathbb{B} = \{1\} = \{0\}$.
+\end{proof}
+}
+
+\begin{teorema}{Propiedades de absorción - $Abs_{+}, Abs_{\cdot}$}{absorcion}
+Cuando se combinan ambas operaciones anidando un elemento consigo mismo y con un tercero, el elemento repetido "absorbe" al otro, independientemente del valor del segundo:
+\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a + (a \cdot b) &= a \\
+    \forall a, b \in \mathbb{B}, \quad a \cdot (a + b) &= a
+\end{align*}
+\end{teorema}
+\desplegable{proof_absorcion}{
+\begin{proof}[Demostración de $Abs_+$]
+\begin{align*}
+    a + (a \cdot b) &= (a \cdot 1) + (a \cdot b) & (ElemNeu_\cdot) \\
+                        &= a \cdot (1 + b) & (Dist_\cdot) \\
+                        &= a \cdot (b + 1) & (Comm_+) \\
+                        &= a \cdot 1 & (Abs_1) \\
+                        &= a & (ElemNeu_\cdot)
+\end{align*}
+\end{proof}
+\begin{proof}[Demostración de $Abs_\cdot$ (Dual)]
+\begin{align*}
+    a \cdot (a + b) &= (a + 0) \cdot (a + b) & (ElemNeu_+) \\
+                        &= a + (0 \cdot b) & (Dist_+) \\
+                        &= a + (b \cdot 0) & (Comm_\cdot) \\
+                        &= a + 0 & (Abs_0) \\
+                        &= a & (ElemNeu_+)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Propiedades de orden de retículo - $Prop_{+,\cdot}$}{prop_reticulo}
+Existe una correspondencia biunívoca fundamental entre las dos operaciones: afirmar que un elemento domina a otro mediante $+$ equivale matemáticamente a afirmar que el segundo se impone al primero mediante $\cdot$:
+\[ \forall a, b \in \mathbb{B}: \quad a + b = a \iff a \cdot b = b \]
+\end{teorema}
+\desplegable{proof_prop_reticulo}{
+\begin{proof}[Demostración de $\implies$]
+Supongamos que $a + b = a$.
+\begin{align*}
+    a \cdot b &= b \cdot a & (Comm_\cdot) \\
+               &= b \cdot (a + b) & (\text{Hipótesis } a + b = a) \\
+               &= b & (Abs_\cdot)
+\end{align*}
+\end{proof}
+\begin{proof}[Demostración de $\impliedby$ (Dual)]
+Supongamos que $a \cdot b = b$.
+\begin{align*}
+    a + b &= b + a & (Comm_+) \\
+               &= (a \cdot b) + a & (\text{Hipótesis } a \cdot b = b) \\
+               &= a + (a \cdot b) & (Comm_+) \\
+               &= a & (Abs_+)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Equivalencia de operaciones - $Equa_{+,\cdot}$}{equa_operaciones}
+Si operar dos elementos mediante $+$ da exactamente el mismo resultado que operarlos mediante $\cdot$, esto sólo es lógicamente posible si ambos elementos son en realidad el mismo:
+\[ \forall a, b \in \mathbb{B}: \quad a + b = a \cdot b \implies a = b \]
+\end{teorema}
+\desplegable{proof_equa_operaciones}{
+\begin{proof}
+Supongamos $a + b = a \cdot b$. Observamos que:
+\begin{align*}
+    a &= a + (a \cdot b) & (Abs_+) \\
+      &= a + (a + b) & (\text{Hipótesis})
+\end{align*}
+Aplicando $Prop_{+,\cdot}$, dado que $a + (a + b) = a$, deducimos que $a \cdot (a + b) = a + b$.
+\begin{align*}
+    a + b &= a \cdot (a + b) & (\text{Resultado anterior}) \\
+             &= a & (Abs_\cdot)
+\end{align*}
+De manera simétrica para $b$:
+\begin{align*}
+    b &= b + (a \cdot b) & (Abs_+) \\
+      &= b + (a + b) & (\text{Hipótesis}) \\
+      &= (a + b) + b & (Comm_+)
+\end{align*}
+Aplicando de nuevo $Prop_{+,\cdot}$ sobre esta igualdad, obtenemos que $(a + b) \cdot b = a + b$. Pero sabemos por $Abs_\cdot$ que $(a + b) \cdot b = b \cdot (a + b) = b$. 
+Por consiguiente, $a + b = b$. Finalmente, uniendo ambos resultados: $a = a + b = b$.
+\end{proof}
+}
+
+\begin{teorema}{Teorema de Cancelación - $Equa_{canc}$}{equa_canc}
+Si un elemento $a$ se opera mediante $+$ con $b$ y con $c$ dando el mismo resultado, y además se opera mediante $\cdot$ con $b$ y con $c$ coincidiendo también los resultados, entonces forzosamente $b$ y $c$ son el mismo elemento:
+\[ \forall a, b, c \in \mathbb{B}: \quad a + b = a + c \quad \text{y} \quad a \cdot b = a \cdot c \implies b = c \]
+\end{teorema}
+\desplegable{proof_equa_canc}{
+\begin{proof}
+Este teorema es automejor dualizable al ser sus hipótesis perfectamente simétricas.
+\begin{align*}
+    b &= b \cdot (a + b) & (Abs_\cdot) \\
+      &= b \cdot (a + c) & (\text{Hipótesis } a + b = a + c) \\
+      &= (b \cdot a) + (b \cdot c) & (Dist_\cdot) \\
+      &= (a \cdot b) + (b \cdot c) & (Comm_\cdot) \\
+      &= (a \cdot c) + (b \cdot c) & (\text{Hipótesis } a \cdot b = a \cdot c) \\
+      &= (c \cdot a) + (c \cdot b) & (Comm_\cdot \text{ aplicado dos veces}) \\
+      &= c \cdot (a + b) & (Dist_\cdot) \\
+      &= c \cdot (a + c) & (\text{Hipótesis } a + b = a + c) \\
+      &= c & (Abs_\cdot)
+\end{align*}
+\end{proof}
+}
+
+\begin{teorema}{Unicidad del complemento - $Unic_{comp}$}{unic_comp}
+Todo elemento del conjunto tiene un complemento $\overline{a}$, y este es estrictamente único. Ningún otro elemento puede cumplir simultáneamente las dos condiciones del postulado del complemento para un mismo $a$:
+\[ \forall a, x \in \mathbb{B} : \quad (a + x = 1 \quad \text{y} \quad a \cdot x = 0) \implies x = \overline{a} \]
+\end{teorema}
+\desplegable{proof_unic_comp}{
+\begin{proof}
+Supongamos que existe $x \in \mathbb{B}$ tal que $a + x = 1$ y $a \cdot x = 0$.
+\begin{align*}
+    x &= x \cdot 1 & (ElemNeu_\cdot) \\
+      &= x \cdot (a + \overline{a}) & (Comp_+) \\
+      &= (x \cdot a) + (x \cdot \overline{a}) & (Dist_\cdot) \\
+      &= (a \cdot x) + (x \cdot \overline{a}) & (Comm_\cdot) \\
+      &= 0 + (x \cdot \overline{a}) & (\text{Hipótesis } a \cdot x = 0) \\
+      &= (a \cdot \overline{a}) + (x \cdot \overline{a}) & (Comp_\cdot) \\
+      &= (a + x) \cdot \overline{a} & (Dist_\cdot) \\
+      &= 1 \cdot \overline{a} & (\text{Hipótesis } a + x = 1) \\
+      &= \overline{a} \cdot 1 & (Comm_\cdot) \\
+      &= \overline{a} & (ElemNeu_\cdot)
+\end{align*}
+Por tanto, si $x$ cumple las condiciones de complemento, $x$ tiene que ser necesariamente $\overline{a}$.
+\end{proof}
+}
+
+\begin{teorema}{Involución - $Comp_{inv}$}{comp_inv}
+Aplicar la operación de complemento (o negación) dos veces consecutivas sobre un mismo elemento cancela su efecto, devolviendo el elemento original intacto:
+\[ \forall a \in \mathbb{B}, \quad \overline{(\neg a)} = a \]
+\end{teorema}
+\desplegable{proof_comp_inv}{
+\begin{proof}
+Por definición, el complemento de $\overline{a}$, denotado como $\overline{(\neg a)}$, es el elemento único que satisface:
+$$ \overline{a} + \overline{(\neg a)} = 1 \quad \text{y} \quad \overline{a} \cdot \overline{(\neg a)} = 0 $$
+Sin embargo, por la conmutatividad ($Comm_+$ y $Comm_\cdot$), sabemos que:
+$$ \overline{a} + a = a + \overline{a} = 1 \quad \text{y} \quad \overline{a} \cdot a = a \cdot \overline{a} = 0 $$
+Esto demuestra que $a$ actúa como un complemento de $\overline{a}$. Por el teorema de unicidad del complemento ($Unic_{comp}$), concluimos necesariamente que $\overline{(\neg a)} = a$.
+\end{proof}
+}
+
+\begin{teorema}{Leyes de De Morgan - $Mor_{+, \cdot}$}{morgan}
+La negación matemática se distribuye sobre las operaciones, pero al hacerlo, invierte la operación original: un supremo ($+$) negado se convierte en el ínfimo ($\cdot$) de las negaciones, y viceversa:
+\begin{align}
+    \overline{(a + b)} &= \overline{a} \cdot \overline{b} \\
+    \overline{(a \cdot b)} &= \overline{a} + \overline{b} 
+\end{align}
+De forma equivalente, aislando las variables mediante la involución, podemos expresar las operaciones básicas exclusivamente a partir de su dual negada:
+\begin{align}
+    a + b &= \overline{(\neg a \cdot \neg b)} \\
+    a \cdot b &= \overline{(\neg a + \neg b)} 
+\end{align}
+\end{teorema}
+\desplegable{proof_morgan}{
+\begin{proof}[Demostración de $\overline{(a + b)} = \overline{a} \cdot \overline{b}$]
+Para demostrarlo sin recurrir a la asociatividad, usaremos las propiedades de absorción. Comprobemos primero la suma: $(a + b) + (\overline{a} \cdot \overline{b}) = 1$.
+Sabemos por $Abs_\cdot$ que $a \cdot (a + b) = a$.
+\begin{align*}
+    \overline{a} + (a \cdot (a + b)) &= \overline{a} + a = 1 & (Comp_+) \\
+    (\overline{a} + a) \cdot (\overline{a} + (a + b)) &= 1 & (Dist_+) \\
+    1 \cdot (\overline{a} + (a + b)) &= 1 & (Comp_+) \\
+    \overline{a} + (a + b) &= 1 & (ElemNeu_\cdot)
+\end{align*}
+Simétricamente, como $b \cdot (a + b) = b \cdot (b + a) = b$, obtenemos $\overline{b} + (a + b) = 1$.
+Por tanto:
+\begin{align*}
+    (a + b) + (\overline{a} \cdot \overline{b}) &= ((a + b) + \overline{a}) \cdot ((a + b) + \overline{b}) & (Dist_+) \\
+    &= (\overline{a} + (a + b)) \cdot (\overline{b} + (a + b)) & (Comm_+) \\
+    &= 1 \cdot 1 & (\text{Resultados anteriores}) \\
+    &= 1 & (Idemp_\cdot)
+\end{align*}
+
+Segundo, comprobemos el producto: $(a + b) \cdot (\overline{a} \cdot \overline{b}) = 0$.
+Sabemos por $Abs_+$ que $\overline{a} + (\overline{a} \cdot \overline{b}) = \overline{a}$.
+\begin{align*}
+    a \cdot (\overline{a} + (\overline{a} \cdot \overline{b})) &= a \cdot \overline{a} = 0 & (Comp_\cdot) \\
+    (a \cdot \overline{a}) + (a \cdot (\overline{a} \cdot \overline{b})) &= 0 & (Dist_\cdot) \\
+    0 + (a \cdot (\overline{a} \cdot \overline{b})) &= 0 & (Comp_\cdot) \\
+    a \cdot (\overline{a} \cdot \overline{b}) &= 0 & (ElemNeu_+)
+\end{align*}
+Simétricamente, como $\overline{b} + (\overline{a} \cdot \overline{b}) = \overline{b} + (\overline{b} \cdot \overline{a}) = \overline{b}$, obtenemos $b \cdot (\overline{a} \cdot \overline{b}) = 0$.
+Por tanto:
+\begin{align*}
+    (a + b) \cdot (\overline{a} \cdot \overline{b}) &= (\overline{a} \cdot \overline{b}) \cdot (a + b) & (Comm_\cdot) \\
+    &= ((\overline{a} \cdot \overline{b}) \cdot a) + ((\overline{a} \cdot \overline{b}) \cdot b) & (Dist_\cdot) \\
+    &= (a \cdot (\overline{a} \cdot \overline{b})) + (b \cdot (\overline{a} \cdot \overline{b})) & (Comm_\cdot) \\
+    &= 0 + 0 & (\text{Resultados anteriores}) \\
+    &= 0 & (Idemp_+)
+\end{align*}
+Por el teorema de unicidad ($Unic_{comp}$), concluimos que $\overline{(a + b)} = \overline{a} \cdot \overline{b}$.
+\end{proof}
+
+\begin{proof}[Demostración de $\overline{(a \cdot b)} = \overline{a} + \overline{b}$ (Dual)]
+Intercambiando operaciones y constantes, comprobamos el producto: $(a \cdot b) \cdot (\overline{a} + \overline{b}) = 0$.
+Sabemos por $Abs_+$ que $a + (a \cdot b) = a$.
+\begin{align*}
+    \overline{a} \cdot (a + (a \cdot b)) &= \overline{a} \cdot a = 0 & (Comp_\cdot) \\
+    (\overline{a} \cdot a) + (\overline{a} \cdot (a \cdot b)) &= 0 & (Dist_\cdot) \\
+    0 + (\overline{a} \cdot (a \cdot b)) &= 0 & (Comp_\cdot) \\
+    \overline{a} \cdot (a \cdot b) &= 0 & (ElemNeu_+)
+\end{align*}
+Simétricamente, $\overline{b} \cdot (a \cdot b) = 0$.
+Por tanto:
+\begin{align*}
+    (a \cdot b) \cdot (\overline{a} + \overline{b}) &= ((a \cdot b) \cdot \overline{a}) + ((a \cdot b) \cdot \overline{b}) & (Dist_\cdot) \\
+    &= (\overline{a} \cdot (a \cdot b)) + (\overline{b} \cdot (a \cdot b)) & (Comm_\cdot) \\
+    &= 0 + 0 = 0 & (\text{Resultados anteriores})
+\end{align*}
+
+Comprobemos la suma: $(a \cdot b) + (\overline{a} + \overline{b}) = 1$.
+Sabemos por $Abs_\cdot$ que $\overline{a} \cdot (\overline{a} + \overline{b}) = \overline{a}$.
+\begin{align*}
+    a + (\overline{a} \cdot (\overline{a} + \overline{b})) &= a + \overline{a} = 1 & (Comp_+) \\
+    (a + \overline{a}) \cdot (a + (\overline{a} + \overline{b})) &= 1 & (Dist_+) \\
+    1 \cdot (a + (\overline{a} + \overline{b})) &= 1 & (Comp_+) \\
+    a + (\overline{a} + \overline{b}) &= 1 & (ElemNeu_\cdot)
+\end{align*}
+Simétricamente, $b + (\overline{a} + \overline{b}) = 1$.
+Por tanto:
+\begin{align*}
+    (a \cdot b) + (\overline{a} + \overline{b}) &= (\overline{a} + \overline{b}) + (a \cdot b) & (Comm_+) \\
+    &= ((\overline{a} + \overline{b}) + a) \cdot ((\overline{a} + \overline{b}) + b) & (Dist_+) \\
+    &= (a + (\overline{a} + \overline{b})) \cdot (b + (\overline{a} + \overline{b})) & (Comm_+) \\
+    &= 1 \cdot 1 = 1 & (\text{Resultados anteriores})
+\end{align*}
+Por $Unic_{comp}$, $\overline{(a \cdot b)} = \overline{a} + \overline{b}$.
+\end{proof}
+
+\begin{proof}[Demostración de $a + b = \overline{(\neg a \cdot \neg b)}$ y su dual]
+Partiendo de $\overline{(\neg a \cdot \neg b)}$, aplicamos De Morgan a sus componentes:
+\begin{align*}
+    \overline{(\neg a \cdot \neg b)} &= \overline{(\neg a)} + \overline{(\neg b)} & (Mor_\cdot) \\
+    &= a + b & (Comp_{inv})
+\end{align*}
+Dualizando la expresión, obtenemos de manera idéntica que $\overline{(\neg a + \neg b)} = a \cdot b$.
+\end{proof}
+}
+
+\begin{teorema}{Asociatividad - $Asoc_+, Asoc_\cdot$}{asociatividad}
+El orden en el que se agrupan tres o más elementos al aplicar de forma consecutiva la misma operación ($+$ o $\cdot$) no altera el resultado final. Al ubicar este teorema después de De Morgan, podemos simplificar enormemente su demostración:
+\begin{align*}
+    a + (b + c) &= (a + b) + c \\
+    a \cdot (b \cdot c) &= (a \cdot b) \cdot c
+\end{align*}
+\end{teorema}
+\desplegable{proof_asociatividad}{
+\begin{proof}[Demostración de $a + (b + c) = (a + b) + c$]
+Primero, demostraremos un pequeño \textbf{Lema de Igualdad por Casos}: Si $x \cdot y = x \cdot z$ y $\overline{x} \cdot y = \overline{x} \cdot z$, entonces $y = z$.
+\begin{align*}
+    y &= 1 \cdot y & (ElemNeu_\cdot) \\
+      &= (x + \overline{x}) \cdot y & (Comp_+) \\
+      &= (x \cdot y) + (\overline{x} \cdot y) & (Dist_\cdot) \\
+      &= (x \cdot z) + (\overline{x} \cdot z) & (\text{Por hipótesis del Lema}) \\
+      &= (x + \overline{x}) \cdot z & (Dist_\cdot) \\
+      &= 1 \cdot z = z & (Comp_+, ElemNeu_\cdot)
+\end{align*}
+Sea $L = a + (b + c)$ y $R = (a + b) + c$. Aplicaremos el lema usando $x = a$, por lo que debemos demostrar que $a \cdot L = a \cdot R$ y $\overline{a} \cdot L = \overline{a} \cdot R$.
+
+1) Comprobamos $a \cdot L = a \cdot R$:
+\begin{align*}
+    a \cdot L &= a \cdot (a + (b + c)) = a & (Abs_\cdot) \\
+    a \cdot R &= a \cdot ((a + b) + c) \\
+               &= (a \cdot (a + b)) + (a \cdot c) & (Dist_\cdot) \\
+               &= a + (a \cdot c) = a & (Abs_\cdot, Abs_+)
+\end{align*}
+Por tanto, $a \cdot L = a \cdot R$.
+
+2) Comprobamos $\overline{a} \cdot L = \overline{a} \cdot R$:
+\begin{align*}
+    \overline{a} \cdot L &= \overline{a} \cdot (a + (b + c)) \\
+                    &= (\overline{a} \cdot a) + (\overline{a} \cdot (b + c)) & (Dist_\cdot) \\
+                    &= 0 + (\overline{a} \cdot (b + c)) & (Comp_\cdot) \\
+                    &= \overline{a} \cdot (b + c) & (ElemNeu_+)
+\end{align*}
+\begin{align*}
+    \overline{a} \cdot R &= \overline{a} \cdot ((a + b) + c) \\
+                    &= (\overline{a} \cdot (a + b)) + (\overline{a} \cdot c) & (Dist_\cdot) \\
+                    &= ((\overline{a} \cdot a) + (\overline{a} \cdot b)) + (\overline{a} \cdot c) & (Dist_\cdot) \\
+                    &= (0 + (\overline{a} \cdot b)) + (\overline{a} \cdot c) & (Comp_\cdot) \\
+                    &= (\overline{a} \cdot b) + (\overline{a} \cdot c) & (ElemNeu_+) \\
+                    &= \overline{a} \cdot (b + c) & (Dist_\cdot)
+\end{align*}
+Como $\overline{a} \cdot L = \overline{a} \cdot R$, aplicando el Lema concluimos que $L = R$, es decir, $a + (b + c) = (a + b) + c$.
+\end{proof}
+
+\begin{proof}[Demostración de $a \cdot (b \cdot c) = (a \cdot b) \cdot c$ (Dual mediante De Morgan)]
+Al haber demostrado previamente las leyes de De Morgan, podemos probar la asociatividad del ínfimo de forma directa y elegante sin necesidad de repetir la manipulación algebraica de la demostración dual:
+\begin{align*}
+    a \cdot (b \cdot c) &= \overline{(\neg a + \neg (b \cdot c))} & (Mor_\cdot \text{ y } Comp_{inv}) \\
+                          &= \overline{(\neg a + (\neg b + \neg c))} & (Mor_\cdot) \\
+                          &= \overline{((\neg a + \neg b) + \neg c)} & (Asoc_+ \text{ demostrada arriba}) \\
+                          &= \overline{(\neg (a \cdot b) + \neg c)} & (Mor_\cdot) \\
+                          &= (a \cdot b) \cdot c & (Mor_\cdot \text{ y } Comp_{inv})
+\end{align*}
+\end{proof}
+}
+
+\section{Generalización a $n$ variables}
+
+Habiendo demostrado la asociatividad ($Asoc_+$ y $Asoc_\cdot$) de las operaciones fundamentales del álgebra de Boole, el orden en el que se agrupan las variables al aplicar consecutivamente una misma operación resulta irrelevante. Esto nos permite prescindir de los paréntesis y extender de forma natural las operaciones binarias a un número arbitrario $n$ de operandos.
+
+\begin{definicion}{Disyunción (Supremo) de $n$ variables}{or_n_variables}
+La disyunción múltiple de $n$ variables, denotada de forma compacta mediante el operador $\sum$, se define como la aplicación sucesiva de la operación $+$:
+\[ \sum_{i=1}^n x_i \triangleq x_1 + x_2 + \dots + x_n \]
+\end{definicion}
+
+\begin{definicion}{Conjunción (Ínfimo) de $n$ variables}{and_n_variables}
+De manera análoga, la conjunción múltiple de $n$ variables, denotada mediante el operador $\prod$, se define como la aplicación sucesiva de la operación $\cdot$:
+\[ \prod_{i=1}^n x_i \triangleq x_1 \cdot x_2 \cdot \dots \cdot x_n \]
+\end{definicion}
+
+La existencia de estas operaciones múltiples bien definidas es un pilar fundamental para desarrollar formas canónicas (como la suma de productos o producto de sumas) y, como veremos a continuación, servirá de base para extender el número de entradas de los operadores derivados.
+
+

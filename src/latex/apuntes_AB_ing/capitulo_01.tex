@@ -1,0 +1,89 @@
+\chapter{Introducción}
+El álgebra de Boole, originalmente introducida por George Boole en su obra de 1854 \textit{The Laws of Thought}, fue posteriormente axiomatizada de forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye Huntington presentó un conjunto de postulados independientes que definen formalmente una estructura de álgebra de Boole. 
+
+Para evitar cualquier confusión conceptual con la aritmética tradicional, en esta fase inicial emplearemos la signatura propia de la teoría de retículos, utilizando los símbolos $+$ (supremo o join) y $\cdot$ (ínfimo o meet), junto a los elementos constantes $0$ (mínimo) y $1$ (máximo). El complemento se denotará con el símbolo de la barra superior, como en $\overline{a}$. Más adelante, y por conveniencia práctica, transitaremos hacia la notación clásica de sistemas digitales ($+$, $\cdot$, $0$, $1$).
+
+\section{Pre-Axiomas de la Estructura}
+Antes de enunciar los postulados, debemos definir rigurosamente sobre qué elementos y operaciones estamos trabajando. 
+
+Partimos de un ente matemático $\mathbb{B}$.
+
+\begin{preaxioma}{Estructura de Conjunto - EsConjunto($\mathbb{B}$)}{esconj}
+Se requiere que $\mathbb{B}$ sea un conjunto.
+\end{preaxioma}
+
+\begin{preaxioma}{Elementos Constantes - Constantes}{constantes}
+Este conjunto ha de cumplir que tiene dos elementos que llamaremos constantes, tales que $0 \in \mathbb{B}$ y $1 \in \mathbb{B}$. En principio, no asumimos nada sobre la igualdad o desigualdad de estas constantes.
+\end{preaxioma}
+
+Además, vamos a definir dos operaciones binarias internas que denotaremos por $+$ y $\cdot$. Estas deben satisfacer rigurosamente la definición de función:
+
+\begin{preaxioma}{Operación Binaria Interna $+$ - OpBinInt$_+$}{opbinint_vee}
+$+ : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+\end{preaxioma}
+
+\begin{preaxioma}{Operación Binaria Interna $\cdot$ - OpBinInt$_\cdot$}{opbinint_wedge}
+$\cdot : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
+\end{preaxioma}
+
+Para poder usar estos conceptos con mayor seguridad y flexibilidad en las futuras demostraciones formales, asignaremos nombres cortos a las condiciones de existencia y unicidad de la imagen para estas operaciones:
+
+\begin{preaxioma}{Existencia $+$ - Existencia$_+$}{exist_vee}
+Para todo par existe imagen en $\mathbb{B}$. Es decir, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists c \in \mathbb{B}$ tal que $a + b = c$.
+\end{preaxioma}
+
+\begin{preaxioma}{Existencia $\cdot$ - Existencia$_\cdot$}{exist_wedge}
+Análogamente, $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$, $\exists d \in \mathbb{B}$ tal que $a \cdot b = d$.
+\end{preaxioma}
+
+\begin{preaxioma}{Unicidad $+$ - Unicidad$_+$}{unic_vee}
+Para un par solo existe una imagen. Esto es, si $a + b = c$ y $a + b = d$, entonces $c = d$.
+\end{preaxioma}
+
+\begin{preaxioma}{Unicidad $\cdot$ - Unicidad$_\cdot$}{unic_wedge}
+De igual forma para el ínfimo, si $a \cdot b = c$ y $a \cdot b = d$, entonces $c = d$.
+\end{preaxioma}
+
+\section{Los Postulados de Huntington (1904)}
+Sobre el sistema $(\mathbb{B}, +, \cdot, 0, 1)$ que cumple los pre-axiomas anteriores, diremos que forma un álgebra de Boole si satisface los siguientes postulados:
+
+\begin{postulado}{Elemento neutro $+$ - $ElemNeu_+$}{neutro_vee}
+Todo elemento operado mediante $+$ con el mínimo $0$ da como resultado el mismo elemento; es decir, $0$ no altera el valor original:
+\[ \forall a \in \mathbb{B}, \quad a + 0 = a \]
+\end{postulado}
+
+\begin{postulado}{Elemento neutro $\cdot$ - $ElemNeu_\cdot$}{neutro_wedge}
+Todo elemento operado mediante $\cdot$ con el máximo $1$ da como resultado el mismo elemento, quedando inalterado:
+\[ \forall a \in \mathbb{B}, \quad a \cdot 1 = a \]
+\end{postulado}
+
+\begin{postulado}{Conmutatividad $+$ - $Comm_+$}{conmut_vee}
+El orden de los operandos al aplicar la operación $+$ es indiferente, obteniéndose exactamente el mismo resultado:
+\[ \forall a, b \in \mathbb{B}, \quad a + b = b + a \]
+\end{postulado}
+
+\begin{postulado}{Conmutatividad $\cdot$ - $Comm_\cdot$}{conmut_wedge}
+De la misma forma, el orden de los operandos al aplicar la operación $\cdot$ tampoco altera el resultado final:
+\[ \forall a, b \in \mathbb{B}, \quad a \cdot b = b \cdot a \]
+\end{postulado}
+
+\begin{postulado}{Distributividad $+$ sobre $\cdot$ - $Dist_+$}{distrib_vee_wedge}
+La operación $+$ se distribuye sobre la operación $\cdot$. Operar un elemento con el resultado de un $\cdot$ equivale a operar con $+$ cada componente individualmente y luego aplicar $\cdot$:
+\[ \forall a, b, c \in \mathbb{B}, \quad a + (b \cdot c) = (a + b) \cdot (a + c) \]
+\end{postulado}
+
+\begin{postulado}{Distributividad $\cdot$ sobre $+$ - $Dist_\cdot$}{distrib_wedge_vee}
+De manera equivalente, el ínfimo ($\cdot$) se reparte de forma distributiva entre los componentes de un supremo ($+$):
+\[ \forall a, b, c \in \mathbb{B}, \quad a \cdot (b + c) = (a \cdot b) + (a \cdot c) \]
+\end{postulado}
+
+\begin{postulado}{Complementario - $Comp_+, Comp_\cdot$}{comp}
+Todo elemento del conjunto posee al menos un "complemento" (o elemento opuesto). Al operarlo con su complemento mediante $+$ siempre alcanzamos el máximo $1$, y mediante $\cdot$ siempre caemos al mínimo $0$:
+\begin{align*}
+\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a + b &= 1 \quad (Comp_+) \\
+a \cdot b &= 0 \quad (Comp_\cdot)
+\end{align*}
+\end{postulado}
+
+\textit{Nota: A diferencia de algunas formulaciones clásicas que imponen un axioma de cardinalidad ($0 \neq 1$) para evitar el álgebra trivial, en este desarrollo permitiremos la existencia del álgebra trivial.}
+

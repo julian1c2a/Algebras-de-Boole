@@ -1,0 +1,135 @@
+\chapter[Álgebras Finitas: Trivial y Bivaluada]{Instanciación en Álgebras Finitas: Trivial y Bivaluada}
+
+La teoría desarrollada en los capítulos anteriores es aplicable a cualquier álgebra de Boole, sin importar el número de elementos que contenga el conjunto $B$ (siempre que se cumplan los postulados de Huntington). Sin embargo, existen dos álgebras finitas de interés particular por su extrema simplicidad y su aplicación directa en la teoría de circuitos.
+
+\subsection{Álgebra Trivial ($|B| = 1$)}
+Si definimos el conjunto soporte con un único elemento, $B = \{ c \}$, nos encontramos ante el álgebra de Boole trivial o degenerada. 
+
+Dado que los postulados de Huntington (Postulado 2) exigen la existencia de un elemento neutro para la disyunción ($0 \in B$) y otro para la conjunción ($1 \in B$), y puesto que el conjunto solo contiene un único elemento, estos deben forzosamente coincidir:
+\[ 0 = 1 = c \]
+
+Al instanciar cualquier operación definida sobre este conjunto, los resultados siempre evalúan a dicha constante $c$. 
+\begin{itemize}
+    \item \textbf{Negación:} Por el postulado del complemento, $c + \overline{c} = c$ y $c \cdot \overline{c} = c$, lo que implica que $\overline{c} = c$.
+    \item \textbf{Disyunción y Conjunción:} Por la propiedad de idempotencia, $c + c = c$ y $c \cdot c = c$.
+    \item \textbf{Operadores Derivados:} Por definición, $c \uparrow c = \overline{(c \cdot c)} = \overline{c} = c$. Lo mismo sucede con el resto de operadores.
+\end{itemize}
+
+Visualizar esto en tablas de operación (comúnmente conocidas como tablas de verdad) resulta en estructuras degeneradas de una sola celda, donde $\circ \in \{ +, \cdot, \uparrow, \downarrow, \oplus, \odot \}$:
+
+\begin{center}
+\begin{tabular}{c|c}
+$a$ & $\overline{a}$ \\
+\hline
+$c$ & $c$
+\end{tabular}
+\qquad
+\begin{tabular}{cc|c}
+$a$ & $b$ & $a \circ b$ \\
+\hline
+$c$ & $c$ & $c$
+\end{tabular}
+\end{center}
+
+\subsection{Álgebra Bivaluada ($|B| = 2$)}
+El caso más importante para la ingeniería es el álgebra de Boole bivaluada, donde el conjunto soporte consta exactamente de los dos elementos garantizados por los postulados: el neutro disyuntivo y el neutro conjuntivo. 
+\[ B = \{ 0, 1 \} \]
+(Asumiendo lógicamente que $0 \neq 1$).
+
+Procederemos a deducir el comportamiento (las tablas de operación) instanciando los teoremas y postulados axiomáticos en estos dos únicos valores.
+
+\subsubsection{Operaciones Básicas ($\overline{a}$, $+$, $\cdot$)}
+
+\textbf{1. Negación (Operación unaria $\overline{a}$)} \\
+El Postulado 5 (Complemento) exige que:
+\[ 0 + \overline{0} = 1 \quad \text{y} \quad 1 + \overline{1} = 1 \]
+Al existir solo dos elementos en el conjunto, el único valor que sumado a $0$ (que es el neutro disyuntivo, por lo que no altera el resultado) da $1$, es el propio $1$. Por lo tanto, deducimos que $\overline{0} = 1$. De igual manera, por dualidad, $\overline{1} = 0$.
+
+\textbf{2. Disyunción (Operación binaria $+$)} \\
+Calculamos los cuatro casos posibles instanciando los valores:
+\begin{itemize}
+    \item $0 + 0 = 0$ (Por Idempotencia, Teorema 1).
+    \item $0 + 1 = 1$ (Por ser $0$ el elemento neutro, Postulado 2a).
+    \item $1 + 0 = 1$ (Por Conmutatividad, Postulado 3a).
+    \item $1 + 1 = 1$ (Por Idempotencia, Teorema 1).
+\end{itemize}
+
+\textbf{3. Conjunción (Operación binaria $\cdot$)} \\
+Análogamente:
+\begin{itemize}
+    \item $1 \cdot 1 = 1$ (Por Idempotencia, Teorema 1).
+    \item $1 \cdot 0 = 0$ (Por ser $1$ el elemento neutro, Postulado 2b).
+    \item $0 \cdot 1 = 0$ (Por Conmutatividad, Postulado 3b).
+    \item $0 \cdot 0 = 0$ (Por Idempotencia, Teorema 1).
+\end{itemize}
+
+\subsubsection{Operadores Derivados ($\uparrow, \downarrow, \oplus, \odot$)}
+Podemos obtener las tablas de los operadores derivados aplicando directamente sus definiciones algebraicas sobre las tablas básicas ya obtenidas:
+
+\textbf{1. NAND y NOR} \\
+Dado que $a \uparrow b = \overline{(a \cdot b)}$ y $a \downarrow b = \overline{(a + b)}$, los resultados consisten simplemente en aplicar el operador complemento ($\overline{a}$) a las tablas de conjunción y disyunción calculadas previamente.
+
+\textbf{2. XOR y XNOR} \\
+Recordando la definición algebraica $a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b)$, se puede evaluar caso por caso (por ejemplo, $1 \oplus 0 = (1 \cdot 1) + (0 \cdot 0) = 1 + 0 = 1$), pero también podemos usar directamente los teoremas derivados anteriormente:
+\begin{itemize}
+    \item $a \oplus 0 = a$ (Elemento neutro). Por lo tanto: $0 \oplus 0 = 0$, y $1 \oplus 0 = 1$.
+    \item $a \oplus 1 = \overline{a}$ (Inversor). Por lo tanto: $0 \oplus 1 = 1$, y $1 \oplus 1 = 0$.
+\end{itemize}
+Por dualidad, y sabiendo que el XNOR es la negación del XOR, se obtiene trivialmente que $a \odot b = \overline{(a \oplus b)}$.
+
+\subsubsection{Resumen: Tablas de Operación Bivaluadas}
+A continuación, presentamos la consolidación matricial de todas las operaciones deducidas, conformando las tablas de verdad definitivas del álgebra de dos valores:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c||c}
+\hline
+$a$ & $\overline{a}$ \\
+\hline\hline
+$0$ & $1$ \\
+$1$ & $0$ \\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{cc||c|c|c|c|c|c}
+\hline
+$a$ & $b$ & $a + b$ & $a \cdot b$ & $a \uparrow b$ & $a \downarrow b$ & $a \oplus b$ & $a \odot b$ \\
+\hline\hline
+$0$ & $0$ & $0$ & $0$ & $1$ & $1$ & $0$ & $1$ \\
+$0$ & $1$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ \\
+$1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ \\
+$1$ & $1$ & $1$ & $1$ & $0$ & $0$ & $0$ & $1$ \\
+\hline
+\end{tabular}
+\caption{Tablas de Verdad consolidadas para las Operaciones del Álgebra de Boole de 2 elementos.}
+\label{tab:tablas_bivaluadas}
+\end{table}
+
+\section{Conclusiones y Transición a la Lógica Digital}
+
+Tras haber establecido formalmente la estructura matemática del álgebra de Boole a partir de los postulados de Huntington, y haber demostrado rigurosamente sus propiedades fundamentales operando con la signatura clásica de la teoría de retículos ($+, \cdot, 0, 1$), estamos en disposición de dar el salto al dominio de la ingeniería.
+
+En la electrónica digital, el interés recae de forma exclusiva sobre un modelo concreto de álgebra de Boole: el \textbf{Álgebra de Conmutación de Shannon}. Esta es el álgebra de Boole más sencilla posible, cuyo conjunto subyacente consta únicamente de dos elementos, $\mathbb{B}_2 = \{0, 1\}$. 
+
+A pesar de su aparente simplicidad, el álgebra de $\mathbb{B}_2$ cumple estrictamente todos los postulados de Huntington (y por ende, todos los teoremas que hemos derivado) y está contenida formalmente como subestructura en cualquier otra álgebra de Boole más compleja.
+
+Para adecuar nuestra matemática al diseño de circuitos y sistemas digitales, adoptaremos a partir de ahora la \textbf{notación ingenieril}, realizando el siguiente isomorfismo simbólico sobre nuestras operaciones y constantes:
+\begin{itemize}
+    \item \textbf{Constantes lógicas:} El elemento mínimo $0$ (falso) se denotará como \textbf{0} (ó nivel bajo de tensión, $L$). El elemento máximo $1$ (verdadero) se denotará como \textbf{1} (ó nivel alto de tensión, $H$).
+    \item \textbf{Supremo (Join / Disyunción):} La operación $+$ se denotará mediante el operador suma $\mathbf{+}$. En circuitos lógicos, implementa la puerta \textbf{OR}.
+    \item \textbf{Ínfimo (Meet / Conjunción):} La operación $\cdot$ se denotará mediante el operador producto $\mathbf{\cdot}$ (frecuentemente omitido, escribiendo $ab$ en lugar de $a \cdot b$). Implementa la puerta \textbf{AND}.
+    \item \textbf{Complemento (Negación):} La operación de complemento $\overline{a}$ se denotará convencionalmente colocando una barra superior sobre la variable, $\mathbf{\overline{a}}$, o mediante una comilla $\mathbf{a'}$. Implementa la puerta \textbf{NOT} (inversor).
+    \item \textbf{Operadores Derivados (NAND y NOR):} Las operaciones $\uparrow$ y $\downarrow$ mantienen sus símbolos, o bien se expresan directamente como el complemento del producto o de la suma ($\overline{a \cdot b}$, $\overline{a+b}$). Representan las puertas universales \textbf{NAND} y \textbf{NOR}, fundamentales en el diseño de circuitos integrados.
+    \item \textbf{Suma Exclusiva y Equivalencia (XOR y XNOR):} Las operaciones introducidas como suma exclusiva y equivalencia lógica se denotan mediante $\mathbf{\oplus}$ y $\mathbf{\odot}$. Representan las puertas \textbf{XOR} (útiles en sumadores o detectores de paridad) y \textbf{XNOR} (comparadores de igualdad).
+    \item \textbf{Operadores n-arios:} Las versiones generalizadas para múltiples variables formarán estructuras de puertas lógicas de $n$ entradas. Se denotarán mediante los operadores $\sum$ (puerta OR de $n$ entradas), $\prod$ (puerta AND de $n$ entradas), $\bigoplus$ (puerta XOR de $n$ entradas) y $\bigodot$ (puerta XNOR de $n$ entradas).
+\end{itemize}
+
+Esta notación algebraica clásica resulta mucho más ágil y familiar para la manipulación y simplificación de funciones lógicas complejas. Así, teoremas como el de la distributividad se reescriben de forma natural como $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$, y las leyes de De Morgan cobran su célebre forma visual:
+\[ \overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b} \]
+De igual modo, la estructura de las operaciones derivadas queda plasmada directamente en ecuaciones como $a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b)$.
+
+Además, gracias a nuestra previa instanciación en el álgebra bivaluada ($|B|=2$), sabemos que las tablas de operación algebraicas que hemos deducido analíticamente se corresponden de manera idéntica y biunívoca con las \textbf{tablas de verdad} de las puertas lógicas físicas.
+
+Con estos fundamentos matemáticos sólidamente establecidos, la transición hacia el diseño, análisis y simplificación de circuitos digitales queda completamente justificada y carente de ambigüedades.
+

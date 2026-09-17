@@ -1,29 +1,44 @@
 # Makefile para compilar el proyecto LaTeX
 
-PROJECTS = main manual_ingenieria independencia_huntington
-BUILD_DIR = build
-TEST_BUILD_DIR = $(BUILD_DIR)/build_tests
+SRC_DIR = src/latex
+BUILD_DIR = build/latex
+DOC_OUT_DIR = doc_out/latex
+DOC_OUT_MD_DIR = doc_out/markdown
+TEST_BUILD_DIR = build/build_tests
 
-all: pdf
+# Busca todos los subdirectorios en src/latex
+PROJECTS = $(notdir $(wildcard $(SRC_DIR)/*))
 
-pdf:
+all: docs
+
+docs:
 	@for proj in $(PROJECTS); do \
-		mkdir -p $(BUILD_DIR)/$$proj; \
-		if [ -f $$proj.tex ]; then \
-			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -output-directory=$(BUILD_DIR)/$$proj $$proj.tex; \
-			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -output-directory=$(BUILD_DIR)/$$proj $$proj.tex; \
+		if [ -f "$(SRC_DIR)/$$proj/$$proj.tex" ]; then \
+			echo "========================================"; \
+			echo "Compilando $$proj..."; \
+			echo "========================================"; \
+			mkdir -p "$(BUILD_DIR)/$$proj"; \
+			mkdir -p "$(DOC_OUT_DIR)/$$proj"; \
+			cd "$(SRC_DIR)/$$proj" && \
+			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -output-directory="../../../$(BUILD_DIR)/$$proj" "$$proj.tex" ; \
+			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -output-directory="../../../$(BUILD_DIR)/$$proj" "$$proj.tex" ; \
+			if [ -f "../../../$(BUILD_DIR)/$$proj/$$proj.pdf" ]; then \
+				cp "../../../$(BUILD_DIR)/$$proj/$$proj.pdf" "../../../$(DOC_OUT_DIR)/$$proj/" ; \
+				rm -f "../../../$(BUILD_DIR)/$$proj/$$proj.pdf" ; \
+			fi; \
+			mkdir -p "../../../$(DOC_OUT_MD_DIR)/$$proj"; \
+			pandoc "$$proj.tex" -o "../../../$(DOC_OUT_MD_DIR)/$$proj/$$proj.md" --katex --from=latex --to=markdown ; \
+			cd ../../../; \
+		else \
+			echo "Aviso: No se encontró $(SRC_DIR)/$$proj/$$proj.tex"; \
 		fi \
 	done
 
-# Regla mock por si decides aadir tests (ej. tests de sintaxis o scripts en el futuro)
 tests:
 	@mkdir -p $(TEST_BUILD_DIR)
 	@echo "Construyendo tests en $(TEST_BUILD_DIR)... (Placeholder)"
 
 clean:
-	find $(BUILD_DIR) -type f -delete 2>/dev/null || true
-	@for proj in $(PROJECTS); do \
-		rm -f $$proj.aux $$proj.log $$proj.out $$proj.toc $$proj.pdf $$proj.bbl $$proj.blg $$proj.fls $$proj.fdb_latexmk $$proj.synctex.gz; \
-	done
+	rm -rf build/* doc_out/*
 
-.PHONY: all pdf tests clean
+.PHONY: all docs tests clean
