@@ -308,6 +308,20 @@ Como podemos observar, ambas expansiones resultan exactamente en los mismos cuat
 Dado que ambos operadores han demostrado ser asociativos y conmutativos, es posible omitir los paréntesis y generalizar la operación a un número arbitrario $n$ de variables. Se denotan mediante los operadores de sumatoria y productorio modificados:
 \[ \bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n \]
 \[ \bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n \]
+
+\textbf{Propiedad de Paridad de la XOR (Suma Módulo 2):}
+La operación $\bigoplus_{i=1}^{n} x_i$ es conocida matemáticamente como la \textit{función de paridad impar}. Su valor será $\top$ (o 1) si y solo si un número impar de las variables de entrada $x_i$ tienen valor $\top$.
+
+\textbf{Relación entre XOR y XNOR para $n$ variables:}
+Dado que $x \odot y = x \oplus y \oplus \top$, cada aplicación sucesiva del operador $\odot$ es matemáticamente equivalente a aplicar una suma $\oplus$ y concatenar una constante $\top$. Puesto que la expresión $\bigodot_{i=1}^{n} x_i$ entrelaza a sus operandos mediante exactamente $n-1$ operadores de equivalencia, se deduce rigurosamente que:
+\[ \bigodot_{i=1}^{n} x_i = \left( \bigoplus_{i=1}^{n} x_i \right) \oplus \underbrace{\top \oplus \top \dots \oplus \top}_{n-1 \text{ veces}} \]
+Por la propia idempotencia nula de la suma booleana exclusiva ($x \oplus x = \bot$), la suma de $n-1$ constantes $\top$ será igual a $\bot$ si $n-1$ es par (lo cual ocurre cuando $n$ es impar), y será igual a $\top$ si $n-1$ es impar (cuando $n$ es par). Por lo tanto:
+\[ 
+\bigodot_{i=1}^{n} x_i = \begin{cases} 
+\bigoplus_{i=1}^{n} x_i & \text{si } n \text{ es impar (es la misma función)} \\
+\neg \left( \bigoplus_{i=1}^{n} x_i \right) & \text{si } n \text{ es par (son funciones negadas)}
+\end{cases} 
+\]
 \end{teorema}
 
 \begin{teorema}{Distributividad (AND sobre XOR y OR sobre XNOR)}{dist_xor}
@@ -334,5 +348,29 @@ Lo cual demuestra la igualdad. La demostración de la distributividad para XNOR 
 
 \begin{teorema}{Extensión del Principio de Dualidad (XOR y XNOR)}{dualidad_xor_xnor}
 De forma análoga a la relación entre NAND y NOR, los operadores XOR y XNOR son mutuamente duales. Para obtener la expresión dual de cualquier proposición que involucre estos operadores, se deben intercambiar $\oplus$ y $\odot$, manteniendo las reglas de dualidad estándar para los demás elementos y constantes.
+\end{teorema}
+
+\section{Estructuras Algebraicas Superiores}
+
+Las propiedades demostradas anteriormente para los operadores XOR ($\oplus$) y AND ($\wedge$) permiten dotar al conjunto $B$ de estructuras algebraicas más ricas y estándar dentro del álgebra abstracta.
+
+\begin{teorema}{Estructura de Grupo Conmutativo}{grupo_xor}
+El par $(B, \oplus)$ forma un \textbf{grupo abeliano} (conmutativo), satisfaciendo:
+\begin{enumerate}
+    \item \textbf{Clausura:} $\forall a,b \in B, a \oplus b \in B$.
+    \item \textbf{Asociatividad:} $a \oplus (b \oplus c) = (a \oplus b) \oplus c$.
+    \item \textbf{Elemento neutro:} Existe $\bot \in B$ tal que $a \oplus \bot = a$.
+    \item \textbf{Elemento inverso (Idempotencia aditiva):} Todo elemento es su propio inverso, ya que $a \oplus a = \bot$.
+    \item \textbf{Conmutatividad:} $a \oplus b = b \oplus a$.
+\end{enumerate}
+\end{teorema}
+
+\begin{teorema}{Estructura de Anillo Conmutativo (Anillo Booleano)}{anillo_booleano}
+La terna $(B, \oplus, \wedge)$ forma un \textbf{anillo conmutativo con elemento unidad} (comúnmente denominado Anillo Booleano), donde el XOR actúa como la suma del anillo y el AND como el producto. Se satisfacen todas las propiedades requeridas:
+\begin{enumerate}
+    \item $(B, \oplus)$ es un grupo abeliano (demostrado arriba).
+    \item $(B, \wedge)$ es un monoide conmutativo (asociativo, conmutativo, y con elemento neutro $\top$).
+    \item \textbf{Distributividad:} El producto ($\wedge$) se distribuye sobre la suma ($\oplus$), es decir, $a \wedge (b \oplus c) = (a \wedge b) \oplus (a \wedge c)$.
+\end{enumerate}
 \end{teorema}
 

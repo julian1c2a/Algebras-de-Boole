@@ -416,6 +416,77 @@ Al haber demostrado previamente las leyes de De Morgan, podemos probar la asocia
 \end{proof}
 }
 
+\section{Teoremas de Simplificación}
+
+Además de los teoremas deducidos directamente de los axiomas, existen tres teoremas de simplificación de enorme utilidad práctica, especialmente en la minimización de funciones booleanas.
+
+\begin{teorema}{Teorema de Adyacencia (Expansión de Shannon) - $Ady_{\vee, \wedge}$}{adyacencia}
+Cualquier elemento $a$ puede ser expandido con respecto a otra variable $b$ y su complemento.
+\begin{align*}
+    \text{Adyacencia en $\vee$: } & a = (a \wedge b) \vee (a \wedge \neg b) \\
+    \text{Adyacencia en $\wedge$: } & a = (a \vee b) \wedge (a \vee \neg b)
+\end{align*}
+\tcblower
+\begin{proof}
+Demostración para la suma:
+\begin{align*}
+    a &= a \wedge \top & \text{Axioma de Elemento Neutro ($E_n$)} \\
+    a &= a \wedge (b \vee \neg b) & \text{Axioma de Complementarios ($Comp$)} \\
+    a &= (a \wedge b) \vee (a \wedge \neg b) & \text{Axioma de Distributividad ($Dist_{\wedge}$)}
+\end{align*}
+La prueba para el producto es estrictamente dual:
+\begin{align*}
+    a &= a \vee \bot & \text{Axioma de Elemento Neutro ($E_n$)} \\
+    a &= a \vee (b \wedge \neg b) & \text{Axioma de Complementarios ($Comp$)} \\
+    a &= (a \vee b) \wedge (a \vee \neg b) & \text{Axioma de Distributividad ($Dist_{\vee}$)}
+\end{align*}
+\end{proof}
+\end{teorema}
+
+\begin{teorema}{Teorema de Reducción (Absorción Fuerte) - $Red_{\vee, \wedge}$}{reduccion}
+La disyunción de una variable con la conjunción de su complemento y otra variable, se reduce a la disyunción de ambas variables.
+\begin{align*}
+    \text{Para la disyunción: } & a \vee (\neg a \wedge b) = a \vee b \\
+    \text{Para la conjunción (Dual): } & a \wedge (\neg a \vee b) = a \wedge b
+\end{align*}
+\tcblower
+\begin{proof}
+Demostración para la disyunción:
+\begin{align*}
+    a \vee (\neg a \wedge b) &= (a \vee \neg a) \wedge (a \vee b) & \text{Axioma de Distributividad ($Dist_{\vee}$)} \\
+    &= \top \wedge (a \vee b) & \text{Axioma de Complementarios ($Comp$)} \\
+    &= a \vee b & \text{Axioma de Elemento Neutro ($E_n$)}
+\end{align*}
+Demostración dual para la conjunción:
+\begin{align*}
+    a \wedge (\neg a \vee b) &= (a \wedge \neg a) \vee (a \wedge b) & \text{Axioma de Distributividad ($Dist_{\wedge}$)} \\
+    &= \bot \vee (a \wedge b) & \text{Axioma de Complementarios ($Comp$)} \\
+    &= a \wedge b & \text{Axioma de Elemento Neutro ($E_n$)}
+\end{align*}
+\end{proof}
+\end{teorema}
+
+\begin{teorema}{Teorema del Consenso (Quine) - $Cons_{\vee, \wedge}$}{consenso}
+En una expresión con tres variables donde una variable aparece afirmada en un término, negada en otro, y el tercer término (el consenso) está formado por las variables restantes, este último término es redundante.
+\begin{align*}
+    \text{Consenso en $\vee$: } & (a \wedge b) \vee (\neg a \wedge c) \vee (b \wedge c) = (a \wedge b) \vee (\neg a \wedge c) \\
+    \text{Consenso en $\wedge$: } & (a \vee b) \wedge (\neg a \vee c) \wedge (b \vee c) = (a \vee b) \wedge (\neg a \vee c)
+\end{align*}
+\tcblower
+\begin{proof}
+Demostración para la versión en $\vee$:
+\begin{align*}
+    (a \wedge b) \vee (\neg a \wedge c) \vee (b \wedge c) &= (a \wedge b) \vee (\neg a \wedge c) \vee ((b \wedge c) \wedge \top) & \text{Ax. Neutro ($E_n$)} \\
+    &= (a \wedge b) \vee (\neg a \wedge c) \vee ((b \wedge c) \wedge (a \vee \neg a)) & \text{Ax. Comp.} \\
+    &= (a \wedge b) \vee (\neg a \wedge c) \vee (a \wedge b \wedge c) \vee (\neg a \wedge b \wedge c) & \text{Dist. y Asoc.} \\
+    &= ((a \wedge b) \vee (a \wedge b \wedge c)) \\
+    &\quad \vee ((\neg a \wedge c) \vee (\neg a \wedge c \wedge b)) & \text{Conm. y Asoc.} \\
+    &= (a \wedge b) \vee (\neg a \wedge c) & \text{Absorción ($Abs_{\vee}$)}
+\end{align*}
+La prueba dual sigue el mismo principio (sumar $\bot$ al consenso, expandirlo con $(a \wedge \neg a)$, y simplificar usando absorción).
+\end{proof}
+\end{teorema}
+
 \section{Generalización a $n$ variables}
 
 Habiendo demostrado la asociatividad ($Asoc_\vee$ y $Asoc_\wedge$) de las operaciones fundamentales del álgebra de Boole, el orden en el que se agrupan las variables al aplicar consecutivamente una misma operación resulta irrelevante. Esto nos permite prescindir de los paréntesis y extender de forma natural las operaciones binarias a un número arbitrario $n$ de operandos.

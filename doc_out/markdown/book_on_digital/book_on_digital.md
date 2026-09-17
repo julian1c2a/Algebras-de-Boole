@@ -1,10 +1,64 @@
 # Introducción
 
-El álgebra de Boole, originalmente introducida por George Boole en su
-obra de 1854 *The Laws of Thought*, fue posteriormente axiomatizada de
-forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye
-Huntington presentó un conjunto de postulados independientes que definen
-formalmente una estructura de álgebra de Boole.
+El álgebra de las proposiciones. Éste es sin duda, el primer desarrollo
+que se hizo del álgebra de Boole, hecha por el propio George Boole en
+mitad del siglo XIX (edición 1851). Lo desarrolló como una "Una
+investigación en las leyes del pensamiento". Amigo suyo que lo ayudó a
+penetrar los ambientes académicos es Augustus De Morgan. Desde
+Aristóteles (que funda por primera vez la lógica como ciencia analítica)
+en el siglo IV a. C. no había habido ningún adelanto sustancial en la
+lógica. Kant (medio siglo antes de Boole) había considerado que la
+lógica era un cuerpo de doctrina cerrado y completo (esto es, no había
+nada más que decir que lo que ya había desarrollado y escrito
+Aristóteles en sus "Tratados de Lógica" u "Órganon", hacía ya 2.300
+años). Aunque la verdadera revolución se da algunos años más tarde con
+Frege, el lógico más importante desde Aristóteles. Si doy estos datos
+sobre la historia de la lógica que todos asociaréis más a la filosofía,
+que parece queda muy lejos del propósito de unos apuntes de matemáticas
+discretas que cubran de la forma más amplia posible los Fundamentos de
+Electrónica Digital, es porque no queda tan lejos. La idea de hacer un
+lenguaje dónde el razonamiento siguiera unas pautas claras de forma que
+siempre quedara todo tan cierto como en las matemáticas era ya antiguo.
+Aristóteles ya advertía de una cierta indefinición insuperable de los
+términos más importantes de la filosofía (en realidad de casi todos los
+conceptos de la vida ordinaria): "existen conceptos o ideas que
+corresponden con la realidad que no se usan de forma equívoca -- esto
+es, su uso no es equívoco, este mismo concepto, palabra o idea que
+hablamos no se refiere a realidades distintas y diferenciadas, de forma
+que nos llevan a confusión -- pero tampoco de forma unívoca -- como las
+definiciones desde axiomas en un lenguaje formal matemático, así tenemos
+que existen conceptos análogos" (es una glosa de palabras de
+Aristóteles). En la Modernidad, dado que el concepto de analogía lleva
+aparejado un tratamiento difícil que no lleva fácilmente a certeza, se
+intentan buscar criterios de certeza absoluta y unas definiciones que
+aparentemente son unívocas y se tratan como tales. Es significativo el
+nombre (y la estructura interna) de una importante obra de Spinoza:
+"Ética demostrada según el orden geométrico". Será Leibniz quién escriba
+ya cumplidamente sobre la necesidad de establecer un léxico
+completamente unívoco (una tarea mastodonte, o mejor, imposible) y un
+"cálculo" del pensamiento, de forma que "una cuestión como la existencia
+de Dios pueda ser resuelto mediante la resolución de unas ecuaciones de
+pensamiento" (de nuevo es una glosa). Se empezaba a buscar con ansiedad
+una mecanización del pensamiento. Esta idea fue muy fructífera, dando un
+primer paso hacia ella George Boole que hace un álgebra de las
+proposiciones. Este álgebra no era más amplia que la de Aristóteles,
+pero permitía el cálculo al modo matemático. De aquí a la llegada de
+Frege, ya, Charles Babbage diseña y realiza (sin éxito debido al trabajo
+de mecanizado excesivamente minucioso que requería el diseño) una
+computadora universal mecánica (mediante engranajes) prácticamente
+similar al modelo de Von Neumann. La condesa de Lovelace (Ada) es el
+matemático que hace los primeros programas en lenguaje ensamblador de la
+máquina de Babbage. La primera programadora de la historia. Después de
+Frege siguen los desarrollos con gente como Bertrand Rusell, David
+Hilbert, y otros hasta los increíbles resultados de Gödel que ponen
+punto final a muchas de las pretensiones de mecanización del
+pensamiento, pero que son ya base de la computación moderna, siendo los
+trabajos definitivos los de Alan Turing. Como veis el camino recorrido
+es largo y complicado, siendo el momento crucial para el arranque de la
+ingeniería digital los trabajos de George Boole. No he mencionado el
+papel de las máquinas de cifrado y descifrado de mensajes en la Gran
+Guerra y la II Guerra Mundial (en las que intervinieron muchos de las
+mentes antes mencionadas).
 
 Para evitar cualquier confusión conceptual con la aritmética
 tradicional, en esta fase inicial emplearemos la signatura propia de la
@@ -81,15 +135,16 @@ qué elementos y operaciones estamos trabajando.
 Partimos de un ente matemático $\mathbb{B}$.
 
 ::: preaxioma
-Estructura de Conjunto - EsConjunto($\mathbb{B}$)esconj Se requiere que
-$\mathbb{B}$ sea un conjunto.
+\[H0.0.0\] Estructura de Conjunto - EsConjunto($\mathbb{B}$)esconj Se
+requiere que $\mathbb{B}$ sea un conjunto.
 :::
 
 ::: preaxioma
-Elementos Constantes - Constantesconstantes Este conjunto ha de cumplir
-que tiene dos elementos que llamaremos constantes, tales que
-$\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En principio, no asumimos
-nada sobre la igualdad o desigualdad de estas constantes.
+\[H0.0.1, H0.0.2\] Elementos Constantes - Constantesconstantes Este
+conjunto ha de cumplir que tiene dos elementos que llamaremos
+constantes, tales que $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En
+principio, no asumimos nada sobre la igualdad o desigualdad de estas
+constantes.
 :::
 
 Además, vamos a definir dos operaciones binarias internas que
@@ -97,13 +152,14 @@ denotaremos por $\vee$ y $\wedge$. Estas deben satisfacer rigurosamente
 la definición de función:
 
 ::: preaxioma
-Operación Binaria Interna $\vee$ - OpBinInt$_\vee$opbinint_vee
+\[H0.1\] Operación Binaria Interna $\vee$ - OpBinInt$_\vee$opbinint_vee
 $\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación
 binaria interna.
 :::
 
 ::: preaxioma
-Operación Binaria Interna $\wedge$ - OpBinInt$_\wedge$opbinint_wedge
+\[H0.2\] Operación Binaria Interna $\wedge$ -
+OpBinInt$_\wedge$opbinint_wedge
 $\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación
 binaria interna.
 :::
@@ -143,55 +199,58 @@ pre-axiomas anteriores, diremos que forma un álgebra de Boole si
 satisface los siguientes postulados:
 
 ::: postulado
-Elemento neutro $\vee$ - $ElemNeu_\vee$neutro_vee Todo elemento operado
-mediante $\vee$ con el mínimo $\bot$ da como resultado el mismo
+\[H1.1\] Elemento neutro $\vee$ - $ElemNeu_\vee$neutro_vee Todo elemento
+operado mediante $\vee$ con el mínimo $\bot$ da como resultado el mismo
 elemento; es decir, $\bot$ no altera el valor original:
 $$\forall a \in \mathbb{B}, \quad a \vee \bot = a$$
 :::
 
 ::: postulado
-Elemento neutro $\wedge$ - $ElemNeu_\wedge$neutro_wedge Todo elemento
-operado mediante $\wedge$ con el máximo $\top$ da como resultado el
-mismo elemento, quedando inalterado:
+\[H1.2\] Elemento neutro $\wedge$ - $ElemNeu_\wedge$neutro_wedge Todo
+elemento operado mediante $\wedge$ con el máximo $\top$ da como
+resultado el mismo elemento, quedando inalterado:
 $$\forall a \in \mathbb{B}, \quad a \wedge \top = a$$
 :::
 
 ::: postulado
-Conmutatividad $\vee$ - $Comm_\vee$conmut_vee El orden de los operandos
-al aplicar la operación $\vee$ es indiferente, obteniéndose exactamente
-el mismo resultado:
+\[H2.1\] Conmutatividad $\vee$ - $Comm_\vee$conmut_vee El orden de los
+operandos al aplicar la operación $\vee$ es indiferente, obteniéndose
+exactamente el mismo resultado:
 $$\forall a, b \in \mathbb{B}, \quad a \vee b = b \vee a$$
 :::
 
 ::: postulado
-Conmutatividad $\wedge$ - $Comm_\wedge$conmut_wedge De la misma forma,
-el orden de los operandos al aplicar la operación $\wedge$ tampoco
-altera el resultado final:
+\[H2.2\] Conmutatividad $\wedge$ - $Comm_\wedge$conmut_wedge De la misma
+forma, el orden de los operandos al aplicar la operación $\wedge$
+tampoco altera el resultado final:
 $$\forall a, b \in \mathbb{B}, \quad a \wedge b = b \wedge a$$
 :::
 
 ::: postulado
-Distributividad $\vee$ sobre $\wedge$ - $Dist_\vee$distrib_vee_wedge La
-operación $\vee$ se distribuye sobre la operación $\wedge$. Operar un
-elemento con el resultado de un $\wedge$ equivale a operar con $\vee$
-cada componente individualmente y luego aplicar $\wedge$:
+\[H3.1\] Distributividad $\vee$ sobre $\wedge$ -
+$Dist_\vee$distrib_vee_wedge La operación $\vee$ se distribuye sobre la
+operación $\wedge$. Operar un elemento con el resultado de un $\wedge$
+equivale a operar con $\vee$ cada componente individualmente y luego
+aplicar $\wedge$:
 $$\forall a, b, c \in \mathbb{B}, \quad a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$$
 :::
 
 ::: postulado
-Distributividad $\wedge$ sobre $\vee$ - $Dist_\wedge$distrib_wedge_vee
-De manera equivalente, el ínfimo ($\wedge$) se reparte de forma
-distributiva entre los componentes de un supremo ($\vee$):
+\[H3.2\] Distributividad $\wedge$ sobre $\vee$ -
+$Dist_\wedge$distrib_wedge_vee De manera equivalente, el ínfimo
+($\wedge$) se reparte de forma distributiva entre los componentes de un
+supremo ($\vee$):
 $$\forall a, b, c \in \mathbb{B}, \quad a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$$
 :::
 
 ::: postulado
-Complementario - $Comp_\vee, Comp_\wedge$comp Todo elemento del conjunto
-posee al menos un \"complemento\" (o elemento opuesto). Al operarlo con
-su complemento mediante $\vee$ siempre alcanzamos el máximo $\top$, y
-mediante $\wedge$ siempre caemos al mínimo $\bot$: $$\begin{align*}
-\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \\
-a \wedge b &= \bot \quad (Comp_\wedge)
+\[H4\] Complementario - $Comp_\vee, Comp_\wedge$comp Todo elemento del
+conjunto posee al menos un \"complemento\" (o elemento opuesto). Al
+operarlo con su complemento mediante $\vee$ siempre alcanzamos el máximo
+$\top$, y mediante $\wedge$ siempre caemos al mínimo $\bot$:
+$$\begin{align*}
+\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \quad \text{[H4.1]} \\
+a \wedge b &= \bot \quad (Comp_\wedge) \quad \text{[H4.2]}
 \end{align*}$$
 :::
 
@@ -199,6 +258,655 @@ a \wedge b &= \bot \quad (Comp_\wedge)
 axioma de cardinalidad ($\bot \neq \top$) para evitar el álgebra
 trivial, en este desarrollo permitiremos la existencia del álgebra
 trivial.*
+
+# Modelos e Instancias de Álgebras de Boole
+
+Como ejemplos que cumplen los anteriores postulados o axiomas vamos a
+desarrollar unos cuántos. Para que este sistema de axiomas sea
+relativamente consistente (al sistema ZFC por ejemplo) bastará ver la
+independencia de unos axiomas de otros.
+
+**\[Ejemplo 1\]** El primero y más sencillo de ver es el álgebra de las
+partes de un conjunto. Dado un conjunto
+cualquiera$$U \neq \varnothing$$,
+$${\wp(U)} = {\{{X \mid {X \subseteq U}}\}}$$, esto es,
+$${\wp(U)} = {\{{X \mid {{\forall x}\left( {{({x \in X})}\Rightarrow{({x \in U})}} \right)}}\}}$$,
+dónde se verifica
+que$$\left( {{\varnothing \in }\wp(U)} \right) \land \left( {{U \in }\wp(U)} \right)$$.
+Ha­remos$$\left( {B{: = }\wp(U)} \right),\left( {0{: = \varnothing}} \right)y\left( {1{: = U}} \right)$$,
+como producto lógico pondremos la intersección de
+conjuntos$$\forall X,{Y \in }\wp(U){X \cdot Y}{: = {X \cap Y}}$$, como
+suma lógica pondremos la unión de
+conjuntos$$\forall X,{Y \in }\wp(U){X + Y}{: = {X \cup Y}}$$. Las tres
+primeras (dobles) propiedades son di­rectamente cumplidas por la
+estructura construida y la existencia del complementario es fá­cil de
+ver. Sea
+$$\forall{X \in }\wp(U)\Rightarrow\exists Y{: = {U \smallsetminus X}}$$y
+a partir de ahí sabemos que$${Y \in }\wp(U)$$puesto
+que$$\forall{x \in Y}{x \in {U \smallsetminus X}}\Rightarrow{x \in U}$$y
+en el caso que$$X = U$$tenemos que
+$${{Y = {U \smallsetminus X}} = {U \smallsetminus U}} = \varnothing$$de
+forma que$${\varnothing \in }\wp(U)$$por definición. Ahora sólo se trata
+de ver
+que$${{{{Y \cdot X} = {Y \cap X}} = {{({U \smallsetminus X})} \cap X}} = \varnothing} = 0$$y
+que la propiedad dual a
+cumplir$${{{{Y + X} = {Y \cup X}} = {{({U \smallsetminus X})} \cup X}} = U} = 1$$.
+Ya tenemos
+que$$\forall{X \in }\wp(U)\exists{Y \in }\wp(U){Y \in \overline{X}}$$ha­biendo
+tomado$$Y{: = {U \smallsetminus X}}$$.
+
+**\[Ejemplo 2\]** Un ejemplo interesante fácil de construir es el
+álgebra de Boole de los números que son producto de los primeros núme­ros
+primos (cantidad finita de ellos) y sus divisores. Consideramos el
+conjunto $$P_{n}{: = {\{{2,3,\ldots,p_{n}}\}}}$$, con­sideraremos el
+$$1$$ booleano cómo $$1_{B}{: = {\prod\limits_{q \in P_{n}}q}}$$y el
+$$0$$ cómo$$0_{B}{: = 1_{\mathbb{N}}}$$. Consideramos a
+$$B{: = {\{{{n \in \mathbb{N}} \mid {n \mid \left( {\prod P_{n}} \right)}}\}}}$$,
+y las operaciones serán el mínimo común múltiplo como suma booleana y el
+máximo común divisor como producto booleano. El complemento de un
+ele­mento resulta ser
+$$\forall{k \in B}{{\overline{k} = {1_{B}/k}} = {\prod\limits_{q \in {\{{{{p \in P_{n}} \mid p} \nmid k}\}}}q}}$$.
+Éste es un modelo fácil de desarrollar para poner ejemplos.
+
+**\[Ejemplo 3\]** Partimos de un álgebra de Boole cualquiera y un
+elemento no $$0$$ ni $$1$$ cualquie­ra tal
+que$$x \in \left( {B \smallsetminus {\{ 0,1\}}} \right)$$. Definimos
+ahora un
+conjunto$$B_{\leq x}{: = {\{{{{y \in B} \mid {x \cdot y}} = y}\}}}$$y$$B_{\geq x}{: = {\{{{{y \in B} \mid {x \cdot y}} = x}\}}}$$.
+Las álgebras de Boole nuevas a considerar son
+$$\langle{B_{\leq x},{\{{{0 \equiv 0_{B}},{1 \equiv x}}\}},{\{{+_{B}, \cdot_{B}}\}}}\rangle$$
+y
+$$\langle{B_{\geq x},{\{{{0 \equiv x},{1 \equiv 1_{B}}}\}},{\{{+_{B}, \cdot_{B}}\}}}\rangle$$.
+Consideramos el mismo producto booleano que en el conjunto inicial e
+idéntica­mente con la suma booleana. Sólo varía el complemento, de la
+siguiente
+forma$${y \in B_{\geq x}}\Rightarrow y{' = {\overline{y} + x}}$$y$${y \in B_{\leq x}}\Rightarrow y{' = {\overline{y} \cdot x}}$$.
+Es fácil comprobar la validez de esta definición de un álgebra de Boole,
+de manera más concreta, que las operaciones son internas y el
+complemento declarado es también interno y se comporta como complemento
+del nuevo álgebra, esto
+es,$${y \in B_{\geq x}}\Rightarrow y{{' \cdot y} = {x \land y}}{{' + y} = 1}$$
+que$${y \in B_{\leq x}}\Rightarrow y{{' \cdot y} = {0 \land y}}{{' + y} = x}$$.
+
+**\[Ejemplo 4\]** El álgebra de las proposiciones. Éste es sin duda, el
+primer desarrollo que se hizo del álgebra de Boole, hecha por el propio
+George Boole en mitad del siglo XIX (edición 1851). Lo desarrolló como
+una "Una investigación en las leyes del pensamiento". Amigo suyo que lo
+ayudó a penetrar los ambientes académi­cos es Augustus De Morgan. Desde
+Aristóteles (que funda por primera vez la ló­gica como ciencia analítica)
+en el siglo IV a. C. no había habido ningún adelanto sustancial en la
+lógica. Kant (medio siglo antes de Boole) había considerado que la
+lógica era un cuerpo de doctrina cerrado y completo (esto es, no había
+nada más que decir que lo que ya había desarrollado y escrito
+Aristóteles en sus "Tra­tados de Lógica" u "Órganon", hacía ya 2.300
+años). Aunque la verdadera revolu­ción se da algunos años más tarde con
+Frege, el lógico más importante desde Aristóteles. Si doy estos datos
+sobre la historia de la lógica que todos asociaréis más a la filosofía,
+que parece queda muy lejos del propósito de unos apuntes de matemáticas
+discretas que cubran de la forma más amplia posible los Fundamentos de
+Electró­nica en su parte Digital, es porque no queda tan lejos. La idea
+de hacer un len­guaje dónde el razonamiento siguiera unas pautas claras
+de forma que siempre quedara todo tan cierto como en las matemáticas era
+ya antiguo. Aristóteles ya advertía de una cierta in-definición
+insuperable de los términos más importantes de la filosofía (en realidad
+de casi todos los conceptos de la vida ordinaria): "exis­ten conceptos o
+ideas que corresponden con la realidad que no se usan de forma equívoca
+-- esto es, su uso no es equívoco, este mismo concepto, palabra o idea
+que hablamos no se refiere a realidades distintas y diferenciadas, de
+forma que nos llevan a confusión -- pero tampoco de forma unívoca --
+como las definiciones desde axiomas en un lenguaje formal matemático,
+así tenemos que existen con­ceptos análogos" (es una glosa de palabras de
+Aristóteles). En la Modernidad, dado que el concepto de analogía lleva
+aparejado un tratamiento difícil que no lleva fácilmente a certeza, se
+intentan buscar criterios de certeza absoluta y unas definiciones que
+aparentemente son unívocas y se tratan como tales. Es significativo el
+nombre (y la estructura interna) de una importante obra de Spino­za:
+"Ética demostrada según el orden geométrico". Será Leibniz quién escriba
+ya cumplidamente sobre la necesidad de establecer un léxico
+completamente unívoco (una tarea mastodonte, o mejor, imposible) y un
+"cálculo" del pensamiento, de forma que "una cuestión como la existencia
+de Dios pueda ser resuelto mediante la resolución de unas ecuaciones de
+pensamiento" (de nuevo es una glosa). Se empezaba a buscar con ansiedad
+una mecanización del pensamiento. Esta idea fue muy fructífera, dando un
+primer paso hacia ella George Boole que hace un ál­gebra de las
+proposiciones. Esta álgebra no era más amplia que la de Aristóteles,
+pero permitía el cálculo al modo matemático. De aquí a la llegada de
+Frege, ya, Charles Babbage diseña y realiza (sin éxito debido al trabajo
+de mecanizado ex­cesivamente minucioso que requería el diseño) una
+computadora universal me­cánica (mediante engranajes) prácticamente
+similar al modelo de Von Neumann. La condesa de Lovelace (Ada) es el
+matemático que hace los primeros progra­mas en lenguaje ensamblador de la
+máquina de Babbage. La primera programa­dora de la historia. Después de
+Frege siguen los desarrollos con gente como Ber­trand Russell, David
+Hilbert y otros, hasta los increíbles resultados de Gödel que ponen
+punto final a muchas de las pretensiones de mecanización del
+pensamiento, pero que son ya base de la computación moderna, siendo los
+trabajos definitivos los de Alan Turing. Como veis el camino recorrido
+es largo y complicado, siendo el momento crucial para el arranque de la
+ingeniería digital los trabajos de George Boole. No he mencionado el
+papel de las máquinas de cifrado y descifrado de mensajes en la Gran
+Guerra y la II Guerra Mundial (en las que intervinieron muchos de las
+mentes antes mencionadas).
+
+De manera un tanto informal podemos ver una proposición (una frase que
+afirma o niega una propiedad de un objeto, una relación entre objetos o
+la existencia del mismo, una frase que ha de ser o verdadero,
+$$1_{B}{{: = V} \equiv \mathbf{\mathit{true}}}$$, a falso,
+$$0_{B}{{: = F} \equiv \mathbf{\mathit{false}}}$$) o conjunto de
+proposiciones pueden ser operadas mediante la conjunción 'y', A 'y' B es
+verdadero si A es verdadero y B es verdadero a la vez y falso en
+cualquier otro caso. La disyunción sería la 'o', siendo A 'o' B
+verdadero con que A sea verdadero o lo sea B, siendo falso sólo cuando A
+es falso y B es falso a la vez. La notación más habitual es
+$${{+ {: = \vee}} \equiv \text{or}} \equiv {\mid \mid}$$y$${{\cdot {: = \land}} \equiv \text{and}} \equiv {\&\&}$$.
+Para el 'no' (negación) tenemos
+que$${{\overline{\phantom{A}}{: = {\neg\phantom{A}}}} \equiv \text{not}}{\phantom{A} \equiv {/\phantom{A}}}$$.
+El conjunto de Boole es el conjunto de proposiciones de la que partamos.
+
+De manera más formal se considera un elemento del álgebra de Boole de la
+lógica a las clases de equivalencia de las proposiciones equivalentes
+lógicamente (en su valor de verdad o falsedad) entre sí.
+
+**\[Ejemplo 5\]** El álgebra de conmutación. Este es el álgebra de Boole
+más sencillo que hay. $$B{{: = B_{2}} \equiv {\{{0,1}\}}}$$. Las
+operaciones las concretaremos en tablas:
+
+enewcommandrraystretch2 $$\begin{bmatrix}
+   + & 0 & 1 \\
+  0 & 0 & 1 \\
+  1 & 1 & 1
+  \end{bmatrix}\begin{bmatrix}
+   \cdot & 0 & 1 \\
+  0 & 0 & 0 \\
+  1 & 0 & 1
+  \end{bmatrix}\begin{bmatrix}
+  \overline{} & 0 & 1 \\
+   & 1 & 0
+  \end{bmatrix}$$
+
+y podréis comprobar fácilmente que se cumplen todos los postulados de
+Huntington. Ésta será usada frecuentemente durante el curso. Esta
+álgebra está contenido en todo álgebra de Boole.
+
+**\[Ejemplo 6\]** El álgebra de Boole de 4 elementos. Este es el álgebra
+de Boole generada por un conjunto de 2 elementos. Es singular en el
+sentido que sólo tiene 3 niveles, el más bajo
+$$\{{0{{: = {\{\}}} \equiv \varnothing}}\}$$, el intermedio
+$$\{{{\{\alpha\}},{\{\beta\}}}\}$$, y el superior
+$$\{{1{: = {\{{\alpha,\beta}\}}}}\}$$.
+$$B{{: = B_{4}} \equiv {\{{0,a,b,1}\}}}$$. Las operaciones las
+concretaremos en tablas:
+
+$$\begin{bmatrix}
+   + & 0 & a & b & 1 \\
+  0 & 0 & a & b & 1 \\
+  a & a & a & 1 & 1 \\
+  b & b & 1 & b & 1 \\
+  1 & 1 & 1 & 1 & 1
+  \end{bmatrix}\begin{bmatrix}
+   + & 0 & a & b & 1 \\
+  0 & 0 & 0 & 0 & 0 \\
+  a & 0 & a & 0 & a \\
+  b & 0 & 0 & b & b \\
+  1 & 0 & a & b & 1
+  \end{bmatrix}\begin{bmatrix}
+  \overline{} & 0 & a & b & 1 \\
+   & 1 & b & a & 0
+  \end{bmatrix}$$
+
+y podréis comprobar fácilmente que se cumplen todos los postulados de
+Huntington si cam­biáis $$a$$ por $$\{\alpha\}$$, $$b$$ por
+$$\{\beta\}$$, $$1$$ por $$\{{{\{\alpha\}},{\{\beta\}}}\}$$ y $$0$$ por
+el conjunto vacío $$\varnothing$$.
+
+**\[Ejemplo 7\]** El álgebra de Boole de 8 elementos. Este es el álgebra
+de Boole generada por un conjunto de 3 elementos. Es singular en el
+sentido que sólo tiene 4 niveles, el más bajo $$\{ 0\}$$, el de átomos
+$$\{{a,b,c}\}$$, el de hiperátomos $$\{{A,B,C}\}$$ y el superior
+$$\{ 1\}$$. Los niveles de átomos y de hiperátomos son especialmente
+importantes, siendo esta álge­bra de Boole, la más pequeña que los
+diferencia. Sería:
+
+$$B{{: = B_{8}} \equiv {\{{0,a,b,c,A,C,B,1}\}}}$$.
+
+Las operaciones las concretaremos en tablas:
+
+enewcommandrraystretch2 $$\begin{bmatrix}
+   + & 0 & a & b & c & A & C & B & 1 \\
+  0 & 0 & a & b & c & A & C & B & 1 \\
+  a & a & a & A & C & A & C & 1 & 1 \\
+  b & b & A & b & B & A & 1 & B & 1 \\
+  c & c & C & B & c & 1 & C & B & 1 \\
+  A & A & A & A & 1 & A & 1 & 1 & 1 \\
+  C & C & C & 1 & C & 1 & C & 1 & 1 \\
+  B & B & 1 & B & B & 1 & 1 & B & 1 \\
+  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+  \end{bmatrix}\begin{bmatrix}
+   \cdot & 0 & a & b & c & A & C & B & 1 \\
+  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+  a & 0 & a & 0 & 0 & a & a & 0 & a \\
+  b & 0 & 0 & b & 0 & b & 0 & b & b \\
+  c & 0 & 0 & 0 & c & 0 & c & c & c \\
+  A & 0 & a & b & 0 & A & a & b & A \\
+  C & 0 & a & 0 & c & a & C & c & C \\
+  B & 0 & 0 & b & c & b & c & B & B \\
+  1 & 0 & a & b & c & A & C & B & 1
+  \end{bmatrix}$$
+
+$$\begin{bmatrix}
+  \neg & 0 & a & b & c & A & C & B & 1 \\
+   & 1 & B & C & A & c & b & a & 0
+  \end{bmatrix}\begin{Bmatrix}
+  {{B_{8}\rightarrow\wp}{\{{\alpha,\beta,\gamma}\}}} & {0\rightarrow\varnothing} \\
+  {a\rightarrow{\{\alpha\}}} & {b\rightarrow{\{\beta\}}} \\
+  {c\rightarrow{\{\gamma\}}} & {A\rightarrow{\{{\alpha,\beta}\}}} \\
+  {C\rightarrow{\{{\gamma,\alpha}\}}} & {B\rightarrow{\{{\beta,\gamma}\}}} \\
+  {1\rightarrow{\{{\alpha,\beta,\gamma}\}}} & {{x \cdot y}\rightarrow{x \cap y}} \\
+  {{x + y}\rightarrow{x \cup y}} & {\overline{x}\rightarrow{{\{{\alpha,\beta,\gamma}\}} \smallsetminus x}}
+  \end{Bmatrix}$$
+
+y podréis comprobar fácilmente que se cumplen todos los postulados de
+Huntington si te­néis en cuenta los cambios aconsejados en el cuadro
+entre llaves, dónde las flechas quieren decir "substituir por".
+
+**\[Ejemplo 8\]** El álgebra de Boole de 16 elementos. Este es el
+álgebra de Boole generada por un conjunto de 4 elementos. Es ya un
+álgebra de Boole completamente regular. Tiene 5 niveles, el más bajo el
+$$\{ 0\}$$, el de átomos $$\{{\alpha,\beta,\gamma,\delta}\}$$, el de
+hiperátomos $$\{{A,B,\Gamma,\Delta}\}$$, el intermedio
+$$\{{a,b,c,d,e,f}\}$$y finalmente el nivel superior con el $$\{ 1\}$$.
+Sería:
+
+$$B{{: = B_{16}} \equiv {\{{0,\alpha,\beta,\gamma,\delta,a,b,c,d,e,f,A,B,\Gamma,\Delta,1}\}}}$$.
+
+Las operaciones las concretaremos en tablas:
+
+enewcommandrraystretch2 $$\begin{bmatrix}
+   + & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1 \\
+  0 & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1 \\
+  \alpha & \alpha & \alpha & a & b & c & a & b & c & A & B & \Gamma & A & B & \Gamma & 1 & 1 \\
+  \beta & \beta & a & \beta & d & e & a & A & B & d & e & \Delta & A & B & 1 & \Delta & 1 \\
+  \gamma & \gamma & b & d & \gamma & f & A & b & B & \Gamma & \Delta & f & A & 1 & \Gamma & \Delta & 1 \\
+  \delta & \delta & c & e & f & \delta & B & \Gamma & c & \Delta & e & f & 1 & B & \Gamma & \Delta & 1 \\
+  a & a & a & a & A & B & a & A & B & A & \Delta & 1 & A & B & 1 & 1 & 1 \\
+  b & b & b & A & b & \Gamma & A & b & B & A & 1 & \Gamma & A & 1 & \Gamma & 1 & 1 \\
+  c & c & c & B & \Gamma & c & B & \Gamma & c & 1 & B & \Gamma & 1 & B & 1 & \Delta & 1 \\
+  d & d & A & d & d & \Delta & A & A & 1 & d & \Delta & \Delta & A & 1 & 1 & \Delta & 1 \\
+  e & e & B & e & \Delta & e & B & 1 & B & \Delta & e & \Delta & 1 & B & 1 & \Delta & 1 \\
+  f & f & \Gamma & \Delta & f & f & 1 & \Gamma & \Gamma & \Delta & \Delta & f & 1 & 1 & \Gamma & \Delta & 1 \\
+  A & A & A & A & A & 1 & A & A & 1 & A & 1 & 1 & A & 1 & 1 & 1 & 1 \\
+  B & B & B & B & 1 & B & B & 1 & B & 1 & B & 1 & 1 & B & 1 & 1 & 1 \\
+  \Gamma & \Gamma & \Gamma & 1 & \Gamma & \Gamma & 1 & \Gamma & \Gamma & 1 & 1 & \Gamma & 1 & 1 & \Gamma & 1 & 1 \\
+  \Delta & \Delta & 1 & \Delta & \Delta & \Delta & 1 & 1 & 1 & \Delta & \Delta & \Delta & 1 & 1 & 1 & \Delta & 1 \\
+  1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1
+  \end{bmatrix}$$
+
+$$\begin{bmatrix}
+\neg & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1 \\
+ & 1 & \Delta & \Gamma & B & A & f & e & d & c & b & a & \delta & \gamma & \beta & \alpha & 0
+\end{bmatrix}$$
+
+$$\begin{bmatrix}
+ \cdot & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\alpha & \alpha & \alpha & 0 & 0 & 0 & \alpha & \alpha & \alpha & 0 & 0 & 0 & \alpha & \alpha & \alpha & 0 & \alpha \\
+\beta & \beta & 0 & \beta & 0 & 0 & \beta & 0 & 0 & \beta & \beta & 0 & \beta & \beta & 0 & \beta & \beta \\
+\gamma & \gamma & 0 & 0 & \gamma & 0 & 0 & \gamma & 0 & \gamma & 0 & \gamma & \gamma & 0 & \gamma & \gamma & \gamma \\
+\delta & \delta & 0 & 0 & 0 & \delta & 0 & 0 & \delta & 0 & \delta & \delta & 0 & \delta & \delta & \delta & \delta \\
+a & a & \alpha & \beta & 0 & 0 & a & \alpha & \alpha & \beta & \beta & 0 & a & a & \alpha & \beta & a \\
+b & b & \alpha & 0 & \gamma & 0 & \alpha & b & \alpha & \gamma & 0 & \gamma & a & a & \alpha & \beta & b \\
+c & c & \alpha & 0 & 0 & \delta & \alpha & \alpha & c & 0 & \delta & \delta & \alpha & c & c & \delta & c \\
+d & d & 0 & \beta & \gamma & 0 & \beta & \gamma & 0 & d & \beta & \gamma & d & \beta & \gamma & d & d \\
+e & e & 0 & \beta & 0 & \delta & \beta & 0 & \delta & \beta & e & \delta & \beta & e & \delta & e & e \\
+f & f & 0 & 0 & \gamma & \delta & 0 & \gamma & \delta & \gamma & \delta & f & \gamma & \delta & f & f & f \\
+A & A & \alpha & \beta & \gamma & 0 & a & b & \alpha & d & e & \gamma & A & a & b & d & A \\
+B & B & \alpha & \beta & 0 & \delta & a & \alpha & c & \beta & e & \delta & a & B & c & d & B \\
+\Gamma & \Gamma & \alpha & 0 & \gamma & \delta & \alpha & b & c & \gamma & \delta & f & b & c & \Gamma & f & \Gamma \\
+\Delta & \Delta & 0 & \beta & \gamma & \delta & \beta & \gamma & \delta & d & e & f & d & e & f & \Delta & \Delta \\
+1 & 1 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1
+\end{bmatrix}$$
+
+y podréis comprobar fácilmente que se cumplen todos los postulados de
+Huntington, con solo tener en cuenta que todos los elementos se pueden
+poner en función de $$\alpha\beta\gamma\delta$$y sumas de ellos. Las
+sumas de dos de los anteriores elementos son $$abcdef$$y las sumas de
+tres de ellos son $$AB\Gamma\Delta$$.
+
+**\[Ejemplo 9\]** El álgebra de Boole de los conjuntos que se pueden
+expresar como **unión des­junta finita de subintervalos genéricos de
+$$\lbrack 0,1\rbrack \cap \mathbb{Q}$$. Definimos por conveniencia
+$$\mathbf{\mathrm{I}}_{\mathbb{Q}} ≝ \left\lbrack {0,1} \right\rbrack_{\mathbb{Q}}$$**.
+Para esto haremos abs­tracción de cualquier conjunto finito de puntos de
+**$$\mathbf{\mathrm{I}}_{\mathbb{Q}}$$**, esto es, consideraremos que
+dos conjuntos son iguales si su diferencia simétrica (la unión de las
+diferencias, los elementos que no son comunes de ambos conjuntos) es
+vacía o es un conjunto finito de puntos. Esta álgebra de Boole tiene un
+cardinal infinito numerable (como el cardinal de los números naturales).
+Lo más importante es que no puede desarrollarse de manera semejante a
+como desarrolla­mos el álgebra de las partes de un conjunto. Lo
+formalizaremos del siguiente modo:
+
+1.  $$a,{b \in \mathbf{\mathrm{I}}_{\mathbb{Q}}}{a < b}\Rightarrow\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}} ≝ {\left\lbrack {a,b} \right\rbrack \cap \mathbb{Q}} ≝ \left\{ {{x \in \mathbf{\mathrm{I}}_{\mathbb{Q}}} \mid {{a \leq x} \leq b}} \right\}$$
+
+    1.  Si escribimos $$\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}}$$
+        entonces $${a < {b \land a}} \neq b$$.
+
+    2.  Sea
+        $$\mathbf{II}_{\mathbb{Q}} ≝ \left\{ {\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}} \mid {a,{{{b \in {I_{\mathbb{Q}} \land a}} < {b \land a}} \neq b}}} \right\}$$.
+
+    3.  Sea
+        $$\mathbf{\mathrm{III}}_{\mathbb{Q}} ≝ {\left\{ {{A \in {\wp\left( I_{\mathbb{Q}} \right)}} \mid {{A = \mathbf{\cup}_{\lambda \in \Lambda}}I_{\lambda}\forall{\lambda \in \Lambda}{I_{\lambda} \in {\mathbf{\mathrm{II}}_{\mathbb{Q}}{{\#\left( \Lambda \right)} \in \widetilde{\mathbb{N}}}}}}} \right\} \cup \left\{ \varnothing \right\}}$$
+        .
+
+    4.  Sea
+        $$\mathit{Fin}\left( I_{\mathbb{Q}} \right) ≝ \left\{ {{A \in \wp}\left( I_{\mathbb{Q}} \right) \mid \#{(A) \in \widetilde{\mathbb{N}}}} \right\}$$.
+
+    5.  $$A,B{\in}{\wp\left( \mathbf{\mathrm{I}}_{\mathbb{Q}} \right)}{A \approx B} ≝ {\#{\left( {A \mathbin{\vartriangle}B} \right) \in \widetilde{\mathbb{N}}}}$$.
+        Esta relación es de equivalencia.
+
+        1.  Reflexiva
+            $$\#{\left( {A \mathbin{\vartriangle}A} \right) = \#}{{(\varnothing) = 0} \in \widetilde{\mathbb{N}}}$$.
+            Luego $$A \approx A$$.
+
+        2.  Simétrica
+            $$A \mathbin{\vartriangle}{B = B} \mathbin{\vartriangle}A.\Rightarrow.A \approx B\Leftrightarrow B \approx A$$.
+
+        3.  Transitiva
+            $$A \approx {B \land B} \approx C\Rightarrow A \approx C$$.
+
+            - $$\#{{\left( {A \mathbin{\vartriangle}B} \right) = n_{1}} \in {\widetilde{\mathbb{N}} \land \#}}{{\left( {B \mathbin{\vartriangle}C} \right) = n_{2}} \in \widetilde{\mathbb{N}}}.\Rightarrow.\#{{\left( {A \mathbin{\vartriangle}C} \right) \leq {n_{1} + n_{2}}} \in \widetilde{\mathbb{N}}}$$.
+              Y queda de­mostrada la propiedad transitiva.
+
+    6.  A partir de aquí hablaremos de $$⟦A⟧$$para hablar de la clase de
+        equivalencia de $$A \in \mathbf{\mathrm{III}}_{\mathbb{Q}}$$bajo
+        la relación de equivalencia $$\approx$$.
+
+    7.  A partir de aquí hablaremos de nuestro conjunto
+        $$\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1) ≝ \left\{ {{⟦A⟧} \mid {A \in \mathbf{\mathrm{III}}_{\mathbb{Q}}}} \right\}$$
+
+    8.  Nuestro conjunto de Boole será
+        $$B ≝ {\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1)}$$.
+
+    9.  El $$0 ≝ {⟦\varnothing ⟧}$$.
+
+    10. El $$1 ≝ {⟦\mathbf{\mathrm{I}}_{\mathbb{Q}}⟧}$$.
+
+    11. Ahora veremos unas operaciones muy cercanas a la unión, la
+        intersección y el com­plemento, que realmente nos dan un álgebra
+        de Boole sobre
+        $$\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}$$:
+
+        $$\begin{matrix}
+              {{⟦A⟧},{{⟦B⟧} \in \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}}} \\
+              {{{⟦A⟧} + {⟦B⟧}} ≝ {⟦{A \cup B}⟧}} \\
+              {{{⟦A⟧} \cdot {⟦B⟧}} ≝ {⟦{A \cap B}⟧}} \\
+              {\overline{⟦A⟧} ≝ {⟦{\lbrack 0,1\rbrack_{\mathbb{Q}} \smallsetminus A}⟧}}
+              \end{matrix}$$
+
+    12. Convenio de
+        notación:$${⟦{a,b}⟧} ≝ {⟦\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}}⟧}$$.
+        Estos conjuntos serán nuestros subintervalos genéricos del
+        intervalo genérico unidad.
+
+    13. Sea una sucesión finita de un número par $$2 \cdot n$$ de
+        elementos de $$\lbrack 0,1\rbrack_{\mathbb{Q}}$$, estricta­mente
+        creciente
+        $${{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < a_{2}} < b_{2}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}$$
+        dispuestos como
+
+        $$⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧$$definirán los
+        elementos de
+        $$\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}$$,
+        aparte de
+        $${⟦⟧} ≝ {{{{⟦\varnothing ⟧} = {⟦{\{ 0\}}⟧}} = {⟦{\{ 1\}}⟧}} = 0_{\mathbf{\mathrm{I}}_{B}^{\mathbf{\mathrm{GEN}}}}}$$.
+
+    14. Si escribimos
+        $$⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧$$, significamos
+        ya (suponemos que es un hecho que)
+        $${{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < a_{2}} < b_{2}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}$$.
+
+    15. Ahora ya definimos (notación):
+
+        $$\begin{matrix}
+              {{⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧} ≝ {{⟦{\{{{x \in {\lbrack 0,1\rbrack}_{\mathbb{Q}}} \mid \exists{{{1 \leq k} \leq n} \in \mathbb{N}}{x \in {\lbrack{a_{k},b_{k}}\rbrack}_{\mathbb{Q}}}}\}}⟧} \equiv}} \\
+              {\equiv {⟦{\mathbf{\cup}_{k = 1}^{n}{\lbrack{a_{k},b_{k}}\rbrack}}⟧}}
+              \end{matrix}$$.
+
+    16. Ahora ya tenemos el conjunto de Boole que buscábamos:
+
+        $$\left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}} ≝ {\left\{ {{⟦{a_{1,}b_{1,}\ldots,a_{n},b_{n}}⟧} \mid {\exists{n \in \mathbb{N}}{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}}}} \right\} \cup \left\{ {⟦⟧} \right\}}$$.
+
+Que las uniones, complementos e intersecciones de intervalos genéricos
+finitos siguen siendo intervalos genéricos finitos es claro desde el
+principio. Sin embargo voy a exponer la cabalística, hacer las cuentas
+vamos, para que no quede lugar a dudas. Con toda esta comprobación (o
+re-definición) de que $$B$$ es cerrado bajo las distintas operaciones es
+laborioso, un tanto enojoso.
+
+La operación de complemento queda de la siguiente manera, y aunque aún
+no podemos comprobar aún su corrección, si queda claro que es un
+operación unaria interna:
+
+$$A^{I} := \begin{cases}
+  \llbracket 0, a_1, b_1, a_2, \ldots, b_{n-1}, a_n, b_n, 1 \rrbracket & \text{si } a_1 \neq 0 \land b_n \neq 1 \\
+  \llbracket b_1, a_2, \ldots, b_{n-1}, a_n, b_n, 1 \rrbracket & \text{si } a_1 = 0 \land b_n \neq 1 \\
+  \llbracket b_1, a_2, \ldots, b_{n-1}, a_n \rrbracket & \text{si } a_1 = 0 \land b_n = 1 \\
+  \llbracket 0, a_1, b_1, a_2, \ldots, b_{n-1}, a_n \rrbracket & \text{si } a_1 \neq 0 \land b_n = 1 \\
+  \llbracket \varnothing \rrbracket & \text{si } A = \llbracket 0, 1 \rrbracket \\
+  \llbracket 0, 1 \rrbracket & \text{si } A = \llbracket \varnothing \rrbracket
+\end{cases}$$
+
+De dónde obtenemos $\forall A \in B, \exists A^{I} \in B$.
+
+Tenemos que
+$0 \in B, 0 := \llbracket \varnothing \rrbracket \equiv \llbracket \rrbracket$
+y $1 \in B, 1 := \llbracket 0,1 \rrbracket$, y
+$0^{I} = 1 \land 1^{I} = 0$. Además observamos con claridad que
+$\forall A \in B, \exists A^{I} \in B$ tal que
+$A + A^{I} = \llbracket \mathbf{\mathrm{I}}_{\mathbb{Q}} \rrbracket = 1$
+y $A \cdot A^{I} = \llbracket \rrbracket = 0$. Además de
+$\forall A \in B, (A^{I})^{I} = A$. Así nos queda
+$A^{I} \equiv \overline{A}$ si se verifican los demás axiomas.
+
+La suma quedará de la siguiente forma:
+
+$$\forall A, B \in \left\lbrack \llbracket 0,1 \rrbracket \right\rbrack_{\mathbf{\mathrm{I}}} \exists (A,B) \subset (A \times B), A + B \triangleq \llbracket A \cup B \rrbracket$$
+
+El producto seguirá un camino par:
+
+$$\forall A, B \in \left\lbrack \llbracket 0,1 \rrbracket \right\rbrack_{\mathbf{\mathrm{I}}} \exists (A,B) \subset (A \times B), A \cdot B \triangleq \llbracket A \cap B \rrbracket$$
+
+Sólo queda ver que efectivamente las operaciones son internas:
+
+Prueba:
+
+1.  Ahora vamos a desarrollar la suma de forma recurrente:
+
+    $$B \in \left\lbrack \llbracket 0,1 \rrbracket \right\rbrack_{\mathbf{\mathrm{I}}}, B = \llbracket a_{1}^{B},b_{1}^{B},\ldots,a_{n}^{B},b_{n}^{B} \rrbracket$$
+    $$A = \llbracket a_{1}^{A},b_{1}^{A},\ldots,a_{m}^{A},b_{m}^{A} \rrbracket$$
+
+    Comenzaremos por $m = 0$ y algunos casos especiales:
+
+    $$B + A := \begin{cases}
+      \llbracket \varnothing \rrbracket & \text{si } A = \llbracket \varnothing \rrbracket \land B = \llbracket \varnothing \rrbracket \\
+      A & \text{si } B = \llbracket \varnothing \rrbracket \\
+      B & \text{si } A = \llbracket \varnothing \rrbracket \\
+      1 & \text{si } \exists A \in A, \exists B \in B : \overline{B} \subseteq A \lor \overline{A} \subseteq B \\
+      A & \text{si } \exists A \in A, \exists B \in B : B \subseteq A \\
+      B & \text{si } \exists A \in A, \exists B \in B : A \subseteq B
+    \end{cases}$$
+
+    Para el caso general de $m = 1$:
+
+    $$\begin{align*}
+    B + A &:= \begin{cases}
+      \llbracket a_1^A, b_1^A, a_1^B, b_1^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } b_1^A < a_1^B \\
+      \llbracket a_1^A, b_1^B, a_2^B, b_2^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } b_1^A \ge a_1^B \land b_1^A \le b_1^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_n^B, b_n^B, a_1^A, b_1^A \rrbracket & \text{si } a_1^A > b_n^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_{n-1}^B, b_{n-1}^B, a_n^B, b_1^A \rrbracket & \text{si } a_1^A \le b_n^B \land a_1^A \ge a_n^B \land b_1^A > b_n^B \\
+      \llbracket a_1^A, b_1^A, a_k^B, b_k^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A > b_{k-1}^B \land b_1^A < a_k^B \\
+      \llbracket a_1^A, b_k^B, a_{k+1}^B, b_{k+1}^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B
+    \end{cases} \\[1em]
+    &\phantom{:=} \begin{cases}
+      \llbracket a_1^B, b_1^B, \ldots, b_{k-1}^B, a_1^A, b_1^A, a_k^B, b_k^B, \ldots \rrbracket & \text{si } \exists k<n : a_1^A > b_{k-1}^B \land a_1^A \le a_k^B \land b_1^A < a_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^A, b_k^B, a_{k+1}^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A \ge b_{l-1}^B \land a_1^A \le a_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_k^B, a_{k+1}^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_1^A, a_{k+1}^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A > b_k^B \land b_1^A < a_{k+1}^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_l^B, a_1^A, b_1^A, a_k^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A > b_l^B \land a_1^A < a_{l+1}^B \land b_1^A > b_{k-1}^B \land b_1^A < a_k^B
+    \end{cases}
+    \end{align*}$$
+
+    Para el caso $m = 1$ o $m = 0$ y especiales queda demostrado el
+    cerramiento de $B$ bajo esta suma reducida. El caso siguiente se
+    construye con facilidad por recurrencia en cualquier número finito
+    de pasos.
+
+    Para cualquier $m > 1$:
+
+    $$B + A := \begin{cases}
+      \sum_{i=1}^{m} \left( B + \llbracket a_i^A, b_i^A \rrbracket \right) & \text{si } 1 \le i \le m, A_0 := \llbracket \varnothing \rrbracket, A_{i+1} := A_i + \llbracket a_i^A, b_i^A \rrbracket
+    \end{cases}$$
+
+    Queda demostrado que toda suma da como resultado un conjunto finito
+    de intervalos genéricos.
+
+    A su vez el producto lo vamos a definir de forma recursiva también,
+    comenzando primero con $A$ siendo la clase de un solo intervalo
+    genérico, o la clase del vacío, además de algunos casos especiales.
+
+    $$B \cdot A := \begin{cases}
+      \llbracket \varnothing \rrbracket & \text{si } A = \llbracket \varnothing \rrbracket \lor B = \llbracket \varnothing \rrbracket \\
+      A & \text{si } B = 1 \\
+      B & \text{si } A = 1 \\
+      \llbracket \varnothing \rrbracket & \text{si } \exists A \in A, B \in B : B \subseteq \overline{A} \lor A \subseteq \overline{B} \\
+      A & \text{si } \exists A \in A, B \in B : A \subseteq B \\
+      B & \text{si } \exists A \in A, B \in B : B \subseteq A
+    \end{cases}$$
+
+    Para el caso general de $m = 1$:
+
+    $$\begin{align*}
+    B \cdot A &:= \begin{cases}
+      \llbracket a_1^A, a_1^B \dots \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge b_{k-1}^B \land b_1^A < a_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_k^B, b_1^A \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^A, b_1^B, \ldots, a_{k-1}^B \dots \rrbracket & \text{si } a_1^A \ge a_1^B \land a_1^A \le b_1^B \land \exists k<n : b_1^A \ge b_{k-1}^B \land b_1^A < a_k^B \\
+      \llbracket a_1^A, b_1^B, a_2^B, b_2^B, \ldots, a_k^B, b_1^A \rrbracket & \text{si } a_1^A \ge a_1^B \land a_1^A \le b_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^A, b_l^B, \dots, a_k^B, b_1^A \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^A, b_l^B, \dots, a_{k-1}^B, b_{k-1}^B \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A > b_{k-1}^B \land b_1^A < a_k^B
+    \end{cases}
+    \end{align*}$$
+
+    Para el caso $m > 1$:
+
+    $$B \cdot A := \begin{cases}
+      \sum_{i=1}^{m} \left( B \cdot \llbracket a_i^A, b_i^A \rrbracket \right) & \text{si } 1 \le i \le m, A_0 := \llbracket \varnothing \rrbracket, A_{i+1} := A_i + \llbracket a_i^A, b_i^A \rrbracket
+    \end{cases}$$
+
+Y queda demostrado que la forma del conjunto producto es una clase de
+unión finita de subintervalos genéricos. Luego pertenece a nuestro
+álgebra de Boole.
+
+Este sistema es muy parecido a un álgebra de conjuntos subálgebra de
+algún conjunto po­tencia, por lo que es fácil determinar que se trata de
+un álgebra de Boole. Sin embargo su cardinal es
+$$\#{\left( {\left( {\mathbb{Q} \times \mathbb{Q}} \right) \times \left( {\mathbb{N} \times \mathbb{N}} \right)} \right) = \#}\left( \mathbb{N} \right)$$.
+Veámoslo:
+
+$${{\#\left( \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}} \right)} = {\#\left( {\mathbf{\mathrm{\cup}}\begin{Bmatrix}
+  {{⟦\varnothing ⟧},} & & & & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & & & & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & & & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & {{⟦{a_{3,}b_{3}}⟧},} & & & & \\
+   \vdots & \vdots & \vdots & \ddots & & & \\
+  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & {{⟦{a_{3,}b_{3}}⟧},} & \ldots & {{⟦{a_{n},b_{n}}⟧},} & & \\
+   \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \\
+  \ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots
+  \end{Bmatrix}} \right)}} \leq$$$${{\leq {1 + {\#\left( {\underset{i \in \mathbb{N}}{\mathbf{\mathrm{\cup}}}\underset{j \in \mathbb{N}}{\mathbf{\mathrm{\cup}}}{\mathbb{Q} \times \mathbb{Q}}} \right)}}} = \#}{\left( {{{\mathbb{N} \times \mathbb{N}} \times \mathbb{Q}} \times \mathbb{Q}} \right) = \#}{\mathbb{N} = \aleph_{0}}$$
+
+En definitiva es un álgebra numerable (del mismo cardinal que los
+números naturales). Puesto que el cardinal de los números naturales
+$$\mathbb{N}$$no es conmensurable con el de la potencia de ningún
+conjunto (es del cardinal infinito más pequeño posible y ningún conjunto
+finito tiene como potencia uno infinito), no existe ningún conjunto para
+el cual esta álgebra de Boole sea semejante (isomorfa) a un álgebra de
+las potencias de un conjunto. Este ejemplo será de utilidad más
+adelante, además de darnos un curioso ejemplo de álgebra de Boole nada
+común.
+
+**\[Ejemplo 10\]** El álgebra de Boole de los subconjuntos finitos y
+cofinitos de los números naturales ($\mathbb{N}$). Consideremos el
+conjunto base
+$B = \{ X \subseteq \mathbb{N} \mid X \text{ es finito o } \mathbb{N} \setminus X \text{ es finito} \}$.
+Las operaciones son las habituales de la teoría de conjuntos:
+
+- **Suma ($+$):** La unión de conjuntos ($\cup$).
+
+- **Producto ($\cdot$):** La intersección de conjuntos ($\cap$).
+
+- **Complemento ($\overline{X}$):** El complementario relativo a
+  $\mathbb{N}$ ($\mathbb{N} \setminus X$).
+
+- **Cero ($0$):** El conjunto vacío ($\emptyset$).
+
+- **Uno ($1$):** El conjunto de los naturales ($\mathbb{N}$).
+
+Es inmediato comprobar que el complemento de un conjunto finito es
+cofinito (y viceversa), y que la unión o intersección de dos conjuntos
+finitos/cofinitos sigue produciendo un conjunto finito o cofinito. Por
+tanto, este conjunto es cerrado bajo las operaciones topológicas y
+constituye un álgebra de Boole de cardinalidad infinito numerable (igual
+que el Ejemplo 9).
+
+Sin embargo, es matemáticamente crucial señalar que **esta álgebra NO es
+isomorfa a la del Ejemplo 9**. Mientras que el Ejemplo 9 carece por
+completo de átomos (cualquier subintervalo racional puede subdividirse
+en dos más pequeños), esta álgebra del Ejemplo 10 **sí es atómica**: sus
+átomos son precisamente los conjuntos compuestos por un único número
+natural, $\{n\}$. Esta genialidad geométrica demuestra que, en el
+infinito, pueden existir álgebras de Boole del mismo cardinal que son
+estructuralmente distintas (algo que, como demostramos en el Capítulo 7,
+es imposible en las álgebras finitas).
+
+**\[Ejemplo 11\]** El álgebra de las funciones de un álgebra de Boole
+sobre otra. Supongamos $$f:{B\rightarrow B}'$$dónde $$f$$ es una
+función. Llamaremos
+$${\mathtt{F}{({B,B'})}} = {\{{f:{B\rightarrow B}' \mid \forall{x \in B}\exists!{y \in B}'f{{(x)} = y}}\}}$$
+a nuestro conjunto de Boole. $$f_{0'}$$ es la función que asigna el cero
+de $$B'$$ a cualquier elemento de $$B$$. Igualmente $$f_{1'}$$ es la
+función que asigna el uno de $$B'$$ a cualquier elemento de $$B$$. Las
+operaciones internas a introducir son:
+
+La suma de funciones:
+$$\forall{x \in B}{\lbrack{f + g}\rbrack}{(x)}{: = f}{{(x)} + g}{(x)}$$
+.
+
+La multiplicación de funciones:
+$$\forall{x \in B}{\lbrack{f \cdot g}\rbrack}{(x)}{: = f}{{(x)} \cdot g}{(x)}$$.
+
+La función complemento:
+$$\forall{f \in \mathtt{F}}{({B,B'})}\forall{x \in B}\overline{f}{(x)}{: = \overline{f{(x)}}}$$.
+
+De esta álgebra podemos entresacar otros conjuntos de funciones
+interesantes, como. Por ejemplo:
+
+$${\mathtt{\mathit{Hom}}{({B,B'})}} = \begin{Bmatrix}
+  f & : & B & \rightarrow & {B'} & \mathbf{\mid} \\
+  {\forall{x \in B}} & {\exists!} & {{y \in B}'} & {f{{(x)} = y}} & \mathbf{\mathrm{:}} & \\
+   & & & & {f{{(0)} = 0}'} & \land \\
+   & & & & {f{{(1)} = 1}'} & \land \\
+   & & {\forall x,{y \in B}} & & {f{{({x + y})} = f}{{(x)} + f}{(y)}} & \land \\
+   & & {\forall x,{y \in B}} & & {f{{({x \cdot y})} = f}{{(x)} \cdot f}{(y)}} & \land \\
+   & & {\forall{x \in B}} & & {f{{(\overline{x})} = \overline{f{(x)}}}} & 
+  \end{Bmatrix}$$
+
+y aún otros subconjuntos más pequeños serían las inyecciones de los
+anteriores homomorfismos. Si $${B'} \equiv B$$entonces uno de los
+conjuntos de aplicaciones más interesantes son los endomorfimos o
+isomorfimos en sí mismo.
+
+Además el kernel de cualquier homomorfismo es un subálgebra de $$B$$.
+Los homomorfismos de las álgebras booleanas tienen propiedades
+interesantes que no veremos aquí.
 
 # Independencia de los Axiomas de Huntington de 1904
 
@@ -243,37 +951,33 @@ Definimos: $$\begin{flalign}
 \textsf{\textbf{c}} &:: 1 {\qquad} \mapsto {\qquad} 0
 \end{flalign}$$
 
-El conjunto ${\mathbb{B}}_2$ es conjunto en **ZFS**, desde el momento
-que la el axioma de unión nos asegura que ${\mathbb{B}}_2$ es conjunto
-unión de dos conjuntos de un solo elemento,
+El conjunto ${\mathbb{B}}_2$ es conjunto en **ZFS**[^1], desde el
+momento que la el axioma de unión nos asegura que ${\mathbb{B}}_2$ es
+conjunto unión de dos conjuntos de un solo elemento,
 ${\mathbb{B}}_2 \triangleq{ \{0\} } \cup {
 \{1\} }$. Los elementos $0 \triangleq\emptyset$ y $1 \triangleq\{
 \emptyset, \{ \emptyset \} \}$. De nuevo para definir $1$ como conjunto
 necesitamos el axioma de unión (o de pares no ordenados) de **ZFS**,
 siendo $1 \triangleq\{0\}\cup\{\{0\}\}$. Podemos ver que $0 \cap 1 =
 \emptyset$ por lo que $0 \neq 1$. También $0 \in 1$. Todo este párrafo
-constituye la satisfacción de los requerimientos
-[\[axm:H0\]](#axm:H0){reference-type="ref" reference="axm:H0"}.
+constituye la satisfacción de los requerimientos Estructura de Conjunto
+y Elementos Constantes[^2].
 
 Tal como hemos definido nuestro modelo de álgebra de Boole, lo primero
 que queda claro es que $\vee$ y $\wedge$ son funciones binarias bien
 definidas, y esta última es además biyectiva. Luego los axiomas
-[\[axm:H1s\]](#axm:H1s){reference-type="ref" reference="axm:H1s"} y
-[\[axm:H1p\]](#axm:H1p){reference-type="ref" reference="axm:H1p"} quedan
-satisfechos.
+Operación Binaria Interna $\vee$[^3] y Operación Binaria Interna
+$\wedge$[^4] quedan satisfechos.
 
-Los axiomas [\[axm:H2s\]](#axm:H2s){reference-type="ref"
-reference="axm:H2s"} y [\[axm:H2p\]](#axm:H2p){reference-type="ref"
-reference="axm:H2p"} (existencia del elemento neutro) quedan
-directamente satisfechos por simple inspección de las tablas.
+Los axiomas Elemento Neutro $\vee$[^5] y Elemento Neutro $\wedge$[^6]
+(existencia del elemento neutro) quedan directamente satisfechos por
+simple inspección de las tablas.
 
-Para el axioma [\[axm:H2s\]](#axm:H2s){reference-type="ref"
-reference="axm:H2s"} observamos que $0 \vee 0 = 0$ y
-$0 \vee 1 = 1 \vee 0 = 1$ nos muestra el elemento neutro de la suma, el
-elemento $0$.
+Para el axioma Elemento Neutro $\vee$[^7] observamos que $0 \vee 0 = 0$
+y $0 \vee 1 = 1 \vee 0 = 1$ nos muestra el elemento neutro de la suma,
+el elemento $0$.
 
-Para el axioma [\[axm:H2p\]](#axm:H2p){reference-type="ref"
-reference="axm:H2p"} observamos que $1 \wedge 0 =
+Para el axioma Elemento Neutro $\wedge$[^8] observamos que $1 \wedge 0 =
 0 \wedge 1 = 0$ y $1 \wedge 1 = 1$ nos muestra el elemento neutro del
 producto, el elemento $1$.
 
@@ -281,9 +985,8 @@ Para los axiomas de conmutatividad solo hay que observar en la
 definición de las funciones binarias
 $\vee,\wedge: \mathbb{B}_2 \times \mathbb{B}_2
 \longrightarrow\mathbb{B}_2$, que $0 \vee 1 = 1 \vee 0 = 1$ y se cumple
-[\[axm:H3s\]](#axm:H3s){reference-type="ref" reference="axm:H3s"}, que
-$0 \wedge 1 = 1 \wedge 0 = 0$ y se cumple
-[\[axm:H3p\]](#axm:H3p){reference-type="ref" reference="axm:H3p"}.
+Conmutatividad $\vee$[^9], que $0 \wedge 1 = 1 \wedge 0 = 0$ y se cumple
+Conmutatividad $\wedge$[^10].
 
 Para las distribuciones de una operación interna sobre otra elegiré
 construir unas tablas que muestren la igualdades necesarias.
@@ -309,10 +1012,9 @@ $\textsf{a} \wedge \textsf{c}$ y la siete otro
 $\textsf{a}  \wedge  \textsf{b}$. Las columnas centrales, la cinco y la
 seis corresponden a todas las valoraciones posibles (y en el mismo orden
 de valor de las variables independientes) de las dos expresiones que
-queremos comparar, las afirmadas por el postulado
-[\[axm:H4s\]](#axm:H4s){reference-type="ref" reference="axm:H4s"}.
-Podemos ver que ambas columnas son idénticas, luego se cumple el citado
-postulado.
+queremos comparar, las afirmadas por el postulado Distributividad $\vee$
+sobre $\wedge$[^11]. Podemos ver que ambas columnas son idénticas, luego
+se cumple el citado postulado.
 
 $$\begin{flalign}
 \begin{matrix}
@@ -372,31 +1074,28 @@ $$\begin{flalign}
 \end{matrix}
 \end{flalign}$$
 
-Para el axioma [\[axm:H5\]](#axm:H5){reference-type="ref"
-reference="axm:H5"} observamos que $\neg 0 = 1$ y $\neg 1 = 0$ y por
-inspección en las tablas vemos que $0 \vee \neg 0 = 0 \vee 1 = 1$ y que
-$0 \wedge \neg 0 = 0 \wedge 1 = 0$ cumpliendo para el elemento $0$ se
-cumple que $\exists 1 = \neg 0 \in \mathbb{B}_2$
-$1 \vee \neg 1 = 1 \vee 0 = 1$, que coincide con la ecuación segunda
-(ecuación: 2.15) de [\[eqn:H5\]](#eqn:H5){reference-type="ref"
-reference="eqn:H5"} y $1 \wedge \neg 1=1 \wedge 0 = 0$ que coincide con
-la tercera ecuación (ecuación: 2.16) de
-[\[eqn:H5\]](#eqn:H5){reference-type="ref" reference="eqn:H5"}, e
+Para el axioma Complementario[^12] observamos que $\neg 0 = 1$ y
+$\neg 1 = 0$ y por inspección en las tablas vemos que
+$0 \vee \neg 0 = 0 \vee 1 = 1$ y que $0 \wedge \neg 0 = 0 \wedge 1 = 0$
+cumpliendo para el elemento $0$ se cumple que
+$\exists 1 = \neg 0 \in \mathbb{B}_2$ $1 \vee \neg 1 = 1 \vee 0 = 1$,
+que coincide con la ecuación segunda (ecuación: 2.15) de postulado
+Complementario[^13] y $1 \wedge \neg 1=1 \wedge 0 = 0$ que coincide con
+la tercera ecuación (ecuación: 2.16) de postulado Complementario[^14], e
 igualmente para el elemento $1$, $\exists 0 = \neg 1 \in \mathbb{B}_2$
 $0 \vee \neg 0 = 0 \vee 1 = 1$ (ecuación: 2.15) y
-$0 \wedge \neg 0 =0 \wedge 1 = 0$ (ecuación: 2.16) de
-[\[eqn:H5\]](#eqn:H5){reference-type="ref" reference="eqn:H5"}.
+$0 \wedge \neg 0 =0 \wedge 1 = 0$ (ecuación: 2.16) de postulado
+Complementario[^15].
 
 Como las ecuaciones 2.15 y 2.16 se cumplen para $0$ y $1$, esto es,
 $\forall x \in \mathbb{B}_2$ como se requiere en la ecuación 2.14, queda
-satisfecho el postulado [\[axm:H5\]](#axm:H5){reference-type="ref"
-reference="axm:H5"}.
+satisfecho el postulado Complementario[^16].
 
 ### Independencia de la suma está siempre definida.
 
-Modelo en el que solo falla [\[axm:H1s\]](#axm:H1s){reference-type="ref"
-reference="axm:H1s"}, esto es, que la operación suma no es operación
-interna: no es función, pero en el sentido que $1 + 1 \notin
+Modelo en el que solo falla Operación Binaria Interna $\vee$[^17], esto
+es, que la operación suma no es operación interna: no es función, pero
+en el sentido que $1 + 1 \notin
 \mathbb{B}$.
 
 $$\begin{matrix}
@@ -424,9 +1123,8 @@ de $1$ es $0$.
 
 ### Independencia de la unicidad de la definición de la suma.
 
-Modelo en el que no se cumple
-[\[axm:H1s\]](#axm:H1s){reference-type="ref" reference="axm:H1s"}, en el
-sentido que $1 + 1
+Modelo en el que no se cumple Operación Binaria Interna $\vee$[^18], en
+el sentido que $1 + 1
 \mapsto 1$ y $1 + 1 \mapsto 0$.
 
 $$\begin{matrix}
@@ -450,11 +1148,11 @@ postulados, sea cual sea el valor tomado para $1 + 1$.
 
 ### Independencia de el producto está siempre definido.
 
-Modelo en el que solo falla [\[axm:H1p\]](#axm:H1p){reference-type="ref"
-reference="axm:H1p"}, esto es, que la operación producto no es operación
-interna: no es función. Este es el caso en que
-$0 \cdot 0 \notin \mathbb{B}$. Ponemos en ese caso $0 \cdot 0 = x$ pero
-igualmente podríamos haber dejado en blanco ese lugar.
+Modelo en el que solo falla Operación Binaria Interna $\wedge$[^19],
+esto es, que la operación producto no es operación interna: no es
+función. Este es el caso en que $0 \cdot 0 \notin \mathbb{B}$. Ponemos
+en ese caso $0 \cdot 0 = x$ pero igualmente podríamos haber dejado en
+blanco ese lugar.
 
 $$\begin{matrix}
         {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
@@ -480,8 +1178,8 @@ $\overline 0 = 1$ y el del $1$ es $\overline 1 = 0$.
 
 ### Independencia de la unicidad de la definición del producto.
 
-Modelo en el que solo falla [\[axm:H1s\]](#axm:H1s){reference-type="ref"
-reference="axm:H1s"}, esto es, en el sentido que $0
+Modelo en el que solo falla Operación Binaria Interna $\vee$[^20], esto
+es, en el sentido que $0
 \cdot 0 \mapsto 0$ y también $0 \cdot 0 \mapsto 1$.
 
 $$\begin{matrix}
@@ -502,9 +1200,8 @@ $$\begin{matrix}
 
 ### Independencia de la existencia de elemento neutro de la suma.
 
-Modelo en el que solo falla [\[axm:H2s\]](#axm:H2s){reference-type="ref"
-reference="axm:H2s"}, esto es, la existencia de elemento neutro en la
-operación binaria interna suma.
+Modelo en el que solo falla Elemento Neutro $\vee$[^21], esto es, la
+existencia de elemento neutro en la operación binaria interna suma.
 
 $$\begin{matrix}
         {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
@@ -529,14 +1226,12 @@ Queda claro que no hay elemento neutro de la suma pues $\forall xy \in
 \mathbb{B}\quad x + y = 0$.
 
 Segundo, existe el elemento neutro del producto: $0 \cdot 1 = 1 \cdot 0
-= 0$ y $1 \cdot 1 = 1$. Luego se cumple
-[\[aciom:H2p\]](#aciom:H2p){reference-type="ref" reference="aciom:H2p"}.
+= 0$ y $1 \cdot 1 = 1$. Luego se cumple Elemento Neutro $\wedge$[^22].
 
 La conmutatividad se hace patente al ver las diagonales inversas de las
 tablas de operación, que muestran un único valor. $0 + 1 = 1 + 0 = 0$ y
-$0 \cdot 1 = 1 \cdot 0 = 0$. Se cumplen
-[\[axm:H3s\]](#axm:H3s){reference-type="ref" reference="axm:H3s"} y
-[\[axm:H3p\]](#axm:H3p){reference-type="ref" reference="axm:H3p"}.
+$0 \cdot 1 = 1 \cdot 0 = 0$. Se cumplen Conmutatividad $\vee$[^23] y
+Conmutatividad $\wedge$[^24].
 
 En cuanto a la distribución del producto sobre la suma, veamos si
 podemos comprobarla de forma sencilla:
@@ -545,14 +1240,12 @@ c)$. Sabemos que $b + c = 0$ siempre, y que, pongamos que $a \cdot b = x
 \in \mathbb{B}$ y que $a \cdot c = y \in \mathbb{B}$. Ahora bien
 $x + y = 0$. Así que todo lo que tenemos que probar es que
 $a \cdot 0 = 0$, pero esto es claro en la table del producto. Luego se
-cumple [\[axm:H4s\]](#axm:H4s){reference-type="ref"
-reference="axm:H4s"}.
+cumple Distributividad $\vee$ sobre $\wedge$[^25].
 
 Ahora la distribución de la suma sobre el producto. $a + ( b \cdot c )
 = (a + b) \cdot (a + c)$. Sabemos que $a + (b \cdot c) = 0$ siempre, y
 que, pongamos que $a + b = 0$ y que $a + c = 0$. Ahora bien $0 \cdot
-0 = 0$. Luego se cumple [\[axm:H4p\]](#axm:H4p){reference-type="ref"
-reference="axm:H4p"}.
+0 = 0$. Luego se cumple Distributividad $\wedge$ sobre $\vee$[^26].
 
 Nos queda encontrar un complemento para el $0$. Pero encontrar el
 complemento solo tiene sentido si existen los dos elementos neutros,
@@ -561,10 +1254,9 @@ buscar el complementario.
 
 ### Independencia de la existencia de elemento neutro del producto.
 
-Exponemos un modelo en el que solo falla
-[\[axm:H2p\]](#axm:H2p){reference-type="ref" reference="axm:H2p"}, esto
-es, la existencia de elemento neutro en la operación binaria interna
-producto.
+Exponemos un modelo en el que solo falla Elemento Neutro $\wedge$[^27],
+esto es, la existencia de elemento neutro en la operación binaria
+interna producto.
 
 $$\begin{matrix}
         {\cdot + \cdot} & \big{\vert} & {0} & {1} & \big{\vert} \\
@@ -588,9 +1280,8 @@ seguir el esquema de la sub-sección anterior.
 
 ### Independencia de la conmutatividad de la suma.
 
-Modelo en que la conmutatividad de la suma
-[\[axm:H3s\]](#axm:H3s){reference-type="ref" reference="axm:H3s"} no se
-dá, pero si que se dan el resto de postulados.
+Modelo en que la conmutatividad de la suma Conmutatividad $\vee$[^28] no
+se dá, pero si que se dan el resto de postulados.
 
 $$\begin{equation}
     \begin{matrix}
@@ -634,18 +1325,16 @@ Nos preguntamos si se cumple $x \cdot ( y + z ) = ( x \cdot y ) + ( x
 \cdot z )$ en el actual modelo. Si $x = 0$ entonces $0 \cdot (x + y) =
 0$ y la parte derecha de la igualdad se resuelve en $( 0 \cdot y ) + ( 0
 \cdot z )$ pero como $0 \cdot x = 0$ obtenemos que la distribución
-[\[axm:H4s\]](#axm:H4s){reference-type="ref" reference="axm:H4s"} será
-verdad para $x = 0$ si $0 = 0 + 0$, cosa que es cierta. Si $x = 1$, la
-igualdad a verificar quedaría $1 \cdot ( y + z )
-= ( 1 \cdot y ) + ( 1 \cdot z )$ y por
-[\[axm:H2p\]](#axm:H2p){reference-type="ref" reference="axm:H2p"} queda
-$y + z  =  y
+Distributividad $\vee$ sobre $\wedge$[^29] será verdad para $x = 0$ si
+$0 = 0 + 0$, cosa que es cierta. Si $x = 1$, la igualdad a verificar
+quedaría $1 \cdot ( y + z )
+= ( 1 \cdot y ) + ( 1 \cdot z )$ y por Elemento Neutro $\wedge$[^30]
+queda $y + z  =  y
 + z$ que no es más que la identidad lógica de la igualdad. Se satisface
-[\[axm:H4s\]](#axm:H4s){reference-type="ref" reference="axm:H4s"}.
+Distributividad $\vee$ sobre $\wedge$[^31].
 
-Nos preguntamos por la satisfacción de
-[\[axm:H4p\]](#axm:H4p){reference-type="ref" reference="axm:H4p"}
-$x + ( y \cdot z
+Nos preguntamos por la satisfacción de Distributividad $\wedge$ sobre
+$\vee$[^32] $x + ( y \cdot z
 ) = ( x + y ) \cdot ( x + z )$ en el actual modelo. Procedemos como en
 el párrafo anterior, por casos. Si $x = 0$ entonces
 $x + ( y \cdot z ) = ( x
@@ -654,17 +1343,15 @@ $x + ( y \cdot z ) = ( x
 Para el caso $x = 1$, obtenemos $x + ( y \cdot z ) = ( x + y ) \cdot ( x
 + z )$ $\Longrightarrow$ $1 + ( y \cdot z ) = ( 1 + y ) \cdot ( 1 + z
 )$ $\Longrightarrow$ $1 = 1 \cdot 1$. Por lo tanto también se verifica
-[\[axm:H4p\]](#axm:H4p){reference-type="ref" reference="axm:H4p"}.
+Distributividad $\wedge$ sobre $\vee$[^33].
 
-Queda comprobado que la conmutatividad de la suma
-[\[axm:H3s\]](#axm:H3s){reference-type="ref" reference="axm:H3s"} es
-independiente del resto de postulados.
+Queda comprobado que la conmutatividad de la suma Conmutatividad
+$\vee$[^34] es independiente del resto de postulados.
 
 ### Independencia de la conmutatividad del producto.
 
-Modelo en que la conmutatividad del producto
-[\[axm:H3p\]](#axm:H3p){reference-type="ref" reference="axm:H3p"} no se
-da, pero, si se satisfacen el resto de postulados.
+Modelo en que la conmutatividad del producto Conmutatividad
+$\wedge$[^35] no se da, pero, si se satisfacen el resto de postulados.
 
 $$\begin{equation}
     \begin{matrix}
@@ -691,9 +1378,8 @@ anterior.
 ### Independencia de la distribución de la suma sobre el producto.
 
 El postulado del título no se cumple. Existen valores del modelo
-$\exists x \in \mathbb{B}$ que no cumplen
-[\[axm:H4p\]](#axm:H4p){reference-type="ref" reference="axm:H4p"},
-$x + ( y \cdot z )
+$\exists x \in \mathbb{B}$ que no cumplen Distributividad $\wedge$ sobre
+$\vee$[^36], $x + ( y \cdot z )
 \neq ( x + y ) \cdot (x + z)$.
 
 $$\begin{equation}
@@ -720,9 +1406,8 @@ suma. Ahora $1
 + 1 = 0$.
 
 Se dan por lo tanto todos los teoremas conocidos incluida la
-distribución [\[axm:H4s\]](#axm:H4s){reference-type="ref"
-reference="axm:H4s"} e incluso sabemos que las operaciones son
-asociativas.
+distribución Distributividad $\vee$ sobre $\wedge$[^37] e incluso
+sabemos que las operaciones son asociativas.
 
 Pero en aritmética no se da la dualidad que buscamos y la distribución
 del producto sobre la suma no es una verdad.
@@ -745,13 +1430,12 @@ $$\begin{flalign}
   \overline{0} &= 1 \cdot \overline{z} \\
   1 &= \overline{z} \\
   z &= 0\\
-  x=1 \wedge y=0 \wedge z=1 &\Longrightarrow \neg\ref{axm:H4p}
+  x=1 \wedge y=0 \wedge z=1 &\Longrightarrow \neg \text{Distributividad } \wedge \text{ sobre } \vee
 \end{flalign}$$
 
 De dónde efectivamente este modelo no distribuye la suma sobre un
-producto. Y la independencia de
-[\[axm:H4p\]](#axm:H4p){reference-type="ref" reference="axm:H4p"} queda
-probada.
+producto. Y la independencia de Distributividad $\wedge$ sobre
+$\vee$[^38] queda probada.
 
 ### Independencia de la distribución del producto sobre la suma.
 
@@ -1335,6 +2019,80 @@ demostración dual: $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
+## Teoremas de Simplificación
+
+Además de los teoremas deducidos directamente de los axiomas, existen
+tres teoremas de simplificación de enorme utilidad práctica,
+especialmente en la minimización de funciones booleanas.
+
+:::: teorema
+Teorema de Adyacencia (Expansión de Shannon) -
+$Ady_{\vee, \wedge}$adyacencia Cualquier elemento $a$ puede ser
+expandido con respecto a otra variable $b$ y su complemento.
+$$\begin{align*}
+    \text{Adyacencia en $\vee$: } & a = (a \wedge b) \vee (a \wedge \neg b) \\
+    \text{Adyacencia en $\wedge$: } & a = (a \vee b) \wedge (a \vee \neg b)
+\end{align*}$$
+
+::: proof
+*Proof.* Demostración para la suma: $$\begin{align*}
+    a &= a \wedge \top & \text{Axioma de Elemento Neutro ($E_n$)} \\
+    a &= a \wedge (b \vee \neg b) & \text{Axioma de Complementarios ($Comp$)} \\
+    a &= (a \wedge b) \vee (a \wedge \neg b) & \text{Axioma de Distributividad ($Dist_{\wedge}$)}
+\end{align*}$$ La prueba para el producto es estrictamente dual:
+$$\begin{align*}
+    a &= a \vee \bot & \text{Axioma de Elemento Neutro ($E_n$)} \\
+    a &= a \vee (b \wedge \neg b) & \text{Axioma de Complementarios ($Comp$)} \\
+    a &= (a \vee b) \wedge (a \vee \neg b) & \text{Axioma de Distributividad ($Dist_{\vee}$)}
+\end{align*}$$ ◻
+:::
+::::
+
+:::: teorema
+Teorema de Reducción (Absorción Fuerte) - $Red_{\vee, \wedge}$reduccion
+La disyunción de una variable con la conjunción de su complemento y otra
+variable, se reduce a la disyunción de ambas variables. $$\begin{align*}
+    \text{Para la disyunción: } & a \vee (\neg a \wedge b) = a \vee b \\
+    \text{Para la conjunción (Dual): } & a \wedge (\neg a \vee b) = a \wedge b
+\end{align*}$$
+
+::: proof
+*Proof.* Demostración para la disyunción: $$\begin{align*}
+    a \vee (\neg a \wedge b) &= (a \vee \neg a) \wedge (a \vee b) & \text{Axioma de Distributividad ($Dist_{\vee}$)} \\
+    &= \top \wedge (a \vee b) & \text{Axioma de Complementarios ($Comp$)} \\
+    &= a \vee b & \text{Axioma de Elemento Neutro ($E_n$)}
+\end{align*}$$ Demostración dual para la conjunción: $$\begin{align*}
+    a \wedge (\neg a \vee b) &= (a \wedge \neg a) \vee (a \wedge b) & \text{Axioma de Distributividad ($Dist_{\wedge}$)} \\
+    &= \bot \vee (a \wedge b) & \text{Axioma de Complementarios ($Comp$)} \\
+    &= a \wedge b & \text{Axioma de Elemento Neutro ($E_n$)}
+\end{align*}$$ ◻
+:::
+::::
+
+:::: teorema
+Teorema del Consenso (Quine) - $Cons_{\vee, \wedge}$consenso En una
+expresión con tres variables donde una variable aparece afirmada en un
+término, negada en otro, y el tercer término (el consenso) está formado
+por las variables restantes, este último término es redundante.
+$$\begin{align*}
+    \text{Consenso en $\vee$: } & (a \wedge b) \vee (\neg a \wedge c) \vee (b \wedge c) = (a \wedge b) \vee (\neg a \wedge c) \\
+    \text{Consenso en $\wedge$: } & (a \vee b) \wedge (\neg a \vee c) \wedge (b \vee c) = (a \vee b) \wedge (\neg a \vee c)
+\end{align*}$$
+
+::: proof
+*Proof.* Demostración para la versión en $\vee$: $$\begin{align*}
+    (a \wedge b) \vee (\neg a \wedge c) \vee (b \wedge c) &= (a \wedge b) \vee (\neg a \wedge c) \vee ((b \wedge c) \wedge \top) & \text{Ax. Neutro ($E_n$)} \\
+    &= (a \wedge b) \vee (\neg a \wedge c) \vee ((b \wedge c) \wedge (a \vee \neg a)) & \text{Ax. Comp.} \\
+    &= (a \wedge b) \vee (\neg a \wedge c) \vee (a \wedge b \wedge c) \vee (\neg a \wedge b \wedge c) & \text{Dist. y Asoc.} \\
+    &= ((a \wedge b) \vee (a \wedge b \wedge c)) \\
+    &\quad \vee ((\neg a \wedge c) \vee (\neg a \wedge c \wedge b)) & \text{Conm. y Asoc.} \\
+    &= (a \wedge b) \vee (\neg a \wedge c) & \text{Absorción ($Abs_{\vee}$)}
+\end{align*}$$ La prueba dual sigue el mismo principio (sumar $\bot$ al
+consenso, expandirlo con $(a \wedge \neg a)$, y simplificar usando
+absorción). ◻
+:::
+::::
+
 ## Generalización a $n$ variables
 
 Habiendo demostrado la asociatividad ($Asoc_\vee$ y $Asoc_\wedge$) de
@@ -1744,6 +2502,27 @@ variables. Se denotan mediante los operadores de sumatoria y productorio
 modificados:
 $$\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n$$
 $$\bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n$$
+
+**Propiedad de Paridad de la XOR (Suma Módulo 2):** La operación
+$\bigoplus_{i=1}^{n} x_i$ es conocida matemáticamente como la *función
+de paridad impar*. Su valor será $\top$ (o 1) si y solo si un número
+impar de las variables de entrada $x_i$ tienen valor $\top$.
+
+**Relación entre XOR y XNOR para $n$ variables:** Dado que
+$x \odot y = x \oplus y \oplus \top$, cada aplicación sucesiva del
+operador $\odot$ es matemáticamente equivalente a aplicar una suma
+$\oplus$ y concatenar una constante $\top$. Puesto que la expresión
+$\bigodot_{i=1}^{n} x_i$ entrelaza a sus operandos mediante exactamente
+$n-1$ operadores de equivalencia, se deduce rigurosamente que:
+$$\bigodot_{i=1}^{n} x_i = \left( \bigoplus_{i=1}^{n} x_i \right) \oplus \underbrace{\top \oplus \top \dots \oplus \top}_{n-1 \text{ veces}}$$
+Por la propia idempotencia nula de la suma booleana exclusiva
+($x \oplus x = \bot$), la suma de $n-1$ constantes $\top$ será igual a
+$\bot$ si $n-1$ es par (lo cual ocurre cuando $n$ es impar), y será
+igual a $\top$ si $n-1$ es impar (cuando $n$ es par). Por lo tanto:
+$$\bigodot_{i=1}^{n} x_i = \begin{cases} 
+\bigoplus_{i=1}^{n} x_i & \text{si } n \text{ es impar (es la misma función)} \\
+\neg \left( \bigoplus_{i=1}^{n} x_i \right) & \text{si } n \text{ es par (son funciones negadas)}
+\end{cases}$$
 :::
 
 ::: teorema
@@ -1778,6 +2557,47 @@ son mutuamente duales. Para obtener la expresión dual de cualquier
 proposición que involucre estos operadores, se deben intercambiar
 $\oplus$ y $\odot$, manteniendo las reglas de dualidad estándar para los
 demás elementos y constantes.
+:::
+
+## Estructuras Algebraicas Superiores
+
+Las propiedades demostradas anteriormente para los operadores XOR
+($\oplus$) y AND ($\wedge$) permiten dotar al conjunto $B$ de
+estructuras algebraicas más ricas y estándar dentro del álgebra
+abstracta.
+
+::: teorema
+Estructura de Grupo Conmutativogrupo_xor El par $(B, \oplus)$ forma un
+**grupo abeliano** (conmutativo), satisfaciendo:
+
+1.  **Clausura:** $\forall a,b \in B, a \oplus b \in B$.
+
+2.  **Asociatividad:** $a \oplus (b \oplus c) = (a \oplus b) \oplus c$.
+
+3.  **Elemento neutro:** Existe $\bot \in B$ tal que
+    $a \oplus \bot = a$.
+
+4.  **Elemento inverso (Idempotencia aditiva):** Todo elemento es su
+    propio inverso, ya que $a \oplus a = \bot$.
+
+5.  **Conmutatividad:** $a \oplus b = b \oplus a$.
+:::
+
+::: teorema
+Estructura de Anillo Conmutativo (Anillo Booleano)anillo_booleano La
+terna $(B, \oplus, \wedge)$ forma un **anillo conmutativo con elemento
+unidad** (comúnmente denominado Anillo Booleano), donde el XOR actúa
+como la suma del anillo y el AND como el producto. Se satisfacen todas
+las propiedades requeridas:
+
+1.  $(B, \oplus)$ es un grupo abeliano (demostrado arriba).
+
+2.  $(B, \wedge)$ es un monoide conmutativo (asociativo, conmutativo, y
+    con elemento neutro $\top$).
+
+3.  **Distributividad:** El producto ($\wedge$) se distribuye sobre la
+    suma ($\oplus$), es decir,
+    $a \wedge (b \oplus c) = (a \wedge b) \oplus (a \wedge c)$.
 :::
 
 # Instanciación en Álgebras Finitas: Trivial y Bivaluada
@@ -2241,1280 +3061,813 @@ dos elementos ($B=\{0,1\}$), transcritas al lenguaje ingenieril:
    $1$   $0$     $1$         $0$            $1$               $0$              $1$            $0$
    $1$   $1$     $1$         $1$            $0$               $0$              $0$            $1$
 
-# Operadores NOR y NAND
-
-1.  1.  1.  Operadores "nor" y "nand" que representaremos
-            respectivamente como $$\downarrow$$y $$\uparrow$$.
-
-            1.  Definición de "nor":
-                $${x\downarrow y}{: =}{{\overline{x} \cdot \overline{y}} = \overline{x+y}}$$.
-
-            2.  Definición de "nand":
-                $${x\uparrow y}{: =}{{\overline{x} + \overline{y}} = \overline{x\cdot y}}$$.
-
-        2.  No asociatividad en general de "nor" y de "nand". Dar algún
-            ejemplo en $$B_{2}$$.
-
-        3.  Cualquier expresión de las que hasta ahora se ha podido
-            utilizar es expresable con solo funciones "nand" y con solo
-            funciones "nor".
-
-            1.  "NOR":
-
-                1.  $${{x + y} = {({x\downarrow y})}}\downarrow{({x\downarrow y})}$$
-
-                2.  $${x \cdot y} = {({{({x\downarrow x})}}\downarrow{({y\downarrow y})})}$$
-
-                3.  $$\overline{x} = {x\downarrow x}$$
-
-            2.  "NAND":
-
-                1.  $${{x \cdot y} = {({x\uparrow y})}}\uparrow{({x\uparrow y})}$$
-
-                2.  $${{x + y} = {({x\uparrow x})}}\uparrow{({y\uparrow y})}$$
-
-                3.  $$\overline{x} = {x\uparrow x}$$
-
-        4.  Ahora podemos establecer el álgebra de Boole en solo función
-            de operadores "nor" o sólo de operadores "nand". Los
-            postulados de Huntington se establecieron de esta manera,
-            aunque con una propiedad que acortaba la longitud total del
-            sistema de axiomas. Actualmente se han desarrollado en
-            formas cada vez más cortas mediante el postulado de Robinson
-            y los de Wolfram más recientemente. (La legibilidad de estos
-            sistemas queda definitivamente aniquilada, ya que el sistema
-            de pruebas es por lo general un software probador de
-            teoremas automático).
-
-        5.  Extensión de la dualidad: solo hay que añadir que hay que
-            intercambiar todos los operadores "nor" por "nand" y
-            viceversa, además de las sustituciones ya enunciadas en
-            18.1.
-
-        6.  Nuevos operadores "exor" y "exnor".
-
-            1.  Definición del operador "exor":
-                $${x \oplus y}{: =}{{{({x \cdot \bar{y}})} + {({\bar{x} \cdot y})}} = {{({x + y})} \cdot {({\bar{x} + \bar{y}})}}}$$
-
-            2.  Definición del operador "exnor":
-                $${x \odot y}{: =}{{{({x + \bar{y}})} \cdot {({\bar{x} + y})}} = {{({x \cdot y})} + {({\bar{x} \cdot \bar{y}})}}}$$
-
-        7.  Nueva extensión del teorema de dualidad: solo hay que
-            intercambiar "exor" por "ex­nor " y viceversa, además de
-            todos los intercambios que anteriormente se han des­crito en
-            22.
-
-        8.  Propiedad de elemento inverso (el inverso de cada elemento
-            existe y es él mismo):
-
-            1.  Para la operación "exor" :
-                $$\forall{x \in B}x \oplus {x = 0}$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {{{x = {{({x \cdot \overline{x}})} + {({\overline{x} \cdot x})}}} = {0 + 0}} = 0}$$
-
-            2.  Para la operación "exnor":
-                $$\forall{x \in B}x \odot {x = 1}$$
-
-                1.  Prueba:
-
-                2.  $$x \odot {{{x = {{({x + \overline{x}})} \cdot {({\overline{x} + x})}}} = {1 \cdot 1}} = 1}$$
-
-        9.  Valor para un elemento operado con su complementario:
-
-            1.  $$\forall{x \in B}x \oplus {\bar{x} = 1}$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {{{{\bar{x} = {{({x \cdot \overline{\overline{x}}})} + {({\overline{x} \cdot \overline{x}})}}} = {({{({x \cdot x})} + \overline{x}})}} = {x + \overline{x}}} = 1}$$
-
-            2.  $$\forall{x \in B}x \odot {\bar{x} = 0}$$
-
-                1.  Prueba:
-
-                2.  $$x \odot {{{{\overline{x} = {{({x + \overline{\overline{x}}})} \cdot {({\overline{x} + \overline{x}})}}} = {({{({x + x})} \cdot \overline{x}})}} = {x \cdot \overline{x}}} = 0}$$
-
-        10. Más valores de estas operaciones:
-
-            1.  $$\forall{x \in B}x \oplus {1 = \bar{x}}$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {{{{1 = {{({\overline{x} \cdot 1})} + {({x \cdot \overline{1}})}}} = {\overline{x} + {({x \cdot 0})}}} = {\overline{x} + 0}} = \overline{x}}$$
-
-            2.  $$\forall{x \in B}x \odot {0 = \bar{x}}$$
-
-                1.  Prueba:
-
-                2.  $$x \odot {{{{0 = {{({\overline{x} + 0})} \cdot {({x + \overline{0}})}}} = {\overline{x} \cdot {({x + 1})}}} = {\overline{x} + 1}} = \overline{x}}$$
-
-        11. Elementos neutros:
-
-            1.  $$\forall{x \in B}x \oplus {0 = x}$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {{{0 = {{({\overline{x} \cdot 0})} + {({x \cdot \overline{0}})}}} = {0 + {({x \cdot 1})}}} = x}$$
-
-            2.  $$\forall{x \in B}x \odot {1 = x}$$
-
-                1.  Prueba:
-
-                2.  $$x \odot {{{1 = {{({\overline{x} + 1})} \cdot {({x + \overline{1}})}}} = {1 \cdot {({x + 0})}}} = x}$$
-
-        12. Una propiedad de simetría:
-
-            1.  $$\forall a,{b \in B}a \oplus {b = \bar{a}} \oplus \bar{b}$$
-
-                1.  Prueba:
-
-                2.  $$a \oplus {{{b = {{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}}} = {{\lbrack{{({\overline{a} \cdot b})} + a}\rbrack} \cdot {\lbrack{{({\overline{a} \cdot b})} + \overline{b}}\rbrack}}} = {{\lbrack{a + b}\rbrack} \cdot {\lbrack{\overline{a} + \overline{b}}\rbrack}}}$$
-
-                3.  $$\overline{a} \oplus {{{{\overline{b} = {{\lbrack{\overline{a} + \overline{b}}\rbrack} \cdot {\lbrack{\overline{\overline{a}} + \overline{\overline{b}}}\rbrack}}} = {{\lbrack{\overline{a} + \overline{b}}\rbrack} \cdot {\lbrack{a + b}\rbrack}}} = {{\lbrack{a + b}\rbrack} \cdot {\lbrack{\overline{a} + \overline{b}}\rbrack}}} = a} \oplus b$$
-
-            2.  $$\forall a,{b \in B}a \odot {b = \bar{a}} \odot \bar{b}$$
-
-                1.  Prueba:
-
-                2.  $$a \odot {{{b = {{({\overline{a} + b})} \cdot {({a + \overline{b}})}}} = {{\lbrack{{({\overline{a} + b})} \cdot a}\rbrack} + {\lbrack{{({\overline{a} + b})} \cdot \overline{b}}\rbrack}}} = {{\lbrack{a \cdot b}\rbrack} + {\lbrack{\overline{a} \cdot \overline{b}}\rbrack}}}$$
-
-                3.  $$\overline{a} \odot {{{{\overline{b} = {{\lbrack{\overline{a} \cdot \overline{b}}\rbrack} + {\lbrack{\overline{\overline{a}} \cdot \overline{\overline{b}}}\rbrack}}} = {{\lbrack{\overline{a} \cdot \overline{b}}\rbrack} + {\lbrack{a \cdot b}\rbrack}}} = {{\lbrack{a \cdot b}\rbrack} + {\lbrack{\overline{a} \cdot \overline{b}}\rbrack}}} = a} \odot b$$
-
-        13. Los operadores negados "nexor" y "nexnor" coinciden
-            respectivamente con "exnor" y "exor" (y así no se producen
-            nuevos operadores):
-
-            1.  $$\forall a,{b \in B}{{\bar{a\oplus b} \equiv \overline{a\oplus b}} = \overline{a}} \oplus {b = a} \oplus {\overline{b} = a} \odot b$$
-
-            2.  $$\forall a,{b \in B}{{\bar{a\odot b} \equiv \overline{a\odot b}} = \overline{a}} \odot {b = a} \odot {\overline{b} = a} \oplus b$$
-
-        14. Asociatividad de los nuevos operadores "exor" y "exnor":
-
-            1.  $$\forall a,b,{c \in B}{({a \oplus b})} \oplus {c = a} \oplus {({b \oplus c})}$$
-
-                1.  Prueba:
-
-                2.  $${({a \oplus b})} \oplus {c =}$$
-
-                3.  $${= {({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})}} \oplus {c =}$$
-
-                4.  $${= {{({\overline{({{({\overline{a}\cdot b})}+{({a\cdot\overline{b}})}})} \cdot c})} + {({{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot \overline{c}})}}} =$$
-
-                5.  $${= {{({\overline{({{({\overline{a}\cdot b})}+{({a\cdot\overline{b}})}})} \cdot c})} + {({{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot \overline{c}})}}} =$$
-
-                6.  $${= {{{({{({\overline{({\overline{a}\cdot b})} \cdot \overline{({a\cdot\overline{b}})}})} \cdot c})} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =$$
-
-                7.  $${= {{{({{({{({a + \overline{b}})} \cdot {({\overline{a} + b})}})} \cdot c})} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =$$
-
-                8.  $${= {{{{({{a \cdot b} \cdot c})} + {({{\overline{a} \cdot \overline{b}} \cdot c})}} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =$$
-
-                9.  $${= {{({a \cdot {({{({b \cdot c})} + {({\overline{b} \cdot \overline{c}})}})}})} + {({\overline{a} \cdot {({{({\overline{b} \cdot c})} + {({b + \overline{c}})}})}})}}} =$$
-
-                10. $${= {{({a \cdot {({b \odot c})}})} + {({\overline{a} \cdot {({b \oplus c})}})}}} =$$
-
-                11. $${= {{({a \cdot \overline{({b\oplus c})}})} + {({\overline{a} \cdot {({b \oplus c})}})}}} =$$
-
-                12. $${= a} \oplus {({b \oplus c})}$$
-
-            2.  $$\forall a,b,{c \in B}{({a \odot b})} \odot {c = a} \odot {({b \odot c})}$$
-
-                1.  Prueba:
-
-                2.  $${({a \odot b})} \odot {c =}$$
-
-                3.  $${= {({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})}} \odot {c =}$$
-
-                4.  $${= {{({\overline{({{({\overline{a}+b})}\cdot{({a+\overline{b}})}})} + c})} \cdot {({{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + \overline{c}})}}} =$$
-
-                5.  $${= {{({\overline{({{({\overline{a}+b})}\cdot{({a+\overline{b}})}})} + c})} \cdot {({{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + \overline{c}})}}} =$$
-
-                6.  $${= {{{({{({\overline{({\overline{a}+b})} + \overline{({a+\overline{b}})}})} + c})} \cdot {({{\overline{a} + b} + \overline{c}})}} \cdot {({{a + \overline{b}} + \overline{c}})}}} =$$
-
-                7.  $${= {{{({{({{({a \cdot \overline{b}})} + {({\overline{a} \cdot b})}})} + c})} \cdot {({{\overline{a} + b} + \overline{c}})}} \cdot {({{a + \overline{b}} + \overline{c}})}}} =$$
-
-                8.  $${= {{{{({{a \cdot b} \cdot c})} + {({{\overline{a} \cdot \overline{b}} \cdot c})}} + {({{\overline{a} \cdot b} \cdot \overline{c}})}} + {({{a \cdot \overline{b}} \cdot \overline{c}})}}} =$$
-
-                9.  $${= {{({a \cdot {({{({b \cdot c})} + {({\overline{b} \cdot \overline{c}})}})}})} + {({\overline{a} \cdot {({{({\overline{b} \cdot c})} + {({b + \overline{c}})}})}})}}} =$$
-
-                10. $${= {{({a + {({b \oplus c})}})} \cdot {({\overline{a} + {({b \odot c})}})}}} =$$
-
-                11. $${= {{({a \cdot \overline{({b\oplus c})}})} + {({\overline{a} \cdot {({b \oplus c})}})}}} =$$
-
-                12. $${= a} \odot {({b \odot c})}$$
-
-        15. Distributividad de "$$\oplus$$" respecto del producto lógico
-            "$$\cdot$$" y de "$$\odot$$" res­pecto de la suma lógica
-            "$$+$$":
-
-            1.  $$\forall x,y,{z \in B}{{x \cdot {({y \oplus z})}} = {({x \cdot y})}} \oplus {({x \cdot z})}$$
-
-                1.  Prueba:
-
-                2.  $${{x \cdot {({y \oplus z})}} = {({x \cdot y})}} \oplus {({x \cdot z})}$$
-
-                3.  $${\lbrack\mathbf{A}\rbrack}{{{({x \cdot {({y \oplus z})}})} \cdot \overline{({{({x\cdot y})}\oplus{({x\cdot z})}})}} =}$$
-
-                4.  $${= {{({x \cdot {({y \oplus z})}})} \cdot {({{({x \cdot y})} \odot {({x \cdot z})}})}}} =$$
-
-                5.  $${= {{({x \cdot {({y \oplus z})}})} \cdot {({\overline{({x\cdot y})} \oplus {({x \cdot z})}})}}} =$$
-
-                6.  $${= {{({x \cdot {({{({\overline{y} \cdot z})} + {({y \cdot \overline{z}})}})}})} \cdot {({{({{({x \cdot y})} \cdot {({x \cdot z})}})} + {({\overline{({x\cdot y})} \cdot \overline{({x\cdot z})}})}})}}} =$$
-
-                7.  $${= {{{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({{x \cdot y} \cdot z})}} + {{{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({\overline{x} + \overline{y}})}} \cdot {({\overline{x} + \overline{z}})}}}} =$$
-
-                8.  $${= {{{{({x\overline{y}z})} \cdot {({xyz})}} + {{({xy\overline{z}})} \cdot {({xyz})}}} + {{({{({x\overline{y}z})} + {({xy\overline{z}})}})} \cdot {({{\overline{x} + \overline{x}}{\overline{z} + \overline{x}}{\overline{y} + \overline{y}}\overline{z}})}}}} =$$
-
-                9.  $${= {{0 + 0} + {{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({\overline{x} + {\overline{y} \cdot \overline{z}}})}}}} =$$
-
-                10. $${= {{{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot \overline{x}} + {{({{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}})} \cdot {({\overline{y} \cdot \overline{z}})}}}} =$$
-
-                11. $${= {{{{x \cdot {({{\overline{y} \cdot z} + {y \cdot \overline{z}}})}} \cdot \overline{x}} + {{({{x \cdot \overline{y}} \cdot z})} \cdot {({\overline{y} \cdot \overline{z}})}}} + {{({{x \cdot y} \cdot \overline{z}})} \cdot {({\overline{y} \cdot \overline{z}})}}}} =$$
-
-                12. $${= {{0 + 0} + 0}} = 0$$
-
-                13. $${\lbrack\mathbf{B}\rbrack}{{{({x \cdot {({y \oplus z})}})} + \overline{({{({x\cdot y})}\oplus{({x\cdot z})}})}} =}$$
-
-                14. $${= {{({x \cdot {({y \oplus z})}})} + {({{({x \cdot y})} \odot {({x \cdot z})}})}}} =$$
-
-                15. $${= {{({x \cdot {({y \oplus z})}})} + {({\overline{({x\cdot y})} \oplus {({x \cdot z})}})}}} =$$
-
-                16. $${= {{({x \cdot {({{({\overline{y} \cdot z})} + {({y \cdot \overline{z}})}})}})} + {({{({{({x \cdot y})} \cdot {({x \cdot z})}})} + {({\overline{({x\cdot y})} \cdot \overline{({x\cdot z})}})}})}}} =$$
-
-                17. $${= {{{{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}} + {({{x \cdot y} \cdot z})}} + {({{({\overline{x} + \overline{y}})} \cdot {({\overline{x} + \overline{z}})}})}}} =$$
-
-                18. $${= {{{{({{x \cdot \overline{y}} \cdot z})} + {({{x \cdot y} \cdot \overline{z}})}} + {({{x \cdot y} \cdot z})}} + {({\overline{x} + {\overline{y} \cdot \overline{z}}})}}} =$$
-
-                19. $${= {{{{{{x \cdot \overline{y}} \cdot z} + {{x \cdot y} \cdot \overline{z}}} + {{x \cdot y} \cdot z}} + \overline{x}} + {\overline{y} \cdot \overline{z}}}} =$$
-
-                20. $${= {{{{{{{{{{x \cdot \overline{y}} \cdot z} + {{x \cdot y} \cdot \overline{z}}} + {{x \cdot y} \cdot z}} + {{\overline{x} \cdot y} \cdot z}} + {{\overline{x} \cdot y} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot z}} + {{x \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot \overline{z}}}} =$$
-
-                21. $${= {{{{{{{{{x \cdot \overline{y}} \cdot z} + {{x \cdot y} \cdot \overline{z}}} + {{x \cdot y} \cdot z}} + {{x \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot y} \cdot z}} + {{\overline{x} \cdot y} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot \overline{z}}} + {{\overline{x} \cdot \overline{y}} \cdot z}}} =$$
-
-                22. $${= {{x \cdot {({{{{\overline{y} \cdot z} + {y \cdot \overline{z}}} + {y \cdot z}} + {\overline{y} \cdot \overline{z}}})}} + {\overline{x} \cdot {({{{{y \cdot z} + {y \cdot \overline{z}}} + {\overline{y} \cdot \overline{z}}} + {\overline{y} \cdot z}})}}}} =$$
-
-                23. $${= {{{{\overline{y} \cdot z} + {y \cdot \overline{z}}} + {y \cdot z}} + {\overline{y} \cdot \overline{z}}}} =$$
-
-                24. $${= {{\overline{y} \cdot {({z + \overline{z}})}} + {y \cdot {({z + \overline{z}})}}}} =$$
-
-                25. $${= {z + \overline{z}}} = 1$$
-
-                26. $$\text{De}{\lbrack\mathbf{A}\rbrack}\text{y de}{\lbrack\mathbf{B}\rbrack}\text{se obtiene que}{\overline{({x\cdot{({y\oplus z})}})} = \overline{({{({x\cdot y})}\oplus{({x\cdot z})}})}}$$
-
-                27. $$\text{Y de aquí, por la unicidad del complementario obtenemos}$$
-
-                28. $${{x \cdot {({y \oplus z})}} = {({x \cdot y})}} \oplus {({x \cdot z})}$$
-
-                Es seguro que la prueba anterior puede ser acortada
-                drásticamente, así que si al­guno encuentra una forma
-                (quizás más directa) la pondremos en su lugar.
-
-            2.  $$\forall x,y,{z \in B}{{x + {({y \odot z})}} = {({x + y})}} \odot {({x + z})}$$Se
-                prueba como en el caso anterior, sólo que cambiando los
-                operadores duales, y las dos constantes $$\{{0,1}\}$$
-                entre sí y obtenemos el resultado que hemos enunciado.
-
-                1.  Prueba:
-
-                2.  $${{x + {({y \odot z})}} = {({x + y})}} \odot {({x + z})}$$
-
-                3.  $${\lbrack\mathbf{A}\rbrack}{{{({x + {({y \odot z})}})} + \overline{({{({x+y})}\odot{({x+z})}})}} =}$$
-
-                4.  $${= {{({x + {({y \odot z})}})} + {({{({x + y})} \oplus {({x + z})}})}}} =$$
-
-                5.  $${= {{({x + {({y \odot z})}})} + {({\overline{({x+y})} \odot {({x + z})}})}}} =$$
-
-                6.  $${= {{({x + {({{({\overline{y} + z})} \cdot {({y + \overline{z}})}})}})} + {({{({{({x + y})} + {({x + z})}})} \cdot {({\overline{({x+y})} + \overline{({x+z})}})}})}}} =$$
-
-                7.  $${= {{{{({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})} + {{({{x + y} + z})} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}}} + {({\overline{x} \cdot \overline{y}})}} + {({\overline{x} \cdot \overline{z}})}}} =$$
-
-                8.  $$= {{{{({{x + \overline{y}} + z})} + {{({{x + y} + z})} \cdot {({{x + y} + \overline{z}})}}} + {{({{x + y} + z})} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}}} +}$$
-
-                9.  $${+ {({{{{\overline{x} \cdot \overline{x}} + {\overline{z} \cdot \overline{x}}} + {\overline{y} \cdot \overline{y}}} + \overline{z}})}} =$$
-
-                10. $${= {{{1 \cdot 1} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}} + {({{\overline{x} \cdot \overline{y}} + \overline{z}})}}} =$$
-
-                11. $${= {{{({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})} + {\overline{x} \cdot {({{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}})}}} + {({\overline{y} + \overline{z}})}}} =$$
-
-                12. $${= {{{{x + {({{\overline{y} + {z \cdot y}} + \overline{z}})}} + {\overline{x} \cdot {({{x + \overline{y}} + z})}}} + {{({\overline{y} + \overline{z}})} \cdot {({{x + y} + \overline{z}})}}} + {({\overline{y} + \overline{z}})}}} =$$
-
-                13. $${= {{1 \cdot 1} \cdot 1}} = 1$$
-
-                14. $${\lbrack\mathbf{B}\rbrack}{{{({x + {({y \odot z})}})} \cdot \overline{({{({x+y})}\odot{({x+z})}})}} =}$$
-
-                15. $${= {{({x + {({y \odot z})}})} \cdot {({{({x + y})} \oplus {({x + z})}})}}} =$$
-
-                16. $${= {{({x + {({y \odot z})}})} \cdot {({\overline{({x+y})} \odot {({x + z})}})}}} =$$
-
-                17. $${= {{({x + {({{({\overline{y} + z})} \cdot {({y + \overline{z}})}})}})} \cdot {({{({{({x + y})} + {({x + z})}})} \cdot {({\overline{({x+y})} + \overline{({x+z})}})}})}}} =$$
-
-                18. $${= {{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot \left( {\left( {\overline{x} \cdot \overline{y}} \right) + \left( {\overline{x} \cdot \overline{z}} \right)} \right)}} =$$
-
-                19. $${= {{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot {({\overline{x} \cdot {({\overline{y} + \overline{z}})}})}}} =$$
-
-                20. $$= {{{{{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot {({{\overline{x} + y} + z})}} \cdot {({{\overline{x} + y} + \overline{z}})}} \cdot {({{\overline{x} + \overline{y}} + \overline{z}})}} \cdot}$$$${{{\cdot {({{\overline{x} + \overline{y}} + z})}} \cdot {({{x + \overline{y}} + \overline{z}})}} \cdot {({{\overline{x} + \overline{y}} + \overline{z}})}} =$$
-
-                21. $$= {{{{{{{({{x + \overline{y}} + z})} \cdot {({{x + y} + \overline{z}})}} \cdot {({{x + y} + z})}} \cdot {({{x + \overline{y}} + \overline{z}})}} \cdot {({{\overline{x} + y} + z})}} \cdot {({{\overline{x} + y} + \overline{z}})}} \cdot}$$$${{\cdot {({{\overline{x} + \overline{y}} + \overline{z}})}} \cdot {({{\overline{x} + \overline{y}} + z})}} =$$
-
-                22. $${= {{({x + {({{{{({\overline{y} + z})} \cdot {({y + \overline{z}})}} \cdot {({y + z})}} \cdot {({\overline{y} + \overline{z}})}})}})} \cdot {({\overline{x} + {({{{{({y + z})} \cdot {({y + \overline{z}})}} \cdot {({\overline{y} + \overline{z}})}} \cdot {({\overline{y} + z})}})}})}}} =$$
-
-                23. $${= {{{{({\overline{y} + z})} \cdot {({y + \overline{z}})}} \cdot {({y + z})}} \cdot {({\overline{y} + \overline{z}})}}} =$$
-
-                24. $${= {{({\overline{y} + {({z \cdot \overline{z}})}})} \cdot {({y + {({z \cdot \overline{z}})}})}}} =$$
-
-                25. $${= {z \cdot \overline{z}}} = 0$$
-
-                26. $$\text{De}{\lbrack\mathbf{A}\rbrack}\text{y de}{\lbrack\mathbf{B}\rbrack}\text{se obtiene que}{\overline{({x+{({y\odot z})}})} = \overline{({{({x+y})}\odot{({x+z})}})}}$$
-
-                27. $$\text{Y de aquí, por la unicidad del complementario obtenemos}$$
-
-                28. $${{x + {({y \odot z})}} = {({x + y})}} \odot {({x + z})}$$
-
-        16. Estructuras de anillo conmutativo con elemento unidad (es
-            claro desde todas las pro­piedades anteriormente
-            demostradas):
-
-            1.  La más normal sería:
-                $$({B,{{\{ 0,1\}} \subseteq B},{0 \neq 1}, \oplus , \cdot})$$
-
-            2.  Su forma dual es
-                :$$({B,{{\{ 0,1\}} \subseteq B},{0 \neq 1}, \odot , +})$$
-
-        17. Estructuras respectivas a 33 de bimódulo
-            de$$({B^{n}, \oplus})$$sobre el anillo
-            $$({B, \oplus , \cdot})$$ y el dual, de
-            $$({B^{n}, \odot})$$sobre el anillo $$({B, \odot , +})$$.
-
-# Álgebras de Boole finitas
-
-1.  1.  A continuación hablaremos sobre como son en general las álgebras
-        de Boole, funda­mentalmente las finitas, y veremos que
-        efectivamente podemos llegar a teoremas que nos dicen de forma
-        muy concreta cuales son estas álgebras de Boole. Vamos a ver
-        for­mas de generarlas y cuestiones parecidas.
-
-        1.  En el caso que el cardinal de $$B$$sea finito,
-            $$2 \mid {({\# B})}$$. Para demostrarlo solo hay que darse
-            cuenta que $${B = \cup_{x \in B}}{\{{x,\overline{x}}\}}$$,
-            que
-            $${({{x \neq {y \land \overline{x}}} \neq y})}\Rightarrow{({{{\{{x,\overline{x}}\}} \cap {\{{y,\overline{y}}\}}} = \varnothing})}$$
-            y que $$\forall{x \in B}\#{{\{{x,\overline{x}}\}} = 2}$$ y
-            así cuando$$B$$sea finito, su cardinal será un múlti­plo de
-            2.
-
-        2.  Definición:
-
-            $$\forall x,{y \in B}{x \leq y}\Leftrightarrow{{x \cdot y} = x}\Leftrightarrow{{x + y} = y}$$
-
-        3.  $$\left\langle {B, \leq} \right\rangle\text{es un}\mathit{orden}$$.
-
-            1.  Reflexiva: $$\forall{x \in B}{x \leq x}$$
-
-                1.  $$\forall{x \in B}{{x \cdot x} = x}$$
-
-                2.  $$\forall{x \in B}{x \leq x}$$
-
-            2.  Antisimétrica:
-                $$\forall x,{y \in B}{{x \leq {y \land y}} \leq x}\Rightarrow{x = y}$$
-
-                1.  $$x,{y \in B}{{x \leq {y \land y}} \leq x}$$
-
-                2.  $$x,{y \in B}{{{x \cdot y} = {{y \land x} \cdot y}} = x}$$
-
-                3.  $$x,{y \in B}{x = y}$$
-
-            3.  Transitiva:
-                $$\forall x,y,{z \in B}{{x \leq {y \land y}} \leq z}\Rightarrow{x \leq z}$$
-
-                1.  $${x \leq {y \land y}} \leq z$$
-
-                2.  $${{x \cdot y} = {{x \land y} \cdot z}} = y$$
-
-                3.  $${{x \cdot y} \cdot z} = {x \cdot z}$$
-
-                4.  $${x \cdot y} = {x \cdot z}$$
-
-                5.  $$x = {x \cdot z}$$
-
-                6.  $$x \leq z$$
-
-        4.  Definición:$$\forall x,{y \in B}{x \geq y}\Leftrightarrow{{x \cdot y} = y}\Leftrightarrow{{x + y} = x}$$
-
-        5.  $$\left\langle {B, \geq} \right\rangle\text{es un}\mathit{orden}$$.
-
-            1.  Reflexiva: $$\forall{x \in B}{x \geq x}$$
-
-                1.  $$\forall{x \in B}{{x + x} = x}$$
-
-                2.  $$\forall{x \in B}{x \geq x}$$
-
-            2.  Antisimétrica:
-                $$\forall x,{y \in B}{{x \geq {y \land y}} \geq x}\Rightarrow{x = y}$$
-
-                1.  $$x,{y \in B}{{x \geq {y \land y}} \geq x}$$
-
-                2.  $$x,{y \in B}{{{x + y} = {{y \land x} + y}} = x}$$
-
-                3.  $$x,{y \in B}{x = y}$$
-
-            3.  Transitiva:
-                $$\forall x,y,{z \in B}{{x \geq {y \land y}} \geq z}\Rightarrow{x \geq z}$$
-
-                1.  $${x \geq {y \land y}} \geq z$$
-
-                2.  $${{x + y} = {{x \land y} + z}} = y$$
-
-                3.  $${{x + y} + z} = {x + z}$$
-
-                4.  $${x + y} = {x + z}$$
-
-                5.  $$x = {x + z}$$
-
-                6.  $$x \geq z$$
-
-        6.  Definición:$$\mathit{atom}{(x)}\overset{\text{def}}{\Leftrightarrow}{\left\lbrack {x \in (1,0)_{B}} \right\rbrack \land \left\lbrack {\forall{y \in (1,0)_{B}}\left( {\left( {{x \cdot y} = x} \right) \vee \left( {{x \cdot y} = 0} \right)} \right)} \right\rbrack}$$
-
-        7.  $$\forall x,{y \in B}\mathit{atom}{{(x)} \land \mathit{atom}}{(y)}\Rightarrow{{x \cdot y} = 0}$$.
-
-        8.  Definición:$$\mathit{hatom}{(x)}\overset{\text{def}}{\Leftrightarrow}{\left\lbrack {x \in \left( {B \smallsetminus {\{ 0,1\}}} \right)} \right\rbrack \land \left\lbrack {\forall{y \in \left( {B \smallsetminus {\{ 0,1\}}} \right)}\left( {\left( {{x + y} = x} \right) \vee \left( {{x + y} = 1} \right)} \right)} \right\rbrack}$$
-
-        9.  $$\forall x,{y \in B}\mathit{hatom}{{(x)} \land \mathit{hatom}}{(y)}\Rightarrow{{x + y} = 1}$$
-
-        10. Definición$${x \in B}\Rightarrow{\lbrack{x,0}\rbrack}_{B}{: = {\{{{y \in B} \mid {y \leq x}}\}}}$$
-
-        11. $$\#{{\lbrack{x,0}\rbrack}_{B} = 1}\Leftrightarrow{{\lbrack{x,0}\rbrack}_{B} = {\{ 0\}}}\Leftrightarrow{x = 0}$$
-
-        12. Definición$${x \in B}\Rightarrow{\lbrack{1,x}\rbrack}_{B}{: = {\{{{y \in B} \mid {y \geq x}}\}}}$$
-
-        13. $$\#{{\lbrack{1,x}\rbrack}_{B} = 1}\Leftrightarrow{{\lbrack{1,x}\rbrack}_{B} = {\{ 1\}}}\Leftrightarrow{x = 1}$$
-
-        14. Definición$$x,{y \in B}{x \geq y}\Rightarrow\left\lbrack {x,y} \right\rbrack_{B}{: = {\{{{z \in B} \mid {{y \leq {z \land x}} \geq z}}\}}}$$
-
-        15. Definición$$x,{y \in B}{x \geq y}\Rightarrow\left\lbrack {x,y} \right)_{B}{: = {\{{{z \in B} \mid {{{y \leq {z \land x}} \geq {z \land z}} \neq y}}\}}}$$
-
-        16. Definición$$x,{y \in B}{x \geq y}\Rightarrow\left( {x,y} \right\rbrack_{B}{: = {\{{{z \in B} \mid {{{y \leq {z \land x}} \geq {z \land z}} \neq x}}\}}}$$
-
-        17. Definición$$x,{y \in B}{x \geq y}\Rightarrow\left( {x,y} \right)_{B}{: = {\{{{z \in B} \mid {{{{y \leq {z \land x}} \geq {z \land z}} \neq {x \land z}} \neq y}}\}}}$$
-
-        18. $${x \in B}\Rightarrow{{{\lbrack{x,0}\rbrack}_{B} \cap {\lbrack{1,x}\rbrack}_{B}} = {\{ x\}}}$$
-
-        19. $${x \in B}\Rightarrow{{{\lbrack{x,0}\rbrack}_{B} \cap {\lbrack{\overline{x},0}\rbrack}_{B}} = {\{ 0\}}}$$
-
-        20. $${x \in B}\Rightarrow{{{\lbrack{1,x}\rbrack}_{B} \cap {\lbrack{1,\overline{x}}\rbrack}_{B}} = {\{ 1\}}}$$
-
-        21. $$\forall{x \in B}\forall{y \in \left( {x,0} \right)_{B}}{{({{\lbrack{y,0}\rbrack}_{B} \subset {\lbrack{x,0}\rbrack}_{B}})} \land {({{\lbrack{y,0}\rbrack}_{B} \neq {\lbrack{x,0}\rbrack}_{B}})}}$$
-
-        22. $$\forall{x \in B}\forall{y \in \left( {1,x} \right)_{B}}{{({{\lbrack{1,y}\rbrack}_{B} \subset {\lbrack{1,x}\rbrack}_{B}})} \land {({{\lbrack{1,y}\rbrack}_{B} \neq {\lbrack{1,x}\rbrack}_{B}})}}$$
-
-        23. Definición$$\mathit{Atom}B{: = {\{{{x \in (1,0)_{B}} \mid \mathit{atom}{(x)}}\}}}$$
-
-        24. Definición$$\mathit{Hatom}B{: = {\{{{x \in (1,0)_{B}} \mid \mathit{hatom}{(x)}}\}}}$$
-
-        25. $$\mathit{Atom}{{(B_{2})} = \mathit{Hatom}}{{(B_{2})} = \varnothing}$$
-
-        26. Definición
-            $$\left\lbrack B \right){: = {\{{{A \subset B} \mid \exists{x \in B}{A = \left\lbrack {x,0} \right)_{B}}}\}}}$$
-
-        27. $$\left\lbrack B \right) \neq \varnothing$$. Pues es un
-            álgebra de cardinal mayor o igual que 2 y existe al menos
-            $$\{ 1\}$$.
-
-        28. $${\langle{\left\lbrack B \right), \supseteq}\rangle}\mathit{es}\mathit{un}\mathit{orden}$$.
-
-        29. $$B\mathit{finito}\forall{P \subset \left\lbrack B \right)}{\langle{P, \supseteq}\rangle}\mathit{orden}\mathit{total}\Rightarrow\exists!{x \in \underset{X \in P}{\cap}}X\mathit{atom}(x)$$
-
-            1.  Prueba:
-
-            2.  $${\langle{P, \supseteq}\rangle}\mathit{es}\mathit{un}\mathit{orden}\mathit{total}$$
-
-            3.  $$\forall X,{Y \in P}{X \neq Y}\Rightarrow{{X \supset {Y \vee Y}} \supset X}$$
-
-            4.  $$\forall X,{Y \in P}{X \neq Y}\Rightarrow{\left( {\left( {Y \supset X} \right) \vee \left( {Y \supset X} \right)} \right) \land \left( {\left( {{Y \cap X} = X} \right) \vee \left( {{Y \cap X} = Y} \right)} \right)}$$
-
-            5.  $$\forall X,{Y \in P}{X \neq Y}\Rightarrow{\left( {\left( {{Y \cap X} = X} \right) \vee \left( {{Y \cap X} = Y} \right)} \right) \land \left( {{X \neq {{\{ 0\}} \land Y}} \neq {\{ 0\}}} \right)}$$
-
-            6.  $$\forall X,{Y \in P}\left( {X \neq Y} \right)\Rightarrow\left( {{Y \cap X} \neq {\{ 0\}}} \right)$$
-
-            7.  $$\underset{X \in P}{\cap}{X \neq {{\{ 0\}} \land \underset{X \in P}{\cap}}}{X \supset {\{ 0\}}}$$
-
-            8.  $$\underset{Y \in P}{\cap}Y \supsetneq {\{ 0\}}$$
-
-            9.  $$\underset{Y \in P}{\cap}{Y \supseteq {\{{0,x}\}}}$$
-
-            10. $$\underset{Y \in P}{\cap}{Y \supseteq {\lbrack{x,0}\rbrack}_{B}}$$
-
-            11. $$\underset{Y \in P}{\cap}{{Y \supseteq {\lbrack{x,0}\rbrack}_{B}} \supseteq {\{{0,x}\}}}$$
-
-            12. $${\lbrack{x,0}\rbrack}_{B} \in P$$
-
-            13. $$\exists{X \in P}\exists{x \in X}{\underset{Y \in P}{\cap}{Y = {\lbrack{x,0}\rbrack}_{B}}}$$
-
-            14. $$\exists!{x \in B}{\underset{Y \in P}{\cap}{Y = {\lbrack{x,0}\rbrack}_{B}}}$$
-
-            15. $$\exists{x \in {\underset{Y \in P}{\cap}Y{{\lbrack{x,0}\rbrack}_{B} = {\{{0,x}\}}}}}$$
-
-            16. $$\exists{x \in {\underset{Y \in P}{\cap}Y\forall{X \in P}{{X \supseteq {\lbrack{x,0}\rbrack}_{B}} = {\{{0,x}\}}}}}$$
-
-            17. $$\forall{P \subset \left\lbrack B \right)}{\langle{P, \supseteq}\rangle}\mathit{orden}\mathit{total}\Rightarrow\exists!{x \in \underset{X \in P}{\cap}}X\mathit{atom}(x)$$
-
-        30. $$B\mathit{finito}\Rightarrow\mathit{Atom}{B \neq \varnothing}$$.
-            Desde 57 es inmediato.
-
-        31. Ahora vamos a construir una función inyectiva del álgebra de
-            Boole de las partes de los átomos de B (si este es finito)
-            en el álgebra de Boole B. Así cuando menos sa­bremos que
-            podemos interpretar este álgebra de las partes de un
-            conjunto de los áto­mos de B como un subálgebra de la que
-            estamos estudiando.
-
-            La función $$\varphi$$que vamos a definir va a quedar
-            completamente definida en la fór­mula que sigue. Tendremos
-            que mostrar que está bien definida, que es inyectiva, que
-            $$\varphi{{({x \cup y})} = \varphi}{{(x)} + \varphi}{(y)}$$,
-            esto es que respeta la suma booleana en $$B$$que viene como
-            unión de conjuntos desde
-            $$\wp\left( {\mathit{Atom}{(B)}} \right)$$, que
-            $$\varphi{{({x \cap y})} = \varphi}{{(x)} \cdot \varphi}{(y)}$$,
-            esto es que respeta el producto booleano en $$B$$que viene
-            como intersección de conjun­tos desde
-            $$\wp\left( {\mathit{Atom}{(B)}} \right)$$ , y aunque ya no
-            sería necesario, también veremos que
-            $$\varphi{\left( {\mathit{Atom}{{(B)} \smallsetminus x}} \right) = \overline{\varphi(x)}}$$
-            . Así quedará clara la relación entre ambas álgebras.
-
-            1.  $$\begin{matrix}
-                        {n{: = \#}\left( {\mathit{Atom}B} \right)} \\
-                        {{n \leq m}{: = \#}\left( B \right)} \\
-                        {\left\lbrack {1,n} \right\rbrack_{\mathbb{N}}{: = {\{{1,2,\ldots,n}\}}}} \\
-                        {\varphi:\wp{\left( {\mathit{Atom}\left( B \right)} \right)\rightarrow B}} \\
-                        {{\varphi{(x)}}{: =}\begin{Bmatrix}
-                        0 & \Leftarrow & {{x = \varnothing} = {\{\}}} \\
-                        {x_{1}'} & \Leftarrow & {x = {\{{x_{1}'}\}}} \\
-                        {{\sum\limits_{\substack{k \in I \\ I \subset {\lbrack{1,n}\rbrack}_{\mathbb{N}}}}x_{k}}'} & \Leftarrow & {x = {\{{{x_{i}'} \mid {{i \in I} \subset \left\lbrack {1,n} \right\rbrack_{\mathbb{N}}}}\}}} \\
-                        {x_{1}{{' + \ldots} + x_{i - 1}}{' + x_{i}}{{' + \ldots} + x_{n}}'} & \Leftarrow & {{x = \mathit{Atom}}{{(B)} \smallsetminus {\{{x_{i}'}\}}}} \\
-                        1 & \Leftarrow & {{x = \mathit{Atom}}{(B)}}
-                        \end{Bmatrix}}
-                        \end{matrix}$$.
-
-        32. $$\#{B_{a} = \#}{B_{b} = 2}\Rightarrow{B_{a} \simeq B_{b}}$$.
-            Con la misma $$\varphi$$ anterior.
-
-        33. $$\#{B_{a} = \#}{B_{b} = 4}\Rightarrow{B_{a} \simeq B_{b}}$$.
-            Con la misma $$\varphi$$ anterior.
-
-        34. $$\#{B > 4}\Rightarrow\mathit{Atom}{B \cap \mathit{Hatom}}{B = \varnothing}$$.
-            Lo mejor sería demostrar que cualquier cadena completa
-            saturada de 1 a 0 tiene una longitud (número de elementos)
-            siempre igual al $$\#\mathit{Atom}{(B)}$$. De ahí se sigue
-            que si el cardinal es el dicho, tendríamos más de 3 niveles,
-            diferenciándose siempre los átomos y los hiperátomos.
-
-        35. Para cada uno de los cardinales de $$B$$, cuando son
-            finitos, existe una estructura no solo de anillo conmutativo
-            con unidad como en 34, sino también de cuerpo. La po­demos
-            encontrar explícitamente en el álgebra de las partes de un
-            conjunto finito. Sólo nos queda ver que $$\varphi$$es
-            sobreyectivo. Tenemos que
-            $$\varphi{\left( {\mathit{Atom}{(B)}} \right) = B}$$. Así
-            $$\varphi$$pasa a ser un isomorfismo de álgebras de Boole:
-            esto es, en lo que a la estructu­ra de álgebra de Boole se
-            refiere, haciendo abstracción de las operaciones $${} + {}$$
-            y $${} \cdot {}$$concretas y los elementos concretos,
-            $${\langle{B,0,1, + , \cdot}\rangle} \simeq {\langle{\wp\left( {\mathit{Atom}{(B)}} \right),\varnothing,\mathit{Atom}\left( B \right), \cup , \cap}\rangle}$$.
-
-        36. De 74 se deduce que si $$B$$es un conjunto finito,
-            $$\exists{n \in \mathbb{N}}\#{B = 2^{\mathbf{\mathrm{n}}}}$$.
-
-# Espacios vectoriales booleanos y Códigos de Hamming
-
-1.  1.  1.  Estructuras respectivas a 35 de espacio vectorial
-            de$$({B^{n}, \oplus})$$sobre el cuerpo
-            $$({B, \oplus , \cdot})$$ y el dual de
-            $$({B^{n}, \odot})$$sobre el cuerpo dual
-            $$({B, \odot , +})$$. Éste último es el caso cuando
-            $${B = B_{2}} = {\{ 0,1\}}$$. Esto tendrá utilidad inmediata
-            en los códigos de Hamming.
-
-        2.  Para calcular los inversos en los cuerpos finitos de
-            cardinal $$2^{\mathbf{\mathrm{n}}}$$ correspondientes hay
-            que re­solver algunas ecuaciones sobre igualdades
-            polinómicas. El producto del cuerpo fi­nito asociado (en
-            número de elementos) a nuestro álgebra de Boole no es en
-            general igual al producto del ani­llo booleano asociado.
-            Tiene que ver con los cuerpos de Galois
-            $$\mathit{GF}{(2^{n})}$$. Estos cuerpos y los polinomios
-            mencionados son de gran utilidad en teoría de codificación
-            (no sólo para álgebras de Boole).
-
-        3.  Existen formulas sencillas para poner la suma "$$+$$", el
-            producto "$$\cdot$$" en fun­ción de las funciones
-            "$$\oplus$$" y "$$\cdot$$", y de "$$\odot$$" y "$$+$$":
-
-            1.  $${{a + b} = {({a \oplus b})}} \oplus {({a \cdot b})}$$
-
-                1.  Prueba:
-
-                2.  $${({a \oplus b})} \oplus {{({a \cdot b})} =}$$
-
-                3.  $${= {({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})}} \oplus {{({a \cdot b})} =}$$
-
-                4.  $${= {{\lbrack{\overline{({{({\overline{a}\cdot b})}+{({a\cdot\overline{b}})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot \overline{({a\cdot b})}}\rbrack}}} =$$
-
-                5.  $${= {{\lbrack{{({\overline{({\overline{a}\cdot b})} \cdot \overline{({a\cdot\overline{b}})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot {({\overline{a} + \overline{b}})}}\rbrack}}} =$$
-
-                6.  $${= {{\lbrack{{({{({a + \overline{b}})} \cdot {({\overline{a} + b})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot {({\overline{a} + \overline{b}})}}\rbrack}}} =$$
-
-                7.  $${= {{\lbrack{({a \cdot b})}\rbrack} + {\lbrack{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})}\rbrack}}} =$$
-
-                8.  $${= {{{({a \cdot b})} + {({\overline{a} \cdot b})}} + {({a \cdot \overline{b}})}}} =$$
-
-                9.  $${= {{\lbrack{{({a \cdot b})} + {({\overline{a} \cdot b})}}\rbrack} + {\lbrack{{({a \cdot b})} + {({a \cdot \overline{b}})}}\rbrack}}} =$$
-
-                10. $${= {{\lbrack b\rbrack} + {\lbrack a\rbrack}}} =$$
-
-                11. $$= {a + b}$$
-
-            2.  $${{a \cdot b} = {({a \odot b})}} \odot {({a + b})}$$
-
-                1.  Prueba:
-
-                2.  $${({a \odot b})} \odot {{({a + b})} =}$$
-
-                3.  $${= {({{({\overline{a} + b})} \cdot {({a \cdot \overline{b}})}})}} \odot {{({a + b})} =}$$
-
-                4.  $${= {{\lbrack{\overline{({{({\overline{a}+b})}\cdot{({a+\overline{b}})}})} + {({a + b})}}\rbrack} \cdot {\lbrack{{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + \overline{({a+b})}}\rbrack}}} =$$
-
-                5.  $${= {{\lbrack{{({\overline{({\overline{a}+b})} + \overline{({a+\overline{b}})}})} + {({a + b})}}\rbrack} \cdot {\lbrack{{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})} + {({\overline{a} \cdot \overline{b}})}}\rbrack}}} =$$
-
-                6.  $${= {{\lbrack{{({{({a + \overline{b}})} \cdot {({\overline{a} + b})}})} \cdot {({a \cdot b})}}\rbrack} + {\lbrack{{({{({\overline{a} \cdot b})} + {({a \cdot \overline{b}})}})} \cdot {({\overline{a} + \overline{b}})}}\rbrack}}} =$$
-
-                7.  $${= {{\lbrack{({a + b})}\rbrack} \cdot {\lbrack{({{({\overline{a} + b})} \cdot {({a + \overline{b}})}})}\rbrack}}} =$$
-
-                8.  $${= {{{({a + b})} \cdot {({\overline{a} + b})}} \cdot {({a + \overline{b}})}}} =$$
-
-                9.  $${= {{\lbrack{{({a + b})} \cdot {({\overline{a} + b})}}\rbrack} \cdot {\lbrack{{({a + b})} \cdot {({a + \overline{b}})}}\rbrack}}} =$$
-
-                10. $${= {{\lbrack b\rbrack} \cdot {\lbrack a\rbrack}}} =$$
-
-                11. $$= {a \cdot b}$$
-
-        4.  Si un anillo $$({B,0,1, \oplus , \cdot})$$ es tal que
-            $$\forall{x \in B}{{x \cdot x} = x}$$, define de manera
-            unívoca un álgebra de Boole (la estructura de la que
-            hablamos se llama un anillo de Boole). Esta proposición, con
-            ser matemáticamente importante, la vemos aquí como sólo una
-            curiosidad. En el anillo no exigimos que sea conmutativo. La
-            conmutatividad de la suma está asegurada para todo anillo, y
-            la del producto está asegurada con la con­dición de
-            idempotencia impuesta a todos los elementos del anillo. La
-            idempotencia de la suma también se deduce fácilmente de la
-            idempotencia del producto. La suma lógica la establecemos
-            $${{x + y} = x} \oplus y \oplus {({x \cdot y})}$$(como en
-            40.1, solo que aquí no su­ponemos nada sobre álgebras de
-            Boole), mientras que el producto lógico lo pone­mos como
-            idéntico al producto del anillo (idénticamente a lo
-            anteriormente dicho). Nota: es importante darse cuenta que
-            este anillo tendrá siempre divisores de cero, esto es habrá
-            para cada elemento otro, distintos ambos de cero, que al
-            multiplicarse dan cero, lo que impide que este anillo de
-            Boole sea un dominio de integridad y por lo tanto también
-            impide que sea cuerpo. El complementario, siguiendo la misma
-            tó­nica que en 40.1, se define como
-            $${\overline{x} = x} \oplus 1$$. Por la idempotencia de la
-            suma, la asociatividad de la suma y la existencia y unicidad
-            de la suma tenemos que la doble negación es igual a la
-            identidad. Sólo quedaría ver las distributividades. Cómo
-            hasta ahora las demostraciones son cálculos que verifican la
-            aserción. Así tenemos una forma de ir de cada álgebra de
-            Boole a cada anillo de Boole, y un camino (exacta­mente el
-            inverso), que nos llevaría de cada anillo de Boole a cada
-            álgebra de Boole. Las álgebras de Boole y los anillos de
-            Boole son categorías equivalentes. A los ca­minos los
-            llamamos funtores. Daré solo un comienzo de estos teoremas:
-
-            1.  \[Axioma R0\]
-                $$\forall{\left( {x,y} \right) \in {B \times B}}\exists\mathtt{\mathrm{!}}{z \in B}x \oplus {y = z}$$
-
-            2.  \[Axioma R1\]
-                $$\forall x,y,{z \in B}\left( {x \oplus y} \right) \oplus {z = x} \oplus \left( {y \oplus z} \right)$$
-
-            3.  \[Axioma R2\]
-                $$\exists{0 \in B}\forall{x \in B}0 \oplus {x = x}$$
-
-            4.  \[Axioma R3\]
-                $$\forall{x \in B}\exists{y_{x} \in B}y_{x} \oplus {x = 0}$$
-
-            5.  \[Axioma R4\]
-                $$\forall x,{y \in B}\exists\mathtt{\mathrm{!}}{z \in B}{{x \cdot y} = z}$$
-
-            6.  \[Axioma R5\]
-                $$\forall x,y,{z \in B}{{\left( {x \cdot y} \right) \cdot z} = {x \cdot \left( {y \cdot z} \right)}}$$
-
-            7.  \[Axioma R6\]
-                $$\exists{1 \in B}\forall{x \in B}{{1 \cdot x} = x}$$
-
-            8.  \[Axioma R7\]
-                $$\exists 1{' \in B}\forall{x \in B}{x \cdot 1}{' = x}$$
-
-            9.  \[Axioma R8\]
-                $${\left\{ 0,1 \right\} \subseteq {B \land 0}} \neq 1$$
-
-            10. \[Axioma R9\]
-                $$\forall x,y,{z \in B}{{\left( {x \oplus y} \right) \cdot z} = \left( {x \cdot z} \right)} \oplus \left( {y \cdot z} \right)$$
-
-            11. \[Axioma
-                R10\]$$\forall x,y,{z \in B}{{x \cdot \left( {y \oplus z} \right)} = \left( {x \cdot y} \right)} \oplus \left( {x \cdot z} \right)$$
-
-            12. \[Axioma BR\]$$\forall{x \in B}{{x \cdot x} = x}$$
-
-            13. $$\left\lbrack {{Lema}1} \right\rbrack\forall x,{y_{x} \in B}\left\lbrack {\left( {y_{x} \oplus x} \right) = 0} \right\rbrack\Rightarrow\left\lbrack {\left( {x \oplus y_{x}} \right) \oplus {\left( {x \oplus y_{x}} \right) = \left( {x \oplus y_{x}} \right)}} \right\rbrack$$
-
-                1.  Prueba:
-
-                2.  $$\left( {x \oplus y_{x}} \right) \oplus {\left( {x \oplus y_{x}} \right) =}$$
-
-                3.  $${= \left( {x \oplus \left( {y_{x} \oplus \left( {x \oplus y_{x}} \right)} \right)} \right)} =$$
-
-                4.  $${= \left( {x \oplus \left( {\left( {y_{x} \oplus x} \right) \oplus y_{x}} \right)} \right)} =$$
-
-                5.  $${= \left( {x \oplus \left( {0 \oplus y_{x}} \right)} \right)} =$$
-
-                6.  $$= \left( {x \oplus y_{x}} \right)$$
-
-            14. $$\left\lbrack {{Lema}2} \right\rbrack\forall x,{y_{x} \in B}{\left( {y_{x} \oplus x} \right) = 0}\Rightarrow{\left( {x \oplus y_{x}} \right) = 0}$$
-
-                1.  Prueba:
-
-                2.  $$\forall x,{y_{x} \in B}\exists{u_{x + y_{x}} \in B}{{u_{x + y_{x}} \oplus \left( {x \oplus y_{x}} \right)} = 0}$$
-
-                3.  $$\left( {u_{x \oplus y_{x}} \oplus \left( {x \oplus y_{x}} \right)} \right) \oplus {\left( {x \oplus y_{x}} \right) = 0} \oplus \left( {x \oplus y_{x}} \right)$$
-
-                4.  $$u_{x \oplus y_{x}} \oplus {\left( {\left( {x \oplus y_{x}} \right) \oplus \left( {x \oplus y_{x}} \right)} \right) = \left( {x \oplus y_{x}} \right)}$$
-
-                5.  $$u_{x \oplus y_{x}} \oplus {\left( {x \oplus y_{x}} \right) = \left( {x \oplus y_{x}} \right)}$$
-
-                6.  $$0 = \left( {x \oplus y_{x}} \right)$$
-
-            15. $$\left\lbrack {{Lema}3} \right\rbrack\forall{x \in B}0 \oplus {x = x}$$
-
-                1.  Prueba:
-
-                2.  $$\forall{x \in B}0 \oplus {x =}$$
-
-                3.  $$\forall{x \in B}\exists{y_{x} \in B}{= \left( {x \oplus y_{x}} \right)} \oplus {x =}$$
-
-                4.  $$\forall{x \in B}\exists{y_{x} \in B}{= x} \oplus {\left( {y_{x} \oplus x} \right) =}$$
-
-                5.  $$\forall{x \in B}{= x} \oplus {0 = 0}$$
-
-            16. $$\left\lbrack {{Lema}4} \right\rbrack\forall{e \in B}\left( {\forall{x \in B}x \oplus {e = x}} \right)\Rightarrow\left( {e = 0} \right)$$
-
-                1.  Prueba:
-
-                2.  $$\forall{x \in B}x \oplus {e = x}$$
-
-                3.  $$\forall{x \in B}\exists{y_{x} \in B}y_{x} \oplus {x = 0}$$
-
-                4.  $$\forall{x \in B}\exists{y_{x} \in B}y_{r} \oplus {\left( {x \oplus e} \right) = y_{r}} \oplus x$$
-
-                5.  $$\forall{x \in B}\exists{y_{x} \in B}y_{r} \oplus {\left( {x \oplus e} \right) = 0}$$
-
-                6.  $$\forall{x \in B}\exists{y_{x} \in B}\left( {y_{r} \oplus x} \right) \oplus {e = y_{r}} \oplus {x = 0}$$
-
-                7.  $$\forall{x \in B}\left( {y_{r} \oplus x} \right) \oplus {e = 0}$$
-
-                8.  $$\forall{x \in B}0 \oplus {e = 0}$$
-
-                9.  $$\forall{x \in B}{e = 0}$$
-
-            17. $$\left\lbrack {{Lema}5} \right\rbrack\forall{x \in B}\forall y_{x},{z_{x} \in B}\left\lbrack {{{x + y_{r}} = {{0 \land x} + z_{r}}} = 0} \right\rbrack\Rightarrow\left\lbrack {y_{x} = z_{r}} \right\rbrack$$
-
-                1.  Prueba:
-
-                2.  $$y_{r} \oplus {\left( {x \oplus z_{r}} \right) = y_{r}} \oplus 0$$
-
-                3.  $$\left( {y_{r} \oplus x} \right) \oplus {z_{r} = y_{r}}$$
-
-                4.  $$0 \oplus {z_{r} = y_{r}}$$
-
-                5.  $$z_{r} = y_{r}$$
-
-            18. $${\lbrack{{Notación}1}\rbrack}{{{y_{x} + x} = {{0 \vee x} + y_{x}}} = 0}\Rightarrow\left( {- x} \right){: = y_{r}}$$
-
-                1.  Prueba:
-
-                2.  $${{{x + {({\overline{x} \cdot y})}} = {{({x + \overline{x}})} \cdot {({x + y})}}} = {1 \cdot {({x + y})}}} = {x + y}$$
-
-                3.  $$\forall x,{y \in B}{{x \cdot {({\overline{x} + y})}} = {x \cdot y}}$$
-
-            19. $$\left\lbrack {{Lema}6} \right\rbrack\forall x,y,{z \in B}\left\lbrack {x \oplus {y = x} \oplus z} \right\rbrack\Rightarrow\left\lbrack {y = z} \right\rbrack$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {y_{r} = {0 \land x}} \oplus {z_{r} = 0}$$
-
-                3.  $${({- x})} \oplus {{({x \oplus y})} = {({- x})}} \oplus {({x \oplus z})}$$
-
-                4.  $$\left( {{({- x})} \oplus x} \right) \oplus {y = \left( {{({- x})} \oplus x} \right)} \oplus z$$
-
-                5.  $$0 \oplus {y = 0} \oplus z$$
-
-                6.  $$y = z$$
-
-            20. $$\left\lbrack {{Lema}7} \right\rbrack\forall x,y,{z \in B}\left\lbrack {{y + x} = {z + x}} \right\rbrack\Rightarrow\left\lbrack {y = z} \right\rbrack$$
-
-                1.  1.  1.  Prueba:
-
-                        2.  $$y \oplus {x = z} \oplus x$$
-
-                        3.  $${({- x})} \oplus {{({x \oplus y})} = {({- x})}} \oplus {({x \oplus z})}$$
-
-                        4.  $$\left( {{({- x})} \oplus x} \right) \oplus {y = \left( {{({- x})} \oplus x} \right)} \oplus z$$
-
-                        5.  $$y \oplus {0 = z} \oplus 0$$
-
-                        6.  $$y = z$$
-
-            21. $$\left\lbrack {{Lema}8} \right\rbrack\forall x,{y \in B}\exists\mathtt{\mathrm{!}}{z \in B}x \oplus {z = y}$$
-
-                1.  Prueba:
-
-                2.  $$z{: = \left( {- x} \right)} \oplus y$$
-
-                3.  $$x \oplus {z = x} \oplus \left( {\left( {- x} \right) \oplus y} \right)$$
-
-                4.  $$x \oplus {z = \left( {x \oplus \left( {- x} \right)} \right)} \oplus y$$
-
-                5.  $$x \oplus {z = 0} \oplus y$$
-
-                6.  $$x \oplus {z = y}$$
-
-            22. $$\left\lbrack {{Lema}9} \right\rbrack\forall x,{y \in B}\exists\mathtt{\mathrm{!}}{z \in B}z \oplus {x = y}$$
-
-                1.  Prueba:
-
-                2.  $$z{: = y} \oplus \left( {- x} \right)$$
-
-                3.  $$z \oplus {x = \left( {y \oplus \left( {- x} \right)} \right)} \oplus x$$
-
-                4.  $$z \oplus {x = y} \oplus \left( {\left( {- x} \right) \oplus x} \right)$$
-
-                5.  $$z \oplus {x = y} \oplus 0$$
-
-                6.  $$z \oplus {x = y}$$
-
-            23. $$\left\lbrack {{Lema}10} \right\rbrack\forall{x \in B}{\left( {- \left( {- x} \right)} \right) = x}$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {\left( {- x} \right) = 0}$$
-
-                3.  $$\left( {- x} \right) \oplus {x = 0}$$
-
-                4.  $$x \oplus {\left( {- x} \right) = 0}$$
-
-                5.  $$x = \left( {- \left( {- x} \right)} \right)$$
-
-            24. $$\left\lbrack {{Lema}11} \right\rbrack{\left( {- 0} \right) = 0}$$
-
-                1.  Prueba:
-
-                2.  $$\left( {- 0} \right) \oplus {0 = 0}$$
-
-                3.  $$\left( {- 0} \right) \oplus {0 = \left( {- 0} \right)}$$
-
-                4.  $$0 = \left( {- 0} \right)$$
-
-            25. $$\left\lbrack {{Lema}12} \right\rbrack\forall{x \in B}{{0 \cdot x} = 0}$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {\left( {0 \cdot x} \right) =}$$
-
-                3.  $${= \left( {1 \cdot x} \right)} \oplus {\left( {0 \cdot x} \right) =}$$
-
-                4.  $${= {\left( {1 \oplus 0} \right) \cdot x}} =$$
-
-                5.  $${= {1 \cdot x}} =$$
-
-                6.  $$= x$$
-
-                7.  $$x \oplus {{\left( {0 \cdot x} \right) = x} = x} \oplus 0$$
-
-                8.  $$\left( {0 \cdot x} \right) = 0$$
-
-            26. $$\left\lbrack {{Lema}13} \right\rbrack\forall{x \in B}{{x \cdot 0} = 0}$$
-
-                1.  Prueba:
-
-                2.  $$\left( {x \cdot 0} \right) \oplus {x =}$$
-
-                3.  $${= \left( {x \cdot 0} \right)} \oplus {\left( {x \cdot 1} \right) =}$$
-
-                4.  $${= {x \cdot \left( {0 \oplus 1} \right)}} =$$
-
-                5.  $${= {x \cdot 1}} =$$
-
-                6.  $$= x$$
-
-                7.  $$\left( {x \cdot 0} \right) \oplus {{0 = x} = 0} \oplus x$$
-
-                8.  $$\left( {x \cdot 0} \right) = 0$$
-
-            27. $$\left\lbrack {{Lema}14} \right\rbrack\forall x,{y \in B}{\left( {- \left( {x \cdot y} \right)} \right) = {\left( {- x} \right) \cdot y}}$$
-
-                1.  Prueba:
-
-                2.  $$\left( {x \cdot y} \right) \oplus {\left( {\left( {- x} \right) \cdot y} \right) =}$$
-
-                3.  $${\left( {(x) \oplus \left( {- x} \right)} \right) \cdot y} =$$
-
-                4.  $${= {0 \cdot y}} =$$
-
-                5.  $$= 0$$
-
-            28. $$\left\lbrack {{Lema}15} \right\rbrack\forall x,{y \in B}{\left( {- \left( {x \cdot y} \right)} \right) = {x \cdot \left( {- y} \right)}}$$
-
-                1.  Prueba:
-
-                2.  $$\left( {x \cdot y} \right) \oplus {\left( {x \cdot \left( {- y} \right)} \right) =}$$
-
-                3.  $${= {x \cdot \left( {y \oplus \left( {- y} \right)} \right)}} =$$
-
-                4.  $${= {x \cdot 0}} =$$
-
-                5.  $$= 0$$
-
-            29. $${\lbrack{{Lema}16}\rbrack}\forall x,{y \in B}{{x \cdot y} = {\left( {- x} \right) \cdot \left( {- y} \right)}}$$
-
-                1.  Prueba:
-
-                2.  $$\left( {- \left( {x \cdot y} \right)} \right) \oplus {\left( {\left( {- x} \right) \cdot \left( {- y} \right)} \right) =}$$
-
-                3.  $${= \left( {\left( {- x} \right) \cdot y} \right)} \oplus {\left( {\left( {- x} \right) \cdot \left( {- y} \right)} \right) =}$$
-
-                4.  $${= {\left( {- x} \right) \cdot \left( {y \oplus \left( {- y} \right)} \right)}} =$$
-
-                5.  $${= \left( {- \left( {x \cdot 0} \right)} \right)} =$$
-
-                6.  $${= \left( {- 0} \right)} =$$
-
-                7.  $$= 0$$
-
-            30. $$\left\lbrack {{Lema}17} \right\rbrack\forall{x \in B}{{\left( {- 1} \right) \cdot x} = \left( {- x} \right)}$$
-
-                1.  Prueba:
-
-                2.  $$\left( {\left( {- 1} \right) \cdot x} \right) \oplus {x =}$$
-
-                3.  $${= \left( {\left( {- 1} \right) \cdot x} \right)} \oplus {\left( {1 \cdot x} \right) =}$$
-
-                4.  $${= {\left( {\left( {- 1} \right) \oplus 1} \right) \cdot x}} =$$
-
-                5.  $${= {0 \cdot x}} =$$
-
-                6.  $$= 0$$
-
-            31. $$\left\lbrack {{Lema}18} \right\rbrack\forall{x \in B}1{' = 1}$$
-
-                1.  Prueba:
-
-                2.  $$\left\{ {\left\lbrack {{Axioma}{BR6}} \right\rbrack \land \left\{ {x{: = 1}'} \right\}} \right\}\Rightarrow\left\{ {{1 \cdot 1}{' = 1}'} \right\}$$
-
-                3.  $$\left\{ {\left\lbrack {{Axioma}{BR7}} \right\rbrack \land \left\{ {x{: = 1}} \right\}} \right\}\Rightarrow\left\{ {{1 \cdot 1}{' = 1}} \right\}$$
-
-                4.  $$1{' = {1 \cdot 1}}{' = 1}$$
-
-            32. $$\left\lbrack {{Lema}19} \right\rbrack\forall{x \in B}{{x \cdot 1} = x}$$
-
-            33. $${\lbrack{{Notación}1}\rbrack}\text{En adelante no usaremos}1'\text{sino solamente}1\text{.}$$
-
-            34. $${\lbrack{{Lema}20}\rbrack}\forall{x \in B}{{x \cdot \left( {- 1} \right)} = \left( {- x} \right)}$$
-
-                1.  Prueba:
-
-                2.  $${x \cdot \left( {- 1} \right)} =$$
-
-                3.  $${= \left( {- \left( {x \cdot 1} \right)} \right)} =$$
-
-                4.  $$= \left( {- x} \right)$$
-
-            35. $${\lbrack{{Lema}21}\rbrack}\forall{e \in B}\left( {\left( {\forall{x \in B}{{e \cdot x} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)$$
-
-                1.  Prueba:
-
-                2.  $$\left( {\left( {\forall{x \in B}{{e \cdot x} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)$$
-
-                3.  $$\left( {x{: = 1}} \right)\left( {{e \cdot 1} = 1} \right)$$
-
-                4.  $${e \cdot 1} = e$$
-
-                5.  $$e = 1$$
-
-            36. $${\lbrack{{Lema}22}\rbrack}\forall{e \in B}\left( {\left( {\forall{x \in B}{{x \cdot e} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)$$
-
-                1.  Prueba:
-
-                2.  $$\left( {\left( {\forall{x \in B}{{x \cdot e} = x}} \right)\Rightarrow\left( {e = 1} \right)} \right)$$
-
-                3.  $$\left( {x{: = 1}} \right)$$
-
-                4.  $${1 \cdot e} = 1$$
-
-                5.  $${1 \cdot e} = {e \cdot 1}$$
-
-                6.  $${e \cdot 1} = e$$
-
-                7.  $$1 = e$$
-
-            37. $${\lbrack{{Lema}23}\rbrack}\forall x,{y \in B}{\left( {- \left( {x \oplus y} \right)} \right) = \left( {- y} \right)} \oplus \left( {- x} \right)$$
-
-                1.  Prueba:
-
-                2.  $$\left( {x \oplus y} \right) \oplus {\left( {\left( {- y} \right) \oplus \left( {- x} \right)} \right) =}$$
-
-                3.  $${= \left( {x \oplus \left( {\left( {y \oplus \left( {- y} \right)} \right) \oplus \left( {- x} \right)} \right)} \right)} =$$
-
-                4.  $${= \left( {x \oplus \left( {0 \oplus \left( {- x} \right)} \right)} \right)} =$$
-
-                5.  $${= \left( {x \oplus \left( {- x} \right)} \right)} =$$
-
-                6.  $$= 0$$
-
-            Esta fórmula que acabamos de exponer es la fórmula universal
-            para el inverso en cualquier grupo, o in­cluso, para
-            cualquier operación con neutro asociativa, siempre que
-            existan los inversos, tanto el total como los individuales.
-
-            1.  $${\lbrack{{Teorema}1}\rbrack}\forall x,{y \in B}x \oplus {y = y} \oplus x$$
-
-                1.  Prueba:
-
-                2.  $$\left( {- \left( {x \oplus y} \right)} \right) =$$
-
-                3.  $${= {\left( {- 1} \right) \cdot \left( {x \oplus y} \right)}} =$$
-
-                4.  $${= \left( {\left( {- 1} \right) \cdot x} \right)} \oplus {\left( {\left( {- 1} \right) \cdot y} \right) =}$$
-
-                5.  $${= \left( {- x} \right)} \oplus \left( {- y} \right)$$
-
-                6.  $$= \left( {- \left( {y \oplus x} \right)} \right)$$
-
-                7.  $${- \left( {x \oplus y} \right)} = {- \left( {y \oplus x} \right)}$$
-
-                8.  $$\left( {{- \left( {x \oplus y} \right)} = {- \left( {y \oplus x} \right)}} \right)\Rightarrow\left( {x \oplus {y = y} \oplus x} \right)$$
-
-                9.  $$x \oplus {y = y} \oplus x$$
-
-            El grupo aditivo de un anillo con unidad multiplicativa por
-            ambos lados es siempre un grupo abeliano.
-
-            1.  $${\lbrack{{Teorema}2}\rbrack}\forall{x \in B}x \oplus {x = 0}$$
-
-                1.  Prueba:
-
-                2.  $${0 = x} \oplus \left( {- x} \right)$$
-
-                3.  $${0 = x} \oplus \left( {\left( {- x} \right) \cdot \left( {- x} \right)} \right)$$
-
-                4.  $${0 = x} \oplus \left( {x \cdot x} \right)$$
-
-                5.  $${0 = x} \oplus x$$
-
-            En el grupo aditivo de un anillo booleano $$B$$ es siempre
-            $$\left( {- x} \right) = x$$.
-
-            1.  $${\lbrack{{Notación}2}\rbrack}\forall{x \in B}\overline{x}{: = x} \oplus 1$$
-
-            2.  $${\lbrack{{Teorema}3}\rbrack}\forall{x \in B}{{x \cdot \overline{x}} = 0}$$
-
-                1.  Prueba:
-
-                2.  $${x \cdot \overline{x}} =$$
-
-                3.  $${= {x \cdot \left( {x \oplus 1} \right)}} =$$
-
-                4.  $${= {x^{2} \oplus {x \cdot 1}}} =$$
-
-                5.  $${= {x \oplus x}} =$$
-
-                6.  $$= 0$$
-
-            3.  $${\lbrack{{Notación}3}\rbrack}\forall x,{y \in B}{x + y}{: = \left( {x \oplus y} \right)} \oplus \left( {x \cdot y} \right)$$
-
-            4.  $${\lbrack{{Teorema}3}\rbrack}\forall x,{y \in B}{{x \cdot y} = {y \cdot x}}$$
-
-                1.  Prueba:
-
-                2.  $${\lbrack A\rbrack}{{\left( {x + y} \right)^{2} = {{{x^{2} + {x \cdot y}} + {y \cdot x}} + y^{2}}} = {{{x + {x \cdot y}} + {y \cdot x}} + y}}$$
-
-                3.  $${\lbrack B\rbrack}{\left( {x + y} \right)^{2} = {x + y}}$$
-
-                4.  $$\mathit{De}{\lbrack A\rbrack}y{\lbrack B\rbrack}:$$
-
-                5.  $${x + y} = {{{x + {x \cdot y}} + {y \cdot x}} + y}$$
-
-                6.  $$0 = {{x \cdot y} + {y \cdot x}}$$
-
-                7.  $${x \cdot y} = {{- y} \cdot x}$$
-
-                8.  $${x \cdot y} = {y \cdot x}$$
-
-            La operación multiplicativa de un anillo de Boole $$B$$ es
-            siempre abeliana. Un anillo de Boole es una subcategoría de
-            la categoría de los anillos conmutativos.
-
-            1.  $${\lbrack{{Teorema}4}\rbrack}\forall{x \in B}{{x \cdot \overline{x}} = 0}$$
-
-                1.  Prueba:
-
-                2.  $${x \cdot \overline{x}} =$$
-
-                3.  $${= {x \cdot \left( {x \oplus 1} \right)}} =$$
-
-                4.  $${= {x^{2} \oplus {x \cdot 1}}} =$$
-
-                5.  $${= {x \oplus x}} =$$
-
-                6.  $$= 0$$
-
-            2.  $${\lbrack{{Teorema}5}\rbrack}\forall{x \in B}x \oplus {\overline{x} = 1}$$
-
-                1.  Prueba:
-
-                2.  $$x \oplus {\overline{x} =}$$
-
-                3.  $${= {x \oplus \left( {x \oplus 1} \right)}} =$$
-
-                4.  $${= \left( {x \oplus x} \right)} \oplus {1 =}$$
-
-                5.  $${= {0 \oplus 1}} =$$
-
-                6.  $$= 1$$
-
-            3.  $${\lbrack{{Teorema}6}\rbrack}\forall{x \in B}{{x + \overline{x}} = 1}$$
-
-                1.  Prueba:
-
-                2.  $${x + \overline{x}} =$$
-
-                3.  $${= \left( {x \oplus \overline{x} \oplus \left( {x \cdot \overline{x}} \right)} \right)} =$$
-
-                4.  $${= {1 \oplus 0}} =$$
-
-                5.  $$= 1$$
-
-            4.  $${\lbrack{{Teorema}7}\rbrack}\forall{x \in B}{{x + x} = x}$$
-
-                1.  Prueba:
-
-                2.  $${x + x} =$$
-
-                3.  $${= \left( {x \oplus x \oplus \left( {x \cdot x} \right)} \right)} =$$
-
-                4.  $${= {0 \oplus x}} =$$
-
-                5.  $$= x$$
-
-            5.  $${\lbrack{{Teorema}8}\rbrack}\forall{x \in B}{{x + 0} = x}$$
-
-                1.  Prueba:
-
-                2.  $${x + x} =$$
-
-                3.  $${= \left( {\left( {x \oplus 0} \right) \oplus \left( {x \cdot 0} \right)} \right)} =$$
-
-                4.  $${= {x \oplus 0}} =$$
-
-                5.  $$= x$$
-
-            6.  $${\lbrack{{Teorema}9}\rbrack}\forall x,{y \in B}{{x + y} = {y + x}}$$
-
-                1.  Prueba:
-
-                2.  $${x + y} =$$
-
-                3.  $${= \left( {x \oplus y} \right)} \oplus {\left( {x \cdot y} \right) =}$$
-
-                4.  $${= \left( {y \oplus x} \right)} \oplus {\left( {y \cdot x} \right) =}$$
-
-                5.  $$= {y + x}$$
-
-            7.  $${\lbrack{{Teorema}10}\rbrack}\forall x,y,{z \in B}{{\left( {x + y} \right) + z} = {x + \left( {y + z} \right)}}$$
-
-                1.  Prueba:
-
-                2.  $${\lbrack A\rbrack}{{{({x + y})} + z} =}$$
-
-                3.  $${{({{({x \oplus y})} \oplus {({x \cdot y})}})} + z} =$$
-
-                4.  $${= {({{({x \oplus y})} \oplus {({x \cdot y})}})}} \oplus z \oplus {{({{({{({x \oplus y})} \oplus {({x \cdot y})}})} \cdot z})} =}$$
-
-                5.  $${= x} \oplus y \oplus {({x \cdot y})} \oplus z \oplus {({x \cdot z})} \oplus {({y \cdot z})} \oplus {({{x \cdot y} \cdot z})}$$
-
-                6.  $${\lbrack B\rbrack}{{x + {({y + z})}} =}$$
-
-                7.  $${= x} \oplus {({y + z})} \oplus {{({x \cdot {({y + z})}})} =}$$
-
-                8.  $${= x} \oplus {({y \oplus z \oplus {({y \cdot z})}})} \oplus {{({x \cdot {({y \oplus z \oplus {({y \cdot z})}})}})} =}$$
-
-                9.  $$\text{De}{\lbrack A\rbrack}\text{y}{\lbrack B\rbrack}\text{obtenemos:}$$
-
-                10. $${= x} \oplus y \oplus z \oplus {({y \cdot z})} \oplus {({x \cdot y})} \oplus {({x \cdot z})} \oplus {({{x \cdot y} \cdot z})}$$
-
-                11. $${\left( {{({x + y})} + z} \right) + \left( {x + {({y + z})}} \right)} = 0$$
-
-            8.  $${\lbrack{{Teorema}11}\rbrack}\forall x,y,{z \in B}{{{({x + y})} \cdot z} = {{({x \cdot z})} + {({y \cdot z})}}}$$
-
-                1.  Prueba:
-
-                2.  $${\lbrack A\rbrack}{{{({x + y})} \cdot z} =}$$
-
-                3.  $${{({{({x \oplus y})} \oplus {({x \cdot y})}})} \cdot z} =$$
-
-                4.  $${({{({x \cdot z})} \oplus {({y \cdot z})}})} \oplus {({{x \cdot y} \cdot z})}$$
-
-                5.  $${\lbrack B\rbrack}{}{}{}{{{({x \cdot z})} + {({y \cdot z})}} =}$$
-
-                6.  $${({{({x \cdot z})} \oplus {({y \cdot z})}})} \oplus {({{x \cdot y} \cdot z})}$$
-
-                7.  $$\text{De}{\lbrack A\rbrack}\text{y}{\lbrack B\rbrack}\text{se obtine la igualdad deseada.}$$
-
-            9.  $${\lbrack{{Teorema}12}\rbrack}\forall x,y,{z \in B}{}{}{}{{{({x \cdot y})} + z} = {{({x + z})} \cdot {({y + z})}}}$$
-
-                1.  Prueba:
-
-                2.  $${\lbrack A\rbrack}{}{}{}{{{({x \cdot y})} + z} =}$$
-
-                3.  $${= {{({x \cdot y})} + z}} = {}$$
-
-                4.  $${= {({{({x \cdot y})} \oplus z})}} \oplus {{({{({x \cdot y})} \cdot z})} =}$$
-
-                5.  $${= {({x \cdot y})}} \oplus z \oplus {({{x \cdot y} \cdot z})}$$
-
-                6.  $${\lbrack B\rbrack}{}{}{}{{{({x + z})} \cdot {({y + z})}} =}$$
-
-                7.  $${= {{({{({x \oplus z})} \oplus {({x \cdot z})}})} \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}}} = {}$$
-
-                8.  $${= {({{x \cdot {({y \oplus z})}} \oplus {x \cdot {({y \cdot z})}}})}} \oplus {({{z \cdot {({y \oplus z})}} \oplus {z \cdot {({y \cdot z})}}})} \oplus {{({{{x \cdot z} \cdot {({y \oplus z})}} \oplus {{x \cdot z} \cdot {({y \cdot z})}}})} =}$$
-
-                9.  $${= {x \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}}} \oplus {z \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}} \oplus {{{x \cdot z} \cdot {({{({y \oplus z})} \oplus {({y \cdot z})}})}} =}$$
-
-                10. $${= {({{({{x \cdot y} \oplus {x \cdot z}})} \oplus {({{x \cdot y} \cdot z})}})}} \oplus {({{({{z \cdot y} \oplus {z \cdot z}})} \oplus {({{z \cdot y} \cdot z})}})} \oplus {{({{({{{x \cdot z} \cdot y} \oplus {{x \cdot z} \cdot z}})} \oplus {({{{x \cdot z} \cdot y} \cdot z})}})} =}$$
-
-                11. $${= {x \cdot y}} \oplus {x \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {z \cdot y} \oplus {z \cdot z} \oplus {{z \cdot y} \cdot z} \oplus {{x \cdot z} \cdot y} \oplus {{x \cdot z} \cdot z} \oplus {{{{x \cdot z} \cdot y} \cdot z} =}$$
-
-                12. $${= {x \cdot y}} \oplus {x \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {y \cdot z} \oplus z \oplus {y \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {x \cdot z} \oplus {{{x \cdot y} \cdot z} =}$$
-
-                13. $${= {x \cdot y}} \oplus {{x \cdot y} \cdot z} \oplus {y \cdot z} \oplus z \oplus {y \cdot z} \oplus {{x \cdot y} \cdot z} \oplus {{{x \cdot y} \cdot z} =}$$
-
-                14. $${= {x \cdot y}} \oplus {y \cdot z} \oplus z \oplus {y \cdot z} \oplus {{{x \cdot y} \cdot z} =}$$
-
-                15. $${= {x \cdot y}} \oplus z \oplus {{{x \cdot y} \cdot z} =}$$
-
-                16. $${= \left( {x \cdot y} \right)} \oplus z \oplus \left( {{x \cdot y} \cdot z} \right)$$
-
-                17. $$\text{De}{\lbrack A\rbrack}\text{y}{\lbrack B\rbrack}\text{se obtine la igualdad deseada.}$$
+# Modelos Mentales en Ingeniería: Puertas Lógicas
+
+Tras asentar el rigor algebraico y realizar la transición a la notación
+ingenieril ($+, \cdot, 0, 1$), es de vital importancia desarrollar una
+intuición electrónica. Un buen diseñador no solo opera ecuaciones;
+*piensa* en circuitos, corrientes y topologías lógicas. Este capítulo
+actúa como puente conceptual entre la pureza abstracta de Huntington y
+la arquitectura física de los computadores.
+
+## La Puerta AND (Conjunción Lógica)
+
+La operación producto $a \cdot b$ se materializa físicamente en la
+puerta lógica **AND**.
+
+:::: center
+::: circuitikz
+(0,0) node\[and port\] (myand) (myand.in 1) node\[anchor=east\] $a$
+(myand.in 2) node\[anchor=east\] $b$ (myand.out) node\[anchor=west\]
+$a \cdot b$;
+:::
+::::
+
+Desde una perspectiva ingenieril y de diseño de sistemas, la puerta AND
+debe asimilarse bajo los siguientes modelos mentales:
+
+- **Como condición indispensable en un diseño lógico:** En la jerarquía
+  de control, la puerta AND representa los requisitos obligatorios. Si
+  una acción requiere que la máquina esté encendida ($a=1$) *y* que la
+  puerta de seguridad esté cerrada ($b=1$), el AND asegura que *todas*
+  las condiciones estructurales se cumplan inexcusablemente.
+
+- **Como función Mínimo (Min):** Si asumimos la cardinalidad ordinal
+  $0 < 1$, la puerta AND siempre devuelve el valor más pequeño de todas
+  sus entradas. La única manera de que la salida escape del $0$ y sea
+  $1$ (nivel alto) es que absolutamente todas las entradas sean $1$.
+
+- **Como Interruptor de Señal (Enmascaramiento):** Si fijamos la entrada
+  $b=0$, la salida se fuerza a $0$, cortando el paso de cualquier rastro
+  de datos en $a$. Si $b=1$, la puerta \"se abre\" de forma transparente
+  y la señal de datos $a$ fluye intacta hacia la salida
+  ($a \cdot 1 = a$).
+
+- **Como Producto Aritmético:** A nivel de bit, coincide algebraicamente
+  con la multiplicación tradicional: $0 \times 0 = 0$, $0 \times 1 = 0$,
+  $1 \times 1 = 1$.
+
+**Generalización a $n$ variables:** Una puerta AND de $n$ entradas
+($\prod_{i=1}^n x_i$) sigue comportándose como un estricto detector de
+*unanimidad*. Da $1$ única y exclusivamente si las $n$ entradas son $1$.
+Con que un solo eslabón falle y valga $0$, toda la cadena colapsa a $0$.
+
+## La Puerta OR (Disyunción Lógica)
+
+La operación suma $a + b$ se materializa físicamente en la puerta lógica
+**OR**.
+
+:::: center
+::: circuitikz
+(0,0) node\[or port\] (myor) (myor.in 1) node\[anchor=east\] $a$
+(myor.in 2) node\[anchor=east\] $b$ (myor.out) node\[anchor=west\]
+$a + b$;
+:::
+::::
+
+Nuestros modelos mentales para asimilar la puerta OR son rigurosamente
+duales a los de la AND:
+
+- **Como alternativa o \"fallback\" en un diseño práctico:** Representa
+  redundancias o caminos opcionales. Hace que un estado global o total
+  sea aceptable (es decir, dé $1$) por la sola inclusión o cumplimiento
+  de una de sus ramas, compensando las carencias del resto.
+
+- **Como función Máximo (Max):** Devuelve siempre el mayor de los
+  valores de entrada. Basta con que detecte un mísero $1$ en cualquiera
+  de sus pines para que la salida se erija inmediatamente como $1$.
+
+- **Como Interruptor de Forzado a $1$:** Si fijamos la entrada de
+  control $b=1$, la salida se queda anclada permanentemente a $1$,
+  independientemente de las fluctuaciones de $a$. Si $b=0$, la puerta
+  ignora el nivel de control y deja fluir la señal $a$ inalterada
+  ($a + 0 = a$).
+
+**Generalización a $n$ variables:** Una puerta OR de $n$ entradas
+($\sum_{i=1}^n x_i$) actúa como un detector ultrasensible al nivel alto.
+Escanea $n$ líneas de entrada buscando energía; al menor atisbo de un
+único $1$, su salida se dispara a $1$. Solo mantendrá el $0$ si existe
+unanimidad absoluta de ceros.
+
+## La Puerta XOR (Suma Exclusiva)
+
+La operación de disyunción exclusiva $a \oplus b$ es matemáticamente una
+de las más ricas del álgebra, materializada en la puerta **XOR**.
+
+:::: center
+::: circuitikz
+(0,0) node\[xor port\] (myxor) (myxor.in 1) node\[anchor=east\] $a$
+(myxor.in 2) node\[anchor=east\] $b$ (myxor.out) node\[anchor=west\]
+$a \oplus b$;
+:::
+::::
+
+- **Como Inversor Controlado:** Esta es su aplicación práctica más
+  elegante. Si la entrada de control es $0$, la señal de datos pasa
+  inalterada ($a \oplus 0 = a$). Pero si la entrada de control es $1$,
+  la señal de datos se *invierte* o niega ($a \oplus 1 = \overline{a}$).
+  Esto permite cambiar la polaridad de un bus de datos a voluntad, lo
+  que lo hace omnipresente en el hardware de criptografía.
+
+- **Como Detector de Diferencia:** Su respuesta es $1$ si y solo si las
+  dos entradas tienen niveles distintos. Constituye un comparador de
+  desigualdad primario.
+
+- **Como Suma Módulo 2:** Aritméticamente opera como la columna de las
+  unidades de una suma binaria que deliberadamente desprecia el acarreo
+  hacia la izquierda ($1+1=0$).
+
+**Generalización a $n$ variables:** La generalización a $n$ entradas
+($\bigoplus_{i=1}^n x_i$) transfigura el significado intuitivo de la
+puerta original. Como ya demostramos en el Capítulo 4, ya no es un
+detector general de \"hay un solo 1\". Su modelo mental debe anclarse
+como el **Detector de Paridad Impar**. No importa cómo se configuren las
+señales de entrada: si el cómputo total de bits $1$ es impar (1, 3,
+5\...), la salida arrojará un $1$. Si el recuento arroja un número par
+de unos (0, 2, 4\...), la salida arrojará $0$.
+
+## La Puerta XNOR (Equivalencia)
+
+La negación sistemática del XOR es el $a \odot b$, que implementa en
+hardware la puerta **XNOR**.
+
+:::: center
+::: circuitikz
+(0,0) node\[xnor port\] (myxnor) (myxnor.in 1) node\[anchor=east\] $a$
+(myxnor.in 2) node\[anchor=east\] $b$ (myxnor.out) node\[anchor=west\]
+$a \odot b$;
+:::
+::::
+
+- **Como Detector de Igualdad ($==$ o $\iff$):** Se dispara a $1$ única
+  y exclusivamente si ambas entradas alcanzan idéntico nivel (ambas $0$
+  o ambas $1$). Este simple mecanismo fundamenta toda la arquitectura de
+  comparadores dentro de las Unidades Aritmético-Lógicas (ALUs) de los
+  microprocesadores modernos.
+
+**Generalización a $n$ variables:** El modelo relacional de \"todos
+iguales\" fracasa de estrépito al generalizar a
+$\bigodot_{i=1}^{n} x_i$. Conectando con los teoremas previos, la
+versión generalizada del XNOR sigue estando maniatada al cálculo de
+paridades subyacente. Su naturaleza dependerá del cardinal $n$: si $n$
+es impar, replica el comportamiento de paridad de la propia puerta XOR.
+Si $n$ es par, detecta paridades pares (arrojando $1$ frente a recuentos
+pares de bits).
+
+## El Conector de Implicación Lógica ($\implies$)
+
+Aunque los fabricantes de semiconductores no ensamblan una \"puerta
+implica\", su modelado algebraico es la piedra angular del control de
+ejecución en programación y en las lógicas de estados abstractos.
+
+El conector \"$\implies$\" encarna el contrato semántico \"Si $A$ es
+verdad, entonces $B$ también debe serlo\". Sin embargo, las máquinas no
+procesan inferencias gramaticales, solo álgebra plana, reduciéndose este
+comportamiento a las operaciones primarias:
+$$A \implies B \equiv \overline{A} + B$$
+
+¿De dónde sale esta traducción en términos de hardware? Si la señal de
+premisa $A$ es falsa ($0$), el circuito asume que el contrato se cumple
+\"por defecto vacío\" independientemente de lo que ocurra con el
+consecuente $B$. Esto se refleja en el inversor que inyecta
+$\overline{A} = 1$ a la puerta OR, garantizando un $1$ en la salida. El
+contrato solo se declara roto o falso ($0$) cuando se exige la condición
+inicial ($A=1$) pero la máquina defrauda entregando una respuesta
+negativa ($B=0$).
+
+## Primera Etapa Práctica: Multiplexores y Demultiplexores
+
+Armados con la intuición cruda de las puertas lógicas, es hora de
+fusionarlas para sintetizar las arquitecturas primitivas más cruciales
+del trasiego de información en cualquier computadora. El flujo masivo de
+bits requiere enrutadores lógicos que los guíen con precisión.
+
+### El Multiplexor (MUX)
+
+Es el análogo digital a la vía conmutada de un ferrocarril. Un MUX de 2
+entradas absorbe dos canales de información diferentes ($D_0$ y $D_1$) y
+una línea central de decisión que actúa como timón ($S$, de Selección).
+De acuerdo al valor de $S$, deja que solo uno de los dos flujos
+atraviese el bloque para alcanzar la salida maestra $Y$.
+
+Algebraicamente, esculpimos esta selectividad combinando la habilidad de
+\"interruptor de señal\" de dos puertas AND, y unificando el tráfico en
+un canal común con una puerta OR tolerante:
+$$Y = (\overline{S} \cdot D_0) + (S \cdot D_1)$$ *Despliegue mental del
+diseño:* Si forzamos la señal a $S=0$, el brazo derecho de la ecuación
+queda bloqueado (multiplicado por $0$) abortando a $D_1$.
+Simultáneamente, el brazo izquierdo ve el $0$ invertido, abriendo de par
+en par la puerta para que viaje la señal de $D_0$. Si cambiamos el timón
+a $S=1$, la ruta de $D_0$ colapsa y el torrente de $D_1$ encuentra paso
+libre.
+
+### El Demultiplexor (DEMUX)
+
+Despliega la táctica geométricamente inversa. Atrapa un único flujo
+torrencial de datos $D$ y tiene el mandato de derivarlo hacia la ruta
+$Y_0$ o hacia la ruta de escape $Y_1$, de nuevo basándose en la orden
+ejecutiva $S$. $$\begin{align*}
+Y_0 &= \overline{S} \cdot D \\
+Y_1 &= S \cdot D
+\end{align*}$$ *Despliegue mental del diseño:* Si dictamos $S=0$, la
+válvula $Y_1$ se clausura en $0$, y el flujo $D$ atraviesa impertérrito
+la válvula $Y_0$. Si comandamos $S=1$, la situación se transpone
+simétricamente operando como el disyuntor perfecto del mundo digital.
+
+# Sistemas Axiomáticos de Sheffer (1913)
+
+## Reducción de Operadores
+
+En 1913, Henry M. Sheffer demostró que el álgebra de Boole puede ser
+completamente definida utilizando un único operador lógico, en lugar de
+los tres (disyunción, conjunción y negación) requeridos por el sistema
+de Huntington. Los dos operadores capaces de esta universalidad
+funcional son el operador **NAND** (Barra de Sheffer, $\uparrow$) y el
+operador **NOR** (Flecha de Peirce, $\downarrow$).
+
+Todos los axiomas de Huntington (1904) de los que hemos partido son
+reducibles a un grupo más pequeño y estricto de axiomas basados
+exclusivamente en uno de estos dos operadores.
+
+## Axiomatización mediante NAND (Barra de Sheffer)
+
+El sistema axiomático propuesto por Sheffer para la operación NAND
+consta de los siguientes cinco postulados sobre una clase $K$:
+
+::: teorema
+Postulados de Sheffer (1913) - Operador NANDsheffer_nand
+
+1.  Existen al menos dos elementos distintos en $K$.
+
+2.  Clausura: Para cualesquiera $a, b \in K$, el resultado de
+    $a \uparrow b$ también pertenece a $K$.
+
+3.  $(a \uparrow a) \uparrow (a \uparrow a) = a$
+
+4.  $a \uparrow (b \uparrow (b \uparrow b)) = a \uparrow a$
+
+5.  $(a \uparrow (b \uparrow c)) \uparrow (a \uparrow (b \uparrow c)) = ((b \uparrow b) \uparrow a) \uparrow ((c \uparrow c) \uparrow a)$
+:::
+
+Es directo demostrar que los axiomas de Huntington implican estos cinco
+postulados:
+
+::: proof
+*Proof.* Los postulados 1 y 2 son inmediatos y se asumen de base,
+garantizando la existencia de los elementos y la definición del operador
+binario.
+
+Para demostrar el postulado 3, usamos la equivalencia
+$x \uparrow x = \neg x$: $$\begin{align*}
+(a \uparrow a) \uparrow (a \uparrow a) &= \neg a \uparrow \neg a & \text{Definición de } \uparrow \\
+&= \neg (\neg a) & \text{Definición de } \uparrow \\
+&= a & \text{Involución (Doble Negación)}
+\end{align*}$$
+
+Para el postulado 4, partimos del lado izquierdo sabiendo que
+$x \uparrow 1 = \neg x$: $$\begin{align*}
+a \uparrow (b \uparrow (b \uparrow b)) &= a \uparrow (b \uparrow \neg b) & \text{Definición de } \uparrow \\
+&= a \uparrow \neg (b \wedge \neg b) & \text{Definición de } \uparrow \\
+&= a \uparrow \neg (\bot) & \text{Axioma de Complementarios ($Comp$)} \\
+&= a \uparrow \top & \text{Complemento del Neutro} \\
+&= \neg (a \wedge \top) & \text{Definición de } \uparrow \\
+&= \neg a & \text{Axioma de Elemento Neutro ($E_n$)} \\
+&= a \uparrow a & \text{Definición de } \uparrow
+\end{align*}$$
+
+Para el postulado 5, desarrollamos ambas partes de la igualdad hasta
+alcanzar una expresión booleana idéntica. Empezamos por el lado
+izquierdo: $$\begin{align*}
+(a \uparrow (b \uparrow c)) \uparrow (a \uparrow (b \uparrow c)) &= \neg (a \uparrow (b \uparrow c)) & \text{Por postulado 3} \\
+&= \neg (\neg (a \wedge (b \uparrow c))) & \text{Definición de } \uparrow \\
+&= a \wedge (b \uparrow c) & \text{Involución} \\
+&= a \wedge \neg (b \wedge c) & \text{Definición de } \uparrow \\
+&= a \wedge (\neg b \vee \neg c) & \text{Leyes de De Morgan}
+\end{align*}$$
+
+Desarrollamos ahora el lado derecho: $$\begin{align*}
+((b \uparrow b) \uparrow a) \uparrow ((c \uparrow c) \uparrow a) &= (\neg b \uparrow a) \uparrow (\neg c \uparrow a) & \text{Definición de } \uparrow \\
+&= \neg (\neg b \wedge a) \uparrow \neg (\neg c \wedge a) & \text{Definición de } \uparrow \\
+&= (b \vee \neg a) \uparrow (c \vee \neg a) & \text{De Morgan e Involución} \\
+&= \neg ((b \vee \neg a) \wedge (c \vee \neg a)) & \text{Definición de } \uparrow \\
+&= \neg (\neg a \vee (b \wedge c)) & \text{Axioma de Distributividad ($Dist_\vee$)} \\
+&= a \wedge \neg (b \wedge c) & \text{De Morgan e Involución} \\
+&= a \wedge (\neg b \vee \neg c) & \text{Leyes de De Morgan}
+\end{align*}$$ Al llegar ambos desarrollos a la misma expresión booleana
+($a \wedge (\neg b \vee \neg c)$), la igualdad queda estrictamente
+demostrada. ◻
+:::
+
+## Axiomatización mediante NOR (Flecha de Peirce)
+
+El razonamiento es rigurosamente simétrico si se escoge el operador dual
+$\downarrow$.
+
+::: teorema
+Postulados de Sheffer Duales - Operador NORsheffer_nor
+
+1.  Existen al menos dos elementos distintos en $K$.
+
+2.  Clausura: Para cualesquiera $a, b \in K$, el resultado de
+    $a \downarrow b$ pertenece a $K$.
+
+3.  $(a \downarrow a) \downarrow (a \downarrow a) = a$
+
+4.  $a \downarrow (b \downarrow (b \downarrow b)) = a \downarrow a$
+
+5.  $(a \downarrow (b \downarrow c)) \downarrow (a \downarrow (b \downarrow c)) = ((b \downarrow b) \downarrow a) \downarrow ((c \downarrow c) \downarrow a)$
+:::
+
+::: proof
+*Proof.* La demostración sigue un patrón idéntico de dualidad. El
+postulado 3 se demuestra recordando que $x \downarrow x = \neg x$:
+$$\begin{align*}
+(a \downarrow a) \downarrow (a \downarrow a) &= \neg a \downarrow \neg a = \neg (\neg a) = a
+\end{align*}$$
+
+En el postulado 4, sabiendo que $x \downarrow 0 = \neg x$, el término
+interior $b \downarrow (b \downarrow b)$ se evalúa a $\bot$, y por
+tanto: $$\begin{align*}
+a \downarrow (b \downarrow (b \downarrow b)) &= a \downarrow (b \downarrow \neg b) = a \downarrow \neg (b \vee \neg b) = a \downarrow \neg (\top) = a \downarrow \bot \\
+&= \neg (a \vee \bot) = \neg a = a \downarrow a
+\end{align*}$$
+
+Para el postulado 5, el proceso dual lleva ambos lados de la ecuación a
+la forma idéntica $a \vee (\neg b \wedge \neg c)$. ◻
+:::
+
+# Estructura de Anillo y Cuerpo Booleano
+
+## Anillos Booleanos
+
+Un álgebra de Boole puede ser interpretada desde la perspectiva del
+álgebra abstracta clásica como un tipo especial de anillo. Para ello,
+nos apoyamos en los operadores derivados introducidos anteriormente, en
+particular la operación O-exclusiva (XOR, $\oplus$) y la conjunción
+(AND, $\wedge$).
+
+::: definicion
+Anillo Booleanodef_anillo_booleano_cap Un anillo booleano es un anillo
+conmutativo con elemento unidad $(R, +, \cdot, 0_R, 1_R)$ en el cual
+todo elemento es idempotente respecto a la multiplicación:
+$$\forall x \in R, x \cdot x = x$$
+:::
+
+A partir de esta aparente simplicidad (la idempotencia de todos sus
+elementos), emergen propiedades estructurales muy rígidas que limitan la
+forma de estos anillos.
+
+::: teorema
+Característica 2caracteristica_dos Todo anillo booleano tiene
+característica 2, es decir, $\forall x \in R, x + x = 0_R$. Todo
+elemento es su propio inverso aditivo.
+:::
+
+::: proof
+*Proof.* Consideremos el elemento $(x+x)$ y apliquemos la idempotencia:
+$$\begin{align*}
+(x + x) &= (x + x) \cdot (x + x) \\
+x + x &= x^2 + x^2 + x^2 + x^2 \\
+x + x &= x + x + x + x \\
+0_R &= x + x
+\end{align*}$$ Por tanto, al restar $x$ en ambos lados obtenemos
+$x = -x$. ◻
+:::
+
+::: teorema
+Conmutatividad estrictaconmutatividad_estricta Todo anillo booleano es
+obligatoriamente conmutativo ($x \cdot y = y \cdot x$).
+:::
+
+::: proof
+*Proof.* Evaluando el elemento $(x+y)$ al cuadrado: $$\begin{align*}
+x + y &= (x + y)^2 \\
+x + y &= x^2 + xy + yx + y^2 \\
+x + y &= x + xy + yx + y \\
+0_R &= xy + yx \\
+xy &= -yx
+\end{align*}$$ Como acabamos de demostrar que el anillo tiene
+característica 2 (cada elemento es su propio inverso aditivo), sabemos
+que $-yx = yx$, luego $xy = yx$. ◻
+:::
+
+## Funtores de Equivalencia Estructural
+
+Existe una equivalencia estructural perfecta (un isomorfismo de
+categorías) entre las Álgebras de Boole y los Anillos Booleanos.
+
+### De Álgebra de Boole a Anillo Booleano
+
+Dada un Álgebra de Boole $(\mathbb{B}, \vee, \wedge, \neg, \bot, \top)$,
+podemos construir un anillo booleano definiendo los operadores del
+anillo de la siguiente manera:
+
+- Suma del anillo:
+  $a + b \triangleq a \oplus b = (a \wedge \neg b) \vee (\neg a \wedge b)$
+
+- Producto del anillo: $a \cdot b \triangleq a \wedge b$
+
+- Elemento neutro aditivo ($0_R$): $\bot$
+
+- Elemento unidad multiplicativo ($1_R$): $\top$
+
+Es trivial comprobar que la idempotencia multiplicativa se cumple por
+definición ($a \wedge a = a$), por lo que la estructura resultante es
+efectivamente un anillo booleano. La estructura dual
+$(\mathbb{B}, \odot, \vee)$ forma un anillo isomorfo asumiendo a $\top$
+como el cero del anillo y a $\bot$ como la unidad multiplicativa.
+
+### De Anillo Booleano a Álgebra de Boole
+
+Inversamente, dado un Anillo Booleano $(R, +, \cdot, 0_R, 1_R)$, podemos
+recuperar las operaciones lógicas booleanas mediante el siguiente funtor
+de transformación:
+
+- Disyunción: $a \vee b \triangleq a + b + (a \cdot b)$
+
+- Conjunción: $a \wedge b \triangleq a \cdot b$
+
+- Negación: $\neg a \triangleq 1_R + a$
+
+- Mínimo ($\bot$): $0_R$
+
+- Máximo ($\top$): $1_R$
+
+## Cuerpos Booleanos
+
+La teoría de Espacios Vectoriales (que trataremos en detalle más
+adelante) exige que el conjunto de escalares sobre el que se fundamenta
+el espacio tenga estructura matemática de **Cuerpo** (*Field* en
+inglés). Un cuerpo es un anillo conmutativo unitario donde todo elemento
+distinto de cero tiene inverso multiplicativo; como consecuencia directa
+fundamental, **un cuerpo no puede tener divisores de cero**.
+
+::: teorema
+El único Cuerpo Booleano es $\mathbb{F}_2$cuerpo_booleano Un anillo
+booleano es un cuerpo matemático si y solo si contiene exactamente dos
+elementos.
+:::
+
+::: proof
+*Proof.* Sea $R$ un anillo booleano que además cumple las propiedades de
+un cuerpo. Sea $x \in R$ cualquier elemento del anillo. Por la propiedad
+de idempotencia inherente al anillo booleano: $$\begin{align*}
+x^2 &= x \\
+x^2 - x &= 0_R \\
+x(x - 1_R) &= 0_R
+\end{align*}$$ Dado que en un cuerpo no existen divisores de cero, el
+producto de dos elementos es cero si y solo si al menos uno de los
+factores es cero. Por lo tanto, obligatoriamente se debe cumplir una de
+estas dos condiciones para cualquier $x$:
+$$x = 0_R \quad \text{o} \quad (x - 1_R) = 0_R \implies x = 1_R$$ En
+consecuencia, el conjunto de elementos del anillo $R$ solo puede estar
+formado por $\{0_R, 1_R\}$. ◻
+:::
+
+Esta demostración es crucial para nuestro propósito arquitectónico de
+los sistemas digitales. Nos indica de manera absoluta que si queremos
+construir espacios vectoriales utilizando operaciones lógicas (que
+requeriremos para los códigos correctores de errores), **el único
+álgebra de Boole que puede actuar como cuerpo de escalares es el álgebra
+bivaluada $\mathbb{B}_2$**, la cual es algebraicamente isomorfa al
+cuerpo de Galois $\mathbb{F}_2$.
+
+Cualquier álgebra de Boole con más de dos elementos (por ejemplo, el
+álgebra de los subconjuntos de un conjunto de 3 elementos, que tiene
+$2^3=8$ elementos) es un anillo booleano perfectamente válido, pero
+fallará al intentar ser un cuerpo por tener divisores de cero, y por lo
+tanto fracasará si intentamos usarla como escalares para formar un
+espacio vectorial consigo misma.
+
+# Estructura de Retículo (Orden)
+
+## Relaciones de Orden
+
+El álgebra de Boole también puede formularse íntegramente prescindiendo
+de los operadores algebraicos, para fundamentarse de manera topológica o
+relacional mediante la Teoría del Orden.
+
+Para ello, introducimos una relación binaria $\le$ sobre el conjunto
+$\mathbb{B}$.
+
+::: definicion
+Conjunto Parcialmente Ordenado (Poset)poset Un conjunto $P$ equipado con
+una relación binaria $\le$ es un conjunto parcialmente ordenado (poset)
+si la relación satisface los siguientes axiomas para todo
+$a, b, c \in P$:
+
+1.  **Reflexividad**: $a \le a$.
+
+2.  **Antisimetría**: Si $a \le b$ y $b \le a$, entonces $a = b$.
+
+3.  **Transitividad**: Si $a \le b$ y $b \le c$, entonces $a \le c$.
+:::
+
+En este contexto, escribiremos $a \ge b$ como sinónimo estricto de
+$b \le a$, y $a < b$ si $a \le b$ pero $a \ne b$.
+
+## Ínfimo y Supremo
+
+Dado un poset $(P, \le)$, consideremos un par de elementos $a, b \in P$.
+
+- Un elemento $u \in P$ es una **cota superior** de $\{a, b\}$ si
+  $a \le u$ y $b \le u$. El **supremo** de $a$ y $b$, denotado como
+  $a \sqcup b$, es la menor de todas sus cotas superiores (si existe).
+
+- Un elemento $l \in P$ es una **cota inferior** de $\{a, b\}$ si
+  $l \le a$ y $l \le b$. El **ínfimo** de $a$ y $b$, denotado como
+  $a \sqcap b$, es la mayor de todas sus cotas inferiores (si existe).
+
+::: definicion
+Retículo (Lattice)reticulo Un **retículo** es un conjunto parcialmente
+ordenado en el cual todo par de elementos tiene un supremo
+($a \sqcup b$) y un ínfimo ($a \sqcap b$) definidos y únicos dentro del
+conjunto.
+:::
+
+## Funtores de Equivalencia Estructural
+
+Al igual que ocurrió con los Anillos Booleanos, existe un isomorfismo
+total entre las Álgebras de Boole algebraicas y ciertos retículos con
+propiedades especiales.
+
+### De Álgebra a Retículo
+
+Toda álgebra de Boole $(\mathbb{B}, \vee, \wedge)$ induce de forma
+natural un retículo definiendo la relación de orden parcial de la
+siguiente manera: $$a \le b \iff a \wedge b = a$$ Por las propiedades de
+absorción demostradas en capítulos previos, esta definición es
+lógicamente equivalente a su forma dual: $$a \le b \iff a \vee b = b$$
+Bajo esta métrica de orden impuesta por las operaciones lógicas, es
+directo demostrar que el operador lógico $\vee$ computa exactamente el
+supremo topológico de los dos elementos ($a \sqcup b = a \vee b$), y que
+el operador lógico $\wedge$ computa su ínfimo
+($a \sqcap b = a \wedge b$). A partir de este punto, el círculo se
+cierra y se revela que las operaciones algebraicas abstractas de Boole
+no son más que el cálculo de cotas topológicas en un espacio ordenado.
+
+### De Retículo a Álgebra (Retículos Booleanos)
+
+No todo retículo es un álgebra de Boole. Para recuperar un álgebra de
+Boole plena desde la topología de orden puro, el retículo subyacente
+debe poseer tres propiedades restrictivas adicionales, dando lugar a lo
+que matemáticamente se conoce como **Retículo Booleano**:
+
+::: teorema
+Axiomas del Retículo Booleanoaxiomas_reticulo_booleano Un retículo
+$(L, \le)$ es isomórfico a un Álgebra de Boole si y solo si es:
+
+1.  **Acotado**: Existen elementos universales mínimo ($\bot$) y máximo
+    ($\top$) tales que $\forall x \in L$, $\bot \le x \le \top$.
+
+2.  **Distributivo**: El cálculo del ínfimo se distribuye sobre el
+    cálculo del supremo, y viceversa.
+
+3.  **Complementado**: Para cada elemento $a \in L$ existe un elemento
+    único $b \in L$ (denominado su complemento, $\neg a$) tal que el
+    ínfimo de ambos es $\bot$ y su supremo es $\top$.
+:::
+
+## Implicación para las Álgebras Finitas
+
+Esta profunda visión topológica como un retículo complementado y
+distributivo es la base fundamental que nos permitirá visualizar las
+álgebras de Boole en el espacio mediante *Diagramas de Hasse*.
+
+Más importante aún, esta estructura de orden estricto impone un límite
+severo a la cardinalidad. Si un álgebra de Boole tiene un número finito
+de elementos, su retículo subyacente se construirá forzosamente como el
+conjunto potencia de sus átomos (los elementos inmediatamente superiores
+al $\bot$). Esto revela, por el Teorema de Representación de Stone para
+retículos finitos, que **toda álgebra de Boole finita debe tener
+forzosamente $2^n$ elementos**.
+
+Este hecho es el puente de entrada y la justificación absoluta para
+adentrarnos en el siguiente capítulo: el estudio y la forma de las
+Álgebras de Boole Finitas.
+
+# Álgebras de Boole Finitas
+
+En el capítulo anterior descubrimos que la estructura algebraica pura de
+Boole encierra en su interior una rigurosa topología de orden.
+Comprobamos cómo todo par de elementos está sometido a las leyes del
+supremo ($\vee$) y el ínfimo ($\wedge$) dentro de un retículo acotado,
+distributivo y complementado.
+
+Esta dualidad álgebra/topología es la clave matemática que nos va a
+revelar la forma exacta de todas las álgebras de Boole que tienen un
+número finito de elementos.
+
+## Estructura Atómica
+
+Para comprender la anatomía de un álgebra finita, debemos identificar
+sus \"ladrillos fundamentales\", es decir, los elementos indivisibles a
+partir de los cuales se puede construir todo el conjunto operando con
+supremos (sumas).
+
+::: definicion
+Átomosatomos Un elemento $x \in \mathbb{B}$ se denomina **átomo** si es
+un elemento estrictamente positivo, $x \ne \bot$, y no existe ningún
+elemento intermedio entre él y el $\bot$. Formalmente:
+$$\mathit{atom}(x) \iff (x > \bot) \wedge \left( \forall y \in \mathbb{B}, \bot < y \le x \implies y = x \right)$$
+:::
+
+En términos puramente algebraicos, un átomo $x$ es aquel cuyo producto
+(ínfimo) con cualquier otro elemento $y \in \mathbb{B}$ es el
+aniquilador total o bien él mismo (absorbente total):
+$$\mathit{atom}(x) \iff (x \ne \bot) \wedge \left( \forall y \in \mathbb{B}, (x \wedge y = \bot) \vee (x \wedge y = x) \right)$$
+El conjunto de todos los átomos de un álgebra de Boole se denota como
+$\mathit{Atom}(\mathbb{B})$. Una propiedad inmediata es que el ínfimo de
+dos átomos distintos es siempre nulo:
+$$\forall a, b \in \mathit{Atom}(\mathbb{B}), a \ne b \implies a \wedge b = \bot$$
+
+::: definicion
+Hiperátomos (Co-átomos)hiperatomos De forma dual, un **hiperátomo** o
+**co-átomo** es un elemento estrictamente inferior a $\top$ tal que no
+existe ningún elemento intermedio entre él y el máximo.
+$$\mathit{hatom}(x) \iff (x < \top) \wedge \left( \forall y \in \mathbb{B}, x \le y < \top \implies y = x \right)$$
+:::
+
+En cualquier álgebra finita no trivial (donde $\top \ne \bot$), los
+conjuntos $\mathit{Atom}(\mathbb{B})$ e $\mathit{Hatom}(\mathbb{B})$
+nunca están vacíos.
+
+## El Teorema de Representación de Stone (Caso Finito)
+
+Si tomamos el conjunto de todos los átomos $\mathit{Atom}(\mathbb{B})$,
+podemos generar el conjunto potencia $\wp(\mathit{Atom}(\mathbb{B}))$,
+es decir, el conjunto de todos sus posibles subconjuntos. Vamos a
+construir una función $\varphi$ que conecte este álgebra de subconjuntos
+con el álgebra de Boole original.
+
+### El Funtor $\varphi$
+
+Definimos la función
+$\varphi : \wp(\mathit{Atom}(\mathbb{B})) \to \mathbb{B}$ que toma un
+subconjunto de átomos $S$ y devuelve el supremo topológico (la suma
+booleana) de todos ellos: $$\varphi(S) = \begin{cases}
+\bot & \text{si } S = \emptyset \\
+\bigvee_{a \in S} a & \text{si } S \ne \emptyset
+\end{cases}$$
+
+Esta función preserva de forma natural las operaciones del álgebra de
+subconjuntos hacia las del álgebra de Boole original: $$\begin{align*}
+\varphi(S_1 \cup S_2) &= \varphi(S_1) \vee \varphi(S_2) \\
+\varphi(S_1 \cap S_2) &= \varphi(S_1) \wedge \varphi(S_2) \\
+\varphi(\mathit{Atom}(\mathbb{B}) \setminus S) &= \neg \varphi(S)
+\end{align*}$$
+
+### Isomorfismo y Cardinalidad
+
+El gran triunfo matemático para las álgebras finitas se resume en el
+siguiente teorema.
+
+::: teorema
+Representación de Álgebras de Boole Finitasrep_stone Toda álgebra de
+Boole finita $\mathbb{B}$ es algebraicamente isomorfa al álgebra del
+conjunto potencia de sus átomos. Es decir, la función $\varphi$ es una
+biyección perfecta: $$\mathbb{B} \simeq \wp(\mathit{Atom}(\mathbb{B}))$$
+:::
+
+::: proof
+*Proof.* Dado que el álgebra es finita, no existen cadenas infinitas
+descendentes. Todo elemento $x \in \mathbb{B}$ (salvo el $\bot$) acota
+por arriba a al menos un átomo. Por distributividad y ortogonalidad de
+los átomos ($a \wedge b = \bot$), cualquier elemento $x$ puede
+expresarse de forma única como el supremo de los átomos que lo preceden:
+$$x = \bigvee \{ a \in \mathit{Atom}(\mathbb{B}) \mid a \le x \}$$ Por
+lo tanto, la función inversa de $\varphi$ está perfectamente definida,
+demostrando que $\varphi$ es sobreyectiva e inyectiva (biyectiva). ◻
+:::
+
+De este isomorfismo se desprende una consecuencia colosal, formulada
+previamente de soslayo en nuestro análisis de los conjuntos topológicos.
+
+::: teorema
+Cardinalidad de un Álgebra Finitacardinalidad Si un álgebra de Boole es
+finita, su número total de elementos debe ser, forzosamente, una
+potencia de 2.
+$$|\mathbb{B}| = 2^n \quad \text{donde} \quad n = |\mathit{Atom}(\mathbb{B})|$$
+:::
+
+Cualquier conjunto que no tenga exactamente $2, 4, 8, 16, \ldots$
+elementos **jamás podrá** constituir un álgebra de Boole, sin importar
+qué operaciones intentemos definir sobre él. Y aún más importante: todas
+las álgebras de Boole que tengan el mismo número de elementos son
+exactamente la misma álgebra (son algebraicamente isomorfas). Solo hay
+*un* álgebra de Boole de 2 elementos, *una* de 4 elementos, *una* de 8
+elementos, etc.
+
+Esta uniformidad matemática nos da luz verde para enfocar nuestros
+esfuerzos en el álgebra bivaluada $\mathbb{B}_2 = \{0, 1\}$ (es decir,
+la Lógica Proposicional binaria). Sabemos de antemano que cualquier
+álgebra de cardinal superior no es más que el espacio vectorial
+n-dimensional $\mathbb{B}_2^n$, un tema que exploraremos a fondo en el
+siguiente capítulo.
+
+# Espacios Vectoriales Booleanos y Códigos de Hamming
+
+## El Espacio Vectorial Binario $\mathbb{B}^n$
+
+En el Capítulo 6b demostramos que, si bien cualquier álgebra de Boole
+puede ser interpretada como un anillo, el **único** álgebra de Boole que
+tiene la estructura rigurosa de un **Cuerpo Matemático** (es decir,
+carente de divisores de cero y donde todo elemento no nulo tiene inverso
+multiplicativo) es el álgebra bivaluada $\mathbb{B}_2 = \{0, 1\}$.
+Algebraicamente, este cuerpo es exactamente el cuerpo de Galois
+$\mathbb{F}_2$.
+
+Dado que la condición insoslayable para construir un espacio vectorial
+lineal es operar sobre un cuerpo de escalares, deducimos que los únicos
+espacios vectoriales puramente booleanos que pueden existir deben tener
+como conjunto base a $\mathbb{F}_2$.
+
+::: definicion
+El Espacio Vectorial $\mathbb{B}^n$espacio_bn Se define el espacio
+vectorial booleano $\mathbb{B}^n$ como el conjunto de todas las
+$n$-tuplas (vectores de $n$ bits) cuyos elementos pertenecen a
+$\mathbb{F}_2$. Las dos operaciones que dotan al conjunto de estructura
+de espacio vectorial son:
+
+1.  **Suma vectorial:** Se define como la operación XOR ($\oplus$)
+    aplicada bit a bit entre dos vectores.
+    $$\vec{u} \oplus \vec{v} = (u_1 \oplus v_1, u_2 \oplus v_2, \ldots, u_n \oplus v_n)$$
+
+2.  **Producto por escalar:** Se define como la operación AND ($\wedge$)
+    entre un escalar booleano $k \in \mathbb{F}_2$ y cada elemento del
+    vector.
+    $$k \wedge \vec{v} = (k \wedge v_1, k \wedge v_2, \ldots, k \wedge v_n)$$
+:::
+
+Al operar sobre $\mathbb{F}_2$, este espacio vectorial hereda
+directamente la característica 2 de su cuerpo base. Esto significa que
+**todo vector es su propio inverso aditivo**:
+$$\vec{v} \oplus \vec{v} = \vec{0}$$ lo cual simplifica
+extraordinariamente el cálculo matricial (sumar y restar vectores es
+exactamente la misma operación).
+
+## Métrica: Peso y Distancia de Hamming
+
+Para que este espacio abstracto tenga utilidad práctica en ingeniería
+(en concreto, para analizar cómo de parecidos son dos mensajes
+digitales), necesitamos dotarlo de una métrica que nos permita medir
+\"distancias\" entre vectores.
+
+::: definicion
+Peso de Hammingpeso_hamming El **peso de Hamming** de un vector
+$\vec{v}$, denotado como $w(\vec{v})$, es el número de componentes no
+nulas (número de unos) que contiene.
+:::
+
+::: definicion
+Distancia de Hammingdistancia_hamming La **distancia de Hamming** entre
+dos vectores $\vec{u}$ y $\vec{v}$, denotada como $d(\vec{u}, \vec{v})$,
+es el número de posiciones en las que difieren. Operacionalmente,
+coincide con el peso de Hamming de su suma vectorial:
+$$d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v})$$
+:::
+
+La función $d$ cumple todas las propiedades matemáticas de una métrica
+(no negatividad, identidad de los indiscernibles, simetría y desigualdad
+triangular).
+
+## Códigos de Corrección de Errores (Hamming)
+
+La aplicación más brillante de dotar a las cadenas de bits de una
+estructura de espacio vectorial sobre $\mathbb{F}_2$ es la invención de
+los **códigos correctores de errores**.
+
+En un canal de comunicación ruidoso, un vector $\vec{v}$ enviado puede
+sufrir corrupciones (cambios de 0 a 1 o viceversa), recibiéndose un
+vector diferente $\vec{r}$. Richard Hamming propuso solucionar esto no
+usando todo el espacio vectorial $\mathbb{B}^n$, sino limitando los
+mensajes válidos a un subespacio vectorial más pequeño y controlado.
+
+### El Subespacio Código y la Matriz de Paridad
+
+Un código lineal por bloques de longitud $n$ y dimensión $k$ se define
+matemáticamente como un **subespacio vectorial**
+$C \subset \mathbb{B}^n$ de dimensión $k$. Todo subespacio vectorial
+puede definirse como el núcleo (kernel) de una transformación lineal,
+representada por una matriz llamada **Matriz de Paridad ($H$)** de
+dimensiones $(n-k) \times n$.
+
+::: teorema
+Validación del Síndromesindrome_hamming Un vector recibido $\vec{r}$ es
+una palabra código válida (pertenece al subespacio código $C$) si y solo
+si su producto por la matriz de paridad $H$ (utilizando aritmética en
+$\mathbb{F}_2$) da como resultado el vector nulo. A este resultado se le
+denomina **síndrome** ($\vec{s}$). $$\vec{s} = H \cdot \vec{r}^T$$ Si
+$\vec{s} = \vec{0}$, el vector pertenece al subespacio (no hay errores
+detectados). Si $\vec{s} \ne \vec{0}$, el vector ha salido del
+subespacio, lo que indica que se ha corrompido durante la transmisión.
+:::
+
+Dado que operar matrices sobre $\mathbb{F}_2$ requiere únicamente
+puertas lógicas XOR y AND, el cálculo del síndrome
+$\vec{s} = H \cdot \vec{r}^T$ se puede implementar directamente en
+hardware digital con una eficiencia extrema, constituyendo la base de
+los modernos sistemas de memoria ECC (Error-Correcting Code).
 
 # Funciones booleanas
 
@@ -4763,3 +5116,154 @@ c & d & {c \oplus d}
     $$1 - \mathit{variable}$$: tablas lineales, 2-dimensiona­les,
     arreglos de tablas 2-dimensionales y otras formas de representación.
     Simplificación en 2 capas de puertas.
+
+[^1]: Aunque en textos recientes es común encontrar simplemente la
+    abreviatura **ZF** (Zermelo-Fraenkel), en este libro volvemos a usar
+    la notación **ZFS** (Zermelo-Fraenkel-Skolem) para incluir
+    explícitamente y advertir la aportación fundamental de Skolem, tal y
+    como exigen y reivindican algunos autores contemporáneos.
+
+[^2]: Véase pre-axiomas
+    [\[prax:esconj\]](#prax:esconj){reference-type="ref"
+    reference="prax:esconj"} y
+    [\[prax:constantes\]](#prax:constantes){reference-type="ref"
+    reference="prax:constantes"}
+
+[^3]: Véase pre-axioma
+    [\[prax:opbinint_vee\]](#prax:opbinint_vee){reference-type="ref"
+    reference="prax:opbinint_vee"}
+
+[^4]: Véase pre-axioma
+    [\[prax:opbinint_wedge\]](#prax:opbinint_wedge){reference-type="ref"
+    reference="prax:opbinint_wedge"}
+
+[^5]: Véase postulado
+    [\[post:neutro_vee\]](#post:neutro_vee){reference-type="ref"
+    reference="post:neutro_vee"}
+
+[^6]: Véase postulado
+    [\[post:neutro_wedge\]](#post:neutro_wedge){reference-type="ref"
+    reference="post:neutro_wedge"}
+
+[^7]: Véase postulado
+    [\[post:neutro_vee\]](#post:neutro_vee){reference-type="ref"
+    reference="post:neutro_vee"}
+
+[^8]: Véase postulado
+    [\[post:neutro_wedge\]](#post:neutro_wedge){reference-type="ref"
+    reference="post:neutro_wedge"}
+
+[^9]: Véase postulado
+    [\[post:conmut_vee\]](#post:conmut_vee){reference-type="ref"
+    reference="post:conmut_vee"}
+
+[^10]: Véase postulado
+    [\[post:conmut_wedge\]](#post:conmut_wedge){reference-type="ref"
+    reference="post:conmut_wedge"}
+
+[^11]: Véase postulado
+    [\[post:distrib_vee_wedge\]](#post:distrib_vee_wedge){reference-type="ref"
+    reference="post:distrib_vee_wedge"}
+
+[^12]: Véase postulado [\[post:comp\]](#post:comp){reference-type="ref"
+    reference="post:comp"}
+
+[^13]: Véase postulado [\[post:comp\]](#post:comp){reference-type="ref"
+    reference="post:comp"}
+
+[^14]: Véase postulado [\[post:comp\]](#post:comp){reference-type="ref"
+    reference="post:comp"}
+
+[^15]: Véase postulado [\[post:comp\]](#post:comp){reference-type="ref"
+    reference="post:comp"}
+
+[^16]: Véase postulado [\[post:comp\]](#post:comp){reference-type="ref"
+    reference="post:comp"}
+
+[^17]: Véase pre-axioma
+    [\[prax:opbinint_vee\]](#prax:opbinint_vee){reference-type="ref"
+    reference="prax:opbinint_vee"}
+
+[^18]: Véase pre-axioma
+    [\[prax:opbinint_vee\]](#prax:opbinint_vee){reference-type="ref"
+    reference="prax:opbinint_vee"}
+
+[^19]: Véase pre-axioma
+    [\[prax:opbinint_wedge\]](#prax:opbinint_wedge){reference-type="ref"
+    reference="prax:opbinint_wedge"}
+
+[^20]: Véase pre-axioma
+    [\[prax:opbinint_vee\]](#prax:opbinint_vee){reference-type="ref"
+    reference="prax:opbinint_vee"}
+
+[^21]: Véase postulado
+    [\[post:neutro_vee\]](#post:neutro_vee){reference-type="ref"
+    reference="post:neutro_vee"}
+
+[^22]: Véase postulado
+    [\[post:neutro_wedge\]](#post:neutro_wedge){reference-type="ref"
+    reference="post:neutro_wedge"}
+
+[^23]: Véase postulado
+    [\[post:conmut_vee\]](#post:conmut_vee){reference-type="ref"
+    reference="post:conmut_vee"}
+
+[^24]: Véase postulado
+    [\[post:conmut_wedge\]](#post:conmut_wedge){reference-type="ref"
+    reference="post:conmut_wedge"}
+
+[^25]: Véase postulado
+    [\[post:distrib_vee_wedge\]](#post:distrib_vee_wedge){reference-type="ref"
+    reference="post:distrib_vee_wedge"}
+
+[^26]: Véase postulado
+    [\[post:distrib_wedge_vee\]](#post:distrib_wedge_vee){reference-type="ref"
+    reference="post:distrib_wedge_vee"}
+
+[^27]: Véase postulado
+    [\[post:neutro_wedge\]](#post:neutro_wedge){reference-type="ref"
+    reference="post:neutro_wedge"}
+
+[^28]: Véase postulado
+    [\[post:conmut_vee\]](#post:conmut_vee){reference-type="ref"
+    reference="post:conmut_vee"}
+
+[^29]: Véase postulado
+    [\[post:distrib_vee_wedge\]](#post:distrib_vee_wedge){reference-type="ref"
+    reference="post:distrib_vee_wedge"}
+
+[^30]: Véase postulado
+    [\[post:neutro_wedge\]](#post:neutro_wedge){reference-type="ref"
+    reference="post:neutro_wedge"}
+
+[^31]: Véase postulado
+    [\[post:distrib_vee_wedge\]](#post:distrib_vee_wedge){reference-type="ref"
+    reference="post:distrib_vee_wedge"}
+
+[^32]: Véase postulado
+    [\[post:distrib_wedge_vee\]](#post:distrib_wedge_vee){reference-type="ref"
+    reference="post:distrib_wedge_vee"}
+
+[^33]: Véase postulado
+    [\[post:distrib_wedge_vee\]](#post:distrib_wedge_vee){reference-type="ref"
+    reference="post:distrib_wedge_vee"}
+
+[^34]: Véase postulado
+    [\[post:conmut_vee\]](#post:conmut_vee){reference-type="ref"
+    reference="post:conmut_vee"}
+
+[^35]: Véase postulado
+    [\[post:conmut_wedge\]](#post:conmut_wedge){reference-type="ref"
+    reference="post:conmut_wedge"}
+
+[^36]: Véase postulado
+    [\[post:distrib_wedge_vee\]](#post:distrib_wedge_vee){reference-type="ref"
+    reference="post:distrib_wedge_vee"}
+
+[^37]: Véase postulado
+    [\[post:distrib_vee_wedge\]](#post:distrib_vee_wedge){reference-type="ref"
+    reference="post:distrib_vee_wedge"}
+
+[^38]: Véase postulado
+    [\[post:distrib_wedge_vee\]](#post:distrib_wedge_vee){reference-type="ref"
+    reference="post:distrib_wedge_vee"}

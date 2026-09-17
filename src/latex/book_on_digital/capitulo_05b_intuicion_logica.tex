@@ -1,0 +1,122 @@
+\chapter{Modelos Mentales en Ingeniería: Puertas Lógicas}
+
+Tras asentar el rigor algebraico y realizar la transición a la notación ingenieril ($+, \cdot, 0, 1$), es de vital importancia desarrollar una intuición electrónica. Un buen diseñador no solo opera ecuaciones; \textit{piensa} en circuitos, corrientes y topologías lógicas. Este capítulo actúa como puente conceptual entre la pureza abstracta de Huntington y la arquitectura física de los computadores.
+
+\section{La Puerta AND (Conjunción Lógica)}
+
+La operación producto $a \cdot b$ se materializa físicamente en la puerta lógica \textbf{AND}.
+
+\begin{center}
+\begin{circuitikz}
+\draw
+(0,0) node[and port] (myand) {}
+(myand.in 1) node[anchor=east] {$a$}
+(myand.in 2) node[anchor=east] {$b$}
+(myand.out) node[anchor=west] {$a \cdot b$};
+\end{circuitikz}
+\end{center}
+
+Desde una perspectiva ingenieril y de diseño de sistemas, la puerta AND debe asimilarse bajo los siguientes modelos mentales:
+
+\begin{itemize}
+    \item \textbf{Como condición indispensable en un diseño lógico:} En la jerarquía de control, la puerta AND representa los requisitos obligatorios. Si una acción requiere que la máquina esté encendida ($a=1$) \textit{y} que la puerta de seguridad esté cerrada ($b=1$), el AND asegura que \textit{todas} las condiciones estructurales se cumplan inexcusablemente.
+    \item \textbf{Como función Mínimo (Min):} Si asumimos la cardinalidad ordinal $0 < 1$, la puerta AND siempre devuelve el valor más pequeño de todas sus entradas. La única manera de que la salida escape del $0$ y sea $1$ (nivel alto) es que absolutamente todas las entradas sean $1$.
+    \item \textbf{Como Interruptor de Señal (Enmascaramiento):} Si fijamos la entrada $b=0$, la salida se fuerza a $0$, cortando el paso de cualquier rastro de datos en $a$. Si $b=1$, la puerta "se abre" de forma transparente y la señal de datos $a$ fluye intacta hacia la salida ($a \cdot 1 = a$).
+    \item \textbf{Como Producto Aritmético:} A nivel de bit, coincide algebraicamente con la multiplicación tradicional: $0 \times 0 = 0$, $0 \times 1 = 0$, $1 \times 1 = 1$.
+\end{itemize}
+
+\textbf{Generalización a $n$ variables:} Una puerta AND de $n$ entradas ($\prod_{i=1}^n x_i$) sigue comportándose como un estricto detector de \textit{unanimidad}. Da $1$ única y exclusivamente si las $n$ entradas son $1$. Con que un solo eslabón falle y valga $0$, toda la cadena colapsa a $0$.
+
+\section{La Puerta OR (Disyunción Lógica)}
+
+La operación suma $a + b$ se materializa físicamente en la puerta lógica \textbf{OR}.
+
+\begin{center}
+\begin{circuitikz}
+\draw
+(0,0) node[or port] (myor) {}
+(myor.in 1) node[anchor=east] {$a$}
+(myor.in 2) node[anchor=east] {$b$}
+(myor.out) node[anchor=west] {$a + b$};
+\end{circuitikz}
+\end{center}
+
+Nuestros modelos mentales para asimilar la puerta OR son rigurosamente duales a los de la AND:
+
+\begin{itemize}
+    \item \textbf{Como alternativa o "fallback" en un diseño práctico:} Representa redundancias o caminos opcionales. Hace que un estado global o total sea aceptable (es decir, dé $1$) por la sola inclusión o cumplimiento de una de sus ramas, compensando las carencias del resto.
+    \item \textbf{Como función Máximo (Max):} Devuelve siempre el mayor de los valores de entrada. Basta con que detecte un mísero $1$ en cualquiera de sus pines para que la salida se erija inmediatamente como $1$.
+    \item \textbf{Como Interruptor de Forzado a $1$:} Si fijamos la entrada de control $b=1$, la salida se queda anclada permanentemente a $1$, independientemente de las fluctuaciones de $a$. Si $b=0$, la puerta ignora el nivel de control y deja fluir la señal $a$ inalterada ($a + 0 = a$).
+\end{itemize}
+
+\textbf{Generalización a $n$ variables:} Una puerta OR de $n$ entradas ($\sum_{i=1}^n x_i$) actúa como un detector ultrasensible al nivel alto. Escanea $n$ líneas de entrada buscando energía; al menor atisbo de un único $1$, su salida se dispara a $1$. Solo mantendrá el $0$ si existe unanimidad absoluta de ceros.
+
+\section{La Puerta XOR (Suma Exclusiva)}
+
+La operación de disyunción exclusiva $a \oplus b$ es matemáticamente una de las más ricas del álgebra, materializada en la puerta \textbf{XOR}.
+
+\begin{center}
+\begin{circuitikz}
+\draw
+(0,0) node[xor port] (myxor) {}
+(myxor.in 1) node[anchor=east] {$a$}
+(myxor.in 2) node[anchor=east] {$b$}
+(myxor.out) node[anchor=west] {$a \oplus b$};
+\end{circuitikz}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{Como Inversor Controlado:} Esta es su aplicación práctica más elegante. Si la entrada de control es $0$, la señal de datos pasa inalterada ($a \oplus 0 = a$). Pero si la entrada de control es $1$, la señal de datos se \textit{invierte} o niega ($a \oplus 1 = \overline{a}$). Esto permite cambiar la polaridad de un bus de datos a voluntad, lo que lo hace omnipresente en el hardware de criptografía.
+    \item \textbf{Como Detector de Diferencia:} Su respuesta es $1$ si y solo si las dos entradas tienen niveles distintos. Constituye un comparador de desigualdad primario.
+    \item \textbf{Como Suma Módulo 2:} Aritméticamente opera como la columna de las unidades de una suma binaria que deliberadamente desprecia el acarreo hacia la izquierda ($1+1=0$).
+\end{itemize}
+
+\textbf{Generalización a $n$ variables:} La generalización a $n$ entradas ($\bigoplus_{i=1}^n x_i$) transfigura el significado intuitivo de la puerta original. Como ya demostramos en el Capítulo 4, ya no es un detector general de "hay un solo 1". Su modelo mental debe anclarse como el \textbf{Detector de Paridad Impar}. No importa cómo se configuren las señales de entrada: si el cómputo total de bits $1$ es impar (1, 3, 5...), la salida arrojará un $1$. Si el recuento arroja un número par de unos (0, 2, 4...), la salida arrojará $0$.
+
+\section{La Puerta XNOR (Equivalencia)}
+
+La negación sistemática del XOR es el $a \odot b$, que implementa en hardware la puerta \textbf{XNOR}.
+
+\begin{center}
+\begin{circuitikz}
+\draw
+(0,0) node[xnor port] (myxnor) {}
+(myxnor.in 1) node[anchor=east] {$a$}
+(myxnor.in 2) node[anchor=east] {$b$}
+(myxnor.out) node[anchor=west] {$a \odot b$};
+\end{circuitikz}
+\end{center}
+
+\begin{itemize}
+    \item \textbf{Como Detector de Igualdad ($==$ o $\iff$):} Se dispara a $1$ única y exclusivamente si ambas entradas alcanzan idéntico nivel (ambas $0$ o ambas $1$). Este simple mecanismo fundamenta toda la arquitectura de comparadores dentro de las Unidades Aritmético-Lógicas (ALUs) de los microprocesadores modernos.
+\end{itemize}
+
+\textbf{Generalización a $n$ variables:} El modelo relacional de "todos iguales" fracasa de estrépito al generalizar a $\bigodot_{i=1}^{n} x_i$. Conectando con los teoremas previos, la versión generalizada del XNOR sigue estando maniatada al cálculo de paridades subyacente. Su naturaleza dependerá del cardinal $n$: si $n$ es impar, replica el comportamiento de paridad de la propia puerta XOR. Si $n$ es par, detecta paridades pares (arrojando $1$ frente a recuentos pares de bits).
+
+\section{El Conector de Implicación Lógica ($\implies$)}
+
+Aunque los fabricantes de semiconductores no ensamblan una "puerta implica", su modelado algebraico es la piedra angular del control de ejecución en programación y en las lógicas de estados abstractos. 
+
+El conector "$\implies$" encarna el contrato semántico "Si $A$ es verdad, entonces $B$ también debe serlo". Sin embargo, las máquinas no procesan inferencias gramaticales, solo álgebra plana, reduciéndose este comportamiento a las operaciones primarias:
+\[ A \implies B \equiv \overline{A} + B \]
+
+¿De dónde sale esta traducción en términos de hardware? Si la señal de premisa $A$ es falsa ($0$), el circuito asume que el contrato se cumple "por defecto vacío" independientemente de lo que ocurra con el consecuente $B$. Esto se refleja en el inversor que inyecta $\overline{A} = 1$ a la puerta OR, garantizando un $1$ en la salida. El contrato solo se declara roto o falso ($0$) cuando se exige la condición inicial ($A=1$) pero la máquina defrauda entregando una respuesta negativa ($B=0$).
+
+\section{Primera Etapa Práctica: Multiplexores y Demultiplexores}
+
+Armados con la intuición cruda de las puertas lógicas, es hora de fusionarlas para sintetizar las arquitecturas primitivas más cruciales del trasiego de información en cualquier computadora. El flujo masivo de bits requiere enrutadores lógicos que los guíen con precisión.
+
+\subsection{El Multiplexor (MUX)}
+Es el análogo digital a la vía conmutada de un ferrocarril. Un MUX de 2 entradas absorbe dos canales de información diferentes ($D_0$ y $D_1$) y una línea central de decisión que actúa como timón ($S$, de Selección). De acuerdo al valor de $S$, deja que solo uno de los dos flujos atraviese el bloque para alcanzar la salida maestra $Y$.
+
+Algebraicamente, esculpimos esta selectividad combinando la habilidad de "interruptor de señal" de dos puertas AND, y unificando el tráfico en un canal común con una puerta OR tolerante:
+\[ Y = (\overline{S} \cdot D_0) + (S \cdot D_1) \]
+\textit{Despliegue mental del diseño:} Si forzamos la señal a $S=0$, el brazo derecho de la ecuación queda bloqueado (multiplicado por $0$) abortando a $D_1$. Simultáneamente, el brazo izquierdo ve el $0$ invertido, abriendo de par en par la puerta para que viaje la señal de $D_0$. Si cambiamos el timón a $S=1$, la ruta de $D_0$ colapsa y el torrente de $D_1$ encuentra paso libre.
+
+\subsection{El Demultiplexor (DEMUX)}
+Despliega la táctica geométricamente inversa. Atrapa un único flujo torrencial de datos $D$ y tiene el mandato de derivarlo hacia la ruta $Y_0$ o hacia la ruta de escape $Y_1$, de nuevo basándose en la orden ejecutiva $S$. 
+\begin{align*}
+Y_0 &= \overline{S} \cdot D \\
+Y_1 &= S \cdot D
+\end{align*}
+\textit{Despliegue mental del diseño:} Si dictamos $S=0$, la válvula $Y_1$ se clausura en $0$, y el flujo $D$ atraviesa impertérrito la válvula $Y_0$. Si comandamos $S=1$, la situación se transpone simétricamente operando como el disyuntor perfecto del mundo digital.

@@ -1,293 +1,71 @@
-\chapter{Álgebras de Boole finitas}
+\chapter{Álgebras de Boole Finitas}
 
-\begin{enumerate}
-\def\labelenumi{\arabic{enumi}.}
-\item
-  \begin{enumerate}
-  \def\labelenumii{\arabic{enumii}.}
-  \item
-    A continuación hablaremos sobre como son en general las álgebras de
-    Boole, funda\-mentalmente las finitas, y veremos que efectivamente
-    podemos llegar a teoremas que nos dicen de forma muy concreta cuales
-    son estas álgebras de Boole. Vamos a ver for\-mas de generarlas y
-    cuestiones parecidas.
+En el capítulo anterior descubrimos que la estructura algebraica pura de Boole encierra en su interior una rigurosa topología de orden. Comprobamos cómo todo par de elementos está sometido a las leyes del supremo ($\vee$) y el ínfimo ($\wedge$) dentro de un retículo acotado, distributivo y complementado.
 
-    \begin{enumerate}
-    \def\labelenumiii{\arabic{enumiii}.}
-    \item
-      En el caso que el cardinal de \[B\]sea finito,
-      \[2 \mid {({\# B})}\]. Para demostrarlo solo hay que darse cuenta
-      que \[{B = \cup_{x \in B}}{\{{x,\overline{x}}\}}\], que
-      \[{({{x \neq {y \land \overline{x}}} \neq y})}\Rightarrow{({{{\{{x,\overline{x}}\}} \cap {\{{y,\overline{y}}\}}} = \varnothing})}\]
-      y que \[\forall{x \in B}\#{{\{{x,\overline{x}}\}} = 2}\] y así
-      cuando\[B\]sea finito, su cardinal será un múlti\-plo de 2.
-    \item
-      Definición:
+Esta dualidad álgebra/topología es la clave matemática que nos va a revelar la forma exacta de todas las álgebras de Boole que tienen un número finito de elementos.
 
-      \[\forall x,{y \in B}{x \leq y}\Leftrightarrow{{x \cdot y} = x}\Leftrightarrow{{x + y} = y}\]
-    \item
-      \[\left\langle {B, \leq} \right\rangle\text{es un}\mathit{orden}\].
+\section{Estructura Atómica}
 
-      \begin{enumerate}
-      \def\labelenumiv{\arabic{enumiv}.}
-      \item
-        Reflexiva: \[\forall{x \in B}{x \leq x}\]
+Para comprender la anatomía de un álgebra finita, debemos identificar sus "ladrillos fundamentales", es decir, los elementos indivisibles a partir de los cuales se puede construir todo el conjunto operando con supremos (sumas).
 
-        \begin{enumerate}
-        \def\labelenumv{\arabic{enumv}.}
-        \tightlist
-        \item
-          \[\forall{x \in B}{{x \cdot x} = x}\]
-        \item
-          \[\forall{x \in B}{x \leq x}\]
-        \end{enumerate}
-      \item
-        Antisimétrica:
-        \[\forall x,{y \in B}{{x \leq {y \land y}} \leq x}\Rightarrow{x = y}\]
+\begin{definicion}{Átomos}{atomos}
+Un elemento $x \in \mathbb{B}$ se denomina \textbf{átomo} si es un elemento estrictamente positivo, $x \ne \bot$, y no existe ningún elemento intermedio entre él y el $\bot$. Formalmente:
+\[ \mathit{atom}(x) \iff (x > \bot) \wedge \left( \forall y \in \mathbb{B}, \bot < y \le x \implies y = x \right) \]
+\end{definicion}
 
-        \begin{enumerate}
-        \def\labelenumv{\arabic{enumv}.}
-        \tightlist
-        \item
-          \[x,{y \in B}{{x \leq {y \land y}} \leq x}\]
-        \item
-          \[x,{y \in B}{{{x \cdot y} = {{y \land x} \cdot y}} = x}\]
-        \item
-          \[x,{y \in B}{x = y}\]
-        \end{enumerate}
-      \item
-        Transitiva:
-        \[\forall x,y,{z \in B}{{x \leq {y \land y}} \leq z}\Rightarrow{x \leq z}\]
+En términos puramente algebraicos, un átomo $x$ es aquel cuyo producto (ínfimo) con cualquier otro elemento $y \in \mathbb{B}$ es el aniquilador total o bien él mismo (absorbente total):
+\[ \mathit{atom}(x) \iff (x \ne \bot) \wedge \left( \forall y \in \mathbb{B}, (x \wedge y = \bot) \vee (x \wedge y = x) \right) \]
+El conjunto de todos los átomos de un álgebra de Boole se denota como $\mathit{Atom}(\mathbb{B})$.
+Una propiedad inmediata es que el ínfimo de dos átomos distintos es siempre nulo:
+\[ \forall a, b \in \mathit{Atom}(\mathbb{B}), a \ne b \implies a \wedge b = \bot \]
 
-        \begin{enumerate}
-        \def\labelenumv{\arabic{enumv}.}
-        \tightlist
-        \item
-          \[{x \leq {y \land y}} \leq z\]
-        \item
-          \[{{x \cdot y} = {{x \land y} \cdot z}} = y\]
-        \item
-          \[{{x \cdot y} \cdot z} = {x \cdot z}\]
-        \item
-          \[{x \cdot y} = {x \cdot z}\]
-        \item
-          \[x = {x \cdot z}\]
-        \item
-          \[x \leq z\]
-        \end{enumerate}
-      \end{enumerate}
-    \item
-      Definición:\[\forall x,{y \in B}{x \geq y}\Leftrightarrow{{x \cdot y} = y}\Leftrightarrow{{x + y} = x}\]
-    \item
-      \[\left\langle {B, \geq} \right\rangle\text{es un}\mathit{orden}\].
+\begin{definicion}{Hiperátomos (Co-átomos)}{hiperatomos}
+De forma dual, un \textbf{hiperátomo} o \textbf{co-átomo} es un elemento estrictamente inferior a $\top$ tal que no existe ningún elemento intermedio entre él y el máximo.
+\[ \mathit{hatom}(x) \iff (x < \top) \wedge \left( \forall y \in \mathbb{B}, x \le y < \top \implies y = x \right) \]
+\end{definicion}
 
-      \begin{enumerate}
-      \def\labelenumiv{\arabic{enumiv}.}
-      \item
-        Reflexiva: \[\forall{x \in B}{x \geq x}\]
+En cualquier álgebra finita no trivial (donde $\top \ne \bot$), los conjuntos $\mathit{Atom}(\mathbb{B})$ e $\mathit{Hatom}(\mathbb{B})$ nunca están vacíos.
 
-        \begin{enumerate}
-        \def\labelenumv{\arabic{enumv}.}
-        \tightlist
-        \item
-          \[\forall{x \in B}{{x + x} = x}\]
-        \item
-          \[\forall{x \in B}{x \geq x}\]
-        \end{enumerate}
-      \item
-        Antisimétrica:
-        \[\forall x,{y \in B}{{x \geq {y \land y}} \geq x}\Rightarrow{x = y}\]
+\section{El Teorema de Representación de Stone (Caso Finito)}
 
-        \begin{enumerate}
-        \def\labelenumv{\arabic{enumv}.}
-        \tightlist
-        \item
-          \[x,{y \in B}{{x \geq {y \land y}} \geq x}\]
-        \item
-          \[x,{y \in B}{{{x + y} = {{y \land x} + y}} = x}\]
-        \item
-          \[x,{y \in B}{x = y}\]
-        \end{enumerate}
-      \item
-        Transitiva:
-        \[\forall x,y,{z \in B}{{x \geq {y \land y}} \geq z}\Rightarrow{x \geq z}\]
+Si tomamos el conjunto de todos los átomos $\mathit{Atom}(\mathbb{B})$, podemos generar el conjunto potencia $\wp(\mathit{Atom}(\mathbb{B}))$, es decir, el conjunto de todos sus posibles subconjuntos. Vamos a construir una función $\varphi$ que conecte este álgebra de subconjuntos con el álgebra de Boole original.
 
-        \begin{enumerate}
-        \def\labelenumv{\arabic{enumv}.}
-        \tightlist
-        \item
-          \[{x \geq {y \land y}} \geq z\]
-        \item
-          \[{{x + y} = {{x \land y} + z}} = y\]
-        \item
-          \[{{x + y} + z} = {x + z}\]
-        \item
-          \[{x + y} = {x + z}\]
-        \item
-          \[x = {x + z}\]
-        \item
-          \[x \geq z\]
-        \end{enumerate}
-      \end{enumerate}
-    \item
-      Definición:\[\mathit{atom}{(x)}\overset{\text{def}}{\Leftrightarrow}{\left\lbrack {x \in (1,0)_{B}} \right\rbrack \land \left\lbrack {\forall{y \in (1,0)_{B}}\left( {\left( {{x \cdot y} = x} \right) \vee \left( {{x \cdot y} = 0} \right)} \right)} \right\rbrack}\]
-    \item
-      \[\forall x,{y \in B}\mathit{atom}{{(x)} \land \mathit{atom}}{(y)}\Rightarrow{{x \cdot y} = 0}\].
-    \item
-      Definición:\[\mathit{hatom}{(x)}\overset{\text{def}}{\Leftrightarrow}{\left\lbrack {x \in \left( {B \smallsetminus {\{ 0,1\}}} \right)} \right\rbrack \land \left\lbrack {\forall{y \in \left( {B \smallsetminus {\{ 0,1\}}} \right)}\left( {\left( {{x + y} = x} \right) \vee \left( {{x + y} = 1} \right)} \right)} \right\rbrack}\]
-    \item
-      \[\forall x,{y \in B}\mathit{hatom}{{(x)} \land \mathit{hatom}}{(y)}\Rightarrow{{x + y} = 1}\]
-    \item
-      Definición\[{x \in B}\Rightarrow{\lbrack{x,0}\rbrack}_{B}{: = {\{{{y \in B} \mid {y \leq x}}\}}}\]
-    \item
-      \[\#{{\lbrack{x,0}\rbrack}_{B} = 1}\Leftrightarrow{{\lbrack{x,0}\rbrack}_{B} = {\{ 0\}}}\Leftrightarrow{x = 0}\]
-    \item
-      Definición\[{x \in B}\Rightarrow{\lbrack{1,x}\rbrack}_{B}{: = {\{{{y \in B} \mid {y \geq x}}\}}}\]
-    \item
-      \[\#{{\lbrack{1,x}\rbrack}_{B} = 1}\Leftrightarrow{{\lbrack{1,x}\rbrack}_{B} = {\{ 1\}}}\Leftrightarrow{x = 1}\]
-    \item
-      Definición\[x,{y \in B}{x \geq y}\Rightarrow\left\lbrack {x,y} \right\rbrack_{B}{: = {\{{{z \in B} \mid {{y \leq {z \land x}} \geq z}}\}}}\]
-    \item
-      Definición\[x,{y \in B}{x \geq y}\Rightarrow\left\lbrack {x,y} \right)_{B}{: = {\{{{z \in B} \mid {{{y \leq {z \land x}} \geq {z \land z}} \neq y}}\}}}\]
-    \item
-      Definición\[x,{y \in B}{x \geq y}\Rightarrow\left( {x,y} \right\rbrack_{B}{: = {\{{{z \in B} \mid {{{y \leq {z \land x}} \geq {z \land z}} \neq x}}\}}}\]
-    \item
-      Definición\[x,{y \in B}{x \geq y}\Rightarrow\left( {x,y} \right)_{B}{: = {\{{{z \in B} \mid {{{{y \leq {z \land x}} \geq {z \land z}} \neq {x \land z}} \neq y}}\}}}\]
-    \item
-      \[{x \in B}\Rightarrow{{{\lbrack{x,0}\rbrack}_{B} \cap {\lbrack{1,x}\rbrack}_{B}} = {\{ x\}}}\]
-    \item
-      \[{x \in B}\Rightarrow{{{\lbrack{x,0}\rbrack}_{B} \cap {\lbrack{\overline{x},0}\rbrack}_{B}} = {\{ 0\}}}\]
-    \item
-      \[{x \in B}\Rightarrow{{{\lbrack{1,x}\rbrack}_{B} \cap {\lbrack{1,\overline{x}}\rbrack}_{B}} = {\{ 1\}}}\]
-    \item
-      \[\forall{x \in B}\forall{y \in \left( {x,0} \right)_{B}}{{({{\lbrack{y,0}\rbrack}_{B} \subset {\lbrack{x,0}\rbrack}_{B}})} \land {({{\lbrack{y,0}\rbrack}_{B} \neq {\lbrack{x,0}\rbrack}_{B}})}}\]
-    \item
-      \[\forall{x \in B}\forall{y \in \left( {1,x} \right)_{B}}{{({{\lbrack{1,y}\rbrack}_{B} \subset {\lbrack{1,x}\rbrack}_{B}})} \land {({{\lbrack{1,y}\rbrack}_{B} \neq {\lbrack{1,x}\rbrack}_{B}})}}\]
-    \item
-      Definición\[\mathit{Atom}B{: = {\{{{x \in (1,0)_{B}} \mid \mathit{atom}{(x)}}\}}}\]
-    \item
-      Definición\[\mathit{Hatom}B{: = {\{{{x \in (1,0)_{B}} \mid \mathit{hatom}{(x)}}\}}}\]
-    \item
-      \[\mathit{Atom}{{(B_{2})} = \mathit{Hatom}}{{(B_{2})} = \varnothing}\]
-    \item
-      Definición
-      \[\left\lbrack B \right){: = {\{{{A \subset B} \mid \exists{x \in B}{A = \left\lbrack {x,0} \right)_{B}}}\}}}\]
-    \item
-      \[\left\lbrack B \right) \neq \varnothing\]. Pues es un álgebra de
-      cardinal mayor o igual que 2 y existe al menos \[\{ 1\}\].
-    \item
-      \[{\langle{\left\lbrack B \right), \supseteq}\rangle}\mathit{es}\mathit{un}\mathit{orden}\].
-    \item
-      \[B\mathit{finito}\forall{P \subset \left\lbrack B \right)}{\langle{P, \supseteq}\rangle}\mathit{orden}\mathit{total}\Rightarrow\exists!{x \in \underset{X \in P}{\cap}}X\mathit{atom}(x)\]
+\subsection{El Funtor $\varphi$}
+Definimos la función $\varphi : \wp(\mathit{Atom}(\mathbb{B})) \to \mathbb{B}$ que toma un subconjunto de átomos $S$ y devuelve el supremo topológico (la suma booleana) de todos ellos:
+\[
+\varphi(S) = \begin{cases}
+\bot & \text{si } S = \emptyset \\
+\bigvee_{a \in S} a & \text{si } S \ne \emptyset
+\end{cases}
+\]
 
-      \begin{enumerate}
-      \def\labelenumiv{\arabic{enumiv}.}
-      \tightlist
-      \item
-        Prueba:
-      \item
-        \[{\langle{P, \supseteq}\rangle}\mathit{es}\mathit{un}\mathit{orden}\mathit{total}\]
-      \item
-        \[\forall X,{Y \in P}{X \neq Y}\Rightarrow{{X \supset {Y \vee Y}} \supset X}\]
-      \item
-        \[\forall X,{Y \in P}{X \neq Y}\Rightarrow{\left( {\left( {Y \supset X} \right) \vee \left( {Y \supset X} \right)} \right) \land \left( {\left( {{Y \cap X} = X} \right) \vee \left( {{Y \cap X} = Y} \right)} \right)}\]
-      \item
-        \[\forall X,{Y \in P}{X \neq Y}\Rightarrow{\left( {\left( {{Y \cap X} = X} \right) \vee \left( {{Y \cap X} = Y} \right)} \right) \land \left( {{X \neq {{\{ 0\}} \land Y}} \neq {\{ 0\}}} \right)}\]
-      \item
-        \[\forall X,{Y \in P}\left( {X \neq Y} \right)\Rightarrow\left( {{Y \cap X} \neq {\{ 0\}}} \right)\]
-      \item
-        \[\underset{X \in P}{\cap}{X \neq {{\{ 0\}} \land \underset{X \in P}{\cap}}}{X \supset {\{ 0\}}}\]
-      \item
-        \[\underset{Y \in P}{\cap}Y \supsetneq {\{ 0\}}\]
-      \item
-        \[\underset{Y \in P}{\cap}{Y \supseteq {\{{0,x}\}}}\]
-      \item
-        \[\underset{Y \in P}{\cap}{Y \supseteq {\lbrack{x,0}\rbrack}_{B}}\]
-      \item
-        \[\underset{Y \in P}{\cap}{{Y \supseteq {\lbrack{x,0}\rbrack}_{B}} \supseteq {\{{0,x}\}}}\]
-      \item
-        \[{\lbrack{x,0}\rbrack}_{B} \in P\]
-      \item
-        \[\exists{X \in P}\exists{x \in X}{\underset{Y \in P}{\cap}{Y = {\lbrack{x,0}\rbrack}_{B}}}\]
-      \item
-        \[\exists!{x \in B}{\underset{Y \in P}{\cap}{Y = {\lbrack{x,0}\rbrack}_{B}}}\]
-      \item
-        \[\exists{x \in {\underset{Y \in P}{\cap}Y{{\lbrack{x,0}\rbrack}_{B} = {\{{0,x}\}}}}}\]
-      \item
-        \[\exists{x \in {\underset{Y \in P}{\cap}Y\forall{X \in P}{{X \supseteq {\lbrack{x,0}\rbrack}_{B}} = {\{{0,x}\}}}}}\]
-      \item
-        \[\forall{P \subset \left\lbrack B \right)}{\langle{P, \supseteq}\rangle}\mathit{orden}\mathit{total}\Rightarrow\exists!{x \in \underset{X \in P}{\cap}}X\mathit{atom}(x)\]
-      \end{enumerate}
-    \item
-      \[B\mathit{finito}\Rightarrow\mathit{Atom}{B \neq \varnothing}\].
-      Desde 57 es inmediato.
-    \item
-      Ahora vamos a construir una función inyectiva del álgebra de Boole
-      de las partes de los átomos de B (si este es finito) en el álgebra
-      de Boole B. Así cuando menos sa\-bremos que podemos interpretar
-      este álgebra de las partes de un conjunto de los áto\-mos de B
-      como un subálgebra de la que estamos estudiando.
+Esta función preserva de forma natural las operaciones del álgebra de subconjuntos hacia las del álgebra de Boole original:
+\begin{align*}
+\varphi(S_1 \cup S_2) &= \varphi(S_1) \vee \varphi(S_2) \\
+\varphi(S_1 \cap S_2) &= \varphi(S_1) \wedge \varphi(S_2) \\
+\varphi(\mathit{Atom}(\mathbb{B}) \setminus S) &= \neg \varphi(S)
+\end{align*}
 
-      La función \[\varphi\]que vamos a definir va a quedar
-      completamente definida en la fór\-mula que sigue. Tendremos que
-      mostrar que está bien definida, que es inyectiva, que
-      \[\varphi{{({x \cup y})} = \varphi}{{(x)} + \varphi}{(y)}\], esto
-      es que respeta la suma booleana en \[B\]que viene como unión de
-      conjuntos desde \[\wp\left( {\mathit{Atom}{(B)}} \right)\], que
-      \[\varphi{{({x \cap y})} = \varphi}{{(x)} \cdot \varphi}{(y)}\],
-      esto es que respeta el producto booleano en \[B\]que viene como
-      intersección de conjun\-tos desde
-      \[\wp\left( {\mathit{Atom}{(B)}} \right)\] , y aunque ya no sería
-      necesario, también veremos que
-      \[\varphi{\left( {\mathit{Atom}{{(B)} \smallsetminus x}} \right) = \overline{\varphi(x)}}\]
-      . Así quedará clara la relación entre ambas álgebras.
+\subsection{Isomorfismo y Cardinalidad}
+El gran triunfo matemático para las álgebras finitas se resume en el siguiente teorema.
 
-      \begin{enumerate}
-      \def\labelenumiv{\arabic{enumiv}.}
-      \tightlist
-      \item
-        \[\begin{matrix}
-        {n{: = \#}\left( {\mathit{Atom}B} \right)} \\
-        {{n \leq m}{: = \#}\left( B \right)} \\
-        {\left\lbrack {1,n} \right\rbrack_{\mathbb{N}}{: = {\{{1,2,\ldots,n}\}}}} \\
-        {\varphi:\wp{\left( {\mathit{Atom}\left( B \right)} \right)\rightarrow B}} \\
-        {{\varphi{(x)}}{: =}\begin{Bmatrix}
-        0 & \Leftarrow & {{x = \varnothing} = {\{\}}} \\
-        {x_{1}'} & \Leftarrow & {x = {\{{x_{1}'}\}}} \\
-        {{\sum\limits_{\substack{k \in I \\ I \subset {\lbrack{1,n}\rbrack}_{\mathbb{N}}}}x_{k}}'} & \Leftarrow & {x = {\{{{x_{i}'} \mid {{i \in I} \subset \left\lbrack {1,n} \right\rbrack_{\mathbb{N}}}}\}}} \\
-        {x_{1}{{' + \ldots} + x_{i - 1}}{' + x_{i}}{{' + \ldots} + x_{n}}'} & \Leftarrow & {{x = \mathit{Atom}}{{(B)} \smallsetminus {\{{x_{i}'}\}}}} \\
-        1 & \Leftarrow & {{x = \mathit{Atom}}{(B)}}
-        \end{Bmatrix}}
-        \end{matrix}\].
-      \end{enumerate}
-    \item
-      \[\#{B_{a} = \#}{B_{b} = 2}\Rightarrow{B_{a} \simeq B_{b}}\]. Con
-      la misma \[\varphi\] anterior.
-    \item
-      \[\#{B_{a} = \#}{B_{b} = 4}\Rightarrow{B_{a} \simeq B_{b}}\]. Con
-      la misma \[\varphi\] anterior.
-    \item
-      \[\#{B > 4}\Rightarrow\mathit{Atom}{B \cap \mathit{Hatom}}{B = \varnothing}\].
-      Lo mejor sería demostrar que cualquier cadena completa saturada de
-      1 a 0 tiene una longitud (número de elementos) siempre igual al
-      \[\#\mathit{Atom}{(B)}\]. De ahí se sigue que si el cardinal es el
-      dicho, tendríamos más de 3 niveles, diferenciándose siempre los
-      átomos y los hiperátomos.
-    \item
-      Para cada uno de los cardinales de \[B\], cuando son finitos,
-      existe una estructura no solo de anillo conmutativo con unidad
-      como en 34, sino también de cuerpo. La po\-demos encontrar
-      explícitamente en el álgebra de las partes de un conjunto finito.
-      Sólo nos queda ver que \[\varphi\]es sobreyectivo. Tenemos que
-      \[\varphi{\left( {\mathit{Atom}{(B)}} \right) = B}\]. Así
-      \[\varphi\]pasa a ser un isomorfismo de álgebras de Boole: esto
-      es, en lo que a la estructu\-ra de álgebra de Boole se refiere,
-      haciendo abstracción de las operaciones \[{} + {}\] y
-      \[{} \cdot {}\]concretas y los elementos concretos,
-      \[{\langle{B,0,1, + , \cdot}\rangle} \simeq {\langle{\wp\left( {\mathit{Atom}{(B)}} \right),\varnothing,\mathit{Atom}\left( B \right), \cup , \cap}\rangle}\].
-    \item
-      De 74 se deduce que si \[B\]es un conjunto finito,
-      \[\exists{n \in \mathbb{N}}\#{B = 2^{\mathbf{\mathrm{n}}}}\].
-    \end{enumerate}
-  \end{enumerate}
-\end{enumerate}
+\begin{teorema}{Representación de Álgebras de Boole Finitas}{rep_stone}
+Toda álgebra de Boole finita $\mathbb{B}$ es algebraicamente isomorfa al álgebra del conjunto potencia de sus átomos. Es decir, la función $\varphi$ es una biyección perfecta:
+\[ \mathbb{B} \simeq \wp(\mathit{Atom}(\mathbb{B})) \]
+\end{teorema}
+\begin{proof}
+Dado que el álgebra es finita, no existen cadenas infinitas descendentes. Todo elemento $x \in \mathbb{B}$ (salvo el $\bot$) acota por arriba a al menos un átomo. Por distributividad y ortogonalidad de los átomos ($a \wedge b = \bot$), cualquier elemento $x$ puede expresarse de forma única como el supremo de los átomos que lo preceden: 
+\[ x = \bigvee \{ a \in \mathit{Atom}(\mathbb{B}) \mid a \le x \} \]
+Por lo tanto, la función inversa de $\varphi$ está perfectamente definida, demostrando que $\varphi$ es sobreyectiva e inyectiva (biyectiva).
+\end{proof}
+
+De este isomorfismo se desprende una consecuencia colosal, formulada previamente de soslayo en nuestro análisis de los conjuntos topológicos.
+
+\begin{teorema}{Cardinalidad de un Álgebra Finita}{cardinalidad}
+Si un álgebra de Boole es finita, su número total de elementos debe ser, forzosamente, una potencia de 2.
+\[ |\mathbb{B}| = 2^n \quad \text{donde} \quad n = |\mathit{Atom}(\mathbb{B})| \]
+\end{teorema}
+
+Cualquier conjunto que no tenga exactamente $2, 4, 8, 16, \ldots$ elementos \textbf{jamás podrá} constituir un álgebra de Boole, sin importar qué operaciones intentemos definir sobre él. Y aún más importante: todas las álgebras de Boole que tengan el mismo número de elementos son exactamente la misma álgebra (son algebraicamente isomorfas). Solo hay \textit{un} álgebra de Boole de 2 elementos, \textit{una} de 4 elementos, \textit{una} de 8 elementos, etc.
+
+Esta uniformidad matemática nos da luz verde para enfocar nuestros esfuerzos en el álgebra bivaluada $\mathbb{B}_2 = \{0, 1\}$ (es decir, la Lógica Proposicional binaria). Sabemos de antemano que cualquier álgebra de cardinal superior no es más que el espacio vectorial n-dimensional $\mathbb{B}_2^n$, un tema que exploraremos a fondo en el siguiente capítulo.

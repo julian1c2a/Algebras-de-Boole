@@ -1,5 +1,5 @@
 \chapter{Introducción}
-El álgebra de Boole, originalmente introducida por George Boole en su obra de 1854 \textit{The Laws of Thought}, fue posteriormente axiomatizada de forma rigurosa. En 1904, el matemático estadounidense Edward Vermilye Huntington presentó un conjunto de postulados independientes que definen formalmente una estructura de álgebra de Boole. 
+El álgebra de las proposiciones. Éste es sin duda, el primer desarrollo que se hizo del álgebra de Boole, hecha por el propio George Boole en mitad del siglo XIX (edición 1851). Lo desarrolló como una ``Una investigación en las leyes del pensamiento''. Amigo suyo que lo ayudó a penetrar los ambientes académicos es Augustus De Morgan. Desde Aristóteles (que funda por primera vez la lógica como ciencia analítica) en el siglo IV a. C. no había habido ningún adelanto sustancial en la lógica. Kant (medio siglo antes de Boole) había considerado que la lógica era un cuerpo de doctrina cerrado y completo (esto es, no había nada más que decir que lo que ya había desarrollado y escrito Aristóteles en sus ``Tratados de Lógica'' u ``Órganon'', hacía ya 2.300 años). Aunque la verdadera revolución se da algunos años más tarde con Frege, el lógico más importante desde Aristóteles. Si doy estos datos sobre la historia de la lógica que todos asociaréis más a la filosofía, que parece queda muy lejos del propósito de unos apuntes de matemáticas discretas que cubran de la forma más amplia posible los Fundamentos de Electrónica Digital, es porque no queda tan lejos. La idea de hacer un lenguaje dónde el razonamiento siguiera unas pautas claras de forma que siempre quedara todo tan cierto como en las matemáticas era ya antiguo. Aristóteles ya advertía de una cierta indefinición insuperable de los términos más importantes de la filosofía (en realidad de casi todos los conceptos de la vida ordinaria): ``existen conceptos o ideas que corresponden con la realidad que no se usan de forma equívoca -- esto es, su uso no es equívoco, este mismo concepto, palabra o idea que hablamos no se refiere a realidades distintas y diferenciadas, de forma que nos llevan a confusión -- pero tampoco de forma unívoca -- como las definiciones desde axiomas en un lenguaje formal matemático, así tenemos que existen conceptos análogos'' (es una glosa de palabras de Aristóteles). En la Modernidad, dado que el concepto de analogía lleva aparejado un tratamiento difícil que no lleva fácilmente a certeza, se intentan buscar criterios de certeza absoluta y unas definiciones que aparentemente son unívocas y se tratan como tales. Es significativo el nombre (y la estructura interna) de una importante obra de Spinoza: ``Ética demostrada según el orden geométrico''. Será Leibniz quién escriba ya cumplidamente sobre la necesidad de establecer un léxico completamente unívoco (una tarea mastodonte, o mejor, imposible) y un ``cálculo'' del pensamiento, de forma que ``una cuestión como la existencia de Dios pueda ser resuelto mediante la resolución de unas ecuaciones de pensamiento'' (de nuevo es una glosa). Se empezaba a buscar con ansiedad una mecanización del pensamiento. Esta idea fue muy fructífera, dando un primer paso hacia ella George Boole que hace un álgebra de las proposiciones. Este álgebra no era más amplia que la de Aristóteles, pero permitía el cálculo al modo matemático. De aquí a la llegada de Frege, ya, Charles Babbage diseña y realiza (sin éxito debido al trabajo de mecanizado excesivamente minucioso que requería el diseño) una computadora universal mecánica (mediante engranajes) prácticamente similar al modelo de Von Neumann. La condesa de Lovelace (Ada) es el matemático que hace los primeros programas en lenguaje ensamblador de la máquina de Babbage. La primera programadora de la historia. Después de Frege siguen los desarrollos con gente como Bertrand Rusell, David Hilbert, y otros hasta los increíbles resultados de Gödel que ponen punto final a muchas de las pretensiones de mecanización del pensamiento, pero que son ya base de la computación moderna, siendo los trabajos definitivos los de Alan Turing. Como veis el camino recorrido es largo y complicado, siendo el momento crucial para el arranque de la ingeniería digital los trabajos de George Boole. No he mencionado el papel de las máquinas de cifrado y descifrado de mensajes en la Gran Guerra y la II Guerra Mundial (en las que intervinieron muchos de las mentes antes mencionadas).
 
 Para evitar cualquier confusión conceptual con la aritmética tradicional, en esta fase inicial emplearemos la signatura propia de la teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y $\wedge$ (ínfimo o meet), junto a los elementos constantes $\bot$ (mínimo) y $\top$ (máximo). El complemento se denotará con el símbolo clásico de la negación lógica $\neg$. Más adelante, y por conveniencia práctica, transitaremos hacia la notación clásica de sistemas digitales ($+$, $\cdot$, $0$, $1$).
 
@@ -27,21 +27,21 @@ Antes de enunciar los postulados, debemos definir rigurosamente sobre qué eleme
 
 Partimos de un ente matemático $\mathbb{B}$.
 
-\begin{preaxioma}{Estructura de Conjunto - EsConjunto($\mathbb{B}$)}{esconj}
+\begin{preaxioma}{[H0.0.0] Estructura de Conjunto - EsConjunto($\mathbb{B}$)}{esconj}
 Se requiere que $\mathbb{B}$ sea un conjunto.
 \end{preaxioma}
 
-\begin{preaxioma}{Elementos Constantes - Constantes}{constantes}
+\begin{preaxioma}{[H0.0.1, H0.0.2] Elementos Constantes - Constantes}{constantes}
 Este conjunto ha de cumplir que tiene dos elementos que llamaremos constantes, tales que $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En principio, no asumimos nada sobre la igualdad o desigualdad de estas constantes.
 \end{preaxioma}
 
 Además, vamos a definir dos operaciones binarias internas que denotaremos por $\vee$ y $\wedge$. Estas deben satisfacer rigurosamente la definición de función:
 
-\begin{preaxioma}{Operación Binaria Interna $\vee$ - OpBinInt$_\vee$}{opbinint_vee}
+\begin{preaxioma}{[H0.1] Operación Binaria Interna $\vee$ - OpBinInt$_\vee$}{opbinint_vee}
 $\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
 \end{preaxioma}
 
-\begin{preaxioma}{Operación Binaria Interna $\wedge$ - OpBinInt$_\wedge$}{opbinint_wedge}
+\begin{preaxioma}{[H0.2] Operación Binaria Interna $\wedge$ - OpBinInt$_\wedge$}{opbinint_wedge}
 $\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación binaria interna.
 \end{preaxioma}
 
@@ -66,41 +66,41 @@ De igual forma para el ínfimo, si $a \wedge b = c$ y $a \wedge b = d$, entonces
 \section{Los Postulados de Huntington (1904)}
 Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los pre-axiomas anteriores, diremos que forma un álgebra de Boole si satisface los siguientes postulados:
 
-\begin{postulado}{Elemento neutro $\vee$ - $ElemNeu_\vee$}{neutro_vee}
+\begin{postulado}{[H1.1] Elemento neutro $\vee$ - $ElemNeu_\vee$}{neutro_vee}
 Todo elemento operado mediante $\vee$ con el mínimo $\bot$ da como resultado el mismo elemento; es decir, $\bot$ no altera el valor original:
 \[ \forall a \in \mathbb{B}, \quad a \vee \bot = a \]
 \end{postulado}
 
-\begin{postulado}{Elemento neutro $\wedge$ - $ElemNeu_\wedge$}{neutro_wedge}
+\begin{postulado}{[H1.2] Elemento neutro $\wedge$ - $ElemNeu_\wedge$}{neutro_wedge}
 Todo elemento operado mediante $\wedge$ con el máximo $\top$ da como resultado el mismo elemento, quedando inalterado:
 \[ \forall a \in \mathbb{B}, \quad a \wedge \top = a \]
 \end{postulado}
 
-\begin{postulado}{Conmutatividad $\vee$ - $Comm_\vee$}{conmut_vee}
+\begin{postulado}{[H2.1] Conmutatividad $\vee$ - $Comm_\vee$}{conmut_vee}
 El orden de los operandos al aplicar la operación $\vee$ es indiferente, obteniéndose exactamente el mismo resultado:
 \[ \forall a, b \in \mathbb{B}, \quad a \vee b = b \vee a \]
 \end{postulado}
 
-\begin{postulado}{Conmutatividad $\wedge$ - $Comm_\wedge$}{conmut_wedge}
+\begin{postulado}{[H2.2] Conmutatividad $\wedge$ - $Comm_\wedge$}{conmut_wedge}
 De la misma forma, el orden de los operandos al aplicar la operación $\wedge$ tampoco altera el resultado final:
 \[ \forall a, b \in \mathbb{B}, \quad a \wedge b = b \wedge a \]
 \end{postulado}
 
-\begin{postulado}{Distributividad $\vee$ sobre $\wedge$ - $Dist_\vee$}{distrib_vee_wedge}
+\begin{postulado}{[H3.1] Distributividad $\vee$ sobre $\wedge$ - $Dist_\vee$}{distrib_vee_wedge}
 La operación $\vee$ se distribuye sobre la operación $\wedge$. Operar un elemento con el resultado de un $\wedge$ equivale a operar con $\vee$ cada componente individualmente y luego aplicar $\wedge$:
 \[ \forall a, b, c \in \mathbb{B}, \quad a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c) \]
 \end{postulado}
 
-\begin{postulado}{Distributividad $\wedge$ sobre $\vee$ - $Dist_\wedge$}{distrib_wedge_vee}
+\begin{postulado}{[H3.2] Distributividad $\wedge$ sobre $\vee$ - $Dist_\wedge$}{distrib_wedge_vee}
 De manera equivalente, el ínfimo ($\wedge$) se reparte de forma distributiva entre los componentes de un supremo ($\vee$):
 \[ \forall a, b, c \in \mathbb{B}, \quad a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c) \]
 \end{postulado}
 
-\begin{postulado}{Complementario - $Comp_\vee, Comp_\wedge$}{comp}
+\begin{postulado}{[H4] Complementario - $Comp_\vee, Comp_\wedge$}{comp}
 Todo elemento del conjunto posee al menos un "complemento" (o elemento opuesto). Al operarlo con su complemento mediante $\vee$ siempre alcanzamos el máximo $\top$, y mediante $\wedge$ siempre caemos al mínimo $\bot$:
 \begin{align*}
-\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \\
-a \wedge b &= \bot \quad (Comp_\wedge)
+\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \quad \text{[H4.1]} \\
+a \wedge b &= \bot \quad (Comp_\wedge) \quad \text{[H4.2]}
 \end{align*}
 \end{postulado}
 

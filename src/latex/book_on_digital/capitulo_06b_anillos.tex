@@ -1,0 +1,88 @@
+\chapter{Estructura de Anillo y Cuerpo Booleano}
+
+\section{Anillos Booleanos}
+Un álgebra de Boole puede ser interpretada desde la perspectiva del álgebra abstracta clásica como un tipo especial de anillo. Para ello, nos apoyamos en los operadores derivados introducidos anteriormente, en particular la operación O-exclusiva (XOR, $\oplus$) y la conjunción (AND, $\wedge$).
+
+\begin{definicion}{Anillo Booleano}{def_anillo_booleano_cap}
+Un anillo booleano es un anillo conmutativo con elemento unidad $(R, +, \cdot, 0_R, 1_R)$ en el cual todo elemento es idempotente respecto a la multiplicación:
+\[ \forall x \in R, x \cdot x = x \]
+\end{definicion}
+
+A partir de esta aparente simplicidad (la idempotencia de todos sus elementos), emergen propiedades estructurales muy rígidas que limitan la forma de estos anillos.
+
+\begin{teorema}{Característica 2}{caracteristica_dos}
+Todo anillo booleano tiene característica 2, es decir, $\forall x \in R, x + x = 0_R$. Todo elemento es su propio inverso aditivo.
+\end{teorema}
+\begin{proof}
+Consideremos el elemento $(x+x)$ y apliquemos la idempotencia:
+\begin{align*}
+(x + x) &= (x + x) \cdot (x + x) \\
+x + x &= x^2 + x^2 + x^2 + x^2 \\
+x + x &= x + x + x + x \\
+0_R &= x + x
+\end{align*}
+Por tanto, al restar $x$ en ambos lados obtenemos $x = -x$.
+\end{proof}
+
+\begin{teorema}{Conmutatividad estricta}{conmutatividad_estricta}
+Todo anillo booleano es obligatoriamente conmutativo ($x \cdot y = y \cdot x$).
+\end{teorema}
+\begin{proof}
+Evaluando el elemento $(x+y)$ al cuadrado:
+\begin{align*}
+x + y &= (x + y)^2 \\
+x + y &= x^2 + xy + yx + y^2 \\
+x + y &= x + xy + yx + y \\
+0_R &= xy + yx \\
+xy &= -yx
+\end{align*}
+Como acabamos de demostrar que el anillo tiene característica 2 (cada elemento es su propio inverso aditivo), sabemos que $-yx = yx$, luego $xy = yx$.
+\end{proof}
+
+\section{Funtores de Equivalencia Estructural}
+
+Existe una equivalencia estructural perfecta (un isomorfismo de categorías) entre las Álgebras de Boole y los Anillos Booleanos.
+
+\subsection{De Álgebra de Boole a Anillo Booleano}
+Dada un Álgebra de Boole $(\mathbb{B}, \vee, \wedge, \neg, \bot, \top)$, podemos construir un anillo booleano definiendo los operadores del anillo de la siguiente manera:
+\begin{itemize}
+    \item Suma del anillo: $a + b \triangleq a \oplus b = (a \wedge \neg b) \vee (\neg a \wedge b)$
+    \item Producto del anillo: $a \cdot b \triangleq a \wedge b$
+    \item Elemento neutro aditivo ($0_R$): $\bot$
+    \item Elemento unidad multiplicativo ($1_R$): $\top$
+\end{itemize}
+Es trivial comprobar que la idempotencia multiplicativa se cumple por definición ($a \wedge a = a$), por lo que la estructura resultante es efectivamente un anillo booleano. La estructura dual $(\mathbb{B}, \odot, \vee)$ forma un anillo isomorfo asumiendo a $\top$ como el cero del anillo y a $\bot$ como la unidad multiplicativa.
+
+\subsection{De Anillo Booleano a Álgebra de Boole}
+Inversamente, dado un Anillo Booleano $(R, +, \cdot, 0_R, 1_R)$, podemos recuperar las operaciones lógicas booleanas mediante el siguiente funtor de transformación:
+\begin{itemize}
+    \item Disyunción: $a \vee b \triangleq a + b + (a \cdot b)$
+    \item Conjunción: $a \wedge b \triangleq a \cdot b$
+    \item Negación: $\neg a \triangleq 1_R + a$
+    \item Mínimo ($\bot$): $0_R$
+    \item Máximo ($\top$): $1_R$
+\end{itemize}
+
+\section{Cuerpos Booleanos}
+
+La teoría de Espacios Vectoriales (que trataremos en detalle más adelante) exige que el conjunto de escalares sobre el que se fundamenta el espacio tenga estructura matemática de \textbf{Cuerpo} (\textit{Field} en inglés). Un cuerpo es un anillo conmutativo unitario donde todo elemento distinto de cero tiene inverso multiplicativo; como consecuencia directa fundamental, \textbf{un cuerpo no puede tener divisores de cero}.
+
+\begin{teorema}{El único Cuerpo Booleano es $\mathbb{F}_2$}{cuerpo_booleano}
+Un anillo booleano es un cuerpo matemático si y solo si contiene exactamente dos elementos.
+\end{teorema}
+\begin{proof}
+Sea $R$ un anillo booleano que además cumple las propiedades de un cuerpo. Sea $x \in R$ cualquier elemento del anillo.
+Por la propiedad de idempotencia inherente al anillo booleano:
+\begin{align*}
+x^2 &= x \\
+x^2 - x &= 0_R \\
+x(x - 1_R) &= 0_R
+\end{align*}
+Dado que en un cuerpo no existen divisores de cero, el producto de dos elementos es cero si y solo si al menos uno de los factores es cero. Por lo tanto, obligatoriamente se debe cumplir una de estas dos condiciones para cualquier $x$:
+\[ x = 0_R \quad \text{o} \quad (x - 1_R) = 0_R \implies x = 1_R \]
+En consecuencia, el conjunto de elementos del anillo $R$ solo puede estar formado por $\{0_R, 1_R\}$. 
+\end{proof}
+
+Esta demostración es crucial para nuestro propósito arquitectónico de los sistemas digitales. Nos indica de manera absoluta que si queremos construir espacios vectoriales utilizando operaciones lógicas (que requeriremos para los códigos correctores de errores), \textbf{el único álgebra de Boole que puede actuar como cuerpo de escalares es el álgebra bivaluada $\mathbb{B}_2$}, la cual es algebraicamente isomorfa al cuerpo de Galois $\mathbb{F}_2$. 
+
+Cualquier álgebra de Boole con más de dos elementos (por ejemplo, el álgebra de los subconjuntos de un conjunto de 3 elementos, que tiene $2^3=8$ elementos) es un anillo booleano perfectamente válido, pero fallará al intentar ser un cuerpo por tener divisores de cero, y por lo tanto fracasará si intentamos usarla como escalares para formar un espacio vectorial consigo misma.

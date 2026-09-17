@@ -11,8 +11,8 @@ Esta guía documenta la notación matemática, normas tipográficas, nomenclatur
     $$\wp(U) \quad \text{o} \quad \wp\left(U\right)$$
 
 - **Patrón de Errata por Rescate desde ODT / LibreOffice Math**:
-  - Debido a artefactos del motor de ecuaciones de LibreOffice, el símbolo `\wp` se convierte frecuentemente como `@U`, `@(U)` o `@ U`.
-  - **Regla de Corrección**: Sustituir de manera sistemática cualquier caso de `@U`, `@(U)` o `B := @U` por `\wp(U)` / `B \triangleq \wp(U)`.
+  - Debido a artefactos del motor de ecuaciones de LibreOffice, el símbolo `\wp` se convierte frecuentemente como `\wp(U)`, `@(U)` o `@ U`.
+  - **Regla de Corrección**: Sustituir de manera sistemática cualquier caso de `\wp(U)`, `@(U)` o `B := \wp(U)` por `\wp(U)` / `B \triangleq \wp(U)`.
 
 ---
 

@@ -4,11 +4,16 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath, amssymb, amsthm}
+\usepackage{stmaryrd}
 \usepackage{newunicodechar}
 \newunicodechar{≝}{\triangleq}
+\newcommand{\symdiff}{\mathbin{\vartriangle}}
+\newunicodechar{⟦}{\llbracket}
+\newunicodechar{⟧}{\rrbracket^{\mathbf{\mathrm{I}}}}
 \usepackage{hyperref}
 \usepackage[most]{tcolorbox}
 \usepackage{ocgx2}
+\usepackage{circuitikz}
 
 % Definición de entornos para postulados y teoremas con tcolorbox
 \tcbuselibrary{theorems}
@@ -68,11 +73,15 @@
 \maketitle
 
 \include{capitulo_01}
+\include{capitulo_01b_modelos}
 \include{capitulo_02}
 \include{capitulo_03}
 \include{capitulo_04}
 \include{capitulo_05}
+\include{capitulo_05b_intuicion_logica}
 \include{capitulo_06}
+\include{capitulo_06b_anillos}
+\include{capitulo_06c_reticulos}
 \include{capitulo_07}
 \include{capitulo_08}
 \include{capitulo_09}

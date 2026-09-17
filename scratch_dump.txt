@@ -1,0 +1,345 @@
+451:   \[\begin{matrix}
+452:   {\forall{A \in B}\forall{A \in A}A^{I}{: = {⟦{\mathbf{\mathrm{I}}_{\mathbb{Q}} \smallsetminus A}⟧}}} \\
+453:   {\text{Sea}{A = \underset{k = 1}{\overset{n}{\cup}}}\left\lbrack {a_{k},b_{k}} \right\rbrack} \\
+454:   {A^{I} \equiv \begin{Bmatrix}
+455:   {⟦{{0,a_{1}},{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}},{b_{n},1}}⟧} & \Leftarrow & {{a_{1} \neq {0 \land b_{n}}} \neq 1} \\
+456:   {⟦{{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}},{b_{n},1}}⟧} & \Leftarrow & {{a_{1} = {0 \land b_{n}}} \neq 1} \\
+457:   {⟦{{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}}}⟧} & \Leftarrow & {{a_{1} = {0 \land b_{n}}} = 1} \\
+458:   {⟦{{0,a_{1}},{b_{1,}a_{2}},\ldots,{b_{n - 1},a_{n}}}⟧} & \Leftarrow & {{a_{1} \neq {0 \land b_{n}}} = 1} \\
+459:   {⟦\varnothing ⟧} & \Leftarrow & {{a_{1} = {0 \land b_{1}}} = 1} \\
+460:   {⟦0,1⟧} & \Leftarrow & {{\{\varnothing\}} \in A}
+461:   \end{Bmatrix}}
+462:   \end{matrix}\]
+463: 
+464:   De dónde obtenemos\[\forall{A \in B}\exists{A^{I} \in B}\].
+465: 
+466:   Tenemos que \[{0 \in B}0{{: = {⟦\varnothing ⟧}} \equiv {⟦⟧}}\]y
+467:   \[{1 \in B}1{: = {⟦0,1⟧}}\]y \[{0^{I} = {1 \land 1^{I}}} = 0\]. Además
+468:   observamos con claridad que
+469:   \[\forall{A \in B}\exists{A^{I} \in B}\]tal
+470:   que\[{{A + A^{I}} = {⟦\mathbf{\mathrm{I}}_{\mathbb{Q}}⟧}} = 1\]y
+471:   \[{{A \cdot A^{I}} = {⟦⟧}} = 0\], además de
+472:   \[\forall{A \in B}{{A^{I}}^{I} = A}\]. Así nos queda
+473:   \[A^{I} \equiv \overline{A}\]si se verifican los demás axiomas.
+474: 
+475:   La suma quedará de la siguiente forma :
+476: 
+477:   \[\forall A,{B \in \left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}}}\exists{\left( {A,B} \right) \subset \left( {A \times B} \right)}{A + B} ≝ {⟦{A \cup B}⟧}\]
+478: 
+479:   El producto seguirá un camino par:
+480: 
+481:   \[\forall A,{B \in \left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}}}\exists{\left( {A,B} \right) \subset \left( {A \times B} \right)}{A \cdot B} ≝ {⟦{A \cap B}⟧}\]
+482: 
+483:   Sólo queda ver que efectivamente las operaciones son internas:
+484: 
+485:   Prueba:
+486: 
+487:   \begin{enumerate}
+488:   \def\labelenumii{\arabic{enumii}.}
+489:   \item
+490:     \begin{enumerate}
+491:     \def\labelenumiii{\arabic{enumiii}.}
+492:     \item
+493:       Ahora vamos a desarrollar la suma de forma recurrente:
+494: 
+495:       \[A{B \in \left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}}}{B = {⟦{a_{1}^{B},b_{1}^{B},\ldots,a_{n}^{B},b_{n}^{B}}⟧}}{A = {⟦{a_{1}^{A},b_{1}^{A},\ldots,a_{m}^{A},b_{m}^{A}}⟧}}\]
+496: 
+497:       Comenzaremos por \[m = 0\]y algunos casos especiales:
+498:     \end{enumerate}
+499:   \end{enumerate}
+500: 
+501:   \[{{B + A}{: =}}\begin{Bmatrix}
+502:   {⟦\varnothing ⟧} & {\Leftarrow} & \begin{Bmatrix}
+503:   {A = {⟦⟧}} \\
+504:   {B = {⟦⟧}}
+505:   \end{Bmatrix} \\
+506:   A & {\Leftarrow} & {B = {⟦\varnothing ⟧}} \\
+507:   B & {\Leftarrow} & {A = {⟦\varnothing ⟧}} \\
+508:   1 & {\Leftarrow} & \begin{Bmatrix}
+509:   {\exists{A \in A}} \\
+510:   {\exists{B \in B}} \\
+511:   {\overline{B} \subseteq A} \\
+512:    \vee \\
+513:   {\overline{A} \subseteq B}
+514:   \end{Bmatrix} \\
+515:   A & {\Leftarrow} & \begin{Bmatrix}
+516:   {\exists{B \in B}} \\
+517:   {\exists{A \in A}} \\
+518:   {B \subseteq A}
+519:   \end{Bmatrix} \\
+520:   B & {\Leftarrow} & \begin{Bmatrix}
+521:   {\exists{A \in A}} \\
+522:   {\exists{B \in B}} \\
+523:   {A \subseteq B}
+524:   \end{Bmatrix}
+525:   \end{Bmatrix}\]
+526: 
+527:   Distintos casos con \[m = 1\]
+528: 
+529:   \[{{B + A}{: =}}\begin{Bmatrix}
+530:   {⟦{{a_{1}^{A},b_{1}^{A}},{a_{1}^{B},b_{1}^{B}},\ldots,{a_{n}^{B},a_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+531:   {m = 1} \\
+532:   {a_{1}^{A} \leq a_{1}^{B}} \\
+533:   {b_{1}^{A} \leq a_{1}^{B}}
+534:   \end{Bmatrix}
+535:   \end{Bmatrix}\]
+536: 
+537:   \[{{B + A}{: =}}\begin{Bmatrix}
+538:   {⟦{{a_{1}^{A},b_{1}^{B}},{a_{2}^{B},b_{2}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+539:   {m = 1} \\
+540:   {a_{1}^{A} \leq a_{1}^{B}} \\
+541:   {b_{1}^{A} \geq a_{1}^{B}} \\
+542:   {b_{1}^{A} \leq b_{1}^{B}}
+543:   \end{Bmatrix}
+544:   \end{Bmatrix}\] \[{{B + A}{: =}}\begin{Bmatrix}
+545:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}},{a_{1}^{B},b_{1}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+546:   {m = 1} \\
+547:   {a_{1}^{A} \geq b_{n}^{B}} \\
+548:   {b_{1}^{A} \geq b_{n}^{B}}
+549:   \end{Bmatrix}
+550:   \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+551:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{n - 1}^{B},b_{n - 1}^{B}},{a_{n}^{B},b_{1}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+552:   {m = 1} \\
+553:   {a_{1}^{A} \leq b_{n}^{B}} \\
+554:   {a_{1}^{A} \geq a_{n}^{B}} \\
+555:   {b_{1}^{A} \geq b_{n}^{B}}
+556:   \end{Bmatrix}
+557:   \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+558:   {⟦{{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+559:   {m = 1} \\
+560:   {a_{1}^{A} \leq a_{1}^{B}} \\
+561:   {\exists{k < n}} \\
+562:   {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+563:   {b_{1}^{A} \leq a_{k}^{B}}
+564:   \end{Bmatrix}
+565:   \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+566:   {⟦{{a_{1}^{A},b_{k}^{B}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+567:   {m = 1} \\
+568:   {a_{1}^{A} \leq a_{1}^{B}} \\
+569:   {\exists{k < n}} \\
+570:   {b_{1}^{A} \geq a_{k}^{B}} \\
+571:   {b_{1}^{A} \leq b_{k}^{B}}
+572:   \end{Bmatrix}
+573:   \end{Bmatrix}\]
+574: 
+575:   \[{{B + A}{: =}}\begin{Bmatrix}
+576:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}},{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+577:   {m = 1} \\
+578:   {\exists{k < n}} \\
+579:   {a_{1}^{A} \geq b_{k - 1}^{B}} \\
+580:   {a_{1}^{A} \leq a_{k}^{B}} \\
+581:   {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+582:   {b_{1}^{A} \leq a_{k}^{B}}
+583:   \end{Bmatrix}
+584:   \end{Bmatrix}\]\[\begin{matrix}
+585:   {{B + A}{: =}}
+586:   \end{matrix}\begin{Bmatrix}
+587:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{1}^{A},b_{k}^{B}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+588:   {m = 1} \\
+589:   {\exists{{l < k} < n}} \\
+590:   {a_{1}^{A} \leq a_{l}^{B}} \\
+591:   {a_{1}^{A} \geq b_{l - 1}^{B}} \\
+592:   {b_{1}^{A} \geq a_{k}^{B}} \\
+593:   {b_{1}^{A} \leq b_{k}^{B}}
+594:   \end{Bmatrix}
+595:   \end{Bmatrix}\]\[\begin{matrix}
+596:   {{B + A}{: =}}
+597:   \end{matrix}\begin{Bmatrix}
+598:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{k}^{B}},{a_{k + l}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+599:   {m = 1} \\
+600:   {\exists{{l < k} < n}} \\
+601:   {a_{1}^{A} \geq a_{l}^{B}} \\
+602:   {a_{1}^{A} \leq b_{l}^{B}} \\
+603:   {b_{1}^{A} \leq b_{k}^{B}} \\
+604:   {b_{1}^{A} \geq a_{k}^{B}}
+605:   \end{Bmatrix}
+606:   \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+607:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{1}^{A}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & {\Leftarrow\begin{Bmatrix}
+608:   {m = 1} \\
+609:   {\exists{{l < k} < n}} \\
+610:   {a_{1}^{A} \geq a_{l}^{B}} \\
+611:   {a_{1}^{A} \leq b_{l}^{B}} \\
+612:   {b_{1}^{A} \geq b_{k}^{B}} \\
+613:   {b_{1}^{A} \leq a_{k + 1}^{B}}
+614:   \end{Bmatrix}}
+615:   \end{Bmatrix}\] \[{{B + A}{: =}}\begin{Bmatrix}
+616:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{l}^{B}},{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & {\Leftarrow\begin{Bmatrix}
+617:   {m = 1} \\
+618:   {\exists{{l < k} < n}} \\
+619:   {a_{1}^{A} \geq b_{l}^{B}} \\
+620:   {a_{1}^{A} \leq a_{l + 1}^{B}} \\
+621:   {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+622:   {b_{1}^{A} \leq a_{k}^{B}}
+623:   \end{Bmatrix}}
+624:   \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+625:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{l}^{B}},{a_{1}^{A},b_{1}^{A}},{a_{k}^{B},b_{k}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & {\Leftarrow\begin{Bmatrix}
+626:   {m = 1} \\
+627:   {\exists{{l < k} < n}} \\
+628:   {a_{1}^{A} \leq a_{l + 1}^{B}} \\
+629:   {a_{1}^{A} \geq b_{l}^{B}} \\
+630:   {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+631:   {b_{1}^{A} \leq a_{k}^{B}}
+632:   \end{Bmatrix}}
+633:   \end{Bmatrix}\]\[{{B + A}{: =}}\begin{Bmatrix}
+634:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{l}^{B},b_{k}^{B}},{a_{k + 1}^{B},b_{k + 1}^{B}},\ldots,{a_{n}^{B},b_{n}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+635:   {m = 1} \\
+636:   {\exists{{l < k} < n}} \\
+637:   {a_{1}^{A} \geq a_{l}^{B}} \\
+638:   {a_{1}^{A} \leq b_{l}^{B}} \\
+639:   {b_{1}^{A} \leq b_{k}^{B}} \\
+640:   {b_{1}^{A} \geq a_{k}^{B}}
+641:   \end{Bmatrix}
+642:   \end{Bmatrix}\]
+643: 
+644:   Para el caso \[m = 1\] o \[m = 0\] y especiales queda demostrada el
+645:   cerramiento de \[B\]bajo esta suma reducida. El caso siguiente se
+646:   construye con facilidad por recurrencia en cualquier número finito de
+647:   pasos. Si hacemos sumas comprobadas ya un número de veces finita,
+648:   queda claro que ya no hay más que demostrar.
+649: 
+650:   Para cualquier \[m > 1\]:
+651: 
+652:   \[{{B + A}{: =}}\begin{Bmatrix}
+653:   \begin{matrix}
+654:   {B_{1}{: = {B + {⟦{a_{1}^{A},b_{1}^{A}}⟧}}}} \\
+655:   {B_{i}{: = {B_{i - 1} + {⟦{a_{i}^{A},b_{i}^{A}}⟧}}}} \\
+656:    \vdots \\
+657:   {B_{m}{: = {B_{m - 1} + {⟦{a_{m}^{A},b_{m}^{A}}⟧}}}}
+658:   \end{matrix} & {\Leftarrow} & \begin{Bmatrix}
+659:   {{1 \leq i} \leq m} \\
+660:   {A_{0}{: = {⟦\varnothing ⟧}}} \\
+661:   {A_{1}{: = {A_{0} + {⟦{a_{1}^{A},b_{1}^{A}}⟧}}}} \\
+662:   {A_{i + 1}{: = {A_{i} + {⟦{a_{i}^{A},b_{i}^{A}}⟧}}}} \\
+663:   {A{: = A_{m}}}
+664:   \end{Bmatrix}
+665:   \end{Bmatrix}\]
+666: 
+667:   Queda demostrado que toda suma da como resultado un conjunto finito de
+668:   intervalos gené\-ricos.
+669: 
+670:   A su vez el producto lo vamos a definir de forma re cursiva también,
+671:   comenzando primero con \[A\] siendo la clase de un solo intervalo
+672:   genérico, o la clase del vacío, además de algu\-nos casos especiales.
+673: 
+674:   \[{B \cdot A}{: =}\begin{Bmatrix}
+675:   {⟦\varnothing ⟧} & {\Leftarrow} & \begin{Bmatrix}
+676:   {A = {⟦\varnothing ⟧}} \\
+677:   {B = {⟦\varnothing ⟧}}
+678:   \end{Bmatrix} \\
+679:   A & {\Leftarrow} & {B = 1} \\
+680:   B & {\Leftarrow} & {A = 1} \\
+681:   {⟦\varnothing ⟧} & {\Leftarrow} & \begin{Bmatrix}
+682:   {\exists{B \in B}} \\
+683:   {\exists{A \in A}} \\
+684:   {B \subseteq \overline{A}} \\
+685:    \vee \\
+686:   {A \subseteq \overline{B}}
+687:   \end{Bmatrix} \\
+688:   A & {\Leftarrow} & \begin{Bmatrix}
+689:   {\exists{B \in B}} \\
+690:   {\exists{A \in A}} \\
+691:   {A \subseteq B}
+692:   \end{Bmatrix} \\
+693:   B & {\Leftarrow} & \begin{Bmatrix}
+694:   {\exists{B \in B}} \\
+695:   {\exists{A \in A}} \\
+696:   {B \subseteq A}
+697:   \end{Bmatrix}
+698:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+699:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},a_{k - 1}^{B}}}⟧} & {\Leftarrow} & \begin{Bmatrix}
+700:   {m = 1} \\
+701:   {a_{1}^{A} \leq a_{1}^{B}} \\
+702:   {\exists{k < n}} \\
+703:   {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+704:   {b_{1}^{A} \leq a_{k}^{B}}
+705:   \end{Bmatrix}
+706:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+707:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}},{a_{k}^{B},b_{1}^{A}}}⟧} & {\Leftarrow} & \begin{Bmatrix}
+708:   {m = 1} \\
+709:   {a_{1}^{A} \leq a_{1}^{B}} \\
+710:   {\exists{k < n}} \\
+711:   {b_{1}^{A} \geq a_{k}^{B}} \\
+712:   {b_{1}^{A} \leq b_{k}^{B}}
+713:   \end{Bmatrix}
+714:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+715:   {⟦{{a_{1}^{A},b_{1}^{B}},\ldots,{a_{k - 1}^{B},a_{k - 1}^{B}}}⟧} & {\Leftarrow} & \begin{Bmatrix}
+716:   {m = 1} \\
+717:   {a_{1}^{A} \geq a_{1}^{B}} \\
+718:   {a_{1}^{A} \leq b_{1}^{B}} \\
+719:   {\exists{k < n}} \\
+720:   {b_{1}^{A} \geq b_{k - 1}^{B}} \\
+721:   {b_{1}^{A} \leq a_{k}^{B}}
+722:   \end{Bmatrix}
+723:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+724:   {⟦{{a_{1}^{A},b_{1}^{B}},{a_{2}^{B},b_{2}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{A}},{a_{k}^{B},b_{k}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+725:   {m = 1} \\
+726:   {a_{1}^{A} \geq a_{1}^{B}} \\
+727:   {a_{1}^{A} \leq b_{1}^{B}} \\
+728:   {\exists{k < n}} \\
+729:   {b_{1}^{A} \leq b_{k}^{B}} \\
+730:   {b_{1}^{A} \geq a_{k}^{B}}
+731:   \end{Bmatrix}
+732:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+733:   {⟦{{a_{1}^{B},b_{1}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}},{a_{k}^{B},b_{1}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+734:   {m = 1} \\
+735:   {a_{1}^{A} \leq a_{1}^{B}} \\
+736:   {\exists{k < n}} \\
+737:   {b_{1}^{A} \geq a_{k}^{B}} \\
+738:   {b_{1}^{A} \leq b_{k}^{B}}
+739:   \end{Bmatrix}
+740:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+741:   {⟦{{a_{1}^{A},a_{l}^{B}},\ldots,{a_{i}^{B},b_{i}^{B}},\ldots,{a_{k}^{B},b_{1}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+742:   {m = 1} \\
+743:   {\exists{{l < k} < n}} \\
+744:   {a_{1}^{A} \leq a_{l}^{B}} \\
+745:   {a_{1}^{A} \geq b_{l - 1}^{B}} \\
+746:   {b_{1}^{A} \geq a_{k}^{B}} \\
+747:   {b_{1}^{A} \leq b_{k}^{B}}
+748:   \end{Bmatrix}
+749:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+750:   {⟦{{a_{1}^{A},b_{l}^{B}},\ldots,{a_{i}^{B},b_{i}^{B}},\ldots,{a_{k}^{B},b_{1}^{A}}}⟧} & \Leftarrow & \begin{Bmatrix}
+751:   {m = 1} \\
+752:   {\exists{{l < k} < n}} \\
+753:   {a_{1}^{A} \geq a_{l}^{B}} \\
+754:   {a_{1}^{A} \leq b_{l}^{B}} \\
+755:   {b_{1}^{A} \leq b_{k}^{B}} \\
+756:   {b_{1}^{A} \geq a_{k}^{B}}
+757:   \end{Bmatrix}
+758:   \end{Bmatrix}\]\[{{B \cdot A}{: =}}\begin{Bmatrix}
+759:   {⟦{{a_{1}^{A},b_{l}^{B}},\ldots,{a_{i}^{B},b_{i}^{B}},\ldots,{a_{k - 1}^{B},b_{k - 1}^{B}}}⟧} & \Leftarrow & \begin{Bmatrix}
+760:   {m = 1} \\
+761:   {\exists{{l < k} < n}} \\
+762:   {a_{1}^{A} \geq a_{l}^{B}} \\
+763:   {a_{1}^{A} \leq b_{l}^{B}} \\
+764:   {b_{1}^{A} \leq b_{k}^{B}} \\
+765:   {b_{1}^{A} \geq a_{k - 1}^{B}}
+766:   \end{Bmatrix}
+767:   \end{Bmatrix}\]
+768: 
+769:   Para el caso \[m = 1\] o \[m = 0\] y especiales queda demostrada el
+770:   cerramiento de \[B\]bajo esta suma reducida. El caso siguiente se
+771:   construye con facilidad por recurrencia en cualquier número finito de
+772:   pasos. Si hacemos sumas comprobadas ya un número de veces finita,
+773:   queda claro que ya no hay más que demostrar.
+774: 
+775:   Para el caso \[m > 1\]:
+776: 
+777:   \[{{B \cdot A}{: =}}\begin{Bmatrix}
+778:   {\sum\limits_{i{: = 1}}^{m}\left( {B \cdot {⟦{a_{i}^{A},b_{i}^{A}}⟧}} \right)} & \Leftarrow & \begin{Bmatrix}
+779:   {{1 < i} \leq m} \\
+780:   {A_{0}{: = {⟦\varnothing ⟧}}} \\
+781:   {A_{1}{: = {A_{0} + {⟦{a_{1}^{A},b_{1}^{A}}⟧}}}} \\
+782:   {A_{i + 1}{: = {A_{i} + {⟦{a_{i}^{A},b_{i}^{A}}⟧}}}} \\
+783:   {A{: = A_{m}}}
+784:   \end{Bmatrix}
+785:   \end{Bmatrix}\]
+786: 
+787:   Y queda demostrado que la forma del conjunto producto es una clase de
+788:   unión finita de subintervalos genéricos. Luego pertenece a nuestro
+789:   álgebra de Boole.
+790: 
+791:   Este sistema es muy parecido a un álgebra de conjuntos subálgebra de
+792:   algún conjunto po\-tencia, por lo que es fácil determinar que se trata
+793:   de un álgebra de Boole. Sin embargo su cardinal es
+794:   \[\#{\left( {\left( {\mathbb{Q} \times \mathbb{Q}} \right) \times \left( {\mathbb{N} \times \mathbb{N}} \right)} \right) = \#}\left( \mathbb{N} \right)\].
+795:   Veámoslo:
