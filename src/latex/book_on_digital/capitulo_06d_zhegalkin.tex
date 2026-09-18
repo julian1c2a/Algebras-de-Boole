@@ -1,0 +1,79 @@
+\chapter{Álgebra de Zhegalkin (Polinomios Booleanos)}
+\label{capitulo:zhegalkin}
+
+A lo largo de los capítulos previos hemos estudiado sistemas axiomáticos fundamentados en las tríadas $\{\vee, \wedge, \neg\}$ (Huntington) y en monádicas como $\{\uparrow\}$ y $\{\downarrow\}$ (Sheffer y Peirce). Existe, sin embargo, una formulación alternativa que conecta de forma directa la lógica matemática con la teoría de anillos abstractos y la criptografía moderna: la axiomatización basada en la \textbf{disyunción exclusiva (XOR, $\oplus$)} y la \textbf{conjunción (AND, $\wedge$)}, formulada por el matemático ruso Ivan Zhegalkin en 1927.
+
+\section{El Sistema de Zhegalkin: XOR y AND}
+
+En la estructura de Zhegalkin, un álgebra de Boole se define sobre un conjunto $K$ dotado de dos constantes $\{0, 1\}$ y las operaciones binarias $\oplus$ y $\wedge$ (frecuentemente denotada simplemente como multiplicación $\cdot$). 
+
+Los postulados fundamentales que definen este sistema algebraico (y que coinciden con la definición de un Anillo Booleano conmutativo unitario) son los siguientes:
+
+\begin{teorema}{Postulados del Sistema de Zhegalkin}{zhegalkin_postulados}
+\begin{enumerate}
+    \item \textbf{Asociatividad:} 
+    \[ a \oplus (b \oplus c) = (a \oplus b) \oplus c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c \]
+    \item \textbf{Conmutatividad:} 
+    \[ a \oplus b = b \oplus a \qquad \text{y} \qquad a \cdot b = b \cdot a \]
+    \item \textbf{Elementos Neutros:} 
+    \[ a \oplus 0 = a \qquad \text{y} \qquad a \cdot 1 = a \]
+    \item \textbf{Idempotencia multiplicativa y Nulidad aditiva:} 
+    \[ a \cdot a = a \qquad \text{y} \qquad a \oplus a = 0 \]
+    \item \textbf{Distributividad (AND sobre XOR):} 
+    \[ a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot c) \]
+\end{enumerate}
+\end{teorema}
+
+Nótese una diferencia radical con el álgebra de Huntington: en el sistema de Zhegalkin \textbf{no existe dualidad simétrica}. La operación AND distribuye sobre la operación XOR (postulado 5), pero la operación XOR \textbf{no} distribuye sobre la operación AND. Además, la constante $0$ es absorbente para el AND ($a \cdot 0 = 0$), pero la constante $1$ no lo es para el XOR ($a \oplus 1 = \neg a \neq 1$).
+
+\subsection{Equivalencia con el Álgebra de Huntington}
+
+Para demostrar que este sistema genera un álgebra de Boole completa, basta con definir los operadores clásicos a partir de las herramientas de Zhegalkin:
+
+\begin{itemize}
+    \item \textbf{Negación:} $\neg a \triangleq a \oplus 1$
+    \item \textbf{Disyunción (OR):} $a \vee b \triangleq a \oplus b \oplus (a \cdot b)$
+\end{itemize}
+
+Demostremos algebraicamente que esta definición de OR cumple el Axioma del Complementario ($a \vee \neg a = 1$):
+\begin{align*}
+a \vee \neg a &= a \oplus (\neg a) \oplus (a \cdot \neg a) & \text{Definición de } \vee \\
+&= a \oplus (a \oplus 1) \oplus (a \cdot (a \oplus 1)) & \text{Definición de } \neg \\
+&= (a \oplus a) \oplus 1 \oplus (a \cdot a \oplus a \cdot 1) & \text{Asociatividad y Distributividad} \\
+&= 0 \oplus 1 \oplus (a \oplus a) & \text{Nulidad, Idempotencia y Neutro} \\
+&= 1 \oplus 0 = 1 & \text{Nulidad y Conmutatividad}
+\end{align*}
+
+\section{El Sistema Dual: XNOR y OR}
+
+Aplicando el Principio de Dualidad lógico al sistema de Zhegalkin, obtenemos un sistema equivalente que reposa sobre la equivalencia o co-disyunción exclusiva (\textbf{XNOR, $\odot$}) y la disyunción clásica (\textbf{OR, $+$}).
+
+\begin{teorema}{Postulados Duales (Sistema XNOR / OR)}{xnor_or_postulados}
+Sustituyendo $\oplus$ por $\odot,$ $\cdot$ por $+,$ y permutando $0$ con $1:$
+\begin{enumerate}
+    \item \textbf{Asociatividad:} 
+    \[ a \odot (b \odot c) = (a \odot b) \odot c \qquad \text{y} \qquad a + (b + c) = (a + b) + c \]
+    \item \textbf{Conmutatividad:} 
+    \[ a \odot b = b \odot a \qquad \text{y} \qquad a + b = b + a \]
+    \item \textbf{Elementos Neutros:} 
+    \[ a \odot 1 = a \qquad \text{y} \qquad a + 0 = a \]
+    \item \textbf{Idempotencia aditiva y Unidad de equivalencia:} 
+    \[ a + a = a \qquad \text{y} \qquad a \odot a = 1 \]
+    \item \textbf{Distributividad (OR sobre XNOR):} 
+    \[ a + (b \odot c) = (a + b) \odot (a + c) \]
+\end{enumerate}
+\end{teorema}
+
+En este sistema, podemos recuperar la lógica clásica definiendo la negación y la conjunción:
+\begin{itemize}
+    \item \textbf{Negación:} $\neg a \triangleq a \odot 0$
+    \item \textbf{Conjunción (AND):} $a \wedge b \triangleq a \odot b \odot (a + b)$
+\end{itemize}
+
+\section{Polinomios de Reed-Muller}
+
+Una de las aplicaciones más profundas del Álgebra de Zhegalkin es el teorema de que \textbf{toda función booleana} puede expresarse de forma única como un polinomio multivariable utilizando exclusivamente XOR y AND, sin negaciones previas. A esta forma canónica se le denomina Polinomio de Zhegalkin o forma canónica de \textbf{Reed-Muller}.
+
+Para una función de $n$ variables, el polinomio consta de la suma XOR ($\oplus$) de constantes y productos de variables no negadas:
+\[ f(x_1, x_2, \dots, x_n) = a_0 \oplus (a_1 x_1 \oplus a_2 x_2 \dots) \oplus (a_{12} x_1 x_2 \oplus \dots) \oplus \dots \oplus (a_{12\dots n} x_1 x_2 \dots x_n) \]
+donde cada coeficiente $a_i \in \{0, 1\}.$ La ausencia matemática de negaciones y la tratabilidad matricial de esta forma algebraica la convierten en la base teórica de los códigos de detección y corrección de errores en sistemas de telecomunicación.

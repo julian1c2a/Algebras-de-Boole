@@ -116,3 +116,23 @@ Para las líneas de deducción lógica en las demostraciones (especialmente en l
   - Producto lógico (AND): $x \cdot y \triangleq x' \uparrow y' = (x \uparrow x) \uparrow (y \uparrow y)$
   - Cero ($0$): $0 \triangleq x \uparrow x'$
   - Uno ($1$): $1 \triangleq 0'$
+
+---
+
+## 7. Entornos Matemáticos: Uso y Signos de Puntuación
+
+El uso inadecuado de entornos de ecuación centrada (`\[ ... \]` o `$$ ... $$`) y la puntuación descolocada rompen el flujo de lectura y generan un espaciado anómalo.
+
+1. **Uso de Modo en Línea (`$ ... $`) vs. Modo Desplegado (`\[ ... \]`)**:
+   - Todo símbolo, variable, conjunto o pequeña expresión matemática **incluida dentro del flujo normal de texto** debe ir obligatoriamente en modo en línea (`$ ... $`).
+   - El modo desplegado (`\[ ... \]`) debe reservarse **únicamente** para ecuaciones relevantes, definiciones formales extensas o fórmulas largas que requieran atención y centrado exclusivo.
+
+2. **Signos de Puntuación y Ecuaciones**:
+   - Cuando una ecuación en modo **desplegado** (`\[ ... \]`) finaliza una frase, un bloque o una enumeración, **el signo de puntuación (punto, coma, punto y coma) debe colocarse DENTRO del entorno matemático**.
+     - **Incorrecto**: `\[ X = Y + Z \],`
+     - **Correcto**: `\[ X = Y + Z , \]`
+   - El signo de puntuación en modo **en línea** (`$ ... $`) se coloca **FUERA** del entorno matemático de forma habitual.
+     - **Correcto**: `Sea el conjunto $U \neq \varnothing$, se cumple que...`
+
+3. **Conversión Automática de Ecuaciones Cortas**:
+   - Como regla general, a menos que se indique lo contrario de forma explícita, cualquier bloque en modo desplegado (`\[ ... \]` o `$$ ... $$`) cuyo contenido tenga 10 caracteres de longitud o menos, pasará a ser automáticamente convertido en bloque en línea (`$ ... $`). Esta regla ha sido añadida para favorecer la fluidez de lectura.

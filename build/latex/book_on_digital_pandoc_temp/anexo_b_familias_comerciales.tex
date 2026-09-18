@@ -1,0 +1,69 @@
+\chapter{Familias Comerciales y Catálogo (Serie 74xx)}
+
+Este anexo sirve como manual técnico de referencia rápida para el laboratorio de electrónica digital. Tras haber estudiado los límites teóricos del hardware en el Capítulo \ref{ch:familias}, aquí abordaremos cómo extraer dicha información de los manuales oficiales del fabricante y presentaremos la disposición de pines (pinouts) de los circuitos integrados más habituales.
+
+\section{Anatomía de un Datasheet}
+Un \textit{Datasheet} (Hoja de Características) es el contrato vinculante entre el fabricante (Texas Instruments, Nexperia, ON Semiconductor, etc.) y el ingeniero diseñador.
+Cuando abras el PDF oficial de una puerta (por ejemplo, el SN74LS00), debes buscar inmediatamente tres tablas críticas:
+
+\begin{enumerate}
+    \item \textbf{Absolute Maximum Ratings (Condiciones Máximas Absolutas):} Estos son los límites destructivos. Si superas el voltaje o la temperatura indicados aquí, el encapsulado de silicio se fundirá o sufrirá daños irreversibles. \textit{Jamás se debe diseñar un circuito operando en esta tabla}.
+    \item \textbf{Recommended Operating Conditions (Condiciones Recomendadas):} Esta es la zona segura. Indica los voltajes de alimentación nominales (ej. $V_{CC} = 5\text{V} \pm 5\%$) y las temperaturas de trabajo donde el fabricante garantiza que la puerta se comportará tal y como prometen las matemáticas.
+    \item \textbf{Electrical Characteristics (Características Eléctricas):} Aquí se encuentran los parámetros estudiados previamente ($V_{IH}, V_{IL}, I_{OH}, I_{OL}$). Es vital revisar la fila denominada \textit{Test Conditions} para saber bajo qué carga de corriente o temperatura el fabricante midió esos valores.
+\end{enumerate}
+
+\section{Catálogo de Circuitos Integrados (Serie 74xx)}
+
+Los integrados clásicos suelen presentarse en formato \textit{Dual In-line Package} (DIP), típicamente de 14 o 16 pines.
+\textbf{Regla de oro del empaquetado DIP:} Posicionando la muesca de plástico en forma de semicírculo mirando hacia "arriba" o "izquierda", el Pin 1 es siempre el primero de la parte inferior izquierda. Se cuenta en sentido antihorario. Generalmente, el último pin de abajo a la derecha es la conexión a Tierra (GND), y el pin superior derecho es la alimentación positiva ($V_{CC}$).
+
+A continuación, se listan integrados fundamentales para montar circuitos combinacionales.
+
+\subsection{Puertas Básicas}
+
+\textbf{74LS00 / 74HC00: Cuatro puertas NAND de 2 entradas (Quad 2-Input NAND)}
+% Insertar aquí pinout del 74LS00 extraído del datasheet
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.6\textwidth]{img/7400_pinout.png}
+% \caption{Diagrama de pines del 74LS00 (Quad NAND).}
+% \end{figure}
+Se trata del chip más famoso de la historia digital. Contiene cuatro puertas independientes. Pines de alimentación típicos: 7 (GND) y 14 ($V_{CC}$).
+
+\textbf{74LS04 / 74HC04: Seis Inversores (Hex Inverter)}
+% Insertar aquí pinout del 74LS04 extraído del datasheet
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.6\textwidth]{img/7404_pinout.png}
+% \caption{Diagrama de pines del 74LS04 (Hex Inverter).}
+% \end{figure}
+Un empaquetado de 14 pines que aloja seis puertas NOT, vital para generar el complemento matemático de las variables antes de introducirlas a otras etapas lógicas.
+
+\subsection{Circuitos Combinacionales Estándar MSIs}
+
+\textbf{74LS138 / 74HC138: Decodificador/Demultiplexor 3 a 8}
+% Insertar aquí pinout del 74LS138 extraído del datasheet
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.6\textwidth]{img/74138_pinout.png}
+% \caption{Diagrama de pines del 74LS138 (Decodificador 3 a 8).}
+% \end{figure}
+Permite decodificar 3 bits de dirección ($A, B, C$) para seleccionar una de 8 salidas posibles. Característica fundamental: sus salidas son \textit{activas a baja} (el cable seleccionado baja a cero voltios, el resto se queda en uno). Dispone de 3 pines de habilitación (\textit{Enable}) que facilitan conectar varios chips en cascada para decodificar más bits.
+
+\textbf{74HC157: Multiplexor Cuádruple 2 a 1}
+% Insertar aquí pinout del 74HC157 extraído del datasheet
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.6\textwidth]{img/74157_pinout.png}
+% \caption{Diagrama de pines del 74HC157 (Quad 2-to-1 MUX).}
+% \end{figure}
+El opuesto del decodificador. Selecciona entre dos autobuses de datos de 4 bits ($A$ o $B$) utilizando un único pin selector común, enviando la información elegida a un bus de salida único $Y.$
+
+\textbf{74HC283: Sumador Completo de 4 bits (4-bit Full Adder)}
+% Insertar aquí pinout del 74HC283 extraído del datasheet
+% \begin{figure}[H]
+% \centering
+% \includegraphics[width=0.6\textwidth]{img/74283_pinout.png}
+% \caption{Diagrama de pines del 74HC283 (Sumador 4-bit).}
+% \end{figure}
+Realiza la suma aritmética pura de dos números binarios de 4 bits. Cuenta con entrada de acarreo ($C_{in}$) y salida de acarreo final ($C_{out}$) para encadenar aritméticamente múltiples sumadores si se desea procesar números de 8 o 16 bits en hardware.

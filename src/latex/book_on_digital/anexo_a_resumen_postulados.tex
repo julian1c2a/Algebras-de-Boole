@@ -1,0 +1,252 @@
+\chapter{Resumen de Postulados y Teoremas (Notación Ingenieril)}
+En esta sección se recopilan los postulados de Huntington y los teoremas principales derivados, transcritos a la notación propia del álgebra de conmutación y la lógica digital ($+,$ $\cdot,$ $0,$ $1,$ $\overline{a}$), concebidos como hoja de referencia rápida.
+
+\subsection*{Pre-Axiomas de la Estructura}
+
+\setcounter{tcb@cnt@preaxioma}{0}
+\begin{preaxioma}{Estructura de Conjunto}{esconj_eng}
+Se requiere que se defina sobre un conjunto (por ejemplo, $\mathbb{B}_2 = \{0, 1\}$).
+\end{preaxioma}
+
+\setcounter{tcb@cnt@preaxioma}{1}
+\begin{preaxioma}{Constantes Lógicas}{constantes_eng}
+Este conjunto contiene dos constantes fundamentales: $0$ (falso) y $1$ (verdadero).
+\end{preaxioma}
+
+\setcounter{tcb@cnt@preaxioma}{2}
+\begin{preaxioma}{Operaciones Binarias Internas}{opbinint_eng}
+Se definen dos operaciones binarias internas, la suma ($+$) y el producto ($\cdot$):
+\begin{align*}
++ &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2 \\
+\cdot &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2
+\end{align*}
+\end{preaxioma}
+
+\setcounter{tcb@cnt@preaxioma}{4}
+\begin{preaxioma}{Existencia y Unicidad de Imagen}{exist_unic_eng}
+Para cada par de elementos del conjunto, las operaciones $+$ y $\cdot$ siempre producen un resultado que también pertenece al conjunto, y ese resultado es siempre único.
+\end{preaxioma}
+
+\subsection*{Postulados de Huntington}
+
+\setcounter{tcb@cnt@postulado}{0}
+\begin{postulado}{Elemento neutro}{neutro_eng}
+\[ a + 0 = a \qquad \text{y} \qquad a \cdot 1 = a \]
+\end{postulado}
+
+\setcounter{tcb@cnt@postulado}{2}
+\begin{postulado}{Conmutatividad}{conmut_eng}
+\[ a + b = b + a \qquad \text{y} \qquad a \cdot b = b \cdot a \]
+\end{postulado}
+
+\setcounter{tcb@cnt@postulado}{4}
+\begin{postulado}{Distributividad}{distrib_eng}
+\[ a \cdot (b + c) = (a \cdot b) + (a \cdot c) \qquad \text{y} \qquad a + (b \cdot c) = (a + b) \cdot (a + c) \]
+\end{postulado}
+
+\setcounter{tcb@cnt@postulado}{6}
+\begin{postulado}{Complementario}{comp_eng}
+Para cada elemento $a,$ existe un complemento $\overline{a}$ tal que:
+\[ a + \overline{a} = 1 \qquad \text{y} \qquad a \cdot \overline{a} = 0 \]
+\end{postulado}
+
+\subsection*{Teoremas Fundamentales}
+
+\setcounter{tcb@cnt@teorema}{0}
+\begin{teorema}{Unicidad de los elementos neutros}{unicidad_neutros_eng}
+El elemento neutro para la suma ($0$) y para el producto ($1$) son únicos.
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{1}
+\begin{teorema}{Idempotencia}{idempotencia_eng}
+\[ a + a = a \qquad \text{y} \qquad a \cdot a = a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{2}
+\begin{teorema}{Elementos absorbentes}{absorbentes_eng}
+\[ a + 1 = 1 \qquad \text{y} \qquad a \cdot 0 = 0 \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{5}
+\begin{teorema}{Propiedades de absorción}{absorcion_eng}
+\[ a + (a \cdot b) = a \qquad \text{y} \qquad a \cdot (a + b) = a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{11}
+\begin{teorema}{Leyes de De Morgan}{morgan_eng}
+\[ \overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b} \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{10}
+\begin{teorema}{Involución (Doble negación)}{involucion_eng}
+\[ \overline{\overline{a}} = a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{12}
+\begin{teorema}{Asociatividad}{asociatividad_eng}
+\[ a + (b + c) = (a + b) + c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{9}
+\begin{teorema}{Unicidad del complemento}{unic_comp_eng}
+El complemento $\overline{a}$ de un elemento $a$ es único.
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{6}
+\begin{teorema}{Otras propiedades equivalentes}{otras_prop_eng}
+\begin{itemize}
+    \item \textbf{Orden de retículo:} $a + b = a \iff a \cdot b = b$
+    \item \textbf{Equivalencia de operaciones:} $a + b = a \cdot b \implies a = b$
+    \item \textbf{Cancelación:} $(a + b = a + c \text{ y } a \cdot b = a \cdot c) \implies b = c$
+\end{itemize}
+\end{teorema}
+
+\setcounter{tcb@cnt@definicion}{0}
+\begin{definicion}{Generalización a $n$ variables}{gen_n_vars_eng}
+Las operaciones disyunción y conjunción pueden extenderse a un número $n$ de variables mediante los símbolos sumatorio y productorio:
+\[ \sum_{i=1}^{n} x_i = x_1 + x_2 + \dots + x_n \]
+\[ \prod_{i=1}^{n} x_i = x_1 \cdot x_2 \cdot \dots \cdot x_n \]
+\end{definicion}
+
+\setcounter{tcb@cnt@teorema}{3}
+\begin{teorema}{Casos de Álgebra Trivial}{trivial_eng}
+Si $0 = 1,$ o si existe algún elemento tal que $\overline{a} = a,$ entonces el álgebra contiene un único elemento (álgebra trivial).
+\end{teorema}
+
+
+\setcounter{tcb@cnt@teorema}{13}
+\begin{teorema}{Teorema de Adyacencia (Expansión de Shannon)}{adyacencia_eng}
+\[ a = (a \cdot b) + (a \cdot \overline{b}) \qquad \text{y} \qquad a = (a + b) \cdot (a + \overline{b}) \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{14}
+\begin{teorema}{Teorema de Reducción (Absorción Fuerte)}{reduccion_eng}
+\[ a + (\overline{a} \cdot b) = a + b \qquad \text{y} \qquad a \cdot (\overline{a} + b) = a \cdot b \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{15}
+\begin{teorema}{Teorema del Consenso (Quine)}{consenso_eng}
+\[ (a \cdot b) + (\overline{a} \cdot c) + (b \cdot c) = (a \cdot b) + (\overline{a} \cdot c) \]
+\[ (a + b) \cdot (\overline{a} + c) \cdot (b + c) = (a + b) \cdot (\overline{a} + c) \]
+\end{teorema}
+
+\subsection*{Comportamiento de Operadores Derivados}
+
+\setcounter{tcb@cnt@teorema}{13}
+\begin{teorema}{Idempotencia cruzada (NAND/NOR)}{idemp_cruzada_eng}
+\[ a \uparrow a = \overline{a} \qquad \text{y} \qquad a \downarrow a = \overline{a} \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{14}
+\begin{teorema}{Generación de AND y OR}{gen_inf_sup_eng}
+\[ a \cdot b = \overline{a \uparrow b} = (a \uparrow b) \uparrow (a \uparrow b) \qquad \text{y} \qquad a + b = \overline{a \downarrow b} = (a \downarrow b) \downarrow (a \downarrow b) \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{15}
+\begin{teorema}{Generación cruzada}{gen_cruzada_eng}
+\[ a + b = \overline{a} \uparrow \overline{b} = (a \uparrow a) \uparrow (b \uparrow b) \qquad \text{y} \qquad a \cdot b = \overline{a} \downarrow \overline{b} = (a \downarrow a) \downarrow (b \downarrow b) \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{16}
+\begin{teorema}{Conmutatividad}{conmut_deriv_eng}
+\[ a \uparrow b = b \uparrow a \qquad \text{y} \qquad a \downarrow b = b \downarrow a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{18}
+\begin{teorema}{Comportamiento con las constantes}{constantes_deriv_eng}
+\begin{align*}
+    a \uparrow 1 &= \overline{a} \qquad & a \downarrow 0 &= \overline{a} \\
+    a \uparrow 0 &= 1 \qquad & a \downarrow 1 &= 0
+\end{align*}
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{19}
+\begin{teorema}{Ausencia de Asociatividad}{no_asoc_deriv_eng}
+\[ (a \uparrow b) \uparrow c \neq a \uparrow (b \uparrow c) \qquad \text{y} \qquad (a \downarrow b) \downarrow c \neq a \downarrow (b \downarrow c) \]
+\end{teorema}
+
+\setcounter{tcb@cnt@definicion}{6}
+\begin{definicion}{NAND y NOR de 3 entradas}{n_entradas_eng}
+\[ \uparrow(a,b,c) = \overline{a \cdot b \cdot c} \qquad \text{y} \qquad \downarrow(a,b,c) = \overline{a + b + c} \]
+\end{definicion}
+
+\setcounter{tcb@cnt@teorema}{20}
+\begin{teorema}{NAND/NOR múltiple vs cascada binaria}{multiple_vs_binaria_eng}
+\begin{align*}
+    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad & \uparrow(a,b,c) &\neq a \uparrow (b \uparrow c) \\
+    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad & \downarrow(a,b,c) &\neq a \downarrow (b \downarrow c)
+\end{align*}
+\end{teorema}
+\subsection*{Comportamiento de los Operadores XOR y XNOR}
+
+\setcounter{tcb@cnt@definicion}{4}
+\begin{definicion}{Definición de XOR y XNOR}{def_xor_xnor_eng}
+\[ a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b) \qquad \text{y} \qquad a \odot b = \overline{a \oplus b} = (a \cdot b) + (\overline{a} \cdot \overline{b}) \]
+\end{definicion}
+
+\setcounter{tcb@cnt@teorema}{22}
+\begin{teorema}{Conmutatividad}{conmut_xor_eng}
+\[ a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{23}
+\begin{teorema}{Elementos Neutros e Inversores}{neutros_xor_eng}
+\begin{align*}
+    a \oplus 0 &= a \qquad & a \odot 1 &= a \\
+    a \oplus 1 &= \overline{a} \qquad & a \odot 0 &= \overline{a}
+\end{align*}
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{24}
+\begin{teorema}{Elemento Inverso de sí mismo (Grupo Abeliano)}{idemp_nula_eng}
+\[ a \oplus a = 0 \qquad \text{y} \qquad a \odot a = 1 \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{25}
+\begin{teorema}{Propiedades de Negación}{neg_xor_eng}
+\[ \overline{a \oplus b} = \overline{a} \oplus b = a \oplus \overline{b} = a \odot b \]
+\[ \overline{a \odot b} = \overline{a} \odot b = a \odot \overline{b} = a \oplus b \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{26}
+\begin{teorema}{Asociatividad y Generalización}{asoc_gen_xor_eng}
+Ambos operadores son asociativos:
+\[ a \oplus (b \oplus c) = (a \oplus b) \oplus c \qquad \text{y} \qquad a \odot (b \odot c) = (a \odot b) \odot c \]
+Lo cual permite su generalización a un número arbitrario $n$ de entradas:
+\[ \bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n \qquad \text{y} \qquad \bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n \]
+\end{teorema}
+
+\setcounter{tcb@cnt@teorema}{28}
+\begin{teorema}{Distributividad con el producto y la suma}{dist_xor_eng}
+\[ a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot c) \qquad \text{y} \qquad a + (b \odot c) = (a + b) \odot (a + c) \]
+\end{teorema}
+
+\subsection*{Tablas de Verdad Bivaluadas}
+
+Resumen de las tablas de operación del álgebra de Boole para el caso de dos elementos ($B=\{0,1\}$), transcritas al lenguaje ingenieril:
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{c||c}
+\hline
+$a$ & $\overline{a}$ \\
+\hline\hline
+$0$ & $1$ \\
+$1$ & $0$ \\
+\hline
+\end{tabular}
+\qquad
+\begin{tabular}{cc||c|c|c|c|c|c}
+\hline
+$a$ & $b$ & $a + b$ & $a \cdot b$ & $a \uparrow b$ & $a \downarrow b$ & $a \oplus b$ & $a \odot b$ \\
+\hline\hline
+$0$ & $0$ & $0$ & $0$ & $1$ & $1$ & $0$ & $1$ \\
+$0$ & $1$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ \\
+$1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $0$ \\
+$1$ & $1$ & $1$ & $1$ & $0$ & $0$ & $0$ & $1$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\makeatother

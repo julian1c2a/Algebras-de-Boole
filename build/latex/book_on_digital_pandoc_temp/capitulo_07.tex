@@ -8,10 +8,10 @@ Esta dualidad álgebra/topología es la clave matemática que nos va a revelar l
 
 Para comprender la anatomía de un álgebra finita, debemos identificar sus "ladrillos fundamentales", es decir, los elementos indivisibles a partir de los cuales se puede construir todo el conjunto operando con supremos (sumas).
 
-\begin{definicion}{Átomos}{atomos}
+\begin{quote}\textbf{Definicion (Átomos):}\label{atomos}
 Un elemento $x \in \mathbb{B}$ se denomina \textbf{átomo} si es un elemento estrictamente positivo, $x \ne \bot,$ y no existe ningún elemento intermedio entre él y el $\bot.$ Formalmente:
 \[ \mathit{atom}(x) \iff (x > \bot) \wedge \left( \forall y \in \mathbb{B}, \bot < y \le x \implies y = x \right) \]
-\end{definicion}
+\end{quote}
 
 En términos puramente algebraicos, un átomo $x$ es aquel cuyo producto (ínfimo) con cualquier otro elemento $y \in \mathbb{B}$ es el aniquilador total o bien él mismo (absorbente total):
 \[ \mathit{atom}(x) \iff (x \ne \bot) \wedge \left( \forall y \in \mathbb{B}, (x \wedge y = \bot) \vee (x \wedge y = x) \right) \]
@@ -19,10 +19,10 @@ El conjunto de todos los átomos de un álgebra de Boole se denota como $\mathit
 Una propiedad inmediata es que el ínfimo de dos átomos distintos es siempre nulo:
 \[ \forall a, b \in \mathit{Atom}(\mathbb{B}), a \ne b \implies a \wedge b = \bot \]
 
-\begin{definicion}{Hiperátomos (Co-átomos)}{hiperatomos}
+\begin{quote}\textbf{Definicion (Hiperátomos (Co-átomos)):}\label{hiperatomos}
 De forma dual, un \textbf{hiperátomo} o \textbf{co-átomo} es un elemento estrictamente inferior a $\top$ tal que no existe ningún elemento intermedio entre él y el máximo.
 \[ \mathit{hatom}(x) \iff (x < \top) \wedge \left( \forall y \in \mathbb{B}, x \le y < \top \implies y = x \right) \]
-\end{definicion}
+\end{quote}
 
 En cualquier álgebra finita no trivial (donde $\top \ne \bot$), los conjuntos $\mathit{Atom}(\mathbb{B})$ e $\mathit{Hatom}(\mathbb{B})$ nunca están vacíos.
 
@@ -49,10 +49,10 @@ Esta función preserva de forma natural las operaciones del álgebra de subconju
 \subsection{Isomorfismo y Cardinalidad}
 El gran triunfo matemático para las álgebras finitas se resume en el siguiente teorema.
 
-\begin{teorema}{Representación de Álgebras de Boole Finitas}{rep_stone}
+\begin{quote}\textbf{Teorema (Representación de Álgebras de Boole Finitas):}\label{rep_stone}
 Toda álgebra de Boole finita $\mathbb{B}$ es algebraicamente isomorfa al álgebra del conjunto potencia de sus átomos. Es decir, la función $\varphi$ es una biyección perfecta:
 \[ \mathbb{B} \simeq \wp(\mathit{Atom}(\mathbb{B})) \]
-\end{teorema}
+\end{quote}
 \begin{proof}
 Dado que el álgebra es finita, no existen cadenas infinitas descendentes. Todo elemento $x \in \mathbb{B}$ (salvo el $\bot$) acota por arriba a al menos un átomo. Por distributividad y ortogonalidad de los átomos ($a \wedge b = \bot$), cualquier elemento $x$ puede expresarse de forma única como el supremo de los átomos que lo preceden: 
 \[ x = \bigvee \{ a \in \mathit{Atom}(\mathbb{B}) \mid a \le x \} \]
@@ -61,10 +61,10 @@ Por lo tanto, la función inversa de $\varphi$ está perfectamente definida, dem
 
 De este isomorfismo se desprende una consecuencia colosal, formulada previamente de soslayo en nuestro análisis de los conjuntos topológicos.
 
-\begin{teorema}{Cardinalidad de un Álgebra Finita}{cardinalidad}
+\begin{quote}\textbf{Teorema (Cardinalidad de un Álgebra Finita):}\label{cardinalidad}
 Si un álgebra de Boole es finita, su número total de elementos debe ser, forzosamente, una potencia de 2.
 \[ |\mathbb{B}| = 2^n \quad \text{donde} \quad n = |\mathit{Atom}(\mathbb{B})| \]
-\end{teorema}
+\end{quote}
 
 Cualquier conjunto que no tenga exactamente $2, 4, 8, 16, \ldots$ elementos \textbf{jamás podrá} constituir un álgebra de Boole, sin importar qué operaciones intentemos definir sobre él. Y aún más importante: todas las álgebras de Boole finitas que tengan el mismo número de elementos son exactamente la misma álgebra (son algebraicamente isomorfas). Solo hay \textit{un} álgebra de Boole de 2 elementos, \textit{una} de 4 elementos, \textit{una} de 8 elementos, etc.
 
@@ -78,10 +78,10 @@ Para que un álgebra infinita sea isomorfa al conjunto potencia de sus átomos, 
     \item \textbf{Ser completa:} Todo subconjunto (incluso infinito) de elementos debe poseer un supremo y un ínfimo que pertenezcan obligatoriamente al álgebra.
 \end{enumerate}
 
-\begin{teorema}{Isomorfismo de Álgebras Atómicas y Completas}{rep_stone_infinito}
+\begin{quote}\textbf{Teorema (Isomorfismo de Álgebras Atómicas y Completas):}\label{rep_stone_infinito}
 Cualquier álgebra de Boole $\mathbb{B}$ que sea simultáneamente completa y atómica es isomorfa al álgebra del conjunto potencia de sus átomos:
 \[ \mathbb{B} \simeq \wp(\mathit{Atom}(\mathbb{B})) \]
-\end{teorema}
+\end{quote}
 
 Si falla alguna de estas dos propiedades, el isomorfismo se rompe. Podemos revisitar los modelos topológicos de cardinalidad $\aleph_0$ para ilustrar este fenómeno:
 \begin{itemize}

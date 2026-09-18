@@ -10,7 +10,7 @@ Todos los axiomas de Huntington (1904) de los que hemos partido son reducibles a
 
 El sistema axiomático propuesto por Sheffer para la operación NAND consta de los siguientes cinco postulados sobre una clase $K:$
 
-\begin{teorema}{Postulados de Sheffer (1913) - Operador NAND}{sheffer_nand}
+\begin{quote}\textbf{Teorema (Postulados de Sheffer (1913) - Operador NAND):}\label{sheffer_nand}
 \begin{enumerate}
     \item Existen al menos dos elementos distintos en $K.$
     \item Clausura: Para cualesquiera $a, b \in K,$ el resultado de $a \uparrow b$ también pertenece a $K.$
@@ -18,7 +18,7 @@ El sistema axiomático propuesto por Sheffer para la operación NAND consta de l
     \item $a \uparrow (b \uparrow (b \uparrow b)) = a \uparrow a$
     \item $(a \uparrow (b \uparrow c)) \uparrow (a \uparrow (b \uparrow c)) = ((b \uparrow b) \uparrow a) \uparrow ((c \uparrow c) \uparrow a)$
 \end{enumerate}
-\end{teorema}
+\end{quote}
 
 Es directo demostrar que los axiomas de Huntington implican estos cinco postulados:
 
@@ -69,7 +69,7 @@ Al llegar ambos desarrollos a la misma expresión booleana ($a \wedge (\neg b \v
 
 El razonamiento es rigurosamente simétrico si se escoge el operador dual $\downarrow.$
 
-\begin{teorema}{Postulados de Sheffer Duales - Operador NOR}{sheffer_nor}
+\begin{quote}\textbf{Teorema (Postulados de Sheffer Duales - Operador NOR):}\label{sheffer_nor}
 \begin{enumerate}
     \item Existen al menos dos elementos distintos en $K.$
     \item Clausura: Para cualesquiera $a, b \in K,$ el resultado de $a \downarrow b$ pertenece a $K.$
@@ -77,7 +77,7 @@ El razonamiento es rigurosamente simétrico si se escoge el operador dual $\down
     \item $a \downarrow (b \downarrow (b \downarrow b)) = a \downarrow a$
     \item $(a \downarrow (b \downarrow c)) \downarrow (a \downarrow (b \downarrow c)) = ((b \downarrow b) \downarrow a) \downarrow ((c \downarrow c) \downarrow a)$
 \end{enumerate}
-\end{teorema}
+\end{quote}
 
 \begin{proof}
 La demostración sigue un patrón idéntico de dualidad. El postulado 3 se demuestra recordando que $x \downarrow x = \neg x:$
@@ -108,9 +108,9 @@ Definimos los operadores clásicos en base estricta al operador $\uparrow:$
 
 El desarrollo formal completo exige demostrar primeramente una serie de lemas a partir de los Postulados 3, 4 y 5 de Sheffer.
 
-\begin{teorema}{Lema 1: Involución Doble Negación}{sheffer_inv}
+\begin{quote}\textbf{Teorema (Lema 1: Involución Doble Negación):}\label{sheffer_inv}
 $\forall a \in K, \neg(\neg a) = a$
-\end{teorema}
+\end{quote}
 \begin{proof}
 Utilizando nuestra definición de negación ($\neg x = x \uparrow x$):
 \begin{align*}
@@ -120,18 +120,18 @@ Utilizando nuestra definición de negación ($\neg x = x \uparrow x$):
 \end{align*}
 \end{proof}
 
-\begin{teorema}{Lema 2: Conmutatividad del Operador NAND}{sheffer_conmut}
+\begin{quote}\textbf{Teorema (Lema 2: Conmutatividad del Operador NAND):}\label{sheffer_conmut}
 $\forall a,b \in K, a \uparrow b = b \uparrow a$
-\end{teorema}
+\end{quote}
 \begin{proof}
 El Postulado 5 de Sheffer establece una simetría fundamental que permite, tras varias sustituciones algebraicas con el Postulado 4 (identidad), aislar los términos para probar la conmutatividad estricta de la barra de Sheffer. Este paso (cuya extensión algebraica omitimos por ser un resultado canónico de Sheffer (1913)) garantiza la simetría de las operaciones derivadas.
 \end{proof}
 
 \subsection{Demostración de los Axiomas de Huntington}
 
-\begin{teorema}{Conmutatividad (Huntington 3)}{hunt_conmut_sheffer}
+\begin{quote}\textbf{Teorema (Conmutatividad (Huntington 3)):}\label{hunt_conmut_sheffer}
 $a \vee b = b \vee a$ y $a \wedge b = b \wedge a.$
-\end{teorema}
+\end{quote}
 \begin{proof}
 Para la disyunción, apoyándonos en el Lema 2:
 \begin{align*}
@@ -147,9 +147,9 @@ a \wedge b &= (a \uparrow b) \uparrow (a \uparrow b) & \text{Definición de } \w
 \end{align*}
 \end{proof}
 
-\begin{teorema}{Axioma del Complementario (Huntington 5)}{hunt_comp_sheffer}
+\begin{quote}\textbf{Teorema (Axioma del Complementario (Huntington 5)):}\label{hunt_comp_sheffer}
 Se cumple que $a \vee \neg a = \top$ y $a \wedge \neg a = \bot.$
-\end{teorema}
+\end{quote}
 \begin{proof}
 El álgebra de Sheffer carece inicialmente de constantes. Estas emergen dinámicamente como invariantes algebraicos. Comprobemos $a \vee \neg a:$
 \begin{align*}
@@ -170,9 +170,9 @@ a \wedge \neg a &= (a \uparrow \neg a) \uparrow (a \uparrow \neg a) & \text{Defi
 \end{align*}
 \end{proof}
 
-\begin{teorema}{Distributividad y Elementos Neutros}{hunt_dist_sheffer}
+\begin{quote}\textbf{Teorema (Distributividad y Elementos Neutros):}\label{hunt_dist_sheffer}
 Quedan demostrados formalmente los postulados de Distributividad y Elemento Neutro mediante expansión iterativa de la conmutatividad y sustitución del Postulado 5.
-\end{teorema}
+\end{quote}
 \begin{proof}
 La demostración del axioma de distributividad ($a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$) en el sistema de Sheffer requiere desarrollar la parte derecha mediante más de treinta expansiones sucesivas empleando el Lema 1 y el Postulado 5. Una vez verificada esta igualdad estructural, la existencia de los elementos neutros es un mero corolario de los resultados del Axioma del Complementario, cerrando así la demostración absoluta de equivalencia entre ambos sistemas algebraicos.
 \end{proof}

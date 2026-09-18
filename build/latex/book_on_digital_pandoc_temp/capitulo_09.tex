@@ -86,14 +86,14 @@ Cuándo la sigma (el minitérmino) es en todos los casos (para todas las iotas) 
 \subsection{Desarrollo por maxitérminos}
 En el desarrollo por maxitérminos de una función de $n$ variables, los maxitérminos son sumatorios de $n$-términos simples. Así termina consistiendo la función en un producto de maxitérminos. Los maxitérminos indican un $0$ de la función.
 
-\begin{teorema}{Universalidad de las Formas Canónicas (Expansión de Shannon)}{shannon_expansion}
+\begin{quote}\textbf{Teorema (Universalidad de las Formas Canónicas (Expansión de Shannon)):}\label{shannon_expansion}
 Toda función booleana $f: \mathbb{B}^n \to \mathbb{B}$ puede expresarse de manera única (salvo conmutatividad) de dos formas canónicas duales:
 \begin{enumerate}
     \item \textbf{Suma de Productos (SOP) / Minitérminos:} $f(x_1, \dots, x_n) = \sum_{\iota \in \mathbb{B}^n} f(\iota) \cdot \sigma^\iota$
     \item \textbf{Producto de Sumas (POS) / Maxitérminos:} $f(x_1, \dots, x_n) = \prod_{\iota \in \mathbb{B}^n} (f(\iota) + \Pi^\iota)$
 \end{enumerate}
 donde $\sigma^\iota$ es el minitérmino (producto en el que todas las variables aparecen afirmadas si $\iota_k=1$ o negadas si $\iota_k=0$), y $\Pi^\iota$ es el maxitérmino dual.
-\end{teorema}
+\end{quote}
 \begin{proof}
 Demostraremos la forma de minitérminos (SOP). Sea $\vec{x} \in \mathbb{B}^n$ un vector de entrada arbitrario. Por la construcción de los minitérminos, el término $\sigma^\iota(\vec{x}) = 1$ si y solo si el vector de entrada $\vec{x}$ es exactamente idéntico al vector constante $\iota.$ Para cualquier otro vector $\iota' \ne \vec{x},$ se cumple $\sigma^{\iota'}(\vec{x}) = 0.$
 
@@ -106,13 +106,13 @@ Esto demuestra que la expresión reproduce exactamente la tabla de verdad de la 
 
 Hemos visto en el capítulo dedicado al Sistema de Zhegalkin (ver Capítulo \ref{capitulo:zhegalkin}) que el anillo booleano $\langle \mathbb{B}, \oplus, \cdot \rangle$ forma un conjunto funcionalmente completo. Surge la pregunta práctica: dada una función expresada en su forma canónica de minitérminos (con 2 capas lógicas de AND $\to$ OR), ¿cómo podemos transformarla sistemáticamente a un circuito equivalente usando exclusivamente puertas XOR y AND?
 
-\begin{teorema}{Conversión de Minitérminos a Polinomio de Zhegalkin}{minterms_to_zhegalkin}
+\begin{quote}\textbf{Teorema (Conversión de Minitérminos a Polinomio de Zhegalkin):}\label{minterms_to_zhegalkin}
 Toda expresión canónica en Suma de Productos (SOP) puede transformarse directamente en un Polinomio de Zhegalkin (XOR-AND) aplicando dos reglas:
 \begin{enumerate}
     \item Reemplazar directamente todas las sumas lógicas (OR, $+$) por sumas exclusivas (XOR, $\oplus$).
     \item Reemplazar cada variable negada $\overline{x_k}$ por $(x_k \oplus 1)$ y aplicar la distributividad del producto sobre la suma exclusiva.
 \end{enumerate}
-\end{teorema}
+\end{quote}
 \begin{proof}
 Para demostrar la regla 1, recordamos la relación fundamental entre OR y XOR:
 \[ A + B = A \oplus B \oplus (A \cdot B) \]

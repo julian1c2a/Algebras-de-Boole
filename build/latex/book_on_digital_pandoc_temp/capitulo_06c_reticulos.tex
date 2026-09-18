@@ -5,14 +5,14 @@ El álgebra de Boole también puede formularse íntegramente prescindiendo de lo
 
 Para ello, introducimos una relación binaria $\le$ sobre el conjunto $\mathbb{B}.$ 
 
-\begin{definicion}{Conjunto Parcialmente Ordenado (Poset)}{poset}
+\begin{quote}\textbf{Definicion (Conjunto Parcialmente Ordenado (Poset)):}\label{poset}
 Un conjunto $P$ equipado con una relación binaria $\le$ es un conjunto parcialmente ordenado (poset) si la relación satisface los siguientes axiomas para todo $a, b, c \in P:$
 \begin{enumerate}
     \item \textbf{Reflexividad}: $a \le a.$
     \item \textbf{Antisimetría}: Si $a \le b$ y $b \le a,$ entonces $a = b.$
     \item \textbf{Transitividad}: Si $a \le b$ y $b \le c,$ entonces $a \le c.$
 \end{enumerate}
-\end{definicion}
+\end{quote}
 
 En este contexto, escribiremos $a \ge b$ como sinónimo estricto de $b \le a,$ y $a < b$ si $a \le b$ pero $a \ne b.$
 
@@ -24,9 +24,9 @@ Dado un poset $(P, \le),$ consideremos un par de elementos $a, b \in P.$
     \item Un elemento $l \in P$ es una \textbf{cota inferior} de $\{a, b\}$ si $l \le a$ y $l \le b.$ El \textbf{ínfimo} de $a$ y $b,$ denotado como $a \sqcap b,$ es la mayor de todas sus cotas inferiores (si existe).
 \end{itemize}
 
-\begin{definicion}{Retículo (Lattice)}{reticulo}
+\begin{quote}\textbf{Definicion (Retículo (Lattice)):}\label{reticulo}
 Un \textbf{retículo} es un conjunto parcialmente ordenado en el cual todo par de elementos tiene un supremo ($a \sqcup b$) y un ínfimo ($a \sqcap b$) definidos y únicos dentro del conjunto.
-\end{definicion}
+\end{quote}
 
 \section{Funtores de Equivalencia Estructural}
 
@@ -42,30 +42,30 @@ Bajo esta métrica de orden impuesta por las operaciones lógicas, es directo de
 \subsection{De Retículo a Álgebra (Retículos Booleanos)}
 No todo retículo es un álgebra de Boole. Para recuperar un álgebra de Boole plena desde la topología de orden puro, el retículo subyacente debe poseer tres propiedades restrictivas adicionales. Analizaremos cada una de ellas de forma formal:
 
-\begin{definicion}{Retículo Acotado}{reticulo_acotado}
+\begin{quote}\textbf{Definicion (Retículo Acotado):}\label{reticulo_acotado}
 Un retículo $(L, \le)$ es un \textbf{retículo acotado} si posee un elemento universal máximo (denotado como $\top$ o $1$) y un elemento universal mínimo (denotado como $\bot$ o $0$). Es decir, existe $\top, \bot \in L$ tal que para todo $x \in L:$
 \[ \bot \le x \le \top \]
-\end{definicion}
+\end{quote}
 
 En un retículo acotado, para cualquier elemento $x,$ se cumple de forma natural que $x \sqcap \bot = \bot,$ $x \sqcup \top = \top,$ $x \sqcup \bot = x$ y $x \sqcap \top = x.$
 
-\begin{definicion}{Retículo Distributivo (y Bidistributivo)}{reticulo_distributivo}
+\begin{quote}\textbf{Definicion (Retículo Distributivo (y Bidistributivo)):}\label{reticulo_distributivo}
 Un retículo es \textbf{distributivo} si la operación de ínfimo distribuye sobre la operación de supremo. Es decir, para cualesquiera $a,b,c \in L:$
 \[ a \sqcap (b \sqcup c) = (a \sqcap b) \sqcup (a \sqcap c) \]
-\end{definicion}
+\end{quote}
 
 En la teoría de retículos se demuestra que, de cumplirse esta distributividad, entonces obligatoriamente se cumple también la dual (el supremo distribuye sobre el ínfimo), por lo que todo retículo distributivo es estructuralmente \textbf{bidistributivo}: $a \sqcup (b \sqcap c) = (a \sqcup b) \sqcap (a \sqcup c).$
 
-\begin{definicion}{Retículo Complementado}{reticulo_complementado}
+\begin{quote}\textbf{Definicion (Retículo Complementado):}\label{reticulo_complementado}
 Un retículo acotado es un \textbf{retículo complementado} si, para todo elemento $a \in L,$ existe al menos un elemento $b \in L$ (denominado complemento de $a,$ y a menudo escrito como $\neg a$) tal que:
 \[ a \sqcup b = \top \qquad \text{y} \qquad a \sqcap b = \bot \]
-\end{definicion}
+\end{quote}
 
 Si un retículo es distributivo, se puede demostrar algebraicamente que, si un elemento posee complemento, dicho complemento es absolutamente \textbf{único}. Esta combinación de las tres propiedades descritas da lugar a la estructura fundamental que nos ocupa:
 
-\begin{teorema}{Axiomas del Retículo Booleano}{axiomas_reticulo_booleano}
+\begin{quote}\textbf{Teorema (Axiomas del Retículo Booleano):}\label{axiomas_reticulo_booleano}
 Un retículo $(L, \le)$ es isomorfo a un Álgebra de Boole si y solo si es a la vez un retículo \textbf{acotado}, \textbf{distributivo} y \textbf{complementado}. A esta superestructura se la conoce matemáticamente como \textit{Retículo Booleano}.
-\end{teorema}
+\end{quote}
 
 \section{Implicación para las Álgebras Finitas}
 Esta profunda visión topológica como un retículo complementado y distributivo es la base fundamental que nos permitirá visualizar las álgebras de Boole en el espacio mediante \textit{Diagramas de Hasse}. 

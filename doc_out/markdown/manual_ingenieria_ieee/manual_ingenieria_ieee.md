@@ -1,3 +1,10 @@
+$$
+\gdef\symdiff{\mathbin{\vartriangle}}
+\gdef\llbracket{\lbrack\!\lbrack}
+\gdef\rrbracket{\rbrack\!\rbrack}
+\gdef\triangleq{\stackrel{\mathrm{def}}{=}}
+$$
+
 # Introducción a las Puertas Lógicas
 
 En la ingeniería y el diseño digital, las operaciones abstractas del

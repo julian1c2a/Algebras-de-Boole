@@ -1,0 +1,90 @@
+\chapter{Familias Lógicas y Parámetros Eléctricos}
+
+El Álgebra de Boole opera sobre un universo inmaculado de ceros y unos perfectos. En él, los cambios de estado ocurren en cero segundos, y las puertas lógicas pueden conectarse a infinitas compuertas sin que la señal sufra degradación. Sin embargo, en la ingeniería del mundo real, las funciones booleanas se implementan utilizando transistores, voltajes, y cables que presentan capacitancias parásitas y resistencias.
+
+Este capítulo cierra la brecha entre la lógica abstracta y la circuitería física, estudiando cómo los componentes electrónicos reales fallan, se retrasan, e imponen límites estrictos al diseño digital.
+
+\section{Tecnologías de Familias Lógicas}
+
+Históricamente, los interruptores digitales evolucionaron desde los relés electromecánicos a las válvulas de vacío. La verdadera revolución llegó con los semiconductores. En un circuito integrado (CI), una puerta lógica se construye interconectando transistores. Al conjunto de chips que comparten la misma arquitectura subyacente de transistores, niveles de voltaje, e interfaces eléctricas, se le denomina \textbf{Familia Lógica}.
+
+\subsection{La Tecnología TTL}
+La Lógica Transistor-Transistor (TTL) dominó la industria desde los años 70 hasta los 90. Internamente emplea transistores bipolares (BJT). El estándar original utilizaba una tensión de alimentación unificada de $5\text{V}.$
+
+La variante más famosa y ubicua de esta tecnología es la serie comercial \textbf{74LS} (\textit{Low-power Schottky}). En esta serie, la adición de diodos Schottky previene que los transistores entren en saturación profunda, aumentando drásticamente la velocidad de conmutación. Pese a ser obsoleta comercialmente frente a tecnologías modernas, la serie TTL sigue siendo el pilar de los laboratorios docentes debido a su extrema robustez frente a cortocircuitos accidentales y maltrato eléctrico, además de establecer el estándar histórico de facto para los voltajes lógicos de $5\text{V}.$
+
+\subsection{La Tecnología CMOS}
+La llegada de la lógica basada en semiconductores de óxido metálico complementarios (CMOS) revolucionó por completo la densidad de integración y el consumo de energía. CMOS utiliza parejas de transistores MOSFET (tipo N y tipo P) dispuestos de forma que \textbf{siempre} uno de ellos esté cortado en estado de reposo.
+
+\begin{itemize}
+    \item \textbf{Ventaja Absoluta:} El consumo estático (cuando las entradas no cambian) es virtualmente cero. Esto permitió la miniaturización sin fundir térmicamente el chip, habilitando procesadores con miles de millones de transistores.
+    \item \textbf{Serie 74HC (\textit{High-Speed CMOS}):} Velocidad comparable al 74LS, pero con el consumo microscópico de la tecnología CMOS.
+    \item \textbf{Serie 74HCT (\textit{CMOS TTL-compatible}):} Construida en CMOS pero con los umbrales de detección de voltaje deliberadamente alterados en fábrica para ser compatibles con los niveles clásicos del TTL, actuando como un puente entre ambos mundos.
+\end{itemize}
+
+\section{Parámetros de Voltaje y Márgenes de Ruido}
+
+En el mundo físico, un ``$1$'' lógico o un ``$0$'' no es un punto escalar perfecto, sino una franja o \textit{banda de voltaje}.
+
+\subsection{Niveles Lógicos Garantizados}
+Todo fabricante especifica cuatro voltajes críticos en sus diagramas eléctricos:
+\begin{itemize}
+    \item $V_{IL}$ (\textit{Voltage Input Low}): Voltaje máximo garantizado que el chip reconocerá sin ambigüedades como un cero lógico a la entrada.
+    \item $V_{IH}$ (\textit{Voltage Input High}): Voltaje mínimo garantizado que el chip interpretará sólidamente como un uno lógico.
+    \item $V_{OL}$ (\textit{Voltage Output Low}): Voltaje máximo que entregará la puerta por su pin de salida cuando intente expulsar un cero lógico.
+    \item $V_{OH}$ (\textit{Voltage Output High}): Voltaje mínimo garantizado de salida cuando se intente expulsar un uno lógico.
+\end{itemize}
+
+Para que una puerta A pueda excitar correctamente a una puerta B, la señal eléctrica de la salida de A debe caer sobradamente dentro de las tolerancias de lectura de B. Por diseño, siempre debe cumplirse que $V_{OH} > V_{IH}$ y $V_{OL} < V_{IL}.$
+
+\subsection{La Zona Prohibida ("Tierra de Nadie")}
+El espacio comprendido estrictamente entre $V_{IL}$ y $V_{IH}$ se denomina zona de transición o zona prohibida. Si una entrada analógica cae en este voltaje intermedio, ocurren varios fenómenos indeseados:
+\begin{enumerate}
+    \item \textbf{Comportamiento Erróneo o Oscilante:} La salida podría fluctuar de 0 a 1 caóticamente ante el mínimo ruido electromagnético ambiental (antena).
+    \item \textbf{Sobreconsumo Térmico:} Especialmente crítico en CMOS. Si un transistor de entrada se detiene a mitad de camino, ambos transistores (Pull-up y Pull-down) conducirán simultáneamente, generando un cortocircuito directo entre $V_{CC}$ y Tierra que disipará calor masivamente.
+\end{enumerate}
+
+\subsection{Márgenes de Inmunidad al Ruido}
+El margen de ruido cuantifica cuánta interferencia electromagnética (voltaje parásito inducido en las pistas de cobre) puede soportar un cable antes de que la compuerta receptora lea un valor equivocado. Se define asimétricamente para ambos estados:
+\[ M_{N_H} \text{ (Margen Alto)} = V_{OH} - V_{IH} \]
+\[ M_{N_L} \text{ (Margen Bajo)} = V_{IL} - V_{OL} \]
+La tecnología CMOS no solo consume menos, sino que proporciona márgenes de ruido drásticamente superiores al TTL, rozando casi el $\sim 1.5\text{V}$ de inmunidad frente a los $\sim 0.4\text{V}$ típicos del 74LS, blindándola para entornos ruidosos industriales.
+
+\section{Parámetros de Corriente y Carga (Fan-Out)}
+
+Las compuertas lógicas están formadas por semiconductores, y enviar voltajes requiere mover electrones. 
+Adoptamos una convención de signo estándar: la corriente que \textbf{entra} al chip desde el exterior se denota positiva, y la corriente que \textbf{sale} del chip impulsada por él se denota negativa.
+
+\subsection{Especificaciones de Corriente}
+Encontramos cuatro corrientes limitantes en toda familia lógica:
+\begin{itemize}
+    \item $I_{IL} / I_{IH}:$ Corriente requerida para inyectar/drenar de un pin de entrada al forzar un estado bajo ($L$) o alto ($H$). Es el "coste" de empujar electrones hacia la puerta.
+    \item $I_{OL} / I_{OH}:$ Capacidad máxima de conducción de la etapa de salida (cuántos amperios puede hundir a Tierra o proporcionar desde la fuente antes de que el voltaje caiga fuera de tolerancia).
+\end{itemize}
+
+\subsection{Fan-in y Fan-out Estático}
+El \textbf{Fan-in} es, estructuralmente, el número máximo de pines de entrada físicos que un modelo de puerta concreta tiene diseñados (una NAND de 3 entradas tiene un Fan-in de 3).
+
+El \textbf{Fan-out} es mucho más crítico. Es la cantidad máxima de compuertas idénticas que una única compuerta conductora puede pilotar conectadas en paralelo sin que se viole ningún nivel de voltaje de seguridad. Se calcula como el peor caso de ambos regímenes (High y Low):
+\[ \text{Fan-out} = \min \left( \left\lfloor \frac{|I_{OH}|}{|I_{IH}|} \right\rfloor, \left\lfloor \frac{|I_{OL}|}{|I_{IL}|} \right\rfloor \right) \]
+
+\textbf{Paradigma TTL vs CMOS:} En la tecnología TTL Bipolar (74LS), los transistores requieren corrientes físicas sustanciales en la base para mantenerse abiertos. Esto limita el Fan-Out estático rígidamente a $10 \text{ ó } 20$ puertas. Si conectas $21,$ la puerta no tendrá fuerza para empujar a todas, $V_{OH}$ colapsará hacia tierra y los unos lógicos se leerán como ceros lógicos. 
+En la tecnología CMOS (74HC), las compuertas (Gates) de los MOSFET están aisladas con cristal de óxido de silicio; su resistencia de entrada es casi infinita. Su corriente de entrada $I_{IN}$ es de picoamperios. Esto arroja un Fan-out teórico estático colosal (millones). Sin embargo, el Fan-out en CMOS no está limitado por la corriente continua, sino por el límite de capacitancia \textit{dinámica}: cada compuerta añadida añade pequeños capacitores parásitos; empujar muchas compuertas CMOS a la vez no destruye el voltaje, pero ralentiza astronómicamente el flanco de subida, arruinando la velocidad temporal del circuito.
+
+\section{Problemas Temporales (Timing) y Glitches}
+
+El sustrato físico tiene masa inercial eléctrica (capacitancias). Modificar un voltaje de $0\text{V}$ a $5\text{V}$ no ocurre instantáneamente en un instante $t=0.$
+
+\subsection{Tiempos Característicos}
+Para dimensionar sistemas secuenciales o calcular límites de frecuencia, observamos los diagramas de tiempos (\textit{Timing Diagrams}) buscando los parámetros:
+\begin{itemize}
+    \item \textbf{Tiempos de Transición ($t_r$ y $t_f$):} El tiempo de subida (\textit{Rise Time}, $t_r$) es el lapso requerido para que la señal eléctrica escale del $10\%$ al $90\%$ del voltaje objetivo. Análogamente para la caída (\textit{Fall Time}, $t_f$). 
+    \item \textbf{Retardos de Propagación ($t_{pLH}$ y $t_{pHL}$):} Es el retraso fundamental de reacción de la propia puerta. Si alteramos los estímulos en la entrada, la puerta tarda decenas de nanosegundos en evaluar y propagar el nuevo resultado matemático a su salida (medido generalmente al cruzar el $50\%$ del voltaje nominal). Se define un $t_{pd}$ promedio general como $(t_{pLH} + t_{pHL}) / 2.$
+\end{itemize}
+
+\subsection{Pulsos Espurios (Hazards y Glitches)}
+Los retardos de propagación $t_{pd}$ no son idénticos para diferentes transistores ni para diferentes caminos en un grafo combinacional.
+Cuando la información fluye desde las entradas hacia la salida final de un combinacional cruzando rutas con distinto número de puertas intercaladas, algunas señales llegarán \textit{después} que otras.
+Durante este régimen transitorio microscópico, la función matemática de salida evalúa resultados inválidos (estado intermedio). Esto puede traducirse en picos afilados de voltaje llamados \textbf{Glitches} o \textit{Hazards} de estado. 
+
+En álgebra pura $x \wedge \neg x = \bot$ siempre. Físicamente, si a una puerta AND le entra una señal y su respectiva señal invertida (proveniente de una puerta NOT con $t_{pd} = 15\text{ns}$), durante $15$ nanosegundos la puerta AND observará accidentalmente ambas entradas altas al mismo tiempo en el instante de transición, devolviendo momentáneamente un $\top$ falso. Estos glitches son fatales si la red combinacional está pilotando sistemas secuenciales sensibles al flanco (como veremos en capítulos de memorias biestables y Flip-Flops).

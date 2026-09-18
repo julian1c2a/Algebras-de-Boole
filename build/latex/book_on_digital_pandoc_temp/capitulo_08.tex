@@ -6,7 +6,7 @@ En el Capítulo 6b demostramos que, si bien cualquier álgebra de Boole puede se
 
 Dado que la condición insoslayable para construir un espacio vectorial lineal es operar sobre un cuerpo de escalares, deducimos que los únicos espacios vectoriales puramente booleanos que pueden existir deben tener como conjunto base a $\mathbb{F}_2.$
 
-\begin{definicion}{El Espacio Vectorial $\mathbb{B}^n$}{espacio_bn}
+\begin{quote}\textbf{Definicion (El Espacio Vectorial $\mathbb{B}^n$):}\label{espacio_bn}
 Se define el espacio vectorial booleano $\mathbb{B}^n$ como el conjunto de todas las $n$-tuplas (vectores de $n$ bits) cuyos elementos pertenecen a $\mathbb{F}_2.$ 
 Las dos operaciones que dotan al conjunto de estructura de espacio vectorial son:
 \begin{enumerate}
@@ -15,7 +15,7 @@ Las dos operaciones que dotan al conjunto de estructura de espacio vectorial son
     \item \textbf{Producto por escalar:} Se define como la operación AND ($\wedge$) entre un escalar booleano $k \in \mathbb{F}_2$ y cada elemento del vector.
     \[ k \wedge \vec{v} = (k \wedge v_1, k \wedge v_2, \ldots, k \wedge v_n) \]
 \end{enumerate}
-\end{definicion}
+\end{quote}
 
 Al operar sobre $\mathbb{F}_2,$ este espacio vectorial hereda directamente la característica 2 de su cuerpo base. Esto significa que \textbf{todo vector es su propio inverso aditivo}:
 \[ \vec{v} \oplus \vec{v} = \vec{0} \]
@@ -25,7 +25,7 @@ lo cual simplifica extraordinariamente el cálculo matricial (sumar y restar vec
 
 Para que este espacio abstracto tenga utilidad práctica en ingeniería (en concreto, para analizar cómo de parecidos son dos mensajes digitales), necesitamos dotarlo de una métrica que nos permita medir "distancias" entre vectores.
 
-\begin{definicion}{Función Distancia (Métrica)}{metrica}
+\begin{quote}\textbf{Definicion (Función Distancia (Métrica)):}\label{metrica}
 Dado un conjunto $X,$ una \textbf{métrica} o \textbf{función distancia} sobre $X$ es una función $d: X \times X \to \mathbb{R}$ que, para cualesquiera $x, y, z \in X,$ satisface las siguientes cuatro propiedades:
 \begin{enumerate}
     \item \textbf{No negatividad:} $d(x, y) \ge 0.$
@@ -33,22 +33,22 @@ Dado un conjunto $X,$ una \textbf{métrica} o \textbf{función distancia} sobre 
     \item \textbf{Simetría:} $d(x, y) = d(y, x).$
     \item \textbf{Desigualdad triangular:} $d(x, z) \le d(x, y) + d(y, z).$
 \end{enumerate}
-\end{definicion}
+\end{quote}
 
-\begin{definicion}{Peso de Hamming}{peso_hamming}
+\begin{quote}\textbf{Definicion (Peso de Hamming):}\label{peso_hamming}
 El \textbf{peso de Hamming} de un vector $\vec{v} \in \mathbb{B}^n,$ denotado como $w(\vec{v}),$ es el número de componentes no nulas (número de unos) que contiene. En términos formales, si $\vec{v} = (v_1, v_2, \dots, v_n),$ entonces:
 \[ w(\vec{v}) = \sum_{i=1}^n v_i \]
 donde la suma se entiende en la aritmética ordinaria de $\mathbb{R}.$
-\end{definicion}
+\end{quote}
 
-\begin{definicion}{Distancia de Hamming}{distancia_hamming}
+\begin{quote}\textbf{Definicion (Distancia de Hamming):}\label{distancia_hamming}
 La \textbf{distancia de Hamming} entre dos vectores $\vec{u}, \vec{v} \in \mathbb{B}^n,$ denotada como $d(\vec{u}, \vec{v}),$ es el número de posiciones en las que difieren. Operacionalmente, coincide con el peso de Hamming de su suma vectorial en $\mathbb{B}^n:$
 \[ d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v}) \]
-\end{definicion}
+\end{quote}
 
-\begin{teorema}{La Distancia de Hamming es una Métrica}{hamming_metrica}
+\begin{quote}\textbf{Teorema (La Distancia de Hamming es una Métrica):}\label{hamming_metrica}
 La función $d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v})$ cumple todas las propiedades matemáticas de una métrica sobre el espacio $\mathbb{B}^n.$
-\end{teorema}
+\end{quote}
 \begin{proof}
 Debemos verificar el cumplimiento de las cuatro propiedades definitorias para cualesquiera vectores $\vec{u}, \vec{v}, \vec{z} \in \mathbb{B}^n:$
 \begin{enumerate}
@@ -83,10 +83,10 @@ Debemos verificar el cumplimiento de las cuatro propiedades definitorias para cu
 \end{enumerate}
 \end{proof}
 
-\begin{teorema}{Invarianza Traslacional de la Distancia}{inv_traslacional}
+\begin{quote}\textbf{Teorema (Invarianza Traslacional de la Distancia):}\label{inv_traslacional}
 La distancia de Hamming es invariante bajo traslaciones. Es decir, sumar un mismo vector $\vec{w}$ a dos vectores dados no altera la distancia entre ellos:
 \[ d(\vec{u} \oplus \vec{w}, \vec{v} \oplus \vec{w}) = d(\vec{u}, \vec{v}) \]
-\end{teorema}
+\end{quote}
 \begin{proof}
 Partimos de la definición de distancia aplicada a los vectores trasladados:
 \[ d(\vec{u} \oplus \vec{w}, \vec{v} \oplus \vec{w}) = w((\vec{u} \oplus \vec{w}) \oplus (\vec{v} \oplus \vec{w})) \]
@@ -96,10 +96,10 @@ Sabemos que cualquier vector sumado consigo mismo resulta en el vector nulo ($\v
 \[ = w(\vec{u} \oplus \vec{v} \oplus \vec{0}) = w(\vec{u} \oplus \vec{v}) = d(\vec{u}, \vec{v}) \]
 \end{proof}
 
-\begin{teorema}{Acotación de la Distancia en $\mathbb{B}^n$}{cota_hamming}
+\begin{quote}\textbf{Teorema (Acotación de la Distancia en $\mathbb{B}^n$):}\label{cota_hamming}
 En el espacio vectorial bivaluado de dimensión finita $\mathbb{B}^n,$ la distancia de Hamming entre cualquier par de vectores está acotada estrictamente superior e inferiormente:
 \[ 0 \le d(\vec{u}, \vec{v}) \le n \]
-\end{teorema}
+\end{quote}
 \begin{proof}
 Por la propia definición axiomática de la métrica que hemos comprobado previamente, el límite inferior $d(\vec{u}, \vec{v}) \ge 0$ es trivial (no negatividad).
 
@@ -119,10 +119,10 @@ En un canal de comunicación ruidoso, un vector $\vec{v}$ enviado puede sufrir c
 \subsection{El Subespacio Código y la Matriz de Paridad}
 Un código lineal por bloques de longitud $n$ y dimensión $k$ se define matemáticamente como un \textbf{subespacio vectorial} $C \subset \mathbb{B}^n$ de dimensión $k.$ Todo subespacio vectorial puede definirse como el núcleo (kernel) de una transformación lineal, representada por una matriz llamada \textbf{Matriz de Paridad ($H$)} de dimensiones $(n-k) \times n.$
 
-\begin{teorema}{Validación del Síndrome}{sindrome_hamming}
+\begin{quote}\textbf{Teorema (Validación del Síndrome):}\label{sindrome_hamming}
 Un vector recibido $\vec{r}$ es una palabra código válida (pertenece al subespacio código $C$) si y solo si su producto por la matriz de paridad $H$ (utilizando aritmética en $\mathbb{F}_2$) da como resultado el vector nulo. A este resultado se le denomina \textbf{síndrome} ($\vec{s}$).
 \[ \vec{s} = H \cdot \vec{r}^T \]
 Si $\vec{s} = \vec{0},$ el vector pertenece al subespacio (no hay errores detectados). Si $\vec{s} \ne \vec{0},$ el vector ha salido del subespacio, lo que indica que se ha corrompido durante la transmisión.
-\end{teorema}
+\end{quote}
 
 Dado que operar matrices sobre $\mathbb{F}_2$ requiere únicamente puertas lógicas XOR y AND, el cálculo del síndrome $\vec{s} = H \cdot \vec{r}^T$ se puede implementar directamente en hardware digital con una eficiencia extrema, constituyendo la base de los modernos sistemas de memoria ECC (Error-Correcting Code).

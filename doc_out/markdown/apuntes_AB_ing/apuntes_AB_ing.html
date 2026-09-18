@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>apuntes_AB_ing</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<p><span class="math display">
+\gdef\symdiff{\mathbin{\vartriangle}}
+\gdef\llbracket{\lbrack\!\lbrack}
+\gdef\rrbracket{\rbrack\!\rbrack}
+\gdef\triangleq{\stackrel{\mathrm{def}}{=}}
+</span></p>
+<h1 id="introducción">Introducción</h1>
+<p>El álgebra de Boole, originalmente introducida por George Boole en su
+obra de 1854 <em>The Laws of Thought</em>, fue posteriormente
+axiomatizada de forma rigurosa. En 1904, el matemático estadounidense
+Edward Vermilye Huntington presentó un conjunto de postulados
+independientes que definen formalmente una estructura de álgebra de
+Boole.</p>
+<p>Para evitar cualquier confusión conceptual con la aritmética
+tradicional, en esta fase inicial emplearemos la signatura propia de la
+teoría de retículos, utilizando los símbolos <span
+class="math inline">+</span> (supremo o join) y <span
+class="math inline">\cdot</span> (ínfimo o meet), junto a los elementos
+constantes <span class="math inline">0</span> (mínimo) y <span
+class="math inline">1</span> (máximo). El complemento se denotará con el
+símbolo de la barra superior, como en <span
+class="math inline">\overline{a}</span>. Más adelante, y por
+conveniencia práctica, transitaremos hacia la notación clásica de
+sistemas digitales (<span class="math inline">+</span>, <span
+class="math inline">\cdot</span>, <span class="math inline">0</span>,
+<span class="math inline">1</span>).</p>
+<h2 id="pre-axiomas-de-la-estructura">Pre-Axiomas de la Estructura</h2>
+<p>Antes de enunciar los postulados, debemos definir rigurosamente sobre
+qué elementos y operaciones estamos trabajando.</p>
+<p>Partimos de un ente matemático <span
+class="math inline">\mathbb{B}</span>.</p>
+<div class="preaxioma">
+<p>Estructura de Conjunto - EsConjunto(<span
+class="math inline">\mathbb{B}</span>)esconj Se requiere que <span
+class="math inline">\mathbb{B}</span> sea un conjunto.</p>
+</div>
+<div class="preaxioma">
+<p>Elementos Constantes - Constantesconstantes Este conjunto ha de
+cumplir que tiene dos elementos que llamaremos constantes, tales que
+<span class="math inline">0 \in \mathbb{B}</span> y <span
+class="math inline">1 \in \mathbb{B}</span>. En principio, no asumimos
+nada sobre la igualdad o desigualdad de estas constantes.</p>
+</div>
+<p>Además, vamos a definir dos operaciones binarias internas que
+denotaremos por <span class="math inline">+</span> y <span
+class="math inline">\cdot</span>. Estas deben satisfacer rigurosamente
+la definición de función:</p>
+<div class="preaxioma">
+<p>Operación Binaria Interna <span class="math inline">+</span> -
+OpBinInt<span class="math inline">_+</span>opbinint_vee <span
+class="math inline">+ : \mathbb{B} \times \mathbb{B} \to
+\mathbb{B}</span> es una operación binaria interna.</p>
+</div>
+<div class="preaxioma">
+<p>Operación Binaria Interna <span class="math inline">\cdot</span> -
+OpBinInt<span class="math inline">_\cdot</span>opbinint_wedge <span
+class="math inline">\cdot : \mathbb{B} \times \mathbb{B} \to
+\mathbb{B}</span> es una operación binaria interna.</p>
+</div>
+<p>Para poder usar estos conceptos con mayor seguridad y flexibilidad en
+las futuras demostraciones formales, asignaremos nombres cortos a las
+condiciones de existencia y unicidad de la imagen para estas
+operaciones:</p>
+<div class="preaxioma">
+<p>Existencia <span class="math inline">+</span> - Existencia<span
+class="math inline">_+</span>exist_vee Para todo par existe imagen en
+<span class="math inline">\mathbb{B}</span>. Es decir, <span
+class="math inline">\forall \langle a,b \rangle \in \mathbb{B} \times
+\mathbb{B}</span>, <span class="math inline">\exists c \in
+\mathbb{B}</span> tal que <span class="math inline">a + b =
+c</span>.</p>
+</div>
+<div class="preaxioma">
+<p>Existencia <span class="math inline">\cdot</span> - Existencia<span
+class="math inline">_\cdot</span>exist_wedge Análogamente, <span
+class="math inline">\forall \langle a,b \rangle \in \mathbb{B} \times
+\mathbb{B}</span>, <span class="math inline">\exists d \in
+\mathbb{B}</span> tal que <span class="math inline">a \cdot b =
+d</span>.</p>
+</div>
+<div class="preaxioma">
+<p>Unicidad <span class="math inline">+</span> - Unicidad<span
+class="math inline">_+</span>unic_vee Para un par solo existe una
+imagen. Esto es, si <span class="math inline">a + b = c</span> y <span
+class="math inline">a + b = d</span>, entonces <span
+class="math inline">c = d</span>.</p>
+</div>
+<div class="preaxioma">
+<p>Unicidad <span class="math inline">\cdot</span> - Unicidad<span
+class="math inline">_\cdot</span>unic_wedge De igual forma para el
+ínfimo, si <span class="math inline">a \cdot b = c</span> y <span
+class="math inline">a \cdot b = d</span>, entonces <span
+class="math inline">c = d</span>.</p>
+</div>
+<h2 id="los-postulados-de-huntington-1904">Los Postulados de Huntington
+(1904)</h2>
+<p>Sobre el sistema <span class="math inline">(\mathbb{B}, +, \cdot, 0,
+1)</span> que cumple los pre-axiomas anteriores, diremos que forma un
+álgebra de Boole si satisface los siguientes postulados:</p>
+<div class="postulado">
+<p>Elemento neutro <span class="math inline">+</span> - <span
+class="math inline">ElemNeu_+</span>neutro_vee Todo elemento operado
+mediante <span class="math inline">+</span> con el mínimo <span
+class="math inline">0</span> da como resultado el mismo elemento; es
+decir, <span class="math inline">0</span> no altera el valor original:
+<span class="math display">\forall a \in \mathbb{B}, \quad a + 0 =
+a</span></p>
+</div>
+<div class="postulado">
+<p>Elemento neutro <span class="math inline">\cdot</span> - <span
+class="math inline">ElemNeu_\cdot</span>neutro_wedge Todo elemento
+operado mediante <span class="math inline">\cdot</span> con el máximo
+<span class="math inline">1</span> da como resultado el mismo elemento,
+quedando inalterado: <span class="math display">\forall a \in
+\mathbb{B}, \quad a \cdot 1 = a</span></p>
+</div>
+<div class="postulado">
+<p>Conmutatividad <span class="math inline">+</span> - <span
+class="math inline">Comm_+</span>conmut_vee El orden de los operandos al
+aplicar la operación <span class="math inline">+</span> es indiferente,
+obteniéndose exactamente el mismo resultado: <span
+class="math display">\forall a, b \in \mathbb{B}, \quad a + b = b +
+a</span></p>
+</div>
+<div class="postulado">
+<p>Conmutatividad <span class="math inline">\cdot</span> - <span
+class="math inline">Comm_\cdot</span>conmut_wedge De la misma forma, el
+orden de los operandos al aplicar la operación <span
+class="math inline">\cdot</span> tampoco altera el resultado final:
+<span class="math display">\forall a, b \in \mathbb{B}, \quad a \cdot b
+= b \cdot a</span></p>
+</div>
+<div class="postulado">
+<p>Distributividad <span class="math inline">+</span> sobre <span
+class="math inline">\cdot</span> - <span
+class="math inline">Dist_+</span>distrib_vee_wedge La operación <span
+class="math inline">+</span> se distribuye sobre la operación <span
+class="math inline">\cdot</span>. Operar un elemento con el resultado de
+un <span class="math inline">\cdot</span> equivale a operar con <span
+class="math inline">+</span> cada componente individualmente y luego
+aplicar <span class="math inline">\cdot</span>: <span
+class="math display">\forall a, b, c \in \mathbb{B}, \quad a + (b \cdot
+c) = (a + b) \cdot (a + c)</span></p>
+</div>
+<div class="postulado">
+<p>Distributividad <span class="math inline">\cdot</span> sobre <span
+class="math inline">+</span> - <span
+class="math inline">Dist_\cdot</span>distrib_wedge_vee De manera
+equivalente, el ínfimo (<span class="math inline">\cdot</span>) se
+reparte de forma distributiva entre los componentes de un supremo (<span
+class="math inline">+</span>): <span class="math display">\forall a, b,
+c \in \mathbb{B}, \quad a \cdot (b + c) = (a \cdot b) + (a \cdot
+c)</span></p>
+</div>
+<div class="postulado">
+<p>Complementario - <span class="math inline">Comp_+,
+Comp_\cdot</span>comp Todo elemento del conjunto posee al menos un
+"complemento" (o elemento opuesto). Al operarlo con su complemento
+mediante <span class="math inline">+</span> siempre alcanzamos el máximo
+<span class="math inline">1</span>, y mediante <span
+class="math inline">\cdot</span> siempre caemos al mínimo <span
+class="math inline">0</span>: <span class="math display">\begin{align*}
+\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a + b
+&amp;= 1 \quad (Comp_+) \\
+a \cdot b &amp;= 0 \quad (Comp_\cdot)
+\end{align*}</span></p>
+</div>
+<p><em>Nota: A diferencia de algunas formulaciones clásicas que imponen
+un axioma de cardinalidad (<span class="math inline">0 \neq 1</span>)
+para evitar el álgebra trivial, en este desarrollo permitiremos la
+existencia del álgebra trivial.</em></p>
+<h1 id="el-principio-de-dualidad">El Principio de Dualidad</h1>
+<p>Si observamos los postulados de Huntington, notaremos una perfecta
+simetría entre las operaciones <span class="math inline">+</span> y
+<span class="math inline">\cdot</span>, y entre las constantes <span
+class="math inline">0</span> y <span class="math inline">1</span>. Si en
+cualquier postulado intercambiamos <span class="math inline">+</span>
+por <span class="math inline">\cdot</span> y <span
+class="math inline">0</span> por <span class="math inline">1</span>,
+obtenemos otro postulado válido del sistema.</p>
+<p>Este rasgo estructural da lugar al <strong>Principio de
+Dualidad</strong>: toda proposición o teorema deducido a partir de estos
+axiomas tiene un <em>teorema dual</em> que también es válido. La
+demostración de un teorema dual se construye manipulando la prueba
+original y aplicando sistemáticamente el intercambio de operaciones
+(<span class="math inline">+ \leftrightarrow \cdot</span>) y constantes
+(<span class="math inline">0 \leftrightarrow 1</span>). En las
+siguientes pruebas no evitaremos repetir las versiones duales; al
+contrario, haremos hincapié en cómo se manipula la prueba de uno para
+obtener la del otro.</p>
+<h2 id="teoremas-principales-derivados">Teoremas Principales
+Derivados</h2>
+<div class="teorema">
+<p>Unicidad de los elementos neutros - <span class="math inline">Unic_e,
+Unic_u</span>unicidad_neutros Los elementos neutros descritos en los
+postulados son únicos. No existe ningún otro elemento en el conjunto que
+se comporte como el mínimo <span class="math inline">0</span> para la
+operación <span class="math inline">+</span>, ni ningún otro que actúe
+como el máximo <span class="math inline">1</span> para la operación
+<span class="math inline">\cdot</span>: <span
+class="math display">\begin{align*}
+    \exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a + e &amp;= a
+\implies e = 0 \quad (Unic_e) \\
+    \exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \cdot u
+&amp;= a \implies u = 1 \quad (Unic_u)
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">Unic_e</span>.</em> Sea
+<span class="math inline">e \in \mathbb{B}</span> tal que <span
+class="math inline">\forall a \in \mathbb{B}, a + e = a</span>. Tomando
+<span class="math inline">a = 0</span>: <span
+class="math display">\begin{align*}
+    e &amp;= e + 0 &amp; (ElemNeu_+) \\
+      &amp;= 0 + e &amp; (Comm_+) \\
+      &amp;= 0 &amp; (\text{Hipótesis sobre } e)
+\end{align*}</span> ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">Unic_u</span>
+(Dual).</em> Para obtener la prueba dual, intercambiamos <span
+class="math inline">+</span> por <span class="math inline">\cdot</span>
+y <span class="math inline">0</span> por <span
+class="math inline">1</span>. Sea <span class="math inline">u \in
+\mathbb{B}</span> tal que <span class="math inline">\forall a \in
+\mathbb{B}, a \cdot u = a</span>. Tomando <span class="math inline">a =
+1</span>: <span class="math display">\begin{align*}
+    u &amp;= u \cdot 1 &amp; (ElemNeu_\cdot) \\
+      &amp;= 1 \cdot u &amp; (Comm_\cdot) \\
+      &amp;= 1 &amp; (\text{Hipótesis sobre } u)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Idempotencia - <span class="math inline">Idemp_+,
+Idemp_\cdot</span>idempotencia Operar un elemento consigo mismo,
+independientemente de si usamos <span class="math inline">+</span> o
+<span class="math inline">\cdot</span>, no altera su valor. El elemento
+se mantiene idéntico a sí mismo: <span
+class="math display">\begin{align*}
+    \forall a \in \mathbb{B}, \quad a + a &amp;= a \quad (Idemp_+) \\
+    \forall a \in \mathbb{B}, \quad a \cdot a &amp;= a \quad
+(Idemp_\cdot)
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">Idemp_+</span>.</em>
+<span class="math display">\begin{align*}
+    a &amp;= a + 0 &amp; (ElemNeu_+) \\
+      &amp;= a + (a \cdot \overline{a}) &amp; (Comp_\cdot) \\
+      &amp;= (a + a) \cdot (a + \overline{a}) &amp; (Dist_+) \\
+      &amp;= (a + a) \cdot 1 &amp; (Comp_+) \\
+      &amp;= 1 \cdot (a + a) &amp; (Comm_\cdot) \\
+      &amp;= a + a &amp; (ElemNeu_\cdot)
+\end{align*}</span> ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">Idemp_\cdot</span>
+(Dual).</em> Intercambiando los operadores y constantes de la prueba
+anterior paso a paso: <span class="math display">\begin{align*}
+    a &amp;= a \cdot 1 &amp; (ElemNeu_\cdot) \\
+      &amp;= a \cdot (a + \overline{a}) &amp; (Comp_+) \\
+      &amp;= (a \cdot a) + (a \cdot \overline{a}) &amp; (Dist_\cdot) \\
+      &amp;= (a \cdot a) + 0 &amp; (Comp_\cdot) \\
+      &amp;= 0 + (a \cdot a) &amp; (Comm_+) \\
+      &amp;= a \cdot a &amp; (ElemNeu_+)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Elementos absorbentes - <span class="math inline">Abs_{0},
+Abs_{1}</span>absorbentes Cualquier elemento operado mediante <span
+class="math inline">+</span> con el máximo <span
+class="math inline">1</span> es absorbido por este, dando como resultado
+<span class="math inline">1</span>. De igual manera, operar cualquier
+elemento mediante <span class="math inline">\cdot</span> con el mínimo
+<span class="math inline">0</span> siempre resulta en <span
+class="math inline">0</span>: <span class="math display">\begin{align*}
+    \forall a \in \mathbb{B}, \quad a + 1 &amp;= 1 \\
+    \forall a \in \mathbb{B}, \quad a \cdot 0 &amp;= 0
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">a + 1 = 1</span>.</em>
+<span class="math display">\begin{align*}
+    a + 1 &amp;= (a + 1) \cdot 1 &amp; (ElemNeu_\cdot) \\
+               &amp;= (a + 1) \cdot (a + \overline{a}) &amp; (Comp_+) \\
+               &amp;= a + (1 \cdot \overline{a}) &amp; (Dist_+) \\
+               &amp;= a + (\overline{a} \cdot 1) &amp; (Comm_\cdot) \\
+               &amp;= a + \overline{a} &amp; (ElemNeu_\cdot) \\
+               &amp;= 1 &amp; (Comp_+)
+\end{align*}</span> ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">a \cdot 0 = 0</span>
+(Dual).</em> <span class="math display">\begin{align*}
+    a \cdot 0 &amp;= (a \cdot 0) + 0 &amp; (ElemNeu_+) \\
+               &amp;= (a \cdot 0) + (a \cdot \overline{a}) &amp;
+(Comp_\cdot) \\
+               &amp;= a \cdot (0 + \overline{a}) &amp; (Dist_\cdot) \\
+               &amp;= a \cdot (\overline{a} + 0) &amp; (Comm_+) \\
+               &amp;= a \cdot \overline{a} &amp; (ElemNeu_+) \\
+               &amp;= 0 &amp; (Comp_\cdot)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Condición de Álgebra Trivialtrivial_cond Si se da el caso extremo de
+que el elemento mínimo <span class="math inline">0</span> y el máximo
+<span class="math inline">1</span> son exactamente el mismo, entonces
+estamos ante un álgebra que contiene un único elemento en todo su
+conjunto (el álgebra trivial): <span class="math display">0 = 1 \implies
+\mathbb{B} = \{1\} = \{0\}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Proof.</em> Supongamos que <span class="math inline">0 =
+1</span>. Sea <span class="math inline">x \in \mathbb{B}</span> un
+elemento cualquiera: <span class="math display">\begin{align*}
+    x &amp;= x + 0 &amp; (ElemNeu_+) \\
+      &amp;= x + 1 &amp; (\text{Hipótesis } 0 = 1) \\
+      &amp;= 1 &amp; (Abs_1)
+\end{align*}</span> Por tanto, todo elemento <span
+class="math inline">x</span> del conjunto es idéntico a <span
+class="math inline">1</span>, lo que implica que <span
+class="math inline">\mathbb{B} = \{1\} = \{0\}</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Complemento Idéntico implica Álgebra Trivialtrivial_comp Si dentro de
+la estructura existe algún elemento que sea igual a su propio
+complemento (<span class="math inline">\overline{a} = a</span>),
+entonces forzosamente todo el sistema colapsa en el álgebra trivial de
+un solo elemento: <span class="math display">(\exists a \in \mathbb{B} :
+\overline{a} = a) \implies \mathbb{B} = \{1\} = \{0\}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Proof.</em> Supongamos que existe <span class="math inline">a \in
+\mathbb{B}</span> tal que <span class="math inline">\overline{a} =
+a</span>. Por el postulado del Complemento (<span
+class="math inline">Comp_+</span> y <span
+class="math inline">Comp_\cdot</span>), sabemos que <span
+class="math inline">a + \overline{a} = 1</span> y <span
+class="math inline">a \cdot \overline{a} = 0</span>. Sustituyendo la
+hipótesis <span class="math inline">\overline{a} = a</span> en ambas
+ecuaciones, obtenemos: <span class="math display">a + a = 1 \quad
+\text{y} \quad a \cdot a = 0</span> Aplicando el teorema de Idempotencia
+(<span class="math inline">Idemp_+</span> y <span
+class="math inline">Idemp_\cdot</span>), sabemos que <span
+class="math inline">a + a = a</span> y <span class="math inline">a \cdot
+a = a</span>. Por tanto: <span class="math display">a = 1 \quad \text{y}
+\quad a = 0</span> Lo cual implica que <span class="math inline">0 =
+1</span>. Aplicando el teorema anterior (Condición de Álgebra Trivial),
+concluimos que <span class="math inline">\mathbb{B} = \{1\} =
+\{0\}</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Propiedades de absorción - <span class="math inline">Abs_{+},
+Abs_{\cdot}</span>absorcion Cuando se combinan ambas operaciones
+anidando un elemento consigo mismo y con un tercero, el elemento
+repetido "absorbe" al otro, independientemente del valor del segundo:
+<span class="math display">\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a + (a \cdot b) &amp;= a \\
+    \forall a, b \in \mathbb{B}, \quad a \cdot (a + b) &amp;= a
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">Abs_+</span>.</em>
+<span class="math display">\begin{align*}
+    a + (a \cdot b) &amp;= (a \cdot 1) + (a \cdot b) &amp;
+(ElemNeu_\cdot) \\
+                        &amp;= a \cdot (1 + b) &amp; (Dist_\cdot) \\
+                        &amp;= a \cdot (b + 1) &amp; (Comm_+) \\
+                        &amp;= a \cdot 1 &amp; (Abs_1) \\
+                        &amp;= a &amp; (ElemNeu_\cdot)
+\end{align*}</span> ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">Abs_\cdot</span>
+(Dual).</em> <span class="math display">\begin{align*}
+    a \cdot (a + b) &amp;= (a + 0) \cdot (a + b) &amp; (ElemNeu_+) \\
+                        &amp;= a + (0 \cdot b) &amp; (Dist_+) \\
+                        &amp;= a + (b \cdot 0) &amp; (Comm_\cdot) \\
+                        &amp;= a + 0 &amp; (Abs_0) \\
+                        &amp;= a &amp; (ElemNeu_+)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Propiedades de orden de retículo - <span
+class="math inline">Prop_{+,\cdot}</span>prop_reticulo Existe una
+correspondencia biunívoca fundamental entre las dos operaciones: afirmar
+que un elemento domina a otro mediante <span
+class="math inline">+</span> equivale matemáticamente a afirmar que el
+segundo se impone al primero mediante <span
+class="math inline">\cdot</span>: <span class="math display">\forall a,
+b \in \mathbb{B}: \quad a + b = a \iff a \cdot b = b</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">\implies</span>.</em>
+Supongamos que <span class="math inline">a + b = a</span>. <span
+class="math display">\begin{align*}
+    a \cdot b &amp;= b \cdot a &amp; (Comm_\cdot) \\
+               &amp;= b \cdot (a + b) &amp; (\text{Hipótesis } a + b =
+a) \\
+               &amp;= b &amp; (Abs_\cdot)
+\end{align*}</span> ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">\impliedby</span>
+(Dual).</em> Supongamos que <span class="math inline">a \cdot b =
+b</span>. <span class="math display">\begin{align*}
+    a + b &amp;= b + a &amp; (Comm_+) \\
+               &amp;= (a \cdot b) + a &amp; (\text{Hipótesis } a \cdot b
+= b) \\
+               &amp;= a + (a \cdot b) &amp; (Comm_+) \\
+               &amp;= a &amp; (Abs_+)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Equivalencia de operaciones - <span
+class="math inline">Equa_{+,\cdot}</span>equa_operaciones Si operar dos
+elementos mediante <span class="math inline">+</span> da exactamente el
+mismo resultado que operarlos mediante <span
+class="math inline">\cdot</span>, esto sólo es lógicamente posible si
+ambos elementos son en realidad el mismo: <span
+class="math display">\forall a, b \in \mathbb{B}: \quad a + b = a \cdot
+b \implies a = b</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Proof.</em> Supongamos <span class="math inline">a + b = a \cdot
+b</span>. Observamos que: <span class="math display">\begin{align*}
+    a &amp;= a + (a \cdot b) &amp; (Abs_+) \\
+      &amp;= a + (a + b) &amp; (\text{Hipótesis})
+\end{align*}</span> Aplicando <span
+class="math inline">Prop_{+,\cdot}</span>, dado que <span
+class="math inline">a + (a + b) = a</span>, deducimos que <span
+class="math inline">a \cdot (a + b) = a + b</span>. <span
+class="math display">\begin{align*}
+    a + b &amp;= a \cdot (a + b) &amp; (\text{Resultado anterior}) \\
+             &amp;= a &amp; (Abs_\cdot)
+\end{align*}</span> De manera simétrica para <span
+class="math inline">b</span>: <span class="math display">\begin{align*}
+    b &amp;= b + (a \cdot b) &amp; (Abs_+) \\
+      &amp;= b + (a + b) &amp; (\text{Hipótesis}) \\
+      &amp;= (a + b) + b &amp; (Comm_+)
+\end{align*}</span> Aplicando de nuevo <span
+class="math inline">Prop_{+,\cdot}</span> sobre esta igualdad, obtenemos
+que <span class="math inline">(a + b) \cdot b = a + b</span>. Pero
+sabemos por <span class="math inline">Abs_\cdot</span> que <span
+class="math inline">(a + b) \cdot b = b \cdot (a + b) = b</span>. Por
+consiguiente, <span class="math inline">a + b = b</span>. Finalmente,
+uniendo ambos resultados: <span class="math inline">a = a + b =
+b</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Teorema de Cancelación - <span
+class="math inline">Equa_{canc}</span>equa_canc Si un elemento <span
+class="math inline">a</span> se opera mediante <span
+class="math inline">+</span> con <span class="math inline">b</span> y
+con <span class="math inline">c</span> dando el mismo resultado, y
+además se opera mediante <span class="math inline">\cdot</span> con
+<span class="math inline">b</span> y con <span
+class="math inline">c</span> coincidiendo también los resultados,
+entonces forzosamente <span class="math inline">b</span> y <span
+class="math inline">c</span> son el mismo elemento: <span
+class="math display">\forall a, b, c \in \mathbb{B}: \quad a + b = a + c
+\quad \text{y} \quad a \cdot b = a \cdot c \implies b = c</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Proof.</em> Este teorema es automejor dualizable al ser sus
+hipótesis perfectamente simétricas. <span
+class="math display">\begin{align*}
+    b &amp;= b \cdot (a + b) &amp; (Abs_\cdot) \\
+      &amp;= b \cdot (a + c) &amp; (\text{Hipótesis } a + b = a + c) \\
+      &amp;= (b \cdot a) + (b \cdot c) &amp; (Dist_\cdot) \\
+      &amp;= (a \cdot b) + (b \cdot c) &amp; (Comm_\cdot) \\
+      &amp;= (a \cdot c) + (b \cdot c) &amp; (\text{Hipótesis } a \cdot
+b = a \cdot c) \\
+      &amp;= (c \cdot a) + (c \cdot b) &amp; (Comm_\cdot \text{ aplicado
+dos veces}) \\
+      &amp;= c \cdot (a + b) &amp; (Dist_\cdot) \\
+      &amp;= c \cdot (a + c) &amp; (\text{Hipótesis } a + b = a + c) \\
+      &amp;= c &amp; (Abs_\cdot)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Unicidad del complemento - <span
+class="math inline">Unic_{comp}</span>unic_comp Todo elemento del
+conjunto tiene un complemento <span
+class="math inline">\overline{a}</span>, y este es estrictamente único.
+Ningún otro elemento puede cumplir simultáneamente las dos condiciones
+del postulado del complemento para un mismo <span
+class="math inline">a</span>: <span class="math display">\forall a, x
+\in \mathbb{B} : \quad (a + x = 1 \quad \text{y} \quad a \cdot x = 0)
+\implies x = \overline{a}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Proof.</em> Supongamos que existe <span class="math inline">x \in
+\mathbb{B}</span> tal que <span class="math inline">a + x = 1</span> y
+<span class="math inline">a \cdot x = 0</span>. <span
+class="math display">\begin{align*}
+    x &amp;= x \cdot 1 &amp; (ElemNeu_\cdot) \\
+      &amp;= x \cdot (a + \overline{a}) &amp; (Comp_+) \\
+      &amp;= (x \cdot a) + (x \cdot \overline{a}) &amp; (Dist_\cdot) \\
+      &amp;= (a \cdot x) + (x \cdot \overline{a}) &amp; (Comm_\cdot) \\
+      &amp;= 0 + (x \cdot \overline{a}) &amp; (\text{Hipótesis } a \cdot
+x = 0) \\
+      &amp;= (a \cdot \overline{a}) + (x \cdot \overline{a}) &amp;
+(Comp_\cdot) \\
+      &amp;= (a + x) \cdot \overline{a} &amp; (Dist_\cdot) \\
+      &amp;= 1 \cdot \overline{a} &amp; (\text{Hipótesis } a + x = 1) \\
+      &amp;= \overline{a} \cdot 1 &amp; (Comm_\cdot) \\
+      &amp;= \overline{a} &amp; (ElemNeu_\cdot)
+\end{align*}</span> Por tanto, si <span class="math inline">x</span>
+cumple las condiciones de complemento, <span
+class="math inline">x</span> tiene que ser necesariamente <span
+class="math inline">\overline{a}</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Involución - <span class="math inline">Comp_{inv}</span>comp_inv
+Aplicar la operación de complemento (o negación) dos veces consecutivas
+sobre un mismo elemento cancela su efecto, devolviendo el elemento
+original intacto: <span class="math display">\forall a \in \mathbb{B},
+\quad \overline{(\neg a)} = a</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Proof.</em> Por definición, el complemento de <span
+class="math inline">\overline{a}</span>, denotado como <span
+class="math inline">\overline{(\neg a)}</span>, es el elemento único que
+satisface: <span class="math display">\overline{a} + \overline{(\neg a)}
+= 1 \quad \text{y} \quad \overline{a} \cdot \overline{(\neg a)} =
+0</span> Sin embargo, por la conmutatividad (<span
+class="math inline">Comm_+</span> y <span
+class="math inline">Comm_\cdot</span>), sabemos que: <span
+class="math display">\overline{a} + a = a + \overline{a} = 1 \quad
+\text{y} \quad \overline{a} \cdot a = a \cdot \overline{a} = 0</span>
+Esto demuestra que <span class="math inline">a</span> actúa como un
+complemento de <span class="math inline">\overline{a}</span>. Por el
+teorema de unicidad del complemento (<span
+class="math inline">Unic_{comp}</span>), concluimos necesariamente que
+<span class="math inline">\overline{(\neg a)} = a</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Leyes de De Morgan - <span class="math inline">Mor_{+,
+\cdot}</span>morgan La negación matemática se distribuye sobre las
+operaciones, pero al hacerlo, invierte la operación original: un supremo
+(<span class="math inline">+</span>) negado se convierte en el ínfimo
+(<span class="math inline">\cdot</span>) de las negaciones, y viceversa:
+<span class="math display">\begin{align}
+    \overline{(a + b)} &amp;= \overline{a} \cdot \overline{b} \\
+    \overline{(a \cdot b)} &amp;= \overline{a} + \overline{b}
+\end{align}</span> De forma equivalente, aislando las variables mediante
+la involución, podemos expresar las operaciones básicas exclusivamente a
+partir de su dual negada: <span class="math display">\begin{align}
+    a + b &amp;= \overline{(\neg a \cdot \neg b)} \\
+    a \cdot b &amp;= \overline{(\neg a + \neg b)}
+\end{align}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">\overline{(a + b)} =
+\overline{a} \cdot \overline{b}</span>.</em> Para demostrarlo sin
+recurrir a la asociatividad, usaremos las propiedades de absorción.
+Comprobemos primero la suma: <span class="math inline">(a + b) +
+(\overline{a} \cdot \overline{b}) = 1</span>. Sabemos por <span
+class="math inline">Abs_\cdot</span> que <span class="math inline">a
+\cdot (a + b) = a</span>. <span class="math display">\begin{align*}
+    \overline{a} + (a \cdot (a + b)) &amp;= \overline{a} + a = 1 &amp;
+(Comp_+) \\
+    (\overline{a} + a) \cdot (\overline{a} + (a + b)) &amp;= 1 &amp;
+(Dist_+) \\
+    1 \cdot (\overline{a} + (a + b)) &amp;= 1 &amp; (Comp_+) \\
+    \overline{a} + (a + b) &amp;= 1 &amp; (ElemNeu_\cdot)
+\end{align*}</span> Simétricamente, como <span class="math inline">b
+\cdot (a + b) = b \cdot (b + a) = b</span>, obtenemos <span
+class="math inline">\overline{b} + (a + b) = 1</span>. Por tanto: <span
+class="math display">\begin{align*}
+    (a + b) + (\overline{a} \cdot \overline{b}) &amp;= ((a + b) +
+\overline{a}) \cdot ((a + b) + \overline{b}) &amp; (Dist_+) \\
+    &amp;= (\overline{a} + (a + b)) \cdot (\overline{b} + (a + b)) &amp;
+(Comm_+) \\
+    &amp;= 1 \cdot 1 &amp; (\text{Resultados anteriores}) \\
+    &amp;= 1 &amp; (Idemp_\cdot)
+\end{align*}</span></p>
+<p>Segundo, comprobemos el producto: <span class="math inline">(a + b)
+\cdot (\overline{a} \cdot \overline{b}) = 0</span>. Sabemos por <span
+class="math inline">Abs_+</span> que <span
+class="math inline">\overline{a} + (\overline{a} \cdot \overline{b}) =
+\overline{a}</span>. <span class="math display">\begin{align*}
+    a \cdot (\overline{a} + (\overline{a} \cdot \overline{b})) &amp;= a
+\cdot \overline{a} = 0 &amp; (Comp_\cdot) \\
+    (a \cdot \overline{a}) + (a \cdot (\overline{a} \cdot \overline{b}))
+&amp;= 0 &amp; (Dist_\cdot) \\
+    0 + (a \cdot (\overline{a} \cdot \overline{b})) &amp;= 0 &amp;
+(Comp_\cdot) \\
+    a \cdot (\overline{a} \cdot \overline{b}) &amp;= 0 &amp; (ElemNeu_+)
+\end{align*}</span> Simétricamente, como <span
+class="math inline">\overline{b} + (\overline{a} \cdot \overline{b}) =
+\overline{b} + (\overline{b} \cdot \overline{a}) = \overline{b}</span>,
+obtenemos <span class="math inline">b \cdot (\overline{a} \cdot
+\overline{b}) = 0</span>. Por tanto: <span
+class="math display">\begin{align*}
+    (a + b) \cdot (\overline{a} \cdot \overline{b}) &amp;= (\overline{a}
+\cdot \overline{b}) \cdot (a + b) &amp; (Comm_\cdot) \\
+    &amp;= ((\overline{a} \cdot \overline{b}) \cdot a) + ((\overline{a}
+\cdot \overline{b}) \cdot b) &amp; (Dist_\cdot) \\
+    &amp;= (a \cdot (\overline{a} \cdot \overline{b})) + (b \cdot
+(\overline{a} \cdot \overline{b})) &amp; (Comm_\cdot) \\
+    &amp;= 0 + 0 &amp; (\text{Resultados anteriores}) \\
+    &amp;= 0 &amp; (Idemp_+)
+\end{align*}</span> Por el teorema de unicidad (<span
+class="math inline">Unic_{comp}</span>), concluimos que <span
+class="math inline">\overline{(a + b)} = \overline{a} \cdot
+\overline{b}</span>. ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">\overline{(a \cdot b)}
+= \overline{a} + \overline{b}</span> (Dual).</em> Intercambiando
+operaciones y constantes, comprobamos el producto: <span
+class="math inline">(a \cdot b) \cdot (\overline{a} + \overline{b}) =
+0</span>. Sabemos por <span class="math inline">Abs_+</span> que <span
+class="math inline">a + (a \cdot b) = a</span>. <span
+class="math display">\begin{align*}
+    \overline{a} \cdot (a + (a \cdot b)) &amp;= \overline{a} \cdot a = 0
+&amp; (Comp_\cdot) \\
+    (\overline{a} \cdot a) + (\overline{a} \cdot (a \cdot b)) &amp;= 0
+&amp; (Dist_\cdot) \\
+    0 + (\overline{a} \cdot (a \cdot b)) &amp;= 0 &amp; (Comp_\cdot) \\
+    \overline{a} \cdot (a \cdot b) &amp;= 0 &amp; (ElemNeu_+)
+\end{align*}</span> Simétricamente, <span
+class="math inline">\overline{b} \cdot (a \cdot b) = 0</span>. Por
+tanto: <span class="math display">\begin{align*}
+    (a \cdot b) \cdot (\overline{a} + \overline{b}) &amp;= ((a \cdot b)
+\cdot \overline{a}) + ((a \cdot b) \cdot \overline{b}) &amp;
+(Dist_\cdot) \\
+    &amp;= (\overline{a} \cdot (a \cdot b)) + (\overline{b} \cdot (a
+\cdot b)) &amp; (Comm_\cdot) \\
+    &amp;= 0 + 0 = 0 &amp; (\text{Resultados anteriores})
+\end{align*}</span></p>
+<p>Comprobemos la suma: <span class="math inline">(a \cdot b) +
+(\overline{a} + \overline{b}) = 1</span>. Sabemos por <span
+class="math inline">Abs_\cdot</span> que <span
+class="math inline">\overline{a} \cdot (\overline{a} + \overline{b}) =
+\overline{a}</span>. <span class="math display">\begin{align*}
+    a + (\overline{a} \cdot (\overline{a} + \overline{b})) &amp;= a +
+\overline{a} = 1 &amp; (Comp_+) \\
+    (a + \overline{a}) \cdot (a + (\overline{a} + \overline{b})) &amp;=
+1 &amp; (Dist_+) \\
+    1 \cdot (a + (\overline{a} + \overline{b})) &amp;= 1 &amp; (Comp_+)
+\\
+    a + (\overline{a} + \overline{b}) &amp;= 1 &amp; (ElemNeu_\cdot)
+\end{align*}</span> Simétricamente, <span class="math inline">b +
+(\overline{a} + \overline{b}) = 1</span>. Por tanto: <span
+class="math display">\begin{align*}
+    (a \cdot b) + (\overline{a} + \overline{b}) &amp;= (\overline{a} +
+\overline{b}) + (a \cdot b) &amp; (Comm_+) \\
+    &amp;= ((\overline{a} + \overline{b}) + a) \cdot ((\overline{a} +
+\overline{b}) + b) &amp; (Dist_+) \\
+    &amp;= (a + (\overline{a} + \overline{b})) \cdot (b + (\overline{a}
++ \overline{b})) &amp; (Comm_+) \\
+    &amp;= 1 \cdot 1 = 1 &amp; (\text{Resultados anteriores})
+\end{align*}</span> Por <span class="math inline">Unic_{comp}</span>,
+<span class="math inline">\overline{(a \cdot b)} = \overline{a} +
+\overline{b}</span>. ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">a + b = \overline{(\neg
+a \cdot \neg b)}</span> y su dual.</em> Partiendo de <span
+class="math inline">\overline{(\neg a \cdot \neg b)}</span>, aplicamos
+De Morgan a sus componentes: <span class="math display">\begin{align*}
+    \overline{(\neg a \cdot \neg b)} &amp;= \overline{(\neg a)} +
+\overline{(\neg b)} &amp; (Mor_\cdot) \\
+    &amp;= a + b &amp; (Comp_{inv})
+\end{align*}</span> Dualizando la expresión, obtenemos de manera
+idéntica que <span class="math inline">\overline{(\neg a + \neg b)} = a
+\cdot b</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Asociatividad - <span class="math inline">Asoc_+,
+Asoc_\cdot</span>asociatividad El orden en el que se agrupan tres o más
+elementos al aplicar de forma consecutiva la misma operación (<span
+class="math inline">+</span> o <span class="math inline">\cdot</span>)
+no altera el resultado final. Al ubicar este teorema después de De
+Morgan, podemos simplificar enormemente su demostración: <span
+class="math display">\begin{align*}
+    a + (b + c) &amp;= (a + b) + c \\
+    a \cdot (b \cdot c) &amp;= (a \cdot b) \cdot c
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">a + (b + c) = (a + b) +
+c</span>.</em> Primero, demostraremos un pequeño <strong>Lema de
+Igualdad por Casos</strong>: Si <span class="math inline">x \cdot y = x
+\cdot z</span> y <span class="math inline">\overline{x} \cdot y =
+\overline{x} \cdot z</span>, entonces <span class="math inline">y =
+z</span>. <span class="math display">\begin{align*}
+    y &amp;= 1 \cdot y &amp; (ElemNeu_\cdot) \\
+      &amp;= (x + \overline{x}) \cdot y &amp; (Comp_+) \\
+      &amp;= (x \cdot y) + (\overline{x} \cdot y) &amp; (Dist_\cdot) \\
+      &amp;= (x \cdot z) + (\overline{x} \cdot z) &amp; (\text{Por
+hipótesis del Lema}) \\
+      &amp;= (x + \overline{x}) \cdot z &amp; (Dist_\cdot) \\
+      &amp;= 1 \cdot z = z &amp; (Comp_+, ElemNeu_\cdot)
+\end{align*}</span> Sea <span class="math inline">L = a + (b + c)</span>
+y <span class="math inline">R = (a + b) + c</span>. Aplicaremos el lema
+usando <span class="math inline">x = a</span>, por lo que debemos
+demostrar que <span class="math inline">a \cdot L = a \cdot R</span> y
+<span class="math inline">\overline{a} \cdot L = \overline{a} \cdot
+R</span>.</p>
+<p>1) Comprobamos <span class="math inline">a \cdot L = a \cdot
+R</span>: <span class="math display">\begin{align*}
+    a \cdot L &amp;= a \cdot (a + (b + c)) = a &amp; (Abs_\cdot) \\
+    a \cdot R &amp;= a \cdot ((a + b) + c) \\
+               &amp;= (a \cdot (a + b)) + (a \cdot c) &amp; (Dist_\cdot)
+\\
+               &amp;= a + (a \cdot c) = a &amp; (Abs_\cdot, Abs_+)
+\end{align*}</span> Por tanto, <span class="math inline">a \cdot L = a
+\cdot R</span>.</p>
+<p>2) Comprobamos <span class="math inline">\overline{a} \cdot L =
+\overline{a} \cdot R</span>: <span class="math display">\begin{align*}
+    \overline{a} \cdot L &amp;= \overline{a} \cdot (a + (b + c)) \\
+                    &amp;= (\overline{a} \cdot a) + (\overline{a} \cdot
+(b + c)) &amp; (Dist_\cdot) \\
+                    &amp;= 0 + (\overline{a} \cdot (b + c)) &amp;
+(Comp_\cdot) \\
+                    &amp;= \overline{a} \cdot (b + c) &amp; (ElemNeu_+)
+\end{align*}</span> <span class="math display">\begin{align*}
+    \overline{a} \cdot R &amp;= \overline{a} \cdot ((a + b) + c) \\
+                    &amp;= (\overline{a} \cdot (a + b)) + (\overline{a}
+\cdot c) &amp; (Dist_\cdot) \\
+                    &amp;= ((\overline{a} \cdot a) + (\overline{a} \cdot
+b)) + (\overline{a} \cdot c) &amp; (Dist_\cdot) \\
+                    &amp;= (0 + (\overline{a} \cdot b)) + (\overline{a}
+\cdot c) &amp; (Comp_\cdot) \\
+                    &amp;= (\overline{a} \cdot b) + (\overline{a} \cdot
+c) &amp; (ElemNeu_+) \\
+                    &amp;= \overline{a} \cdot (b + c) &amp; (Dist_\cdot)
+\end{align*}</span> Como <span class="math inline">\overline{a} \cdot L
+= \overline{a} \cdot R</span>, aplicando el Lema concluimos que <span
+class="math inline">L = R</span>, es decir, <span class="math inline">a
++ (b + c) = (a + b) + c</span>. ◻</p>
+</div>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">a \cdot (b \cdot c) =
+(a \cdot b) \cdot c</span> (Dual mediante De Morgan).</em> Al haber
+demostrado previamente las leyes de De Morgan, podemos probar la
+asociatividad del ínfimo de forma directa y elegante sin necesidad de
+repetir la manipulación algebraica de la demostración dual: <span
+class="math display">\begin{align*}
+    a \cdot (b \cdot c) &amp;= \overline{(\neg a + \neg (b \cdot c))}
+&amp; (Mor_\cdot \text{ y } Comp_{inv}) \\
+                          &amp;= \overline{(\neg a + (\neg b + \neg c))}
+&amp; (Mor_\cdot) \\
+                          &amp;= \overline{((\neg a + \neg b) + \neg c)}
+&amp; (Asoc_+ \text{ demostrada arriba}) \\
+                          &amp;= \overline{(\neg (a \cdot b) + \neg c)}
+&amp; (Mor_\cdot) \\
+                          &amp;= (a \cdot b) \cdot c &amp; (Mor_\cdot
+\text{ y } Comp_{inv})
+\end{align*}</span> ◻</p>
+</div>
+<h2 id="generalización-a-n-variables">Generalización a <span
+class="math inline">n</span> variables</h2>
+<p>Habiendo demostrado la asociatividad (<span
+class="math inline">Asoc_+</span> y <span
+class="math inline">Asoc_\cdot</span>) de las operaciones fundamentales
+del álgebra de Boole, el orden en el que se agrupan las variables al
+aplicar consecutivamente una misma operación resulta irrelevante. Esto
+nos permite prescindir de los paréntesis y extender de forma natural las
+operaciones binarias a un número arbitrario <span
+class="math inline">n</span> de operandos.</p>
+<div class="definicion">
+<p>Disyunción (Supremo) de <span class="math inline">n</span>
+variablesor_n_variables La disyunción múltiple de <span
+class="math inline">n</span> variables, denotada de forma compacta
+mediante el operador <span class="math inline">\sum</span>, se define
+como la aplicación sucesiva de la operación <span
+class="math inline">+</span>: <span class="math display">\sum_{i=1}^n
+x_i \triangleq x_1 + x_2 + \dots + x_n</span></p>
+</div>
+<div class="definicion">
+<p>Conjunción (Ínfimo) de <span class="math inline">n</span>
+variablesand_n_variables De manera análoga, la conjunción múltiple de
+<span class="math inline">n</span> variables, denotada mediante el
+operador <span class="math inline">\prod</span>, se define como la
+aplicación sucesiva de la operación <span
+class="math inline">\cdot</span>: <span
+class="math display">\prod_{i=1}^n x_i \triangleq x_1 \cdot x_2 \cdot
+\dots \cdot x_n</span></p>
+</div>
+<p>La existencia de estas operaciones múltiples bien definidas es un
+pilar fundamental para desarrollar formas canónicas (como la suma de
+productos o producto de sumas) y, como veremos a continuación, servirá
+de base para extender el número de entradas de los operadores
+derivados.</p>
+<h1 id="operadores-derivados-nand-nor-xor-y-xnor">Operadores Derivados:
+NAND, NOR, XOR y XNOR</h1>
+<p>Las ecuaciones obtenidas a partir de las Leyes de De Morgan
+demuestran que las operaciones básicas <span
+class="math inline">+</span> y <span class="math inline">\cdot</span>
+pueden ser expresadas íntegramente en términos de la negación de su
+operación dual. Esto motiva la definición de varios operadores lógicos
+fundamentales en sistemas digitales. Dos de ellos (NAND y NOR) son de
+gran relevancia por ser funcionalmente completos por sí solos, mientras
+que otros dos (XOR y XNOR) son esenciales para funciones aritméticas y
+de comprobación de paridad:</p>
+<div class="definicion">
+<p>Operador NAND (Barra de Sheffer)nand Denotado clásicamente con una
+flecha hacia arriba (<span class="math inline">\uparrow</span>), se
+define como la negación del ínfimo. <span class="math display">a
+\uparrow b \triangleq \overline{(a \cdot b)} = \overline{a} +
+\overline{b}</span></p>
+</div>
+<div class="definicion">
+<p>Operador NOR (Flecha de Peirce)nor Denotado con una flecha hacia
+abajo (<span class="math inline">\downarrow</span>), se define como la
+negación del supremo. <span class="math display">a \downarrow b
+\triangleq \overline{(a + b)} = \overline{a} \cdot
+\overline{b}</span></p>
+</div>
+<div class="definicion">
+<p>Operador XOR (O-exclusiva)xor Denotado con el símbolo de suma
+exclusiva (<span class="math inline">\oplus</span>), evalúa a <span
+class="math inline">1</span> cuando exactamente uno de los operandos es
+<span class="math inline">1</span> y el otro <span
+class="math inline">0</span>. <span class="math display">a \oplus b
+\triangleq (a \cdot \overline{b}) + (\overline{a} \cdot b)</span></p>
+</div>
+<div class="definicion">
+<p>Operador XNOR (No-O-exclusiva o Equivalencia)xnor Denotado
+frecuentemente con <span class="math inline">\odot</span> o <span
+class="math inline">\leftrightarrow</span>, es la negación de la
+operación XOR y evalúa a <span class="math inline">1</span> cuando ambos
+operandos son idénticos. <span class="math display">a \odot b \triangleq
+\overline{(a \oplus b)} = (a \cdot b) + (\overline{a} \cdot
+\overline{b})</span></p>
+</div>
+<div class="definicion">
+<p>Generalización a <span class="math inline">n</span> variables de NAND
+y NORgen_nand_nor A diferencia de los operadores <span
+class="math inline">+</span>, <span class="math inline">\cdot</span> y
+<span class="math inline">\oplus</span>, los operadores NAND (<span
+class="math inline">\uparrow</span>) y NOR (<span
+class="math inline">\downarrow</span>) <strong>no son
+asociativos</strong>. Sin embargo, debido a su inmensa importancia
+práctica en la construcción de circuitos digitales, se define
+convencionalmente su generalización a <span class="math inline">n</span>
+variables como la negación de la conjunción o disyunción múltiple,
+respectivamente: <span class="math display">\text{NAND}(x_1, x_2, \dots,
+x_n) \triangleq \overline{\left( \prod_{i=1}^n x_i \right)}</span> <span
+class="math display">\text{NOR}(x_1, x_2, \dots, x_n) \triangleq
+\overline{\left( \sum_{i=1}^n x_i \right)}</span></p>
+</div>
+<h2 id="comportamiento-de-los-operadores-derivados">Comportamiento de
+los Operadores Derivados</h2>
+<p>Los operadores NAND (<span class="math inline">\uparrow</span>) y NOR
+(<span class="math inline">\downarrow</span>) presentan una serie de
+propiedades algebraicas particulares. Al ser operadores funcionalmente
+completos, permiten expresar cualquier otra operación booleana
+utilizando exclusivamente uno de ellos.</p>
+<div class="teorema">
+<p>Idempotencia cruzada (Generación de NOT)idemp_cruzada Operar un
+elemento consigo mismo usando NAND o NOR equivale a su complemento
+(negación): <span class="math display">\begin{align*}
+    \forall a \in \mathbb{B}, \quad a \uparrow a &amp;= \overline{a} \\
+    \forall a \in \mathbb{B}, \quad a \downarrow a &amp;= \overline{a}
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para la operación NAND: <span
+class="math display">\begin{align*}
+    a \uparrow a &amp;\triangleq \overline{(a \cdot a)} &amp;
+(\text{Definicion de NAND}) \\
+                 &amp;= \overline{a} &amp; (Idemp_\cdot)
+\end{align*}</span> Para la operación NOR: <span
+class="math display">\begin{align*}
+    a \downarrow a &amp;\triangleq \overline{(a + a)} &amp;
+(\text{Definicion de NOR}) \\
+                   &amp;= \overline{a} &amp; (Idemp_+)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Generación del Ínfimo y Supremo (AND y OR)gen_inf_sup A partir de la
+propiedad anterior, podemos recuperar las operaciones básicas anidando
+las puertas consigo mismas: <span class="math display">\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \cdot b &amp;= \overline{(a
+\uparrow b)} = (a \uparrow b) \uparrow (a \uparrow b) \\
+    \forall a, b \in \mathbb{B}, \quad a + b &amp;= \overline{(a
+\downarrow b)} = (a \downarrow b) \downarrow (a \downarrow b)
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para la generación del ínfimo (AND): <span
+class="math display">\begin{align*}
+    \overline{(a \uparrow b)} &amp;\triangleq \overline{(\neg(a \cdot
+b))} &amp; (\text{Definicion de NAND}) \\
+                       &amp;= a \cdot b &amp; (Involucion)
+\end{align*}</span> Además, por la idempotencia cruzada demostrada
+anteriormente, <span class="math inline">x \uparrow x =
+\overline{x}</span>, por tanto: <span class="math display">\overline{(a
+\uparrow b)} = (a \uparrow b) \uparrow (a \uparrow b)</span> La
+demostración para la generación del supremo (OR) es idéntica por
+dualidad. ◻</p>
+</div>
+<div class="teorema">
+<p>Generación cruzada (Leyes de De Morgan para NAND/NOR)gen_cruzada
+Podemos generar la operación opuesta (supremo desde NAND, e ínfimo desde
+NOR) negando previamente las entradas: <span
+class="math display">\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a + b &amp;= (\overline{a})
+\uparrow (\overline{b}) = (a \uparrow a) \uparrow (b \uparrow b) \\
+    \forall a, b \in \mathbb{B}, \quad a \cdot b &amp;= (\overline{a})
+\downarrow (\overline{b}) = (a \downarrow a) \downarrow (b \downarrow b)
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para el supremo (OR): <span
+class="math display">\begin{align*}
+    (\overline{a}) \uparrow (\overline{b}) &amp;\triangleq
+\overline{(\neg a \cdot \neg b)} &amp; (\text{Definicion de NAND}) \\
+                               &amp;= \overline{(\neg (a + b))} &amp;
+(Mor_+) \\
+                               &amp;= a + b &amp; (Involucion)
+\end{align*}</span> La demostración para el ínfimo (AND) sigue los
+mismos pasos de manera dual, aplicando <span
+class="math inline">Mor_\cdot</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Conmutatividadconmut_deriv Al igual que sus operaciones base, ambos
+operadores son perfectamente conmutativos: <span
+class="math display">\begin{align*}
+    \forall a, b \in \mathbb{B}, \quad a \uparrow b &amp;= b \uparrow a
+\\
+    \forall a, b \in \mathbb{B}, \quad a \downarrow b &amp;= b
+\downarrow a
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para la operación NAND: <span
+class="math display">\begin{align*}
+    a \uparrow b &amp;\triangleq \overline{(a \cdot b)} &amp;
+(\text{Definicion de NAND}) \\
+                 &amp;= \overline{(b \cdot a)} &amp; (Comm_\cdot) \\
+                 &amp;\triangleq b \uparrow a &amp; (\text{Definicion de
+NAND})
+\end{align*}</span> Para la operación NOR, es análogo aplicando <span
+class="math inline">Comm_+</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Inexistencia de Elemento Neutrono_neutro No existe ningún elemento
+neutro para las operaciones NAND ni NOR en un álgebra de Boole
+general.</p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Si existiera un neutro <span
+class="math inline">e</span> para la operación NAND, debería cumplirse
+que <span class="math inline">\forall a, a \uparrow e = a</span>, es
+decir, <span class="math inline">\overline{(a \cdot e)} = a</span>. Si
+probamos con <span class="math inline">e=1</span>, obtenemos <span
+class="math inline">\overline{a} = a</span>, lo cual obliga al colapso
+en un álgebra trivial. Si probamos con <span
+class="math inline">e=0</span>, obtenemos <span
+class="math inline">\overline{0} = a \implies 1 = a</span>, lo cual
+obviamente no se cumple para cualquier elemento <span
+class="math inline">a</span>. Lo mismo aplica a la operación NOR. ◻</p>
+</div>
+<div class="teorema">
+<p>Comportamiento con las constantes (Fijación y
+Absorción)constantes_deriv Fijar una constante específica en uno de los
+operandos genera directamente la negación, mientras que usar la
+constante opuesta actúa como un pseudo-elemento absorbente (devolviendo
+un valor constante inalterable por <span class="math inline">a</span>):
+<span class="math display">\begin{align*}
+    \text{Inversión: } &amp; a \uparrow 1 = \overline{a} \qquad &amp; a
+\downarrow 0 &amp;= \overline{a} \\
+    \text{Absorción: } &amp; a \uparrow 0 = 1 \qquad &amp; a \downarrow
+1 &amp;= 0
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para la inversión: <span
+class="math display">\begin{align*}
+    a \uparrow 1 &amp;= \overline{(a \cdot 1)} = \overline{a} &amp;
+(ElemNeu_\cdot) \\
+    a \downarrow 0 &amp;= \overline{(a + 0)} = \overline{a} &amp;
+(ElemNeu_+)
+\end{align*}</span> Para la absorción: <span
+class="math display">\begin{align*}
+    a \uparrow 0 &amp;= \overline{(a \cdot 0)} = \overline{0} = 1 &amp;
+(Abs_0) \\
+    a \downarrow 1 &amp;= \overline{(a + 1)} = \overline{1} = 0 &amp;
+(Abs_1)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Ausencia de Asociatividadno_asoc_deriv A diferencia del supremo
+(<span class="math inline">+</span>) y el ínfimo (<span
+class="math inline">\cdot</span>), las operaciones NAND y NOR son
+positivamente NO asociativas: <span class="math display">\begin{align*}
+    (a \uparrow b) \uparrow c &amp;\neq a \uparrow (b \uparrow c) \\
+    (a \downarrow b) \downarrow c &amp;\neq a \downarrow (b \downarrow
+c)
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Desarrollando el lado izquierdo para NAND:
+<span class="math display">(a \uparrow b) \uparrow c = \overline{( (\neg
+(a \cdot b)) \cdot c )} = (a \cdot b) + \overline{c}</span>
+Desarrollando el lado derecho: <span class="math display">a \uparrow (b
+\uparrow c) = \overline{( a \cdot (\neg (b \cdot c)) )} = \overline{a} +
+(b \cdot c)</span> Resulta evidente que <span class="math inline">(a
+\cdot b) + \overline{c} \neq \overline{a} + (b \cdot c)</span> para
+combinaciones arbitrarias de variables. El mismo razonamiento aplica de
+manera estricta y análoga para demostrar la carencia de asociatividad en
+la operación NOR (<span class="math inline">\downarrow</span>). ◻</p>
+</div>
+<div class="definicion">
+<p>NAND y NOR de <span class="math inline">n</span>
+entradasdef_n_entradas Dado que las puertas NAND y NOR físicas a menudo
+tienen más de dos entradas, se definen algebraicamente para múltiples
+entradas como la negación de la conjunción o disyunción de todas ellas:
+<span class="math display">\begin{align*}
+    \uparrow(x_1, x_2, \dots, x_n) &amp;\triangleq \overline{\left(
+\prod_{i=1}^n x_i \right)} \\
+    \downarrow(x_1, x_2, \dots, x_n) &amp;\triangleq \overline{\left(
+\sum_{i=1}^n x_i \right)}
+\end{align*}</span> En particular, para el caso de 3 entradas que
+estudiaremos a continuación: <span class="math display">\begin{align*}
+    \uparrow(a,b,c) &amp;\triangleq \overline{(a \cdot b \cdot c)} \\
+    \downarrow(a,b,c) &amp;\triangleq \overline{(a + b + c)}
+\end{align*}</span></p>
+</div>
+<div class="teorema">
+<p>NAND/NOR múltiple vs agrupación binariamultiple_vs_binaria Como
+consecuencia directa de su falta de asociatividad, una operación NAND o
+NOR de 3 entradas no es equivalente a la agrupación secuencial en
+cascada de operaciones de 2 entradas: <span
+class="math display">\begin{align*}
+    \uparrow(a,b,c) &amp;\neq (a \uparrow b) \uparrow c \qquad \text{y}
+\qquad \uparrow(a,b,c) \neq a \uparrow (b \uparrow c) \\
+    \downarrow(a,b,c) &amp;\neq (a \downarrow b) \downarrow c \qquad
+\text{y} \qquad \downarrow(a,b,c) \neq a \downarrow (b \downarrow c)
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para la NAND de 3 entradas tenemos, por
+definición y leyes de De Morgan: <span
+class="math display">\uparrow(a,b,c) \triangleq \overline{(a \cdot b
+\cdot c)} = \overline{a} + \overline{b} + \overline{c}</span> Sin
+embargo, la agrupación de dos en dos evaluada anteriormente daba: <span
+class="math display">(a \uparrow b) \uparrow c = (a \cdot b) +
+\overline{c}</span> Evidentemente, <span
+class="math inline">\overline{a} + \overline{b} + \overline{c} \neq (a
+\cdot b) + \overline{c}</span>. Lo mismo aplica a las agrupaciones
+derechas y a las operaciones NOR equivalentes. ◻</p>
+</div>
+<div class="teorema">
+<p>Extensión del Principio de Dualidad (NAND y NOR)dualidad_nand_nor La
+inclusión de los operadores derivados expande el Principio de Dualidad
+establecido en los postulados iniciales. La expresión dual de cualquier
+teorema o identidad que contenga operaciones NAND o NOR se obtiene
+intercambiando los operadores <span class="math inline">\uparrow</span>
+y <span class="math inline">\downarrow</span> (además de los ya
+conocidos <span class="math inline">+ \leftrightarrow \cdot</span> y
+<span class="math inline">0 \leftrightarrow 1</span>).</p>
+</div>
+<h3 id="comportamiento-de-los-operadores-xor-y-xnor">Comportamiento de
+los Operadores XOR y XNOR</h3>
+<p>A diferencia de los operadores NAND y NOR, que destacan por su
+universalidad funcional pero carecen de propiedades algebraicas
+deseables (como asociatividad o elemento neutro), los operadores XOR
+(<span class="math inline">\oplus</span>) y XNOR (<span
+class="math inline">\odot</span>) exhiben una rica estructura
+algebraica. A continuación demostraremos estas propiedades.</p>
+<div class="teorema">
+<p>Conmutatividadconmut_xor Ambos operadores son conmutativos: <span
+class="math display">a \oplus b = b \oplus a \qquad \text{y} \qquad a
+\odot b = b \odot a</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para XOR: <span
+class="math display">\begin{align*}
+    a \oplus b &amp;\triangleq (a \cdot \overline{b}) + (\overline{a}
+\cdot b) &amp; (\text{Definición de XOR}) \\
+               &amp;= (\overline{a} \cdot b) + (a \cdot \overline{b})
+&amp; (Comm_+) \\
+               &amp;= (b \cdot \overline{a}) + (\overline{b} \cdot a)
+&amp; (Comm_\cdot) \\
+               &amp;\triangleq b \oplus a &amp; (\text{Definición de
+XOR})
+\end{align*}</span> La demostración para XNOR sigue pasos idénticos
+aprovechando la conmutatividad del ínfimo y el supremo. ◻</p>
+</div>
+<div class="teorema">
+<p>Elementos Neutros e Inversoresneutro_xor El elemento <span
+class="math inline">0</span> actúa como neutro para la XOR, y <span
+class="math inline">1</span> actúa como inversor. De manera dual, <span
+class="math inline">1</span> es el neutro de la XNOR, y <span
+class="math inline">0</span> actúa como inversor: <span
+class="math display">\begin{align*}
+    a \oplus 0 &amp;= a &amp; a \oplus 1 &amp;= \overline{a} \\
+    a \odot 1 &amp;= a &amp; a \odot 0 &amp;= \overline{a}
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración para XOR.</em> Para el elemento <span
+class="math inline">0</span> (neutro): <span
+class="math display">\begin{align*}
+    a \oplus 0 &amp;\triangleq (a \cdot \overline{0}) + (\overline{a}
+\cdot 0) &amp; (\text{Definición}) \\
+                  &amp;= (a \cdot 1) + 0 &amp; (Comp_{inv} \text{ y }
+Fij_\cdot) \\
+                  &amp;= a + 0 &amp; (ElemNeu_\cdot) \\
+                  &amp;= a &amp; (ElemNeu_+)
+\end{align*}</span> Para el elemento <span class="math inline">1</span>
+(inversor): <span class="math display">\begin{align*}
+    a \oplus 1 &amp;\triangleq (a \cdot \overline{1}) + (\overline{a}
+\cdot 1) &amp; (\text{Definición}) \\
+                  &amp;= (a \cdot 0) + \overline{a} &amp; (Comp_{inv}
+\text{ y } ElemNeu_\cdot) \\
+                  &amp;= 0 + \overline{a} &amp; (Fij_\cdot) \\
+                  &amp;= \overline{a} &amp; (ElemNeu_+)
+\end{align*}</span> Las pruebas para XNOR son totalmente duales. ◻</p>
+</div>
+<div class="teorema">
+<p>Elemento Inverso de sí mismo (Grupo Abeliano)idemp_nula_xor La
+combinación de un elemento consigo mismo produce una anulación (devuelve
+el neutro de la operación correspondiente), actuando cada elemento como
+su propio inverso: <span class="math display">a \oplus a = 0 \qquad
+\text{y} \qquad a \odot a = 1</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración.</em> Para XOR: <span
+class="math display">\begin{align*}
+    a \oplus a &amp;\triangleq (a \cdot \overline{a}) + (\overline{a}
+\cdot a) \\
+               &amp;= 0 + 0 &amp; (Comp_\cdot \text{ y } Comm_\cdot) \\
+               &amp;= 0 &amp; (Idemp_+)
+\end{align*}</span> Para XNOR: <span class="math display">\begin{align*}
+    a \odot a &amp;\triangleq (a \cdot a) + (\overline{a} \cdot
+\overline{a}) \\
+              &amp;= a + \overline{a} &amp; (Idemp_\cdot) \\
+              &amp;= 1 &amp; (Comp_+)
+\end{align*}</span> ◻</p>
+</div>
+<div class="teorema">
+<p>Propiedades de Negaciónnegacion_xor Negar cualquiera de las entradas
+de forma independiente equivale a negar la operación completa, lo que a
+su vez alterna entre XOR y XNOR: <span
+class="math display">\begin{align*}
+    \overline{(a \oplus b)} &amp;= \overline{a} \oplus b = a \oplus
+\overline{b} = a \odot b \\
+    \overline{(a \odot b)} &amp;= \overline{a} \odot b = a \odot
+\overline{b} = a \oplus b
+\end{align*}</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de <span class="math inline">a \oplus \overline{b} =
+\overline{(a \oplus b)}</span>.</em> <span
+class="math display">\begin{align*}
+    a \oplus \overline{b} &amp;\triangleq (a \cdot \overline{(\neg b)})
++ (\overline{a} \cdot \overline{b}) \\
+                    &amp;= (a \cdot b) + (\overline{a} \cdot
+\overline{b}) &amp; (Involucion) \\
+                    &amp;\triangleq a \odot b &amp; (\text{Definición de
+XNOR})
+\end{align*}</span> Sabiendo por definición que <span
+class="math inline">a \odot b \triangleq \overline{(a \oplus b)}</span>,
+se concluye de forma inmediata que <span class="math inline">a \oplus
+\overline{b} = \overline{(a \oplus b)}</span>. ◻</p>
+</div>
+<div class="teorema">
+<p>Asociatividadasoc_xor Tanto XOR como XNOR son operadores
+algebraicamente asociativos: <span class="math display">(a \oplus b)
+\oplus c = a \oplus (b \oplus c) \qquad \text{y} \qquad (a \odot b)
+\odot c = a \odot (b \odot c)</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración para XOR.</em> Primero evaluaremos el miembro
+izquierdo <span class="math inline">(a \oplus b) \oplus c</span>.
+Llamaremos <span class="math inline">X = a \oplus b</span>. <span
+class="math display">\begin{align*}
+    X \oplus c &amp;\triangleq (X \cdot \overline{c}) + (\overline{X}
+\cdot c) \\
+               &amp;= \big( ((a \cdot \overline{b}) + (\overline{a}
+\cdot b)) \cdot \overline{c} \big) + \big( \overline{((a \cdot \neg b) +
+(\neg a \cdot b))} \cdot c \big) \\
+               &amp;= \big( ((a \cdot \overline{b}) + (\overline{a}
+\cdot b)) \cdot \overline{c} \big) + \big( (a \odot b) \cdot c \big)
+\quad (\text{Definición de XNOR}) \\
+               &amp;= \big( (a \cdot \overline{b} \cdot \overline{c}) +
+(\overline{a} \cdot b \cdot \overline{c}) \big) + \big( ((a \cdot b) +
+(\overline{a} \cdot \overline{b})) \cdot c \big) \quad (Dist_\cdot) \\
+               &amp;= (a \cdot \overline{b} \cdot \overline{c}) +
+(\overline{a} \cdot b \cdot \overline{c}) \\
+               &amp;\quad + (a \cdot b \cdot c) + (\overline{a} \cdot
+\overline{b} \cdot c) \quad (Dist_\cdot)
+\end{align*}</span> Ahora evaluaremos el miembro derecho <span
+class="math inline">a \oplus (b \oplus c)</span>. Llamaremos <span
+class="math inline">Y = b \oplus c</span>. <span
+class="math display">\begin{align*}
+    a \oplus Y &amp;\triangleq (a \cdot \overline{Y}) + (\overline{a}
+\cdot Y) \\
+               &amp;= (a \cdot (b \odot c)) + (\overline{a} \cdot ((b
+\cdot \overline{c}) + (\overline{b} \cdot c))) \\
+               &amp;= (a \cdot ((b \cdot c) + (\overline{b} \cdot
+\overline{c}))) + (\overline{a} \cdot b \cdot \overline{c}) +
+(\overline{a} \cdot \overline{b} \cdot c) \\
+               &amp;= (a \cdot b \cdot c) + (a \cdot \overline{b} \cdot
+\overline{c}) \\
+               &amp;\quad + (\overline{a} \cdot b \cdot \overline{c}) +
+(\overline{a} \cdot \overline{b} \cdot c)
+\end{align*}</span> Como podemos observar, ambas expansiones resultan
+exactamente en los mismos cuatro minitérminos. Reordenándolos por
+conmutatividad (<span class="math inline">Comm_+</span>) demostramos que
+son idénticos. ◻</p>
+</div>
+<div class="teorema">
+<p>Generalización n-aria (XOR y XNOR)gen_xor Dado que ambos operadores
+han demostrado ser asociativos y conmutativos, es posible omitir los
+paréntesis y generalizar la operación a un número arbitrario <span
+class="math inline">n</span> de variables. Se denotan mediante los
+operadores de sumatoria y productorio modificados: <span
+class="math display">\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus
+\dots \oplus x_n</span> <span class="math display">\bigodot_{i=1}^{n}
+x_i = x_1 \odot x_2 \odot \dots \odot x_n</span></p>
+</div>
+<div class="teorema">
+<p>Distributividad (AND sobre XOR y OR sobre XNOR)dist_xor El producto
+(AND) se distribuye sobre la suma exclusiva (XOR), y dualmente, la suma
+(OR) se distribuye sobre la equivalencia (XNOR): <span
+class="math display">a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot
+c)</span> <span class="math display">a + (b \odot c) = (a + b) \odot (a
++ c)</span></p>
+</div>
+<p><strong>Demostración:</strong></p>
+<div class="proof">
+<p><em>Demostración de AND sobre XOR.</em> Desarrollando el lado derecho
+(RHS): <span class="math display">\begin{align*}
+    (a \cdot b) \oplus (a \cdot c) &amp;\triangleq ((a \cdot b) \cdot
+\overline{(a \cdot c)}) + (\overline{(a \cdot b)} \cdot (a \cdot c)) \\
+                                     &amp;= (a \cdot b \cdot
+(\overline{a} + \overline{c})) + ((\overline{a} + \overline{b}) \cdot a
+\cdot c) \quad (Mor_\cdot) \\
+                                     &amp;= ((a \cdot b \cdot
+\overline{a}) + (a \cdot b \cdot \overline{c})) \\
+                                     &amp;\quad + ((a \cdot c \cdot
+\overline{a}) + (a \cdot c \cdot \overline{b})) \quad (Dist_\cdot) \\
+                                     &amp;= (0 + (a \cdot b \cdot
+\overline{c})) + (0 + (a \cdot \overline{b} \cdot c)) \quad (Comp_\cdot
+\text{ y } Fij_\cdot) \\
+                                     &amp;= (a \cdot b \cdot
+\overline{c}) + (a \cdot \overline{b} \cdot c) \quad (ElemNeu_+) \\
+                                     &amp;= a \cdot ((b \cdot
+\overline{c}) + (\overline{b} \cdot c)) \quad (Dist_\cdot \text{ a la
+inversa}) \\
+                                     &amp;\triangleq a \cdot (b \oplus
+c) \quad (\text{Def. XOR})
+\end{align*}</span> Lo cual demuestra la igualdad. La demostración de la
+distributividad para XNOR es rigurosamente dual. ◻</p>
+</div>
+<div class="teorema">
+<p>Extensión del Principio de Dualidad (XOR y XNOR)dualidad_xor_xnor De
+forma análoga a la relación entre NAND y NOR, los operadores XOR y XNOR
+son mutuamente duales. Para obtener la expresión dual de cualquier
+proposición que involucre estos operadores, se deben intercambiar <span
+class="math inline">\oplus</span> y <span
+class="math inline">\odot</span>, manteniendo las reglas de dualidad
+estándar para los demás elementos y constantes.</p>
+</div>
+<h1
+id="instanciación-en-álgebras-finitas-trivial-y-bivaluada">Instanciación
+en Álgebras Finitas: Trivial y Bivaluada</h1>
+<p>La teoría desarrollada en los capítulos anteriores es aplicable a
+cualquier álgebra de Boole, sin importar el número de elementos que
+contenga el conjunto <span class="math inline">B</span> (siempre que se
+cumplan los postulados de Huntington). Sin embargo, existen dos álgebras
+finitas de interés particular por su extrema simplicidad y su aplicación
+directa en la teoría de circuitos.</p>
+<h3 id="álgebra-trivial-b-1">Álgebra Trivial (<span
+class="math inline">|B| = 1</span>)</h3>
+<p>Si definimos el conjunto soporte con un único elemento, <span
+class="math inline">B = \{ c \}</span>, nos encontramos ante el álgebra
+de Boole trivial o degenerada.</p>
+<p>Dado que los postulados de Huntington (Postulado 2) exigen la
+existencia de un elemento neutro para la disyunción (<span
+class="math inline">0 \in B</span>) y otro para la conjunción (<span
+class="math inline">1 \in B</span>), y puesto que el conjunto solo
+contiene un único elemento, estos deben forzosamente coincidir: <span
+class="math display">0 = 1 = c</span></p>
+<p>Al instanciar cualquier operación definida sobre este conjunto, los
+resultados siempre evalúan a dicha constante <span
+class="math inline">c</span>.</p>
+<ul>
+<li><p><strong>Negación:</strong> Por el postulado del complemento,
+<span class="math inline">c + \overline{c} = c</span> y <span
+class="math inline">c \cdot \overline{c} = c</span>, lo que implica que
+<span class="math inline">\overline{c} = c</span>.</p></li>
+<li><p><strong>Disyunción y Conjunción:</strong> Por la propiedad de
+idempotencia, <span class="math inline">c + c = c</span> y <span
+class="math inline">c \cdot c = c</span>.</p></li>
+<li><p><strong>Operadores Derivados:</strong> Por definición, <span
+class="math inline">c \uparrow c = \overline{(c \cdot c)} = \overline{c}
+= c</span>. Lo mismo sucede con el resto de operadores.</p></li>
+</ul>
+<p>Visualizar esto en tablas de operación (comúnmente conocidas como
+tablas de verdad) resulta en estructuras degeneradas de una sola celda,
+donde <span class="math inline">\circ \in \{ +, \cdot, \uparrow,
+\downarrow, \oplus, \odot \}</span>:</p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="math inline">a</span></th>
+<th style="text-align: center;"><span
+class="math inline">\overline{a}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">c</span></td>
+<td style="text-align: center;"><span class="math inline">c</span></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="math inline">a</span></th>
+<th style="text-align: center;"><span class="math inline">b</span></th>
+<th style="text-align: center;"><span class="math inline">a \circ
+b</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">c</span></td>
+<td style="text-align: center;"><span class="math inline">c</span></td>
+<td style="text-align: center;"><span class="math inline">c</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="álgebra-bivaluada-b-2">Álgebra Bivaluada (<span
+class="math inline">|B| = 2</span>)</h3>
+<p>El caso más importante para la ingeniería es el álgebra de Boole
+bivaluada, donde el conjunto soporte consta exactamente de los dos
+elementos garantizados por los postulados: el neutro disyuntivo y el
+neutro conjuntivo. <span class="math display">B = \{ 0, 1 \}</span>
+(Asumiendo lógicamente que <span class="math inline">0 \neq
+1</span>).</p>
+<p>Procederemos a deducir el comportamiento (las tablas de operación)
+instanciando los teoremas y postulados axiomáticos en estos dos únicos
+valores.</p>
+<h4 id="operaciones-básicas-overlinea-cdot">Operaciones Básicas (<span
+class="math inline">\overline{a}</span>, <span
+class="math inline">+</span>, <span
+class="math inline">\cdot</span>)</h4>
+<p><strong>1. Negación (Operación unaria <span
+class="math inline">\overline{a}</span>)</strong><br />
+El Postulado 5 (Complemento) exige que: <span class="math display">0 +
+\overline{0} = 1 \quad \text{y} \quad 1 + \overline{1} = 1</span> Al
+existir solo dos elementos en el conjunto, el único valor que sumado a
+<span class="math inline">0</span> (que es el neutro disyuntivo, por lo
+que no altera el resultado) da <span class="math inline">1</span>, es el
+propio <span class="math inline">1</span>. Por lo tanto, deducimos que
+<span class="math inline">\overline{0} = 1</span>. De igual manera, por
+dualidad, <span class="math inline">\overline{1} = 0</span>.</p>
+<p><strong>2. Disyunción (Operación binaria <span
+class="math inline">+</span>)</strong><br />
+Calculamos los cuatro casos posibles instanciando los valores:</p>
+<ul>
+<li><p><span class="math inline">0 + 0 = 0</span> (Por Idempotencia,
+Teorema 1).</p></li>
+<li><p><span class="math inline">0 + 1 = 1</span> (Por ser <span
+class="math inline">0</span> el elemento neutro, Postulado 2a).</p></li>
+<li><p><span class="math inline">1 + 0 = 1</span> (Por Conmutatividad,
+Postulado 3a).</p></li>
+<li><p><span class="math inline">1 + 1 = 1</span> (Por Idempotencia,
+Teorema 1).</p></li>
+</ul>
+<p><strong>3. Conjunción (Operación binaria <span
+class="math inline">\cdot</span>)</strong><br />
+Análogamente:</p>
+<ul>
+<li><p><span class="math inline">1 \cdot 1 = 1</span> (Por Idempotencia,
+Teorema 1).</p></li>
+<li><p><span class="math inline">1 \cdot 0 = 0</span> (Por ser <span
+class="math inline">1</span> el elemento neutro, Postulado 2b).</p></li>
+<li><p><span class="math inline">0 \cdot 1 = 0</span> (Por
+Conmutatividad, Postulado 3b).</p></li>
+<li><p><span class="math inline">0 \cdot 0 = 0</span> (Por Idempotencia,
+Teorema 1).</p></li>
+</ul>
+<h4 id="operadores-derivados-uparrow-downarrow-oplus-odot">Operadores
+Derivados (<span class="math inline">\uparrow, \downarrow, \oplus,
+\odot</span>)</h4>
+<p>Podemos obtener las tablas de los operadores derivados aplicando
+directamente sus definiciones algebraicas sobre las tablas básicas ya
+obtenidas:</p>
+<p><strong>1. NAND y NOR</strong><br />
+Dado que <span class="math inline">a \uparrow b = \overline{(a \cdot
+b)}</span> y <span class="math inline">a \downarrow b = \overline{(a +
+b)}</span>, los resultados consisten simplemente en aplicar el operador
+complemento (<span class="math inline">\overline{a}</span>) a las tablas
+de conjunción y disyunción calculadas previamente.</p>
+<p><strong>2. XOR y XNOR</strong><br />
+Recordando la definición algebraica <span class="math inline">a \oplus b
+= (a \cdot \overline{b}) + (\overline{a} \cdot b)</span>, se puede
+evaluar caso por caso (por ejemplo, <span class="math inline">1 \oplus 0
+= (1 \cdot 1) + (0 \cdot 0) = 1 + 0 = 1</span>), pero también podemos
+usar directamente los teoremas derivados anteriormente:</p>
+<ul>
+<li><p><span class="math inline">a \oplus 0 = a</span> (Elemento
+neutro). Por lo tanto: <span class="math inline">0 \oplus 0 = 0</span>,
+y <span class="math inline">1 \oplus 0 = 1</span>.</p></li>
+<li><p><span class="math inline">a \oplus 1 = \overline{a}</span>
+(Inversor). Por lo tanto: <span class="math inline">0 \oplus 1 =
+1</span>, y <span class="math inline">1 \oplus 1 = 0</span>.</p></li>
+</ul>
+<p>Por dualidad, y sabiendo que el XNOR es la negación del XOR, se
+obtiene trivialmente que <span class="math inline">a \odot b =
+\overline{(a \oplus b)}</span>.</p>
+<h4 id="resumen-tablas-de-operación-bivaluadas">Resumen: Tablas de
+Operación Bivaluadas</h4>
+<p>A continuación, presentamos la consolidación matricial de todas las
+operaciones deducidas, conformando las tablas de verdad definitivas del
+álgebra de dos valores:</p>
+<div id="tab:tablas_bivaluadas">
+<table>
+<caption>Tablas de Verdad consolidadas para las Operaciones del Álgebra
+de Boole de 2 elementos.</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="math inline">a</span></th>
+<th style="text-align: center;"><span
+class="math inline">\overline{a}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="tab:tablas_bivaluadas">
+<table>
+<caption>Tablas de Verdad consolidadas para las Operaciones del Álgebra
+de Boole de 2 elementos.</caption>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="math inline">a</span></th>
+<th style="text-align: center;"><span class="math inline">b</span></th>
+<th style="text-align: center;"><span class="math inline">a +
+b</span></th>
+<th style="text-align: center;"><span class="math inline">a \cdot
+b</span></th>
+<th style="text-align: center;"><span class="math inline">a \uparrow
+b</span></th>
+<th style="text-align: center;"><span class="math inline">a \downarrow
+b</span></th>
+<th style="text-align: center;"><span class="math inline">a \oplus
+b</span></th>
+<th style="text-align: center;"><span class="math inline">a \odot
+b</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">0</span></td>
+<td style="text-align: center;"><span class="math inline">1</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="conclusiones-y-transición-a-la-lógica-digital">Conclusiones y
+Transición a la Lógica Digital</h2>
+<p>Tras haber establecido formalmente la estructura matemática del
+álgebra de Boole a partir de los postulados de Huntington, y haber
+demostrado rigurosamente sus propiedades fundamentales operando con la
+signatura clásica de la teoría de retículos (<span
+class="math inline">+, \cdot, 0, 1</span>), estamos en disposición de
+dar el salto al dominio de la ingeniería.</p>
+<p>En la electrónica digital, el interés recae de forma exclusiva sobre
+un modelo concreto de álgebra de Boole: el <strong>Álgebra de
+Conmutación de Shannon</strong>. Esta es el álgebra de Boole más
+sencilla posible, cuyo conjunto subyacente consta únicamente de dos
+elementos, <span class="math inline">\mathbb{B}_2 = \{0, 1\}</span>.</p>
+<p>A pesar de su aparente simplicidad, el álgebra de <span
+class="math inline">\mathbb{B}_2</span> cumple estrictamente todos los
+postulados de Huntington (y por ende, todos los teoremas que hemos
+derivado) y está contenida formalmente como subestructura en cualquier
+otra álgebra de Boole más compleja.</p>
+<p>Para adecuar nuestra matemática al diseño de circuitos y sistemas
+digitales, adoptaremos a partir de ahora la <strong>notación
+ingenieril</strong>, realizando el siguiente isomorfismo simbólico sobre
+nuestras operaciones y constantes:</p>
+<ul>
+<li><p><strong>Constantes lógicas:</strong> El elemento mínimo <span
+class="math inline">0</span> (falso) se denotará como <strong>0</strong>
+(ó nivel bajo de tensión, <span class="math inline">L</span>). El
+elemento máximo <span class="math inline">1</span> (verdadero) se
+denotará como <strong>1</strong> (ó nivel alto de tensión, <span
+class="math inline">H</span>).</p></li>
+<li><p><strong>Supremo (Join / Disyunción):</strong> La operación <span
+class="math inline">+</span> se denotará mediante el operador suma <span
+class="math inline">\mathbf{+}</span>. En circuitos lógicos, implementa
+la puerta <strong>OR</strong>.</p></li>
+<li><p><strong>Ínfimo (Meet / Conjunción):</strong> La operación <span
+class="math inline">\cdot</span> se denotará mediante el operador
+producto <span class="math inline">\mathbf{\cdot}</span> (frecuentemente
+omitido, escribiendo <span class="math inline">ab</span> en lugar de
+<span class="math inline">a \cdot b</span>). Implementa la puerta
+<strong>AND</strong>.</p></li>
+<li><p><strong>Complemento (Negación):</strong> La operación de
+complemento <span class="math inline">\overline{a}</span> se denotará
+convencionalmente colocando una barra superior sobre la variable, <span
+class="math inline">\mathbf{\overline{a}}</span>, o mediante una comilla
+<span class="math inline">\mathbf{a&#39;}</span>. Implementa la puerta
+<strong>NOT</strong> (inversor).</p></li>
+<li><p><strong>Operadores Derivados (NAND y NOR):</strong> Las
+operaciones <span class="math inline">\uparrow</span> y <span
+class="math inline">\downarrow</span> mantienen sus símbolos, o bien se
+expresan directamente como el complemento del producto o de la suma
+(<span class="math inline">\overline{a \cdot b}</span>, <span
+class="math inline">\overline{a+b}</span>). Representan las puertas
+universales <strong>NAND</strong> y <strong>NOR</strong>, fundamentales
+en el diseño de circuitos integrados.</p></li>
+<li><p><strong>Suma Exclusiva y Equivalencia (XOR y XNOR):</strong> Las
+operaciones introducidas como suma exclusiva y equivalencia lógica se
+denotan mediante <span class="math inline">\mathbf{\oplus}</span> y
+<span class="math inline">\mathbf{\odot}</span>. Representan las puertas
+<strong>XOR</strong> (útiles en sumadores o detectores de paridad) y
+<strong>XNOR</strong> (comparadores de igualdad).</p></li>
+<li><p><strong>Operadores n-arios:</strong> Las versiones generalizadas
+para múltiples variables formarán estructuras de puertas lógicas de
+<span class="math inline">n</span> entradas. Se denotarán mediante los
+operadores <span class="math inline">\sum</span> (puerta OR de <span
+class="math inline">n</span> entradas), <span
+class="math inline">\prod</span> (puerta AND de <span
+class="math inline">n</span> entradas), <span
+class="math inline">\bigoplus</span> (puerta XOR de <span
+class="math inline">n</span> entradas) y <span
+class="math inline">\bigodot</span> (puerta XNOR de <span
+class="math inline">n</span> entradas).</p></li>
+</ul>
+<p>Esta notación algebraica clásica resulta mucho más ágil y familiar
+para la manipulación y simplificación de funciones lógicas complejas.
+Así, teoremas como el de la distributividad se reescriben de forma
+natural como <span class="math inline">a \cdot (b + c) = (a \cdot b) +
+(a \cdot c)</span>, y las leyes de De Morgan cobran su célebre forma
+visual: <span class="math display">\overline{a + b} = \overline{a} \cdot
+\overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a}
++ \overline{b}</span> De igual modo, la estructura de las operaciones
+derivadas queda plasmada directamente en ecuaciones como <span
+class="math inline">a \oplus b = (a \cdot \overline{b}) + (\overline{a}
+\cdot b)</span>.</p>
+<p>Además, gracias a nuestra previa instanciación en el álgebra
+bivaluada (<span class="math inline">|B|=2</span>), sabemos que las
+tablas de operación algebraicas que hemos deducido analíticamente se
+corresponden de manera idéntica y biunívoca con las <strong>tablas de
+verdad</strong> de las puertas lógicas físicas.</p>
+<p>Con estos fundamentos matemáticos sólidamente establecidos, la
+transición hacia el diseño, análisis y simplificación de circuitos
+digitales queda completamente justificada y carente de ambigüedades.</p>
+</body>
+</html>

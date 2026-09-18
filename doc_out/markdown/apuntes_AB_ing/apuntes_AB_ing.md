@@ -1,3 +1,10 @@
+$$
+\gdef\symdiff{\mathbin{\vartriangle}}
+\gdef\llbracket{\lbrack\!\lbrack}
+\gdef\rrbracket{\rbrack\!\rbrack}
+\gdef\triangleq{\stackrel{\mathrm{def}}{=}}
+$$
+
 # Introducción
 
 El álgebra de Boole, originalmente introducida por George Boole en su

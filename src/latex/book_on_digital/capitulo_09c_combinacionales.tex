@@ -1,0 +1,94 @@
+\chapter{Circuitos Combinacionales y Aritméticos}
+
+\section{Metodología de Diseño Combinacional}
+Un circuito digital se denomina \textbf{combinacional} si sus salidas en cualquier instante de tiempo dependen \textit{única y exclusivamente} de los valores presentes en sus entradas en ese mismo instante. Matemáticamente, carecen de estado o memoria. Todo circuito combinacional implementa físicamente una o más funciones booleanas puras.
+
+El flujo de trabajo clásico para el diseño de estos sistemas sigue un enfoque \textit{Top-Down}:
+\begin{enumerate}
+    \item \textbf{Especificación:} Definición verbal y formal del comportamiento deseado del sistema (qué entradas recibe y qué salidas debe producir).
+    \item \textbf{Tabla de verdad:} Captura exhaustiva de las especificaciones mapeando cada combinación de $N$ entradas a las salidas requeridas.
+    \item \textbf{Obtención de Funciones y Minimización:} Extracción de la forma canónica y reducción mediante Karnaugh o Quine-McCluskey para optimizar el hardware resultante.
+    \item \textbf{Implementación (Síntesis Lógica):} Traducción de las ecuaciones booleanas minimizadas a un diagrama esquemático con compuertas lógicas (AND, OR, NOT, XOR, NAND, NOR).
+\end{enumerate}
+
+Para evitar diseñar todo desde cero a nivel de puertas lógicas básicas, la ingeniería agrupa ciertos patrones repetitivos en \textbf{bloques funcionales} o "macros" (MSI - Medium Scale Integration). A continuación, revisamos los fundamentales.
+
+\section{Multiplexores y Demultiplexores}
+
+\subsection{Multiplexores (MUX)}
+Un multiplexor actúa como un conmutador electrónico. Posee $2^n$ líneas de entrada de datos, $n$ líneas de selección (o control) y $1$ línea de salida. Dependiendo del código binario presente en las líneas de selección, el MUX conecta internamente una y solo una de las líneas de entrada de datos hacia la salida.
+
+La ecuación lógica de un MUX de $4 \to 1$ (2 líneas de selección $S_1, S_0$ y 4 entradas $D_0 \dots D_3$) es:
+\[ Y = \overline{S_1}\overline{S_0}D_0 + \overline{S_1}S_0D_1 + S_1\overline{S_0}D_2 + S_1S_0D_3 \]
+
+\textbf{Aplicación avanzada:} Dado que los términos de selección conforman explícitamente los minitérminos de las variables $S,$ un MUX de $2^n \to 1$ puede implementar directamente \textit{cualquier} función booleana de $n$ variables, simplemente conectando a las entradas de datos ($D_i$) constantes lógicas (0 o 1) equivalentes a la tabla de verdad de la función.
+
+\subsection{Demultiplexores (DEMUX)}
+El demultiplexor realiza la función dual: recibe una única entrada de datos y, en base a $n$ líneas de selección, enruta ese dato a una específica de entre $2^n$ líneas de salida. (Las líneas no seleccionadas permanecen inactivas, típicamente en 0 lógico).
+
+\section{Codificadores y Decodificadores}
+
+\subsection{Decodificadores}
+Un decodificador de $n$ a $2^n$ toma un código binario de $n$ bits de entrada y activa de forma exclusiva una (y solo una) de sus $2^n$ salidas. Básicamente, computa simultáneamente los $2^n$ minitérminos del alfabeto de entrada. Un uso clásico es la selección de chips en bancos de memoria.
+
+\subsection{Codificadores}
+Hacen la operación inversa: dadas $2^n$ líneas de entrada, devuelven en sus $n$ líneas de salida el código binario asociado a la línea de entrada que está activa.
+El principal problema del codificador estándar es la \textit{colisión}: ¿qué ocurre si dos líneas de entrada se activan simultáneamente? El codificador generará una salida corrupta (el OR lógico de ambos códigos).
+
+Para solucionar esto, surgieron los \textbf{Codificadores con Prioridad (Priority Encoders)}. Estos circuitos asignan un peso jerárquico a cada entrada. Si varias entradas están activas simultáneamente, el codificador devuelve únicamente el código correspondiente a la entrada con mayor prioridad, ignorando las demás.
+
+\section{Problemática de la Inversa de una Función}
+Supongamos un sistema combinacional que calcula una función $f(x) = y.$ ¿Es posible construir un circuito combinacional $f^{-1}$ tal que al ingresar $y$ recupere $x$?
+
+En general, \textbf{no es posible}. Para que una función sea estrictamente invertible, debe ser matemática y lógicamente \textbf{biyectiva} (inyectiva y sobreyectiva). La gran mayoría de funciones lógicas prácticas proyectan muchas entradas sobre una única salida (por ejemplo, una puerta AND de 2 entradas proyecta 3 combinaciones de entrada distintas hacia un '0' a la salida).
+
+Esta compresión de estados conlleva una \textit{pérdida de información (aumento de entropía termodinámica)}. Una vez que la salida es '0', el hardware no retiene rastro de qué combinación original provocó ese '0'. La invertibilidad pura solo existe en conjuntos muy restrictivos de puertas lógicas denominadas reversibles (como Fredkin y Toffoli), empleadas en computación cuántica, pero no en las familias lógicas combinacionales estándar basadas en compuertas irreversibles.
+
+\section{Circuitos Aritméticos}
+La aritmética binaria es el núcleo de las ALUs (Arithmetic Logic Units) de las computadoras. Al trabajar con números naturales binarios de longitud de palabra fija, podemos construir circuitos aritméticos utilizando pura lógica combinacional.
+
+\subsection{Comparadores de Magnitud}
+Un comparador toma dos palabras binarias $A$ y $B$ de $n$ bits y determina su relación de orden, produciendo tres salidas mutuamente excluyentes: $(A = B),$ $(A > B),$ y $(A < B).$ 
+La igualdad se computa trivialmente operando bit a bit mediante puertas XNOR, y haciendo un AND global del resultado: si todos los bits homólogos son idénticos, las palabras son iguales.
+
+\subsection{Suma: Half-Adder y Full-Adder}
+El sumador básico o \textbf{Semisumador (Half-Adder)} suma dos bits individuales ($A$ y $B$) produciendo una Suma ($S$) y un Acarreo ($C_{out}$ o Carry Out):
+\[ S = A \oplus B \]
+\[ C_{out} = A \cdot B \]
+Sin embargo, para sumar números de varios bits, necesitamos sumar columnas intermedias que también reciben un acarreo de la columna anterior. Para ello construimos el \textbf{Sumador Completo (Full-Adder)}, que toma tres bits ($A, B, C_{in}$) y devuelve $S$ y $C_{out}:$
+\[ S = A \oplus B \oplus C_{in} \]
+\[ C_{out} = (A \cdot B) + C_{in} \cdot (A \oplus B) \]
+Conectando $n$ Full-Adders en cascada (conectando el $C_{out}$ de la posición $i$ al $C_{in}$ de la posición $i+1$) formamos un sumador \textbf{Ripple-Carry} capaz de sumar palabras completas de $n$ bits.
+
+\subsection{Restadores (Borrow Clásico)}
+El \textbf{Restador Completo (Full-Subtractor)} funciona análogamente al sumador, pero restando $A - B - B_{in}$ (donde $B_{in}$ es el préstamo o \textit{Borrow} de la columna anterior). Devuelve una Diferencia ($D$) y genera un Borrow Out ($B_{out}$):
+\[ D = A \oplus B \oplus B_{in} \]
+\[ B_{out} = (\overline{A} \cdot B) + B_{in} \cdot \overline{(A \oplus B)} \]
+La similitud de las ecuaciones demuestra la dualidad entre suma y resta en hardware natural.
+
+\subsection{Multiplicadores Combinacionales}
+El algoritmo de multiplicación en papel consiste en multiplicar (bit a bit) y luego sumar versiones desplazadas. En hardware, la "multiplicación" bit a bit entre $A_i$ y $B_j$ se implementa directamente con una única puerta AND ($A_i \cdot B_j = 1$ solo si ambos son 1).
+Un multiplicador combinacional básico consiste en una matriz bidimensional de puertas AND que calculan todos los productos parciales simultáneamente, cuyos resultados alimentan una red paralela o árbol de sumadores que agregan los productos parciales (desplazados por cableado geométrico) para formar el producto final de $2n$ bits.
+
+\section{Otros Bloques Combinacionales Clásicos}
+
+Aparte de la aritmética estricta y el enrutamiento, existen otros componentes MSI esenciales en el diseño de computadoras y sistemas de comunicación.
+
+\subsection{Generadores y Detectores de Paridad}
+En la transmisión de datos binarios, es común que el ruido electromagnético altere algún bit. Una técnica clásica de detección de errores (que no corrección) es el bit de paridad. 
+Un \textbf{Generador de Paridad} toma una palabra de $n$ bits y genera un bit extra, de forma que el número total de unos transmitidos sea siempre par (Paridad Par) o siempre impar (Paridad Impar).
+
+Matemáticamente, la paridad par de una palabra se calcula haciendo la suma exclusiva (XOR) de todos sus bits:
+\[ P = b_0 \oplus b_1 \oplus b_2 \oplus \dots \oplus b_{n-1} \]
+El circuito es simplemente un "árbol de XORs". En el extremo receptor, el \textbf{Detector de Paridad} toma los $n$ bits de datos más el bit de paridad, y los pasa todos por otro árbol XOR. Si no ha habido ningún error (o un número par de errores), el resultado global será $0.$ Si ha habido un error en un bit, el resultado será $1,$ disparando una alarma de integridad de datos.
+
+\subsection{Desplazadores de Barril (Barrel Shifters)}
+Desplazar los bits de un número a la izquierda o derecha es el equivalente hardware a multiplicar o dividir por potencias de 2, una operación fundamental en los microprocesadores. 
+Si bien el desplazamiento suele hacerse de forma secuencial (un bit por ciclo de reloj) usando registros de desplazamiento, los procesadores de alto rendimiento exigen hacerlo en \textbf{un solo ciclo}.
+
+El \textbf{Barrel Shifter} es un circuito puramente combinacional que puede desplazar o rotar una palabra de $n$ bits por un número arbitrario de posiciones especificadas por una entrada de control binaria. Se construye típicamente usando una red de multiplexores: una primera capa que decide si desplazar 1 posición o nada, una segunda que decide si desplazar 2 posiciones o nada, una tercera para 4 posiciones, etc.
+
+\subsection{La Unidad Lógica Aritmética (ALU)}
+Finalmente, la cúspide de la integración combinacional es la ALU. Una ALU integra un sumador, un restador, comparadores y puertas lógicas bit a bit (AND, OR, XOR, NOT) dentro de un único bloque funcional unificado.
+
+Para seleccionar qué operación debe ejecutarse sobre los operandos $A$ y $B,$ la ALU dispone de unas líneas de selección especiales llamadas \textbf{Código de Operación (OpCode)}. Internamente, la ALU calcula \textit{todas} las operaciones simultáneamente en paralelo, y utiliza un \textbf{Multiplexor} gigante, gobernado por el OpCode, para enrutar únicamente el resultado deseado hacia la salida final. Todo este conjunto sigue siendo estrictamente combinacional.

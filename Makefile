@@ -20,11 +20,15 @@ docs:
 			mkdir -p "$(BUILD_DIR)/$$proj"; \
 			mkdir -p "$(DOC_OUT_DIR)/$$proj"; \
 			cd "$(SRC_DIR)/$$proj" && \
-			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -output-directory="../../../$(BUILD_DIR)/$$proj" "$$proj.tex" ; \
-			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -output-directory="../../../$(BUILD_DIR)/$$proj" "$$proj.tex" ; \
+			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -synctex=1 -output-directory="../../../$(BUILD_DIR)/$$proj" "$$proj.tex" ; \
+			C:/msys64/ucrt64/bin/pdflatex.exe -interaction=nonstopmode -synctex=1 -output-directory="../../../$(BUILD_DIR)/$$proj" "$$proj.tex" ; \
 			if [ -f "../../../$(BUILD_DIR)/$$proj/$$proj.pdf" ]; then \
 				cp "../../../$(BUILD_DIR)/$$proj/$$proj.pdf" "../../../$(DOC_OUT_DIR)/$$proj/" ; \
 				rm -f "../../../$(BUILD_DIR)/$$proj/$$proj.pdf" ; \
+			fi; \
+			if [ -f "../../../$(BUILD_DIR)/$$proj/$$proj.synctex.gz" ]; then \
+				cp "../../../$(BUILD_DIR)/$$proj/$$proj.synctex.gz" "../../../$(DOC_OUT_DIR)/$$proj/" ; \
+				rm -f "../../../$(BUILD_DIR)/$$proj/$$proj.synctex.gz" ; \
 			fi; \
 			mkdir -p "../../../$(DOC_OUT_MD_DIR)/$$proj"; \
 			pandoc "$$proj.tex" -o "../../../$(DOC_OUT_MD_DIR)/$$proj/$$proj.md" --katex --from=latex --to=markdown ; \

@@ -1,3 +1,10 @@
+$$
+\gdef\symdiff{\mathbin{\vartriangle}}
+\gdef\llbracket{\lbrack\!\lbrack}
+\gdef\rrbracket{\rbrack\!\rbrack}
+\gdef\triangleq{\stackrel{\mathrm{def}}{=}}
+$$
+
 # Independencia de los axiomas de Huntington de 1904 (Opcional)
 
 Esta sección explora la independencia lógica de los postulados

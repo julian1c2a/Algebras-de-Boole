@@ -1,0 +1,174 @@
+\chapter{Minimización de Funciones Booleanas}
+
+\section{El Problema de la Optimización Lógica}
+En capítulos anteriores hemos estudiado cómo expresar cualquier función matemática utilizando formas canónicas (minitérminos o maxitérminos). Sin embargo, la implementación directa en hardware de estas expresiones canónicas es extremadamente ineficiente. Un minitérmino requiere $n$ entradas para su puerta AND, y la expresión completa puede requerir cientos de puertas lógicas. 
+
+En la ingeniería de hardware computacional, la \textbf{optimización} (o minimización) de expresiones booleanas persigue encontrar una expresión equivalente a la original que reduzca alguna métrica de coste:
+\begin{itemize}
+    \item \textbf{Área de silicio:} Minimizar la cantidad total de puertas lógicas y el número de entradas de las mismas (fan-in).
+    \item \textbf{Latencia (Retardo):} Reducir el número de capas o "saltos lógicos" que la señal debe atravesar. Las formas SOP minimizadas suelen mantener una profundidad de dos capas lógicas constantes, garantizando alta velocidad.
+    \item \textbf{Consumo de energía:} Menos transistores implican menos capacitancias parásitas que cargar y descargar.
+\end{itemize}
+
+Para lograr esto, explotamos sistemáticamente el teorema de la adyacencia lógica: $x \cdot y + x \cdot \overline{y} = x \cdot (y + \overline{y}) = x.$ Es decir, si dos términos del mismo tamaño difieren en el estado de una sola variable, esta variable es redundante y ambos términos pueden fusionarse, eliminándola.
+
+\section{Mapas de Karnaugh}
+El Mapa de Karnaugh (K-Map) es una representación tabular geométrica bidimensional de la tabla de verdad de una función, diseñada específicamente para que las celdas físicamente adyacentes correspondan a combinaciones de entrada que difieren en un único bit (distancia de Hamming = 1). Esto se logra ordenando los índices de las filas y columnas utilizando código Gray.
+
+En el mapa de Karnaugh buscamos agrupar las celdas que contienen unos lógicos en bloques rectangulares.
+Las reglas de agrupación son las siguientes:
+\begin{enumerate}
+    \item Todo agrupamiento debe contener un número de celdas que sea potencia de $2$ ($1, 2, 4, 8, \dots$).
+    \item Los agrupamientos deben ser lo más grandes posibles (maximizan el número de variables eliminadas).
+    \item Se permite el solapamiento de agrupamientos (reutilizar celdas, gracias a la idempotencia $x+x=x$).
+    \item Los bordes del mapa son adyacentes entre sí de forma toroidal (el borde superior es adyacente al inferior, el izquierdo al derecho).
+    \item Se pueden agrupar los términos indiferentes (\textit{Don't Care}) representados con una 'X', si y sólo si ayudan a crear un agrupamiento más grande.
+\end{enumerate}
+
+\subsection{Mapas de 3 y 4 variables}
+Un mapa de 3 variables ($v_1, v_2, v_3$) posee $8$ celdas, dispuestas típicamente en $2 \times 4.$ Un mapa de 4 variables ($v_1, v_2, v_3, v_4$) tiene $16$ celdas, dispuestas en $4 \times 4.$
+
+\begin{center}
+\textbf{Mapa de Karnaugh de 3 variables} \\
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ $v_1 \setminus v_2v_3$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+ \textbf{0} & 1 & 0 & 0 & 1 \\ \hline
+ \textbf{1} & 1 & 1 & 1 & 1 \\ \hline
+\end{tabular}
+\end{center}
+
+Analizando el mapa de 3 variables:
+\begin{itemize}
+    \item La fila inferior completa de unos da el implicante $v_1.$
+    \item Las esquinas (00 y 10) de la fila superior se agrupan con las esquinas de la inferior formando un grupo de 4 celdas, lo que elimina $v_1$ y $v_2,$ resultando en el implicante $\overline{v_3}.$
+    \item La función mínima es $v_1 + \overline{v_3}.$
+\end{itemize}
+
+\begin{center}
+\textbf{Mapa de Karnaugh de 4 variables} \\
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ $v_1v_2 \setminus v_3v_4$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+ \textbf{00} & 0 & 1 & 1 & 0 \\ \hline
+ \textbf{01} & 0 & 1 & 1 & 0 \\ \hline
+ \textbf{11} & 1 & 1 & 1 & 1 \\ \hline
+ \textbf{10} & 1 & 0 & 0 & 1 \\ \hline
+\end{tabular}
+\end{center}
+
+Analizando el mapa superior:
+\begin{itemize}
+    \item El bloque de 4 unos centrales (columnas 01 y 11, filas 00 y 01) es independiente de $v_1$ y $v_4,$ resultando en el implicante $\overline{v_1}v_3.$
+    \item La fila completa de unos en 11 (independiente de $v_3, v_4$) da el implicante $v_1v_2.$
+    \item Los cuatros unos en las esquinas de la mitad inferior (filas 11 y 10, columnas 00 y 10) forman el implicante $v_1\overline{v_4}.$
+\end{itemize}
+
+\subsection{Mapas de 5 y 6 variables}
+Para mapas de más de 4 variables, la dimensión 2D pura deja de ser útil para representar adyacencias unitarias.
+Para 5 variables, se utilizan dos tablas de $4 \times 4$ ubicadas lado a lado. La primera tabla asume que la variable adicional $v_1 = 0$ y la segunda asume $v_1 = 1.$ Dos celdas en la misma posición relativa dentro de ambas tablas se consideran lógicamente adyacentes.
+
+Para 6 variables ($v_1, v_2, v_3, v_4, v_5, v_6$), el método se expande organizando cuatro mapas de $4 \times 4$ en un esquema de $2 \times 2.$ Cada cuadrante ("supercelda") viene determinado por las dos variables de mayor peso ($v_1, v_2$):
+
+\begin{center}
+\begin{tabular}{cc}
+ \textbf{Mapa $\overline{v_1}\overline{v_2}$ (00)} & \textbf{Mapa $\overline{v_1}v_2$ (01)} \\
+ \begin{tabular}{|c|c|c|c|c|}
+ \hline
+ $v_3v_4 \setminus v_5v_6$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+ \textbf{00} &  &  &  &  \\ \hline
+ \textbf{01} &  &  &  &  \\ \hline
+ \textbf{11} &  &  &  &  \\ \hline
+ \textbf{10} &  &  &  &  \\ \hline
+ \end{tabular} &
+ \begin{tabular}{|c|c|c|c|c|}
+ \hline
+ $v_3v_4 \setminus v_5v_6$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+ \textbf{00} &  &  &  &  \\ \hline
+ \textbf{01} &  &  &  &  \\ \hline
+ \textbf{11} &  &  &  &  \\ \hline
+ \textbf{10} &  &  &  &  \\ \hline
+ \end{tabular} \\
+ \\
+ \textbf{Mapa $v_1\overline{v_2}$ (10)} & \textbf{Mapa $v_1v_2$ (11)} \\
+ \begin{tabular}{|c|c|c|c|c|}
+ \hline
+ $v_3v_4 \setminus v_5v_6$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+ \textbf{00} &  &  &  &  \\ \hline
+ \textbf{01} &  &  &  &  \\ \hline
+ \textbf{11} &  &  &  &  \\ \hline
+ \textbf{10} &  &  &  &  \\ \hline
+ \end{tabular} &
+ \begin{tabular}{|c|c|c|c|c|}
+ \hline
+ $v_3v_4 \setminus v_5v_6$ & \textbf{00} & \textbf{01} & \textbf{11} & \textbf{10} \\ \hline
+ \textbf{00} &  &  &  &  \\ \hline
+ \textbf{01} &  &  &  &  \\ \hline
+ \textbf{11} &  &  &  &  \\ \hline
+ \textbf{10} &  &  &  &  \\ \hline
+ \end{tabular} \\
+\end{tabular}
+\end{center}
+
+Para realizar agrupaciones en este formato de 6 variables, las adyacencias clásicas de K-Map se aplican \textit{dentro} de cada cuadrante de 16 celdas individualmente. Además, existen adyacencias \textit{intercuadrante}: celdas idénticas superpuestas entre el cuadrante superior izquierdo e inferior izquierdo, entre superior izquierdo y superior derecho, etc., formando un "hipercubo". Para agruparlas, la silueta del grupo debe ser visualmente idéntica en los cuadrantes adyacentes involucrados.
+
+\section{Algoritmo Sistemático de Quine-McCluskey}
+El mapa de Karnaugh, si bien es una herramienta visual e intuitiva sumamente útil para diseñadores, carece de escalabilidad y no es programable, dependiendo del reconocimiento de patrones ópticos. 
+
+El algoritmo de Quine-McCluskey (Q-M) es una solución puramente tabular y sistemática que garantiza matemáticamente la obtención de todas las simplificaciones mínimas y que opera, esencialmente, de la siguiente forma:
+
+\subsection{Fase 1: Búsqueda Exhaustiva de Implicantes Primos}
+\begin{enumerate}
+    \item Se listan todos los minitérminos (y términos "Don't Care") para los que la función es 1, agrupados por su peso de Hamming (número de 1s lógicos en su codificación binaria).
+    \item Se compara iterativamente cada término de un grupo de peso $k$ contra todos los términos del grupo contiguo de peso $k+1.$ Si dos términos difieren en exactamente un bit, se genera un nuevo término unificado con un guion ('-') en la posición donde diferían, representando la variable eliminada.
+    \item Se marcan ambos términos "padre" como simplificados mediante un indicador o tick ($\checkmark$).
+    \item Este proceso se repite con las nuevas listas generadas (donde los guiones deben coincidir en posición para fusionar dos términos).
+    \item Todos los términos que no lograron combinarse (y por lo tanto no reciben la marca $\checkmark$) al finalizar todas las rondas posibles son etiquetados como \textbf{Implicantes Primos}.
+\end{enumerate}
+
+\subsection{Fase 2: Resolución de la Tabla de Cobertura}
+La lista resultante de implicantes primos puede tener redundancias.
+\begin{enumerate}
+    \item Se construye una tabla de cobertura, donde las filas son los implicantes primos y las columnas son los minitérminos obligatorios originales (se excluyen los "Don't Care"). Se marca con una "X" si un implicante primo cubre un minitérmino concreto.
+    \item Se buscan columnas que posean \textbf{una única "X"}. Estas se denominan Implicantes Primos \textbf{Esenciales}, y forman parte irrenunciable del resultado simplificado.
+    \item Se seleccionan estas filas, marcando como cubiertos todos los demás minitérminos que también abarquen.
+    \item Si tras seleccionar los esenciales aún quedan minitérminos por cubrir (columnas sin seleccionar), se aplica un proceso de dominancia de filas y columnas, o algoritmos de bifurcación (método de Petrick) para elegir la cobertura más barata restante.
+\end{enumerate}
+
+La expresión final es la suma lógica (OR) de todos los Implicantes Primos seleccionados para lograr la cobertura completa de los minitérminos objetivo de la función.
+
+\subsection{Ejemplo Práctico de Quine-McCluskey}
+Consideremos la función de 4 variables definida por los minitérminos $m(0, 1, 2, 5, 6, 7).$ 
+
+\textbf{Fase 1: Encontrar Implicantes Primos}
+\begin{center}
+\begin{tabular}{|c|c|c|c||c|c||c|c|}
+\hline
+\textbf{Grupo} & \textbf{Min.} & \textbf{Binario} & $\checkmark$ & \textbf{Comb. (1a)} & \textbf{Binario} & \textbf{Comb. (2a)} & \textbf{Binario} \\ \hline
+0 & 0 & 0000 & $\checkmark$ & (0,1) & 000- &  &  \\ 
+  &   &      &              & (0,2) & 00-0 &  &  \\ \hline
+1 & 1 & 0001 & $\checkmark$ & (1,5) & 0-01 &  &  \\ 
+  & 2 & 0010 & $\checkmark$ & (2,6) & 0-10 &  &  \\ \hline
+2 & 5 & 0101 & $\checkmark$ & (5,7) & 01-1 &  &  \\ 
+  & 6 & 0110 & $\checkmark$ & (6,7) & 011- &  &  \\ \hline
+3 & 7 & 0111 & $\checkmark$ &       &      &  &  \\ \hline
+\end{tabular}
+\end{center}
+
+Observemos que ninguna de las combinaciones resultantes en la segunda columna (Comb. 1a) puede combinarse en un siguiente nivel (Comb. 2a) porque los guiones no coinciden en posición y bits restantes a distancia 1 simultáneamente. Por tanto, todas las agrupaciones de tamaño 2 resultantes (0,1), (0,2), (1,5), (2,6), (5,7) y (6,7) son implicantes primos.
+
+\textbf{Fase 2: Tabla de Cobertura}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{Implicante} & \textbf{0} & \textbf{1} & \textbf{2} & \textbf{5} & \textbf{6} & \textbf{7} \\ \hline
+(0,1) $\rightarrow \overline{v_1}\overline{v_2}\overline{v_3}$ & X & X & & & & \\ \hline
+(0,2) $\rightarrow \overline{v_1}\overline{v_2}\overline{v_4}$ & X & & X & & & \\ \hline
+(1,5) $\rightarrow \overline{v_1}\overline{v_3}v_4$ & & X & & X & & \\ \hline
+(2,6) $\rightarrow \overline{v_1}v_3\overline{v_4}$ & & & X & & X & \\ \hline
+(5,7) $\rightarrow \overline{v_1}v_2v_4$ & & & & X & & X \\ \hline
+(6,7) $\rightarrow \overline{v_1}v_2v_3$ & & & & & X & X \\ \hline
+\end{tabular}
+\end{center}
+En este ejemplo particular, no hay ninguna columna que posea una única "X" (ningún minitérmino está cubierto por un único implicante primo). Esto significa que no hay \textbf{Implicantes Primos Esenciales}. Debemos utilizar métodos de selección (como Petrick) o inspección heurística. Una posible selección mínima de cobertura es tomar (0,1), (2,6) y (5,7). Otra es (0,2), (1,5) y (6,7). En cualquier caso, la función requiere de 3 términos de 3 literales. Tomando la segunda, el resultado minimizado es:
+\[ f = \overline{v_1}\overline{v_2}\overline{v_4} + \overline{v_1}\overline{v_3}v_4 + \overline{v_1}v_2v_3 \]

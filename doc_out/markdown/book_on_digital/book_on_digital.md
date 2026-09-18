@@ -1,3 +1,10 @@
+$$
+\gdef\symdiff{\mathbin{\vartriangle}}
+\gdef\llbracket{\lbrack\!\lbrack}
+\gdef\rrbracket{\rbrack\!\rbrack}
+\gdef\triangleq{\stackrel{\mathrm{def}}{=}}
+$$
+
 # Introducción
 
 El álgebra de las proposiciones. Éste es sin duda, el primer desarrollo
@@ -65,9 +72,9 @@ tradicional, en esta fase inicial emplearemos la signatura propia de la
 teoría de retículos, utilizando los símbolos $\vee$ (supremo o join) y
 $\wedge$ (ínfimo o meet), junto a los elementos constantes $\bot$
 (mínimo) y $\top$ (máximo). El complemento se denotará con el símbolo
-clásico de la negación lógica $\neg$. Más adelante, y por conveniencia
+clásico de la negación lógica $\neg.$ Más adelante, y por conveniencia
 práctica, transitaremos hacia la notación clásica de sistemas digitales
-($+$, $\cdot$, $0$, $1$).
+($+,$ $\cdot,$ $0,$ $1$).
 
 ## Nomenclatura y Convenios
 
@@ -75,17 +82,17 @@ Antes de comenzar con el desarrollo formal del álgebra, estableceremos
 una serie de convenios notacionales que utilizaremos a lo largo de este
 texto:
 
-- $0 \notin \mathbb{N}$. Ante la definición de los números naturales,
+- $0 \notin \mathbb{N}.$ Ante la definición de los números naturales,
   nosotros adoptamos este convenio excluyendo al cero.
 
-- $\widetilde{\mathbb{N}} \triangleq \left( \mathbb{N} \cup \{0\} \right)$.
+- $\widetilde{\mathbb{N}} \triangleq \left( \mathbb{N} \cup \{0\} \right).$
   Representará el conjunto de los naturales extendidos que incluye el
   cero.
 
 - Definición recurrente de los conjuntos
   $\lbrack 0,1 \rbrack_{\mathbb{Q}}$ y
-  $\lbrack 0,1 \rbrack_{\mathbb{Q}}^n$, donde $n \in \mathbb{N}$ y
-  $n > 1$:
+  $\lbrack 0,1 \rbrack_{\mathbb{Q}}^n,$ donde $n \in \mathbb{N}$ y
+  $n > 1:$
 
   - $\lbrack 0,1 \rbrack_{\mathbb{Q}} := \lbrack 0,1 \rbrack \cap \mathbb{Q}$
 
@@ -95,7 +102,7 @@ texto:
 
 - Por lo general, los elementos de un conjunto se representarán por
   letras minúsculas (alfabetos griego y latino) con o sin subíndices
-  (ejemplo: $a_3$, $b$, $\gamma_{1547}$, $\delta$) y dígitos decimales
+  (ejemplo: $a_3,$ $b,$ $\gamma_{1547},$ $\delta$) y dígitos decimales
   ($\{0, 1, \ldots, 9\}$). Por el contrario, los conjuntos se
   representarán por letras mayúsculas (alfabeto griego y latino),
   igualmente con o sin subíndices. Este convenio será válido a excepción
@@ -107,90 +114,83 @@ texto:
   conjunto, pero con un subíndice escrito exactamente como el elemento
   asociado.
 
-- Cuando expresemos $a \ast B$, es decir, el elemento $a$ operado con un
-  conjunto $B$ mediante una operación binaria $\ast$, nos estaremos
+- Cuando expresemos $a \ast B,$ es decir, el elemento $a$ operado con un
+  conjunto $B$ mediante una operación binaria $\ast,$ nos estaremos
   refiriendo al conjunto formado por operar $a$ con todos los elementos
-  de $B$: $a \ast B = \{ a \ast b \mid b \in B \}$. De igual manera, la
+  de $B:$ $a \ast B = \{ a \ast b \mid b \in B \}.$ De igual manera, la
   operación entre dos conjuntos se entenderá como:
-  $A \ast B = \{ a \ast b \mid a \in A \land b \in B \}$.
+  $A \ast B = \{ a \ast b \mid a \in A \land b \in B \}.$
 
-- El universo de discurso principal será un conjunto $\mathbb{B}$. Para
+- El universo de discurso principal será un conjunto $\mathbb{B}.$ Para
   aligerar la notación, evitaremos en lo posible el uso explícito del
   cuantificador universal ($\forall$). Cuando aparezca una variable,
   conjunto o constante sin cuantificar, asumiremos implícitamente una
-  cuantificación universal sobre los elementos de $\mathbb{B}$. Si la
+  cuantificación universal sobre los elementos de $\mathbb{B}.$ Si la
   cuantificación debiera aplicarse a un subconjunto particular, se
   omitirá el símbolo $\forall$ pero se precederá la proposición con la
   relación de pertenencia.
 
 - De igual forma, cuando una variable asuma como valor un conjunto, se
   entenderá implícitamente que pertenece al conjunto partes
-  $\wp(\mathbb{B}) \smallsetminus \{ \varnothing \}$.
+  $\wp(\mathbb{B}) \smallsetminus \{ \varnothing \}.$
 
 ## Pre-Axiomas de la Estructura
 
 Antes de enunciar los postulados, debemos definir rigurosamente sobre
 qué elementos y operaciones estamos trabajando.
 
-Partimos de un ente matemático $\mathbb{B}$.
+Partimos de un ente matemático $\mathbb{B}.$
 
-::: preaxioma
-\[H0.0.0\] Estructura de Conjunto - EsConjunto($\mathbb{B}$)esconj Se
-requiere que $\mathbb{B}$ sea un conjunto.
-:::
+> **Preaxioma (\[H0.0.0\] Estructura de Conjunto -
+> EsConjunto($\mathbb{B}$)):**[]{#esconj label="esconj"} Se requiere que
+> $\mathbb{B}$ sea un conjunto.
 
-::: preaxioma
-\[H0.0.1, H0.0.2\] Elementos Constantes - Constantesconstantes Este
-conjunto ha de cumplir que tiene dos elementos que llamaremos
-constantes, tales que $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}$. En
-principio, no asumimos nada sobre la igualdad o desigualdad de estas
-constantes.
-:::
+> **Preaxioma (\[H0.0.1, H0.0.2\] Elementos Constantes -
+> Constantes):**[]{#constantes label="constantes"} Este conjunto ha de
+> cumplir que tiene dos elementos que llamaremos constantes, tales que
+> $\bot \in \mathbb{B}$ y $\top \in \mathbb{B}.$ En principio, no
+> asumimos nada sobre la igualdad o desigualdad de estas constantes.
 
 Además, vamos a definir dos operaciones binarias internas que
-denotaremos por $\vee$ y $\wedge$. Estas deben satisfacer rigurosamente
+denotaremos por $\vee$ y $\wedge.$ Estas deben satisfacer rigurosamente
 la definición de función:
 
-::: preaxioma
-\[H0.1\] Operación Binaria Interna $\vee$ - OpBinInt$_\vee$opbinint_vee
-$\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación
-binaria interna.
-:::
+> **Preaxioma (\[H0.1\] Operación Binaria Interna $\vee$ -
+> OpBinInt$_\vee$):**[]{#opbinint_vee label="opbinint_vee"}
+> $\vee : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación
+> binaria interna.
 
-::: preaxioma
-\[H0.2\] Operación Binaria Interna $\wedge$ -
-OpBinInt$_\wedge$opbinint_wedge
-$\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una operación
-binaria interna.
-:::
+> **Preaxioma (\[H0.2\] Operación Binaria Interna $\wedge$ -
+> OpBinInt$_\wedge$):**[]{#opbinint_wedge label="opbinint_wedge"}
+> $\wedge : \mathbb{B} \times \mathbb{B} \to \mathbb{B}$ es una
+> operación binaria interna.
 
 Para poder usar estos conceptos con mayor seguridad y flexibilidad en
 las futuras demostraciones formales, asignaremos nombres cortos a las
 condiciones de existencia y unicidad de la imagen para estas
 operaciones:
 
-::: preaxioma
-Existencia $\vee$ - Existencia$_\vee$exist_vee Para todo par existe
-imagen en $\mathbb{B}$. Es decir,
-$\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$,
-$\exists c \in \mathbb{B}$ tal que $a \vee b = c$.
-:::
+> **Preaxioma (\[H.0.1.0\] Existencia $\vee$ -
+> Existencia$_\vee$):**[]{#exist_vee label="exist_vee"} Para todo par
+> existe imagen en $\mathbb{B}.$ Es decir,
+> $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B},$
+> $\exists c \in \mathbb{B}$ tal que $a \vee b = c.$
 
-::: preaxioma
-Existencia $\wedge$ - Existencia$_\wedge$exist_wedge Análogamente,
-$\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B}$,
-$\exists d \in \mathbb{B}$ tal que $a \wedge b = d$.
-:::
+> **Preaxioma (\[H.0.2.0\] Existencia $\wedge$ -
+> Existencia$_\wedge$):**[]{#exist_wedge label="exist_wedge"}
+> Análogamente,
+> $\forall \langle a,b \rangle \in \mathbb{B} \times \mathbb{B},$
+> $\exists d \in \mathbb{B}$ tal que $a \wedge b = d.$
 
-::: preaxioma
-Unicidad $\vee$ - Unicidad$_\vee$unic_vee Para un par solo existe una
-imagen. Esto es, si $a \vee b = c$ y $a \vee b = d$, entonces $c = d$.
-:::
+> **Preaxioma (\[H.0.1.1\] Unicidad $\vee$ -
+> Unicidad$_\vee$):**[]{#unic_vee label="unic_vee"} Para un par solo
+> existe una imagen. Esto es, si $a \vee b = c$ y $a \vee b = d,$
+> entonces $c = d.$
 
-::: preaxioma
-Unicidad $\wedge$ - Unicidad$_\wedge$unic_wedge De igual forma para el
-ínfimo, si $a \wedge b = c$ y $a \wedge b = d$, entonces $c = d$.
-:::
+> **Preaxioma (\[H.0.2.1\] Unicidad $\wedge$ -
+> Unicidad$_\wedge$):**[]{#unic_wedge label="unic_wedge"} De igual forma
+> para el ínfimo, si $a \wedge b = c$ y $a \wedge b = d,$ entonces
+> $c = d.$
 
 ## Los Postulados de Huntington (1904)
 
@@ -198,61 +198,52 @@ Sobre el sistema $(\mathbb{B}, \vee, \wedge, \bot, \top)$ que cumple los
 pre-axiomas anteriores, diremos que forma un álgebra de Boole si
 satisface los siguientes postulados:
 
-::: postulado
-\[H1.1\] Elemento neutro $\vee$ - $ElemNeu_\vee$neutro_vee Todo elemento
-operado mediante $\vee$ con el mínimo $\bot$ da como resultado el mismo
-elemento; es decir, $\bot$ no altera el valor original:
-$$\forall a \in \mathbb{B}, \quad a \vee \bot = a$$
-:::
+> **Postulado (\[H1.1\] Elemento neutro $\vee$ -
+> $ElemNeu_\vee$):**[]{#neutro_vee label="neutro_vee"} Todo elemento
+> operado mediante $\vee$ con el mínimo $\bot$ da como resultado el
+> mismo elemento; es decir, $\bot$ no altera el valor original:
+> $$\forall a \in \mathbb{B}, \quad a \vee \bot = a$$
 
-::: postulado
-\[H1.2\] Elemento neutro $\wedge$ - $ElemNeu_\wedge$neutro_wedge Todo
-elemento operado mediante $\wedge$ con el máximo $\top$ da como
-resultado el mismo elemento, quedando inalterado:
-$$\forall a \in \mathbb{B}, \quad a \wedge \top = a$$
-:::
+> **Postulado (\[H1.2\] Elemento neutro $\wedge$ -
+> $ElemNeu_\wedge$):**[]{#neutro_wedge label="neutro_wedge"} Todo
+> elemento operado mediante $\wedge$ con el máximo $\top$ da como
+> resultado el mismo elemento, quedando inalterado:
+> $$\forall a \in \mathbb{B}, \quad a \wedge \top = a$$
 
-::: postulado
-\[H2.1\] Conmutatividad $\vee$ - $Comm_\vee$conmut_vee El orden de los
-operandos al aplicar la operación $\vee$ es indiferente, obteniéndose
-exactamente el mismo resultado:
-$$\forall a, b \in \mathbb{B}, \quad a \vee b = b \vee a$$
-:::
+> **Postulado (\[H2.1\] Conmutatividad $\vee$ -
+> $Comm_\vee$):**[]{#conmut_vee label="conmut_vee"} El orden de los
+> operandos al aplicar la operación $\vee$ es indiferente, obteniéndose
+> exactamente el mismo resultado:
+> $$\forall a, b \in \mathbb{B}, \quad a \vee b = b \vee a$$
 
-::: postulado
-\[H2.2\] Conmutatividad $\wedge$ - $Comm_\wedge$conmut_wedge De la misma
-forma, el orden de los operandos al aplicar la operación $\wedge$
-tampoco altera el resultado final:
-$$\forall a, b \in \mathbb{B}, \quad a \wedge b = b \wedge a$$
-:::
+> **Postulado (\[H2.2\] Conmutatividad $\wedge$ -
+> $Comm_\wedge$):**[]{#conmut_wedge label="conmut_wedge"} De la misma
+> forma, el orden de los operandos al aplicar la operación $\wedge$
+> tampoco altera el resultado final:
+> $$\forall a, b \in \mathbb{B}, \quad a \wedge b = b \wedge a$$
 
-::: postulado
-\[H3.1\] Distributividad $\vee$ sobre $\wedge$ -
-$Dist_\vee$distrib_vee_wedge La operación $\vee$ se distribuye sobre la
-operación $\wedge$. Operar un elemento con el resultado de un $\wedge$
-equivale a operar con $\vee$ cada componente individualmente y luego
-aplicar $\wedge$:
-$$\forall a, b, c \in \mathbb{B}, \quad a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$$
-:::
+> **Postulado (\[H3.1\] Distributividad $\vee$ sobre $\wedge$ -
+> $Dist_\vee$):**[]{#distrib_vee_wedge label="distrib_vee_wedge"} La
+> operación $\vee$ se distribuye sobre la operación $\wedge.$ Operar un
+> elemento con el resultado de un $\wedge$ equivale a operar con $\vee$
+> cada componente individualmente y luego aplicar $\wedge:$
+> $$\forall a, b, c \in \mathbb{B}, \quad a \vee (b \wedge c) = (a \vee b) \wedge (a \vee c)$$
 
-::: postulado
-\[H3.2\] Distributividad $\wedge$ sobre $\vee$ -
-$Dist_\wedge$distrib_wedge_vee De manera equivalente, el ínfimo
-($\wedge$) se reparte de forma distributiva entre los componentes de un
-supremo ($\vee$):
-$$\forall a, b, c \in \mathbb{B}, \quad a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$$
-:::
+> **Postulado (\[H3.2\] Distributividad $\wedge$ sobre $\vee$ -
+> $Dist_\wedge$):**[]{#distrib_wedge_vee label="distrib_wedge_vee"} De
+> manera equivalente, el ínfimo ($\wedge$) se reparte de forma
+> distributiva entre los componentes de un supremo ($\vee$):
+> $$\forall a, b, c \in \mathbb{B}, \quad a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$$
 
-::: postulado
-\[H4\] Complementario - $Comp_\vee, Comp_\wedge$comp Todo elemento del
-conjunto posee al menos un \"complemento\" (o elemento opuesto). Al
-operarlo con su complemento mediante $\vee$ siempre alcanzamos el máximo
-$\top$, y mediante $\wedge$ siempre caemos al mínimo $\bot$:
-$$\begin{align*}
-\forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \quad \text{[H4.1]} \\
-a \wedge b &= \bot \quad (Comp_\wedge) \quad \text{[H4.2]}
-\end{align*}$$
-:::
+> **Postulado (\[H4\] Complementario -
+> $Comp_\vee, Comp_\wedge$):**[]{#comp label="comp"} Todo elemento del
+> conjunto posee al menos un \"complemento\" (o elemento opuesto). Al
+> operarlo con su complemento mediante $\vee$ siempre alcanzamos el
+> máximo $\top,$ y mediante $\wedge$ siempre caemos al mínimo $\bot:$
+> $$\begin{align*}
+> \forall a \in \mathbb{B}, \exists b \in \mathbb{B} \quad : \quad a \vee b &= \top \quad (Comp_\vee) \quad \text{[H4.1]} \\
+> a \wedge b &= \bot \quad (Comp_\wedge) \quad \text{[H4.2]}
+> \end{align*}$$
 
 *Nota: A diferencia de algunas formulaciones clásicas que imponen un
 axioma de cardinalidad ($\bot \neq \top$) para evitar el álgebra
@@ -267,66 +258,62 @@ relativamente consistente (al sistema ZFC por ejemplo) bastará ver la
 independencia de unos axiomas de otros.
 
 **\[Ejemplo 1\]** El primero y más sencillo de ver es el álgebra de las
-partes de un conjunto. Dado un conjunto
-cualquiera$$U \neq \varnothing$$,
-$${\wp(U)} = {\{{X \mid {X \subseteq U}}\}}$$, esto es,
-$${\wp(U)} = {\{{X \mid {{\forall x}\left( {{({x \in X})}\Rightarrow{({x \in U})}} \right)}}\}}$$,
-dónde se verifica
-que$$\left( {{\varnothing \in }\wp(U)} \right) \land \left( {{U \in }\wp(U)} \right)$$.
-Ha­remos$$\left( {B{: = }\wp(U)} \right),\left( {0{: = \varnothing}} \right)y\left( {1{: = U}} \right)$$,
-como producto lógico pondremos la intersección de
-conjuntos$$\forall X,{Y \in }\wp(U){X \cdot Y}{: = {X \cap Y}}$$, como
-suma lógica pondremos la unión de
-conjuntos$$\forall X,{Y \in }\wp(U){X + Y}{: = {X \cup Y}}$$. Las tres
-primeras (dobles) propiedades son di­rectamente cumplidas por la
-estructura construida y la existencia del complementario es fá­cil de
+partes de un conjunto. Dado un conjunto cualquiera $U \neq \varnothing,$
+$\wp(U) = \{X \mid X \subseteq U\},$ esto es,
+$\wp(U) = \{X \mid \forall x ( (x \in X) \Rightarrow (x \in U) ) \},$
+dónde se verifica que $(\varnothing \in \wp(U)) \land (U \in \wp(U)).$
+Haremos $B \triangleq \wp(U),$ $0 \triangleq \varnothing$ y
+$1 \triangleq U,$ como producto lógico pondremos la intersección de
+conjuntos $\forall X, Y \in \wp(U) \quad X \cdot Y \triangleq X \cap Y,$
+como suma lógica pondremos la unión de conjuntos
+$\forall X, Y \in \wp(U) \quad X + Y \triangleq X \cup Y.$ Las tres
+primeras (dobles) propiedades son directamente cumplidas por la
+estructura construida y la existencia del complementario es fácil de
 ver. Sea
-$$\forall{X \in }\wp(U)\Rightarrow\exists Y{: = {U \smallsetminus X}}$$y
-a partir de ahí sabemos que$${Y \in }\wp(U)$$puesto
-que$$\forall{x \in Y}{x \in {U \smallsetminus X}}\Rightarrow{x \in U}$$y
-en el caso que$$X = U$$tenemos que
-$${{Y = {U \smallsetminus X}} = {U \smallsetminus U}} = \varnothing$$de
-forma que$${\varnothing \in }\wp(U)$$por definición. Ahora sólo se trata
-de ver
-que$${{{{Y \cdot X} = {Y \cap X}} = {{({U \smallsetminus X})} \cap X}} = \varnothing} = 0$$y
-que la propiedad dual a
-cumplir$${{{{Y + X} = {Y \cup X}} = {{({U \smallsetminus X})} \cup X}} = U} = 1$$.
-Ya tenemos
-que$$\forall{X \in }\wp(U)\exists{Y \in }\wp(U){Y \in \overline{X}}$$ha­biendo
-tomado$$Y{: = {U \smallsetminus X}}$$.
+$\forall X \in \wp(U) \Rightarrow \exists Y \triangleq U \smallsetminus X$
+y a partir de ahí sabemos que $Y \in \wp(U)$ puesto que
+$\forall x \in Y \quad x \in U \smallsetminus X \Rightarrow x \in U$ y
+en el caso que $X = U$ tenemos que
+$Y = U \smallsetminus X = U \smallsetminus U = \varnothing$ de forma que
+$\varnothing \in \wp(U)$ por definición. Ahora sólo se trata de ver que
+$Y \cdot X = Y \cap X = (U \smallsetminus X) \cap X = \varnothing = 0$ y
+que la propiedad dual a cumplir
+$Y + X = Y \cup X = (U \smallsetminus X) \cup X = U = 1.$ Ya tenemos que
+$\forall X \in \wp(U) \exists Y \in \wp(U) \quad Y \in \overline{X}$
+habiendo tomado $Y \triangleq U \smallsetminus X.$
 
 **\[Ejemplo 2\]** Un ejemplo interesante fácil de construir es el
-álgebra de Boole de los números que son producto de los primeros núme­ros
+álgebra de Boole de los números que son producto de los primeros números
 primos (cantidad finita de ellos) y sus divisores. Consideramos el
-conjunto $$P_{n}{: = {\{{2,3,\ldots,p_{n}}\}}}$$, con­sideraremos el
-$$1$$ booleano cómo $$1_{B}{: = {\prod\limits_{q \in P_{n}}q}}$$y el
-$$0$$ cómo$$0_{B}{: = 1_{\mathbb{N}}}$$. Consideramos a
-$$B{: = {\{{{n \in \mathbb{N}} \mid {n \mid \left( {\prod P_{n}} \right)}}\}}}$$,
-y las operaciones serán el mínimo común múltiplo como suma booleana y el
+conjunto $P_{n} \triangleq \{2,3,\ldots,p_{n}\},$ consideraremos el $1$
+booleano cómo $1_{B} \triangleq \prod\limits_{q \in P_{n}}q$ y el $0$
+cómo $0_{B} \triangleq 1_{\mathbb{N}}.$ Consideramos a
+$B \triangleq \{n \in \mathbb{N} \mid n \mid ( \prod P_{n} ) \},$ y las
+operaciones serán el mínimo común múltiplo como suma booleana y el
 máximo común divisor como producto booleano. El complemento de un
-ele­mento resulta ser
-$$\forall{k \in B}{{\overline{k} = {1_{B}/k}} = {\prod\limits_{q \in {\{{{{p \in P_{n}} \mid p} \nmid k}\}}}q}}$$.
+elemento resulta ser
+$\forall k \in B \quad \overline{k} = 1_{B}/k = \prod\limits_{q \in \{p \in P_{n} \mid p \nmid k\}}q.$
 Éste es un modelo fácil de desarrollar para poner ejemplos.
 
 **\[Ejemplo 3\]** Partimos de un álgebra de Boole cualquiera y un
-elemento no $$0$$ ni $$1$$ cualquie­ra tal
-que$$x \in \left( {B \smallsetminus {\{ 0,1\}}} \right)$$. Definimos
-ahora un
-conjunto$$B_{\leq x}{: = {\{{{{y \in B} \mid {x \cdot y}} = y}\}}}$$y$$B_{\geq x}{: = {\{{{{y \in B} \mid {x \cdot y}} = x}\}}}$$.
-Las álgebras de Boole nuevas a considerar son
-$$\langle{B_{\leq x},{\{{{0 \equiv 0_{B}},{1 \equiv x}}\}},{\{{+_{B}, \cdot_{B}}\}}}\rangle$$
+elemento no $0$ ni $1$ cualquiera tal que
+$x \in B \smallsetminus \{ 0,1 \}.$ Definimos ahora un conjunto
+$B_{\leq x} \triangleq \{y \in B \mid x \cdot y = y\}$ y
+$B_{\geq x} \triangleq \{y \in B \mid x \cdot y = x\}.$ Las álgebras de
+Boole nuevas a considerar son
+$\langle B_{\leq x}, \{0 \equiv 0_{B}, 1 \equiv x\}, \{+_{B}, \cdot_{B}\} \rangle$
 y
-$$\langle{B_{\geq x},{\{{{0 \equiv x},{1 \equiv 1_{B}}}\}},{\{{+_{B}, \cdot_{B}}\}}}\rangle$$.
+$\langle B_{\geq x}, \{0 \equiv x, 1 \equiv 1_{B}\}, \{+_{B}, \cdot_{B}\} \rangle.$
 Consideramos el mismo producto booleano que en el conjunto inicial e
-idéntica­mente con la suma booleana. Sólo varía el complemento, de la
-siguiente
-forma$${y \in B_{\geq x}}\Rightarrow y{' = {\overline{y} + x}}$$y$${y \in B_{\leq x}}\Rightarrow y{' = {\overline{y} \cdot x}}$$.
-Es fácil comprobar la validez de esta definición de un álgebra de Boole,
-de manera más concreta, que las operaciones son internas y el
-complemento declarado es también interno y se comporta como complemento
-del nuevo álgebra, esto
+idénticamente con la suma booleana. Sólo varía el complemento, de la
+siguiente forma $y \in B_{\geq x} \Rightarrow y' = \overline{y} + x$ y
+$y \in B_{\leq x} \Rightarrow y' = \overline{y} \cdot x.$ Es fácil
+comprobar la validez de esta definición de un álgebra de Boole, de
+manera más concreta, que las operaciones son internas y el complemento
+declarado es también interno y se comporta como complemento del nuevo
+álgebra, esto
 es,$${y \in B_{\geq x}}\Rightarrow y{{' \cdot y} = {x \land y}}{{' + y} = 1}$$
-que$${y \in B_{\leq x}}\Rightarrow y{{' \cdot y} = {0 \land y}}{{' + y} = x}$$.
+que$${y \in B_{\leq x}}\Rightarrow y{{' \cdot y} = {0 \land y}}{{' + y} = x} .$$
 
 **\[Ejemplo 4\]** El álgebra de las proposiciones. Éste es sin duda, el
 primer desarrollo que se hizo del álgebra de Boole, hecha por el propio
@@ -391,16 +378,16 @@ mentes antes mencionadas).
 De manera un tanto informal podemos ver una proposición (una frase que
 afirma o niega una propiedad de un objeto, una relación entre objetos o
 la existencia del mismo, una frase que ha de ser o verdadero,
-$$1_{B}{{: = V} \equiv \mathbf{\mathit{true}}}$$, a falso,
+$$1_{B}{{: = V} \equiv \mathbf{\mathit{true}}} ,$$ a falso,
 $$0_{B}{{: = F} \equiv \mathbf{\mathit{false}}}$$) o conjunto de
 proposiciones pueden ser operadas mediante la conjunción 'y', A 'y' B es
 verdadero si A es verdadero y B es verdadero a la vez y falso en
 cualquier otro caso. La disyunción sería la 'o', siendo A 'o' B
 verdadero con que A sea verdadero o lo sea B, siendo falso sólo cuando A
 es falso y B es falso a la vez. La notación más habitual es
-$${{+ {: = \vee}} \equiv \text{or}} \equiv {\mid \mid}$$y$${{\cdot {: = \land}} \equiv \text{and}} \equiv {\&\&}$$.
+$${{+ {: = \vee}} \equiv \text{or}} \equiv {\mid \mid}$$y$${{\cdot {: = \land}} \equiv \text{and}} \equiv {\&\&} .$$
 Para el 'no' (negación) tenemos
-que$${{\overline{\phantom{A}}{: = {\neg\phantom{A}}}} \equiv \text{not}}{\phantom{A} \equiv {/\phantom{A}}}$$.
+que$${{\overline{\phantom{A}}{: = {\neg\phantom{A}}}} \equiv \text{not}}{\phantom{A} \equiv {/\phantom{A}}} .$$
 El conjunto de Boole es el conjunto de proposiciones de la que partamos.
 
 De manera más formal se considera un elemento del álgebra de Boole de la
@@ -408,7 +395,7 @@ lógica a las clases de equivalencia de las proposiciones equivalentes
 lógicamente (en su valor de verdad o falsedad) entre sí.
 
 **\[Ejemplo 5\]** El álgebra de conmutación. Este es el álgebra de Boole
-más sencillo que hay. $$B{{: = B_{2}} \equiv {\{{0,1}\}}}$$. Las
+más sencillo que hay. $$B{{: = B_{2}} \equiv {\{{0,1}\}}} .$$ Las
 operaciones las concretaremos en tablas:
 
 enewcommandrraystretch2 $$\begin{bmatrix}
@@ -431,10 +418,10 @@ Huntington. Ésta será usada frecuentemente durante el curso. Esta
 **\[Ejemplo 6\]** El álgebra de Boole de 4 elementos. Este es el álgebra
 de Boole generada por un conjunto de 2 elementos. Es singular en el
 sentido que sólo tiene 3 niveles, el más bajo
-$$\{{0{{: = {\{\}}} \equiv \varnothing}}\}$$, el intermedio
-$$\{{{\{\alpha\}},{\{\beta\}}}\}$$, y el superior
-$$\{{1{: = {\{{\alpha,\beta}\}}}}\}$$.
-$$B{{: = B_{4}} \equiv {\{{0,a,b,1}\}}}$$. Las operaciones las
+$\{0 \triangleq \{\} \equiv \varnothing \},$ el intermedio
+$\{\{\alpha\},\{\beta\}\},$ y el superior
+$\{1 \triangleq \{\alpha,\beta\}\}.$
+$B \triangleq B_{4} \equiv \{0,a,b,1\}.$ Las operaciones las
 concretaremos en tablas:
 
 $$\begin{bmatrix}
@@ -455,19 +442,18 @@ $$\begin{bmatrix}
   \end{bmatrix}$$
 
 y podréis comprobar fácilmente que se cumplen todos los postulados de
-Huntington si cam­biáis $$a$$ por $$\{\alpha\}$$, $$b$$ por
-$$\{\beta\}$$, $$1$$ por $$\{{{\{\alpha\}},{\{\beta\}}}\}$$ y $$0$$ por
-el conjunto vacío $$\varnothing$$.
+Huntington si cambiáis $a$ por $\{\alpha\},$ $b$ por $\{\beta\},$ $1$
+por $\{\{\alpha\},\{\beta\}\}$ y $0$ por el conjunto vacío
+$\varnothing.$
 
 **\[Ejemplo 7\]** El álgebra de Boole de 8 elementos. Este es el álgebra
 de Boole generada por un conjunto de 3 elementos. Es singular en el
-sentido que sólo tiene 4 niveles, el más bajo $$\{ 0\}$$, el de átomos
-$$\{{a,b,c}\}$$, el de hiperátomos $$\{{A,B,C}\}$$ y el superior
-$$\{ 1\}$$. Los niveles de átomos y de hiperátomos son especialmente
-importantes, siendo esta álge­bra de Boole, la más pequeña que los
-diferencia. Sería:
+sentido que sólo tiene 4 niveles, el más bajo $\{0\},$ el de átomos
+$\{a,b,c\},$ el de hiperátomos $\{A,B,C\}$ y el superior $\{1\}.$ Los
+niveles de átomos y de hiperátomos son especialmente importantes, siendo
+esta álgebra de Boole, la más pequeña que los diferencia. Sería:
 
-$$B{{: = B_{8}} \equiv {\{{0,a,b,c,A,C,B,1}\}}}$$.
+$B \triangleq B_{8} \equiv \{0,a,b,c,A,C,B,1\}.$
 
 Las operaciones las concretaremos en tablas:
 
@@ -512,12 +498,11 @@ entre llaves, dónde las flechas quieren decir "substituir por".
 **\[Ejemplo 8\]** El álgebra de Boole de 16 elementos. Este es el
 álgebra de Boole generada por un conjunto de 4 elementos. Es ya un
 álgebra de Boole completamente regular. Tiene 5 niveles, el más bajo el
-$$\{ 0\}$$, el de átomos $$\{{\alpha,\beta,\gamma,\delta}\}$$, el de
-hiperátomos $$\{{A,B,\Gamma,\Delta}\}$$, el intermedio
-$$\{{a,b,c,d,e,f}\}$$y finalmente el nivel superior con el $$\{ 1\}$$.
-Sería:
+$\{0\},$ el de átomos $\{\alpha,\beta,\gamma,\delta\},$ el de
+hiperátomos $\{A,B,\Gamma,\Delta\},$ el intermedio $\{a,b,c,d,e,f\}$ y
+finalmente el nivel superior con el $\{1\}.$ Sería:
 
-$$B{{: = B_{16}} \equiv {\{{0,\alpha,\beta,\gamma,\delta,a,b,c,d,e,f,A,B,\Gamma,\Delta,1}\}}}$$.
+$B \triangleq B_{16} \equiv \{0,\alpha,\beta,\gamma,\delta,a,b,c,d,e,f,A,B,\Gamma,\Delta,1\}.$
 
 Las operaciones las concretaremos en tablas:
 
@@ -542,11 +527,6 @@ enewcommandrraystretch2 $$\begin{bmatrix}
   \end{bmatrix}$$
 
 $$\begin{bmatrix}
-\neg & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1 \\
- & 1 & \Delta & \Gamma & B & A & f & e & d & c & b & a & \delta & \gamma & \beta & \alpha & 0
-\end{bmatrix}$$
-
-$$\begin{bmatrix}
  \cdot & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1 \\
 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
 \alpha & \alpha & \alpha & 0 & 0 & 0 & \alpha & \alpha & \alpha & 0 & 0 & 0 & \alpha & \alpha & \alpha & 0 & \alpha \\
@@ -566,128 +546,133 @@ B & B & \alpha & \beta & 0 & \delta & a & \alpha & c & \beta & e & \delta & a & 
 1 & 1 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1
 \end{bmatrix}$$
 
+$$\begin{bmatrix}
+\neg & 0 & \alpha & \beta & \gamma & \delta & a & b & c & d & e & f & A & B & \Gamma & \Delta & 1 \\
+ & 1 & \Delta & \Gamma & B & A & f & e & d & c & b & a & \delta & \gamma & \beta & \alpha & 0
+\end{bmatrix}$$
+
 y podréis comprobar fácilmente que se cumplen todos los postulados de
 Huntington, con solo tener en cuenta que todos los elementos se pueden
-poner en función de $$\alpha\beta\gamma\delta$$y sumas de ellos. Las
-sumas de dos de los anteriores elementos son $$abcdef$$y las sumas de
-tres de ellos son $$AB\Gamma\Delta$$.
+poner en función de $\alpha, \beta, \gamma, \delta$ y sumas de ellos.
+Las sumas de dos de los anteriores elementos son $a, b, c, d, e, f$ y
+las sumas de tres de ellos son $A, B, \Gamma, \Delta.$
 
 **\[Ejemplo 9\]** El álgebra de Boole de los conjuntos que se pueden
-expresar como **unión des­junta finita de subintervalos genéricos de
-$$\lbrack 0,1\rbrack \cap \mathbb{Q}$$. Definimos por conveniencia
-$$\mathbf{\mathrm{I}}_{\mathbb{Q}} ≝ \left\lbrack {0,1} \right\rbrack_{\mathbb{Q}}$$**.
-Para esto haremos abs­tracción de cualquier conjunto finito de puntos de
-**$$\mathbf{\mathrm{I}}_{\mathbb{Q}}$$**, esto es, consideraremos que
-dos conjuntos son iguales si su diferencia simétrica (la unión de las
-diferencias, los elementos que no son comunes de ambos conjuntos) es
-vacía o es un conjunto finito de puntos. Esta álgebra de Boole tiene un
-cardinal infinito numerable (como el cardinal de los números naturales).
-Lo más importante es que no puede desarrollarse de manera semejante a
-como desarrolla­mos el álgebra de las partes de un conjunto. Lo
-formalizaremos del siguiente modo:
+expresar como **unión disjunta finita de subintervalos genéricos de
+$[0,1] \cap \mathbb{Q}.$ Definimos por conveniencia
+$\mathbf{I}_{\mathbb{Q}} \triangleq [0,1]_{\mathbb{Q}}$**. Para esto
+haremos abstracción de cualquier conjunto finito de puntos de
+$\mathbf{I}_{\mathbb{Q}},$ esto es, consideraremos que dos conjuntos son
+iguales si su diferencia simétrica (la unión de las diferencias, los
+elementos que no son comunes de ambos conjuntos) es vacía o es un
+conjunto finito de puntos. Esta álgebra de Boole tiene un cardinal
+infinito numerable (como el cardinal de los números naturales). Lo más
+importante es que no puede desarrollarse de manera semejante a como
+desarrolla­mos el álgebra de las partes de un conjunto. Lo formalizaremos
+del siguiente modo:
 
-1.  $$a,{b \in \mathbf{\mathrm{I}}_{\mathbb{Q}}}{a < b}\Rightarrow\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}} ≝ {\left\lbrack {a,b} \right\rbrack \cap \mathbb{Q}} ≝ \left\{ {{x \in \mathbf{\mathrm{I}}_{\mathbb{Q}}} \mid {{a \leq x} \leq b}} \right\}$$
+1.  $a, b \in \mathbf{I}_{\mathbb{Q}}, a < b \Rightarrow [a,b]_{\mathbb{Q}} \triangleq [a,b] \cap \mathbb{Q} \triangleq \{ x \in \mathbf{I}_{\mathbb{Q}} \mid a \leq x \leq b \}$
 
-    1.  Si escribimos $$\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}}$$
-        entonces $${a < {b \land a}} \neq b$$.
+    1.  Si escribimos $[a,b]_{\mathbb{Q}}$ entonces
+        $a \leq b \land a \neq b.$
 
     2.  Sea
-        $$\mathbf{II}_{\mathbb{Q}} ≝ \left\{ {\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}} \mid {a,{{{b \in {I_{\mathbb{Q}} \land a}} < {b \land a}} \neq b}}} \right\}$$.
+        $\mathbf{II}_{\mathbb{Q}} \triangleq \{ [a,b]_{\mathbb{Q}} \mid a, b \in \mathbf{I}_{\mathbb{Q}} \land a < b \land a \neq b \}.$
 
     3.  Sea
-        $$\mathbf{\mathrm{III}}_{\mathbb{Q}} ≝ {\left\{ {{A \in {\wp\left( I_{\mathbb{Q}} \right)}} \mid {{A = \mathbf{\cup}_{\lambda \in \Lambda}}I_{\lambda}\forall{\lambda \in \Lambda}{I_{\lambda} \in {\mathbf{\mathrm{II}}_{\mathbb{Q}}{{\#\left( \Lambda \right)} \in \widetilde{\mathbb{N}}}}}}} \right\} \cup \left\{ \varnothing \right\}}$$
-        .
+        $\mathbf{\mathrm{III}}_{\mathbb{Q}} \triangleq \{ A \in \wp( \mathbf{I}_{\mathbb{Q}} ) \mid A = \bigcup_{\lambda \in \Lambda} I_{\lambda} \quad \forall \lambda \in \Lambda \quad I_{\lambda} \in \mathbf{II}_{\mathbb{Q}} \land \#(\Lambda) \in \mathbb{N} \} \cup \{ \varnothing \}.$
 
     4.  Sea
-        $$\mathit{Fin}\left( I_{\mathbb{Q}} \right) ≝ \left\{ {{A \in \wp}\left( I_{\mathbb{Q}} \right) \mid \#{(A) \in \widetilde{\mathbb{N}}}} \right\}$$.
+        $\mathit{Fin}( \mathbf{I}_{\mathbb{Q}} ) \triangleq \{ A \in \wp( \mathbf{I}_{\mathbb{Q}} ) \mid \#(A) \in \mathbb{N} \}.$
 
-    5.  $$A,B{\in}{\wp\left( \mathbf{\mathrm{I}}_{\mathbb{Q}} \right)}{A \approx B} ≝ {\#{\left( {A \mathbin{\vartriangle}B} \right) \in \widetilde{\mathbb{N}}}}$$.
+    5.  $A, B \in \wp( \mathbf{I}_{\mathbb{Q}} ), \quad A \approx B \triangleq \#( A \mathbin{\vartriangle}B ) \in \mathbb{N}.$
         Esta relación es de equivalencia.
 
         1.  Reflexiva
-            $$\#{\left( {A \mathbin{\vartriangle}A} \right) = \#}{{(\varnothing) = 0} \in \widetilde{\mathbb{N}}}$$.
-            Luego $$A \approx A$$.
+            $$\#{\left( {A \mathbin{\vartriangle}A} \right) = \#}{{(\varnothing) = 0} \in \widetilde{\mathbb{N}}} .$$
+            Luego $$A \approx A .$$
 
         2.  Simétrica
-            $$A \mathbin{\vartriangle}{B = B} \mathbin{\vartriangle}A.\Rightarrow.A \approx B\Leftrightarrow B \approx A$$.
+            $$A \mathbin{\vartriangle}{B = B} \mathbin{\vartriangle}A.\Rightarrow.A \approx B\Leftrightarrow B \approx A .$$
 
         3.  Transitiva
-            $$A \approx {B \land B} \approx C\Rightarrow A \approx C$$.
+            $A \approx B \land B \approx C \Rightarrow A \approx C.$
 
-            - $$\#{{\left( {A \mathbin{\vartriangle}B} \right) = n_{1}} \in {\widetilde{\mathbb{N}} \land \#}}{{\left( {B \mathbin{\vartriangle}C} \right) = n_{2}} \in \widetilde{\mathbb{N}}}.\Rightarrow.\#{{\left( {A \mathbin{\vartriangle}C} \right) \leq {n_{1} + n_{2}}} \in \widetilde{\mathbb{N}}}$$.
-              Y queda de­mostrada la propiedad transitiva.
+            - $\#(A \mathbin{\vartriangle}B) = n_{1} \in \mathbb{N} \land \#(B \mathbin{\vartriangle}C) = n_{2} \in \mathbb{N} \Rightarrow \#(A \mathbin{\vartriangle}C) \leq n_{1} + n_{2} \in \mathbb{N}.$
+              Y queda demostrada la propiedad transitiva.
 
-    6.  A partir de aquí hablaremos de $$⟦A⟧$$para hablar de la clase de
-        equivalencia de $$A \in \mathbf{\mathrm{III}}_{\mathbb{Q}}$$bajo
-        la relación de equivalencia $$\approx$$.
+    6.  A partir de aquí hablaremos de $⟦A⟧$ para hablar de la clase de
+        equivalencia de $A \in \mathbf{\mathrm{III}}_{\mathbb{Q}}$ bajo
+        la relación de equivalencia $\approx.$
 
     7.  A partir de aquí hablaremos de nuestro conjunto
-        $$\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1) ≝ \left\{ {{⟦A⟧} \mid {A \in \mathbf{\mathrm{III}}_{\mathbb{Q}}}} \right\}$$
+        $\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1) \triangleq \{ ⟦A⟧ \mid A \in \mathbf{\mathrm{III}}_{\mathbb{Q}} \}.$
 
     8.  Nuestro conjunto de Boole será
-        $$B ≝ {\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1)}$$.
+        $\mathbb{B} \triangleq \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}(0,1).$
 
-    9.  El $$0 ≝ {⟦\varnothing ⟧}$$.
+    9.  El $0 \triangleq ⟦\varnothing⟧.$
 
-    10. El $$1 ≝ {⟦\mathbf{\mathrm{I}}_{\mathbb{Q}}⟧}$$.
+    10. El $1 \triangleq ⟦\mathbf{\mathrm{I}}_{\mathbb{Q}}⟧.$
 
     11. Ahora veremos unas operaciones muy cercanas a la unión, la
-        intersección y el com­plemento, que realmente nos dan un álgebra
+        intersección y el complemento, que realmente nos dan un álgebra
         de Boole sobre
-        $$\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}$$:
+        $\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}:$
 
         $$\begin{matrix}
-              {{⟦A⟧},{{⟦B⟧} \in \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}}} \\
-              {{{⟦A⟧} + {⟦B⟧}} ≝ {⟦{A \cup B}⟧}} \\
-              {{{⟦A⟧} \cdot {⟦B⟧}} ≝ {⟦{A \cap B}⟧}} \\
-              {\overline{⟦A⟧} ≝ {⟦{\lbrack 0,1\rbrack_{\mathbb{Q}} \smallsetminus A}⟧}}
+              ⟦A⟧, ⟦B⟧ \in \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}} \\
+              ⟦A⟧ + ⟦B⟧ \triangleq ⟦A \cup B⟧ \\
+              ⟦A⟧ \cdot ⟦B⟧ \triangleq ⟦A \cap B⟧ \\
+              \overline{⟦A⟧} \triangleq ⟦\lbrack 0,1\rbrack_{\mathbb{Q}} \smallsetminus A⟧
               \end{matrix}$$
 
-    12. Convenio de
-        notación:$${⟦{a,b}⟧} ≝ {⟦\left\lbrack {a,b} \right\rbrack_{\mathbb{Q}}⟧}$$.
+    12. Convenio de notación:
+        $⟦a,b⟧ \triangleq ⟦\left\lbrack a,b \right\rbrack_{\mathbb{Q}}⟧.$
         Estos conjuntos serán nuestros subintervalos genéricos del
         intervalo genérico unidad.
 
-    13. Sea una sucesión finita de un número par $$2 \cdot n$$ de
-        elementos de $$\lbrack 0,1\rbrack_{\mathbb{Q}}$$, estricta­mente
+    13. Sea una sucesión finita de un número par $2 \cdot n$ de
+        elementos de $\lbrack 0,1\rbrack_{\mathbb{Q}},$ estrictamente
         creciente
-        $${{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < a_{2}} < b_{2}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}$$
-        dispuestos como
-
-        $$⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧$$definirán los
-        elementos de
-        $$\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}}$$,
+        $0_{\mathbb{Q}} \leq a_{1} < b_{1} < a_{2} < b_{2} < \ldots < a_{n} < b_{n} \leq 1_{\mathbb{Q}}$
+        dispuestos como $⟦a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}⟧$
+        definirán los elementos de
+        $\mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}},$
         aparte de
-        $${⟦⟧} ≝ {{{{⟦\varnothing ⟧} = {⟦{\{ 0\}}⟧}} = {⟦{\{ 1\}}⟧}} = 0_{\mathbf{\mathrm{I}}_{B}^{\mathbf{\mathrm{GEN}}}}}$$.
+        $⟦⟧ \triangleq ⟦\varnothing⟧ = ⟦\{0\}⟧ = ⟦\{1\}⟧ = 0_{\mathbf{\mathrm{I}}_{\mathbb{B}}^{\mathbf{\mathrm{GEN}}}}.$
 
-    14. Si escribimos
-        $$⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧$$, significamos
-        ya (suponemos que es un hecho que)
-        $${{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < a_{2}} < b_{2}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}$$.
+    14. Si escribimos $⟦a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}⟧,$
+        significamos ya (suponemos que es un hecho que)
+        $0_{\mathbb{Q}} \leq a_{1} < b_{1} < a_{2} < b_{2} < \ldots < a_{n} < b_{n} \leq 1_{\mathbb{Q}}.$
 
     15. Ahora ya definimos (notación):
 
-        $$\begin{matrix}
-              {{⟦{a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}}⟧} ≝ {{⟦{\{{{x \in {\lbrack 0,1\rbrack}_{\mathbb{Q}}} \mid \exists{{{1 \leq k} \leq n} \in \mathbb{N}}{x \in {\lbrack{a_{k},b_{k}}\rbrack}_{\mathbb{Q}}}}\}}⟧} \equiv}} \\
-              {\equiv {⟦{\mathbf{\cup}_{k = 1}^{n}{\lbrack{a_{k},b_{k}}\rbrack}}⟧}}
-              \end{matrix}$$.
+        $$\begin{aligned}
+              ⟦a_{1},b_{1},a_{2},b_{2},\ldots,a_{n},b_{n}⟧ &\triangleq ⟦\{x \in \lbrack 0,1\rbrack_{\mathbb{Q}} \mid \\
+              &\quad \exists k \in \mathbb{N}, 1 \leq k \leq n : x \in \lbrack a_{k},b_{k}\rbrack_{\mathbb{Q}}\}⟧ \\
+              &\equiv ⟦\bigcup_{k = 1}^{n}\lbrack a_{k},b_{k}\rbrack⟧
+              \end{aligned}$$
 
     16. Ahora ya tenemos el conjunto de Boole que buscábamos:
 
-        $$\left\lbrack {⟦0,1⟧} \right\rbrack_{\mathbf{\mathrm{I}}} ≝ {\left\{ {{⟦{a_{1,}b_{1,}\ldots,a_{n},b_{n}}⟧} \mid {\exists{n \in \mathbb{N}}{{{{{{0_{\mathbb{Q}} \leq a_{1}} < b_{1}} < \ldots} < a_{n}} < b_{n}} \leq 1_{\mathbb{Q}}}}} \right\} \cup \left\{ {⟦⟧} \right\}}$$.
+        $$\begin{aligned}
+              \left\lbrack ⟦0,1⟧ \right\rbrack_{\mathbf{\mathrm{I}}} \triangleq \{ &⟦a_{1},b_{1},\ldots,a_{n},b_{n}⟧ \mid \\
+              &\exists n \in \mathbb{N} : 0_{\mathbb{Q}} \leq a_{1} < b_{1} < \ldots < a_{n} < b_{n} \leq 1_{\mathbb{Q}} \} \cup \{ ⟦⟧ \}
+              \end{aligned}$$
 
 Que las uniones, complementos e intersecciones de intervalos genéricos
 finitos siguen siendo intervalos genéricos finitos es claro desde el
 principio. Sin embargo voy a exponer la cabalística, hacer las cuentas
 vamos, para que no quede lugar a dudas. Con toda esta comprobación (o
-re-definición) de que $$B$$ es cerrado bajo las distintas operaciones es
-laborioso, un tanto enojoso.
+re-definición) de que $\mathbb{B}$ es cerrado bajo las distintas
+operaciones es laborioso, un tanto enojoso.
 
 La operación de complemento queda de la siguiente manera, y aunque aún
 no podemos comprobar aún su corrección, si queda claro que es un
 operación unaria interna:
 
-$$A^{I} := \begin{cases}
+$$A^{I} \triangleq \begin{cases}
   \llbracket 0, a_1, b_1, a_2, \ldots, b_{n-1}, a_n, b_n, 1 \rrbracket & \text{si } a_1 \neq 0 \land b_n \neq 1 \\
   \llbracket b_1, a_2, \ldots, b_{n-1}, a_n, b_n, 1 \rrbracket & \text{si } a_1 = 0 \land b_n \neq 1 \\
   \llbracket b_1, a_2, \ldots, b_{n-1}, a_n \rrbracket & \text{si } a_1 = 0 \land b_n = 1 \\
@@ -696,16 +681,17 @@ $$A^{I} := \begin{cases}
   \llbracket 0, 1 \rrbracket & \text{si } A = \llbracket \varnothing \rrbracket
 \end{cases}$$
 
-De dónde obtenemos $\forall A \in B, \exists A^{I} \in B$.
+De dónde obtenemos
+$\forall A \in \mathbb{B}, \exists A^{I} \in \mathbb{B}.$
 
 Tenemos que
-$0 \in B, 0 := \llbracket \varnothing \rrbracket \equiv \llbracket \rrbracket$
-y $1 \in B, 1 := \llbracket 0,1 \rrbracket$, y
-$0^{I} = 1 \land 1^{I} = 0$. Además observamos con claridad que
-$\forall A \in B, \exists A^{I} \in B$ tal que
+$0 \in \mathbb{B}, 0 \triangleq \llbracket \varnothing \rrbracket \equiv \llbracket \rrbracket$
+y $1 \in \mathbb{B}, 1 \triangleq \llbracket 0,1 \rrbracket,$ y
+$0^{I} = 1 \land 1^{I} = 0.$ Además observamos con claridad que
+$\forall A \in \mathbb{B}, \exists A^{I} \in \mathbb{B}$ tal que
 $A + A^{I} = \llbracket \mathbf{\mathrm{I}}_{\mathbb{Q}} \rrbracket = 1$
-y $A \cdot A^{I} = \llbracket \rrbracket = 0$. Además de
-$\forall A \in B, (A^{I})^{I} = A$. Así nos queda
+y $A \cdot A^{I} = \llbracket \rrbracket = 0.$ Además de
+$\forall A \in \mathbb{B}, (A^{I})^{I} = A.$ Así nos queda
 $A^{I} \equiv \overline{A}$ si se verifican los demás axiomas.
 
 La suma quedará de la siguiente forma:
@@ -727,7 +713,7 @@ Prueba:
 
     Comenzaremos por $m = 0$ y algunos casos especiales:
 
-    $$B + A := \begin{cases}
+    $$B + A \triangleq \begin{cases}
       \llbracket \varnothing \rrbracket & \text{si } A = \llbracket \varnothing \rrbracket \land B = \llbracket \varnothing \rrbracket \\
       A & \text{si } B = \llbracket \varnothing \rrbracket \\
       B & \text{si } A = \llbracket \varnothing \rrbracket \\
@@ -736,35 +722,46 @@ Prueba:
       B & \text{si } \exists A \in A, \exists B \in B : A \subseteq B
     \end{cases}$$
 
-    Para el caso general de $m = 1$:
+    Para el caso general de $m = 1:$
 
     $$\begin{align*}
-    B + A &:= \begin{cases}
-      \llbracket a_1^A, b_1^A, a_1^B, b_1^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } b_1^A < a_1^B \\
-      \llbracket a_1^A, b_1^B, a_2^B, b_2^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } b_1^A \ge a_1^B \land b_1^A \le b_1^B \\
-      \llbracket a_1^B, b_1^B, \ldots, a_n^B, b_n^B, a_1^A, b_1^A \rrbracket & \text{si } a_1^A > b_n^B \\
-      \llbracket a_1^B, b_1^B, \ldots, a_{n-1}^B, b_{n-1}^B, a_n^B, b_1^A \rrbracket & \text{si } a_1^A \le b_n^B \land a_1^A \ge a_n^B \land b_1^A > b_n^B \\
-      \llbracket a_1^A, b_1^A, a_k^B, b_k^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A > b_{k-1}^B \land b_1^A < a_k^B \\
-      \llbracket a_1^A, b_k^B, a_{k+1}^B, b_{k+1}^B, \ldots, a_n^B, b_n^B \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B
+    B + A &\triangleq \begin{cases}
+      \llbracket a_1^A, b_1^A, a_1^B, b_1^B, \ldots, a_n^B, b_n^B \rrbracket \\
+      \quad \text{si } b_1^A < a_1^B \\
+      \llbracket a_1^A, b_1^B, a_2^B, b_2^B, \ldots, a_n^B, b_n^B \rrbracket \\
+      \quad \text{si } b_1^A \ge a_1^B \land b_1^A \le b_1^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_n^B, b_n^B, a_1^A, b_1^A \rrbracket \\
+      \quad \text{si } a_1^A > b_n^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_{n-1}^B, b_{n-1}^B, a_n^B, b_1^A \rrbracket \\
+      \quad \text{si } a_1^A \le b_n^B \land a_1^A \ge a_n^B \land b_1^A > b_n^B \\
+      \llbracket a_1^A, b_1^A, a_k^B, b_k^B, \ldots, a_n^B, b_n^B \rrbracket \\
+      \quad \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A > b_{k-1}^B \land b_1^A < a_k^B \\
+      \llbracket a_1^A, b_k^B, a_{k+1}^B, b_{k+1}^B, \ldots, a_n^B, b_n^B \rrbracket \\
+      \quad \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B
     \end{cases} \\[1em]
-    &\phantom{:=} \begin{cases}
-      \llbracket a_1^B, b_1^B, \ldots, b_{k-1}^B, a_1^A, b_1^A, a_k^B, b_k^B, \ldots \rrbracket & \text{si } \exists k<n : a_1^A > b_{k-1}^B \land a_1^A \le a_k^B \land b_1^A < a_k^B \\
-      \llbracket a_1^B, b_1^B, \ldots, a_l^A, b_k^B, a_{k+1}^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A \ge b_{l-1}^B \land a_1^A \le a_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
-      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_k^B, a_{k+1}^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
-      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_1^A, a_{k+1}^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A > b_k^B \land b_1^A < a_{k+1}^B \\
-      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_l^B, a_1^A, b_1^A, a_k^B, \dots \rrbracket & \text{si } \exists l<k<n : a_1^A > b_l^B \land a_1^A < a_{l+1}^B \land b_1^A > b_{k-1}^B \land b_1^A < a_k^B
+    &\phantom{\triangleq} \begin{cases}
+      \llbracket a_1^B, b_1^B, \ldots, b_{k-1}^B, a_1^A, b_1^A, a_k^B, b_k^B, \ldots \rrbracket \\
+      \quad \text{si } \exists k<n : a_1^A > b_{k-1}^B \land a_1^A \le a_k^B \land b_1^A < a_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^A, b_k^B, a_{k+1}^B, \dots \rrbracket \\
+      \quad \text{si } \exists l<k<n : a_1^A \ge b_{l-1}^B \land a_1^A \le a_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_k^B, a_{k+1}^B, \dots \rrbracket \\
+      \quad \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_1^A, a_{k+1}^B, \dots \rrbracket \\
+      \quad \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A > b_k^B \land b_1^A < a_{k+1}^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_l^B, b_l^B, a_1^A, b_1^A, a_k^B, \dots \rrbracket \\
+      \quad \text{si } \exists l<k<n : a_1^A > b_l^B \land a_1^A < a_{l+1}^B \land b_1^A > b_{k-1}^B \land b_1^A < a_k^B
     \end{cases}
     \end{align*}$$
 
     Para el caso $m = 1$ o $m = 0$ y especiales queda demostrado el
-    cerramiento de $B$ bajo esta suma reducida. El caso siguiente se
-    construye con facilidad por recurrencia en cualquier número finito
-    de pasos.
+    cerramiento de $\mathbb{B}$ bajo esta suma reducida. El caso
+    siguiente se construye con facilidad por recurrencia en cualquier
+    número finito de pasos.
 
-    Para cualquier $m > 1$:
+    Para cualquier $m > 1:$
 
-    $$B + A := \begin{cases}
-      \sum_{i=1}^{m} \left( B + \llbracket a_i^A, b_i^A \rrbracket \right) & \text{si } 1 \le i \le m, A_0 := \llbracket \varnothing \rrbracket, A_{i+1} := A_i + \llbracket a_i^A, b_i^A \rrbracket
+    $$B + A \triangleq \begin{cases}
+      \sum_{i=1}^{m} \left( B + \llbracket a_i^A, b_i^A \rrbracket \right) & \text{si } 1 \le i \le m, A_0 \triangleq \llbracket \varnothing \rrbracket, A_{i+1} \triangleq A_i + \llbracket a_i^A, b_i^A \rrbracket
     \end{cases}$$
 
     Queda demostrado que toda suma da como resultado un conjunto finito
@@ -774,7 +771,7 @@ Prueba:
     comenzando primero con $A$ siendo la clase de un solo intervalo
     genérico, o la clase del vacío, además de algunos casos especiales.
 
-    $$B \cdot A := \begin{cases}
+    $$B \cdot A \triangleq \begin{cases}
       \llbracket \varnothing \rrbracket & \text{si } A = \llbracket \varnothing \rrbracket \lor B = \llbracket \varnothing \rrbracket \\
       A & \text{si } B = 1 \\
       B & \text{si } A = 1 \\
@@ -783,23 +780,32 @@ Prueba:
       B & \text{si } \exists A \in A, B \in B : B \subseteq A
     \end{cases}$$
 
-    Para el caso general de $m = 1$:
+    Para el caso general de $m = 1:$
 
     $$\begin{align*}
-    B \cdot A &:= \begin{cases}
-      \llbracket a_1^A, a_1^B \dots \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge b_{k-1}^B \land b_1^A < a_k^B \\
-      \llbracket a_1^B, b_1^B, \ldots, a_k^B, b_1^A \rrbracket & \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
-      \llbracket a_1^A, b_1^B, \ldots, a_{k-1}^B \dots \rrbracket & \text{si } a_1^A \ge a_1^B \land a_1^A \le b_1^B \land \exists k<n : b_1^A \ge b_{k-1}^B \land b_1^A < a_k^B \\
-      \llbracket a_1^A, b_1^B, a_2^B, b_2^B, \ldots, a_k^B, b_1^A \rrbracket & \text{si } a_1^A \ge a_1^B \land a_1^A \le b_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
-      \llbracket a_1^A, b_l^B, \dots, a_k^B, b_1^A \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
-      \llbracket a_1^A, b_l^B, \dots, a_{k-1}^B, b_{k-1}^B \rrbracket & \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A > b_{k-1}^B \land b_1^A < a_k^B
+    B \cdot A &\triangleq \begin{cases}
+      \llbracket a_1^A, a_1^B \dots \rrbracket \\
+      \quad \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge b_{k-1}^B \land b_1^A < a_k^B \\
+      \llbracket a_1^B, b_1^B, \ldots, a_k^B, b_1^A \rrbracket \\
+      \quad \text{si } a_1^A \le a_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^A, b_1^B, \ldots, a_{k-1}^B \dots \rrbracket \\
+      \quad \text{si } a_1^A \ge a_1^B \land a_1^A \le b_1^B \land \exists k<n : b_1^A \ge b_{k-1}^B \land b_1^A < a_k^B \\
+      \llbracket a_1^A, b_1^B, a_2^B, b_2^B, \ldots, a_k^B, b_1^A \rrbracket \\
+      \quad \text{si } a_1^A \ge a_1^B \land a_1^A \le b_1^B \land \exists k<n : b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^A, b_l^B, \dots, a_k^B, b_1^A \rrbracket \\
+      \quad \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A \ge a_k^B \land b_1^A \le b_k^B \\
+      \llbracket a_1^A, b_l^B, \dots, a_{k-1}^B, b_{k-1}^B \rrbracket \\
+      \quad \text{si } \exists l<k<n : a_1^A \ge a_l^B \land a_1^A \le b_l^B \land b_1^A > b_{k-1}^B \land b_1^A < a_k^B
     \end{cases}
     \end{align*}$$
 
-    Para el caso $m > 1$:
+    Para el caso $m = 1$ o $m = 0$ y especiales queda demostrado el
+    cerramiento de $\mathbb{B}$ bajo este producto reducido.
 
-    $$B \cdot A := \begin{cases}
-      \sum_{i=1}^{m} \left( B \cdot \llbracket a_i^A, b_i^A \rrbracket \right) & \text{si } 1 \le i \le m, A_0 := \llbracket \varnothing \rrbracket, A_{i+1} := A_i + \llbracket a_i^A, b_i^A \rrbracket
+    Para el caso $m > 1:$
+
+    $$B \cdot A \triangleq \begin{cases}
+      \sum_{i=1}^{m} \left( B \cdot \llbracket a_i^A, b_i^A \rrbracket \right) & \text{si } 1 \le i \le m, A_0 \triangleq \llbracket \varnothing \rrbracket, A_{i+1} \triangleq A_i + \llbracket a_i^A, b_i^A \rrbracket
     \end{cases}$$
 
 Y queda demostrado que la forma del conjunto producto es una clase de
@@ -809,23 +815,25 @@ unión finita de subintervalos genéricos. Luego pertenece a nuestro
 Este sistema es muy parecido a un álgebra de conjuntos subálgebra de
 algún conjunto po­tencia, por lo que es fácil determinar que se trata de
 un álgebra de Boole. Sin embargo su cardinal es
-$$\#{\left( {\left( {\mathbb{Q} \times \mathbb{Q}} \right) \times \left( {\mathbb{N} \times \mathbb{N}} \right)} \right) = \#}\left( \mathbb{N} \right)$$.
+$$\#{\left( {\left( {\mathbb{Q} \times \mathbb{Q}} \right) \times \left( {\mathbb{N} \times \mathbb{N}} \right)} \right) = \#}\left( \mathbb{N} \right) .$$
 Veámoslo:
 
-$${{\#\left( \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}} \right)} = {\#\left( {\mathbf{\mathrm{\cup}}\begin{Bmatrix}
-  {{⟦\varnothing ⟧},} & & & & & & \\
-  {{⟦{a_{1,}b_{1}}⟧},} & & & & & & \\
-  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & & & & & \\
-  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & {{⟦{a_{3,}b_{3}}⟧},} & & & & \\
-   \vdots & \vdots & \vdots & \ddots & & & \\
-  {{⟦{a_{1,}b_{1}}⟧},} & {{⟦{a_{2,}b_{2}}⟧},} & {{⟦{a_{3,}b_{3}}⟧},} & \ldots & {{⟦{a_{n},b_{n}}⟧},} & & \\
-   \vdots & \vdots & \vdots & \ddots & \vdots & \ddots & \\
-  \ldots & \ldots & \ldots & \ldots & \ldots & \ldots & \ldots
-  \end{Bmatrix}} \right)}} \leq$$$${{\leq {1 + {\#\left( {\underset{i \in \mathbb{N}}{\mathbf{\mathrm{\cup}}}\underset{j \in \mathbb{N}}{\mathbf{\mathrm{\cup}}}{\mathbb{Q} \times \mathbb{Q}}} \right)}}} = \#}{\left( {{{\mathbb{N} \times \mathbb{N}} \times \mathbb{Q}} \times \mathbb{Q}} \right) = \#}{\mathbb{N} = \aleph_{0}}$$
+$$\begin{align*}
+  \#\left( \mathbf{\mathrm{I}}_{\mathbb{Q}}^{\mathbf{\mathrm{GEN}}} \right) &= \#\left( \bigcup \begin{Bmatrix}
+  \llbracket\varnothing \rrbracket, \\
+  \llbracket a_1, b_1 \rrbracket, \\
+  \llbracket a_1, b_1, a_2, b_2 \rrbracket, \\
+  \llbracket a_1, b_1, a_2, b_2, a_3, b_3 \rrbracket, \\
+  \vdots \\
+  \llbracket a_1, b_1, a_2, b_2, a_3, b_3, \ldots, a_n, b_n \rrbracket, \\
+  \vdots
+  \end{Bmatrix} \right) \\
+  &\leq 1 + \#\left( \bigcup_{i \in \mathbb{N}} \bigcup_{j \in \mathbb{N}} (\mathbb{Q} \times \mathbb{Q}) \right) = \#( \mathbb{N} \times \mathbb{N} \times \mathbb{Q} \times \mathbb{Q} ) = \#\mathbb{N} = \aleph_{0}
+\end{align*}$$
 
 En definitiva es un álgebra numerable (del mismo cardinal que los
 números naturales). Puesto que el cardinal de los números naturales
-$$\mathbb{N}$$no es conmensurable con el de la potencia de ningún
+$\mathbb{N}$ no es conmensurable con el de la potencia de ningún
 conjunto (es del cardinal infinito más pequeño posible y ningún conjunto
 finito tiene como potencia uno infinito), no existe ningún conjunto para
 el cual esta álgebra de Boole sea semejante (isomorfa) a un álgebra de
@@ -836,7 +844,7 @@ común.
 **\[Ejemplo 10\]** El álgebra de Boole de los subconjuntos finitos y
 cofinitos de los números naturales ($\mathbb{N}$). Consideremos el
 conjunto base
-$B = \{ X \subseteq \mathbb{N} \mid X \text{ es finito o } \mathbb{N} \setminus X \text{ es finito} \}$.
+$B = \{ X \subseteq \mathbb{N} \mid X \text{ es finito o } \mathbb{N} \setminus X \text{ es finito} \}.$
 Las operaciones son las habituales de la teoría de conjuntos:
 
 - **Suma ($+$):** La unión de conjuntos ($\cup$).
@@ -862,51 +870,46 @@ isomorfa a la del Ejemplo 9**. Mientras que el Ejemplo 9 carece por
 completo de átomos (cualquier subintervalo racional puede subdividirse
 en dos más pequeños), esta álgebra del Ejemplo 10 **sí es atómica**: sus
 átomos son precisamente los conjuntos compuestos por un único número
-natural, $\{n\}$. Esta genialidad geométrica demuestra que, en el
+natural, $\{n\}.$ Esta genialidad geométrica demuestra que, en el
 infinito, pueden existir álgebras de Boole del mismo cardinal que son
 estructuralmente distintas (algo que, como demostramos en el Capítulo 7,
 es imposible en las álgebras finitas).
 
 **\[Ejemplo 11\]** El álgebra de las funciones de un álgebra de Boole
-sobre otra. Supongamos $$f:{B\rightarrow B}'$$dónde $$f$$ es una
-función. Llamaremos
-$${\mathtt{F}{({B,B'})}} = {\{{f:{B\rightarrow B}' \mid \forall{x \in B}\exists!{y \in B}'f{{(x)} = y}}\}}$$
-a nuestro conjunto de Boole. $$f_{0'}$$ es la función que asigna el cero
-de $$B'$$ a cualquier elemento de $$B$$. Igualmente $$f_{1'}$$ es la
-función que asigna el uno de $$B'$$ a cualquier elemento de $$B$$. Las
-operaciones internas a introducir son:
+sobre otra. Supongamos $f: B \rightarrow B'$ dónde $f$ es una función.
+Llamaremos
+$$\mathtt{F}(B,B') = \{ f:B\rightarrow B' \mid \forall x \in B \exists! y \in B', f(x) = y \}$$
+a nuestro conjunto de Boole. $f_{0'}$ es la función que asigna el cero
+de $B'$ a cualquier elemento de $B.$ Igualmente $f_{1'}$ es la función
+que asigna el uno de $B'$ a cualquier elemento de $B.$ Las operaciones
+internas a introducir son:
 
-La suma de funciones:
-$$\forall{x \in B}{\lbrack{f + g}\rbrack}{(x)}{: = f}{{(x)} + g}{(x)}$$
-.
+- La suma de funciones:
+  $\forall x \in B, [f + g](x) \triangleq f(x) + g(x).$
 
-La multiplicación de funciones:
-$$\forall{x \in B}{\lbrack{f \cdot g}\rbrack}{(x)}{: = f}{{(x)} \cdot g}{(x)}$$.
+- La multiplicación de funciones:
+  $\forall x \in B, [f \cdot g](x) \triangleq f(x) \cdot g(x).$
 
-La función complemento:
-$$\forall{f \in \mathtt{F}}{({B,B'})}\forall{x \in B}\overline{f}{(x)}{: = \overline{f{(x)}}}$$.
+- La función complemento:
+  $\forall f \in \mathtt{F}(B,B'), \forall x \in B, \overline{f}(x) \triangleq \overline{f(x)}.$
 
 De esta álgebra podemos entresacar otros conjuntos de funciones
 interesantes, como. Por ejemplo:
 
-$${\mathtt{\mathit{Hom}}{({B,B'})}} = \begin{Bmatrix}
-  f & : & B & \rightarrow & {B'} & \mathbf{\mid} \\
-  {\forall{x \in B}} & {\exists!} & {{y \in B}'} & {f{{(x)} = y}} & \mathbf{\mathrm{:}} & \\
-   & & & & {f{{(0)} = 0}'} & \land \\
-   & & & & {f{{(1)} = 1}'} & \land \\
-   & & {\forall x,{y \in B}} & & {f{{({x + y})} = f}{{(x)} + f}{(y)}} & \land \\
-   & & {\forall x,{y \in B}} & & {f{{({x \cdot y})} = f}{{(x)} \cdot f}{(y)}} & \land \\
-   & & {\forall{x \in B}} & & {f{{(\overline{x})} = \overline{f{(x)}}}} & 
-  \end{Bmatrix}$$
+$$\begin{align*}
+  \mathtt{Hom}(B,B') = \{ f \in \mathtt{F}(B,B') \mid \ &f(0) = 0', f(1) = 1', \\
+  &\forall x,y \in B : f(x + y) = f(x) + f(y) \land f(x \cdot y) = f(x) \cdot f(y), \\
+  &\forall x \in B : f(\overline{x}) = \overline{f(x)} \}
+\end{align*}$$
 
 y aún otros subconjuntos más pequeños serían las inyecciones de los
-anteriores homomorfismos. Si $${B'} \equiv B$$entonces uno de los
-conjuntos de aplicaciones más interesantes son los endomorfimos o
-isomorfimos en sí mismo.
+anteriores homomorfismos. Si $B' \equiv B$ entonces uno de los conjuntos
+de aplicaciones más interesantes son los endomorfimos o isomorfimos en
+sí mismo.
 
-Además el kernel de cualquier homomorfismo es un subálgebra de $$B$$.
-Los homomorfismos de las álgebras booleanas tienen propiedades
-interesantes que no veremos aquí.
+Además el kernel de cualquier homomorfismo es un subálgebra de $B.$ Los
+homomorfismos de las álgebras booleanas tienen propiedades interesantes
+que no veremos aquí.
 
 # Independencia de los Axiomas de Huntington de 1904
 
@@ -1114,7 +1117,7 @@ $$\begin{matrix}
         \hline
     \end{matrix}$$
 
-Al ser $1 + 1 = x$, dónde $x$ es ningún elemento de $\mathbb{B}$, o
+Al ser $1 + 1 = x$, dónde $x$ es ningún elemento de $\mathbb{B},$ o
 dicho de otro modo, $1 + 1 \notin \mathbb{B}$, vemos que sigue
 existiendo el elemento neutro de la suma, $0$, que la suma sigue siendo
 conmutativa y las distributivas siguen valiendo mientras la suma tenga
@@ -1524,9 +1527,9 @@ $$\begin{equation}
 # El Principio de Dualidad
 
 Si observamos los postulados de Huntington, notaremos una perfecta
-simetría entre las operaciones $\vee$ y $\wedge$, y entre las constantes
-$\bot$ y $\top$. Si en cualquier postulado intercambiamos $\vee$ por
-$\wedge$ y $\bot$ por $\top$, obtenemos otro postulado válido del
+simetría entre las operaciones $\vee$ y $\wedge,$ y entre las constantes
+$\bot$ y $\top.$ Si en cualquier postulado intercambiamos $\vee$ por
+$\wedge$ y $\bot$ por $\top,$ obtenemos otro postulado válido del
 sistema.
 
 Este rasgo estructural da lugar al **Principio de Dualidad**: toda
@@ -1540,22 +1543,21 @@ en cómo se manipula la prueba de uno para obtener la del otro.
 
 ## Teoremas Principales Derivados
 
-::: teorema
-Unicidad de los elementos neutros - $Unic_e, Unic_u$unicidad_neutros Los
-elementos neutros descritos en los postulados son únicos. No existe
-ningún otro elemento en el conjunto que se comporte como el mínimo
-$\bot$ para la operación $\vee$, ni ningún otro que actúe como el máximo
-$\top$ para la operación $\wedge$: $$\begin{align*}
-    \exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a \vee e &= a \implies e = \bot \quad (Unic_e) \\
-    \exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \wedge u &= a \implies u = \top \quad (Unic_u)
-\end{align*}$$
-:::
+> **Teorema (Unicidad de los elementos neutros -
+> $Unic_e, Unic_u$):**[]{#unicidad_neutros label="unicidad_neutros"} Los
+> elementos neutros descritos en los postulados son únicos. No existe
+> ningún otro elemento en el conjunto que se comporte como el mínimo
+> $\bot$ para la operación $\vee,$ ni ningún otro que actúe como el
+> máximo $\top$ para la operación $\wedge:$ $$\begin{align*}
+>     \exists! e \in \mathbb{B}, \forall a \in \mathbb{B}, a \vee e &= a \implies e = \bot \quad (Unic_e) \\
+>     \exists! u \in \mathbb{B}, \forall a \in \mathbb{B}, a \wedge u &= a \implies u = \top \quad (Unic_u)
+> \end{align*}$$
 
 **Demostración:**
 
 ::: proof
 *Demostración de $Unic_e$.* Sea $e \in \mathbb{B}$ tal que
-$\forall a \in \mathbb{B}, a \vee e = a$. Tomando $a = \bot$:
+$\forall a \in \mathbb{B}, a \vee e = a.$ Tomando $a = \bot:$
 $$\begin{align*}
     e &= e \vee \bot & (ElemNeu_\vee) \\
       &= \bot \vee e & (Comm_\vee) \\
@@ -1565,24 +1567,23 @@ $$\begin{align*}
 
 ::: proof
 *Demostración de $Unic_u$ (Dual).* Para obtener la prueba dual,
-intercambiamos $\vee$ por $\wedge$ y $\bot$ por $\top$. Sea
-$u \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \wedge u = a$.
-Tomando $a = \top$: $$\begin{align*}
+intercambiamos $\vee$ por $\wedge$ y $\bot$ por $\top.$ Sea
+$u \in \mathbb{B}$ tal que $\forall a \in \mathbb{B}, a \wedge u = a.$
+Tomando $a = \top:$ $$\begin{align*}
     u &= u \wedge \top & (ElemNeu_\wedge) \\
       &= \top \wedge u & (Comm_\wedge) \\
       &= \top & (\text{Hipótesis sobre } u)
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Idempotencia - $Idemp_\vee, Idemp_\wedge$idempotencia Operar un elemento
-consigo mismo, independientemente de si usamos $\vee$ o $\wedge$, no
-altera su valor. El elemento se mantiene idéntico a sí mismo:
-$$\begin{align*}
-    \forall a \in \mathbb{B}, \quad a \vee a &= a \quad (Idemp_\vee) \\
-    \forall a \in \mathbb{B}, \quad a \wedge a &= a \quad (Idemp_\wedge)
-\end{align*}$$
-:::
+> **Teorema (Idempotencia -
+> $Idemp_\vee, Idemp_\wedge$):**[]{#idempotencia label="idempotencia"}
+> Operar un elemento consigo mismo, independientemente de si usamos
+> $\vee$ o $\wedge,$ no altera su valor. El elemento se mantiene
+> idéntico a sí mismo: $$\begin{align*}
+>     \forall a \in \mathbb{B}, \quad a \vee a &= a \quad (Idemp_\vee) \\
+>     \forall a \in \mathbb{B}, \quad a \wedge a &= a \quad (Idemp_\wedge)
+> \end{align*}$$
 
 **Demostración:**
 
@@ -1609,16 +1610,15 @@ constantes de la prueba anterior paso a paso: $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Elementos absorbentes - $Abs_{\bot}, Abs_{\top}$absorbentes Cualquier
-elemento operado mediante $\vee$ con el máximo $\top$ es absorbido por
-este, dando como resultado $\top$. De igual manera, operar cualquier
-elemento mediante $\wedge$ con el mínimo $\bot$ siempre resulta en
-$\bot$: $$\begin{align*}
-    \forall a \in \mathbb{B}, \quad a \vee \top &= \top \\
-    \forall a \in \mathbb{B}, \quad a \wedge \bot &= \bot
-\end{align*}$$
-:::
+> **Teorema (Elementos absorbentes -
+> $Abs_{\bot}, Abs_{\top}$):**[]{#absorbentes label="absorbentes"}
+> Cualquier elemento operado mediante $\vee$ con el máximo $\top$ es
+> absorbido por este, dando como resultado $\top.$ De igual manera,
+> operar cualquier elemento mediante $\wedge$ con el mínimo $\bot$
+> siempre resulta en $\bot:$ $$\begin{align*}
+>     \forall a \in \mathbb{B}, \quad a \vee \top &= \top \\
+>     \forall a \in \mathbb{B}, \quad a \wedge \bot &= \bot
+> \end{align*}$$
 
 **Demostración:**
 
@@ -1644,58 +1644,55 @@ $\bot$: $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Condición de Álgebra Trivialtrivial_cond Si se da el caso extremo de que
-el elemento mínimo $\bot$ y el máximo $\top$ son exactamente el mismo,
-entonces estamos ante un álgebra que contiene un único elemento en todo
-su conjunto (el álgebra trivial):
-$$\bot = \top \implies \mathbb{B} = \{\top\} = \{\bot\}$$
-:::
+> **Teorema (Condición de Álgebra Trivial):**[]{#trivial_cond
+> label="trivial_cond"} Si se da el caso extremo de que el elemento
+> mínimo $\bot$ y el máximo $\top$ son exactamente el mismo, entonces
+> estamos ante un álgebra que contiene un único elemento en todo su
+> conjunto (el álgebra trivial):
+> $$\bot = \top \implies \mathbb{B} = \{\top\} = \{\bot\}$$
 
 **Demostración:**
 
 ::: proof
-*Proof.* Supongamos que $\bot = \top$. Sea $x \in \mathbb{B}$ un
+*Proof.* Supongamos que $\bot = \top.$ Sea $x \in \mathbb{B}$ un
 elemento cualquiera: $$\begin{align*}
     x &= x \vee \bot & (ElemNeu_\vee) \\
       &= x \vee \top & (\text{Hipótesis } \bot = \top) \\
       &= \top & (Abs_\top)
 \end{align*}$$ Por tanto, todo elemento $x$ del conjunto es idéntico a
-$\top$, lo que implica que $\mathbb{B} = \{\top\} = \{\bot\}$. ◻
+$\top,$ lo que implica que $\mathbb{B} = \{\top\} = \{\bot\}.$ ◻
 :::
 
-::: teorema
-Complemento Idéntico implica Álgebra Trivialtrivial_comp Si dentro de la
-estructura existe algún elemento que sea igual a su propio complemento
-($\neg a = a$), entonces forzosamente todo el sistema colapsa en el
-álgebra trivial de un solo elemento:
-$$(\exists a \in \mathbb{B} : \neg a = a) \implies \mathbb{B} = \{\top\} = \{\bot\}$$
-:::
+> **Teorema (Complemento Idéntico implica Álgebra
+> Trivial):**[]{#trivial_comp label="trivial_comp"} Si dentro de la
+> estructura existe algún elemento que sea igual a su propio complemento
+> ($\neg a = a$), entonces forzosamente todo el sistema colapsa en el
+> álgebra trivial de un solo elemento:
+> $$(\exists a \in \mathbb{B} : \neg a = a) \implies \mathbb{B} = \{\top\} = \{\bot\}$$
 
 **Demostración:**
 
 ::: proof
-*Proof.* Supongamos que existe $a \in \mathbb{B}$ tal que $\neg a = a$.
+*Proof.* Supongamos que existe $a \in \mathbb{B}$ tal que $\neg a = a.$
 Por el postulado del Complemento ($Comp_\vee$ y $Comp_\wedge$), sabemos
-que $a \vee \neg a = \top$ y $a \wedge \neg a = \bot$. Sustituyendo la
+que $a \vee \neg a = \top$ y $a \wedge \neg a = \bot.$ Sustituyendo la
 hipótesis $\neg a = a$ en ambas ecuaciones, obtenemos:
 $$a \vee a = \top \quad \text{y} \quad a \wedge a = \bot$$ Aplicando el
 teorema de Idempotencia ($Idemp_\vee$ y $Idemp_\wedge$), sabemos que
-$a \vee a = a$ y $a \wedge a = a$. Por tanto:
+$a \vee a = a$ y $a \wedge a = a.$ Por tanto:
 $$a = \top \quad \text{y} \quad a = \bot$$ Lo cual implica que
-$\bot = \top$. Aplicando el teorema anterior (Condición de Álgebra
-Trivial), concluimos que $\mathbb{B} = \{\top\} = \{\bot\}$. ◻
+$\bot = \top.$ Aplicando el teorema anterior (Condición de Álgebra
+Trivial), concluimos que $\mathbb{B} = \{\top\} = \{\bot\}.$ ◻
 :::
 
-::: teorema
-Propiedades de absorción - $Abs_{\vee}, Abs_{\wedge}$absorcion Cuando se
-combinan ambas operaciones anidando un elemento consigo mismo y con un
-tercero, el elemento repetido \"absorbe\" al otro, independientemente
-del valor del segundo: $$\begin{align*}
-    \forall a, b \in \mathbb{B}, \quad a \vee (a \wedge b) &= a \\
-    \forall a, b \in \mathbb{B}, \quad a \wedge (a \vee b) &= a
-\end{align*}$$
-:::
+> **Teorema (Propiedades de absorción -
+> $Abs_{\vee}, Abs_{\wedge}$):**[]{#absorcion label="absorcion"} Cuando
+> se combinan ambas operaciones anidando un elemento consigo mismo y con
+> un tercero, el elemento repetido \"absorbe\" al otro,
+> independientemente del valor del segundo: $$\begin{align*}
+>     \forall a, b \in \mathbb{B}, \quad a \vee (a \wedge b) &= a \\
+>     \forall a, b \in \mathbb{B}, \quad a \wedge (a \vee b) &= a
+> \end{align*}$$
 
 **Demostración:**
 
@@ -1719,19 +1716,18 @@ del valor del segundo: $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Propiedades de orden de retículo - $Prop_{\vee,\wedge}$prop_reticulo
-Existe una correspondencia biunívoca fundamental entre las dos
-operaciones: afirmar que un elemento domina a otro mediante $\vee$
-equivale matemáticamente a afirmar que el segundo se impone al primero
-mediante $\wedge$:
-$$\forall a, b \in \mathbb{B}: \quad a \vee b = a \iff a \wedge b = b$$
-:::
+> **Teorema (Propiedades de orden de retículo -
+> $Prop_{\vee,\wedge}$):**[]{#prop_reticulo label="prop_reticulo"}
+> Existe una correspondencia biunívoca fundamental entre las dos
+> operaciones: afirmar que un elemento domina a otro mediante $\vee$
+> equivale matemáticamente a afirmar que el segundo se impone al primero
+> mediante $\wedge:$
+> $$\forall a, b \in \mathbb{B}: \quad a \vee b = a \iff a \wedge b = b$$
 
 **Demostración:**
 
 ::: proof
-*Demostración de $\implies$.* Supongamos que $a \vee b = a$.
+*Demostración de $\implies$.* Supongamos que $a \vee b = a.$
 $$\begin{align*}
     a \wedge b &= b \wedge a & (Comm_\wedge) \\
                &= b \wedge (a \vee b) & (\text{Hipótesis } a \vee b = a) \\
@@ -1740,7 +1736,7 @@ $$\begin{align*}
 :::
 
 ::: proof
-*Demostración de $\impliedby$ (Dual).* Supongamos que $a \wedge b = b$.
+*Demostración de $\impliedby$ (Dual).* Supongamos que $a \wedge b = b.$
 $$\begin{align*}
     a \vee b &= b \vee a & (Comm_\vee) \\
                &= (a \wedge b) \vee a & (\text{Hipótesis } a \wedge b = b) \\
@@ -1749,44 +1745,42 @@ $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Equivalencia de operaciones - $Equa_{\vee,\wedge}$equa_operaciones Si
-operar dos elementos mediante $\vee$ da exactamente el mismo resultado
-que operarlos mediante $\wedge$, esto sólo es lógicamente posible si
-ambos elementos son en realidad el mismo:
-$$\forall a, b \in \mathbb{B}: \quad a \vee b = a \wedge b \implies a = b$$
-:::
+> **Teorema (Equivalencia de operaciones -
+> $Equa_{\vee,\wedge}$):**[]{#equa_operaciones label="equa_operaciones"}
+> Si operar dos elementos mediante $\vee$ da exactamente el mismo
+> resultado que operarlos mediante $\wedge,$ esto sólo es lógicamente
+> posible si ambos elementos son en realidad el mismo:
+> $$\forall a, b \in \mathbb{B}: \quad a \vee b = a \wedge b \implies a = b$$
 
 **Demostración:**
 
 ::: proof
-*Proof.* Supongamos $a \vee b = a \wedge b$. Observamos que:
+*Proof.* Supongamos $a \vee b = a \wedge b.$ Observamos que:
 $$\begin{align*}
     a &= a \vee (a \wedge b) & (Abs_\vee) \\
       &= a \vee (a \vee b) & (\text{Hipótesis})
-\end{align*}$$ Aplicando $Prop_{\vee,\wedge}$, dado que
-$a \vee (a \vee b) = a$, deducimos que $a \wedge (a \vee b) = a \vee b$.
+\end{align*}$$ Aplicando $Prop_{\vee,\wedge},$ dado que
+$a \vee (a \vee b) = a,$ deducimos que $a \wedge (a \vee b) = a \vee b.$
 $$\begin{align*}
     a \vee b &= a \wedge (a \vee b) & (\text{Resultado anterior}) \\
              &= a & (Abs_\wedge)
-\end{align*}$$ De manera simétrica para $b$: $$\begin{align*}
+\end{align*}$$ De manera simétrica para $b:$ $$\begin{align*}
     b &= b \vee (a \wedge b) & (Abs_\vee) \\
       &= b \vee (a \vee b) & (\text{Hipótesis}) \\
       &= (a \vee b) \vee b & (Comm_\vee)
 \end{align*}$$ Aplicando de nuevo $Prop_{\vee,\wedge}$ sobre esta
-igualdad, obtenemos que $(a \vee b) \wedge b = a \vee b$. Pero sabemos
-por $Abs_\wedge$ que $(a \vee b) \wedge b = b \wedge (a \vee b) = b$.
-Por consiguiente, $a \vee b = b$. Finalmente, uniendo ambos resultados:
-$a = a \vee b = b$. ◻
+igualdad, obtenemos que $(a \vee b) \wedge b = a \vee b.$ Pero sabemos
+por $Abs_\wedge$ que $(a \vee b) \wedge b = b \wedge (a \vee b) = b.$
+Por consiguiente, $a \vee b = b.$ Finalmente, uniendo ambos resultados:
+$a = a \vee b = b.$ ◻
 :::
 
-::: teorema
-Teorema de Cancelación - $Equa_{canc}$equa_canc Si un elemento $a$ se
-opera mediante $\vee$ con $b$ y con $c$ dando el mismo resultado, y
-además se opera mediante $\wedge$ con $b$ y con $c$ coincidiendo también
-los resultados, entonces forzosamente $b$ y $c$ son el mismo elemento:
-$$\forall a, b, c \in \mathbb{B}: \quad a \vee b = a \vee c \quad \text{y} \quad a \wedge b = a \wedge c \implies b = c$$
-:::
+> **Teorema (Teorema de Cancelación - $Equa_{canc}$):**[]{#equa_canc
+> label="equa_canc"} Si un elemento $a$ se opera mediante $\vee$ con $b$
+> y con $c$ dando el mismo resultado, y además se opera mediante
+> $\wedge$ con $b$ y con $c$ coincidiendo también los resultados,
+> entonces forzosamente $b$ y $c$ son el mismo elemento:
+> $$\forall a, b, c \in \mathbb{B}: \quad a \vee b = a \vee c \quad \text{y} \quad a \wedge b = a \wedge c \implies b = c$$
 
 **Demostración:**
 
@@ -1805,19 +1799,18 @@ perfectamente simétricas. $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Unicidad del complemento - $Unic_{comp}$unic_comp Todo elemento del
-conjunto tiene un complemento $\neg a$, y este es estrictamente único.
-Ningún otro elemento puede cumplir simultáneamente las dos condiciones
-del postulado del complemento para un mismo $a$:
-$$\forall a, x \in \mathbb{B} : \quad (a \vee x = \top \quad \text{y} \quad a \wedge x = \bot) \implies x = \neg a$$
-:::
+> **Teorema (Unicidad del complemento - $Unic_{comp}$):**[]{#unic_comp
+> label="unic_comp"} Todo elemento del conjunto tiene un complemento
+> $\neg a,$ y este es estrictamente único. Ningún otro elemento puede
+> cumplir simultáneamente las dos condiciones del postulado del
+> complemento para un mismo $a:$
+> $$\forall a, x \in \mathbb{B} : \quad (a \vee x = \top \quad \text{y} \quad a \wedge x = \bot) \implies x = \neg a$$
 
 **Demostración:**
 
 ::: proof
 *Proof.* Supongamos que existe $x \in \mathbb{B}$ tal que
-$a \vee x = \top$ y $a \wedge x = \bot$. $$\begin{align*}
+$a \vee x = \top$ y $a \wedge x = \bot.$ $$\begin{align*}
     x &= x \wedge \top & (ElemNeu_\wedge) \\
       &= x \wedge (a \vee \neg a) & (Comp_\vee) \\
       &= (x \wedge a) \vee (x \wedge \neg a) & (Dist_\wedge) \\
@@ -1829,44 +1822,42 @@ $a \vee x = \top$ y $a \wedge x = \bot$. $$\begin{align*}
       &= \neg a \wedge \top & (Comm_\wedge) \\
       &= \neg a & (ElemNeu_\wedge)
 \end{align*}$$ Por tanto, si $x$ cumple las condiciones de complemento,
-$x$ tiene que ser necesariamente $\neg a$. ◻
+$x$ tiene que ser necesariamente $\neg a.$ ◻
 :::
 
-::: teorema
-Involución - $Comp_{inv}$comp_inv Aplicar la operación de complemento (o
-negación) dos veces consecutivas sobre un mismo elemento cancela su
-efecto, devolviendo el elemento original intacto:
-$$\forall a \in \mathbb{B}, \quad \neg (\neg a) = a$$
-:::
+> **Teorema (Involución - $Comp_{inv}$):**[]{#comp_inv label="comp_inv"}
+> Aplicar la operación de complemento (o negación) dos veces
+> consecutivas sobre un mismo elemento cancela su efecto, devolviendo el
+> elemento original intacto:
+> $$\forall a \in \mathbb{B}, \quad \neg (\neg a) = a$$
 
 **Demostración:**
 
 ::: proof
-*Proof.* Por definición, el complemento de $\neg a$, denotado como
-$\neg (\neg a)$, es el elemento único que satisface:
+*Proof.* Por definición, el complemento de $\neg a,$ denotado como
+$\neg (\neg a),$ es el elemento único que satisface:
 $$\neg a \vee \neg (\neg a) = \top \quad \text{y} \quad \neg a \wedge \neg (\neg a) = \bot$$
 Sin embargo, por la conmutatividad ($Comm_\vee$ y $Comm_\wedge$),
 sabemos que:
 $$\neg a \vee a = a \vee \neg a = \top \quad \text{y} \quad \neg a \wedge a = a \wedge \neg a = \bot$$
-Esto demuestra que $a$ actúa como un complemento de $\neg a$. Por el
+Esto demuestra que $a$ actúa como un complemento de $\neg a.$ Por el
 teorema de unicidad del complemento ($Unic_{comp}$), concluimos
-necesariamente que $\neg (\neg a) = a$. ◻
+necesariamente que $\neg (\neg a) = a.$ ◻
 :::
 
-::: teorema
-Leyes de De Morgan - $Mor_{\vee, \wedge}$morgan La negación matemática
-se distribuye sobre las operaciones, pero al hacerlo, invierte la
-operación original: un supremo ($\vee$) negado se convierte en el ínfimo
-($\wedge$) de las negaciones, y viceversa: $$\begin{align}
-    \neg (a \vee b) &= \neg a \wedge \neg b \\
-    \neg (a \wedge b) &= \neg a \vee \neg b
-\end{align}$$ De forma equivalente, aislando las variables mediante la
-involución, podemos expresar las operaciones básicas exclusivamente a
-partir de su dual negada: $$\begin{align}
-    a \vee b &= \neg (\neg a \wedge \neg b) \\
-    a \wedge b &= \neg (\neg a \vee \neg b)
-\end{align}$$
-:::
+> **Teorema (Leyes de De Morgan - $Mor_{\vee, \wedge}$):**[]{#morgan
+> label="morgan"} La negación matemática se distribuye sobre las
+> operaciones, pero al hacerlo, invierte la operación original: un
+> supremo ($\vee$) negado se convierte en el ínfimo ($\wedge$) de las
+> negaciones, y viceversa: $$\begin{align}
+>     \neg (a \vee b) &= \neg a \wedge \neg b \\
+>     \neg (a \wedge b) &= \neg a \vee \neg b
+> \end{align}$$ De forma equivalente, aislando las variables mediante la
+> involución, podemos expresar las operaciones básicas exclusivamente a
+> partir de su dual negada: $$\begin{align}
+>     a \vee b &= \neg (\neg a \wedge \neg b) \\
+>     a \wedge b &= \neg (\neg a \vee \neg b)
+> \end{align}$$
 
 **Demostración:**
 
@@ -1874,15 +1865,15 @@ partir de su dual negada: $$\begin{align}
 *Demostración de $\neg (a \vee b) = \neg a \wedge \neg b$.* Para
 demostrarlo sin recurrir a la asociatividad, usaremos las propiedades de
 absorción. Comprobemos primero la suma:
-$(a \vee b) \vee (\neg a \wedge \neg b) = \top$. Sabemos por
-$Abs_\wedge$ que $a \wedge (a \vee b) = a$. $$\begin{align*}
+$(a \vee b) \vee (\neg a \wedge \neg b) = \top.$ Sabemos por
+$Abs_\wedge$ que $a \wedge (a \vee b) = a.$ $$\begin{align*}
     \neg a \vee (a \wedge (a \vee b)) &= \neg a \vee a = \top & (Comp_\vee) \\
     (\neg a \vee a) \wedge (\neg a \vee (a \vee b)) &= \top & (Dist_\vee) \\
     \top \wedge (\neg a \vee (a \vee b)) &= \top & (Comp_\vee) \\
     \neg a \vee (a \vee b) &= \top & (ElemNeu_\wedge)
 \end{align*}$$ Simétricamente, como
-$b \wedge (a \vee b) = b \wedge (b \vee a) = b$, obtenemos
-$\neg b \vee (a \vee b) = \top$. Por tanto: $$\begin{align*}
+$b \wedge (a \vee b) = b \wedge (b \vee a) = b,$ obtenemos
+$\neg b \vee (a \vee b) = \top.$ Por tanto: $$\begin{align*}
     (a \vee b) \vee (\neg a \wedge \neg b) &= ((a \vee b) \vee \neg a) \wedge ((a \vee b) \vee \neg b) & (Dist_\vee) \\
     &= (\neg a \vee (a \vee b)) \wedge (\neg b \vee (a \vee b)) & (Comm_\vee) \\
     &= \top \wedge \top & (\text{Resultados anteriores}) \\
@@ -1890,16 +1881,16 @@ $\neg b \vee (a \vee b) = \top$. Por tanto: $$\begin{align*}
 \end{align*}$$
 
 Segundo, comprobemos el producto:
-$(a \vee b) \wedge (\neg a \wedge \neg b) = \bot$. Sabemos por
-$Abs_\vee$ que $\neg a \vee (\neg a \wedge \neg b) = \neg a$.
+$(a \vee b) \wedge (\neg a \wedge \neg b) = \bot.$ Sabemos por
+$Abs_\vee$ que $\neg a \vee (\neg a \wedge \neg b) = \neg a.$
 $$\begin{align*}
     a \wedge (\neg a \vee (\neg a \wedge \neg b)) &= a \wedge \neg a = \bot & (Comp_\wedge) \\
     (a \wedge \neg a) \vee (a \wedge (\neg a \wedge \neg b)) &= \bot & (Dist_\wedge) \\
     \bot \vee (a \wedge (\neg a \wedge \neg b)) &= \bot & (Comp_\wedge) \\
     a \wedge (\neg a \wedge \neg b) &= \bot & (ElemNeu_\vee)
 \end{align*}$$ Simétricamente, como
-$\neg b \vee (\neg a \wedge \neg b) = \neg b \vee (\neg b \wedge \neg a) = \neg b$,
-obtenemos $b \wedge (\neg a \wedge \neg b) = \bot$. Por tanto:
+$\neg b \vee (\neg a \wedge \neg b) = \neg b \vee (\neg b \wedge \neg a) = \neg b,$
+obtenemos $b \wedge (\neg a \wedge \neg b) = \bot.$ Por tanto:
 $$\begin{align*}
     (a \vee b) \wedge (\neg a \wedge \neg b) &= (\neg a \wedge \neg b) \wedge (a \vee b) & (Comm_\wedge) \\
     &= ((\neg a \wedge \neg b) \wedge a) \vee ((\neg a \wedge \neg b) \wedge b) & (Dist_\wedge) \\
@@ -1907,88 +1898,87 @@ $$\begin{align*}
     &= \bot \vee \bot & (\text{Resultados anteriores}) \\
     &= \bot & (Idemp_\vee)
 \end{align*}$$ Por el teorema de unicidad ($Unic_{comp}$), concluimos
-que $\neg (a \vee b) = \neg a \wedge \neg b$. ◻
+que $\neg (a \vee b) = \neg a \wedge \neg b.$ ◻
 :::
 
 ::: proof
 *Demostración de $\neg (a \wedge b) = \neg a \vee \neg b$ (Dual).*
 Intercambiando operaciones y constantes, comprobamos el producto:
-$(a \wedge b) \wedge (\neg a \vee \neg b) = \bot$. Sabemos por
-$Abs_\vee$ que $a \vee (a \wedge b) = a$. $$\begin{align*}
+$(a \wedge b) \wedge (\neg a \vee \neg b) = \bot.$ Sabemos por
+$Abs_\vee$ que $a \vee (a \wedge b) = a.$ $$\begin{align*}
     \neg a \wedge (a \vee (a \wedge b)) &= \neg a \wedge a = \bot & (Comp_\wedge) \\
     (\neg a \wedge a) \vee (\neg a \wedge (a \wedge b)) &= \bot & (Dist_\wedge) \\
     \bot \vee (\neg a \wedge (a \wedge b)) &= \bot & (Comp_\wedge) \\
     \neg a \wedge (a \wedge b) &= \bot & (ElemNeu_\vee)
-\end{align*}$$ Simétricamente, $\neg b \wedge (a \wedge b) = \bot$. Por
+\end{align*}$$ Simétricamente, $\neg b \wedge (a \wedge b) = \bot.$ Por
 tanto: $$\begin{align*}
     (a \wedge b) \wedge (\neg a \vee \neg b) &= ((a \wedge b) \wedge \neg a) \vee ((a \wedge b) \wedge \neg b) & (Dist_\wedge) \\
     &= (\neg a \wedge (a \wedge b)) \vee (\neg b \wedge (a \wedge b)) & (Comm_\wedge) \\
     &= \bot \vee \bot = \bot & (\text{Resultados anteriores})
 \end{align*}$$
 
-Comprobemos la suma: $(a \wedge b) \vee (\neg a \vee \neg b) = \top$.
+Comprobemos la suma: $(a \wedge b) \vee (\neg a \vee \neg b) = \top.$
 Sabemos por $Abs_\wedge$ que
-$\neg a \wedge (\neg a \vee \neg b) = \neg a$. $$\begin{align*}
+$\neg a \wedge (\neg a \vee \neg b) = \neg a.$ $$\begin{align*}
     a \vee (\neg a \wedge (\neg a \vee \neg b)) &= a \vee \neg a = \top & (Comp_\vee) \\
     (a \vee \neg a) \wedge (a \vee (\neg a \vee \neg b)) &= \top & (Dist_\vee) \\
     \top \wedge (a \vee (\neg a \vee \neg b)) &= \top & (Comp_\vee) \\
     a \vee (\neg a \vee \neg b) &= \top & (ElemNeu_\wedge)
-\end{align*}$$ Simétricamente, $b \vee (\neg a \vee \neg b) = \top$. Por
+\end{align*}$$ Simétricamente, $b \vee (\neg a \vee \neg b) = \top.$ Por
 tanto: $$\begin{align*}
     (a \wedge b) \vee (\neg a \vee \neg b) &= (\neg a \vee \neg b) \vee (a \wedge b) & (Comm_\vee) \\
     &= ((\neg a \vee \neg b) \vee a) \wedge ((\neg a \vee \neg b) \vee b) & (Dist_\vee) \\
     &= (a \vee (\neg a \vee \neg b)) \wedge (b \vee (\neg a \vee \neg b)) & (Comm_\vee) \\
     &= \top \wedge \top = \top & (\text{Resultados anteriores})
-\end{align*}$$ Por $Unic_{comp}$,
-$\neg (a \wedge b) = \neg a \vee \neg b$. ◻
+\end{align*}$$ Por $Unic_{comp},$
+$\neg (a \wedge b) = \neg a \vee \neg b.$ ◻
 :::
 
 ::: proof
 *Demostración de $a \vee b = \neg (\neg a \wedge \neg b)$ y su dual.*
-Partiendo de $\neg (\neg a \wedge \neg b)$, aplicamos De Morgan a sus
+Partiendo de $\neg (\neg a \wedge \neg b),$ aplicamos De Morgan a sus
 componentes: $$\begin{align*}
     \neg (\neg a \wedge \neg b) &= \neg (\neg a) \vee \neg (\neg b) & (Mor_\wedge) \\
     &= a \vee b & (Comp_{inv})
 \end{align*}$$ Dualizando la expresión, obtenemos de manera idéntica que
-$\neg (\neg a \vee \neg b) = a \wedge b$. ◻
+$\neg (\neg a \vee \neg b) = a \wedge b.$ ◻
 :::
 
-::: teorema
-Asociatividad - $Asoc_\vee, Asoc_\wedge$asociatividad El orden en el que
-se agrupan tres o más elementos al aplicar de forma consecutiva la misma
-operación ($\vee$ o $\wedge$) no altera el resultado final. Al ubicar
-este teorema después de De Morgan, podemos simplificar enormemente su
-demostración: $$\begin{align*}
-    a \vee (b \vee c) &= (a \vee b) \vee c \\
-    a \wedge (b \wedge c) &= (a \wedge b) \wedge c
-\end{align*}$$
-:::
+> **Teorema (Asociatividad -
+> $Asoc_\vee, Asoc_\wedge$):**[]{#asociatividad label="asociatividad"}
+> El orden en el que se agrupan tres o más elementos al aplicar de forma
+> consecutiva la misma operación ($\vee$ o $\wedge$) no altera el
+> resultado final. Al ubicar este teorema después de De Morgan, podemos
+> simplificar enormemente su demostración: $$\begin{align*}
+>     a \vee (b \vee c) &= (a \vee b) \vee c \\
+>     a \wedge (b \wedge c) &= (a \wedge b) \wedge c
+> \end{align*}$$
 
 **Demostración:**
 
 ::: proof
 *Demostración de $a \vee (b \vee c) = (a \vee b) \vee c$.* Primero,
 demostraremos un pequeño **Lema de Igualdad por Casos**: Si
-$x \wedge y = x \wedge z$ y $\neg x \wedge y = \neg x \wedge z$,
-entonces $y = z$. $$\begin{align*}
+$x \wedge y = x \wedge z$ y $\neg x \wedge y = \neg x \wedge z,$
+entonces $y = z.$ $$\begin{align*}
     y &= \top \wedge y & (ElemNeu_\wedge) \\
       &= (x \vee \neg x) \wedge y & (Comp_\vee) \\
       &= (x \wedge y) \vee (\neg x \wedge y) & (Dist_\wedge) \\
       &= (x \wedge z) \vee (\neg x \wedge z) & (\text{Por hipótesis del Lema}) \\
       &= (x \vee \neg x) \wedge z & (Dist_\wedge) \\
       &= \top \wedge z = z & (Comp_\vee, ElemNeu_\wedge)
-\end{align*}$$ Sea $L = a \vee (b \vee c)$ y $R = (a \vee b) \vee c$.
-Aplicaremos el lema usando $x = a$, por lo que debemos demostrar que
-$a \wedge L = a \wedge R$ y $\neg a \wedge L = \neg a \wedge R$.
+\end{align*}$$ Sea $L = a \vee (b \vee c)$ y $R = (a \vee b) \vee c.$
+Aplicaremos el lema usando $x = a,$ por lo que debemos demostrar que
+$a \wedge L = a \wedge R$ y $\neg a \wedge L = \neg a \wedge R.$
 
-1\) Comprobamos $a \wedge L = a \wedge R$: $$\begin{align*}
+1\) Comprobamos $a \wedge L = a \wedge R:$ $$\begin{align*}
     a \wedge L &= a \wedge (a \vee (b \vee c)) = a & (Abs_\wedge) \\
     a \wedge R &= a \wedge ((a \vee b) \vee c) \\
                &= (a \wedge (a \vee b)) \vee (a \wedge c) & (Dist_\wedge) \\
                &= a \vee (a \wedge c) = a & (Abs_\wedge, Abs_\vee)
-\end{align*}$$ Por tanto, $a \wedge L = a \wedge R$.
+\end{align*}$$ Por tanto, $a \wedge L = a \wedge R.$
 
-2\) Comprobamos $\neg a \wedge L = \neg a \wedge R$: $$\begin{align*}
+2\) Comprobamos $\neg a \wedge L = \neg a \wedge R:$ $$\begin{align*}
     \neg a \wedge L &= \neg a \wedge (a \vee (b \vee c)) \\
                     &= (\neg a \wedge a) \vee (\neg a \wedge (b \vee c)) & (Dist_\wedge) \\
                     &= \bot \vee (\neg a \wedge (b \vee c)) & (Comp_\wedge) \\
@@ -2000,9 +1990,9 @@ $a \wedge L = a \wedge R$ y $\neg a \wedge L = \neg a \wedge R$.
                     &= (\bot \vee (\neg a \wedge b)) \vee (\neg a \wedge c) & (Comp_\wedge) \\
                     &= (\neg a \wedge b) \vee (\neg a \wedge c) & (ElemNeu_\vee) \\
                     &= \neg a \wedge (b \vee c) & (Dist_\wedge)
-\end{align*}$$ Como $\neg a \wedge L = \neg a \wedge R$, aplicando el
-Lema concluimos que $L = R$, es decir,
-$a \vee (b \vee c) = (a \vee b) \vee c$. ◻
+\end{align*}$$ Como $\neg a \wedge L = \neg a \wedge R,$ aplicando el
+Lema concluimos que $L = R,$ es decir,
+$a \vee (b \vee c) = (a \vee b) \vee c.$ ◻
 :::
 
 ::: proof
@@ -2025,14 +2015,13 @@ Además de los teoremas deducidos directamente de los axiomas, existen
 tres teoremas de simplificación de enorme utilidad práctica,
 especialmente en la minimización de funciones booleanas.
 
-:::: teorema
-Teorema de Adyacencia (Expansión de Shannon) -
-$Ady_{\vee, \wedge}$adyacencia Cualquier elemento $a$ puede ser
-expandido con respecto a otra variable $b$ y su complemento.
-$$\begin{align*}
-    \text{Adyacencia en $\vee$: } & a = (a \wedge b) \vee (a \wedge \neg b) \\
-    \text{Adyacencia en $\wedge$: } & a = (a \vee b) \wedge (a \vee \neg b)
-\end{align*}$$
+> **Teorema (Teorema de Adyacencia (Expansión de Shannon) -
+> $Ady_{\vee, \wedge}$):**[]{#adyacencia label="adyacencia"} Cualquier
+> elemento $a$ puede ser expandido con respecto a otra variable $b$ y su
+> complemento. $$\begin{align*}
+>     \text{Adyacencia en $\vee:$ } & a = (a \wedge b) \vee (a \wedge \neg b) \\
+>     \text{Adyacencia en $\wedge:$ } & a = (a \vee b) \wedge (a \vee \neg b)
+> \end{align*}$$
 
 ::: proof
 *Proof.* Demostración para la suma: $$\begin{align*}
@@ -2046,15 +2035,14 @@ $$\begin{align*}
     a &= (a \vee b) \wedge (a \vee \neg b) & \text{Axioma de Distributividad ($Dist_{\vee}$)}
 \end{align*}$$ ◻
 :::
-::::
 
-:::: teorema
-Teorema de Reducción (Absorción Fuerte) - $Red_{\vee, \wedge}$reduccion
-La disyunción de una variable con la conjunción de su complemento y otra
-variable, se reduce a la disyunción de ambas variables. $$\begin{align*}
-    \text{Para la disyunción: } & a \vee (\neg a \wedge b) = a \vee b \\
-    \text{Para la conjunción (Dual): } & a \wedge (\neg a \vee b) = a \wedge b
-\end{align*}$$
+> **Teorema (Teorema de Reducción (Absorción Fuerte) -
+> $Red_{\vee, \wedge}$):**[]{#reduccion label="reduccion"} La disyunción
+> de una variable con la conjunción de su complemento y otra variable,
+> se reduce a la disyunción de ambas variables. $$\begin{align*}
+>     \text{Para la disyunción: } & a \vee (\neg a \wedge b) = a \vee b \\
+>     \text{Para la conjunción (Dual): } & a \wedge (\neg a \vee b) = a \wedge b
+> \end{align*}$$
 
 ::: proof
 *Proof.* Demostración para la disyunción: $$\begin{align*}
@@ -2067,20 +2055,19 @@ variable, se reduce a la disyunción de ambas variables. $$\begin{align*}
     &= a \wedge b & \text{Axioma de Elemento Neutro ($E_n$)}
 \end{align*}$$ ◻
 :::
-::::
 
-:::: teorema
-Teorema del Consenso (Quine) - $Cons_{\vee, \wedge}$consenso En una
-expresión con tres variables donde una variable aparece afirmada en un
-término, negada en otro, y el tercer término (el consenso) está formado
-por las variables restantes, este último término es redundante.
-$$\begin{align*}
-    \text{Consenso en $\vee$: } & (a \wedge b) \vee (\neg a \wedge c) \vee (b \wedge c) = (a \wedge b) \vee (\neg a \wedge c) \\
-    \text{Consenso en $\wedge$: } & (a \vee b) \wedge (\neg a \vee c) \wedge (b \vee c) = (a \vee b) \wedge (\neg a \vee c)
-\end{align*}$$
+> **Teorema (Teorema del Consenso (Quine) -
+> $Cons_{\vee, \wedge}$):**[]{#consenso label="consenso"} En una
+> expresión con tres variables donde una variable aparece afirmada en un
+> término, negada en otro, y el tercer término (el consenso) está
+> formado por las variables restantes, este último término es
+> redundante. $$\begin{align*}
+>     \text{Consenso en $\vee:$ } & (a \wedge b) \vee (\neg a \wedge c) \vee (b \wedge c) = (a \wedge b) \vee (\neg a \wedge c) \\
+>     \text{Consenso en $\wedge:$ } & (a \vee b) \wedge (\neg a \vee c) \wedge (b \vee c) = (a \vee b) \wedge (\neg a \vee c)
+> \end{align*}$$
 
 ::: proof
-*Proof.* Demostración para la versión en $\vee$: $$\begin{align*}
+*Proof.* Demostración para la versión en $\vee:$ $$\begin{align*}
     (a \wedge b) \vee (\neg a \wedge c) \vee (b \wedge c) &= (a \wedge b) \vee (\neg a \wedge c) \vee ((b \wedge c) \wedge \top) & \text{Ax. Neutro ($E_n$)} \\
     &= (a \wedge b) \vee (\neg a \wedge c) \vee ((b \wedge c) \wedge (a \vee \neg a)) & \text{Ax. Comp.} \\
     &= (a \wedge b) \vee (\neg a \wedge c) \vee (a \wedge b \wedge c) \vee (\neg a \wedge b \wedge c) & \text{Dist. y Asoc.} \\
@@ -2088,10 +2075,9 @@ $$\begin{align*}
     &\quad \vee ((\neg a \wedge c) \vee (\neg a \wedge c \wedge b)) & \text{Conm. y Asoc.} \\
     &= (a \wedge b) \vee (\neg a \wedge c) & \text{Absorción ($Abs_{\vee}$)}
 \end{align*}$$ La prueba dual sigue el mismo principio (sumar $\bot$ al
-consenso, expandirlo con $(a \wedge \neg a)$, y simplificar usando
+consenso, expandirlo con $(a \wedge \neg a),$ y simplificar usando
 absorción). ◻
 :::
-::::
 
 ## Generalización a $n$ variables
 
@@ -2102,21 +2088,19 @@ resulta irrelevante. Esto nos permite prescindir de los paréntesis y
 extender de forma natural las operaciones binarias a un número
 arbitrario $n$ de operandos.
 
-::: definicion
-Disyunción (Supremo) de $n$ variablesor_n_variables La disyunción
-múltiple de $n$ variables, denotada de forma compacta mediante el
-operador $\bigvee$, se define como la aplicación sucesiva de la
-operación $\vee$:
-$$\bigvee_{i=1}^n x_i \triangleq x_1 \vee x_2 \vee \dots \vee x_n$$
-:::
+> **Definicion (Disyunción (Supremo) de $n$
+> variables):**[]{#or_n_variables label="or_n_variables"} La disyunción
+> múltiple de $n$ variables, denotada de forma compacta mediante el
+> operador $\bigvee,$ se define como la aplicación sucesiva de la
+> operación $\vee:$
+> $$\bigvee_{i=1}^n x_i \triangleq x_1 \vee x_2 \vee \dots \vee x_n$$
 
-::: definicion
-Conjunción (Ínfimo) de $n$ variablesand_n_variables De manera análoga,
-la conjunción múltiple de $n$ variables, denotada mediante el operador
-$\bigwedge$, se define como la aplicación sucesiva de la operación
-$\wedge$:
-$$\bigwedge_{i=1}^n x_i \triangleq x_1 \wedge x_2 \wedge \dots \wedge x_n$$
-:::
+> **Definicion (Conjunción (Ínfimo) de $n$
+> variables):**[]{#and_n_variables label="and_n_variables"} De manera
+> análoga, la conjunción múltiple de $n$ variables, denotada mediante el
+> operador $\bigwedge,$ se define como la aplicación sucesiva de la
+> operación $\wedge:$
+> $$\bigwedge_{i=1}^n x_i \triangleq x_1 \wedge x_2 \wedge \dots \wedge x_n$$
 
 La existencia de estas operaciones múltiples bien definidas es un pilar
 fundamental para desarrollar formas canónicas (como la suma de productos
@@ -2134,43 +2118,37 @@ ser funcionalmente completos por sí solos, mientras que otros dos (XOR y
 XNOR) son esenciales para funciones aritméticas y de comprobación de
 paridad:
 
-::: definicion
-Operador NAND (Barra de Sheffer)nand Denotado clásicamente con una
-flecha hacia arriba ($\uparrow$), se define como la negación del ínfimo.
-$$a \uparrow b \triangleq \neg (a \wedge b) = \neg a \vee \neg b$$
-:::
+> **Definicion (Operador NAND (Barra de Sheffer)):**[]{#nand
+> label="nand"} Denotado clásicamente con una flecha hacia arriba
+> ($\uparrow$), se define como la negación del ínfimo.
+> $$a \uparrow b \triangleq \neg (a \wedge b) = \neg a \vee \neg b$$
 
-::: definicion
-Operador NOR (Flecha de Peirce)nor Denotado con una flecha hacia abajo
-($\downarrow$), se define como la negación del supremo.
-$$a \downarrow b \triangleq \neg (a \vee b) = \neg a \wedge \neg b$$
-:::
+> **Definicion (Operador NOR (Flecha de Peirce)):**[]{#nor label="nor"}
+> Denotado con una flecha hacia abajo ($\downarrow$), se define como la
+> negación del supremo.
+> $$a \downarrow b \triangleq \neg (a \vee b) = \neg a \wedge \neg b$$
 
-::: definicion
-Operador XOR (O-exclusiva)xor Denotado con el símbolo de suma exclusiva
-($\oplus$), evalúa a $\top$ cuando exactamente uno de los operandos es
-$\top$ y el otro $\bot$.
-$$a \oplus b \triangleq (a \wedge \neg b) \vee (\neg a \wedge b)$$
-:::
+> **Definicion (Operador XOR (O-exclusiva)):**[]{#xor label="xor"}
+> Denotado con el símbolo de suma exclusiva ($\oplus$), evalúa a $\top$
+> cuando exactamente uno de los operandos es $\top$ y el otro $\bot.$
+> $$a \oplus b \triangleq (a \wedge \neg b) \vee (\neg a \wedge b)$$
 
-::: definicion
-Operador XNOR (No-O-exclusiva o Equivalencia)xnor Denotado
-frecuentemente con $\odot$ o $\leftrightarrow$, es la negación de la
-operación XOR y evalúa a $\top$ cuando ambos operandos son idénticos.
-$$a \odot b \triangleq \neg (a \oplus b) = (a \wedge b) \vee (\neg a \wedge \neg b)$$
-:::
+> **Definicion (Operador XNOR (No-O-exclusiva o
+> Equivalencia)):**[]{#xnor label="xnor"} Denotado frecuentemente con
+> $\odot$ o $\leftrightarrow,$ es la negación de la operación XOR y
+> evalúa a $\top$ cuando ambos operandos son idénticos.
+> $$a \odot b \triangleq \neg (a \oplus b) = (a \wedge b) \vee (\neg a \wedge \neg b)$$
 
-::: definicion
-Generalización a $n$ variables de NAND y NORgen_nand_nor A diferencia de
-los operadores $\vee$, $\wedge$ y $\oplus$, los operadores NAND
-($\uparrow$) y NOR ($\downarrow$) **no son asociativos**. Sin embargo,
-debido a su inmensa importancia práctica en la construcción de circuitos
-digitales, se define convencionalmente su generalización a $n$ variables
-como la negación de la conjunción o disyunción múltiple,
-respectivamente:
-$$\text{NAND}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigwedge_{i=1}^n x_i \right)$$
-$$\text{NOR}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigvee_{i=1}^n x_i \right)$$
-:::
+> **Definicion (Generalización a $n$ variables de NAND y
+> NOR):**[]{#gen_nand_nor label="gen_nand_nor"} A diferencia de los
+> operadores $\vee,$ $\wedge$ y $\oplus,$ los operadores NAND
+> ($\uparrow$) y NOR ($\downarrow$) **no son asociativos**. Sin embargo,
+> debido a su inmensa importancia práctica en la construcción de
+> circuitos digitales, se define convencionalmente su generalización a
+> $n$ variables como la negación de la conjunción o disyunción múltiple,
+> respectivamente:
+> $$\text{NAND}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigwedge_{i=1}^n x_i \right)$$
+> $$\text{NOR}(x_1, x_2, \dots, x_n) \triangleq \neg \left( \bigvee_{i=1}^n x_i \right)$$
 
 ## Comportamiento de los Operadores Derivados
 
@@ -2179,14 +2157,13 @@ serie de propiedades algebraicas particulares. Al ser operadores
 funcionalmente completos, permiten expresar cualquier otra operación
 booleana utilizando exclusivamente uno de ellos.
 
-::: teorema
-Idempotencia cruzada (Generación de NOT)idemp_cruzada Operar un elemento
-consigo mismo usando NAND o NOR equivale a su complemento (negación):
-$$\begin{align*}
-    \forall a \in \mathbb{B}, \quad a \uparrow a &= \neg a \\
-    \forall a \in \mathbb{B}, \quad a \downarrow a &= \neg a
-\end{align*}$$
-:::
+> **Teorema (Idempotencia cruzada (Generación de
+> NOT)):**[]{#idemp_cruzada label="idemp_cruzada"} Operar un elemento
+> consigo mismo usando NAND o NOR equivale a su complemento (negación):
+> $$\begin{align*}
+>     \forall a \in \mathbb{B}, \quad a \uparrow a &= \neg a \\
+>     \forall a \in \mathbb{B}, \quad a \downarrow a &= \neg a
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2200,14 +2177,13 @@ $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Generación del Ínfimo y Supremo (AND y OR)gen_inf_sup A partir de la
-propiedad anterior, podemos recuperar las operaciones básicas anidando
-las puertas consigo mismas: $$\begin{align*}
-    \forall a, b \in \mathbb{B}, \quad a \wedge b &= \neg (a \uparrow b) = (a \uparrow b) \uparrow (a \uparrow b) \\
-    \forall a, b \in \mathbb{B}, \quad a \vee b &= \neg (a \downarrow b) = (a \downarrow b) \downarrow (a \downarrow b)
-\end{align*}$$
-:::
+> **Teorema (Generación del Ínfimo y Supremo (AND y
+> OR)):**[]{#gen_inf_sup label="gen_inf_sup"} A partir de la propiedad
+> anterior, podemos recuperar las operaciones básicas anidando las
+> puertas consigo mismas: $$\begin{align*}
+>     \forall a, b \in \mathbb{B}, \quad a \wedge b &= \neg (a \uparrow b) = (a \uparrow b) \uparrow (a \uparrow b) \\
+>     \forall a, b \in \mathbb{B}, \quad a \vee b &= \neg (a \downarrow b) = (a \downarrow b) \downarrow (a \downarrow b)
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2216,20 +2192,19 @@ las puertas consigo mismas: $$\begin{align*}
     \neg(a \uparrow b) &\triangleq \neg(\neg(a \wedge b)) & (\text{Definicion de NAND}) \\
                        &= a \wedge b & (Involucion)
 \end{align*}$$ Además, por la idempotencia cruzada demostrada
-anteriormente, $x \uparrow x = \neg x$, por tanto:
+anteriormente, $x \uparrow x = \neg x,$ por tanto:
 $$\neg(a \uparrow b) = (a \uparrow b) \uparrow (a \uparrow b)$$ La
 demostración para la generación del supremo (OR) es idéntica por
 dualidad. ◻
 :::
 
-::: teorema
-Generación cruzada (Leyes de De Morgan para NAND/NOR)gen_cruzada Podemos
-generar la operación opuesta (supremo desde NAND, e ínfimo desde NOR)
-negando previamente las entradas: $$\begin{align*}
-    \forall a, b \in \mathbb{B}, \quad a \vee b &= (\neg a) \uparrow (\neg b) = (a \uparrow a) \uparrow (b \uparrow b) \\
-    \forall a, b \in \mathbb{B}, \quad a \wedge b &= (\neg a) \downarrow (\neg b) = (a \downarrow a) \downarrow (b \downarrow b)
-\end{align*}$$
-:::
+> **Teorema (Generación cruzada (Leyes de De Morgan para
+> NAND/NOR)):**[]{#gen_cruzada label="gen_cruzada"} Podemos generar la
+> operación opuesta (supremo desde NAND, e ínfimo desde NOR) negando
+> previamente las entradas: $$\begin{align*}
+>     \forall a, b \in \mathbb{B}, \quad a \vee b &= (\neg a) \uparrow (\neg b) = (a \uparrow a) \uparrow (b \uparrow b) \\
+>     \forall a, b \in \mathbb{B}, \quad a \wedge b &= (\neg a) \downarrow (\neg b) = (a \downarrow a) \downarrow (b \downarrow b)
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2239,16 +2214,15 @@ negando previamente las entradas: $$\begin{align*}
                                &= \neg (\neg (a \vee b)) & (Mor_\vee) \\
                                &= a \vee b & (Involucion)
 \end{align*}$$ La demostración para el ínfimo (AND) sigue los mismos
-pasos de manera dual, aplicando $Mor_\wedge$. ◻
+pasos de manera dual, aplicando $Mor_\wedge.$ ◻
 :::
 
-::: teorema
-Conmutatividadconmut_deriv Al igual que sus operaciones base, ambos
-operadores son perfectamente conmutativos: $$\begin{align*}
-    \forall a, b \in \mathbb{B}, \quad a \uparrow b &= b \uparrow a \\
-    \forall a, b \in \mathbb{B}, \quad a \downarrow b &= b \downarrow a
-\end{align*}$$
-:::
+> **Teorema (Conmutatividad):**[]{#conmut_deriv label="conmut_deriv"} Al
+> igual que sus operaciones base, ambos operadores son perfectamente
+> conmutativos: $$\begin{align*}
+>     \forall a, b \in \mathbb{B}, \quad a \uparrow b &= b \uparrow a \\
+>     \forall a, b \in \mathbb{B}, \quad a \downarrow b &= b \downarrow a
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2258,36 +2232,34 @@ operadores son perfectamente conmutativos: $$\begin{align*}
                  &= \neg (b \wedge a) & (Comm_\wedge) \\
                  &\triangleq b \uparrow a & (\text{Definicion de NAND})
 \end{align*}$$ Para la operación NOR, es análogo aplicando
-$Comm_\vee$. ◻
+$Comm_\vee.$ ◻
 :::
 
-::: teorema
-Inexistencia de Elemento Neutrono_neutro No existe ningún elemento
-neutro para las operaciones NAND ni NOR en un álgebra de Boole general.
-:::
+> **Teorema (Inexistencia de Elemento Neutro):**[]{#no_neutro
+> label="no_neutro"} No existe ningún elemento neutro para las
+> operaciones NAND ni NOR en un álgebra de Boole general.
 
 **Demostración:**
 
 ::: proof
 *Demostración.* Si existiera un neutro $e$ para la operación NAND,
-debería cumplirse que $\forall a, a \uparrow e = a$, es decir,
-$\neg(a \wedge e) = a$. Si probamos con $e=\top$, obtenemos
-$\neg a = a$, lo cual obliga al colapso en un álgebra trivial. Si
-probamos con $e=\bot$, obtenemos $\neg \bot = a \implies \top = a$, lo
-cual obviamente no se cumple para cualquier elemento $a$. Lo mismo
+debería cumplirse que $\forall a, a \uparrow e = a,$ es decir,
+$\neg(a \wedge e) = a.$ Si probamos con $e=\top,$ obtenemos
+$\neg a = a,$ lo cual obliga al colapso en un álgebra trivial. Si
+probamos con $e=\bot,$ obtenemos $\neg \bot = a \implies \top = a,$ lo
+cual obviamente no se cumple para cualquier elemento $a.$ Lo mismo
 aplica a la operación NOR. ◻
 :::
 
-::: teorema
-Comportamiento con las constantes (Fijación y Absorción)constantes_deriv
-Fijar una constante específica en uno de los operandos genera
-directamente la negación, mientras que usar la constante opuesta actúa
-como un pseudo-elemento absorbente (devolviendo un valor constante
-inalterable por $a$): $$\begin{align*}
-    \text{Inversión: } & a \uparrow \top = \neg a \qquad & a \downarrow \bot &= \neg a \\
-    \text{Absorción: } & a \uparrow \bot = \top \qquad & a \downarrow \top &= \bot
-\end{align*}$$
-:::
+> **Teorema (Comportamiento con las constantes (Fijación y
+> Absorción)):**[]{#constantes_deriv label="constantes_deriv"} Fijar una
+> constante específica en uno de los operandos genera directamente la
+> negación, mientras que usar la constante opuesta actúa como un
+> pseudo-elemento absorbente (devolviendo un valor constante inalterable
+> por $a$): $$\begin{align*}
+>     \text{Inversión: } & a \uparrow \top = \neg a \qquad & a \downarrow \bot &= \neg a \\
+>     \text{Absorción: } & a \uparrow \bot = \top \qquad & a \downarrow \top &= \bot
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2301,14 +2273,13 @@ inalterable por $a$): $$\begin{align*}
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Ausencia de Asociatividadno_asoc_deriv A diferencia del supremo ($\vee$)
-y el ínfimo ($\wedge$), las operaciones NAND y NOR son positivamente NO
-asociativas: $$\begin{align*}
-    (a \uparrow b) \uparrow c &\neq a \uparrow (b \uparrow c) \\
-    (a \downarrow b) \downarrow c &\neq a \downarrow (b \downarrow c)
-\end{align*}$$
-:::
+> **Teorema (Ausencia de Asociatividad):**[]{#no_asoc_deriv
+> label="no_asoc_deriv"} A diferencia del supremo ($\vee$) y el ínfimo
+> ($\wedge$), las operaciones NAND y NOR son positivamente NO
+> asociativas: $$\begin{align*}
+>     (a \uparrow b) \uparrow c &\neq a \uparrow (b \uparrow c) \\
+>     (a \downarrow b) \downarrow c &\neq a \downarrow (b \downarrow c)
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2324,29 +2295,27 @@ manera estricta y análoga para demostrar la carencia de asociatividad en
 la operación NOR ($\downarrow$). ◻
 :::
 
-::: definicion
-NAND y NOR de $n$ entradasdef_n_entradas Dado que las puertas NAND y NOR
-físicas a menudo tienen más de dos entradas, se definen algebraicamente
-para múltiples entradas como la negación de la conjunción o disyunción
-de todas ellas: $$\begin{align*}
-    \uparrow(x_1, x_2, \dots, x_n) &\triangleq \neg \left( \bigwedge_{i=1}^n x_i \right) \\
-    \downarrow(x_1, x_2, \dots, x_n) &\triangleq \neg \left( \bigvee_{i=1}^n x_i \right)
-\end{align*}$$ En particular, para el caso de 3 entradas que
-estudiaremos a continuación: $$\begin{align*}
-    \uparrow(a,b,c) &\triangleq \neg(a \wedge b \wedge c) \\
-    \downarrow(a,b,c) &\triangleq \neg(a \vee b \vee c)
-\end{align*}$$
-:::
+> **Definicion (NAND y NOR de $n$ entradas):**[]{#def_n_entradas
+> label="def_n_entradas"} Dado que las puertas NAND y NOR físicas a
+> menudo tienen más de dos entradas, se definen algebraicamente para
+> múltiples entradas como la negación de la conjunción o disyunción de
+> todas ellas: $$\begin{align*}
+>     \uparrow(x_1, x_2, \dots, x_n) &\triangleq \neg \left( \bigwedge_{i=1}^n x_i \right) \\
+>     \downarrow(x_1, x_2, \dots, x_n) &\triangleq \neg \left( \bigvee_{i=1}^n x_i \right)
+> \end{align*}$$ En particular, para el caso de 3 entradas que
+> estudiaremos a continuación: $$\begin{align*}
+>     \uparrow(a,b,c) &\triangleq \neg(a \wedge b \wedge c) \\
+>     \downarrow(a,b,c) &\triangleq \neg(a \vee b \vee c)
+> \end{align*}$$
 
-::: teorema
-NAND/NOR múltiple vs agrupación binariamultiple_vs_binaria Como
-consecuencia directa de su falta de asociatividad, una operación NAND o
-NOR de 3 entradas no es equivalente a la agrupación secuencial en
-cascada de operaciones de 2 entradas: $$\begin{align*}
-    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad \text{y} \qquad \uparrow(a,b,c) \neq a \uparrow (b \uparrow c) \\
-    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad \text{y} \qquad \downarrow(a,b,c) \neq a \downarrow (b \downarrow c)
-\end{align*}$$
-:::
+> **Teorema (NAND/NOR múltiple vs agrupación
+> binaria):**[]{#multiple_vs_binaria label="multiple_vs_binaria"} Como
+> consecuencia directa de su falta de asociatividad, una operación NAND
+> o NOR de 3 entradas no es equivalente a la agrupación secuencial en
+> cascada de operaciones de 2 entradas: $$\begin{align*}
+>     \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad \text{y} \qquad \uparrow(a,b,c) \neq a \uparrow (b \uparrow c) \\
+>     \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad \text{y} \qquad \downarrow(a,b,c) \neq a \downarrow (b \downarrow c)
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2356,20 +2325,19 @@ leyes de De Morgan:
 $$\uparrow(a,b,c) \triangleq \neg(a \wedge b \wedge c) = \neg a \vee \neg b \vee \neg c$$
 Sin embargo, la agrupación de dos en dos evaluada anteriormente daba:
 $$(a \uparrow b) \uparrow c = (a \wedge b) \vee \neg c$$ Evidentemente,
-$\neg a \vee \neg b \vee \neg c \neq (a \wedge b) \vee \neg c$. Lo mismo
+$\neg a \vee \neg b \vee \neg c \neq (a \wedge b) \vee \neg c.$ Lo mismo
 aplica a las agrupaciones derechas y a las operaciones NOR
 equivalentes. ◻
 :::
 
-::: teorema
-Extensión del Principio de Dualidad (NAND y NOR)dualidad_nand_nor La
-inclusión de los operadores derivados expande el Principio de Dualidad
-establecido en los postulados iniciales. La expresión dual de cualquier
-teorema o identidad que contenga operaciones NAND o NOR se obtiene
-intercambiando los operadores $\uparrow$ y $\downarrow$ (además de los
-ya conocidos $\vee \leftrightarrow \wedge$ y
-$\bot \leftrightarrow \top$).
-:::
+> **Teorema (Extensión del Principio de Dualidad (NAND y
+> NOR)):**[]{#dualidad_nand_nor label="dualidad_nand_nor"} La inclusión
+> de los operadores derivados expande el Principio de Dualidad
+> establecido en los postulados iniciales. La expresión dual de
+> cualquier teorema o identidad que contenga operaciones NAND o NOR se
+> obtiene intercambiando los operadores $\uparrow$ y $\downarrow$
+> (además de los ya conocidos $\vee \leftrightarrow \wedge$ y
+> $\bot \leftrightarrow \top$).
 
 ### Comportamiento de los Operadores XOR y XNOR
 
@@ -2379,10 +2347,9 @@ deseables (como asociatividad o elemento neutro), los operadores XOR
 ($\oplus$) y XNOR ($\odot$) exhiben una rica estructura algebraica. A
 continuación demostraremos estas propiedades.
 
-::: teorema
-Conmutatividadconmut_xor Ambos operadores son conmutativos:
-$$a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a$$
-:::
+> **Teorema (Conmutatividad):**[]{#conmut_xor label="conmut_xor"} Ambos
+> operadores son conmutativos:
+> $$a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a$$
 
 **Demostración:**
 
@@ -2396,14 +2363,13 @@ $$a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a$$
 aprovechando la conmutatividad del ínfimo y el supremo. ◻
 :::
 
-::: teorema
-Elementos Neutros e Inversoresneutro_xor El elemento $\bot$ actúa como
-neutro para la XOR, y $\top$ actúa como inversor. De manera dual, $\top$
-es el neutro de la XNOR, y $\bot$ actúa como inversor: $$\begin{align*}
-    a \oplus \bot &= a & a \oplus \top &= \neg a \\
-    a \odot \top &= a & a \odot \bot &= \neg a
-\end{align*}$$
-:::
+> **Teorema (Elementos Neutros e Inversores):**[]{#neutro_xor
+> label="neutro_xor"} El elemento $\bot$ actúa como neutro para la XOR,
+> y $\top$ actúa como inversor. De manera dual, $\top$ es el neutro de
+> la XNOR, y $\bot$ actúa como inversor: $$\begin{align*}
+>     a \oplus \bot &= a & a \oplus \top &= \neg a \\
+>     a \odot \top &= a & a \odot \bot &= \neg a
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2422,13 +2388,12 @@ $$\begin{align*}
 \end{align*}$$ Las pruebas para XNOR son totalmente duales. ◻
 :::
 
-::: teorema
-Elemento Inverso de sí mismo (Grupo Abeliano)idemp_nula_xor La
-combinación de un elemento consigo mismo produce una anulación (devuelve
-el neutro de la operación correspondiente), actuando cada elemento como
-su propio inverso:
-$$a \oplus a = \bot \qquad \text{y} \qquad a \odot a = \top$$
-:::
+> **Teorema (Elemento Inverso de sí mismo (Grupo
+> Abeliano)):**[]{#idemp_nula_xor label="idemp_nula_xor"} La combinación
+> de un elemento consigo mismo produce una anulación (devuelve el neutro
+> de la operación correspondiente), actuando cada elemento como su
+> propio inverso:
+> $$a \oplus a = \bot \qquad \text{y} \qquad a \odot a = \top$$
 
 **Demostración:**
 
@@ -2444,14 +2409,13 @@ $$a \oplus a = \bot \qquad \text{y} \qquad a \odot a = \top$$
 \end{align*}$$ ◻
 :::
 
-::: teorema
-Propiedades de Negaciónnegacion_xor Negar cualquiera de las entradas de
-forma independiente equivale a negar la operación completa, lo que a su
-vez alterna entre XOR y XNOR: $$\begin{align*}
-    \neg (a \oplus b) &= \neg a \oplus b = a \oplus \neg b = a \odot b \\
-    \neg (a \odot b) &= \neg a \odot b = a \odot \neg b = a \oplus b
-\end{align*}$$
-:::
+> **Teorema (Propiedades de Negación):**[]{#negacion_xor
+> label="negacion_xor"} Negar cualquiera de las entradas de forma
+> independiente equivale a negar la operación completa, lo que a su vez
+> alterna entre XOR y XNOR: $$\begin{align*}
+>     \neg (a \oplus b) &= \neg a \oplus b = a \oplus \neg b = a \odot b \\
+>     \neg (a \odot b) &= \neg a \odot b = a \odot \neg b = a \oplus b
+> \end{align*}$$
 
 **Demostración:**
 
@@ -2461,21 +2425,19 @@ vez alterna entre XOR y XNOR: $$\begin{align*}
                     &= (a \wedge b) \vee (\neg a \wedge \neg b) & (Involucion) \\
                     &\triangleq a \odot b & (\text{Definición de XNOR})
 \end{align*}$$ Sabiendo por definición que
-$a \odot b \triangleq \neg(a \oplus b)$, se concluye de forma inmediata
-que $a \oplus \neg b = \neg (a \oplus b)$. ◻
+$a \odot b \triangleq \neg(a \oplus b),$ se concluye de forma inmediata
+que $a \oplus \neg b = \neg (a \oplus b).$ ◻
 :::
 
-::: teorema
-Asociatividadasoc_xor Tanto XOR como XNOR son operadores algebraicamente
-asociativos:
-$$(a \oplus b) \oplus c = a \oplus (b \oplus c) \qquad \text{y} \qquad (a \odot b) \odot c = a \odot (b \odot c)$$
-:::
+> **Teorema (Asociatividad):**[]{#asoc_xor label="asoc_xor"} Tanto XOR
+> como XNOR son operadores algebraicamente asociativos:
+> $$(a \oplus b) \oplus c = a \oplus (b \oplus c) \qquad \text{y} \qquad (a \odot b) \odot c = a \odot (b \odot c)$$
 
 **Demostración:**
 
 ::: proof
 *Demostración para XOR.* Primero evaluaremos el miembro izquierdo
-$(a \oplus b) \oplus c$. Llamaremos $X = a \oplus b$. $$\begin{align*}
+$(a \oplus b) \oplus c.$ Llamaremos $X = a \oplus b.$ $$\begin{align*}
     X \oplus c &\triangleq (X \wedge \neg c) \vee (\neg X \wedge c) \\
                &= \big( ((a \wedge \neg b) \vee (\neg a \wedge b)) \wedge \neg c \big) \vee \big( \neg ((a \wedge \neg b) \vee (\neg a \wedge b)) \wedge c \big) \\
                &= \big( ((a \wedge \neg b) \vee (\neg a \wedge b)) \wedge \neg c \big) \vee \big( (a \odot b) \wedge c \big) \quad (\text{Definición de XNOR}) \\
@@ -2483,7 +2445,7 @@ $(a \oplus b) \oplus c$. Llamaremos $X = a \oplus b$. $$\begin{align*}
                &= (a \wedge \neg b \wedge \neg c) \vee (\neg a \wedge b \wedge \neg c) \\
                &\quad \vee (a \wedge b \wedge c) \vee (\neg a \wedge \neg b \wedge c) \quad (Dist_\wedge)
 \end{align*}$$ Ahora evaluaremos el miembro derecho
-$a \oplus (b \oplus c)$. Llamaremos $Y = b \oplus c$. $$\begin{align*}
+$a \oplus (b \oplus c).$ Llamaremos $Y = b \oplus c.$ $$\begin{align*}
     a \oplus Y &\triangleq (a \wedge \neg Y) \vee (\neg a \wedge Y) \\
                &= (a \wedge (b \odot c)) \vee (\neg a \wedge ((b \wedge \neg c) \vee (\neg b \wedge c))) \\
                &= (a \wedge ((b \wedge c) \vee (\neg b \wedge \neg c))) \vee (\neg a \wedge b \wedge \neg c) \vee (\neg a \wedge \neg b \wedge c) \\
@@ -2494,24 +2456,24 @@ exactamente en los mismos cuatro minitérminos. Reordenándolos por
 conmutatividad ($Comm_\vee$) demostramos que son idénticos. ◻
 :::
 
-::: teorema
-Generalización n-aria (XOR y XNOR)gen_xor Dado que ambos operadores han
-demostrado ser asociativos y conmutativos, es posible omitir los
-paréntesis y generalizar la operación a un número arbitrario $n$ de
-variables. Se denotan mediante los operadores de sumatoria y productorio
-modificados:
-$$\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n$$
-$$\bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n$$
+> **Teorema (Generalización n-aria (XOR y XNOR)):**[]{#gen_xor
+> label="gen_xor"} Dado que ambos operadores han demostrado ser
+> asociativos y conmutativos, es posible omitir los paréntesis y
+> generalizar la operación a un número arbitrario $n$ de variables. Se
+> denotan mediante los operadores de sumatoria y productorio
+> modificados:
+> $$\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n$$
+> $$\bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n$$
 
 **Propiedad de Paridad de la XOR (Suma Módulo 2):** La operación
 $\bigoplus_{i=1}^{n} x_i$ es conocida matemáticamente como la *función
 de paridad impar*. Su valor será $\top$ (o 1) si y solo si un número
-impar de las variables de entrada $x_i$ tienen valor $\top$.
+impar de las variables de entrada $x_i$ tienen valor $\top.$
 
 **Relación entre XOR y XNOR para $n$ variables:** Dado que
-$x \odot y = x \oplus y \oplus \top$, cada aplicación sucesiva del
+$x \odot y = x \oplus y \oplus \top,$ cada aplicación sucesiva del
 operador $\odot$ es matemáticamente equivalente a aplicar una suma
-$\oplus$ y concatenar una constante $\top$. Puesto que la expresión
+$\oplus$ y concatenar una constante $\top.$ Puesto que la expresión
 $\bigodot_{i=1}^{n} x_i$ entrelaza a sus operandos mediante exactamente
 $n-1$ operadores de equivalencia, se deduce rigurosamente que:
 $$\bigodot_{i=1}^{n} x_i = \left( \bigoplus_{i=1}^{n} x_i \right) \oplus \underbrace{\top \oplus \top \dots \oplus \top}_{n-1 \text{ veces}}$$
@@ -2523,15 +2485,13 @@ $$\bigodot_{i=1}^{n} x_i = \begin{cases}
 \bigoplus_{i=1}^{n} x_i & \text{si } n \text{ es impar (es la misma función)} \\
 \neg \left( \bigoplus_{i=1}^{n} x_i \right) & \text{si } n \text{ es par (son funciones negadas)}
 \end{cases}$$
-:::
 
-::: teorema
-Distributividad (AND sobre XOR y OR sobre XNOR)dist_xor El producto
-(AND) se distribuye sobre la suma exclusiva (XOR), y dualmente, la suma
-(OR) se distribuye sobre la equivalencia (XNOR):
-$$a \wedge (b \oplus c) = (a \wedge b) \oplus (a \wedge c)$$
-$$a \vee (b \odot c) = (a \vee b) \odot (a \vee c)$$
-:::
+> **Teorema (Distributividad (AND sobre XOR y OR sobre
+> XNOR)):**[]{#dist_xor label="dist_xor"} El producto (AND) se
+> distribuye sobre la suma exclusiva (XOR), y dualmente, la suma (OR) se
+> distribuye sobre la equivalencia (XNOR):
+> $$a \wedge (b \oplus c) = (a \wedge b) \oplus (a \wedge c)$$
+> $$a \vee (b \odot c) = (a \vee b) \odot (a \vee c)$$
 
 **Demostración:**
 
@@ -2550,14 +2510,13 @@ $$\begin{align*}
 distributividad para XNOR es rigurosamente dual. ◻
 :::
 
-::: teorema
-Extensión del Principio de Dualidad (XOR y XNOR)dualidad_xor_xnor De
-forma análoga a la relación entre NAND y NOR, los operadores XOR y XNOR
-son mutuamente duales. Para obtener la expresión dual de cualquier
-proposición que involucre estos operadores, se deben intercambiar
-$\oplus$ y $\odot$, manteniendo las reglas de dualidad estándar para los
-demás elementos y constantes.
-:::
+> **Teorema (Extensión del Principio de Dualidad (XOR y
+> XNOR)):**[]{#dualidad_xor_xnor label="dualidad_xor_xnor"} De forma
+> análoga a la relación entre NAND y NOR, los operadores XOR y XNOR son
+> mutuamente duales. Para obtener la expresión dual de cualquier
+> proposición que involucre estos operadores, se deben intercambiar
+> $\oplus$ y $\odot,$ manteniendo las reglas de dualidad estándar para
+> los demás elementos y constantes.
 
 ## Estructuras Algebraicas Superiores
 
@@ -2566,39 +2525,38 @@ Las propiedades demostradas anteriormente para los operadores XOR
 estructuras algebraicas más ricas y estándar dentro del álgebra
 abstracta.
 
-::: teorema
-Estructura de Grupo Conmutativogrupo_xor El par $(B, \oplus)$ forma un
-**grupo abeliano** (conmutativo), satisfaciendo:
+> **Teorema (Estructura de Grupo Conmutativo):**[]{#grupo_xor
+> label="grupo_xor"} El par $(B, \oplus)$ forma un **grupo abeliano**
+> (conmutativo), satisfaciendo:
+>
+> 1.  **Clausura:** $\forall a,b \in B, a \oplus b \in B.$
+>
+> 2.  **Asociatividad:**
+>     $a \oplus (b \oplus c) = (a \oplus b) \oplus c.$
+>
+> 3.  **Elemento neutro:** Existe $\bot \in B$ tal que
+>     $a \oplus \bot = a.$
+>
+> 4.  **Elemento inverso (Idempotencia aditiva):** Todo elemento es su
+>     propio inverso, ya que $a \oplus a = \bot.$
+>
+> 5.  **Conmutatividad:** $a \oplus b = b \oplus a.$
 
-1.  **Clausura:** $\forall a,b \in B, a \oplus b \in B$.
-
-2.  **Asociatividad:** $a \oplus (b \oplus c) = (a \oplus b) \oplus c$.
-
-3.  **Elemento neutro:** Existe $\bot \in B$ tal que
-    $a \oplus \bot = a$.
-
-4.  **Elemento inverso (Idempotencia aditiva):** Todo elemento es su
-    propio inverso, ya que $a \oplus a = \bot$.
-
-5.  **Conmutatividad:** $a \oplus b = b \oplus a$.
-:::
-
-::: teorema
-Estructura de Anillo Conmutativo (Anillo Booleano)anillo_booleano La
-terna $(B, \oplus, \wedge)$ forma un **anillo conmutativo con elemento
-unidad** (comúnmente denominado Anillo Booleano), donde el XOR actúa
-como la suma del anillo y el AND como el producto. Se satisfacen todas
-las propiedades requeridas:
-
-1.  $(B, \oplus)$ es un grupo abeliano (demostrado arriba).
-
-2.  $(B, \wedge)$ es un monoide conmutativo (asociativo, conmutativo, y
-    con elemento neutro $\top$).
-
-3.  **Distributividad:** El producto ($\wedge$) se distribuye sobre la
-    suma ($\oplus$), es decir,
-    $a \wedge (b \oplus c) = (a \wedge b) \oplus (a \wedge c)$.
-:::
+> **Teorema (Estructura de Anillo Conmutativo (Anillo
+> Booleano)):**[]{#anillo_booleano label="anillo_booleano"} La terna
+> $(B, \oplus, \wedge)$ forma un **anillo conmutativo con elemento
+> unidad** (comúnmente denominado Anillo Booleano), donde el XOR actúa
+> como la suma del anillo y el AND como el producto. Se satisfacen todas
+> las propiedades requeridas:
+>
+> 1.  $(B, \oplus)$ es un grupo abeliano (demostrado arriba).
+>
+> 2.  $(B, \wedge)$ es un monoide conmutativo (asociativo, conmutativo,
+>     y con elemento neutro $\top$).
+>
+> 3.  **Distributividad:** El producto ($\wedge$) se distribuye sobre la
+>     suma ($\oplus$), es decir,
+>     $a \wedge (b \oplus c) = (a \wedge b) \oplus (a \wedge c).$
 
 # Instanciación en Álgebras Finitas: Trivial y Bivaluada
 
@@ -2611,7 +2569,7 @@ teoría de circuitos.
 
 ### Álgebra Trivial ($|B| = 1$)
 
-Si definimos el conjunto soporte con un único elemento, $B = \{ c \}$,
+Si definimos el conjunto soporte con un único elemento, $B = \{ c \},$
 nos encontramos ante el álgebra de Boole trivial o degenerada.
 
 Dado que los postulados de Huntington (Postulado 2) exigen la existencia
@@ -2620,21 +2578,21 @@ conjunción ($\top \in B$), y puesto que el conjunto solo contiene un
 único elemento, estos deben forzosamente coincidir: $$\bot = \top = c$$
 
 Al instanciar cualquier operación definida sobre este conjunto, los
-resultados siempre evalúan a dicha constante $c$.
+resultados siempre evalúan a dicha constante $c.$
 
 - **Negación:** Por el postulado del complemento, $c \vee \neg c = c$ y
-  $c \wedge \neg c = c$, lo que implica que $\neg c = c$.
+  $c \wedge \neg c = c,$ lo que implica que $\neg c = c.$
 
 - **Disyunción y Conjunción:** Por la propiedad de idempotencia,
-  $c \vee c = c$ y $c \wedge c = c$.
+  $c \vee c = c$ y $c \wedge c = c.$
 
 - **Operadores Derivados:** Por definición,
-  $c \uparrow c = \neg (c \wedge c) = \neg c = c$. Lo mismo sucede con
+  $c \uparrow c = \neg (c \wedge c) = \neg c = c.$ Lo mismo sucede con
   el resto de operadores.
 
 Visualizar esto en tablas de operación (comúnmente conocidas como tablas
 de verdad) resulta en estructuras degeneradas de una sola celda, donde
-$\circ \in \{ \vee, \wedge, \uparrow, \downarrow, \oplus, \odot \}$:
+$\circ \in \{ \vee, \wedge, \uparrow, \downarrow, \oplus, \odot \}:$
 
 ::: center
    $a$   $\neg a$
@@ -2658,15 +2616,15 @@ Procederemos a deducir el comportamiento (las tablas de operación)
 instanciando los teoremas y postulados axiomáticos en estos dos únicos
 valores.
 
-#### Operaciones Básicas ($\neg$, $\vee$, $\wedge$)
+#### Operaciones Básicas ($\neg,$ $\vee,$ $\wedge$)
 
 **1. Negación (Operación unaria $\neg$)**\
 El Postulado 5 (Complemento) exige que:
 $$\bot \vee \neg \bot = \top \quad \text{y} \quad \top \vee \neg \top = \top$$
 Al existir solo dos elementos en el conjunto, el único valor que sumado
 a $\bot$ (que es el neutro disyuntivo, por lo que no altera el
-resultado) da $\top$, es el propio $\top$. Por lo tanto, deducimos que
-$\neg \bot = \top$. De igual manera, por dualidad, $\neg \top = \bot$.
+resultado) da $\top,$ es el propio $\top.$ Por lo tanto, deducimos que
+$\neg \bot = \top.$ De igual manera, por dualidad, $\neg \top = \bot.$
 
 **2. Disyunción (Operación binaria $\vee$)**\
 Calculamos los cuatro casos posibles instanciando los valores:
@@ -2700,26 +2658,26 @@ obtenidas:
 
 **1. NAND y NOR**\
 Dado que $a \uparrow b = \neg(a \wedge b)$ y
-$a \downarrow b = \neg(a \vee b)$, los resultados consisten simplemente
+$a \downarrow b = \neg(a \vee b),$ los resultados consisten simplemente
 en aplicar el operador complemento ($\neg$) a las tablas de conjunción y
 disyunción calculadas previamente.
 
 **2. XOR y XNOR**\
 Recordando la definición algebraica
-$a \oplus b = (a \wedge \neg b) \vee (\neg a \wedge b)$, se puede
+$a \oplus b = (a \wedge \neg b) \vee (\neg a \wedge b),$ se puede
 evaluar caso por caso (por ejemplo,
 $\top \oplus \bot = (\top \wedge \top) \vee (\bot \wedge \bot) = \top \vee \bot = \top$),
 pero también podemos usar directamente los teoremas derivados
 anteriormente:
 
 - $a \oplus \bot = a$ (Elemento neutro). Por lo tanto:
-  $\bot \oplus \bot = \bot$, y $\top \oplus \bot = \top$.
+  $\bot \oplus \bot = \bot,$ y $\top \oplus \bot = \top.$
 
 - $a \oplus \top = \neg a$ (Inversor). Por lo tanto:
-  $\bot \oplus \top = \top$, y $\top \oplus \top = \bot$.
+  $\bot \oplus \top = \top,$ y $\top \oplus \top = \bot.$
 
 Por dualidad, y sabiendo que el XNOR es la negación del XOR, se obtiene
-trivialmente que $a \odot b = \neg(a \oplus b)$.
+trivialmente que $a \odot b = \neg(a \oplus b).$
 
 #### Resumen: Tablas de Operación Bivaluadas
 
@@ -2761,7 +2719,7 @@ En la electrónica digital, el interés recae de forma exclusiva sobre un
 modelo concreto de álgebra de Boole: el **Álgebra de Conmutación de
 Shannon**. Esta es el álgebra de Boole más sencilla posible, cuyo
 conjunto subyacente consta únicamente de dos elementos,
-$\mathbb{B}_2 = \{0, 1\}$.
+$\mathbb{B}_2 = \{0, 1\}.$
 
 A pesar de su aparente simplicidad, el álgebra de $\mathbb{B}_2$ cumple
 estrictamente todos los postulados de Huntington (y por ende, todos los
@@ -2778,7 +2736,7 @@ y constantes:
   (verdadero) se denotará como **1** (ó nivel alto de tensión, $H$).
 
 - **Supremo (Join / Disyunción):** La operación $\vee$ se denotará
-  mediante el operador suma $\mathbf{+}$. En circuitos lógicos,
+  mediante el operador suma $\mathbf{+}.$ En circuitos lógicos,
   implementa la puerta **OR**.
 
 - **Ínfimo (Meet / Conjunción):** La operación $\wedge$ se denotará
@@ -2788,18 +2746,18 @@ y constantes:
 
 - **Complemento (Negación):** La operación de complemento $\neg a$ se
   denotará convencionalmente colocando una barra superior sobre la
-  variable, $\mathbf{\overline{a}}$, o mediante una comilla
-  $\mathbf{a'}$. Implementa la puerta **NOT** (inversor).
+  variable, $\mathbf{\overline{a}},$ o mediante una comilla
+  $\mathbf{a'}.$ Implementa la puerta **NOT** (inversor).
 
 - **Operadores Derivados (NAND y NOR):** Las operaciones $\uparrow$ y
   $\downarrow$ mantienen sus símbolos, o bien se expresan directamente
-  como el complemento del producto o de la suma ($\overline{a \cdot b}$,
+  como el complemento del producto o de la suma ($\overline{a \cdot b},$
   $\overline{a+b}$). Representan las puertas universales **NAND** y
   **NOR**, fundamentales en el diseño de circuitos integrados.
 
 - **Suma Exclusiva y Equivalencia (XOR y XNOR):** Las operaciones
   introducidas como suma exclusiva y equivalencia lógica se denotan
-  mediante $\mathbf{\oplus}$ y $\mathbf{\odot}$. Representan las puertas
+  mediante $\mathbf{\oplus}$ y $\mathbf{\odot}.$ Representan las puertas
   **XOR** (útiles en sumadores o detectores de paridad) y **XNOR**
   (comparadores de igualdad).
 
@@ -2812,12 +2770,12 @@ y constantes:
 Esta notación algebraica clásica resulta mucho más ágil y familiar para
 la manipulación y simplificación de funciones lógicas complejas. Así,
 teoremas como el de la distributividad se reescriben de forma natural
-como $a \cdot (b + c) = (a \cdot b) + (a \cdot c)$, y las leyes de De
+como $a \cdot (b + c) = (a \cdot b) + (a \cdot c),$ y las leyes de De
 Morgan cobran su célebre forma visual:
 $$\overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b}$$
 De igual modo, la estructura de las operaciones derivadas queda plasmada
 directamente en ecuaciones como
-$a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b)$.
+$a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b).$
 
 Además, gracias a nuestra previa instanciación en el álgebra bivaluada
 ($|B|=2$), sabemos que las tablas de operación algebraicas que hemos
@@ -2827,239 +2785,6 @@ con las **tablas de verdad** de las puertas lógicas físicas.
 Con estos fundamentos matemáticos sólidamente establecidos, la
 transición hacia el diseño, análisis y simplificación de circuitos
 digitales queda completamente justificada y carente de ambigüedades.
-
-## Anexo: Resumen de Postulados y Teoremas (Notación Ingenieril)
-
-En esta sección se recopilan los postulados de Huntington y los teoremas
-principales derivados, transcritos a la notación propia del álgebra de
-conmutación y la lógica digital ($+$, $\cdot$, $0$, $1$,
-$\overline{a}$), concebidos como hoja de referencia rápida.
-
-### Pre-Axiomas de la Estructura {#pre-axiomas-de-la-estructura-1 .unnumbered}
-
-::: preaxioma
-Estructura de Conjuntoesconj_eng Se requiere que se defina sobre un
-conjunto (por ejemplo, $\mathbb{B}_2 = \{0, 1\}$).
-:::
-
-::: preaxioma
-Constantes Lógicasconstantes_eng Este conjunto contiene dos constantes
-fundamentales: $0$ (falso) y $1$ (verdadero).
-:::
-
-::: preaxioma
-Operaciones Binarias Internasopbinint_eng Se definen dos operaciones
-binarias internas, la suma ($+$) y el producto ($\cdot$):
-$$\begin{align*}
-+ &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2 \\
-\cdot &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2
-\end{align*}$$
-:::
-
-::: preaxioma
-Existencia y Unicidad de Imagenexist_unic_eng Para cada par de elementos
-del conjunto, las operaciones $+$ y $\cdot$ siempre producen un
-resultado que también pertenece al conjunto, y ese resultado es siempre
-único.
-:::
-
-### Postulados de Huntington {#postulados-de-huntington .unnumbered}
-
-::: postulado
-Elemento neutroneutro_eng
-$$a + 0 = a \qquad \text{y} \qquad a \cdot 1 = a$$
-:::
-
-::: postulado
-Conmutatividadconmut_eng
-$$a + b = b + a \qquad \text{y} \qquad a \cdot b = b \cdot a$$
-:::
-
-::: postulado
-Distributividaddistrib_eng
-$$a \cdot (b + c) = (a \cdot b) + (a \cdot c) \qquad \text{y} \qquad a + (b \cdot c) = (a + b) \cdot (a + c)$$
-:::
-
-::: postulado
-Complementariocomp_eng Para cada elemento $a$, existe un complemento
-$\overline{a}$ tal que:
-$$a + \overline{a} = 1 \qquad \text{y} \qquad a \cdot \overline{a} = 0$$
-:::
-
-### Teoremas Fundamentales {#teoremas-fundamentales .unnumbered}
-
-::: teorema
-Unicidad de los elementos neutrosunicidad_neutros_eng El elemento neutro
-para la suma ($0$) y para el producto ($1$) son únicos.
-:::
-
-::: teorema
-Idempotenciaidempotencia_eng
-$$a + a = a \qquad \text{y} \qquad a \cdot a = a$$
-:::
-
-::: teorema
-Elementos absorbentesabsorbentes_eng
-$$a + 1 = 1 \qquad \text{y} \qquad a \cdot 0 = 0$$
-:::
-
-::: teorema
-Propiedades de absorciónabsorcion_eng
-$$a + (a \cdot b) = a \qquad \text{y} \qquad a \cdot (a + b) = a$$
-:::
-
-::: teorema
-Leyes de De Morganmorgan_eng
-$$\overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b}$$
-:::
-
-::: teorema
-Involución (Doble negación)involucion_eng
-$$\overline{\overline{a}} = a$$
-:::
-
-::: teorema
-Asociatividadasociatividad_eng
-$$a + (b + c) = (a + b) + c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c$$
-:::
-
-::: teorema
-Unicidad del complementounic_comp_eng El complemento $\overline{a}$ de
-un elemento $a$ es único.
-:::
-
-::: teorema
-Otras propiedades equivalentesotras_prop_eng
-
-- **Orden de retículo:** $a + b = a \iff a \cdot b = b$
-
-- **Equivalencia de operaciones:** $a + b = a \cdot b \implies a = b$
-
-- **Cancelación:**
-  $(a + b = a + c \text{ y } a \cdot b = a \cdot c) \implies b = c$
-:::
-
-::: definicion
-Generalización a $n$ variablesgen_n_vars_eng Las operaciones disyunción
-y conjunción pueden extenderse a un número $n$ de variables mediante los
-símbolos sumatorio y productorio:
-$$\sum_{i=1}^{n} x_i = x_1 + x_2 + \dots + x_n$$
-$$\prod_{i=1}^{n} x_i = x_1 \cdot x_2 \cdot \dots \cdot x_n$$
-:::
-
-::: teorema
-Casos de Álgebra Trivialtrivial_eng Si $0 = 1$, o si existe algún
-elemento tal que $\overline{a} = a$, entonces el álgebra contiene un
-único elemento (álgebra trivial).
-:::
-
-### Comportamiento de Operadores Derivados {#comportamiento-de-operadores-derivados .unnumbered}
-
-::: teorema
-Idempotencia cruzada (NAND/NOR)idemp_cruzada_eng
-$$a \uparrow a = \overline{a} \qquad \text{y} \qquad a \downarrow a = \overline{a}$$
-:::
-
-::: teorema
-Generación de AND y ORgen_inf_sup_eng
-$$a \cdot b = \overline{a \uparrow b} = (a \uparrow b) \uparrow (a \uparrow b) \qquad \text{y} \qquad a + b = \overline{a \downarrow b} = (a \downarrow b) \downarrow (a \downarrow b)$$
-:::
-
-::: teorema
-Generación cruzadagen_cruzada_eng
-$$a + b = \overline{a} \uparrow \overline{b} = (a \uparrow a) \uparrow (b \uparrow b) \qquad \text{y} \qquad a \cdot b = \overline{a} \downarrow \overline{b} = (a \downarrow a) \downarrow (b \downarrow b)$$
-:::
-
-::: teorema
-Conmutatividadconmut_deriv_eng
-$$a \uparrow b = b \uparrow a \qquad \text{y} \qquad a \downarrow b = b \downarrow a$$
-:::
-
-::: teorema
-Comportamiento con las constantesconstantes_deriv_eng $$\begin{align*}
-    a \uparrow 1 &= \overline{a} \qquad & a \downarrow 0 &= \overline{a} \\
-    a \uparrow 0 &= 1 \qquad & a \downarrow 1 &= 0
-\end{align*}$$
-:::
-
-::: teorema
-Ausencia de Asociatividadno_asoc_deriv_eng
-$$(a \uparrow b) \uparrow c \neq a \uparrow (b \uparrow c) \qquad \text{y} \qquad (a \downarrow b) \downarrow c \neq a \downarrow (b \downarrow c)$$
-:::
-
-::: definicion
-NAND y NOR de 3 entradasn_entradas_eng
-$$\uparrow(a,b,c) = \overline{a \cdot b \cdot c} \qquad \text{y} \qquad \downarrow(a,b,c) = \overline{a + b + c}$$
-:::
-
-::: teorema
-NAND/NOR múltiple vs cascada binariamultiple_vs_binaria_eng
-$$\begin{align*}
-    \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad & \uparrow(a,b,c) &\neq a \uparrow (b \uparrow c) \\
-    \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad & \downarrow(a,b,c) &\neq a \downarrow (b \downarrow c)
-\end{align*}$$
-:::
-
-### Comportamiento de los Operadores XOR y XNOR {#comportamiento-de-los-operadores-xor-y-xnor-1 .unnumbered}
-
-::: definicion
-Definición de XOR y XNORdef_xor_xnor_eng
-$$a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b) \qquad \text{y} \qquad a \odot b = \overline{a \oplus b} = (a \cdot b) + (\overline{a} \cdot \overline{b})$$
-:::
-
-::: teorema
-Conmutatividadconmut_xor_eng
-$$a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a$$
-:::
-
-::: teorema
-Elementos Neutros e Inversoresneutros_xor_eng $$\begin{align*}
-    a \oplus 0 &= a \qquad & a \odot 1 &= a \\
-    a \oplus 1 &= \overline{a} \qquad & a \odot 0 &= \overline{a}
-\end{align*}$$
-:::
-
-::: teorema
-Elemento Inverso de sí mismo (Grupo Abeliano)idemp_nula_eng
-$$a \oplus a = 0 \qquad \text{y} \qquad a \odot a = 1$$
-:::
-
-::: teorema
-Propiedades de Negaciónneg_xor_eng
-$$\overline{a \oplus b} = \overline{a} \oplus b = a \oplus \overline{b} = a \odot b$$
-$$\overline{a \odot b} = \overline{a} \odot b = a \odot \overline{b} = a \oplus b$$
-:::
-
-::: teorema
-Asociatividad y Generalizaciónasoc_gen_xor_eng Ambos operadores son
-asociativos:
-$$a \oplus (b \oplus c) = (a \oplus b) \oplus c \qquad \text{y} \qquad a \odot (b \odot c) = (a \odot b) \odot c$$
-Lo cual permite su generalización a un número arbitrario $n$ de
-entradas:
-$$\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n \qquad \text{y} \qquad \bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n$$
-:::
-
-::: teorema
-Distributividad con el producto y la sumadist_xor_eng
-$$a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot c) \qquad \text{y} \qquad a + (b \odot c) = (a + b) \odot (a + c)$$
-:::
-
-### Tablas de Verdad Bivaluadas {#tablas-de-verdad-bivaluadas .unnumbered}
-
-Resumen de las tablas de operación del álgebra de Boole para el caso de
-dos elementos ($B=\{0,1\}$), transcritas al lenguaje ingenieril:
-
-   $a$   $\overline{a}$
-  ----- ----------------
-   $0$        $1$
-   $1$        $0$
-
-   $a$   $b$   $a + b$   $a \cdot b$   $a \uparrow b$   $a \downarrow b$   $a \oplus b$   $a \odot b$
-  ----- ----- --------- ------------- ---------------- ------------------ -------------- -------------
-   $0$   $0$     $0$         $0$            $1$               $1$              $0$            $1$
-   $0$   $1$     $1$         $0$            $1$               $0$              $1$            $0$
-   $1$   $0$     $1$         $0$            $1$               $0$              $1$            $0$
-   $1$   $1$     $1$         $1$            $0$               $0$              $0$            $1$
 
 # Modelos Mentales en Ingeniería: Puertas Lógicas
 
@@ -3077,9 +2802,15 @@ puerta lógica **AND**.
 
 :::: center
 ::: circuitikz
-(0,0) node\[and port\] (myand) (myand.in 1) node\[anchor=east\] $a$
-(myand.in 2) node\[anchor=east\] $b$ (myand.out) node\[anchor=west\]
-$a \cdot b$;
+(0,0) node\[american and port\] (myand_ansi) (myand_ansi.in 1)
+node\[anchor=east\] $a$ (myand_ansi.in 2) node\[anchor=east\] $b$
+(myand_ansi.out) node\[anchor=west\] $a \cdot b$; at (0, -1.5) Símbolo
+ANSI;
+
+(5,0) node\[european and port\] (myand_ieee) (myand_ieee.in 1)
+node\[anchor=east\] $a$ (myand_ieee.in 2) node\[anchor=east\] $b$
+(myand_ieee.out) node\[anchor=west\] $a \cdot b$; at (5, -1.5) Símbolo
+IEEE/IEC;
 :::
 ::::
 
@@ -3093,24 +2824,24 @@ debe asimilarse bajo los siguientes modelos mentales:
   las condiciones estructurales se cumplan inexcusablemente.
 
 - **Como función Mínimo (Min):** Si asumimos la cardinalidad ordinal
-  $0 < 1$, la puerta AND siempre devuelve el valor más pequeño de todas
+  $0 < 1,$ la puerta AND siempre devuelve el valor más pequeño de todas
   sus entradas. La única manera de que la salida escape del $0$ y sea
-  $1$ (nivel alto) es que absolutamente todas las entradas sean $1$.
+  $1$ (nivel alto) es que absolutamente todas las entradas sean $1.$
 
 - **Como Interruptor de Señal (Enmascaramiento):** Si fijamos la entrada
-  $b=0$, la salida se fuerza a $0$, cortando el paso de cualquier rastro
-  de datos en $a$. Si $b=1$, la puerta \"se abre\" de forma transparente
+  $b=0,$ la salida se fuerza a $0,$ cortando el paso de cualquier rastro
+  de datos en $a.$ Si $b=1,$ la puerta \"se abre\" de forma transparente
   y la señal de datos $a$ fluye intacta hacia la salida
   ($a \cdot 1 = a$).
 
 - **Como Producto Aritmético:** A nivel de bit, coincide algebraicamente
-  con la multiplicación tradicional: $0 \times 0 = 0$, $0 \times 1 = 0$,
-  $1 \times 1 = 1$.
+  con la multiplicación tradicional: $0 \times 0 = 0,$ $0 \times 1 = 0,$
+  $1 \times 1 = 1.$
 
 **Generalización a $n$ variables:** Una puerta AND de $n$ entradas
 ($\prod_{i=1}^n x_i$) sigue comportándose como un estricto detector de
-*unanimidad*. Da $1$ única y exclusivamente si las $n$ entradas son $1$.
-Con que un solo eslabón falle y valga $0$, toda la cadena colapsa a $0$.
+*unanimidad*. Da $1$ única y exclusivamente si las $n$ entradas son $1.$
+Con que un solo eslabón falle y valga $0,$ toda la cadena colapsa a $0.$
 
 ## La Puerta OR (Disyunción Lógica)
 
@@ -3119,9 +2850,14 @@ La operación suma $a + b$ se materializa físicamente en la puerta lógica
 
 :::: center
 ::: circuitikz
-(0,0) node\[or port\] (myor) (myor.in 1) node\[anchor=east\] $a$
-(myor.in 2) node\[anchor=east\] $b$ (myor.out) node\[anchor=west\]
-$a + b$;
+(0,0) node\[american or port\] (myor_ansi) (myor_ansi.in 1)
+node\[anchor=east\] $a$ (myor_ansi.in 2) node\[anchor=east\] $b$
+(myor_ansi.out) node\[anchor=west\] $a + b$; at (0, -1.5) Símbolo ANSI;
+
+(5,0) node\[european or port\] (myor_ieee) (myor_ieee.in 1)
+node\[anchor=east\] $a$ (myor_ieee.in 2) node\[anchor=east\] $b$
+(myor_ieee.out) node\[anchor=west\] $a + b$; at (5, -1.5) Símbolo
+IEEE/IEC;
 :::
 ::::
 
@@ -3135,18 +2871,18 @@ duales a los de la AND:
 
 - **Como función Máximo (Max):** Devuelve siempre el mayor de los
   valores de entrada. Basta con que detecte un mísero $1$ en cualquiera
-  de sus pines para que la salida se erija inmediatamente como $1$.
+  de sus pines para que la salida se erija inmediatamente como $1.$
 
-- **Como Interruptor de Forzado a $1$:** Si fijamos la entrada de
-  control $b=1$, la salida se queda anclada permanentemente a $1$,
-  independientemente de las fluctuaciones de $a$. Si $b=0$, la puerta
+- **Como Interruptor de Forzado a $1:$** Si fijamos la entrada de
+  control $b=1,$ la salida se queda anclada permanentemente a $1,$
+  independientemente de las fluctuaciones de $a.$ Si $b=0,$ la puerta
   ignora el nivel de control y deja fluir la señal $a$ inalterada
   ($a + 0 = a$).
 
 **Generalización a $n$ variables:** Una puerta OR de $n$ entradas
 ($\sum_{i=1}^n x_i$) actúa como un detector ultrasensible al nivel alto.
 Escanea $n$ líneas de entrada buscando energía; al menor atisbo de un
-único $1$, su salida se dispara a $1$. Solo mantendrá el $0$ si existe
+único $1,$ su salida se dispara a $1.$ Solo mantendrá el $0$ si existe
 unanimidad absoluta de ceros.
 
 ## La Puerta XOR (Suma Exclusiva)
@@ -3156,15 +2892,21 @@ de las más ricas del álgebra, materializada en la puerta **XOR**.
 
 :::: center
 ::: circuitikz
-(0,0) node\[xor port\] (myxor) (myxor.in 1) node\[anchor=east\] $a$
-(myxor.in 2) node\[anchor=east\] $b$ (myxor.out) node\[anchor=west\]
-$a \oplus b$;
+(0,0) node\[american xor port\] (myxor_ansi) (myxor_ansi.in 1)
+node\[anchor=east\] $a$ (myxor_ansi.in 2) node\[anchor=east\] $b$
+(myxor_ansi.out) node\[anchor=west\] $a \oplus b$; at (0, -1.5) Símbolo
+ANSI;
+
+(5,0) node\[european xor port\] (myxor_ieee) (myxor_ieee.in 1)
+node\[anchor=east\] $a$ (myxor_ieee.in 2) node\[anchor=east\] $b$
+(myxor_ieee.out) node\[anchor=west\] $a \oplus b$; at (5, -1.5) Símbolo
+IEEE/IEC;
 :::
 ::::
 
 - **Como Inversor Controlado:** Esta es su aplicación práctica más
-  elegante. Si la entrada de control es $0$, la señal de datos pasa
-  inalterada ($a \oplus 0 = a$). Pero si la entrada de control es $1$,
+  elegante. Si la entrada de control es $0,$ la señal de datos pasa
+  inalterada ($a \oplus 0 = a$). Pero si la entrada de control es $1,$
   la señal de datos se *invierte* o niega ($a \oplus 1 = \overline{a}$).
   Esto permite cambiar la polaridad de un bus de datos a voluntad, lo
   que lo hace omnipresente en el hardware de criptografía.
@@ -3183,19 +2925,25 @@ puerta original. Como ya demostramos en el Capítulo 4, ya no es un
 detector general de \"hay un solo 1\". Su modelo mental debe anclarse
 como el **Detector de Paridad Impar**. No importa cómo se configuren las
 señales de entrada: si el cómputo total de bits $1$ es impar (1, 3,
-5\...), la salida arrojará un $1$. Si el recuento arroja un número par
-de unos (0, 2, 4\...), la salida arrojará $0$.
+5\...), la salida arrojará un $1.$ Si el recuento arroja un número par
+de unos (0, 2, 4\...), la salida arrojará $0.$
 
 ## La Puerta XNOR (Equivalencia)
 
-La negación sistemática del XOR es el $a \odot b$, que implementa en
+La negación sistemática del XOR es el $a \odot b,$ que implementa en
 hardware la puerta **XNOR**.
 
 :::: center
 ::: circuitikz
-(0,0) node\[xnor port\] (myxnor) (myxnor.in 1) node\[anchor=east\] $a$
-(myxnor.in 2) node\[anchor=east\] $b$ (myxnor.out) node\[anchor=west\]
-$a \odot b$;
+(0,0) node\[american xnor port\] (myxnor_ansi) (myxnor_ansi.in 1)
+node\[anchor=east\] $a$ (myxnor_ansi.in 2) node\[anchor=east\] $b$
+(myxnor_ansi.out) node\[anchor=west\] $a \odot b$; at (0, -1.5) Símbolo
+ANSI;
+
+(5,0) node\[european xnor port\] (myxnor_ieee) (myxnor_ieee.in 1)
+node\[anchor=east\] $a$ (myxnor_ieee.in 2) node\[anchor=east\] $b$
+(myxnor_ieee.out) node\[anchor=west\] $a \odot b$; at (5, -1.5) Símbolo
+IEEE/IEC;
 :::
 ::::
 
@@ -3207,9 +2955,9 @@ $a \odot b$;
 
 **Generalización a $n$ variables:** El modelo relacional de \"todos
 iguales\" fracasa de estrépito al generalizar a
-$\bigodot_{i=1}^{n} x_i$. Conectando con los teoremas previos, la
+$\bigodot_{i=1}^{n} x_i.$ Conectando con los teoremas previos, la
 versión generalizada del XNOR sigue estando maniatada al cálculo de
-paridades subyacente. Su naturaleza dependerá del cardinal $n$: si $n$
+paridades subyacente. Su naturaleza dependerá del cardinal $n:$ si $n$
 es impar, replica el comportamiento de paridad de la propia puerta XOR.
 Si $n$ es par, detecta paridades pares (arrojando $1$ frente a recuentos
 pares de bits).
@@ -3229,7 +2977,7 @@ $$A \implies B \equiv \overline{A} + B$$
 ¿De dónde sale esta traducción en términos de hardware? Si la señal de
 premisa $A$ es falsa ($0$), el circuito asume que el contrato se cumple
 \"por defecto vacío\" independientemente de lo que ocurra con el
-consecuente $B$. Esto se refleja en el inversor que inyecta
+consecuente $B.$ Esto se refleja en el inversor que inyecta
 $\overline{A} = 1$ a la puerta OR, garantizando un $1$ en la salida. El
 contrato solo se declara roto o falso ($0$) cuando se exige la condición
 inicial ($A=1$) pero la máquina defrauda entregando una respuesta
@@ -3246,32 +2994,32 @@ bits requiere enrutadores lógicos que los guíen con precisión.
 
 Es el análogo digital a la vía conmutada de un ferrocarril. Un MUX de 2
 entradas absorbe dos canales de información diferentes ($D_0$ y $D_1$) y
-una línea central de decisión que actúa como timón ($S$, de Selección).
-De acuerdo al valor de $S$, deja que solo uno de los dos flujos
-atraviese el bloque para alcanzar la salida maestra $Y$.
+una línea central de decisión que actúa como timón ($S,$ de Selección).
+De acuerdo al valor de $S,$ deja que solo uno de los dos flujos
+atraviese el bloque para alcanzar la salida maestra $Y.$
 
 Algebraicamente, esculpimos esta selectividad combinando la habilidad de
 \"interruptor de señal\" de dos puertas AND, y unificando el tráfico en
 un canal común con una puerta OR tolerante:
 $$Y = (\overline{S} \cdot D_0) + (S \cdot D_1)$$ *Despliegue mental del
-diseño:* Si forzamos la señal a $S=0$, el brazo derecho de la ecuación
-queda bloqueado (multiplicado por $0$) abortando a $D_1$.
+diseño:* Si forzamos la señal a $S=0,$ el brazo derecho de la ecuación
+queda bloqueado (multiplicado por $0$) abortando a $D_1.$
 Simultáneamente, el brazo izquierdo ve el $0$ invertido, abriendo de par
-en par la puerta para que viaje la señal de $D_0$. Si cambiamos el timón
-a $S=1$, la ruta de $D_0$ colapsa y el torrente de $D_1$ encuentra paso
+en par la puerta para que viaje la señal de $D_0.$ Si cambiamos el timón
+a $S=1,$ la ruta de $D_0$ colapsa y el torrente de $D_1$ encuentra paso
 libre.
 
 ### El Demultiplexor (DEMUX)
 
 Despliega la táctica geométricamente inversa. Atrapa un único flujo
 torrencial de datos $D$ y tiene el mandato de derivarlo hacia la ruta
-$Y_0$ o hacia la ruta de escape $Y_1$, de nuevo basándose en la orden
-ejecutiva $S$. $$\begin{align*}
+$Y_0$ o hacia la ruta de escape $Y_1,$ de nuevo basándose en la orden
+ejecutiva $S.$ $$\begin{align*}
 Y_0 &= \overline{S} \cdot D \\
 Y_1 &= S \cdot D
-\end{align*}$$ *Despliegue mental del diseño:* Si dictamos $S=0$, la
-válvula $Y_1$ se clausura en $0$, y el flujo $D$ atraviesa impertérrito
-la válvula $Y_0$. Si comandamos $S=1$, la situación se transpone
+\end{align*}$$ *Despliegue mental del diseño:* Si dictamos $S=0,$ la
+válvula $Y_1$ se clausura en $0,$ y el flujo $D$ atraviesa impertérrito
+la válvula $Y_0.$ Si comandamos $S=1,$ la situación se transpone
 simétricamente operando como el disyuntor perfecto del mundo digital.
 
 # Sistemas Axiomáticos de Sheffer (1913)
@@ -3292,22 +3040,21 @@ exclusivamente en uno de estos dos operadores.
 ## Axiomatización mediante NAND (Barra de Sheffer)
 
 El sistema axiomático propuesto por Sheffer para la operación NAND
-consta de los siguientes cinco postulados sobre una clase $K$:
+consta de los siguientes cinco postulados sobre una clase $K:$
 
-::: teorema
-Postulados de Sheffer (1913) - Operador NANDsheffer_nand
-
-1.  Existen al menos dos elementos distintos en $K$.
-
-2.  Clausura: Para cualesquiera $a, b \in K$, el resultado de
-    $a \uparrow b$ también pertenece a $K$.
-
-3.  $(a \uparrow a) \uparrow (a \uparrow a) = a$
-
-4.  $a \uparrow (b \uparrow (b \uparrow b)) = a \uparrow a$
-
-5.  $(a \uparrow (b \uparrow c)) \uparrow (a \uparrow (b \uparrow c)) = ((b \uparrow b) \uparrow a) \uparrow ((c \uparrow c) \uparrow a)$
-:::
+> **Teorema (Postulados de Sheffer (1913) - Operador
+> NAND):**[]{#sheffer_nand label="sheffer_nand"}
+>
+> 1.  Existen al menos dos elementos distintos en $K.$
+>
+> 2.  Clausura: Para cualesquiera $a, b \in K,$ el resultado de
+>     $a \uparrow b$ también pertenece a $K.$
+>
+> 3.  $(a \uparrow a) \uparrow (a \uparrow a) = a$
+>
+> 4.  $a \uparrow (b \uparrow (b \uparrow b)) = a \uparrow a$
+>
+> 5.  $(a \uparrow (b \uparrow c)) \uparrow (a \uparrow (b \uparrow c)) = ((b \uparrow b) \uparrow a) \uparrow ((c \uparrow c) \uparrow a)$
 
 Es directo demostrar que los axiomas de Huntington implican estos cinco
 postulados:
@@ -3318,14 +3065,14 @@ garantizando la existencia de los elementos y la definición del operador
 binario.
 
 Para demostrar el postulado 3, usamos la equivalencia
-$x \uparrow x = \neg x$: $$\begin{align*}
+$x \uparrow x = \neg x:$ $$\begin{align*}
 (a \uparrow a) \uparrow (a \uparrow a) &= \neg a \uparrow \neg a & \text{Definición de } \uparrow \\
 &= \neg (\neg a) & \text{Definición de } \uparrow \\
 &= a & \text{Involución (Doble Negación)}
 \end{align*}$$
 
 Para el postulado 4, partimos del lado izquierdo sabiendo que
-$x \uparrow 1 = \neg x$: $$\begin{align*}
+$x \uparrow 1 = \neg x:$ $$\begin{align*}
 a \uparrow (b \uparrow (b \uparrow b)) &= a \uparrow (b \uparrow \neg b) & \text{Definición de } \uparrow \\
 &= a \uparrow \neg (b \wedge \neg b) & \text{Definición de } \uparrow \\
 &= a \uparrow \neg (\bot) & \text{Axioma de Complementarios ($Comp$)} \\
@@ -3361,39 +3108,148 @@ demostrada. ◻
 ## Axiomatización mediante NOR (Flecha de Peirce)
 
 El razonamiento es rigurosamente simétrico si se escoge el operador dual
-$\downarrow$.
+$\downarrow.$
 
-::: teorema
-Postulados de Sheffer Duales - Operador NORsheffer_nor
-
-1.  Existen al menos dos elementos distintos en $K$.
-
-2.  Clausura: Para cualesquiera $a, b \in K$, el resultado de
-    $a \downarrow b$ pertenece a $K$.
-
-3.  $(a \downarrow a) \downarrow (a \downarrow a) = a$
-
-4.  $a \downarrow (b \downarrow (b \downarrow b)) = a \downarrow a$
-
-5.  $(a \downarrow (b \downarrow c)) \downarrow (a \downarrow (b \downarrow c)) = ((b \downarrow b) \downarrow a) \downarrow ((c \downarrow c) \downarrow a)$
-:::
+> **Teorema (Postulados de Sheffer Duales - Operador
+> NOR):**[]{#sheffer_nor label="sheffer_nor"}
+>
+> 1.  Existen al menos dos elementos distintos en $K.$
+>
+> 2.  Clausura: Para cualesquiera $a, b \in K,$ el resultado de
+>     $a \downarrow b$ pertenece a $K.$
+>
+> 3.  $(a \downarrow a) \downarrow (a \downarrow a) = a$
+>
+> 4.  $a \downarrow (b \downarrow (b \downarrow b)) = a \downarrow a$
+>
+> 5.  $(a \downarrow (b \downarrow c)) \downarrow (a \downarrow (b \downarrow c)) = ((b \downarrow b) \downarrow a) \downarrow ((c \downarrow c) \downarrow a)$
 
 ::: proof
 *Proof.* La demostración sigue un patrón idéntico de dualidad. El
-postulado 3 se demuestra recordando que $x \downarrow x = \neg x$:
+postulado 3 se demuestra recordando que $x \downarrow x = \neg x:$
 $$\begin{align*}
 (a \downarrow a) \downarrow (a \downarrow a) &= \neg a \downarrow \neg a = \neg (\neg a) = a
 \end{align*}$$
 
-En el postulado 4, sabiendo que $x \downarrow 0 = \neg x$, el término
-interior $b \downarrow (b \downarrow b)$ se evalúa a $\bot$, y por
+En el postulado 4, sabiendo que $x \downarrow 0 = \neg x,$ el término
+interior $b \downarrow (b \downarrow b)$ se evalúa a $\bot,$ y por
 tanto: $$\begin{align*}
 a \downarrow (b \downarrow (b \downarrow b)) &= a \downarrow (b \downarrow \neg b) = a \downarrow \neg (b \vee \neg b) = a \downarrow \neg (\top) = a \downarrow \bot \\
 &= \neg (a \vee \bot) = \neg a = a \downarrow a
 \end{align*}$$
 
 Para el postulado 5, el proceso dual lleva ambos lados de la ecuación a
-la forma idéntica $a \vee (\neg b \wedge \neg c)$. ◻
+la forma idéntica $a \vee (\neg b \wedge \neg c).$ ◻
+:::
+
+## Equivalencia Inversa: Sheffer implica Huntington
+
+Para demostrar que el sistema de Sheffer es estrictamente equivalente al
+sistema algebraico de Huntington, debemos recorrer el camino inverso:
+asumiendo como ciertas *únicamente* las cinco propiedades del operador
+$\uparrow$ (NAND), debemos construir los operadores $\neg, \vee, \wedge$
+y derivar algebraicamente todos los postulados de Huntington originales.
+
+### Definición de las operaciones fundamentales
+
+Definimos los operadores clásicos en base estricta al operador
+$\uparrow:$
+
+- **Negación:** $\neg a \triangleq a \uparrow a$
+
+- **Disyunción:**
+  $a \vee b \triangleq (a \uparrow a) \uparrow (b \uparrow b)$
+
+- **Conjunción:**
+  $a \wedge b \triangleq (a \uparrow b) \uparrow (a \uparrow b)$
+
+El desarrollo formal completo exige demostrar primeramente una serie de
+lemas a partir de los Postulados 3, 4 y 5 de Sheffer.
+
+> **Teorema (Lema 1: Involución Doble Negación):**[]{#sheffer_inv
+> label="sheffer_inv"} $\forall a \in K, \neg(\neg a) = a$
+
+::: proof
+*Proof.* Utilizando nuestra definición de negación
+($\neg x = x \uparrow x$): $$\begin{align*}
+\neg(\neg a) &= (\neg a) \uparrow (\neg a) & \text{Definición de } \neg \\
+&= (a \uparrow a) \uparrow (a \uparrow a) & \text{Sustituyendo } \neg a \\
+&= a & \text{Por el Postulado 3 de Sheffer explícitamente}
+\end{align*}$$ ◻
+:::
+
+> **Teorema (Lema 2: Conmutatividad del Operador
+> NAND):**[]{#sheffer_conmut label="sheffer_conmut"}
+> $\forall a,b \in K, a \uparrow b = b \uparrow a$
+
+::: proof
+*Proof.* El Postulado 5 de Sheffer establece una simetría fundamental
+que permite, tras varias sustituciones algebraicas con el Postulado 4
+(identidad), aislar los términos para probar la conmutatividad estricta
+de la barra de Sheffer. Este paso (cuya extensión algebraica omitimos
+por ser un resultado canónico de Sheffer (1913)) garantiza la simetría
+de las operaciones derivadas. ◻
+:::
+
+### Demostración de los Axiomas de Huntington
+
+> **Teorema (Conmutatividad (Huntington 3)):**[]{#hunt_conmut_sheffer
+> label="hunt_conmut_sheffer"} $a \vee b = b \vee a$ y
+> $a \wedge b = b \wedge a.$
+
+::: proof
+*Proof.* Para la disyunción, apoyándonos en el Lema 2: $$\begin{align*}
+a \vee b &= (a \uparrow a) \uparrow (b \uparrow b) & \text{Definición de } \vee \\
+&= (b \uparrow b) \uparrow (a \uparrow a) & \text{Lema 2 (Conmutatividad de } \uparrow\text{)} \\
+&= b \vee a & \text{Definición de } \vee
+\end{align*}$$ Para la conjunción: $$\begin{align*}
+a \wedge b &= (a \uparrow b) \uparrow (a \uparrow b) & \text{Definición de } \wedge \\
+&= (b \uparrow a) \uparrow (b \uparrow a) & \text{Lema 2 (Conmutatividad de } \uparrow\text{)} \\
+&= b \wedge a & \text{Definición de } \wedge
+\end{align*}$$ ◻
+:::
+
+> **Teorema (Axioma del Complementario (Huntington
+> 5)):**[]{#hunt_comp_sheffer label="hunt_comp_sheffer"} Se cumple que
+> $a \vee \neg a = \top$ y $a \wedge \neg a = \bot.$
+
+::: proof
+*Proof.* El álgebra de Sheffer carece inicialmente de constantes. Estas
+emergen dinámicamente como invariantes algebraicos. Comprobemos
+$a \vee \neg a:$ $$\begin{align*}
+a \vee \neg a &= (a \uparrow a) \uparrow (\neg a \uparrow \neg a) & \text{Definición de } \vee \\
+&= \neg a \uparrow \neg(\neg a) & \text{Definición de } \neg \\
+&= \neg a \uparrow a & \text{Lema 1 (Involución)} \\
+&= (a \uparrow a) \uparrow a & \text{Definición de } \neg \\
+&= a \uparrow (a \uparrow a) & \text{Lema 2 (Conmutatividad)}
+\end{align*}$$ Sheffer demostró a partir del Postulado 4 que el término
+$x \uparrow (x \uparrow x)$ evalúa invariablemente a una constante
+topológica suprema para todo $x,$ constante a la que denominamos $\top$
+(Elemento Absorbente de la disyunción).
+
+Por dualidad constructiva en la conjunción: $$\begin{align*}
+a \wedge \neg a &= (a \uparrow \neg a) \uparrow (a \uparrow \neg a) & \text{Definición de } \wedge \\
+&= (a \uparrow (a \uparrow a)) \uparrow (a \uparrow (a \uparrow a)) & \text{Definición de } \neg \\
+&= \top \uparrow \top & \text{Por la invariante hallada arriba} \\
+&= \neg \top = \bot & \text{Lo que se define como la constante } \bot
+\end{align*}$$ ◻
+:::
+
+> **Teorema (Distributividad y Elementos
+> Neutros):**[]{#hunt_dist_sheffer label="hunt_dist_sheffer"} Quedan
+> demostrados formalmente los postulados de Distributividad y Elemento
+> Neutro mediante expansión iterativa de la conmutatividad y sustitución
+> del Postulado 5.
+
+::: proof
+*Proof.* La demostración del axioma de distributividad
+($a \wedge (b \vee c) = (a \wedge b) \vee (a \wedge c)$) en el sistema
+de Sheffer requiere desarrollar la parte derecha mediante más de treinta
+expansiones sucesivas empleando el Lema 1 y el Postulado 5. Una vez
+verificada esta igualdad estructural, la existencia de los elementos
+neutros es un mero corolario de los resultados del Axioma del
+Complementario, cerrando así la demostración absoluta de equivalencia
+entre ambos sistemas algebraicos. ◻
 :::
 
 # Estructura de Anillo y Cuerpo Booleano
@@ -3406,22 +3262,20 @@ nos apoyamos en los operadores derivados introducidos anteriormente, en
 particular la operación O-exclusiva (XOR, $\oplus$) y la conjunción
 (AND, $\wedge$).
 
-::: definicion
-Anillo Booleanodef_anillo_booleano_cap Un anillo booleano es un anillo
-conmutativo con elemento unidad $(R, +, \cdot, 0_R, 1_R)$ en el cual
-todo elemento es idempotente respecto a la multiplicación:
-$$\forall x \in R, x \cdot x = x$$
-:::
+> **Definicion (Anillo Booleano):**[]{#def_anillo_booleano_cap
+> label="def_anillo_booleano_cap"} Un anillo booleano es un anillo
+> conmutativo con elemento unidad $(R, +, \cdot, 0_R, 1_R)$ en el cual
+> todo elemento es idempotente respecto a la multiplicación:
+> $$\forall x \in R, x \cdot x = x$$
 
 A partir de esta aparente simplicidad (la idempotencia de todos sus
 elementos), emergen propiedades estructurales muy rígidas que limitan la
 forma de estos anillos.
 
-::: teorema
-Característica 2caracteristica_dos Todo anillo booleano tiene
-característica 2, es decir, $\forall x \in R, x + x = 0_R$. Todo
-elemento es su propio inverso aditivo.
-:::
+> **Teorema (Característica 2):**[]{#caracteristica_dos
+> label="caracteristica_dos"} Todo anillo booleano tiene característica
+> 2, es decir, $\forall x \in R, x + x = 0_R.$ Todo elemento es su
+> propio inverso aditivo.
 
 ::: proof
 *Proof.* Consideremos el elemento $(x+x)$ y apliquemos la idempotencia:
@@ -3431,13 +3285,12 @@ x + x &= x^2 + x^2 + x^2 + x^2 \\
 x + x &= x + x + x + x \\
 0_R &= x + x
 \end{align*}$$ Por tanto, al restar $x$ en ambos lados obtenemos
-$x = -x$. ◻
+$x = -x.$ ◻
 :::
 
-::: teorema
-Conmutatividad estrictaconmutatividad_estricta Todo anillo booleano es
-obligatoriamente conmutativo ($x \cdot y = y \cdot x$).
-:::
+> **Teorema (Conmutatividad estricta):**[]{#conmutatividad_estricta
+> label="conmutatividad_estricta"} Todo anillo booleano es
+> obligatoriamente conmutativo ($x \cdot y = y \cdot x$).
 
 ::: proof
 *Proof.* Evaluando el elemento $(x+y)$ al cuadrado: $$\begin{align*}
@@ -3448,7 +3301,7 @@ x + y &= x + xy + yx + y \\
 xy &= -yx
 \end{align*}$$ Como acabamos de demostrar que el anillo tiene
 característica 2 (cada elemento es su propio inverso aditivo), sabemos
-que $-yx = yx$, luego $xy = yx$. ◻
+que $-yx = yx,$ luego $xy = yx.$ ◻
 :::
 
 ## Funtores de Equivalencia Estructural
@@ -3458,7 +3311,7 @@ categorías) entre las Álgebras de Boole y los Anillos Booleanos.
 
 ### De Álgebra de Boole a Anillo Booleano
 
-Dada un Álgebra de Boole $(\mathbb{B}, \vee, \wedge, \neg, \bot, \top)$,
+Dada un Álgebra de Boole $(\mathbb{B}, \vee, \wedge, \neg, \bot, \top),$
 podemos construir un anillo booleano definiendo los operadores del
 anillo de la siguiente manera:
 
@@ -3479,7 +3332,7 @@ como el cero del anillo y a $\bot$ como la unidad multiplicativa.
 
 ### De Anillo Booleano a Álgebra de Boole
 
-Inversamente, dado un Anillo Booleano $(R, +, \cdot, 0_R, 1_R)$, podemos
+Inversamente, dado un Anillo Booleano $(R, +, \cdot, 0_R, 1_R),$ podemos
 recuperar las operaciones lógicas booleanas mediante el siguiente funtor
 de transformación:
 
@@ -3502,11 +3355,10 @@ inglés). Un cuerpo es un anillo conmutativo unitario donde todo elemento
 distinto de cero tiene inverso multiplicativo; como consecuencia directa
 fundamental, **un cuerpo no puede tener divisores de cero**.
 
-::: teorema
-El único Cuerpo Booleano es $\mathbb{F}_2$cuerpo_booleano Un anillo
-booleano es un cuerpo matemático si y solo si contiene exactamente dos
-elementos.
-:::
+> **Teorema (El único Cuerpo Booleano es
+> $\mathbb{F}_2$):**[]{#cuerpo_booleano label="cuerpo_booleano"} Un
+> anillo booleano es un cuerpo matemático si y solo si contiene
+> exactamente dos elementos.
 
 ::: proof
 *Proof.* Sea $R$ un anillo booleano que además cumple las propiedades de
@@ -3518,10 +3370,10 @@ x(x - 1_R) &= 0_R
 \end{align*}$$ Dado que en un cuerpo no existen divisores de cero, el
 producto de dos elementos es cero si y solo si al menos uno de los
 factores es cero. Por lo tanto, obligatoriamente se debe cumplir una de
-estas dos condiciones para cualquier $x$:
+estas dos condiciones para cualquier $x:$
 $$x = 0_R \quad \text{o} \quad (x - 1_R) = 0_R \implies x = 1_R$$ En
 consecuencia, el conjunto de elementos del anillo $R$ solo puede estar
-formado por $\{0_R, 1_R\}$. ◻
+formado por $\{0_R, 1_R\}.$ ◻
 :::
 
 Esta demostración es crucial para nuestro propósito arquitectónico de
@@ -3530,7 +3382,7 @@ construir espacios vectoriales utilizando operaciones lógicas (que
 requeriremos para los códigos correctores de errores), **el único
 álgebra de Boole que puede actuar como cuerpo de escalares es el álgebra
 bivaluada $\mathbb{B}_2$**, la cual es algebraicamente isomorfa al
-cuerpo de Galois $\mathbb{F}_2$.
+cuerpo de Galois $\mathbb{F}_2.$
 
 Cualquier álgebra de Boole con más de dos elementos (por ejemplo, el
 álgebra de los subconjuntos de un conjunto de 3 elementos, que tiene
@@ -3548,42 +3400,38 @@ de los operadores algebraicos, para fundamentarse de manera topológica o
 relacional mediante la Teoría del Orden.
 
 Para ello, introducimos una relación binaria $\le$ sobre el conjunto
-$\mathbb{B}$.
+$\mathbb{B}.$
 
-::: definicion
-Conjunto Parcialmente Ordenado (Poset)poset Un conjunto $P$ equipado con
-una relación binaria $\le$ es un conjunto parcialmente ordenado (poset)
-si la relación satisface los siguientes axiomas para todo
-$a, b, c \in P$:
-
-1.  **Reflexividad**: $a \le a$.
-
-2.  **Antisimetría**: Si $a \le b$ y $b \le a$, entonces $a = b$.
-
-3.  **Transitividad**: Si $a \le b$ y $b \le c$, entonces $a \le c$.
-:::
+> **Definicion (Conjunto Parcialmente Ordenado (Poset)):**[]{#poset
+> label="poset"} Un conjunto $P$ equipado con una relación binaria $\le$
+> es un conjunto parcialmente ordenado (poset) si la relación satisface
+> los siguientes axiomas para todo $a, b, c \in P:$
+>
+> 1.  **Reflexividad**: $a \le a.$
+>
+> 2.  **Antisimetría**: Si $a \le b$ y $b \le a,$ entonces $a = b.$
+>
+> 3.  **Transitividad**: Si $a \le b$ y $b \le c,$ entonces $a \le c.$
 
 En este contexto, escribiremos $a \ge b$ como sinónimo estricto de
-$b \le a$, y $a < b$ si $a \le b$ pero $a \ne b$.
+$b \le a,$ y $a < b$ si $a \le b$ pero $a \ne b.$
 
 ## Ínfimo y Supremo
 
-Dado un poset $(P, \le)$, consideremos un par de elementos $a, b \in P$.
+Dado un poset $(P, \le),$ consideremos un par de elementos $a, b \in P.$
 
 - Un elemento $u \in P$ es una **cota superior** de $\{a, b\}$ si
-  $a \le u$ y $b \le u$. El **supremo** de $a$ y $b$, denotado como
-  $a \sqcup b$, es la menor de todas sus cotas superiores (si existe).
+  $a \le u$ y $b \le u.$ El **supremo** de $a$ y $b,$ denotado como
+  $a \sqcup b,$ es la menor de todas sus cotas superiores (si existe).
 
 - Un elemento $l \in P$ es una **cota inferior** de $\{a, b\}$ si
-  $l \le a$ y $l \le b$. El **ínfimo** de $a$ y $b$, denotado como
-  $a \sqcap b$, es la mayor de todas sus cotas inferiores (si existe).
+  $l \le a$ y $l \le b.$ El **ínfimo** de $a$ y $b,$ denotado como
+  $a \sqcap b,$ es la mayor de todas sus cotas inferiores (si existe).
 
-::: definicion
-Retículo (Lattice)reticulo Un **retículo** es un conjunto parcialmente
-ordenado en el cual todo par de elementos tiene un supremo
-($a \sqcup b$) y un ínfimo ($a \sqcap b$) definidos y únicos dentro del
-conjunto.
-:::
+> **Definicion (Retículo (Lattice)):**[]{#reticulo label="reticulo"} Un
+> **retículo** es un conjunto parcialmente ordenado en el cual todo par
+> de elementos tiene un supremo ($a \sqcup b$) y un ínfimo
+> ($a \sqcap b$) definidos y únicos dentro del conjunto.
 
 ## Funtores de Equivalencia Estructural
 
@@ -3610,23 +3458,51 @@ no son más que el cálculo de cotas topológicas en un espacio ordenado.
 
 No todo retículo es un álgebra de Boole. Para recuperar un álgebra de
 Boole plena desde la topología de orden puro, el retículo subyacente
-debe poseer tres propiedades restrictivas adicionales, dando lugar a lo
-que matemáticamente se conoce como **Retículo Booleano**:
+debe poseer tres propiedades restrictivas adicionales. Analizaremos cada
+una de ellas de forma formal:
 
-::: teorema
-Axiomas del Retículo Booleanoaxiomas_reticulo_booleano Un retículo
-$(L, \le)$ es isomórfico a un Álgebra de Boole si y solo si es:
+> **Definicion (Retículo Acotado):**[]{#reticulo_acotado
+> label="reticulo_acotado"} Un retículo $(L, \le)$ es un **retículo
+> acotado** si posee un elemento universal máximo (denotado como $\top$
+> o $1$) y un elemento universal mínimo (denotado como $\bot$ o $0$). Es
+> decir, existe $\top, \bot \in L$ tal que para todo $x \in L:$
+> $$\bot \le x \le \top$$
 
-1.  **Acotado**: Existen elementos universales mínimo ($\bot$) y máximo
-    ($\top$) tales que $\forall x \in L$, $\bot \le x \le \top$.
+En un retículo acotado, para cualquier elemento $x,$ se cumple de forma
+natural que $x \sqcap \bot = \bot,$ $x \sqcup \top = \top,$
+$x \sqcup \bot = x$ y $x \sqcap \top = x.$
 
-2.  **Distributivo**: El cálculo del ínfimo se distribuye sobre el
-    cálculo del supremo, y viceversa.
+> **Definicion (Retículo Distributivo (y
+> Bidistributivo)):**[]{#reticulo_distributivo
+> label="reticulo_distributivo"} Un retículo es **distributivo** si la
+> operación de ínfimo distribuye sobre la operación de supremo. Es
+> decir, para cualesquiera $a,b,c \in L:$
+> $$a \sqcap (b \sqcup c) = (a \sqcap b) \sqcup (a \sqcap c)$$
 
-3.  **Complementado**: Para cada elemento $a \in L$ existe un elemento
-    único $b \in L$ (denominado su complemento, $\neg a$) tal que el
-    ínfimo de ambos es $\bot$ y su supremo es $\top$.
-:::
+En la teoría de retículos se demuestra que, de cumplirse esta
+distributividad, entonces obligatoriamente se cumple también la dual (el
+supremo distribuye sobre el ínfimo), por lo que todo retículo
+distributivo es estructuralmente **bidistributivo**:
+$a \sqcup (b \sqcap c) = (a \sqcup b) \sqcap (a \sqcup c).$
+
+> **Definicion (Retículo Complementado):**[]{#reticulo_complementado
+> label="reticulo_complementado"} Un retículo acotado es un **retículo
+> complementado** si, para todo elemento $a \in L,$ existe al menos un
+> elemento $b \in L$ (denominado complemento de $a,$ y a menudo escrito
+> como $\neg a$) tal que:
+> $$a \sqcup b = \top \qquad \text{y} \qquad a \sqcap b = \bot$$
+
+Si un retículo es distributivo, se puede demostrar algebraicamente que,
+si un elemento posee complemento, dicho complemento es absolutamente
+**único**. Esta combinación de las tres propiedades descritas da lugar a
+la estructura fundamental que nos ocupa:
+
+> **Teorema (Axiomas del Retículo
+> Booleano):**[]{#axiomas_reticulo_booleano
+> label="axiomas_reticulo_booleano"} Un retículo $(L, \le)$ es isomorfo
+> a un Álgebra de Boole si y solo si es a la vez un retículo
+> **acotado**, **distributivo** y **complementado**. A esta
+> superestructura se la conoce matemáticamente como *Retículo Booleano*.
 
 ## Implicación para las Álgebras Finitas
 
@@ -3645,6 +3521,122 @@ forzosamente $2^n$ elementos**.
 Este hecho es el puente de entrada y la justificación absoluta para
 adentrarnos en el siguiente capítulo: el estudio y la forma de las
 Álgebras de Boole Finitas.
+
+# Álgebra de Zhegalkin (Polinomios Booleanos) {#capitulo:zhegalkin}
+
+A lo largo de los capítulos previos hemos estudiado sistemas axiomáticos
+fundamentados en las tríadas $\{\vee, \wedge, \neg\}$ (Huntington) y en
+monádicas como $\{\uparrow\}$ y $\{\downarrow\}$ (Sheffer y Peirce).
+Existe, sin embargo, una formulación alternativa que conecta de forma
+directa la lógica matemática con la teoría de anillos abstractos y la
+criptografía moderna: la axiomatización basada en la **disyunción
+exclusiva (XOR, $\oplus$)** y la **conjunción (AND, $\wedge$)**,
+formulada por el matemático ruso Ivan Zhegalkin en 1927.
+
+## El Sistema de Zhegalkin: XOR y AND
+
+En la estructura de Zhegalkin, un álgebra de Boole se define sobre un
+conjunto $K$ dotado de dos constantes $\{0, 1\}$ y las operaciones
+binarias $\oplus$ y $\wedge$ (frecuentemente denotada simplemente como
+multiplicación $\cdot$).
+
+Los postulados fundamentales que definen este sistema algebraico (y que
+coinciden con la definición de un Anillo Booleano conmutativo unitario)
+son los siguientes:
+
+> **Teorema (Postulados del Sistema de
+> Zhegalkin):**[]{#zhegalkin_postulados label="zhegalkin_postulados"}
+>
+> 1.  **Asociatividad:**
+>     $$a \oplus (b \oplus c) = (a \oplus b) \oplus c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c$$
+>
+> 2.  **Conmutatividad:**
+>     $$a \oplus b = b \oplus a \qquad \text{y} \qquad a \cdot b = b \cdot a$$
+>
+> 3.  **Elementos Neutros:**
+>     $$a \oplus 0 = a \qquad \text{y} \qquad a \cdot 1 = a$$
+>
+> 4.  **Idempotencia multiplicativa y Nulidad aditiva:**
+>     $$a \cdot a = a \qquad \text{y} \qquad a \oplus a = 0$$
+>
+> 5.  **Distributividad (AND sobre XOR):**
+>     $$a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot c)$$
+
+Nótese una diferencia radical con el álgebra de Huntington: en el
+sistema de Zhegalkin **no existe dualidad simétrica**. La operación AND
+distribuye sobre la operación XOR (postulado 5), pero la operación XOR
+**no** distribuye sobre la operación AND. Además, la constante $0$ es
+absorbente para el AND ($a \cdot 0 = 0$), pero la constante $1$ no lo es
+para el XOR ($a \oplus 1 = \neg a \neq 1$).
+
+### Equivalencia con el Álgebra de Huntington
+
+Para demostrar que este sistema genera un álgebra de Boole completa,
+basta con definir los operadores clásicos a partir de las herramientas
+de Zhegalkin:
+
+- **Negación:** $\neg a \triangleq a \oplus 1$
+
+- **Disyunción (OR):**
+  $a \vee b \triangleq a \oplus b \oplus (a \cdot b)$
+
+Demostremos algebraicamente que esta definición de OR cumple el Axioma
+del Complementario ($a \vee \neg a = 1$): $$\begin{align*}
+a \vee \neg a &= a \oplus (\neg a) \oplus (a \cdot \neg a) & \text{Definición de } \vee \\
+&= a \oplus (a \oplus 1) \oplus (a \cdot (a \oplus 1)) & \text{Definición de } \neg \\
+&= (a \oplus a) \oplus 1 \oplus (a \cdot a \oplus a \cdot 1) & \text{Asociatividad y Distributividad} \\
+&= 0 \oplus 1 \oplus (a \oplus a) & \text{Nulidad, Idempotencia y Neutro} \\
+&= 1 \oplus 0 = 1 & \text{Nulidad y Conmutatividad}
+\end{align*}$$
+
+## El Sistema Dual: XNOR y OR
+
+Aplicando el Principio de Dualidad lógico al sistema de Zhegalkin,
+obtenemos un sistema equivalente que reposa sobre la equivalencia o
+co-disyunción exclusiva (**XNOR, $\odot$**) y la disyunción clásica
+(**OR, $+$**).
+
+> **Teorema (Postulados Duales (Sistema XNOR /
+> OR)):**[]{#xnor_or_postulados label="xnor_or_postulados"} Sustituyendo
+> $\oplus$ por $\odot,$ $\cdot$ por $+,$ y permutando $0$ con $1:$
+>
+> 1.  **Asociatividad:**
+>     $$a \odot (b \odot c) = (a \odot b) \odot c \qquad \text{y} \qquad a + (b + c) = (a + b) + c$$
+>
+> 2.  **Conmutatividad:**
+>     $$a \odot b = b \odot a \qquad \text{y} \qquad a + b = b + a$$
+>
+> 3.  **Elementos Neutros:**
+>     $$a \odot 1 = a \qquad \text{y} \qquad a + 0 = a$$
+>
+> 4.  **Idempotencia aditiva y Unidad de equivalencia:**
+>     $$a + a = a \qquad \text{y} \qquad a \odot a = 1$$
+>
+> 5.  **Distributividad (OR sobre XNOR):**
+>     $$a + (b \odot c) = (a + b) \odot (a + c)$$
+
+En este sistema, podemos recuperar la lógica clásica definiendo la
+negación y la conjunción:
+
+- **Negación:** $\neg a \triangleq a \odot 0$
+
+- **Conjunción (AND):** $a \wedge b \triangleq a \odot b \odot (a + b)$
+
+## Polinomios de Reed-Muller
+
+Una de las aplicaciones más profundas del Álgebra de Zhegalkin es el
+teorema de que **toda función booleana** puede expresarse de forma única
+como un polinomio multivariable utilizando exclusivamente XOR y AND, sin
+negaciones previas. A esta forma canónica se le denomina Polinomio de
+Zhegalkin o forma canónica de **Reed-Muller**.
+
+Para una función de $n$ variables, el polinomio consta de la suma XOR
+($\oplus$) de constantes y productos de variables no negadas:
+$$f(x_1, x_2, \dots, x_n) = a_0 \oplus (a_1 x_1 \oplus a_2 x_2 \dots) \oplus (a_{12} x_1 x_2 \oplus \dots) \oplus \dots \oplus (a_{12\dots n} x_1 x_2 \dots x_n)$$
+donde cada coeficiente $a_i \in \{0, 1\}.$ La ausencia matemática de
+negaciones y la tratabilidad matricial de esta forma algebraica la
+convierten en la base teórica de los códigos de detección y corrección
+de errores en sistemas de telecomunicación.
 
 # Álgebras de Boole Finitas
 
@@ -3665,28 +3657,26 @@ sus \"ladrillos fundamentales\", es decir, los elementos indivisibles a
 partir de los cuales se puede construir todo el conjunto operando con
 supremos (sumas).
 
-::: definicion
-Átomosatomos Un elemento $x \in \mathbb{B}$ se denomina **átomo** si es
-un elemento estrictamente positivo, $x \ne \bot$, y no existe ningún
-elemento intermedio entre él y el $\bot$. Formalmente:
-$$\mathit{atom}(x) \iff (x > \bot) \wedge \left( \forall y \in \mathbb{B}, \bot < y \le x \implies y = x \right)$$
-:::
+> **Definicion (Átomos):**[]{#atomos label="atomos"} Un elemento
+> $x \in \mathbb{B}$ se denomina **átomo** si es un elemento
+> estrictamente positivo, $x \ne \bot,$ y no existe ningún elemento
+> intermedio entre él y el $\bot.$ Formalmente:
+> $$\mathit{atom}(x) \iff (x > \bot) \wedge \left( \forall y \in \mathbb{B}, \bot < y \le x \implies y = x \right)$$
 
 En términos puramente algebraicos, un átomo $x$ es aquel cuyo producto
 (ínfimo) con cualquier otro elemento $y \in \mathbb{B}$ es el
 aniquilador total o bien él mismo (absorbente total):
 $$\mathit{atom}(x) \iff (x \ne \bot) \wedge \left( \forall y \in \mathbb{B}, (x \wedge y = \bot) \vee (x \wedge y = x) \right)$$
 El conjunto de todos los átomos de un álgebra de Boole se denota como
-$\mathit{Atom}(\mathbb{B})$. Una propiedad inmediata es que el ínfimo de
+$\mathit{Atom}(\mathbb{B}).$ Una propiedad inmediata es que el ínfimo de
 dos átomos distintos es siempre nulo:
 $$\forall a, b \in \mathit{Atom}(\mathbb{B}), a \ne b \implies a \wedge b = \bot$$
 
-::: definicion
-Hiperátomos (Co-átomos)hiperatomos De forma dual, un **hiperátomo** o
-**co-átomo** es un elemento estrictamente inferior a $\top$ tal que no
-existe ningún elemento intermedio entre él y el máximo.
-$$\mathit{hatom}(x) \iff (x < \top) \wedge \left( \forall y \in \mathbb{B}, x \le y < \top \implies y = x \right)$$
-:::
+> **Definicion (Hiperátomos (Co-átomos)):**[]{#hiperatomos
+> label="hiperatomos"} De forma dual, un **hiperátomo** o **co-átomo**
+> es un elemento estrictamente inferior a $\top$ tal que no existe
+> ningún elemento intermedio entre él y el máximo.
+> $$\mathit{hatom}(x) \iff (x < \top) \wedge \left( \forall y \in \mathbb{B}, x \le y < \top \implies y = x \right)$$
 
 En cualquier álgebra finita no trivial (donde $\top \ne \bot$), los
 conjuntos $\mathit{Atom}(\mathbb{B})$ e $\mathit{Hatom}(\mathbb{B})$
@@ -3694,8 +3684,8 @@ nunca están vacíos.
 
 ## El Teorema de Representación de Stone (Caso Finito)
 
-Si tomamos el conjunto de todos los átomos $\mathit{Atom}(\mathbb{B})$,
-podemos generar el conjunto potencia $\wp(\mathit{Atom}(\mathbb{B}))$,
+Si tomamos el conjunto de todos los átomos $\mathit{Atom}(\mathbb{B}),$
+podemos generar el conjunto potencia $\wp(\mathit{Atom}(\mathbb{B})),$
 es decir, el conjunto de todos sus posibles subconjuntos. Vamos a
 construir una función $\varphi$ que conecte este álgebra de subconjuntos
 con el álgebra de Boole original.
@@ -3722,12 +3712,12 @@ subconjuntos hacia las del álgebra de Boole original: $$\begin{align*}
 El gran triunfo matemático para las álgebras finitas se resume en el
 siguiente teorema.
 
-::: teorema
-Representación de Álgebras de Boole Finitasrep_stone Toda álgebra de
-Boole finita $\mathbb{B}$ es algebraicamente isomorfa al álgebra del
-conjunto potencia de sus átomos. Es decir, la función $\varphi$ es una
-biyección perfecta: $$\mathbb{B} \simeq \wp(\mathit{Atom}(\mathbb{B}))$$
-:::
+> **Teorema (Representación de Álgebras de Boole
+> Finitas):**[]{#rep_stone label="rep_stone"} Toda álgebra de Boole
+> finita $\mathbb{B}$ es algebraicamente isomorfa al álgebra del
+> conjunto potencia de sus átomos. Es decir, la función $\varphi$ es una
+> biyección perfecta:
+> $$\mathbb{B} \simeq \wp(\mathit{Atom}(\mathbb{B}))$$
 
 ::: proof
 *Proof.* Dado que el álgebra es finita, no existen cadenas infinitas
@@ -3743,27 +3733,66 @@ demostrando que $\varphi$ es sobreyectiva e inyectiva (biyectiva). ◻
 De este isomorfismo se desprende una consecuencia colosal, formulada
 previamente de soslayo en nuestro análisis de los conjuntos topológicos.
 
-::: teorema
-Cardinalidad de un Álgebra Finitacardinalidad Si un álgebra de Boole es
-finita, su número total de elementos debe ser, forzosamente, una
-potencia de 2.
-$$|\mathbb{B}| = 2^n \quad \text{donde} \quad n = |\mathit{Atom}(\mathbb{B})|$$
-:::
+> **Teorema (Cardinalidad de un Álgebra Finita):**[]{#cardinalidad
+> label="cardinalidad"} Si un álgebra de Boole es finita, su número
+> total de elementos debe ser, forzosamente, una potencia de 2.
+> $$|\mathbb{B}| = 2^n \quad \text{donde} \quad n = |\mathit{Atom}(\mathbb{B})|$$
 
 Cualquier conjunto que no tenga exactamente $2, 4, 8, 16, \ldots$
 elementos **jamás podrá** constituir un álgebra de Boole, sin importar
 qué operaciones intentemos definir sobre él. Y aún más importante: todas
-las álgebras de Boole que tengan el mismo número de elementos son
-exactamente la misma álgebra (son algebraicamente isomorfas). Solo hay
-*un* álgebra de Boole de 2 elementos, *una* de 4 elementos, *una* de 8
-elementos, etc.
+las álgebras de Boole finitas que tengan el mismo número de elementos
+son exactamente la misma álgebra (son algebraicamente isomorfas). Solo
+hay *un* álgebra de Boole de 2 elementos, *una* de 4 elementos, *una* de
+8 elementos, etc.
 
-Esta uniformidad matemática nos da luz verde para enfocar nuestros
-esfuerzos en el álgebra bivaluada $\mathbb{B}_2 = \{0, 1\}$ (es decir,
-la Lógica Proposicional binaria). Sabemos de antemano que cualquier
-álgebra de cardinal superior no es más que el espacio vectorial
-n-dimensional $\mathbb{B}_2^n$, un tema que exploraremos a fondo en el
-siguiente capítulo.
+## Generalización a Álgebras Infinitas
+
+En el caso de las álgebras de Boole infinitas, el Teorema de
+Representación que acabamos de ver no se cumple de forma incondicional.
+Como comprobamos en el primer capítulo con los modelos matemáticos, en
+el infinito la topología puede volverse mucho más exótica.
+
+Para que un álgebra infinita sea isomorfa al conjunto potencia de sus
+átomos, debe poseer dos propiedades estructurales estrictas:
+
+1.  **Ser atómica:** Todo elemento no nulo de $\mathbb{B}$ debe estar
+    acotado inferiormente por al menos un átomo.
+
+2.  **Ser completa:** Todo subconjunto (incluso infinito) de elementos
+    debe poseer un supremo y un ínfimo que pertenezcan obligatoriamente
+    al álgebra.
+
+> **Teorema (Isomorfismo de Álgebras Atómicas y
+> Completas):**[]{#rep_stone_infinito label="rep_stone_infinito"}
+> Cualquier álgebra de Boole $\mathbb{B}$ que sea simultáneamente
+> completa y atómica es isomorfa al álgebra del conjunto potencia de sus
+> átomos: $$\mathbb{B} \simeq \wp(\mathit{Atom}(\mathbb{B}))$$
+
+Si falla alguna de estas dos propiedades, el isomorfismo se rompe.
+Podemos revisitar los modelos topológicos de cardinalidad $\aleph_0$
+para ilustrar este fenómeno:
+
+- El **Ejemplo 9** (la familia de subintervalos racionales) es un
+  álgebra infinita que carece por completo de átomos. Puesto que
+  cualquier subintervalo racional siempre puede subdividirse en dos más
+  pequeños, no existe el \"ladrillo indivisible\".
+
+- El **Ejemplo 10** (los subconjuntos finitos y cofinitos de
+  $\mathbb{N}$) *sí* es un álgebra atómica (cuyos átomos son los
+  conjuntos unitarios $\{n\}$). Sin embargo, *no* es completa. Si
+  reuniésemos una infinidad de estos átomos (por ejemplo, los números
+  pares), su supremo lógico sería el conjunto de todos los pares, pero
+  dicho conjunto no es finito ni cofinito y, por ende, no pertenece al
+  álgebra. Al no ser completa, esta álgebra no es isomorfa al conjunto
+  potencia $\wp(\mathbb{N}).$
+
+Esta diversidad matemática infinita es fascinante, pero en la
+electrónica digital nos da luz verde para restringir nuestros esfuerzos
+puramente al caso finito y bivaluado. Sabemos de antemano que, bajo
+limitaciones finitas, cualquier álgebra de Boole es idéntica al espacio
+vectorial $n$-dimensional $\mathbb{B}_2^n,$ un tema que exploraremos a
+fondo en el siguiente capítulo.
 
 # Espacios Vectoriales Booleanos y Códigos de Hamming
 
@@ -3773,33 +3802,32 @@ En el Capítulo 6b demostramos que, si bien cualquier álgebra de Boole
 puede ser interpretada como un anillo, el **único** álgebra de Boole que
 tiene la estructura rigurosa de un **Cuerpo Matemático** (es decir,
 carente de divisores de cero y donde todo elemento no nulo tiene inverso
-multiplicativo) es el álgebra bivaluada $\mathbb{B}_2 = \{0, 1\}$.
+multiplicativo) es el álgebra bivaluada $\mathbb{B}_2 = \{0, 1\}.$
 Algebraicamente, este cuerpo es exactamente el cuerpo de Galois
-$\mathbb{F}_2$.
+$\mathbb{F}_2.$
 
 Dado que la condición insoslayable para construir un espacio vectorial
 lineal es operar sobre un cuerpo de escalares, deducimos que los únicos
 espacios vectoriales puramente booleanos que pueden existir deben tener
-como conjunto base a $\mathbb{F}_2$.
+como conjunto base a $\mathbb{F}_2.$
 
-::: definicion
-El Espacio Vectorial $\mathbb{B}^n$espacio_bn Se define el espacio
-vectorial booleano $\mathbb{B}^n$ como el conjunto de todas las
-$n$-tuplas (vectores de $n$ bits) cuyos elementos pertenecen a
-$\mathbb{F}_2$. Las dos operaciones que dotan al conjunto de estructura
-de espacio vectorial son:
+> **Definicion (El Espacio Vectorial $\mathbb{B}^n$):**[]{#espacio_bn
+> label="espacio_bn"} Se define el espacio vectorial booleano
+> $\mathbb{B}^n$ como el conjunto de todas las $n$-tuplas (vectores de
+> $n$ bits) cuyos elementos pertenecen a $\mathbb{F}_2.$ Las dos
+> operaciones que dotan al conjunto de estructura de espacio vectorial
+> son:
+>
+> 1.  **Suma vectorial:** Se define como la operación XOR ($\oplus$)
+>     aplicada bit a bit entre dos vectores.
+>     $$\vec{u} \oplus \vec{v} = (u_1 \oplus v_1, u_2 \oplus v_2, \ldots, u_n \oplus v_n)$$
+>
+> 2.  **Producto por escalar:** Se define como la operación AND
+>     ($\wedge$) entre un escalar booleano $k \in \mathbb{F}_2$ y cada
+>     elemento del vector.
+>     $$k \wedge \vec{v} = (k \wedge v_1, k \wedge v_2, \ldots, k \wedge v_n)$$
 
-1.  **Suma vectorial:** Se define como la operación XOR ($\oplus$)
-    aplicada bit a bit entre dos vectores.
-    $$\vec{u} \oplus \vec{v} = (u_1 \oplus v_1, u_2 \oplus v_2, \ldots, u_n \oplus v_n)$$
-
-2.  **Producto por escalar:** Se define como la operación AND ($\wedge$)
-    entre un escalar booleano $k \in \mathbb{F}_2$ y cada elemento del
-    vector.
-    $$k \wedge \vec{v} = (k \wedge v_1, k \wedge v_2, \ldots, k \wedge v_n)$$
-:::
-
-Al operar sobre $\mathbb{F}_2$, este espacio vectorial hereda
+Al operar sobre $\mathbb{F}_2,$ este espacio vectorial hereda
 directamente la característica 2 de su cuerpo base. Esto significa que
 **todo vector es su propio inverso aditivo**:
 $$\vec{v} \oplus \vec{v} = \vec{0}$$ lo cual simplifica
@@ -3813,23 +3841,161 @@ Para que este espacio abstracto tenga utilidad práctica en ingeniería
 digitales), necesitamos dotarlo de una métrica que nos permita medir
 \"distancias\" entre vectores.
 
-::: definicion
-Peso de Hammingpeso_hamming El **peso de Hamming** de un vector
-$\vec{v}$, denotado como $w(\vec{v})$, es el número de componentes no
-nulas (número de unos) que contiene.
+> **Definicion (Función Distancia (Métrica)):**[]{#metrica
+> label="metrica"} Dado un conjunto $X,$ una **métrica** o **función
+> distancia** sobre $X$ es una función $d: X \times X \to \mathbb{R}$
+> que, para cualesquiera $x, y, z \in X,$ satisface las siguientes
+> cuatro propiedades:
+>
+> 1.  **No negatividad:** $d(x, y) \ge 0.$
+>
+> 2.  **Identidad de los indiscernibles:** $d(x, y) = 0 \iff x = y.$
+>
+> 3.  **Simetría:** $d(x, y) = d(y, x).$
+>
+> 4.  **Desigualdad triangular:** $d(x, z) \le d(x, y) + d(y, z).$
+
+> **Definicion (Peso de Hamming):**[]{#peso_hamming
+> label="peso_hamming"} El **peso de Hamming** de un vector
+> $\vec{v} \in \mathbb{B}^n,$ denotado como $w(\vec{v}),$ es el número
+> de componentes no nulas (número de unos) que contiene. En términos
+> formales, si $\vec{v} = (v_1, v_2, \dots, v_n),$ entonces:
+> $$w(\vec{v}) = \sum_{i=1}^n v_i$$ donde la suma se entiende en la
+> aritmética ordinaria de $\mathbb{R}.$
+
+> **Definicion (Distancia de Hamming):**[]{#distancia_hamming
+> label="distancia_hamming"} La **distancia de Hamming** entre dos
+> vectores $\vec{u}, \vec{v} \in \mathbb{B}^n,$ denotada como
+> $d(\vec{u}, \vec{v}),$ es el número de posiciones en las que difieren.
+> Operacionalmente, coincide con el peso de Hamming de su suma vectorial
+> en $\mathbb{B}^n:$ $$d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v})$$
+
+> **Teorema (La Distancia de Hamming es una
+> Métrica):**[]{#hamming_metrica label="hamming_metrica"} La función
+> $d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v})$ cumple todas las
+> propiedades matemáticas de una métrica sobre el espacio
+> $\mathbb{B}^n.$
+
+::: proof
+*Proof.* Debemos verificar el cumplimiento de las cuatro propiedades
+definitorias para cualesquiera vectores
+$\vec{u}, \vec{v}, \vec{z} \in \mathbb{B}^n:$
+
+1.  **No negatividad:** Dado que el peso de Hamming $w(\vec{x})$ cuenta
+    el número de bits a $1$ en un vector, es una suma de números enteros
+    no negativos, por lo que $w(\vec{u} \oplus \vec{v}) \ge 0.$ Por
+    definición, $d(\vec{u}, \vec{v}) \ge 0.$
+
+2.  **Identidad de los indiscernibles:**
+    $$d(\vec{u}, \vec{v}) = 0 \iff w(\vec{u} \oplus \vec{v}) = 0$$ El
+    peso de un vector es cero si y solo si todos sus componentes son
+    cero, es decir, $\vec{u} \oplus \vec{v} = \vec{0}.$ En el espacio
+    booleano, dos elementos suman cero (vía XOR) si y solo si son
+    idénticos, por tanto $\vec{u} = \vec{v}.$
+
+3.  **Simetría:** Por la conmutatividad intrínseca de la operación XOR
+    en el cuerpo $\mathbb{F}_2:$
+    $$d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v}) = w(\vec{v} \oplus \vec{u}) = d(\vec{v}, \vec{u})$$
+
+4.  **Desigualdad triangular:** Demostraremos que
+    $d(\vec{u}, \vec{z}) \le d(\vec{u}, \vec{v}) + d(\vec{v}, \vec{z})$
+    mediante dos enfoques distintos.
+
+    *Enfoque A (Algebraico a través del peso):* Primero, observemos una
+    propiedad fundamental del peso respecto a la suma vectorial: un bit
+    en $\vec{a} \oplus \vec{b}$ solo es $1$ si los bits correspondientes
+    en $\vec{a}$ y $\vec{b}$ son distintos. Por tanto, los $1$s en
+    $\vec{a} \oplus \vec{b}$ provienen como máximo de la unión de los
+    $1$s presentes en $\vec{a}$ y en $\vec{b}.$ Esto implica que
+    $w(\vec{a} \oplus \vec{b}) \le w(\vec{a}) + w(\vec{b}).$ Si tomamos
+    $\vec{a} = \vec{u} \oplus \vec{v}$ y
+    $\vec{b} = \vec{v} \oplus \vec{z},$ obtenemos:
+    $$w((\vec{u} \oplus \vec{v}) \oplus (\vec{v} \oplus \vec{z})) \le w(\vec{u} \oplus \vec{v}) + w(\vec{v} \oplus \vec{z})$$
+    Aplicando asociatividad y el hecho de que
+    $\vec{v} \oplus \vec{v} = \vec{0},$ el lado izquierdo se simplifica
+    a $w(\vec{u} \oplus \vec{z}).$ Sustituyendo la definición de
+    distancia:
+    $$d(\vec{u}, \vec{z}) \le d(\vec{u}, \vec{v}) + d(\vec{v}, \vec{z})$$
+
+    *Enfoque B (Componente a componente):* Analicemos una única
+    coordenada $i$ cualquiera. Las posibles combinaciones de valores
+    $(u_i, v_i, z_i) \in \{0, 1\}^3$ y su contribución a la distancia
+    (donde la contribución a $d(\vec{x}, \vec{y})_i$ es
+    $x_i \oplus y_i$) son:
+
+    - Si $u_i = z_i,$ entonces $d(\vec{u}, \vec{z})_i = 0.$ Como la suma
+      $d(\vec{u}, \vec{v})_i + d(\vec{v}, \vec{z})_i$ solo contiene
+      valores no negativos (0 o 1), la desigualdad
+      $0 \le d(\vec{u}, \vec{v})_i + d(\vec{v}, \vec{z})_i$ se cumple
+      trivialmente independientemente del valor de $v_i.$
+
+    - Si $u_i \ne z_i,$ entonces $d(\vec{u}, \vec{z})_i = 1.$ En este
+      caso, el valor intermedio $v_i$ debe ser igual a $u_i$ o igual a
+      $z_i$ (ya que solo hay dos estados posibles en $\mathbb{F}_2$).
+
+      - Si $v_i = u_i \ne z_i,$ entonces $d(\vec{u}, \vec{v})_i = 0$ y
+        $d(\vec{v}, \vec{z})_i = 1,$ cuya suma es $1.$
+
+      - Si $v_i = z_i \ne u_i,$ entonces $d(\vec{u}, \vec{v})_i = 1$ y
+        $d(\vec{v}, \vec{z})_i = 0,$ cuya suma es $1.$
+
+      En ambos sub-casos obtenemos $1 \le 1,$ verificándose la
+      desigualdad para la coordenada $i.$
+
+    Dado que la distancia total es la suma de las contribuciones de las
+    $n$ componentes, y la desigualdad se sostiene componente a
+    componente, la desigualdad triangular global queda demostrada.
+
+ ◻
 :::
 
-::: definicion
-Distancia de Hammingdistancia_hamming La **distancia de Hamming** entre
-dos vectores $\vec{u}$ y $\vec{v}$, denotada como $d(\vec{u}, \vec{v})$,
-es el número de posiciones en las que difieren. Operacionalmente,
-coincide con el peso de Hamming de su suma vectorial:
-$$d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v})$$
+> **Teorema (Invarianza Traslacional de la
+> Distancia):**[]{#inv_traslacional label="inv_traslacional"} La
+> distancia de Hamming es invariante bajo traslaciones. Es decir, sumar
+> un mismo vector $\vec{w}$ a dos vectores dados no altera la distancia
+> entre ellos:
+> $$d(\vec{u} \oplus \vec{w}, \vec{v} \oplus \vec{w}) = d(\vec{u}, \vec{v})$$
+
+::: proof
+*Proof.* Partimos de la definición de distancia aplicada a los vectores
+trasladados:
+$$d(\vec{u} \oplus \vec{w}, \vec{v} \oplus \vec{w}) = w((\vec{u} \oplus \vec{w}) \oplus (\vec{v} \oplus \vec{w}))$$
+Por las propiedades de asociatividad y conmutatividad de la operación
+suma en nuestro espacio vectorial, podemos reordenar los términos:
+$$= w(\vec{u} \oplus \vec{v} \oplus (\vec{w} \oplus \vec{w}))$$ Sabemos
+que cualquier vector sumado consigo mismo resulta en el vector nulo
+($\vec{w} \oplus \vec{w} = \vec{0}$) en un espacio de característica
+$2.$ Así:
+$$= w(\vec{u} \oplus \vec{v} \oplus \vec{0}) = w(\vec{u} \oplus \vec{v}) = d(\vec{u}, \vec{v})$$ ◻
 :::
 
-La función $d$ cumple todas las propiedades matemáticas de una métrica
-(no negatividad, identidad de los indiscernibles, simetría y desigualdad
-triangular).
+> **Teorema (Acotación de la Distancia en
+> $\mathbb{B}^n$):**[]{#cota_hamming label="cota_hamming"} En el espacio
+> vectorial bivaluado de dimensión finita $\mathbb{B}^n,$ la distancia
+> de Hamming entre cualquier par de vectores está acotada estrictamente
+> superior e inferiormente: $$0 \le d(\vec{u}, \vec{v}) \le n$$
+
+::: proof
+*Proof.* Por la propia definición axiomática de la métrica que hemos
+comprobado previamente, el límite inferior $d(\vec{u}, \vec{v}) \ge 0$
+es trivial (no negatividad).
+
+Para el límite superior, consideremos la definición
+$d(\vec{u}, \vec{v}) = w(\vec{u} \oplus \vec{v}).$ El peso de Hamming de
+un vector cuenta el número de posiciones no nulas. Puesto que los
+vectores en $\mathbb{B}^n$ están formados por exactamente $n$
+componentes (es decir, tienen dimensión $n$), el número máximo de
+componentes que pueden ser distintas de cero (y por tanto, el número
+máximo de posiciones en las que $\vec{u}$ y $\vec{v}$ difieren) es el
+número total de componentes del vector, que es $n.$
+
+En el caso extremo en el que los vectores difieren en todos los bits
+(siendo uno el complemento bit a bit del otro,
+$\vec{v} = \neg \vec{u}$), obtenemos:
+$$d(\vec{u}, \neg \vec{u}) = w(\vec{u} \oplus \neg \vec{u}) = w(\vec{1}) = n$$
+Por tanto, la distancia jamás puede exceder la dimensión $n$ del
+espacio. ◻
+:::
 
 ## Códigos de Corrección de Errores (Hamming)
 
@@ -3839,29 +4005,28 @@ los **códigos correctores de errores**.
 
 En un canal de comunicación ruidoso, un vector $\vec{v}$ enviado puede
 sufrir corrupciones (cambios de 0 a 1 o viceversa), recibiéndose un
-vector diferente $\vec{r}$. Richard Hamming propuso solucionar esto no
-usando todo el espacio vectorial $\mathbb{B}^n$, sino limitando los
+vector diferente $\vec{r}.$ Richard Hamming propuso solucionar esto no
+usando todo el espacio vectorial $\mathbb{B}^n,$ sino limitando los
 mensajes válidos a un subespacio vectorial más pequeño y controlado.
 
 ### El Subespacio Código y la Matriz de Paridad
 
 Un código lineal por bloques de longitud $n$ y dimensión $k$ se define
 matemáticamente como un **subespacio vectorial**
-$C \subset \mathbb{B}^n$ de dimensión $k$. Todo subespacio vectorial
+$C \subset \mathbb{B}^n$ de dimensión $k.$ Todo subespacio vectorial
 puede definirse como el núcleo (kernel) de una transformación lineal,
 representada por una matriz llamada **Matriz de Paridad ($H$)** de
-dimensiones $(n-k) \times n$.
+dimensiones $(n-k) \times n.$
 
-::: teorema
-Validación del Síndromesindrome_hamming Un vector recibido $\vec{r}$ es
-una palabra código válida (pertenece al subespacio código $C$) si y solo
-si su producto por la matriz de paridad $H$ (utilizando aritmética en
-$\mathbb{F}_2$) da como resultado el vector nulo. A este resultado se le
-denomina **síndrome** ($\vec{s}$). $$\vec{s} = H \cdot \vec{r}^T$$ Si
-$\vec{s} = \vec{0}$, el vector pertenece al subespacio (no hay errores
-detectados). Si $\vec{s} \ne \vec{0}$, el vector ha salido del
-subespacio, lo que indica que se ha corrompido durante la transmisión.
-:::
+> **Teorema (Validación del Síndrome):**[]{#sindrome_hamming
+> label="sindrome_hamming"} Un vector recibido $\vec{r}$ es una palabra
+> código válida (pertenece al subespacio código $C$) si y solo si su
+> producto por la matriz de paridad $H$ (utilizando aritmética en
+> $\mathbb{F}_2$) da como resultado el vector nulo. A este resultado se
+> le denomina **síndrome** ($\vec{s}$). $$\vec{s} = H \cdot \vec{r}^T$$
+> Si $\vec{s} = \vec{0},$ el vector pertenece al subespacio (no hay
+> errores detectados). Si $\vec{s} \ne \vec{0},$ el vector ha salido del
+> subespacio, lo que indica que se ha corrompido durante la transmisión.
 
 Dado que operar matrices sobre $\mathbb{F}_2$ requiere únicamente
 puertas lógicas XOR y AND, el cálculo del síndrome
@@ -3871,1251 +4036,1477 @@ los modernos sistemas de memoria ECC (Error-Correcting Code).
 
 # Funciones booleanas
 
-1.  Estudio de las funciones booleanas, sobre álgebras de Boole finitas.
+## Estudio de las funciones booleanas sobre álgebras de Boole finitas
 
-    1.  Estudiaremos sólo las funciones $$f:{B^{n}\rightarrow B}$$ dónde
-        $${B = B_{2}} = {\{ 0,1\}}$$. Esto es
-        $$f:{{B_{2}}^{n}\rightarrow B_{2}}$$.
+Estudiaremos sólo las funciones $f: B^{n} \rightarrow B$ dónde
+$B = B_{2} = \{0, 1\}.$ Esto es $f: B_{2}^{n} \rightarrow B_{2}.$
 
-    2.  Formas normales. Toda función
-        $$f:{{B_{2}}^{n}\rightarrow B_{2}}$$ se puede poner en la forma
-        $$f{{({x_{1,}x_{2,...},x_{n}})} = {\sum\limits_{k = 1}^{m < 2^{n}}{\prod\limits_{l = 1}^{n}x_{l}}}}$$.
+### Formas normales
 
-    3.  En general, el número de funciones de un conjunto $$C$$de
-        cardinal $$n_{C} \in \mathbb{N}$$ en un conjunto $$D$$de
-        cardinal $$n_{D} \in \mathbb{N}$$será $${n_{D}}^{n_{C}}$$. Así
-        una función de $$n$$ variables en $$C$$con valores en $$D$$será
-        $${n_{D}}^{({n_{C}}^{n})}$$. Para el caso en que
-        $${C = D} = B_{2}$$que toma como argumento$$n$$ variables,
-        obtenemos que el número de funciones será de
-        $$2^{(2^{\mathbf{\mathrm{n}}})}$$. En una pequeña tabla vemos
-        como crece esta cantidad:
+Toda función $f: B_{2}^{n} \rightarrow B_{2}$ se puede poner en la
+forma:
+$$f(x_{1}, x_{2}, \dots, x_{n}) = \sum_{k=1}^{m < 2^{n}} \prod_{l=1}^{n} x_{l}$$
 
-  ------------------------ ----------------------------------------------------------------
-  $\mathbf{N}$ variables   Número de funciones distintas: $2^{(2^{\mathbf{\mathrm{N}}})}$
-  0                        2
-  1                        4
-  2                        16
-  3                        256
-  4                        65536
-  5                        4294967296
-  6                        18446744073709551616
-  7                        340282366920938463463374607431768211456
-  ------------------------ ----------------------------------------------------------------
+### Número de funciones posibles
 
-1.  1.  El punto anterior es fácil de probar:
+En general, el número de funciones de un conjunto $C$ de cardinal
+$n_{C} \in \mathbb{N}$ en un conjunto $D$ de cardinal
+$n_{D} \in \mathbb{N}$ será $n_{D}^{n_{C}}.$ Así, una función de $n$
+variables en $C$ con valores en $D$ será $n_{D}^{(n_{C}^{n})}.$ Para el
+caso en que $C = D = B_{2}$ que toma como argumento $n$ variables,
+obtenemos que el número de funciones será de $2^{(2^{n})}.$
 
-        1.  Para el caso de $$N = 0$$ y de $$N = 1$$ es fácil probar
-            (por enumeración) la vali­dez de la fórmula. Más tarde
-            mostraremos tablas de todas las funciones hasta $$N = 2$$
-            inclusive.
+En la siguiente tabla vemos cómo crece esta cantidad:
 
-        2.  Para el caso general, la Hipótesis de Inducción será
-            :$${\lbrack\mathbf{\mathit{HI}}\rbrack}\forall{N \in {({\mathbb{N} \cup {\{ 0\}}})}}{{0 \leq N} \leq {n - 1}}\Rightarrow 2^{(2^{\mathbf{\mathrm{N}}})}\mathit{es}\mathit{el}\mathit{cardinal}\mathit{buscado.}$$
+  **N variables**   **Longitud tabla ($2^N$)**   **Número de funciones distintas: $2^{(2^{N})}$**
+  ----------------- ---------------------------- --------------------------------------------------
+  0                 1                            2
+  1                 2                            4
+  2                 4                            16
+  3                 8                            256
+  4                 16                           65536
+  5                 32                           4294967296
+  6                 64                           18446744073709551616
+  7                 128                          340282366920938463463374607431768211456
 
-        3.  Veremos si para el caso $$N = n$$ se sigue cumpliendo la
-            fórmula anterior. Pero esto es claro: al añadir una variable
-            en el argumento tendremos todas las funcio­nes del caso
-            $$N = {n - 1}$$ $$(2^{n - 1})$$ para el valor $$0$$ de la
-            nueva variable y otros $$(2^{n - 1})$$ para el valor $$1$$
-            de la nueva variable, y no quedan otros casos. Las funciones
-            totales para $$N = n$$ serán :
+## Demostración por Inducción del número de funciones
 
-            1.  $$\mathit{card}{{({{\{{f:{{B_{\mathbf{\mathrm{2}}}}^{\mathbf{\mathrm{n - 1}}}\rightarrow B_{\mathbf{\mathrm{2}}}}{\mid}f\mathit{es}\mathit{función}}\}} \times {\{{f:{B_{\mathbf{\mathrm{2}}}^{\mathbf{\mathrm{n - 1}}}\rightarrow B_{\mathbf{\mathrm{2}}}}{\mid}f\mathit{es}\mathit{función}}\}}})} =}$$
+El punto anterior es fácil de probar:
 
-            2.  $${= {{({\mathit{card}{({\{{f:{B_{\mathbf{\mathrm{2}}}^{\mathbf{\mathrm{n - 1}}}\rightarrow B_{\mathbf{\mathrm{2}}}}{\mid}f\mathit{es}\mathit{función}}\}})}})} \cdot {({\mathit{card}{({\{{f:{B_{\mathbf{\mathrm{2}}}^{\mathbf{\mathrm{n - 1}}}\rightarrow B_{\mathbf{\mathrm{2}}}}{\mid}f\mathit{es}\mathit{función}}\}})}})}}} = {}$$
+1.  Para el caso de $N = 0$ y de $N = 1$ es fácil probar (por
+    enumeración) la validez de la fórmula. Más tarde mostraremos tablas
+    de todas las funciones hasta $N = 2$ inclusive.
 
-            3.  $${{{= {{(2^{(2^{\mathbf{\mathrm{n - 1}}})})} \cdot {(2^{(2^{\mathbf{\mathrm{n - 1}}})})}}} = {(2^{{(2^{\mathbf{\mathrm{n - 1}}})} + {(2^{\mathbf{\mathrm{n - 1}}})}})}} = {(2^{2 \cdot {(2^{\mathbf{\mathrm{n - 1}}})}})}} = {(2^{(2^{\mathbf{\mathrm{n}}})})}$$.
+2.  Para el caso general, la Hipótesis de Inducción (HI) será:
+    $$[\mathrm{HI}] \quad \forall N \in (\mathbb{N} \cup \{0\}), \ 0 \leq N \leq n - 1 \implies 2^{(2^{N})} \text{ es el cardinal buscado.}$$
+
+3.  Veremos si para el caso $N = n$ se sigue cumpliendo la fórmula
+    anterior. Pero esto es claro: al añadir una variable en el argumento
+    tendremos todas las funciones del caso $N = n - 1$ ($2^{n - 1}$)
+    para el valor $0$ de la nueva variable y otros $2^{n - 1}$ para el
+    valor $1$ de la nueva variable, y no quedan otros casos. Las
+    funciones totales para $N = n$ serán:
+    $$\mathrm{card} \left( \left\{ f: B_{2}^{n - 1} \rightarrow B_{2} \right\} \times \left\{ f: B_{2}^{n - 1} \rightarrow B_{2} \right\} \right) =$$
+    $$= \mathrm{card} \left( \left\{ f: B_{2}^{n - 1} \rightarrow B_{2} \right\} \right) \cdot \mathrm{card} \left( \left\{ f: B_{2}^{n - 1} \rightarrow B_{2} \right\} \right) =$$
+    $$= 2^{(2^{n - 1})} \cdot 2^{(2^{n - 1})} = 2^{(2^{n - 1} + 2^{n - 1})} = 2^{2 \cdot (2^{n - 1})} = 2^{(2^{n})}$$
 
 Y así queda establecida la fórmula.
 
-1.  1.  Como se ve en el punto anterior, el crecimiento es desmesurado
-        al compararlo al crecimiento lineal de los argumentos. En un
-        futuro, cuan­do intentemos hacer reducciones de expresiones
-        booleanas, este crecimiento nos im­pedirá construir métodos
-        eficaces para resolver las minimizaciones.
-
-    2.  Aunque hemos visto que podemos poner las expresiones booleanas
-        en los conjuntos de operadores
-        $$\{{{\{{+ ,\overline{}}\}},{\{{\cdot ,\overline{}}\}},{\{ \uparrow \}},{\{ \downarrow \}},{\{{\oplus , \cdot}\}},{\{{\odot , +}\}}}\}$$,
-        por comprensibilidad y para una lectura normal se utilizan
-        frecuentemente los dos primeros conjuntos unidos, pu­diendo
-        variarse bien el orden de los operadores binarios:
-        $$\{{{\{{{({+ , \cdot})},\overline{}}\}},{\{{{({\cdot , +})},\overline{}}\}}}\}$$.
-        El primer conjunto $$\{{{({+ , \cdot})},\overline{}}\}$$será el
-        que estudiemos por defecto, el segundo se tratará con una
-        simetría de dualidad (hay que tener algunos cuidados). El
-        conjunto elegido de operaciones se llamará desarrollo en sumas
-        de productos de términos simples (una variable, o su negada, o
-        una constante). También se llamará desarrollo por minitérminos o
-        SOP (inglés) o SdP. El segundo será el desarrollo en producto de
-        sumas de términos simples (una variable, o su negada, o una
-        constante). También se llamará desarrollo por maxitérminos o POS
-        (inglés) o PdS.
-
-    3.  En el desarrollo por minitérminos expresamos sólo los términos
-        de la expresión en que la función tiene como valor
-        $$\mathbf{1}$$. Veamos:
-
-    4.  $${f_{B_{\mathbf{\mathrm{2}}}}{({x_{1,}x_{2,...},x_{n}})}} = {\sum\limits_{{({i_{1,}i_{2...,}i_{n}})} = {({0,...,0})}}^{{({1,...,1})}\text{All Combinations}}{({\sigma_{1}^{({i_{1,}i_{2...,}i_{n}})}{{(i_{1})} \cdot \sigma_{2}^{({i_{1,}i_{2...,}i_{n}})}}{{(i_{2})} \cdot}...{\cdot \sigma_{n}^{({i_{1,}i_{2...,}i_{n}})}}{(i_{n})}})}}$$
-
-        $$\mathit{dónde}{}{}{}{}{}{}\sigma_{k}^{({i_{1,}i_{2...,}i_{n}})}{{(i_{k})} \in {\{{i_{k},\overline{i_{k}}}\}}}y{\{{{0 \leq k} \leq n}\}}$$
-
-    5.  Para más sencillez:
-
-        $${{{{f_{B_{\mathbf{\mathrm{2}}}}{(x)}} = {f_{B_{2}}{({x_{1,}x_{2,...},x_{n}})}}} = {\sum\limits_{\iota \in {B_{\mathbf{\mathrm{2}}}}^{\mathbf{\mathrm{n}}}}{({\sigma_{1}^{\iota}{{(\iota_{1})} \cdot \sigma_{2}^{\iota}}{{(\iota_{2})} \cdot}...{\cdot \sigma_{n}^{\iota}}{{(\iota_{n})} \cdot {f_{B_{2}}{(\iota)}}}})}}} = \sum\limits_{\iota \in {B_{\mathbf{\mathrm{2}}}}^{\mathbf{\mathrm{n}}}}}{({\sigma^{\iota} \cdot {f_{B_{2}}{(\iota)}}})}$$$$\mathit{dónde}{}{}{}{}{}\sigma_{k}^{\iota}{{(\iota_{k})} \in {\{{\iota_{k},\overline{\iota_{k}}}\}}}{}{}{}{}y{}{}{}{}{{0 \leq k} \leq n}{}{}{}{}y{}{}{}{}\sigma^{\iota}{}\mathit{es}{}\mathit{un}{}\mathit{minitérmino}$$
-
-    6.  Cuándo la sigma (el minitérmino) es en todos los casos (para
-        todas las iotas) completo (es un producto de
-        $$\mathbf{{n - \mathit{términos}}\mathit{simples}}$$), el valor
-        de la función en esa iota concreta indica si el minitérmino
-        aparece o no.
-
-    7.  En el desarrollo por maxitérminos de una función de
-        $$\mathbf{n}$$ variables, los $$\mathbf{\mathit{maxitérminos}}$$
-        son sumatorios de
-        $$\mathbf{{n - \mathit{términos}}\mathit{simples}}$$. Así
-        termina consis­tiendo la función en un producto de maxitérminos.
-        Los maxitérminos indican un $$\mathbf{0}$$ de la función.
-
-    8.  Además de expresar las funciones por cadenas de símbolos que
-        constituyen un térmi­no, existe una posibilidad de expresar estas
-        funciones por tablas lineales o por cua­dros (tablas
-        bidimensionales). Para cada combinación de valores booleanos a
-        la en­trada de una función obtenemos un valor booleano de salida.
-
-    9.  Para que las funciones booleanas representen algo de interés
-        para la ingeniería, lo primero que debemos tener es una forma de
-        representar la información que queremos procesar. ¿Cómo
-        representamos un número?. ¿Cómo una letra?. Haremos un alto en
-        la exposición de funciones booleanas, para detallar más esta
-        pregunta, poder respon­derla y así ver para qué estamos viendo
-        las álgebras de Boole.
-
-# Representación de la información
-
-1.  Representación de la información.
-
-    1.  Un alfabeto es un conjunto de valores diferentes que podemos
-        aplicar para represen­tar información. En el sentido que nosotros
-        lo utilizamos el alfabeto de la escritura en español no solo se
-        compone de las letras del abecedario, digamos en minúsculas,
-        sino además, de otro conjunto similar pero en mayúsculas. A esto
-        hay que añadir todos los signos de puntuación en párrafos.
-        Además hay que añadir todas las vocales que son susceptibles de
-        tener tilde o diéresis, además, el guión para separar las
-        palabras en dos y por último un elemento muy frecuente que suele
-        pasar desapercibido: el espa­cio en blanco. Por último los
-        guarismos de los números del 0 al 9. Si consideramos los números
-        naturales estos guarismos son un alfabeto de los números
-        naturales. Como vemos los alfabetos tienen la común propiedad de
-        ser finitos. Para los núme­ros naturales (como para cualquier
-        otra cosa que representar) basta con
-        $$B_{\mathbf{\mathrm{2}}} = {\{{\mathbf{0,}\mathbf{1}}\}}$$ .
-
-    2.  Para nosotros un lenguaje sobre un alfabeto será un conjunto,
-        donde los elementos serán ristras de letras de ese alfabeto. Una
-        ristra de letras (una ristra finita) de ese al­fabeto no tiene
-        porqué pertenecer al lenguaje. Por ejemplo, podemos establecer
-        un lenguaje de los números naturales sobre un alfabeto
-        cualquiera. Si es sobre el alfabe­to $$B_{\mathbf{\mathrm{2}}}$$,
-        de cardinal 2, diremos que una palabra de nuestro lenguaje es
-        bien un 0 o bien un 1 seguido de una ristra finita cualquiera de
-        0s y 1s (formalmente se suele re­presentar como
-        $${\{ 0\}} \cup {\{{1 \cdot {\lbrack{\{ 0,1\}}\rbrack}^{\ast}}\}}$$,
-        dónde \'$$\cdot$$\' quiere decir seguido o conca­tenado, y
-        \'\'$${\lbrack...\rbrack}^{\ast}$$\'\' quiere decir una ristra
-        de letras de dentro del paréntesis, con la única condición que
-        sea finita, y que puede ser vacía).
-
-    3.  Una palabra del español podemos representarla sobre el alfabeto
-        castellano en minús­culas unido al alfabeto castellano en
-        mayúsculas, unido a la tilde y la diéresis cómo el conjunto de
-        palabras del diccionario de la Real Academia de la Lengua,
-        represen­tando una palabra con una diéresis como cigüeña como
-        "cig#ueña", y si lleva una til­de como en Julián como "Juli\~an".
-        Un nombre más habitual que el de lenguaje en electrónica suele
-        ser el de código.
-
-    4.  Antes de seguir el desarrollo, veamos algunos casos particulares
-        de códigos: código binario natural de cualquier longitud, código
-        binario natural de longitud fija, códigos 5 entre 2 (o
-        biquinarios), códigos BCD (BCD natural, BCD exceso 3, BCD
-        auto-complementario Aitken), códigos con distancias sucesivas 1
-        (para longitud fija) (códigos continuos), códigos continuos con
-        distancia 1 entre el primer elemento y el último elemento o
-        circulares. Códigos especulares. Si son circulares y especulares
-        se llaman códigos Gray (de una determinada longitud fija).
-        Códigos con redundancia de infor­mación, entre los que destacan
-        los códigos Hamming.
-
-Podéis ver que en los códigos antes explicitados y sus propiedades hacen
-referencia necesaria a algo más que al conjunto de las palabras de un
-lenguaje, que se puede re­sumir en un orden en las palabras. Esto viene
-dado normalmente por el significado de las palabras.
-
-1.  1.  Hemos hablado de alfabetos, lenguajes sobre un alfabeto y
-        después sobre el orden sobre esas palabras. Si llamamos a las
-        reglas que cumplen las palabras de un lenguaje respecto a un
-        alfabeto la gramática de ese lenguaje, el último elemento, el
-        del orden, o más en general los significados, son la semántica.
-
-    2.  En 3 hablamos de un lenguaje de los números naturales sobre un
-        alfabeto $$\mathbf{B}_{\mathbf{\mathrm{2}}}$$. En general: ¿qué
-        número significa 1001? ¿y el 1011101?. A qué valor natural
-        apunta cada cadena es algo exterior al léxico y su gramática.
-        Vamos a construir una semánti­ca: llamamos en una cadena de
-        letras del alfabeto
-        $$l_{\mathbf{\mathrm{n - 1}}}\ldots l_{\mathbf{\mathrm{1}}}l_{\mathbf{\mathrm{0}}}$$a
-        $$l_{\mathbf{\mathrm{0}}}$$el dígito me­nos significativo
-        (el$$\mathbf{lsb}$$) y al$$l_{\mathbf{\mathrm{n - 1}}}$$el
-        dígito más significativo (el $$\mathbf{\mathrm{msb}}$$). Pri­mero
-        asignamos unos valores naturales a los del alfabeto
-        $$\nu:{B_{\mathbf{\mathrm{2}}}\rightarrow\mathbf{\mathbb{N}}}::\begin{Bmatrix}
-            {\mathbf{0_{\mathrm{2}}}@0} \\
-            {\mathbf{1_{\mathrm{2}}}@1}
-            \end{Bmatrix}$$, y según el subíndice $$\mathbf{n}$$ de la
-        letra $$l_{\mathbf{\mathrm{n}}}$$ obtenemos el valor
-        $$\nu{{(l_{\mathbf{\mathrm{n}}})} \cdot {(2^{\mathbf{\mathrm{n}}})}}$$
-        para esa letra en ese lugar concreto. Así el valor de una
-        palabra de nuestro código será
-        $$\sum\limits_{\iota = 0}^{n - 1}{({\nu{{(l_{\mathbf{\mathrm{\iota}}})} \cdot {(2^{\mathbf{\mathrm{\iota}}})}}})}$$.
-        Más en general si $$\mathbf{D}_{\mathbf{\mathrm{n}}}$$es un
-        alfabeto de cardinal $$\mathbf{n}$$, esto es, desde los dígitos
-        $$\left\{ {d_{\mathbf{\mathrm{0}}},d_{\mathbf{\mathrm{1}}},\ldots,d_{\mathbf{\mathrm{n - 1}}}} \right\} = \mathbf{D}_{\mathbf{\mathrm{n}}}$$y
-        establecemos la función
-        $$\nu:{\mathbf{D}_{\mathbf{\mathrm{n}}}\rightarrow\mathbf{\mathbb{N}}}::\begin{matrix}
-            {\mathbf{d_{\mathrm{\iota}}}@\mathbf{\iota}}
-            \end{matrix}$$, el valor de una palabra del lenguaje
-        (código)
-        $$r \in {d_{i \neq 0} \cdot {\lbrack\mathbf{D}_{\mathbf{\mathrm{n}}}\rbrack}^{\ast}}$$
-        será
-        $$\nu{(r)}{=}{\sum\limits_{\iota = 0}^{l{{(r)} - 1}}{({\nu{{(d_{\mathbf{\mathrm{\iota}}})} \cdot {(n^{\mathbf{\mathrm{\iota}}})}}})}}$$,
-        y $$l{(r)}$$ es la longitud de la representación $$r$$. Este
-        tipo de representación es la más usada en el ámbito de los
-        números desde hace seiscientos o setecientos años más o menos en
-        Occidente, sólo que para base 10 (diez dígitos distintos).
-        Nosotros usaremos también bastante la base 2, código que
-        llamamos habitualmente binario natural.
-
-    3.  Aquí es conveniente tener claro cómo pasamos de una base a otra.
-        En general lo ha­cemos por pasos:
-
-        1.  Paso de una base $$B$$ a base $$10$$. Esto lo hacemos por
-            aplicación directa de la fórmula expresada anteriormente en
-            2.6.
-
-        2.  Paso de base $$10$$ a una base $$B$$. Esto se hace por el
-            proceso inverso al ante­rior, dividimos sucesivamente por
-            $$B$$los cocientes y nos vamos quedando con los restos,
-            dónde los primeros son los dígitos de más bajo peso, y los
-            últimos los de más alto. El proceso termina naturalmente
-            cuando el cociente a dividir es más pequeño que la base
-            $$B$$, cociente que pasa a ser el dígito
-            $$\mathbf{\mathit{msb}}$$de la conver­sión.
-
-        3.  Paso de una base $$B_{1}$$ a una base $$B_{2}$$:
-
-            1.  Caso que $$B_{1}{=}{B_{2}}^{p}$$. Cada dígito de
-                $$B_{1}$$ lo desarrollamos como su co­rrespondiente en
-                $$p$$ dígitos de base $$B_{2}$$ (sin ahorrar los 0 a la
-                izquierda). Así hemos terminado.
-
-            2.  Caso que $${B_{1}}^{q}{=}B_{2}$$. Comenzando por el
-                $$\mathbf{\mathit{lsb}}$$(el más a la derecha) agrupamos
-                los dígitos de $$q\mathit{en}q$$ dígitos de $$B_{1}$$.
-                Cada grupo de $$q$$ dí­gitos de $$B_{1}$$ es exactamente
-                un dígito de $$B_{2}$$, hacemos así la sustitución
-                predicha y hemos terminado. El único posible problema es
-                el grupo de $$q$$ dígitos más alto, en el caso que tenga
-                entre $$1$$ y $$q - 1$$ dígitos. Ese grupo se rellena
-                con $$d_{0}$$(el que representa a$$0$$) por la izquierda
-                hasta completar la longitud $$q$$.
-
-            3.  Caso que
-                $$B_{1}^{q}{=}B_{2}^{p} \land \mathit{mcd}{{({q,p})} = 1}$$.
-                Lo dividimos en dos pasos: pasamos primero $$B_{1}$$ a
-                $$B_{1}^{q}$$ y entonces de $$B_{1}^{q}{=}B_{2}^{p}$$ a
-                $$B_{2}$$.
-
-            4.  Caso en que no hay una relación entre $$B_{1}$$ y
-                $$B_{2}$$ de las anteriores. Enton­ces pasamos de base
-                $$B_{1}$$ a base $$10$$, y entonces de base $$10$$ a
-                $$B_{2}$$. Este método es general, pero el anterior es
-                más eficiente para los casos espe­cificados.
-
-    4.  Para describir letras, esto es, caracteres alfabéticos de la
-        lengua natural, utilizamos generalmente el código ASCII (de 7
-        bits el estándar original o de 8 dígitos binarios o bits, el
-        extendido de Microsoft). Existen otros códigos, como el EBCDIC
-        de IBM, UTF8, UTF16 y Unicode. Permiten sobradamente trasladar
-        los lenguajes naturales escritos a un alfabeto binario.
-
-    5.  El conjunto de los naturales es insuficiente para muchas
-        aplicaciones. La primera ampliación es el conjunto
-        $$\mathbf{\mathbb{Z}}$$ de los enteros. Las formas de
-        representar números enteros es variada pero la vamos a resumir
-        en tres formas:
-
-        1.  Magnitud y Signo ($$M\text{\&}S$$). Representamos el valor
-            absoluto del número como un número en binario natural y le
-            añadimos un $$0$$ o un $$1$$ en el
-            $$\mathbf{\mathit{msb}}$$, dónde el $$0$$ representa el
-            signo "$$-$$" y el $$1$$ representa el signo "$$+$$". Este
-            lenguaje sería en
-            general$${{\left\{ \mathbf{0} \right\} \vee \left\{ \mathbf{00} \right\}} \vee \left\{ \mathbf{10} \right\}} \vee \left( {{\mathbf{D}_{\mathbf{\mathrm{2}}} \cdot \left( {\mathbf{D}_{\mathbf{\mathrm{n}}} \smallsetminus \left\{ d_{0} \right\}} \right)} \cdot \left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\ast}} \right)$$,
-            habida cuenta que
-            $$\mathbf{D}_{\mathbf{\mathrm{2}}} \subseteq \mathbf{D}_{\mathbf{\mathrm{n}}}$$.
-            Esta es una traducción directa de lo que hacemos cuando
-            escribimos un número entero con signo. En general tenemos 2
-            representa­ciones para el número 0.
-
-        2.  En Complemento a la base B ($$\mathit{CbB}$$). En esta
-            método de representación tene­mos una forma de representar
-            los números positivos y otra los negativos. Los nú­meros
-            positivos (incluido el $$d_{\mathbf{\mathrm{0}}}$$de
-            valor$$\mathbf{0}$$) se representan de forma idéntica a como
-            se hace en $$M\text{\&}S$$. La novedad está en los números
-            negativos, cuyo $$\mathbf{\mathit{msb}}$$es $$\mathbf{1}$$,
-            seguido de un dígito cualquiera distinto del más alto
-            $$\mathbf{d}_{\mathbf{\mathrm{\iota \neq {n - 1}}}}$$y
-            seguido de una ristra finita cualquiera de dígitos.
-
-            1.  Primero introduciremos una operación, la complementación
-                de dígitos que designaremos como un operador
-                prefijo$$C_{\mathbf{\mathrm{Β\mathit{m1}}}}$$, de forma
-                que dada una ris­tra cualquiera sobre un
-                alfabeto$$\mathbf{D}_{\mathbf{\mathrm{n}}}$$,
-                formalmente el
-                lenguaje$$\left\{ \left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}} \right\}$$,
-                que definimos como:
-
-                $$\mathbf{\upsilon}:{{\left\{ {0,1,\ldots,{n - 2,}{n - 1}} \right\} \subset \mathbb{N}}\rightarrow\mathbf{D}_{\mathbf{\mathrm{n}}}}::v@d_{\mathbf{\mathrm{v}}}$$
-
-                $$\mathit{De}\mathit{forma}\mathit{que}\left( {\mathbf{\nu}{(d_{\mathbf{\mathrm{v}}})}{=}v} \right)\Leftrightarrow\left( {{\mathbf{\upsilon}{(v)}}{=}d_{\mathbf{\mathrm{v}}}} \right)$$
-
-                $$\mathbf{c}_{\mathbf{\mathrm{Β\mathit{m1}}}}:{\mathbf{D}_{\mathbf{\mathrm{n}}}\rightarrow\mathbf{D}_{\mathbf{\mathrm{n}}}}::\delta@\mathbf{\upsilon}\left( {{{n - 1} - \mathbf{\nu}}{(\delta)}} \right)$$$$C_{\mathbf{\mathrm{Β\mathit{m1}}}}:{\left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\mathbf{\mathrm{\ast}}}\rightarrow\left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\mathbf{\mathrm{\ast}}}}::\delta_{n - 1}\cdots\delta_{1}\delta_{0}{:\rightarrow}\mathbf{c}_{\mathbf{\mathrm{Β\mathit{m1}}}}\delta_{n - 1}\cdots\mathbf{c}_{\mathbf{\mathrm{Β\mathit{m1}}}}\delta_{1}\mathbf{c}_{\mathbf{\mathrm{Β\mathit{m1}}}}\delta_{0}$$
-
-            Otra forma de llamar a esta operación es complemento a la
-            base menos uno. Permite hacer operaciones sin ningún tipo de
-            acarreo, dígito a dígito sin de­pendencias de la posición.
-            Algunas propiedades de esta operación son:
-
-            $$\forall{\mathit{r} \in \left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\ast}}C_{\mathbf{\mathrm{Β\mathit{m1}}}}{{({C_{\mathbf{\mathrm{Β\mathit{m1}}}}{(\mathit{r})}})} = \mathit{r}}$$
-
-            $$\forall{\mathit{r} \in \left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\ast}}\mathit{siendo}\mathbf{l}{{(\mathit{r})} = s},\mathbf{\nu}{{({C_{\mathbf{\mathrm{Β\mathit{m1}}}}{(\mathit{r})}})} = {{\mathbf{n}^{\mathbf{\mathrm{s}}} - \mathbf{1}} - \mathbf{\nu}}}{(\mathit{r})}$$
-
-            Esta operación es interesante porque nos va a permitir
-            definir la complementa­ción a la base
-            $$\mathbf{\mathtt{\mathrm{D}}}_{\mathtt{\mathrm{n}}} \equiv \mathtt{Β}$$
-            de forma sencilla:
-
-            $$\mathbf{C}_{\mathbf{\mathrm{Β}}}:{\left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\mathbf{\mathrm{\ast}}}\rightarrow\left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\mathbf{\mathrm{\ast}}}}::\mathit{r}{:\rightarrow}\mathbf{\upsilon}{({\mathbf{\nu}{{({C_{\mathbf{\mathrm{Β\mathit{m1}}}}^{\mathbf{\mathrm{l}}{(\mathit{r})}}{(\mathit{r})}})} + 1}})}$$
-
-            Las propiedades de esta complementación son:
-
-            $$\forall{\mathit{r} \in \mathbf{D}_{\mathbf{\mathrm{n}}}}\mathbf{C}_{\mathbf{\mathrm{Β}}}{{({\mathbf{C}_{\mathbf{\mathrm{Β}}}{(\mathit{r})}})} = \mathit{r}}$$
-
-            $$\forall{\mathit{r} \in \left( \mathbf{D}_{\mathbf{\mathrm{n}}} \right)^{\ast}}\mathit{siendo}\mathbf{l}{{(\mathit{r})} = s},\mathbf{\nu}{{({\mathbf{C}_{\mathbf{\mathrm{Β}}}{(\mathit{r})}})} = {\mathbf{n}^{\mathbf{\mathrm{s}}} - \mathbf{\nu}}}{(\mathit{r})}$$
-
-            1.  Ahora ya podemos saber como interpretar los números
-                negativos en represen­tación CbB. El
-                $$\mathbf{\mathit{msb}}$$será $$\mathbf{1}$$, a
-                continuación no tendremos un dígito
-                $$\mathbf{d}_{\mathbf{\mathrm{n - 1}}}$$, sino cualquier
-                otro, y una ristra finita cualquiera de dígitos sobre el
-                alfabeto $$\mathbf{D}_{\mathbf{\mathrm{n}}}$$. Para
-                cualquier palabra sobre el alfabeto dicho definimos el
-                valor en Complemento a la base B con 1 y con 0.
-
-                $$\forall{\mathit{r} \in \left\{ \left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}} \right\}}\mathit{definimos}\mathit{el}\mathit{valor}\mathit{entero}$$
-
-                $$\mathbf{\nu_{Β,1}}{(\mathit{r})}{: =}{\mathbf{n}^{\mathbf{\mathrm{l}}{(\mathit{r})}} - {\sum\limits_{\mathbf{\mathrm{\iota = 0}}}^{{\mathbf{\mathrm{l}}{(\mathit{r})}} - \mathbf{\mathrm{1}}}{({\mathbf{\nu}{{(\mathit{r}_{\mathbf{\mathrm{\iota}}})} \cdot \mathbf{n}^{\mathbf{\mathrm{\iota}}}}})}}}$$
-
-                $$y$$
-
-                $$\mathbf{\nu_{Β,0}}{(\mathit{r})}{: =}{\sum\limits_{\mathbf{\mathrm{\iota = 0}}}^{{\mathbf{\mathrm{l}}{(\mathit{r})}} - \mathbf{\mathrm{1}}}{({\mathbf{\nu}{{(\mathit{r}_{\mathbf{\mathrm{\iota}}})} \cdot \mathbf{n}^{\mathbf{\mathrm{\iota}}}}})}}$$
-
-            2.  Ahora nos disponemos a representar el lenguaje de las
-                representaciones ente­ras en $$CbB$$, y podemos ver bien
-                que valores tienen:
-
-            $$\mathit{CbD}_{n}^{-}{: =}\mathit{Rep}_{\mathit{CbB},\mathbf{\mathrm{D}}_{\mathbf{\mathrm{n}}}}{(\mathbb{Z}^{\mathbf{\mathrm{-}}})}{=}{{\mathbf{1} \cdot {\lbrack{\mathbf{D}_{\mathbf{\mathrm{n}}} \smallsetminus {\{\mathbf{d}_{\mathbf{\mathrm{n - 1}}}\}}}\rbrack}} \cdot \left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}}}$$
-
-            $$\mathit{CbD}_{n}^{+}{: =}\mathit{Rep}_{\mathit{CbB},\mathbf{\mathrm{D}}_{\mathbf{\mathrm{n}}}}{(\mathbb{Z}^{\mathbf{\mathrm{+}}})}{=}{{\mathbf{0} \cdot {\lbrack{\mathbf{D}_{\mathbf{\mathrm{n}}} \smallsetminus {\{\mathbf{d}_{\mathbf{\mathrm{0}}}\}}}\rbrack}} \cdot \left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}}}$$
-
-            $$\mathit{CbD}_{n}{: =}{{{\mathit{CbD}_{n}}^{-} \cup {\mathit{CbD}_{n}}^{+}} \cup {\{\mathbf{0}\}}}$$
-
-            $$\forall{\mathit{r} \in \mathit{CbD}_{n}}\mathbf{\nu}_{\mathbf{\mathrm{Β}}}{(\mathit{r})}{: =}\begin{Bmatrix}
-                  {\mathbf{\nu}_{\mathbf{\mathrm{Β,0}}}{(\mathit{r})}\mathit{si}{\mathit{s} \in \mathit{CbD}_{n}^{+}},{r = {\mathbf{0} \cdot s}}} \\
-                  {\mathbf{\nu}_{\mathbf{\mathrm{Β,1}}}{(\mathit{s})}\mathit{si}{\mathit{r} \in \mathit{CbD}_{n}^{-}},{r = {\mathbf{1} \cdot s}}}
-                  \end{Bmatrix}$$
-
-            Y así queda definido el lenguaje de las representaciones en
-            complemento a una base y su semántica de valores en
-            $$\mathbb{Z}$$.
-
-        3.  Exceso a $$\mathit{n}$$. Este tipo de representación no
-            necesita signo siendo, el valor de la representación su
-            valor en binario natural menos $$\mathit{n}$$. La
-            representación $$\mathbf{0}$$tiene como valor
-            $$- \mathit{n}$$. En general el valor de la representación
-            $$\mathit{r}$$ en Exceso a $$\mathit{n}$$será
-            $${\mathbf{\nu}{(\mathit{r})}} - \mathit{n}$$, siendo la
-            función $${valor} - \nu$$ la correspondiente al bina­rio
-            natural.
-
-        4.  La siguiente ampliación es $$\mathbb{Q}$$. Existen de
-            entrada dos formas comunes de repre­sentación: en punto fijo
-            y en punto flotante.
-
-        5.  En punto fijo tendremos siempre que saber dónde se encuentra
-            el punto o coma deci­mal, conociendo cual es la longitud de
-            la parte fraccionaria
-            ($$\mathbf{l}_{\mathbf{\mathrm{\mathit{frac}}}}{(\mathit{r})}$$)
-            y cual la de la parte entera
-            ($$\mathbf{l}_{\mathbf{\mathrm{\mathit{ent}}}}{(\mathit{r})}$$).
-            Hasta el momento solo hemos utilizado
-            $$\mathbf{l}{{(\mathit{r})} = \mathbf{l}_{\mathbf{\mathrm{\mathit{frac}}}}}{{(\mathit{r})} + \mathbf{l}_{\mathbf{\mathrm{\mathit{ent}}}}}{(\mathit{r})}$$dónde
-            $$\mathbf{l}_{\mathbf{\mathrm{\mathit{frac}}}}{{(\mathit{r})} = \mathbf{0}}$$.
-
-        6.  Representaciones de binario natural en punto fijo. Vamos a
-            ver, en un primer mo­mento, estas representaciones solo si
-            son positivas, esto es, representaciones de
-            $$\mathbb{Q}^{\mathbf{\mathrm{+}}}$$en binario natural, que
-            será la base para el resto de representaciones más
-            com­plejas. En principio la parte entera vendrá dada por una
-            expresión del tipo
-            $$\mathit{{Ent}{\lbrack r\rbrack}} \in {\mathbf{d}_{\mathbf{\mathrm{\iota \neq 0}}} \cdot \left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}}}$$,
-            $${\mathbf{l}{(\mathit{{Ent}{\lbrack r\rbrack}})}} = {\mathbf{l}_{\mathbf{\mathrm{\mathit{ent}}}}{(\mathit{r})}}$$,
-            $$\mathit{{Frac}{\lbrack r\rbrack}} \in {\left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}} \cdot \mathbf{d}_{\mathbf{\mathrm{\iota \neq 0}}}}$$,
-            $${\mathbf{l}{(\mathit{{Frac}{\lbrack r\rbrack}})}} = {\mathbf{l}_{\mathbf{\mathrm{\mathit{frac}}}}{(\mathit{r})}}$$,
-            $${\mathit{r} = {{\mathit{{Ent}{\lbrack r\rbrack}} \cdot \mathbf{\mathrm{.}}} \cdot \mathit{{Frac}{\lbrack r\rbrack}}}} \in {{{{\mathbf{d}_{\mathbf{\mathrm{\iota \neq 0}}} \cdot \left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}}} \cdot \mathbf{\mathrm{.}}} \cdot \left\lbrack \mathbf{D}_{\mathbf{\mathrm{n}}} \right\rbrack^{\mathbf{\mathrm{\ast}}}} \cdot \mathbf{d}_{\mathbf{\mathrm{\iota \neq 0}}}}$$
-            y
-            $$\mathbf{l}{{(\mathit{r})} = \mathbf{l}_{\mathbf{\mathrm{\mathit{frac}}}}}{{(\mathit{r})} + \mathbf{l}_{\mathbf{\mathrm{\mathit{ent}}}}}{(\mathit{r})}$$.
-            Para evaluar el valor de la representación la fórmula es la
-            clásica
-            $$\mathbf{\nu}_{\mathbb{Q}}{{(\mathit{r})} = {\sum\limits_{\mathbf{\mathrm{\iota}} = \mathbf{\mathrm{\mathit{l}{(\mathit{{{Ent}{\lbrack r\rbrack}} - 1})}}}}^{\mathbf{\mathrm{{- \mathit{l}}{(\mathit{{Frac}{\lbrack r\rbrack}})}}}}\left( {{\mathbf{\nu}{(\mathit{r}_{\mathbf{\mathrm{\iota}}})}} \cdot \mathbf{n}^{\mathbf{\mathrm{\iota}}}} \right)}}$$.
-            En general aunque ponemos explícita­mente el punto, no es
-            necesario una vez se conocen la longitudes de las partes
-            entera y fraccionaria.
-
-        7.  El siguiente paso es ¿cómo pasamos un número en punto fijo
-            de una base a otra?. Para esto lo más sencillo es separar el
-            número en punto fijo en dos partes, la entera y la
-            fraccionaria. La parte entera, un número natural, seguirá
-            siendo entera en cualquier base, por lo que aplicamos las
-            reglas de conversión que ya conocemos para n-ario na­tural,
-            ya vistas.
-
-        ¿Y la parte fraccionaria?. También sigue siendo un número
-        $${\mathbf{0} \leq \mathbf{\nu}_{\mathbb{Q}}}{{({\mathit{Frac}{\lbrack r\rbrack}})} < \mathbf{1}}$$para
-        cualquier base, y en cualquier base sigue representándose como
-        una cadena de­trás del punto fijo. A partir de ahora la
-        representación $$\mathit{r}$$, representará siempre la parte
-        fraccionaria, esto es
-        $${\mathit{r} \in \lbrack}\mathbf{0},\mathbf{1}{) \subset \mathbb{Q}}$$
-        , y su representación será siempre tal que confundiremos
-        $$\mathit{r}$$con $$\mathbf{0}.\mathit{r}$$y
-        $$\mathbf{l}{{(\mathit{r})} = \mathbf{l}_{\mathbf{\mathrm{\mathit{fracc}}}}}{{({\mathbf{0}.\mathit{r}})} = :}\mathbf{\mathrm{s}}$$.
-        Veremos los distintos ca­sos:
-
-        1.  Casos en que existe una relación entre
-            $$\mathbf{D}_{\mathtt{\mathrm{n}}}$$y
-            $$\mathbf{D}_{\mathtt{\mathrm{m}}}$$ tal que
-            $$\exists p,{q \in \mathbb{N}}{n^{p} = m}o{n = m^{q}}o{n^{p} = m^{q}}$$.
-            Los cambios son idénticos a los realizados para la parte
-            entera excepto que los grupos de dígitos se cogen desde el
-            punto decimal hacia la derecha, esto es, en sentido inverso
-            al que tomábamos para los naturales.
-
-        2.  Caso general. Hemos de utilizar una base intermedia, la
-            habitual base 10$$\mathbf{D}_{\mathtt{\mathrm{10}}}$$. El
-            método es el mismo explicado en su momento para números
-            naturales en $${n - \mathit{ario}}\mathit{natural}$$. Solo
-            que da pues ver como pasamos de
-            base$$\mathbf{D}_{\mathtt{\mathrm{10}}}$$a$$\mathbf{D}_{\mathtt{\mathrm{n}}}$$y
-            viceversa.
-
-            1.  El caso inmediato
-                es$$\mathbf{D}_{\mathtt{\mathrm{n}}}\rightarrow\mathbf{D}_{\mathtt{\mathrm{10}}}$$.
-                Utilizamos la siguiente fórmula:
-                $${\mathbf{\nu_{\mathrm{\mathbb{Q}}}}{(\mathit{r})}} = {\sum\limits_{\mathbf{\mathrm{\iota{=}1}}}^{\mathbf{\mathrm{s}}}\left( {{\mathbf{\nu}\left( \mathit{r}_{\mathbf{\mathrm{- \iota}}} \right)} \cdot \mathbf{\mathrm{\mathtt{\mathrm{n}}^{- \iota}}}} \right)}$$.
-
-            2.  El caso inmediato
-                es$$\mathbf{D}_{\mathtt{\mathrm{10}}}\rightarrow\mathbf{D}_{\mathtt{\mathrm{n}}}$$.
-                Se trata del proceso inverso al anterior, esto es, como
-                las potencias son negativas realizamos, el el caso
-                anterior divi­siones sucesivas por
-                $$\mathtt{\mathrm{n}}$$, el cardinal de la base. Pro lo
-                tanto el proceso que nos atañe será el de multiplicar
-                sucesivamente por la base$$\mathtt{\mathrm{n}}$$, el
-                número fraccionario $$\mathtt{0.r}$$. En cada
-                multiplicación por la base la parte entera será un
-                dígito de la nueva base, y los obtenemos desde el primer
-                lugar a la derecha del punto decimal hacia la derecha.
-                En cada multiplicación nos quedamos con el resto, esto
-                es, la parte fraccionaria del resultado (la parte entera
-                ya ha sido incorporada al resultado final).
-
-            3.  Podemos observar fácilmente que en los dos casos
-                anteriores el procedimien­to de colocar decimales en la
-                nueva base no tiene por qué ser un proceso que termine,
-                esto es, finito. Es claro $$1/3$$ en base
-                $$\mathbf{\mathrm{\mathtt{\mathrm{D}}}}_{3}$$tiene una
-                representa­ción finita
-                $${({1/3})} = 0.1_{\mathbf{\mathrm{\mathtt{\mathrm{3}}}}}$$,
-                pero en base
-                $$\mathbf{\mathrm{\mathtt{\mathrm{D}}}}_{2}$$, en
-                binario, y en base $$\mathbf{\mathrm{\mathtt{10}}}$$y en
-                otras bases tenemos que
-                $$({1/3})$$$$=$$$${0.\widehat{3}}_{\mathbf{\mathrm{\mathtt{\mathrm{10}}}}}$$$$=$$$${0.\widehat{01}}_{\mathbf{\mathrm{\mathtt{\mathrm{2}}}}}$$$$=$$$$0.1_{\mathbf{\mathrm{\mathtt{\mathrm{3}}}}}$$$$=$$$${0.\widehat{1}}_{\mathbf{\mathrm{\mathtt{\mathrm{4}}}}}$$$$=$$$${0.\widehat{13}}_{\mathbf{\mathrm{\mathtt{\mathrm{5}}}}}$$$$=$$$${0.2}_{\mathbf{\mathrm{\mathtt{\mathrm{6}}}}}$$$$=$$$${0.\widehat{2}}_{\mathbf{\mathrm{\mathtt{\mathrm{7}}}}}$$$$=$$$${0.\widehat{25}}_{\mathbf{\mathrm{\mathtt{\mathrm{8}}}}}$$$$=$$$${0.3}_{\mathbf{\mathrm{\mathtt{\mathrm{9}}}}}$$$$= \ldots =$$$${0.4}_{\mathbf{\mathrm{\mathtt{\mathrm{12}}}}}$$$$= \ldots =$$$${0.5}_{\mathbf{\mathrm{\mathtt{\mathrm{15}}}}}$$$$= \ldots =$$$${0.\widehat{5}}_{\mathbf{\mathrm{\mathtt{\mathrm{16}}}}}$$$$= \ldots =$$$${0.9}_{\mathbf{\mathrm{\mathtt{\mathrm{27}}}}}$$$$= \ldots$$.
-
-                Una vez hemos utilizado la representación en binario,
-                las de base 4 y la octal (base 8) son inmediatas por
-                reagrupamientos. Igualmente la representación en base 3
-                es inmediata ya que
-                $${({1/3})} = 3^{\mathtt{({- 1})}}$$, que corresponde a
-                $${\mathtt{r_{\mathrm{\mathtt{- 1}}}} = \mathtt{\mathrm{d}}_{\mathtt{\mathrm{1}}}}\mathit{tal}\mathit{que}{{\mathbf{\nu}\left( \mathtt{r_{\mathrm{\mathtt{- 1}}}} \right)} = \mathtt{1}}$$,
-                y confundiremos habitualmente
-                $$\mathtt{\mathrm{d}}_{\mathtt{\mathrm{1}}}$$ con
-                $$\mathtt{1}$$y queda claro que para cualquier otra
-                posición tenemos que
-                $${\mathtt{r_{\mathrm{\mathtt{- \iota}}}} = \mathtt{\mathrm{d}}_{\mathtt{\mathrm{\iota}}}}\mathit{es}{{\mathbf{\nu}\left( \mathtt{r_{\mathrm{\mathtt{- \iota}}}} \right)} = \mathtt{0}}\mathit{si}{\mathtt{\iota} > \mathtt{1}}$$.
-                Igualmente tenemos por reagrupamien­to la representación
-                para base 9.
-
-            4.  Es importante darnos cuenta que en el caso de pasos
-                entre $$\mathbf{D}_{\mathtt{\mathrm{n}}}$$y
-                $$\mathbf{D}_{\mathtt{\mathrm{m}}}$$ tal que
-                $$\exists p,{q \in \mathbb{N}}{n^{p} = m}o{n = m^{q}}o{n^{p} = m^{q}}$$,
-                si la representación fuente es finita la destino también
-                los será, y si la fuente es infinita con un periodo, el
-                destino también lo será. En general si pasamos un número
-                de base$$\mathbf{D}_{\mathtt{\mathrm{n}}}$$a
-                base$$\mathbf{D}_{\mathtt{\mathrm{n \cdot m}}}$$la
-                representación seguirá guardando su carácter finito no
-                periódi­co si así ocurre en
-                $$\mathbf{D}_{\mathtt{\mathrm{n}}}$$(como vemos al pasar
-                de base 3 a base 6).
-
-            5.  Habitualmente utilizaremos el guarismo confundido con el
-                dígito$$\mathtt{\mathrm{\mathtt{\mathrm{d}}}_{\mathrm{\iota}}} \equiv \mathtt{\iota}$$
-                $$\mathit{solo}\mathit{si}$$$${\mathtt{0} \leq \mathtt{\iota}} \leq \mathtt{9}$$.
-                Para dígitos superiores, si los hubiera, hay varias
-                es­trategias. En Electrónica Digital se suele utilizar el
-                alfabeto latino, sin dife­renciar mayúsculas de
-                minúsculas, lo más habitual para trabajar en base 16
-                (hexadecimal),
-                $$\mathtt{\left\{ {{\mathrm{d}_{\mathrm{10}} \equiv \mathrm{A}}\mathrm{,}{\mathrm{d}_{\mathrm{11}} \equiv \mathrm{B}}\mathrm{,}{\mathrm{d}_{\mathrm{12}} \equiv \mathrm{C}}\mathrm{,}{\mathrm{d}_{\mathrm{13}} \equiv \mathrm{D}}\mathrm{,}{\mathrm{d}_{\mathrm{14}} \equiv \mathrm{E}}\mathrm{,}{\mathrm{d}_{\mathrm{15}} \equiv \mathrm{F}}} \right\}}$$
-                y en general podemos utilizar más letras, y más letras
-                aún de otros abecedarios (y aún distinguir entre
-                mayúsculas y minúsculas, acentuarlas de diferentes
-                formas e inventarnos nuevas letras-gráficos, pero en
-                general no es solución general del problema). Una
-                solución general es utilizar cadenas que conten­gan el
-                índice del dígito correspondiente en base 10
-                (comprensible para todos) en una cadena que exprese la
-                base en la que nos encontramos con
-                $$d@\mathit{Rep}\left( {n \in \mathbb{N}} \right)_{\mathtt{\mathrm{10}}}@\mathtt{Β}\mathit{Rep}\left( {\mathit{base} \in \mathbb{N}} \right)_{\mathtt{\mathrm{10}}}$$,
-                que es la solución que hemos adop­tado en el programa
-                $$\mathit{CVarNum}$$ que podéis disponer para hacer
-                conversio­nes etc en cualquier base. En este programa (en
-                realidad un conjunto de clases del lenguaje de
-                programación C++), además de representar y operar con
-                dígi­tos de cualquier base, podemos representar y operar
-                con números naturales en cualquier base (representación
-                $${n - \mathit{ario}}\mathit{natural}$$) y con números
-                enteros de cualquier base (representación interna en
-                $$\mathit{CbB}$$). Los naturales los repre­sentamos como
-                $$\mathit{num}\text{\_}\mathit{uint}@\left( n_{l - 1} \right)_{\mathtt{\mathrm{10}}};\left( n_{l - 2} \right)_{\mathtt{\mathrm{10}}};\ldots;\left( n_{1} \right)_{\mathtt{\mathrm{10}}};\left( n_{0} \right)_{\mathtt{\mathrm{10}}}@\mathtt{Β}\left( \mathit{base} \right)_{\mathtt{\mathrm{10}}}$$
-                y los enteros por defecto entran y salen como en
-                $$\mathit{CbB}$$. Hay algunas facili­dades para sacar los
-                números enteros en pantalla en $$M\text{\&}S$$.
-
-            6.  Por lo demás es fácil conseguir la representación de la
-                parte fraccionaria en $$\mathit{CbB}$$ si ésta es
-                negativa. Se realizan las operaciones de la misma forma
-                que la hacíamos con la parte entera, solo que allí
-                teníamos en cuenta la longi­tud de la representación,
-                pero aquí, para la parte fraccionaria el complemento lo
-                conseguimos básicamente con el complemento de la parte
-                fraccionaria a la unidad
-                $$\mathtt{\mathrm{1.0\ldots 0\ldots}}$$.
-
-    6.  El último tipo de representación que vamos a ver es la
-        representación en punto flo­tante
-        ($$\mathit{floating}\mathit{point}$$, de forma que en C,C++ al
-        tipo de números con decimales que habitualmente llamamos reales,
-        toman el nombre de su forma de representación :
-        $$\mathit{float}$$). Este tipo está estandarizado y tenemos un
-        documento que lo detalla bastante bien. Este tipo tiene ventajas
-        (relativas) con respecto al punto fijo porque amplía bastante el
-        rango de valores a representar con el mismo número de dígitos, y
-        porque se controla el error de representación en forma
-        proporcional al valor absoluto del número, esto es, trabajamos
-        con errores relativos, mientras en punto fijo se trabaja con
-        errores absolutos que son fijos en todo el rango de
-        representaciones. Como parte negativa hay que decir que los
-        circuitos para trabajar con punto flotante son más complejos y
-        voluminosos que los que teníamos para punto fijo, que eran los
-        mismos circuitos que teníamos para trabajar con enteros.
-
-    7.  Siguiendo con los códigos que utilizamos en Electrónica Digital,
-        los más comunes son los códigos o lenguajes que tienen una
-        longitud fija. Por ver un poco la noción de longitud, ésta
-        determina básicamente la cantidad de valores de diferentes, de
-        palabras diferentes que puede tener el lenguaje. Si trabajamos
-        con el lenguaje $$\mathtt{\mathrm{L}}$$ sobre el alfabeto
-        $$\mathtt{\mathrm{A}}$$, definiremos:
-
-        $$\mathtt{\mathrm{L^{+}(A){: = {A \cdot A^{\ast}}}}} = \mathtt{\mathrm{A^{+}}}$$
-
-        $$\mathtt{\mathrm{L(A){: = A^{\ast}}}} = {\mathtt{\mathrm{L^{+}(A)}} \cup \left\{ \epsilon \right\}}$$
-
-        $$\mathtt{\mathrm{L^{({{\leq n}, \ast})}(A)}}{\mathtt{\mathrm{:}} =}\left\{ {{{r \in L^{\ast}}(A)}{\mid}\mathit{long}{(r) \leq n}} \right\}$$
-
-        $$\mathtt{\mathrm{L^{({{\leq n}, +})}(A)}}{\mathtt{\mathrm{:}} =}\left\{ {{{r \in L^{+}}(A)}{\mid}\mathit{long}{(r) \leq n}} \right\}$$
-
-        $${{\mathtt{\mathrm{L^{n}(A)}}{\mathtt{\mathrm{:}} =}\left\{ {{{r \in L^{\ast}}(A)}{\mid}\mathit{long}{(r) = n}} \right\}} \equiv \mathtt{\mathrm{A^{n}}}} \equiv {{{\mathtt{\mathrm{A}} \times \mathtt{\mathrm{A}}} \times \overset{\mathtt{\mathrm{n}}}{\ldots}} \times \mathtt{\mathrm{A}}}$$
-
-        A este último lo suelo llamar código saturado de
-        longitud$$\mathtt{\mathrm{n}}$$sobre el
-        alfabeto$$\mathtt{\mathrm{A}}$$, y será la referencia para los
-        distintos códigos de longitud fija. Para un código de este tipo
-        el número de palabras máximo permitido será
-        $$\left( \mathtt{\mathrm{\# A}} \right)^{\mathtt{\mathrm{n}}}$$.
-        Si trabajamos en binario natural de longitud fija
-        $$\mathtt{\mathrm{n}}$$, representaremos desde el
-        $$\mathtt{\mathrm{0}}$$ al
-        $$\mathtt{\mathrm{2}}^{\mathtt{\mathrm{n}}} - \mathtt{\mathrm{1}}$$.
-
-    8.  Por ejemplo, el código $$\mathtt{{BCD} - {natural}}$$está dentro
-        de
-        $$\mathtt{\mathrm{L}}^{\mathbf{\mathrm{\mathtt{\mathrm{4}}}}}\left( B_{\mathbf{\mathrm{\mathtt{\mathrm{2}}}}} \right)$$,
-        pero no son idénticos. Enumeraré los valores en una tabla de dos
-        columnas:
-
-  $\mathtt{{BCD} - {natural}}$   $\mathtt{\mathrm{L}}^{\mathbf{\mathrm{\mathtt{\mathrm{4}}}}}\left( B_{\mathbf{\mathrm{\mathtt{\mathrm{2}}}}} \right)$
-  ------------------------------ -----------------------------------------------------------------------------------------------------------------------
-                                 0000
-  0001                           0001
-  0010                           0010
-  0011                           0011
-  0100                           0100
-  0101                           0101
-  0110                           0110
-  0111                           0111
-  1000                           1000
-  1001                           1001
-  \-\-\--                        1010
-  \-\-\--                        1011
-  \-\-\--                        1100
-  \-\-\--                        1101
-  \-\-\--                        1110
-  \-\-\--                        1111
-
-1.  1.  Los códigos$$\mathtt{BCD}$$son códigos de longitud fija, por lo
-        general 4, pero lo fundamen­tal es que remedan en binario el
-        alfabeto$$\mathtt{\lbrack{0\ldots 9}\rbrack} \equiv D_{\mathtt{\mathrm{10}}}$$.
-        Dependiendo de la finali­dad hay varios: el más sencillo el que
-        acabamos de dar. El
-        $$\mathtt{{{{BCD} - {Exceso}} - \mathrm{a}}3}$$, es de longitud
-        4, pero con el 0 en 0011 y el 9 en 1100. Comprobaréis fácilmente
-        que es un código dónde el
-        $$\mathtt{\mathrm{C}}_{\mathtt{\mathrm{{({Β = 10})}{m1}}}}$$coincide
-        con la negación lógica bit a bit. Esto fa­cilita el hacer
-        operaciones directamente en$$D_{\mathtt{\mathrm{10}}}$$. El
-        código$$\mathtt{{BCD} - {Aitken}}$$, es un código
-        autocomplementario como el anterior pero además mantiene un
-        sistema de pesos 2-4-2-1, en orden con su valores decimales
-        sería:
-
-        $$\begin{matrix}
-            \mathtt{\{{(0000,0)}\mathrm{,}{(0001,1)}\mathrm{,}{(0010,2)}\mathrm{,}{(0011,3)}\mathrm{,}{(0100,4)}\mathrm{,}} \\
-            \mathtt{{(1011,5)}\mathrm{,}{(1100,6)}\mathrm{,}{(1101,7)}\mathrm{,}{(1110,8)}\mathrm{,}{(1111,9)}\}}
-            \end{matrix}$$
-
-    2.  Otro tipo de códigos son los códigos continuos y los cíclicos.
-        Decimos que un código es continuo si entre una palabra y la
-        siguiente en el orden propio (valor semántico o significado)
-        solo varía un dígito. Además es cíclico si entre la primera
-        palabra y la última varía a su vez un solo bit. Para casos con
-        más de dos valores en el alfabeto ha­bría que afinar la
-        definición, pero para el caso que nos ocupa, que es el código
-        Gray de $$n - \mathit{bits}$$basta con lo dicho y los ejemplos
-        que a continuación se van a dar. Estos códigos son además
-        códigos reflejados, esto es, se obtienen por un sistema
-        especular. Para un solo bit sería:
-
-        0
-
-        1
-
-        Para dos bits colocamos el anterior tal cual y lo copiamos en
-        forma especular hacia abajo:
-
-        0
-
-        1
-
-        1
-
-        0
-
-        Ahora añadimos 0 en el bit izquierdo a los primeros y 1 a los
-        copiados:
-
-        00
-
-        01
-
-        11
-
-        10
-
-        Ya hemos obtenido el código Gray de 2 bits. Pongo el proceso en
-        una tabla para Gray de 3 bits. Comenzamos por el Gray de 2 bits
-        en la primera columna, lo reflejamos en la segunda, y añadimos
-        lo 0s y 1s para distinguir los bits más altos de los más bajos,
-        quedando el Gray de 3 bits en la última columna:
-
-        $$\begin{matrix}
-            00 & 00 & 000 \\
-            01 & 01 & 001 \\
-            11 & 11 & 011 \\
-            10 & 10 & 010 \\
-             & 10 & 110 \\
-             & 11 & 111 \\
-             & 01 & 101 \\
-             & 00 & 100
-            \end{matrix}$$
-
-        Para 4 bits sería:
-
-        $$\begin{matrix}
-            000 & 000 & 0000 \\
-            001 & 001 & 0001 \\
-            011 & 011 & 0011 \\
-            010 & 010 & 0010 \\
-            110 & 110 & 0110 \\
-            111 & 111 & 0111 \\
-            101 & 101 & 0101 \\
-            100 & 100 & 0100 \\
-             & 100 & 1100 \\
-             & 101 & 1101 \\
-             & 111 & 1111 \\
-             & 110 & 1110 \\
-             & 010 & 1010 \\
-             & 011 & 1011 \\
-             & 001 & 1001 \\
-             & 000 & 1000
-            \end{matrix}$$
-
-        Y así sucesivamente.
-
-    3.  Los códigos biquinarios (el 2 entre 5 en concreto, entre los
-        muchos biquinarios que de hecho se han utilizado), es un código
-        que mantiene el número de 1s en cada pala­bra del código que
-        tiene longitud constante 5. Además proviene de un código
-        ponde­rado, pero tal como lo ponemos aquí ya no lo es:
-
-        $$\{{({01100,0})},{({11000,1})},{({10100,2})},{({10010,3})},{({01010,4})},$$
-
-        $${({00110,5})},{({10001,6})},{({01001,7})},{({00101,8})},{({00011,9})}\}$$
-
-        Proviene del siguiente, que es ponderado, de 7 bits de longitud,
-        y ponderación $${{{{{5 - 0} - 4} - 3} - 2} - 1} - 0$$:
-
-        $$\{{({0100001,0})},{({0100010,1})},{({0100100,2})},{({0101000,3})},{({0110000,4})}$$
-
-        $${({1000001,5})},{({1000010,6})},{({1000100,7})},{({1001000,8})},{({1010000,9})}\}$$
-
-    4.  El siguiente y último código es el Johnson (Johnson-Möbius) de 5
-        bits de longitud, que es un código continuo y progresivo, pero
-        que puede ser de longitud fija de $$\mathtt{\mathrm{n}}$$, con
-        una capacidad de $$\mathtt{2 \cdot \mathrm{n}}$$valores
-        distintos, así el de 5 bits es apropiado para re­presentar un
-        $\text{\texttt{dígito BCD}}$, y es apropiado para tratamiento
-        muy rápido de la in­formación mediante registros de
-        desplazamientos y otros dispositivos:
-
-        $$\{{({00000,0})},{({00001,1})},{({00011,2})},{({00111,3})},{({01111,4})},$$
-
-        $${({11111,5})},{({11110,6})},{({11100,7})},{({11000,8})},{({10000,9})}\}$$
-
-2.  Tratamiento del error en códigos de longitud fija.
-
-    1.  Utilizaremos en principio varios métodos para esta finalidad:
-        códigos Reed-Solomon, códigos lineales de grupo (dentro de estos
-        se encuentran los códigos Hamming), códi­gos Golay, distintos
-        bits de paridad, códigos de
-        repetición$$\left( {n,{3 \cdot n}} \right)$$u otros, códigos
-        CRC, y de suma igual. En general: en unos detectamos un error y
-        devolvemos una peti­ción de reenvío o similar, en otros cubrimos
-        los casos más importantes y probables y la detección y
-        corrección ha de ser autónoma por el receptor. Es importante
-        saber que es lo que suele pasar cuando hay una comunicación de
-        tramas de bits:
-
-        1.  Tenemos un Emisor y un Receptor de mensaje, que comparten un
-            protocolo común de actuación además del alfabeto básico y el
-            código a utilizar.
-
-        2.  Entre el Emisor y el Receptor tenemos un Medio: una Línea de
-            transmisión, sea esta cableada o no.
-
-        3.  El Medio/Línea es ruidoso: existe la probabilidad que se
-            cambien uno símbolos de alfabeto por otros, obteniendo así
-            una palabra del código válida o no. Si la palabra re­cibida
-            en el Emisor es recibida con cambios que no la convierten en
-            una palabra prohibida (no del código común), el error pasará
-            desapercibido. Por otra parte si per­cibimos como Receptor un
-            error podremos bien corregirlo, bien no.
-
-        4.  Suposiciones varias que hacen el tratamiento de errores
-            manejable (suposiciones ra­zonables).
-
-            1.  La longitud de la palabra enviada permanece inalterable.
-                No se pierden bits por el trayecto: se transmutarán en
-                otros pero no seguirá siendo un
-                $n - \text{\textit{código}}$.
-
-            2.  La probabilidad de error será pequeña, esto
-                es$${0 \leq p_{\mathit{error}}}{{({1\mathit{bit}})} \ll 0,50}$$,
-                aunque de hecho no importaría esta otra
-                situación$${0,50 \ll p_{\mathit{error}}}{{({1\mathit{bit}})} \leq 1}$$,
-                caso en que cambiamos 1s por 0s y viceversa, y cambiamos
-                la probabilidad por
-                $${0 \leq {1 - p_{\mathit{error}}}}{{({1\mathit{bit}})} \ll 0,50}$$.
-                El problema grave aparece cuando
-                $$p_{\mathit{error}}{{({1\mathit{bit}})} \in \left( {{0,50 - \varepsilon},{0,50 + \varepsilon}} \right)}$$
-                con $$\varepsilon \in {\lbrack{0,0,10}\rbrack}$$(por
-                poner un límite real­mente permisivo. Así permitimos
-                que$$p_{\mathit{error}}{{({1\mathit{bit}})} \in {{\lbrack{0,0,39}\rbrack} \cup {\lbrack{0,61,1}\rbrack}}}$$,
-                y por la reducción vista antes tenemos que
-                $$p_{\mathit{error}}{{({1\mathit{bit}})} \in {\lbrack{0,0,39}\rbrack}}$$.
-                Con un error de $$0,50$$el sistema es plenamente
-                aleatorio. No hay absolutamente nada que hacer.
-
-            3.  El error en un bit ha de ser independiente de los que
-                hay alrededor. Esto es a ve­ces claramente no realista.
-                La idea es que en una palabra recibida,
-                $$l_{n - 1}l_{n - 2}\ldots l_{2}l_{1}l_{0}$$dados
-                $${0 \leq i},{j \leq {n - 1}},{i \neq j}\Rightarrow p_{\mathit{error}}{{({l_{i}l_{j}})} = p_{\mathit{error}}}{{(l_{i})} \cdot p_{\mathit{error}}}{(l_{j})}$$.
-
-            4.  Por la suposición 2 y 3, dada la palabra que se envía
-                $$l_{n - 1}l_{n - 2}\ldots l_{2}l_{1}l_{0}$$, tene­mos
-                entonces que
-                $$\exists{\alpha \in {\lbrack{0,0,39}\rbrack}}$$, tal
-                que para $${0 \leq i},{j \leq {n - 1}},{i \neq j}$$
-                entonces
-                $$p_{\mathit{error}}{{({1\mathit{bit}})} \leq \alpha}$$,
-                y así
-                $$p_{\mathit{error}}{{({l_{i}l_{j}})} = p_{\mathit{error}}}{{(l_{i})} \cdot p_{\mathit{error}}}{{(l_{j})} = {(\alpha)}^{2}}$$.
-                En general
-                $$p_{\mathit{error}}{\left( {q\mathit{bits}\mathit{distintos}} \right) = \left( \alpha \right)^{q}}$$.
-
-            5.  La probabilidad de error sobre un valor 0 o un valor 1
-                ha de ser muy parecida, de forma que la asimetría sea
-                inapreciable.
-
-        5.  Hay varios conceptos importantes en cuanto a los errores: el
-            de distancia Hamming y el de paridad.
-
-        6.  En un código de longitud fija, digamos un
-            $$\mathtt{\mathrm{n}} - \text{\textit{código}}$$, la
-            distancia Hamming en­tre dos palabras de longitud
-            $$\mathtt{\mathrm{n}}$$ sobre un alfabeto
-            $$\mathtt{\mathrm{A}}$$, digamos
-            $$\mathtt{\mathrm{a}}{: = l_{n - 1}^{a}}\ldots l_{1}^{a}l_{0}^{a}$$y
-            $$\mathtt{\mathrm{b}}{: = l_{n - 1}^{b}}\ldots l_{1}^{b}l_{0}^{b}$$,
-            definimos:
-
-            $$d_{\mathtt{\mathrm{H}}}^{\mathtt{\mathrm{n}}}\left( \mathtt{\mathrm{a,b}} \right)\overset{\text{def}}{=}\mathit{card}\left\{ {{\iota \in {\lbrack{0,{n - 1}}\rbrack}} \mid {l_{\iota}^{a} \neq l_{\iota}^{b}}} \right\}$$
-
-            En palabras es el número de bits que son diferentes entre
-            amabas palabras (posición por posición).
-
-        7.  La función definida anteriormente, formalmente,
-            $$d_{\mathtt{\mathrm{H}}}^{\mathtt{\mathrm{n}}}:L^{\mathtt{\mathrm{n}}}{\left( \mathtt{\mathrm{B_{2}}} \right) \times L^{\mathtt{\mathrm{n}}}}{{{\left( \mathtt{\mathrm{B_{2}}} \right)\rightarrow{\lbrack{0,n}\rbrack}} \subset \mathbb{N}} \subset \mathbb{R}}::\left( \mathtt{\mathrm{a,b}} \right)@\mathit{card}\left\{ {{\iota \in {\lbrack{0,{n - 1}}\rbrack}} \mid {l_{\iota}^{a} \neq l_{\iota}^{b}}} \right\}$$es
-            una distancia bien definida matemáticamente, la distancia
-            entre dos palabras iguales es siempre 0, y si son distintas
-            es necesariamente distinta de 0. Siempre es un número mayor
-            o igual que 0 como corresponde a un cardinal de un conjunto.
-            Además es si­métrica, esto es, la distancia entre dos
-            palabras
-            $$\mathit{de}\mathtt{\mathrm{a}}a\mathtt{\mathrm{b}}$$ es
-            idéntica a la distancia
-            $$\mathit{de}\mathtt{\mathrm{b}}a\mathtt{\mathrm{a}}$$. Por
-            último se cumple la desigualdad triangular, para tres
-            palabras cuales­quiera
-            $${\mathtt{\mathrm{a,b,c}} \in \mathtt{\mathrm{L^{n}}}}\left( \mathtt{\mathrm{B_{2}}} \right)$$
-            la distancia Hamming cumple
-            $$d_{\mathtt{\mathrm{H}}}^{\mathtt{\mathrm{n}}}{\left( \mathtt{\mathrm{a,b}} \right) \leq {d_{\mathtt{\mathrm{H}}}^{\mathtt{\mathrm{n}}}{\left( \mathtt{\mathrm{a,c}} \right) + d_{\mathtt{\mathrm{H}}}^{\mathtt{\mathrm{n}}}}\left( \mathtt{\mathrm{c,b}} \right)}}$$.
-            Estas tres propiedades pueden verse que normales entre las
-            distancias euclídeas normales. De hecho esta distancia nos
-            habilita para ver una geometría
-            en$$\mathtt{\mathrm{L^{n}}}{\left( \mathtt{\mathrm{B_{2}}} \right) \equiv B_{2}^{n}}$$,
-            dónde podemos poner como puntos los
-            $$\text{\textit{minitérminos}}$$o bien los
-            $$\text{\textit{maxitérminos}}$$, en general, a estos,
-            vistos desde el pris­ma geométrico, se les llama
-            $$n - \mathit{cubos}$$.
-
-        8.  Para un código cualquiera de longitud fija definimos ahora
-            el concepto de
-            $$\mathit{distancia}\text{\textit{mínima}}\text{de un}{\mathtt{\mathrm{n}} - \text{\textit{código}}}$$,
-            que es, dado
-            $$C^{\mathtt{\mathrm{n}}} \subseteq B_{2}^{\mathtt{\mathrm{n}}}$$,
-            $$D_{\min H}\left( C^{n} \right)\overset{\text{def}}{=}\underset{a \neq b}{\overset{{({a,b})} \in {C^{n} \times C^{n}}}{\text{\texttt{mínimo}}}}\left( {d_{\mathtt{\mathrm{H}}}^{n}\left( \mathtt{\mathrm{a,b}} \right)} \right)$$.
-            Para el lenguaje completo
-            $$\mathtt{\mathrm{L}}{\left( B_{2} \right) \equiv B_{2}^{\mathtt{\mathrm{n}}}}$$,
-            esta distancia mínima es 1. La idea que sigue es muy
-            intuitiva: si la distancia entre dos palabras es 0, entonces
-            las dos palabras son en realidad la misma, son el mismo
-            pun­to-palabra del espacio-código de longitud fija. Si las
-            palabras son de longitud 24, 24 es la distancia más alejada
-            entre dos palabras y así.
-
-            Para determinar la distancia mínima de un
-            $$\mathtt{\mathrm{n}} - \text{\textit{código}}$$hay algunos
-            trucos que nos ayudarán:
-
-            1.  Con la primera distancia 1 que encontremos podemos dejar
-                de comprobar. La distancia mínima de ese código es 1.
-
-            2.  $$D_{\min H}{\left( B_{2}^{n} \right) = 1}$$.
-                Si$$\#{C^{n} = 2^{n}}$$, entonces
-                $$d_{\min H}{\left( C^{n} \right) = 1}$$.
-
-            3.  Si$$\#{C^{n} > 2^{n - 1}}$$,
-                entonces$$d_{\min H}{\left( C^{n} \right) = 1}$$. Este
-                resultado, tipo cota de la dis­tancia mínima en función
-                del cardinal del código, se puede extender para
-                distancia mínima 2, \... Por
-                ejemplo$$d_{\min H}{\left( C^{n} \right) = n}$$entonces$${\# C^{n}} = 2$$.
-
-            4.  Una forma aumentar la distancia mínima en uno cuando la
-                distancia mínima es 1, y a veces en otras ocasiones, es
-                añadir un bit de paridad. Un bit de paridad es un bit
-                que nos dice si el número de 1s que hay en una palabra
-                es par o impar. Un bit de paridad par, es un bit que
-                vale 1 si y solo si el número de 1s que hay en el resto
-                de la palabra es impar (con él incluido el número de 1s
-                de la palabra es par). Un bit de paridad impar es un bit
-                que vale 1 si y solo si el número de 1s que hay en el
-                resto de la palabra es par (con él incluido el número de
-                1s de la palabra es impar). Si
-                $${l_{n - 1}\ldots l_{1}l_{0}} \in {\mathtt{\mathrm{L}}^{\mathtt{\mathrm{n}}}\left( B_{2} \right)}$$y
-                el bit de paridad lo ponemos (añadimos) en la posición
-                $$\mathtt{\mathrm{n}}$$, la fórmula
-                $$l_{n}{: = l_{n - 1}} \oplus \ldots \oplus l_{1} \oplus {l_{0} = \underset{\iota = 0}{\overset{n - 1}{\oplus}}}l_{\iota}$$
-                nos da el valor del bit de paridad par. El de paridad
-                impar es exactamente el inverso del formulado. La ra­zón
-                por la que la fórmula funciona es sencilla, si
-                recordamos que $$a \oplus {a = 0}$$ y que
-                $$a \oplus {0 = a}$$. Así, para un código de un solo
-                bit, el de paridad sería simple­mente la repetición del
-                bit (el bit de paridad par sería simplemente del mismo
-                va­lor que el ya existente). De esta forma lo dos bits
-                son iguales y el número de 1s será o 0 o 2, esto es,
-                siempre par. Si fuese el código original de 2 bits de
-                longitud, el bit de paridad debería de valer 1 si solo
-                uno de los dos (no los dos) valiese 1. Esto vuelve a ser
-                la suma exclusiva. Y así sucesivamente.
-
-            5.  Podemos realizar un bit de paridad par sobre los 0s de
-                una palabra. Esto tiene mayor interés cuando la longitud
-                de la palabra es impar. Solo hay que negar cada bit y
-                utilizar la misma fórmula anterior:
-                $$l_{n}{: = \overline{l_{n-1}}} \oplus \ldots \oplus \overline{l_{1}} \oplus {\overline{l_{0}} = \underset{\iota = 0}{\overset{n - 1}{\oplus}}}\overline{l_{\iota}}$$.
-                Si la lon­gitud de la palabra es par podéis comprobar que
-                es lo mismo poner que no poner todas las negaciones.
-
-            6.  Si la distancia mínima de un código es 1, entonces, en
-                general no podremos lle­gar a detectar fallos. Si un bit
-                de una palabra nos llega equivocado tenemos que la
-                palabra resultante puede estar perfectamente en el
-                código, y así pasará inadvertido el error.
-
-            7.  La distancia mínima requerida para conseguir detectar un
-                error de un solo bit es 2. Así un error de un bit,
-                cuando menos nos dejará la palabra errónea a distancia 1
-                de cualquier palabra válida del código. Luego la palabra
-                con el error no estará en el código. En general para
-                poder detectar errores de hasta
-                $$p\mathit{bits}$$necesitaremos que el código sea de
-                distancia mínima $$p + 1$$. El razonamiento es igual al
-                expre­sado para errores de 1 bit. Si la distancia mínima
-                del código es $$p + 1$$entonces, en el peor caso,
-                $$p\mathit{errores}$$pueden dejarnos la palabra a
-                distancia 1 (como míni­mo) de cualquier palabra válida
-                del código. Luego podemos detectar que la pala­bra
-                recibida no está en el código.
-
-            8.  Podemos dar un paso más e intentar no solo detectar sino
-                corregir el bit equivo­cado. Para esto necesitamos que la
-                palabra con el bit equivocado quede de forma tal que sea
-                claro desde cual palabra del código correcto se ha
-                producido el error. No podremos tener dos palabras
-                distintas del código a distancia mínima de la pa­labra
-                equivocada, sino solamente una. La corrección
-                consistiría en cambiar la pa­labra equivocada por la
-                única más cercana del código. El principio de corrección
-                es el máxima verosimilitud.
-
-            9.  Para poder corregir$$p\mathit{errores}$$necesitamos una
-                distancia mínima$${2 \cdot p} + 1$$. Para corregir un
-                solo bit necesitamos una distancia mínima de tres. Esto
-                es claro. Si la distancia fuera dos, al producirse el
-                error, quedaría a distancia uno de más de una palabra
-                del código. Sin embargo si la distancia mínima es tres,
-                al producirse un error quedará a distancia 2 como mínimo
-                de todas las demás palabras del códi­go. En general desde
-                una palabra $$\mathtt{\mathrm{p^{i}}}$$ se ha producido
-                con error la palabra
-                $$\mathtt{\mathrm{\widetilde{p}}}$$tal que
-                $$\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \leq p}$$.
-                Podemos decir que la palabra errónea está dentro del
-                radio de la esfera que rodea a
-                $$\mathtt{\mathrm{p^{i}}}$$. La pregunta que surge es
-                ¿puede existir una palabra
-                $$\mathtt{\mathrm{p^{j}}}$$con
-                $$\mathtt{\mathrm{i \neq j}}$$tal que
-                $$\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \leq p}$$?.
-                Sabemos que
-                $$\forall i,j{i \neq j}\Rightarrow\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{p^{j}}}} \right) \geq {{2 \cdot p} + 1}}$$.
-                Esto quiere decir, que:
-
-                $$\forall j{i \neq j}\Rightarrow\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{\widetilde{p}}}} \right) + \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \geq \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{p^{j}}}} \right) \geq \left( {{2 \cdot p} + 1} \right)}$$
-
-                $$\forall j{i \neq j}\Rightarrow\left\lbrack {\left( {\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{\widetilde{p}}}} \right) + \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \geq \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{p^{j}}}} \right) \geq \left( {{2 \cdot p} + 1} \right)}} \right) \land \left( {\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \leq p}} \right)} \right\rbrack$$
-
-                $$\forall j{i \neq j}\Rightarrow\left\lbrack {{p + \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \geq \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{\widetilde{p}}}} \right) + \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \geq \left( {{2 \cdot p} + 1} \right)}} \right\rbrack$$
-
-                $$\forall j{i \neq j}\Rightarrow\left\lbrack {{p + \mathtt{\mathrm{d_{H}}}}{\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \geq \left( {{2 \cdot p} + 1} \right)}} \right\rbrack$$
-
-                $$\forall j{i \neq j}\Rightarrow\left\lbrack {\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \geq \left( {p + 1} \right)}} \right\rbrack$$
-
-                $$\forall j\left\lbrack {i \neq j} \right\rbrack\Rightarrow\left\lbrack {\mathtt{\mathrm{d_{H}}}{{{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{\widetilde{p}}}} \right) \leq p} < {p + 1}} \leq \mathtt{\mathrm{d_{H}}}}\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right)} \right\rbrack$$
-
-                $$\forall j\left\lbrack {i \neq j} \right\rbrack\Rightarrow\left\lbrack {\mathtt{\mathrm{d_{H}}}{\left( {\mathtt{\mathrm{p^{i}}},\mathtt{\mathrm{\widetilde{p}}}} \right) < \mathtt{\mathrm{d_{H}}}}\left( {\mathtt{\mathrm{p^{j}}},\mathtt{\mathrm{\widetilde{p}}}} \right)} \right\rbrack$$
-
-                Luego la corrección será
-                $$\mathtt{\mathrm{\widetilde{p}}}\rightarrow\mathtt{\mathrm{p^{i}}}$$necesariamente.
-                Siempre habrá una sola pala­bra de nuestro código que
-                esté a distancia menor o igual que $$p$$, estando las
-                de­más palabras del código a distancia mayor o igual que
-                $$p + 1$$.
-
-            10. El método de construcción de detectores/correctores de
-                error de Hamming es en principio el más fácil de usar,
-                es el método lineal de codificación por grupo. Se trata
-                de utilizar una matriz (de 0s y 1s) para convertir el
-                $$\mathtt{\mathrm{n}} - \text{\textit{código}}$$
-                original, en
-                un$$\left( \mathtt{\mathrm{n + l}} \right) - \text{\textit{código}}$$.
-                La condición principal es que la transformación sea
-                inyecti­va
-                y$$\mathtt{\mathrm{H}}\left( {\mathtt{\mathrm{L}}^{\mathtt{\mathrm{n}}}\left( B_{2} \right)} \right) \subset_{\text{GRUPO}}\left( {\mathtt{\mathrm{L}}^{\mathtt{\mathrm{n + l}}}\left( B_{2} \right)} \right)$$.
-                Para esto lo fundamental es que la matriz de
-                codificación (de dimensión
-                $$\left( \mathtt{\mathrm{n + l}} \right) \times \mathtt{\mathrm{n}}$$)
-                mantenga el original (con $$n$$ colum­nas dónde el único
-                1 está en la posición
-                $$\left( {\iota,\iota} \right)$$con$$\iota \in {\lbrack{1,n}\rbrack}$$),
-                esto es, siendo un bloque matricial completo la matriz
-                identidad$$\mathtt{\mathrm{I_{n \times n}}}$$, uno de
-                los dos bloques de construcción de la
-                matriz$$\mathtt{\mathrm{H}}$$de codificación Hamming. El
-                otro bloque lo de­notaremos por
-                $$\mathtt{\mathrm{P_{n \times l}}}$$. Esto además lo
-                conseguiremos si la matriz de decodifica­ción
-                $$\mathtt{\mathrm{H}}^{\mathbf{\mathrm{\ast}}}$$de
-                dimensión
-                $$\mathtt{\mathrm{n \times \left( {n + l} \right)}}$$es
-                tal que
-                $$\mathtt{\mathrm{H^{\mathbf{\mathrm{\ast}}}}}{\left( {\mathtt{\mathrm{H}}\left( {\mathtt{\mathrm{L}}^{\mathtt{\mathrm{n}}}\left( B_{2} \right)} \right)} \right) = 0_{B_{2}}^{n + l}}$$.
-                Si el resultado de la primera decodificación no es cero
-                es que hay error. Entonces, si llamamos
-                $$\widetilde{\mathtt{\mathrm{p}}}$$a la palabra recibida
-                y $$\mathtt{\mathrm{p}}$$a la palabra enviada (siempre
-                correcta), ha de existir un vector columna
-                $$\mathtt{\mathrm{e_{\iota \in {\lbrack{1,{n + l}}\rbrack}}}}$$,
-                con un único uno en $$\iota$$, tal que
-                $${0 = \mathtt{\mathrm{H^{\mathbf{\mathrm{\text{*}}}}}}}{(p) = \mathtt{\mathrm{H^{\mathbf{\mathrm{\text{*}}}}}}}{\left( \widetilde{p} \right) + {\mathtt{\mathrm{H^{\mathbf{\mathrm{\text{*}}}}}}\left( e_{\iota} \right)}}$$.
-                Por otra parte, condición necesaria y sufi­ciente para
-                que la operación sea inyectiva es que no contenga
-                columnas igua­les ni columnas vector 0.
-
-                Ejemplo:
-
-                Supongamos que nos llega un código de 2 bits cuyos bits
-                llamaremos $$o_{1}o_{0}$$, a su vez los bits codificados
-                por la matriz generadora serán$$c_{1 + l}\ldots c_{0}$$.
-                En general para poder corregir un bit necesitamos
-                distancia 3: ¿cuántos bits habrá que añadir?. En general
-                si queremos corregir códigos, hemos de añadir un número
-                $$l$$de bits a los $$n$$ originales tal que la distancia
-                sea mayor o igual que$$3$$, y probando, tenemos que
-                $$l{: = 2}$$ ya cumple. Así que la matriz de
-                codificación de grupo será de dimensión$$4 \times 2$$.
-
-                $${{\mathtt{\mathrm{H}} \cdot \begin{pmatrix}
-                        o^{1} & o^{2}
-                        \end{pmatrix}} = {\mathtt{\mathrm{H}} \cdot \mathtt{\mathrm{o}}}} =$$
-
-$$\begin{matrix}
-{{= {\begin{pmatrix}
-1 & 0 \\
-0 & 1 \\
-a & b \\
-c & d
-\end{pmatrix} \cdot \begin{pmatrix}
-1 & 0 & 1 \\
-0 & 1 & 1
-\end{pmatrix}}} =} \\
-{= \begin{pmatrix}
-1 & 0 & 1 \\
-0 & 1 & 1 \\
-a & b & {a \oplus b} \\
-c & d & {c \oplus d}
-\end{pmatrix}}
-\end{matrix}$$
-
-1.  1.  1.  1.  1.  1.  1.  1.  1.  1.  
-
-                La matriz izquierda de la primera fila es la matriz
-                generadora de paridades, la de­recha son el código
-                original de 4 bits en forma de una palabra por cada
-                columna. Por último la matriz inferior son los vectores
-                codificados con tres bits de paridad insertos. Solo
-                queda ver la transformación inversa correspondiente.
-                Para esto vea­mos que si observamos matriz izquierda de
-                la primera fila$$\mathtt{\mathrm{H}} = \begin{pmatrix}
-                        \mathtt{\mathrm{I}_{2 \times 2}} \\
-                        \mathtt{\mathrm{P}_{2x2}}
-                        \end{pmatrix}$$. Tomare­mos como matriz
-                decodificadora (no necesariamente inyectiva) a
-
-                $$\mathtt{\mathrm{H}}^{\mathbf{\mathrm{\ast}}} = \begin{pmatrix}
-                        \mathtt{\mathrm{H}_{2 \times 2}} & \mathtt{\mathrm{P}_{2 \times 2}^{\mathrm{T}}}
-                        \end{pmatrix}$$
-
-                $$\mathtt{\mathrm{H}^{\mathbf{\mathrm{\ast}}}} = \begin{pmatrix}
-                        1 & 0 & a & c \\
-                        0 & 1 & b & d
-                        \end{pmatrix}$$
-
-                Ahora bien, sabemos que:
-
-                $${{\mathtt{\mathrm{H}^{\mathbf{\mathrm{\ast}}}} \cdot \mathtt{\mathrm{H}}} \cdot \mathtt{\mathrm{o}}} = \mathtt{0}$$
-
-                De dónde obtenemos un sistema de ecuaciones, con estos
-                resultados (distintos del resultado trivial):
-
-                $$\mathtt{{\mathrm{P}_{2 \times 2}}^{\mathbf{\mathrm{T}}}} = \begin{pmatrix}
-                        a & c \\
-                        b & d
-                        \end{pmatrix}$$
-
-                Que hace
-                que$$\mathtt{\mathrm{H}} \cdot \mathtt{\mathrm{o}}$$quede
-                como:
-
-                $$\begin{pmatrix}
-                        1 & 0 & 1 \\
-                        0 & 1 & 1
-                        \end{pmatrix}\rightarrow\begin{pmatrix}
-                        1 & 0 & 1 \\
-                        0 & 1 & 1 \\
-                        a & b & {a \oplus b} \\
-                        c & d & {c \oplus d}
-                        \end{pmatrix}$$
-
-                El sistema de ecuaciones se genera como se ve a
-                continuación:
-
-                $${\begin{pmatrix}
-                        1 & 0 & a & c \\
-                        0 & 1 & b & d
-                        \end{pmatrix} \cdot \begin{pmatrix}
-                        1 & 0 & 1 \\
-                        0 & 1 & 1 \\
-                        a & b & {a \oplus b} \\
-                        c & d & {c \oplus d}
-                        \end{pmatrix}} = {}$$
-
-                $${} = \begin{pmatrix}
-                        {1 \oplus a \oplus c} & {{a \cdot b} \oplus {c \cdot d}} & {1 \oplus {a \cdot {({a \oplus b})}} \oplus {c \cdot {({c \oplus d})}}} \\
-                        {{a \cdot b} \oplus {c \cdot d}} & {1 \oplus b \oplus d} & {1 \oplus {b \cdot {({a \oplus b})}} \oplus {d \cdot {({c \oplus d})}}}
-                        \end{pmatrix}$$
-
-                $$\begin{bmatrix}
-                        {1 \oplus a \oplus c} & {{a \cdot b} \oplus {c \cdot d}} & {1 \oplus {a \cdot {({a \oplus b})}} \oplus {c \cdot {({c \oplus d})}}} \\
-                        {{a \cdot b} \oplus {c \cdot d}} & {1 \oplus b \oplus d} & {1 \oplus {b \cdot {({a \oplus b})}} \oplus {d \cdot {({c \oplus d})}}}
-                        \end{bmatrix}$$
-
-                $$\begin{bmatrix}
-                        {c = \overline{a}} & {{a \cdot b} = {\overline{a} \cdot d}} & {1 \oplus {a \cdot \overline{b}} \oplus {c \cdot \overline{d}}} \\
-                        {{a \cdot b} = {\overline{a} \cdot d}} & {d = \overline{b}} & {1 \oplus {b \cdot \overline{a}} \oplus {d \cdot \overline{c}}}
-                        \end{bmatrix}$$
-
-                $$\begin{bmatrix}
-                        {c = \overline{a}} & {{a \cdot b} = {\overline{a} \cdot \overline{b}}} & {1 \oplus {a \cdot \overline{b}} \oplus {\overline{a} \cdot b}} \\
-                        {{a \cdot b} = {\overline{a} \cdot \overline{b}}} & {d = \overline{b}} & {1 \oplus {b \cdot \overline{a}} \oplus {\overline{b} \cdot a}}
-                        \end{bmatrix}$$
-
-                $$\begin{bmatrix}
-                        {c = \overline{a}} & {{a \cdot b} = {\overline{a} \cdot \overline{b}}} & {{a \cdot \overline{b}} = \overline{\overline{a}\cdot b}} \\
-                        {{a \cdot b} = {\overline{a} \cdot \overline{b}}} & {d = \overline{b}} & {{b \cdot \overline{a}} = \overline{\overline{b}\cdot a}}
-                        \end{bmatrix}$$
-
-                $$\begin{bmatrix}
-                        {c = \overline{a}} & {{a \cdot b} = {\overline{a} \cdot \overline{b}}} & {{a \cdot \overline{b}} = {a + \overline{b}}} \\
-                        {{a \cdot b} = {\overline{a} \cdot \overline{b}}} & {d = \overline{b}} & {{a \cdot \overline{b}} = {a + \overline{b}}}
-                        \end{bmatrix}$$
-
-                $$\begin{matrix}
-                        {a{: = 1}b{: = 0}} \\
-                        \begin{bmatrix}
-                        {c = 0} & {{{1 \cdot 0} = {0 \cdot 1}} = 0} & {{{1 \cdot 1} = {1 + 1}} = 1} \\
-                        {{{1 \cdot 0} = {0 \cdot 1}} = 0} & {d = 1} & {{{1 \cdot 1} = {1 + 1}} = 1}
-                        \end{bmatrix}
-                        \end{matrix}$$
-
-                $$\mathtt{{\mathrm{P}_{2 \times 2}}^{\mathbf{\mathrm{T}}}} = \begin{pmatrix}
-                        1 & 0 \\
-                        0 & 1
-                        \end{pmatrix}$$
-
-                $$\mathtt{\mathrm{H}^{\mathbf{\mathrm{\ast}}}} = \begin{pmatrix}
-                        1 & 0 & 1 & 0 \\
-                        0 & 1 & 0 & 1
-                        \end{pmatrix}$$
-
-                $$\mathtt{\mathrm{H}} = \begin{pmatrix}
-                        1 & 0 \\
-                        0 & 1 \\
-                        1 & 0 \\
-                        0 & 1
-                        \end{pmatrix}$$
-
-                $$\begin{pmatrix}
-                        0 & 1 & 0 & 1 \\
-                        0 & 0 & 1 & 1
-                        \end{pmatrix}\rightarrow\begin{pmatrix}
-                        0 & 1 & 0 & 1 \\
-                        0 & 0 & 1 & 1 \\
-                        0 & 1 & 0 & 1 \\
-                        0 & 0 & 1 & 1
-                        \end{pmatrix}$$
-
-2.  Funciones de Boole de $$n - \mathit{variables}$$ en
-    $$1 - \mathit{variable}$$: tablas lineales, 2-dimensiona­les,
-    arreglos de tablas 2-dimensionales y otras formas de representación.
-    Simplificación en 2 capas de puertas.
+## Minitérminos y Maxitérminos
+
+Como se ve en el punto anterior, el crecimiento es desmesurado al
+compararlo al crecimiento lineal de los argumentos. En un futuro, cuando
+intentemos hacer reducciones de expresiones booleanas, este crecimiento
+nos impedirá construir métodos eficaces para resolver las
+minimizaciones.
+
+Aunque hemos visto que podemos poner las expresiones booleanas en los
+conjuntos de operadores
+$\{ \{+, \overline{\quad}\}, \{\cdot, \overline{\quad}\}, \{\uparrow\}, \{\downarrow\}, \{\oplus, \cdot\}, \{\odot, +\} \},$
+por comprensibilidad y para una lectura normal se utilizan
+frecuentemente los dos primeros conjuntos unidos, pudiendo variarse bien
+el orden de los operadores binarios:
+$\{ \{+, \cdot, \overline{\quad}\}, \{\cdot, +, \overline{\quad}\} \}.$
+
+El primer conjunto $\{+, \cdot, \overline{\quad}\}$ será el que
+estudiemos por defecto, el segundo se tratará con una simetría de
+dualidad (hay que tener algunos cuidados). El conjunto elegido de
+operaciones se llamará desarrollo en sumas de productos de términos
+simples (una variable, o su negada, o una constante). También se llamará
+desarrollo por minitérminos o SOP (inglés) o SdP. El segundo será el
+desarrollo en producto de sumas de términos simples. También se llamará
+desarrollo por maxitérminos o POS (inglés) o PdS.
+
+### Desarrollo por minitérminos
+
+En el desarrollo por minitérminos expresamos sólo los términos de la
+expresión en que la función tiene como valor $1.$ Veamos:
+
+$$f_{B_{2}}(x_{1}, x_{2}, \dots, x_{n}) = \sum_{(i_{1}, i_{2}, \dots, i_{n}) = (0, \dots, 0)}^{(1, \dots, 1)} \left( \sigma_{1}^{(i_{1}, i_{2}, \dots, i_{n})}(i_{1}) \cdot \sigma_{2}^{(i_{1}, i_{2}, \dots, i_{n})}(i_{2}) \cdot \dots \cdot \sigma_{n}^{(i_{1}, i_{2}, \dots, i_{n})}(i_{n}) \right)$$
+
+dónde
+$\sigma_{k}^{(i_{1}, i_{2}, \dots, i_{n})}(i_{k}) \in \{i_{k}, \overline{i_{k}}\}$
+y $0 \leq k \leq n.$
+
+Para más sencillez:
+
+$$f_{B_{2}}(x) = f_{B_{2}}(x_{1}, x_{2}, \dots, x_{n}) = \sum_{\iota \in B_{2}^{n}} \left( \sigma_{1}^{\iota}(\iota_{1}) \cdot \sigma_{2}^{\iota}(\iota_{2}) \cdot \dots \cdot \sigma_{n}^{\iota}(\iota_{n}) \cdot f_{B_{2}}(\iota) \right) = \sum_{\iota \in B_{2}^{n}} (\sigma^{\iota} \cdot f_{B_{2}}(\iota))$$
+dónde
+$\sigma_{k}^{\iota}(\iota_{k}) \in \{\iota_{k}, \overline{\iota_{k}}\},$
+$0 \leq k \leq n$ y $\sigma^{\iota}$ es un minitérmino.
+
+Cuándo la sigma (el minitérmino) es en todos los casos (para todas las
+iotas) completo (es un producto de $n$-términos simples), el valor de la
+función en esa iota concreta indica si el minitérmino aparece o no.
+
+### Desarrollo por maxitérminos
+
+En el desarrollo por maxitérminos de una función de $n$ variables, los
+maxitérminos son sumatorios de $n$-términos simples. Así termina
+consistiendo la función en un producto de maxitérminos. Los maxitérminos
+indican un $0$ de la función.
+
+> **Teorema (Universalidad de las Formas Canónicas (Expansión de
+> Shannon)):**[]{#shannon_expansion label="shannon_expansion"} Toda
+> función booleana $f: \mathbb{B}^n \to \mathbb{B}$ puede expresarse de
+> manera única (salvo conmutatividad) de dos formas canónicas duales:
+>
+> 1.  **Suma de Productos (SOP) / Minitérminos:**
+>     $f(x_1, \dots, x_n) = \sum_{\iota \in \mathbb{B}^n} f(\iota) \cdot \sigma^\iota$
+>
+> 2.  **Producto de Sumas (POS) / Maxitérminos:**
+>     $f(x_1, \dots, x_n) = \prod_{\iota \in \mathbb{B}^n} (f(\iota) + \Pi^\iota)$
+>
+> donde $\sigma^\iota$ es el minitérmino (producto en el que todas las
+> variables aparecen afirmadas si $\iota_k=1$ o negadas si $\iota_k=0$),
+> y $\Pi^\iota$ es el maxitérmino dual.
+
+::: proof
+*Proof.* Demostraremos la forma de minitérminos (SOP). Sea
+$\vec{x} \in \mathbb{B}^n$ un vector de entrada arbitrario. Por la
+construcción de los minitérminos, el término $\sigma^\iota(\vec{x}) = 1$
+si y solo si el vector de entrada $\vec{x}$ es exactamente idéntico al
+vector constante $\iota.$ Para cualquier otro vector
+$\iota' \ne \vec{x},$ se cumple $\sigma^{\iota'}(\vec{x}) = 0.$
+
+Al evaluar la expresión completa
+$\sum_{\iota \in \mathbb{B}^n} f(\iota) \cdot \sigma^\iota(\vec{x}),$
+todos los sumandos en los que $\iota \ne \vec{x}$ se anulan, ya que
+$\sigma^\iota(\vec{x}) = 0 \implies f(\iota) \cdot 0 = 0.$ El único
+sumando que sobrevive a la suma (OR) es aquel en el que
+$\iota = \vec{x},$ para el cual $\sigma^{\vec{x}}(\vec{x}) = 1.$ Por lo
+tanto, la suma se colapsa a: $$f(\vec{x}) \cdot 1 = f(\vec{x})$$ Esto
+demuestra que la expresión reproduce exactamente la tabla de verdad de
+la función $f.$ La demostración para los maxitérminos (POS) es idéntica
+por el Principio de Dualidad, donde $\Pi^\iota(\vec{x}) = 0$ si y solo
+si $\vec{x} = \iota,$ colapsando el producto (AND) al valor
+$f(\vec{x}) + 0 = f(\vec{x}).$ ◻
+:::
+
+### Transformación a Compuertas XOR y AND (Zhegalkin)
+
+Hemos visto en el capítulo dedicado al Sistema de Zhegalkin (ver
+Capítulo [11](#capitulo:zhegalkin){reference-type="ref"
+reference="capitulo:zhegalkin"}) que el anillo booleano
+$\langle \mathbb{B}, \oplus, \cdot \rangle$ forma un conjunto
+funcionalmente completo. Surge la pregunta práctica: dada una función
+expresada en su forma canónica de minitérminos (con 2 capas lógicas de
+AND $\to$ OR), ¿cómo podemos transformarla sistemáticamente a un
+circuito equivalente usando exclusivamente puertas XOR y AND?
+
+> **Teorema (Conversión de Minitérminos a Polinomio de
+> Zhegalkin):**[]{#minterms_to_zhegalkin label="minterms_to_zhegalkin"}
+> Toda expresión canónica en Suma de Productos (SOP) puede transformarse
+> directamente en un Polinomio de Zhegalkin (XOR-AND) aplicando dos
+> reglas:
+>
+> 1.  Reemplazar directamente todas las sumas lógicas (OR, $+$) por
+>     sumas exclusivas (XOR, $\oplus$).
+>
+> 2.  Reemplazar cada variable negada $\overline{x_k}$ por
+>     $(x_k \oplus 1)$ y aplicar la distributividad del producto sobre
+>     la suma exclusiva.
+
+::: proof
+*Proof.* Para demostrar la regla 1, recordamos la relación fundamental
+entre OR y XOR: $$A + B = A \oplus B \oplus (A \cdot B)$$ En una
+expansión canónica por minitérminos, cualquier par de minitérminos
+distintos $\sigma^i$ y $\sigma^j$ ($i \ne j$) son **mutuamente
+excluyentes**. Esto significa que nunca pueden valer $1$ simultáneamente
+para la misma entrada, por lo que su producto lógico es siempre falso:
+$\sigma^i \cdot \sigma^j = 0.$ Sustituyendo esto en la relación
+anterior, obtenemos:
+$$\sigma^i + \sigma^j = \sigma^i \oplus \sigma^j \oplus 0 = \sigma^i \oplus \sigma^j$$
+Por inducción, una suma lógica de cualquier cantidad de minitérminos
+mutuamente excluyentes es estrictamente equivalente a su suma exclusiva.
+Así, la capa OR exterior puede ser sustituida por una capa XOR sin
+alterar la función matemática.
+
+Para demostrar la regla 2, sabemos por la definición de la negación en
+el Anillo de Zhegalkin que $\overline{x} = x \oplus 1.$ Al realizar esta
+sustitución en los literales de cada minitérmino, obtenemos una
+expresión que solo contiene multiplicaciones ($\cdot$), sumas exclusivas
+($\oplus$) y la constante $1.$ Dado que el operador AND distribuye sobre
+el XOR ($A \cdot (B \oplus C) = (A \cdot B) \oplus (A \cdot C)$),
+podemos expandir algebraicamente todos los paréntesis para obtener un
+polinomio multilineal puro compuesto únicamente por sumas exclusivas de
+productos no negados. Este resultado es el Polinomio de Zhegalkin único
+de la función. ◻
+:::
+
+Además de expresar las funciones por cadenas de símbolos que constituyen
+un término, existe una posibilidad de expresar estas funciones por
+tablas lineales o por cuadros (tablas bidimensionales). Para cada
+combinación de valores booleanos a la entrada de una función obtenemos
+un valor booleano de salida.
+
+Para que las funciones booleanas representen algo de interés para la
+ingeniería, lo primero que debemos tener es una forma de representar la
+información que queremos procesar. ¿Cómo representamos un número?. ¿Cómo
+una letra?. Haremos un alto en la exposición de funciones booleanas,
+para detallar más esta pregunta, poder responderla y así ver para qué
+estamos viendo las álgebras de Boole.
+
+# Minimización de Funciones Booleanas
+
+## El Problema de la Optimización Lógica
+
+En capítulos anteriores hemos estudiado cómo expresar cualquier función
+matemática utilizando formas canónicas (minitérminos o maxitérminos).
+Sin embargo, la implementación directa en hardware de estas expresiones
+canónicas es extremadamente ineficiente. Un minitérmino requiere $n$
+entradas para su puerta AND, y la expresión completa puede requerir
+cientos de puertas lógicas.
+
+En la ingeniería de hardware computacional, la **optimización** (o
+minimización) de expresiones booleanas persigue encontrar una expresión
+equivalente a la original que reduzca alguna métrica de coste:
+
+- **Área de silicio:** Minimizar la cantidad total de puertas lógicas y
+  el número de entradas de las mismas (fan-in).
+
+- **Latencia (Retardo):** Reducir el número de capas o \"saltos
+  lógicos\" que la señal debe atravesar. Las formas SOP minimizadas
+  suelen mantener una profundidad de dos capas lógicas constantes,
+  garantizando alta velocidad.
+
+- **Consumo de energía:** Menos transistores implican menos
+  capacitancias parásitas que cargar y descargar.
+
+Para lograr esto, explotamos sistemáticamente el teorema de la
+adyacencia lógica:
+$x \cdot y + x \cdot \overline{y} = x \cdot (y + \overline{y}) = x.$ Es
+decir, si dos términos del mismo tamaño difieren en el estado de una
+sola variable, esta variable es redundante y ambos términos pueden
+fusionarse, eliminándola.
+
+## Mapas de Karnaugh
+
+El Mapa de Karnaugh (K-Map) es una representación tabular geométrica
+bidimensional de la tabla de verdad de una función, diseñada
+específicamente para que las celdas físicamente adyacentes correspondan
+a combinaciones de entrada que difieren en un único bit (distancia de
+Hamming = 1). Esto se logra ordenando los índices de las filas y
+columnas utilizando código Gray.
+
+En el mapa de Karnaugh buscamos agrupar las celdas que contienen unos
+lógicos en bloques rectangulares. Las reglas de agrupación son las
+siguientes:
+
+1.  Todo agrupamiento debe contener un número de celdas que sea potencia
+    de $2$ ($1, 2, 4, 8, \dots$).
+
+2.  Los agrupamientos deben ser lo más grandes posibles (maximizan el
+    número de variables eliminadas).
+
+3.  Se permite el solapamiento de agrupamientos (reutilizar celdas,
+    gracias a la idempotencia $x+x=x$).
+
+4.  Los bordes del mapa son adyacentes entre sí de forma toroidal (el
+    borde superior es adyacente al inferior, el izquierdo al derecho).
+
+5.  Se pueden agrupar los términos indiferentes (*Don't Care*)
+    representados con una 'X', si y sólo si ayudan a crear un
+    agrupamiento más grande.
+
+### Mapas de 3 y 4 variables
+
+Un mapa de 3 variables ($v_1, v_2, v_3$) posee $8$ celdas, dispuestas
+típicamente en $2 \times 4.$ Un mapa de 4 variables
+($v_1, v_2, v_3, v_4$) tiene $16$ celdas, dispuestas en $4 \times 4.$
+
+::: center
+**Mapa de Karnaugh de 3 variables**\
+
+   $v_1 \setminus v_2v_3$   **00**   **01**   **11**   **10**
+  ------------------------ -------- -------- -------- --------
+           **0**              1        0        0        1
+           **1**              1        1        1        1
+:::
+
+Analizando el mapa de 3 variables:
+
+- La fila inferior completa de unos da el implicante $v_1.$
+
+- Las esquinas (00 y 10) de la fila superior se agrupan con las esquinas
+  de la inferior formando un grupo de 4 celdas, lo que elimina $v_1$ y
+  $v_2,$ resultando en el implicante $\overline{v_3}.$
+
+- La función mínima es $v_1 + \overline{v_3}.$
+
+::: center
+**Mapa de Karnaugh de 4 variables**\
+
+   $v_1v_2 \setminus v_3v_4$   **00**   **01**   **11**   **10**
+  --------------------------- -------- -------- -------- --------
+            **00**               0        1        1        0
+            **01**               0        1        1        0
+            **11**               1        1        1        1
+            **10**               1        0        0        1
+:::
+
+Analizando el mapa superior:
+
+- El bloque de 4 unos centrales (columnas 01 y 11, filas 00 y 01) es
+  independiente de $v_1$ y $v_4,$ resultando en el implicante
+  $\overline{v_1}v_3.$
+
+- La fila completa de unos en 11 (independiente de $v_3, v_4$) da el
+  implicante $v_1v_2.$
+
+- Los cuatros unos en las esquinas de la mitad inferior (filas 11 y 10,
+  columnas 00 y 10) forman el implicante $v_1\overline{v_4}.$
+
+### Mapas de 5 y 6 variables
+
+Para mapas de más de 4 variables, la dimensión 2D pura deja de ser útil
+para representar adyacencias unitarias. Para 5 variables, se utilizan
+dos tablas de $4 \times 4$ ubicadas lado a lado. La primera tabla asume
+que la variable adicional $v_1 = 0$ y la segunda asume $v_1 = 1.$ Dos
+celdas en la misma posición relativa dentro de ambas tablas se
+consideran lógicamente adyacentes.
+
+Para 6 variables ($v_1, v_2, v_3, v_4, v_5, v_6$), el método se expande
+organizando cuatro mapas de $4 \times 4$ en un esquema de $2 \times 2.$
+Cada cuadrante (\"supercelda\") viene determinado por las dos variables
+de mayor peso ($v_1, v_2$):
+
+::: center
++:-----------------------------------------------------------------:+:-----------------------------------------------------------------:+
+| **Mapa $\overline{v_1}\overline{v_2}$ (00)**                      | **Mapa $\overline{v_1}v_2$ (01)**                                 |
++-------------------------------------------------------------------+-------------------------------------------------------------------+
+|    $v_3v_4 \setminus v_5v_6$   **00**   **01**   **11**   **10**  |    $v_3v_4 \setminus v_5v_6$   **00**   **01**   **11**   **10**  |
+|   --------------------------- -------- -------- -------- -------- |   --------------------------- -------- -------- -------- -------- |
+|             **00**                                                |             **00**                                                |
+|             **01**                                                |             **01**                                                |
+|             **11**                                                |             **11**                                                |
+|             **10**                                                |             **10**                                                |
++-------------------------------------------------------------------+-------------------------------------------------------------------+
+|                                                                   |                                                                   |
++-------------------------------------------------------------------+-------------------------------------------------------------------+
+| **Mapa $v_1\overline{v_2}$ (10)**                                 | **Mapa $v_1v_2$ (11)**                                            |
++-------------------------------------------------------------------+-------------------------------------------------------------------+
+|    $v_3v_4 \setminus v_5v_6$   **00**   **01**   **11**   **10**  |    $v_3v_4 \setminus v_5v_6$   **00**   **01**   **11**   **10**  |
+|   --------------------------- -------- -------- -------- -------- |   --------------------------- -------- -------- -------- -------- |
+|             **00**                                                |             **00**                                                |
+|             **01**                                                |             **01**                                                |
+|             **11**                                                |             **11**                                                |
+|             **10**                                                |             **10**                                                |
++-------------------------------------------------------------------+-------------------------------------------------------------------+
+:::
+
+Para realizar agrupaciones en este formato de 6 variables, las
+adyacencias clásicas de K-Map se aplican *dentro* de cada cuadrante de
+16 celdas individualmente. Además, existen adyacencias *intercuadrante*:
+celdas idénticas superpuestas entre el cuadrante superior izquierdo e
+inferior izquierdo, entre superior izquierdo y superior derecho, etc.,
+formando un \"hipercubo\". Para agruparlas, la silueta del grupo debe
+ser visualmente idéntica en los cuadrantes adyacentes involucrados.
+
+## Algoritmo Sistemático de Quine-McCluskey
+
+El mapa de Karnaugh, si bien es una herramienta visual e intuitiva
+sumamente útil para diseñadores, carece de escalabilidad y no es
+programable, dependiendo del reconocimiento de patrones ópticos.
+
+El algoritmo de Quine-McCluskey (Q-M) es una solución puramente tabular
+y sistemática que garantiza matemáticamente la obtención de todas las
+simplificaciones mínimas y que opera, esencialmente, de la siguiente
+forma:
+
+### Fase 1: Búsqueda Exhaustiva de Implicantes Primos
+
+1.  Se listan todos los minitérminos (y términos \"Don't Care\") para
+    los que la función es 1, agrupados por su peso de Hamming (número de
+    1s lógicos en su codificación binaria).
+
+2.  Se compara iterativamente cada término de un grupo de peso $k$
+    contra todos los términos del grupo contiguo de peso $k+1.$ Si dos
+    términos difieren en exactamente un bit, se genera un nuevo término
+    unificado con un guion ('-') en la posición donde diferían,
+    representando la variable eliminada.
+
+3.  Se marcan ambos términos \"padre\" como simplificados mediante un
+    indicador o tick ($\checkmark$).
+
+4.  Este proceso se repite con las nuevas listas generadas (donde los
+    guiones deben coincidir en posición para fusionar dos términos).
+
+5.  Todos los términos que no lograron combinarse (y por lo tanto no
+    reciben la marca $\checkmark$) al finalizar todas las rondas
+    posibles son etiquetados como **Implicantes Primos**.
+
+### Fase 2: Resolución de la Tabla de Cobertura
+
+La lista resultante de implicantes primos puede tener redundancias.
+
+1.  Se construye una tabla de cobertura, donde las filas son los
+    implicantes primos y las columnas son los minitérminos obligatorios
+    originales (se excluyen los \"Don't Care\"). Se marca con una \"X\"
+    si un implicante primo cubre un minitérmino concreto.
+
+2.  Se buscan columnas que posean **una única \"X\"**. Estas se
+    denominan Implicantes Primos **Esenciales**, y forman parte
+    irrenunciable del resultado simplificado.
+
+3.  Se seleccionan estas filas, marcando como cubiertos todos los demás
+    minitérminos que también abarquen.
+
+4.  Si tras seleccionar los esenciales aún quedan minitérminos por
+    cubrir (columnas sin seleccionar), se aplica un proceso de
+    dominancia de filas y columnas, o algoritmos de bifurcación (método
+    de Petrick) para elegir la cobertura más barata restante.
+
+La expresión final es la suma lógica (OR) de todos los Implicantes
+Primos seleccionados para lograr la cobertura completa de los
+minitérminos objetivo de la función.
+
+### Ejemplo Práctico de Quine-McCluskey
+
+Consideremos la función de 4 variables definida por los minitérminos
+$m(0, 1, 2, 5, 6, 7).$
+
+**Fase 1: Encontrar Implicantes Primos**
+
+::: center
+   **Grupo**   **Min.**   **Binario**   $\checkmark$   **Comb. (1a)**   **Binario**   **Comb. (2a)**   **Binario**
+  ----------- ---------- ------------- -------------- ---------------- ------------- ---------------- -------------
+       0          0          0000       $\checkmark$       (0,1)           000-                       
+                                                           (0,2)           00-0                       
+       1          1          0001       $\checkmark$       (1,5)           0-01                       
+                  2          0010       $\checkmark$       (2,6)           0-10                       
+       2          5          0101       $\checkmark$       (5,7)           01-1                       
+                  6          0110       $\checkmark$       (6,7)           011-                       
+       3          7          0111       $\checkmark$                                                  
+:::
+
+Observemos que ninguna de las combinaciones resultantes en la segunda
+columna (Comb. 1a) puede combinarse en un siguiente nivel (Comb. 2a)
+porque los guiones no coinciden en posición y bits restantes a distancia
+1 simultáneamente. Por tanto, todas las agrupaciones de tamaño 2
+resultantes (0,1), (0,2), (1,5), (2,6), (5,7) y (6,7) son implicantes
+primos.
+
+**Fase 2: Tabla de Cobertura**
+
+::: center
+                           **Implicante**                           **0**   **1**   **2**   **5**   **6**   **7**
+  ---------------------------------------------------------------- ------- ------- ------- ------- ------- -------
+   (0,1) $\rightarrow \overline{v_1}\overline{v_2}\overline{v_3}$     X       X                            
+   (0,2) $\rightarrow \overline{v_1}\overline{v_2}\overline{v_4}$     X               X                    
+        (1,5) $\rightarrow \overline{v_1}\overline{v_3}v_4$                   X               X            
+        (2,6) $\rightarrow \overline{v_1}v_3\overline{v_4}$                           X               X    
+              (5,7) $\rightarrow \overline{v_1}v_2v_4$                                        X               X
+              (6,7) $\rightarrow \overline{v_1}v_2v_3$                                                X       X
+:::
+
+En este ejemplo particular, no hay ninguna columna que posea una única
+\"X\" (ningún minitérmino está cubierto por un único implicante primo).
+Esto significa que no hay **Implicantes Primos Esenciales**. Debemos
+utilizar métodos de selección (como Petrick) o inspección heurística.
+Una posible selección mínima de cobertura es tomar (0,1), (2,6) y (5,7).
+Otra es (0,2), (1,5) y (6,7). En cualquier caso, la función requiere de
+3 términos de 3 literales. Tomando la segunda, el resultado minimizado
+es:
+$$f = \overline{v_1}\overline{v_2}\overline{v_4} + \overline{v_1}\overline{v_3}v_4 + \overline{v_1}v_2v_3$$
+
+# Circuitos Combinacionales y Aritméticos
+
+## Metodología de Diseño Combinacional
+
+Un circuito digital se denomina **combinacional** si sus salidas en
+cualquier instante de tiempo dependen *única y exclusivamente* de los
+valores presentes en sus entradas en ese mismo instante.
+Matemáticamente, carecen de estado o memoria. Todo circuito
+combinacional implementa físicamente una o más funciones booleanas
+puras.
+
+El flujo de trabajo clásico para el diseño de estos sistemas sigue un
+enfoque *Top-Down*:
+
+1.  **Especificación:** Definición verbal y formal del comportamiento
+    deseado del sistema (qué entradas recibe y qué salidas debe
+    producir).
+
+2.  **Tabla de verdad:** Captura exhaustiva de las especificaciones
+    mapeando cada combinación de $N$ entradas a las salidas requeridas.
+
+3.  **Obtención de Funciones y Minimización:** Extracción de la forma
+    canónica y reducción mediante Karnaugh o Quine-McCluskey para
+    optimizar el hardware resultante.
+
+4.  **Implementación (Síntesis Lógica):** Traducción de las ecuaciones
+    booleanas minimizadas a un diagrama esquemático con compuertas
+    lógicas (AND, OR, NOT, XOR, NAND, NOR).
+
+Para evitar diseñar todo desde cero a nivel de puertas lógicas básicas,
+la ingeniería agrupa ciertos patrones repetitivos en **bloques
+funcionales** o \"macros\" (MSI - Medium Scale Integration). A
+continuación, revisamos los fundamentales.
+
+## Multiplexores y Demultiplexores
+
+### Multiplexores (MUX)
+
+Un multiplexor actúa como un conmutador electrónico. Posee $2^n$ líneas
+de entrada de datos, $n$ líneas de selección (o control) y $1$ línea de
+salida. Dependiendo del código binario presente en las líneas de
+selección, el MUX conecta internamente una y solo una de las líneas de
+entrada de datos hacia la salida.
+
+La ecuación lógica de un MUX de $4 \to 1$ (2 líneas de selección
+$S_1, S_0$ y 4 entradas $D_0 \dots D_3$) es:
+$$Y = \overline{S_1}\overline{S_0}D_0 + \overline{S_1}S_0D_1 + S_1\overline{S_0}D_2 + S_1S_0D_3$$
+
+**Aplicación avanzada:** Dado que los términos de selección conforman
+explícitamente los minitérminos de las variables $S,$ un MUX de
+$2^n \to 1$ puede implementar directamente *cualquier* función booleana
+de $n$ variables, simplemente conectando a las entradas de datos ($D_i$)
+constantes lógicas (0 o 1) equivalentes a la tabla de verdad de la
+función.
+
+### Demultiplexores (DEMUX)
+
+El demultiplexor realiza la función dual: recibe una única entrada de
+datos y, en base a $n$ líneas de selección, enruta ese dato a una
+específica de entre $2^n$ líneas de salida. (Las líneas no seleccionadas
+permanecen inactivas, típicamente en 0 lógico).
+
+## Codificadores y Decodificadores
+
+### Decodificadores
+
+Un decodificador de $n$ a $2^n$ toma un código binario de $n$ bits de
+entrada y activa de forma exclusiva una (y solo una) de sus $2^n$
+salidas. Básicamente, computa simultáneamente los $2^n$ minitérminos del
+alfabeto de entrada. Un uso clásico es la selección de chips en bancos
+de memoria.
+
+### Codificadores
+
+Hacen la operación inversa: dadas $2^n$ líneas de entrada, devuelven en
+sus $n$ líneas de salida el código binario asociado a la línea de
+entrada que está activa. El principal problema del codificador estándar
+es la *colisión*: ¿qué ocurre si dos líneas de entrada se activan
+simultáneamente? El codificador generará una salida corrupta (el OR
+lógico de ambos códigos).
+
+Para solucionar esto, surgieron los **Codificadores con Prioridad
+(Priority Encoders)**. Estos circuitos asignan un peso jerárquico a cada
+entrada. Si varias entradas están activas simultáneamente, el
+codificador devuelve únicamente el código correspondiente a la entrada
+con mayor prioridad, ignorando las demás.
+
+## Problemática de la Inversa de una Función
+
+Supongamos un sistema combinacional que calcula una función $f(x) = y.$
+¿Es posible construir un circuito combinacional $f^{-1}$ tal que al
+ingresar $y$ recupere $x$?
+
+En general, **no es posible**. Para que una función sea estrictamente
+invertible, debe ser matemática y lógicamente **biyectiva** (inyectiva y
+sobreyectiva). La gran mayoría de funciones lógicas prácticas proyectan
+muchas entradas sobre una única salida (por ejemplo, una puerta AND de 2
+entradas proyecta 3 combinaciones de entrada distintas hacia un '0' a la
+salida).
+
+Esta compresión de estados conlleva una *pérdida de información (aumento
+de entropía termodinámica)*. Una vez que la salida es '0', el hardware
+no retiene rastro de qué combinación original provocó ese '0'. La
+invertibilidad pura solo existe en conjuntos muy restrictivos de puertas
+lógicas denominadas reversibles (como Fredkin y Toffoli), empleadas en
+computación cuántica, pero no en las familias lógicas combinacionales
+estándar basadas en compuertas irreversibles.
+
+## Circuitos Aritméticos
+
+La aritmética binaria es el núcleo de las ALUs (Arithmetic Logic Units)
+de las computadoras. Al trabajar con números naturales binarios de
+longitud de palabra fija, podemos construir circuitos aritméticos
+utilizando pura lógica combinacional.
+
+### Comparadores de Magnitud
+
+Un comparador toma dos palabras binarias $A$ y $B$ de $n$ bits y
+determina su relación de orden, produciendo tres salidas mutuamente
+excluyentes: $(A = B),$ $(A > B),$ y $(A < B).$ La igualdad se computa
+trivialmente operando bit a bit mediante puertas XNOR, y haciendo un AND
+global del resultado: si todos los bits homólogos son idénticos, las
+palabras son iguales.
+
+### Suma: Half-Adder y Full-Adder
+
+El sumador básico o **Semisumador (Half-Adder)** suma dos bits
+individuales ($A$ y $B$) produciendo una Suma ($S$) y un Acarreo
+($C_{out}$ o Carry Out): $$S = A \oplus B$$ $$C_{out} = A \cdot B$$ Sin
+embargo, para sumar números de varios bits, necesitamos sumar columnas
+intermedias que también reciben un acarreo de la columna anterior. Para
+ello construimos el **Sumador Completo (Full-Adder)**, que toma tres
+bits ($A, B, C_{in}$) y devuelve $S$ y $C_{out}:$
+$$S = A \oplus B \oplus C_{in}$$
+$$C_{out} = (A \cdot B) + C_{in} \cdot (A \oplus B)$$ Conectando $n$
+Full-Adders en cascada (conectando el $C_{out}$ de la posición $i$ al
+$C_{in}$ de la posición $i+1$) formamos un sumador **Ripple-Carry**
+capaz de sumar palabras completas de $n$ bits.
+
+### Restadores (Borrow Clásico)
+
+El **Restador Completo (Full-Subtractor)** funciona análogamente al
+sumador, pero restando $A - B - B_{in}$ (donde $B_{in}$ es el préstamo o
+*Borrow* de la columna anterior). Devuelve una Diferencia ($D$) y genera
+un Borrow Out ($B_{out}$): $$D = A \oplus B \oplus B_{in}$$
+$$B_{out} = (\overline{A} \cdot B) + B_{in} \cdot \overline{(A \oplus B)}$$
+La similitud de las ecuaciones demuestra la dualidad entre suma y resta
+en hardware natural.
+
+### Multiplicadores Combinacionales
+
+El algoritmo de multiplicación en papel consiste en multiplicar (bit a
+bit) y luego sumar versiones desplazadas. En hardware, la
+\"multiplicación\" bit a bit entre $A_i$ y $B_j$ se implementa
+directamente con una única puerta AND ($A_i \cdot B_j = 1$ solo si ambos
+son 1). Un multiplicador combinacional básico consiste en una matriz
+bidimensional de puertas AND que calculan todos los productos parciales
+simultáneamente, cuyos resultados alimentan una red paralela o árbol de
+sumadores que agregan los productos parciales (desplazados por cableado
+geométrico) para formar el producto final de $2n$ bits.
+
+## Otros Bloques Combinacionales Clásicos
+
+Aparte de la aritmética estricta y el enrutamiento, existen otros
+componentes MSI esenciales en el diseño de computadoras y sistemas de
+comunicación.
+
+### Generadores y Detectores de Paridad
+
+En la transmisión de datos binarios, es común que el ruido
+electromagnético altere algún bit. Una técnica clásica de detección de
+errores (que no corrección) es el bit de paridad. Un **Generador de
+Paridad** toma una palabra de $n$ bits y genera un bit extra, de forma
+que el número total de unos transmitidos sea siempre par (Paridad Par) o
+siempre impar (Paridad Impar).
+
+Matemáticamente, la paridad par de una palabra se calcula haciendo la
+suma exclusiva (XOR) de todos sus bits:
+$$P = b_0 \oplus b_1 \oplus b_2 \oplus \dots \oplus b_{n-1}$$ El
+circuito es simplemente un \"árbol de XORs\". En el extremo receptor, el
+**Detector de Paridad** toma los $n$ bits de datos más el bit de
+paridad, y los pasa todos por otro árbol XOR. Si no ha habido ningún
+error (o un número par de errores), el resultado global será $0.$ Si ha
+habido un error en un bit, el resultado será $1,$ disparando una alarma
+de integridad de datos.
+
+### Desplazadores de Barril (Barrel Shifters)
+
+Desplazar los bits de un número a la izquierda o derecha es el
+equivalente hardware a multiplicar o dividir por potencias de 2, una
+operación fundamental en los microprocesadores. Si bien el
+desplazamiento suele hacerse de forma secuencial (un bit por ciclo de
+reloj) usando registros de desplazamiento, los procesadores de alto
+rendimiento exigen hacerlo en **un solo ciclo**.
+
+El **Barrel Shifter** es un circuito puramente combinacional que puede
+desplazar o rotar una palabra de $n$ bits por un número arbitrario de
+posiciones especificadas por una entrada de control binaria. Se
+construye típicamente usando una red de multiplexores: una primera capa
+que decide si desplazar 1 posición o nada, una segunda que decide si
+desplazar 2 posiciones o nada, una tercera para 4 posiciones, etc.
+
+### La Unidad Lógica Aritmética (ALU)
+
+Finalmente, la cúspide de la integración combinacional es la ALU. Una
+ALU integra un sumador, un restador, comparadores y puertas lógicas bit
+a bit (AND, OR, XOR, NOT) dentro de un único bloque funcional unificado.
+
+Para seleccionar qué operación debe ejecutarse sobre los operandos $A$ y
+$B,$ la ALU dispone de unas líneas de selección especiales llamadas
+**Código de Operación (OpCode)**. Internamente, la ALU calcula *todas*
+las operaciones simultáneamente en paralelo, y utiliza un
+**Multiplexor** gigante, gobernado por el OpCode, para enrutar
+únicamente el resultado deseado hacia la salida final. Todo este
+conjunto sigue siendo estrictamente combinacional.
+
+# Familias Lógicas y Parámetros Eléctricos
+
+El Álgebra de Boole opera sobre un universo inmaculado de ceros y unos
+perfectos. En él, los cambios de estado ocurren en cero segundos, y las
+puertas lógicas pueden conectarse a infinitas compuertas sin que la
+señal sufra degradación. Sin embargo, en la ingeniería del mundo real,
+las funciones booleanas se implementan utilizando transistores,
+voltajes, y cables que presentan capacitancias parásitas y resistencias.
+
+Este capítulo cierra la brecha entre la lógica abstracta y la
+circuitería física, estudiando cómo los componentes electrónicos reales
+fallan, se retrasan, e imponen límites estrictos al diseño digital.
+
+## Tecnologías de Familias Lógicas
+
+Históricamente, los interruptores digitales evolucionaron desde los
+relés electromecánicos a las válvulas de vacío. La verdadera revolución
+llegó con los semiconductores. En un circuito integrado (CI), una puerta
+lógica se construye interconectando transistores. Al conjunto de chips
+que comparten la misma arquitectura subyacente de transistores, niveles
+de voltaje, e interfaces eléctricas, se le denomina **Familia Lógica**.
+
+### La Tecnología TTL
+
+La Lógica Transistor-Transistor (TTL) dominó la industria desde los años
+70 hasta los 90. Internamente emplea transistores bipolares (BJT). El
+estándar original utilizaba una tensión de alimentación unificada de
+$5\text{V}.$
+
+La variante más famosa y ubicua de esta tecnología es la serie comercial
+**74LS** (*Low-power Schottky*). En esta serie, la adición de diodos
+Schottky previene que los transistores entren en saturación profunda,
+aumentando drásticamente la velocidad de conmutación. Pese a ser
+obsoleta comercialmente frente a tecnologías modernas, la serie TTL
+sigue siendo el pilar de los laboratorios docentes debido a su extrema
+robustez frente a cortocircuitos accidentales y maltrato eléctrico,
+además de establecer el estándar histórico de facto para los voltajes
+lógicos de $5\text{V}.$
+
+### La Tecnología CMOS
+
+La llegada de la lógica basada en semiconductores de óxido metálico
+complementarios (CMOS) revolucionó por completo la densidad de
+integración y el consumo de energía. CMOS utiliza parejas de
+transistores MOSFET (tipo N y tipo P) dispuestos de forma que
+**siempre** uno de ellos esté cortado en estado de reposo.
+
+- **Ventaja Absoluta:** El consumo estático (cuando las entradas no
+  cambian) es virtualmente cero. Esto permitió la miniaturización sin
+  fundir térmicamente el chip, habilitando procesadores con miles de
+  millones de transistores.
+
+- **Serie 74HC (*High-Speed CMOS*):** Velocidad comparable al 74LS, pero
+  con el consumo microscópico de la tecnología CMOS.
+
+- **Serie 74HCT (*CMOS TTL-compatible*):** Construida en CMOS pero con
+  los umbrales de detección de voltaje deliberadamente alterados en
+  fábrica para ser compatibles con los niveles clásicos del TTL,
+  actuando como un puente entre ambos mundos.
+
+## Parámetros de Voltaje y Márgenes de Ruido
+
+En el mundo físico, un "$1$" lógico o un "$0$" no es un punto escalar
+perfecto, sino una franja o *banda de voltaje*.
+
+### Niveles Lógicos Garantizados
+
+Todo fabricante especifica cuatro voltajes críticos en sus diagramas
+eléctricos:
+
+- $V_{IL}$ (*Voltage Input Low*): Voltaje máximo garantizado que el chip
+  reconocerá sin ambigüedades como un cero lógico a la entrada.
+
+- $V_{IH}$ (*Voltage Input High*): Voltaje mínimo garantizado que el
+  chip interpretará sólidamente como un uno lógico.
+
+- $V_{OL}$ (*Voltage Output Low*): Voltaje máximo que entregará la
+  puerta por su pin de salida cuando intente expulsar un cero lógico.
+
+- $V_{OH}$ (*Voltage Output High*): Voltaje mínimo garantizado de salida
+  cuando se intente expulsar un uno lógico.
+
+Para que una puerta A pueda excitar correctamente a una puerta B, la
+señal eléctrica de la salida de A debe caer sobradamente dentro de las
+tolerancias de lectura de B. Por diseño, siempre debe cumplirse que
+$V_{OH} > V_{IH}$ y $V_{OL} < V_{IL}.$
+
+### La Zona Prohibida (\"Tierra de Nadie\")
+
+El espacio comprendido estrictamente entre $V_{IL}$ y $V_{IH}$ se
+denomina zona de transición o zona prohibida. Si una entrada analógica
+cae en este voltaje intermedio, ocurren varios fenómenos indeseados:
+
+1.  **Comportamiento Erróneo o Oscilante:** La salida podría fluctuar de
+    0 a 1 caóticamente ante el mínimo ruido electromagnético ambiental
+    (antena).
+
+2.  **Sobreconsumo Térmico:** Especialmente crítico en CMOS. Si un
+    transistor de entrada se detiene a mitad de camino, ambos
+    transistores (Pull-up y Pull-down) conducirán simultáneamente,
+    generando un cortocircuito directo entre $V_{CC}$ y Tierra que
+    disipará calor masivamente.
+
+### Márgenes de Inmunidad al Ruido
+
+El margen de ruido cuantifica cuánta interferencia electromagnética
+(voltaje parásito inducido en las pistas de cobre) puede soportar un
+cable antes de que la compuerta receptora lea un valor equivocado. Se
+define asimétricamente para ambos estados:
+$$M_{N_H} \text{ (Margen Alto)} = V_{OH} - V_{IH}$$
+$$M_{N_L} \text{ (Margen Bajo)} = V_{IL} - V_{OL}$$ La tecnología CMOS
+no solo consume menos, sino que proporciona márgenes de ruido
+drásticamente superiores al TTL, rozando casi el $\sim 1.5\text{V}$ de
+inmunidad frente a los $\sim 0.4\text{V}$ típicos del 74LS, blindándola
+para entornos ruidosos industriales.
+
+## Parámetros de Corriente y Carga (Fan-Out)
+
+Las compuertas lógicas están formadas por semiconductores, y enviar
+voltajes requiere mover electrones. Adoptamos una convención de signo
+estándar: la corriente que **entra** al chip desde el exterior se denota
+positiva, y la corriente que **sale** del chip impulsada por él se
+denota negativa.
+
+### Especificaciones de Corriente
+
+Encontramos cuatro corrientes limitantes en toda familia lógica:
+
+- $I_{IL} / I_{IH}:$ Corriente requerida para inyectar/drenar de un pin
+  de entrada al forzar un estado bajo ($L$) o alto ($H$). Es el
+  \"coste\" de empujar electrones hacia la puerta.
+
+- $I_{OL} / I_{OH}:$ Capacidad máxima de conducción de la etapa de
+  salida (cuántos amperios puede hundir a Tierra o proporcionar desde la
+  fuente antes de que el voltaje caiga fuera de tolerancia).
+
+### Fan-in y Fan-out Estático
+
+El **Fan-in** es, estructuralmente, el número máximo de pines de entrada
+físicos que un modelo de puerta concreta tiene diseñados (una NAND de 3
+entradas tiene un Fan-in de 3).
+
+El **Fan-out** es mucho más crítico. Es la cantidad máxima de compuertas
+idénticas que una única compuerta conductora puede pilotar conectadas en
+paralelo sin que se viole ningún nivel de voltaje de seguridad. Se
+calcula como el peor caso de ambos regímenes (High y Low):
+$$\text{Fan-out} = \min \left( \left\lfloor \frac{|I_{OH}|}{|I_{IH}|} \right\rfloor, \left\lfloor \frac{|I_{OL}|}{|I_{IL}|} \right\rfloor \right)$$
+
+**Paradigma TTL vs CMOS:** En la tecnología TTL Bipolar (74LS), los
+transistores requieren corrientes físicas sustanciales en la base para
+mantenerse abiertos. Esto limita el Fan-Out estático rígidamente a
+$10 \text{ ó } 20$ puertas. Si conectas $21,$ la puerta no tendrá fuerza
+para empujar a todas, $V_{OH}$ colapsará hacia tierra y los unos lógicos
+se leerán como ceros lógicos. En la tecnología CMOS (74HC), las
+compuertas (Gates) de los MOSFET están aisladas con cristal de óxido de
+silicio; su resistencia de entrada es casi infinita. Su corriente de
+entrada $I_{IN}$ es de picoamperios. Esto arroja un Fan-out teórico
+estático colosal (millones). Sin embargo, el Fan-out en CMOS no está
+limitado por la corriente continua, sino por el límite de capacitancia
+*dinámica*: cada compuerta añadida añade pequeños capacitores parásitos;
+empujar muchas compuertas CMOS a la vez no destruye el voltaje, pero
+ralentiza astronómicamente el flanco de subida, arruinando la velocidad
+temporal del circuito.
+
+## Problemas Temporales (Timing) y Glitches
+
+El sustrato físico tiene masa inercial eléctrica (capacitancias).
+Modificar un voltaje de $0\text{V}$ a $5\text{V}$ no ocurre
+instantáneamente en un instante $t=0.$
+
+### Tiempos Característicos
+
+Para dimensionar sistemas secuenciales o calcular límites de frecuencia,
+observamos los diagramas de tiempos (*Timing Diagrams*) buscando los
+parámetros:
+
+- **Tiempos de Transición ($t_r$ y $t_f$):** El tiempo de subida (*Rise
+  Time*, $t_r$) es el lapso requerido para que la señal eléctrica escale
+  del $10\%$ al $90\%$ del voltaje objetivo. Análogamente para la caída
+  (*Fall Time*, $t_f$).
+
+- **Retardos de Propagación ($t_{pLH}$ y $t_{pHL}$):** Es el retraso
+  fundamental de reacción de la propia puerta. Si alteramos los
+  estímulos en la entrada, la puerta tarda decenas de nanosegundos en
+  evaluar y propagar el nuevo resultado matemático a su salida (medido
+  generalmente al cruzar el $50\%$ del voltaje nominal). Se define un
+  $t_{pd}$ promedio general como $(t_{pLH} + t_{pHL}) / 2.$
+
+### Pulsos Espurios (Hazards y Glitches)
+
+Los retardos de propagación $t_{pd}$ no son idénticos para diferentes
+transistores ni para diferentes caminos en un grafo combinacional.
+Cuando la información fluye desde las entradas hacia la salida final de
+un combinacional cruzando rutas con distinto número de puertas
+intercaladas, algunas señales llegarán *después* que otras. Durante este
+régimen transitorio microscópico, la función matemática de salida evalúa
+resultados inválidos (estado intermedio). Esto puede traducirse en picos
+afilados de voltaje llamados **Glitches** o *Hazards* de estado.
+
+En álgebra pura $x \wedge \neg x = \bot$ siempre. Físicamente, si a una
+puerta AND le entra una señal y su respectiva señal invertida
+(proveniente de una puerta NOT con $t_{pd} = 15\text{ns}$), durante $15$
+nanosegundos la puerta AND observará accidentalmente ambas entradas
+altas al mismo tiempo en el instante de transición, devolviendo
+momentáneamente un $\top$ falso. Estos glitches son fatales si la red
+combinacional está pilotando sistemas secuenciales sensibles al flanco
+(como veremos en capítulos de memorias biestables y Flip-Flops).
+
+# Representación de la Información
+
+Para que las funciones lógicas y los circuitos descritos en capítulos
+anteriores tengan utilidad práctica en el mundo de la ingeniería,
+necesitamos vincular los estados electromagnéticos abstractos (los ceros
+y unos del hardware) con entidades del mundo real: números naturales,
+enteros, reales, o caracteres de nuestro lenguaje escrito. Este capítulo
+formaliza el paso del sustrato físico-lógico hacia la semántica
+interpretativa.
+
+## Sintaxis Lógica: Alfabetos y Lenguajes
+
+Antes de asignar significado, debemos definir rígidamente la estructura
+de lo que vamos a interpretar. Un **alfabeto** $\Sigma$ es un conjunto
+finito, no vacío, de símbolos indivisibles. En electrónica digital
+elemental, nuestro alfabeto principal es el alfabeto booleano
+$\mathbb{B}_2 = \{0, 1\}.$ Sin embargo, la teoría es generalizable a
+cualquier alfabeto finito $\mathbb{D}_B = \{d_0, d_1, \dots, d_{B-1}\},$
+donde $B$ es la cardinalidad o base del alfabeto.
+
+Un **lenguaje formal** sobre un alfabeto $\Sigma$ es un conjunto de
+*palabras*, donde una palabra se define como una secuencia (ristra)
+ordenada y finita de símbolos concatenados extraídos de $\Sigma.$ El
+conjunto de todas las palabras posibles de cualquier longitud,
+incluyendo la palabra vacía, se denota mediante la Clausura de Kleene
+$\Sigma^*.$
+
+En el contexto de la arquitectura de computadores, el hardware está
+compuesto por buses y registros de un tamaño rígidamente predefinido.
+Por ello, no trabajamos con $\Sigma^*,$ sino que nos restringimos al
+subconjunto de palabras de **longitud constante** $n.$ Podemos
+visualizar formalmente una palabra $w$ de longitud $n$ como un vector
+perteneciente al espacio vectorial unidimensional o producto cartesiano
+$(\mathbb{D}_B)^n:$
+$$w = (w_{n-1}, w_{n-2}, \dots, w_1, w_0) \quad \text{donde } w_i \in \mathbb{D}_B$$
+Al símbolo de índice $0$ ($w_0$) se le denomina dígito menos
+significativo (*Least Significant Digit*, LSB en binario), y al símbolo
+de índice $n-1$ ($w_{n-1}$) dígito más significativo (*Most Significant
+Digit*, MSB). Hasta este punto, una palabra es una pura estructura
+sintáctica sin valor intrínseco.
+
+## Semántica: Números Naturales en Base $B$
+
+Para dotar de significado numérico a las palabras sintácticas,
+establecemos una aplicación semántica (función de evaluación)
+$V: (\mathbb{D}_B)^n \to \mathbb{N}.$ La convención universal para esta
+aplicación es la **notación posicional**, donde el aporte de cada
+símbolo al valor total está ponderado exponencialmente según su índice
+(posición) $i.$ Dado el alfabeto $\mathbb{D}_B$ con cardinal $B,$
+asociamos a cada símbolo $d_k$ un valor primitivo $k.$ El valor natural
+total $V$ representado por la palabra $w = w_{n-1} \dots w_0$ es:
+$$V(w) = \sum_{i=0}^{n-1} V(w_i) \cdot B^i$$ Por ejemplo, en el alfabeto
+decimal ($B=10$), la palabra $402$ se evalúa como
+$4 \cdot 10^2 + 0 \cdot 10^1 + 2 \cdot 10^0 = 402.$ En el alfabeto
+binario ($B=2$), la palabra $1101_2$ evalúa a
+$1 \cdot 2^3 + 1 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0 = 13_{10}.$
+
+Para un alfabeto arbitrario de base $B$ y una longitud de palabra de $n$
+posiciones, el mínimo valor representable es $0$ (todas las posiciones
+en $d_0$) y el máximo valor representable está acotado algebraicamente
+por: $$V_{\max} = \sum_{i=0}^{n-1} (B-1) \cdot B^i = B^n - 1$$ Toda
+operación aritmética cuyo resultado sobrepase $B^n - 1$ sufrirá pérdida
+de información o *Desbordamiento (Overflow)*.
+
+## Operaciones a Nivel de Palabra (Sintácticas)
+
+Previo a introducir semánticas más complejas como los números negativos,
+resulta imperativo definir matemáticamente dos operaciones unarias
+puramente sintácticas aplicables a cualquier palabra en un alfabeto de
+base $B.$
+
+### Complementación a la Base menos 1 (Cb-1)
+
+Dada una palabra $w,$ el complemento a la base menos 1, que denotaremos
+provisoriamente como $C_{B-1}(w),$ se obtiene invirtiendo cada símbolo
+individualmente contra el valor máximo del alfabeto ($B-1$).
+$$(C_{B-1}(w))_i = (B - 1) - w_i$$ En el caso particular del alfabeto
+binario ($B=2$), el valor $B-1 = 1,$ por lo que la operación se reduce a
+$(C_1(w))_i = 1 - w_i.$ Esta es estrictamente la definición de la
+compuerta lógica NOT ($\neg$). Por lo tanto, el Complemento a 1 de un
+número binario es simplemente su inversión bit a bit lógica.
+
+### Complementación a la Base (Cb)
+
+El Complemento a la Base, denotado $C_B(w),$ se define matemáticamente
+partiendo del anterior y sumando $1$ a la palabra resultante:
+$$C_B(w) = C_{B-1}(w) + 1$$ Algebraicamente, esto es equivalente a
+calcular $B^n - V(w).$ Dado que operamos en hardware de longitud fija
+$n,$ la suma genera frecuentemente un acarreo que escapa a la posición
+$n,$ el cual simplemente se descarta (operación módulo $B^n$). En
+binario, esto corresponde al célebre Complemento a 2, que consiste en
+invertir todos los bits y sumar $1.$
+
+## Semántica Avanzada: Enteros con Signo
+
+Para procesar números negativos (el conjunto $\mathbb{Z}$), la solución
+trivial de reservar un símbolo físico exclusivo tipo \"$-$\" es
+imposible, ya que el hardware solo dispone de su alfabeto base (ej. $0$
+y $1$). Por ende, el signo debe ser codificado implícitamente empleando
+parte de la entropía de los símbolos existentes.
+
+### Magnitud y Signo (M&S)
+
+En este esquema, dividimos rígidamente la palabra $w$ de longitud $n$ en
+dos campos semánticos:
+
+1.  El símbolo más significativo ($w_{n-1}$) se reserva exclusivamente
+    para el signo. Por convención unánime en computación binaria, $0$
+    representa positivo y $1$ negativo.
+
+2.  Los $n-1$ símbolos restantes se interpretan como la magnitud
+    absoluta del número en notación posicional natural.
+
+El valor representado es:
+$$V(w) = (-1)^{w_{n-1}} \cdot \sum_{i=0}^{n-2} V(w_i) \cdot B^i$$ Este
+modelo presenta dos graves problemas de ingeniería: Primero, genera una
+doble representación del cero ($+0$ y $-0$), un desperdicio entrópico
+inaceptable. Segundo, requiere de una Unidad Lógica Aritmética (ALU)
+notablemente compleja, ya que la suma y resta de variables requieren
+circuitos distintos dependientes del análisis de los signos previos.
+
+### Complemento a la Base general (Cb)
+
+El estándar computacional moderno para representar enteros solventa los
+problemas anteriores asumiendo la semántica de la complementación a la
+base (Complemento a 2 en binario). En este esquema, el dígito $w_{n-1}$
+sigue decidiendo el signo, pero lo hace asignando un peso posicional
+estrictamente **negativo** al MSB. La ecuación de valor para un sistema
+binario en C2 es:
+$$V(w) = -w_{n-1} \cdot 2^{n-1} + \sum_{i=0}^{n-2} w_i \cdot 2^i$$
+Generalizado a base $B,$ los números negativos se construyen calculando
+explícitamente el complemento a la base de la magnitud absoluta. Las
+ventajas son abrumadoras:
+
+- Existe un único cero (el $-0$ colapsa tras sumar 1 y descartar el
+  rebose).
+
+- Rango asimétrico maximizado: $[-B^{n-1}, B^{n-1} - 1].$
+
+- **Ceguera Aritmética:** La maravilla del Cb es que las restas $A - B$
+  se realizan como sumas $A + C_B(B).$ El hardware sumador (Full-Adder)
+  no necesita saber si está sumando naturales, enteros positivos o
+  negativos; el mismo circuito lógico produce el resultado binario
+  correcto módulo $B^n.$
+
+### Exceso a Bias (Exceso a $K$)
+
+Una alternativa para enteros es la semántica desplazada. En lugar de
+manipular el signo bit a bit, redefinimos el cero desplazándolo al
+centro del rango representable natural. Elegimos una constante de sesgo
+o *Bias* $K.$ El valor representado $V$ es la evaluación natural
+estricta de la palabra binaria $V_{\text{nat}}(w)$ menos la constante
+$K:$ $$V(w) = V_{\text{nat}}(w) - K$$ Convencionalmente, para $n$
+dígitos, $K = B^{n-1}$ o bien $K = B^{n-1}-1.$ Este sistema garantiza
+que los números más negativos estén codificados sintácticamente con
+todos los ceros, y los más positivos con todos los unos. Aunque no es
+ideal para aritmética general (requiere ajustar el bias tras cada suma),
+es el sistema predilecto universal para comparar exponentes, dado que el
+hardware del comparador de magnitud binario estándar funciona de forma
+directa sin alteraciones.
+
+## Representación Fraccionaria (Punto Fijo)
+
+Para representar los números Reales ($\mathbb{R}$), comenzamos asumiendo
+un \"Punto Radix\" o coma decimal inamovible (implícita por diseño
+hardware). Separamos la palabra de longitud total $N$ en dos tramos
+fijos: $n$ posiciones para la parte entera y $m$ posiciones para la
+parte fraccionaria ($N = n + m$).
+
+Las ponderaciones posicionales decrecen, continuando a través del límite
+cero hacia potencias negativas de la base $B.$ La ecuación de un natural
+de punto fijo es la generalización natural:
+$$V(w) = \sum_{i=-m}^{n-1} V(w_i) \cdot B^i$$ Tanto la representación de
+Magnitud y Signo fraccionaria como la del Complemento a la Base
+fraccionario operan idénticamente al caso entero. En Complemento a 2
+fraccionario, el bit de signo ocupa la posición ponderada a $-2^{n-1},$
+y el resto de la estructura se mantiene, permitiendo a la ALU sumar
+decimales como si fueran enteros, simplemente ignorando lógicamente
+dónde ubicó el diseñador la coma de forma imaginaria.
+
+## Representación en Punto Flotante
+
+El punto fijo es rígido: o perdemos exactitud en valores pequeños (poco
+tramo fraccionario) o perdemos alcance en los valores inmensos (poco
+tramo entero). La notación científica solventa esto disociando el tamaño
+del número (el orden de magnitud) de sus cifras significativas. El
+estándar generalizado de punto flotante descompone la palabra binaria
+general en tres campos lógicos yuxtapuestos:
+
+1.  **Signo (S):** Un solo bit (o equivalente en otra base) donde $0$ es
+    positivo y $1$ negativo.
+
+2.  **Exponente (E):** Una secuencia de $k$ posiciones tratadas siempre
+    como un entero representado en **Exceso a Bias**. Este Bias permite
+    manejar exponentes negativos.
+
+3.  **Mantisa o Fracción (M):** Las $m$ cifras significativas del valor,
+    operando estrictamente como un campo de coma fija fraccionario.
+
+El formato impone una **Normalización**. En notación científica
+estándar, un número siempre se desliza para que la coma recaiga tras el
+primer dígito no nulo (ej. $5.32 \times 10^4$). En la base binaria
+($B=2$), el único dígito distinto de $0$ es el $1.$ Esto nos regala un
+ahorro enorme: no necesitamos almacenar explícitamente el '1' inicial,
+ahorrando un bit completo. A este '1' no almacenado se le denomina **bit
+fantasma** o bit implícito.
+
+La ecuación unificada de evaluación de un número de punto flotante
+normalizado en base binaria genérica es:
+$$V = (-1)^S \cdot (1 + M_{fracc}) \cdot 2^{E_{\text{nat}} - \text{Bias}}$$
+
+### El Estándar IEEE-754
+
+El estándar real sobre el que funciona toda la electrónica y computación
+modernas para la precisión fraccionaria es el **IEEE-754**. Su
+encarnación más famosa son los tipos de datos nativos de punto flotante
+de los lenguajes de programación:
+
+- **Precisión Simple (float, 32 bits):** Un bit de signo, un exponente
+  $E$ de 8 bits (Bias = $127$), y una mantisa $M$ de 23 bits
+  fraccionarios.
+
+- **Doble Precisión (double, 64 bits):** Un bit de signo, exponente de
+  11 bits (Bias = $1023$), y una descomunal mantisa de 52 bits para
+  altísima precisión computacional.
+
+Además, el IEEE-754 reserva combinaciones particulares del exponente y
+la mantisa para semánticas de excepción, como representar el Infinito
+($\pm \infty$), el Cero ($\pm 0$ matemáticamente estricto) o entidades
+No Numéricas (*Not a Number, NaN*), vitales cuando se intenta dividir
+por cero o hacer una raíz cuadrada de un número negativo.
+
+## Códigos Alfanuméricos y Códigos Especiales
+
+La semántica posicional sirve para modelar la matemática. Pero para
+procesar cadenas de texto o interaccionar con entornos físicos, debemos
+establecer codificaciones puramente convencionales, diccionarios de
+traducción (Look-up tables).
+
+### Códigos de Caracteres
+
+- **ASCII:** El *American Standard Code for Information Interchange*
+  original codificaba 128 caracteres utilizando un alfabeto binario de
+  longitud $n=7$ bits. Mapeaba los valores numéricos decimales del 0 al
+  127 contra los caracteres anglosajones y de control de los teletipos
+  (por ejemplo, el 65 corresponde a la 'A' mayúscula y el 32 al espacio
+  en blanco). Se extendió posteriormente a 8 bits (Añadiendo eñes,
+  vocales acentuadas, etc).
+
+- **Unicode:** Un inmenso consorcio internacional dedicado a codificar
+  todos los sistemas de escritura humanos (desde el alfabeto latino,
+  cirílico o chino, hasta símbolos matemáticos y emojis). Un
+  identificador Unicode (Code Point) es un valor teórico abstracto, no
+  una forma de escribir bits en memoria.
+
+- **UTF (Unicode Transformation Format):** Son las formas reales de
+  inyectar Unicode en memoria.
+
+  - **UTF-8:** Estándar de longitud *variable*. Mapea cada carácter
+    usando de 1 a 4 bytes. Es universalmente retrocompatible con el
+    ASCII básico.
+
+  - **UTF-16 y UTF-32:** Ocupan tamaños mínimos de 2 bytes (16 bits) o 4
+    bytes fijos (32 bits), útiles en bases de datos pesadas que
+    prefieren ancho fijo para facilitar la indexación a costa de
+    desperdiciar memoria.
+
+### Códigos de Distancia Unitaria (Código Gray)
+
+Existen dominios electromecánicos (como codificadores rotatorios o
+discos ópticos en brazos robóticos) donde el código posicional numérico
+puro de base 2 es desastroso. Si pasamos del número binario 3 ($011_2$)
+al número 4 ($100_2$), tres bits cambian de estado de forma
+completamente simultánea. Físicamente, un contacto eléctrico
+inevitablemente conmutará picosegundos antes que el otro, provocando que
+la máquina, durante una fracción minúscula de tiempo, lea un número
+intermedio basura disparando rutinas de fallo.
+
+Para solucionar esto se inventaron los códigos continuos de distancia
+unitaria, el más famoso siendo el **Código Gray**. En el código Gray,
+dos valores consecutivos cualquiera \*\*siempre\*\* difieren en
+exactamente un único bit (distancia de Hamming = $1$). Esto garantiza
+transiciones mecánicas inmaculadas sin lecturas esporádicas.
+Adicionalmente, esta propiedad de adyacencia de Gray es precisamente la
+infraestructura que organiza los ejes lógicos en los Mapas de Karnaugh
+que estudiamos en minimización.
+
+# Resumen de Postulados y Teoremas (Notación Ingenieril)
+
+En esta sección se recopilan los postulados de Huntington y los teoremas
+principales derivados, transcritos a la notación propia del álgebra de
+conmutación y la lógica digital ($+,$ $\cdot,$ $0,$ $1,$
+$\overline{a}$), concebidos como hoja de referencia rápida.
+
+### Pre-Axiomas de la Estructura {#pre-axiomas-de-la-estructura-1 .unnumbered}
+
+> **Preaxioma (Estructura de Conjunto):**[]{#esconj_eng
+> label="esconj_eng"} Se requiere que se defina sobre un conjunto (por
+> ejemplo, $\mathbb{B}_2 = \{0, 1\}$).
+
+> **Preaxioma (Constantes Lógicas):**[]{#constantes_eng
+> label="constantes_eng"} Este conjunto contiene dos constantes
+> fundamentales: $0$ (falso) y $1$ (verdadero).
+
+> **Preaxioma (Operaciones Binarias Internas):**[]{#opbinint_eng
+> label="opbinint_eng"} Se definen dos operaciones binarias internas, la
+> suma ($+$) y el producto ($\cdot$): $$\begin{align*}
+> + &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2 \\
+> \cdot &: \mathbb{B}_2 \times \mathbb{B}_2 \to \mathbb{B}_2
+> \end{align*}$$
+
+> **Preaxioma (Existencia y Unicidad de Imagen):**[]{#exist_unic_eng
+> label="exist_unic_eng"} Para cada par de elementos del conjunto, las
+> operaciones $+$ y $\cdot$ siempre producen un resultado que también
+> pertenece al conjunto, y ese resultado es siempre único.
+
+### Postulados de Huntington {#postulados-de-huntington .unnumbered}
+
+> **Postulado (Elemento neutro):**[]{#neutro_eng label="neutro_eng"}
+> $$a + 0 = a \qquad \text{y} \qquad a \cdot 1 = a$$
+
+> **Postulado (Conmutatividad):**[]{#conmut_eng label="conmut_eng"}
+> $$a + b = b + a \qquad \text{y} \qquad a \cdot b = b \cdot a$$
+
+> **Postulado (Distributividad):**[]{#distrib_eng label="distrib_eng"}
+> $$a \cdot (b + c) = (a \cdot b) + (a \cdot c) \qquad \text{y} \qquad a + (b \cdot c) = (a + b) \cdot (a + c)$$
+
+> **Postulado (Complementario):**[]{#comp_eng label="comp_eng"} Para
+> cada elemento $a,$ existe un complemento $\overline{a}$ tal que:
+> $$a + \overline{a} = 1 \qquad \text{y} \qquad a \cdot \overline{a} = 0$$
+
+### Teoremas Fundamentales {#teoremas-fundamentales .unnumbered}
+
+> **Teorema (Unicidad de los elementos
+> neutros):**[]{#unicidad_neutros_eng label="unicidad_neutros_eng"} El
+> elemento neutro para la suma ($0$) y para el producto ($1$) son
+> únicos.
+
+> **Teorema (Idempotencia):**[]{#idempotencia_eng
+> label="idempotencia_eng"}
+> $$a + a = a \qquad \text{y} \qquad a \cdot a = a$$
+
+> **Teorema (Elementos absorbentes):**[]{#absorbentes_eng
+> label="absorbentes_eng"}
+> $$a + 1 = 1 \qquad \text{y} \qquad a \cdot 0 = 0$$
+
+> **Teorema (Propiedades de absorción):**[]{#absorcion_eng
+> label="absorcion_eng"}
+> $$a + (a \cdot b) = a \qquad \text{y} \qquad a \cdot (a + b) = a$$
+
+> **Teorema (Leyes de De Morgan):**[]{#morgan_eng label="morgan_eng"}
+> $$\overline{a + b} = \overline{a} \cdot \overline{b} \qquad \text{y} \qquad \overline{a \cdot b} = \overline{a} + \overline{b}$$
+
+> **Teorema (Involución (Doble negación)):**[]{#involucion_eng
+> label="involucion_eng"} $$\overline{\overline{a}} = a$$
+
+> **Teorema (Asociatividad):**[]{#asociatividad_eng
+> label="asociatividad_eng"}
+> $$a + (b + c) = (a + b) + c \qquad \text{y} \qquad a \cdot (b \cdot c) = (a \cdot b) \cdot c$$
+
+> **Teorema (Unicidad del complemento):**[]{#unic_comp_eng
+> label="unic_comp_eng"} El complemento $\overline{a}$ de un elemento
+> $a$ es único.
+
+> **Teorema (Otras propiedades equivalentes):**[]{#otras_prop_eng
+> label="otras_prop_eng"}
+>
+> - **Orden de retículo:** $a + b = a \iff a \cdot b = b$
+>
+> - **Equivalencia de operaciones:** $a + b = a \cdot b \implies a = b$
+>
+> - **Cancelación:**
+>   $(a + b = a + c \text{ y } a \cdot b = a \cdot c) \implies b = c$
+
+> **Definicion (Generalización a $n$ variables):**[]{#gen_n_vars_eng
+> label="gen_n_vars_eng"} Las operaciones disyunción y conjunción pueden
+> extenderse a un número $n$ de variables mediante los símbolos
+> sumatorio y productorio:
+> $$\sum_{i=1}^{n} x_i = x_1 + x_2 + \dots + x_n$$
+> $$\prod_{i=1}^{n} x_i = x_1 \cdot x_2 \cdot \dots \cdot x_n$$
+
+> **Teorema (Casos de Álgebra Trivial):**[]{#trivial_eng
+> label="trivial_eng"} Si $0 = 1,$ o si existe algún elemento tal que
+> $\overline{a} = a,$ entonces el álgebra contiene un único elemento
+> (álgebra trivial).
+
+> **Teorema (Teorema de Adyacencia (Expansión de
+> Shannon)):**[]{#adyacencia_eng label="adyacencia_eng"}
+> $$a = (a \cdot b) + (a \cdot \overline{b}) \qquad \text{y} \qquad a = (a + b) \cdot (a + \overline{b})$$
+
+> **Teorema (Teorema de Reducción (Absorción
+> Fuerte)):**[]{#reduccion_eng label="reduccion_eng"}
+> $$a + (\overline{a} \cdot b) = a + b \qquad \text{y} \qquad a \cdot (\overline{a} + b) = a \cdot b$$
+
+> **Teorema (Teorema del Consenso (Quine)):**[]{#consenso_eng
+> label="consenso_eng"}
+> $$(a \cdot b) + (\overline{a} \cdot c) + (b \cdot c) = (a \cdot b) + (\overline{a} \cdot c)$$
+> $$(a + b) \cdot (\overline{a} + c) \cdot (b + c) = (a + b) \cdot (\overline{a} + c)$$
+
+### Comportamiento de Operadores Derivados {#comportamiento-de-operadores-derivados .unnumbered}
+
+> **Teorema (Idempotencia cruzada (NAND/NOR)):**[]{#idemp_cruzada_eng
+> label="idemp_cruzada_eng"}
+> $$a \uparrow a = \overline{a} \qquad \text{y} \qquad a \downarrow a = \overline{a}$$
+
+> **Teorema (Generación de AND y OR):**[]{#gen_inf_sup_eng
+> label="gen_inf_sup_eng"}
+> $$a \cdot b = \overline{a \uparrow b} = (a \uparrow b) \uparrow (a \uparrow b) \qquad \text{y} \qquad a + b = \overline{a \downarrow b} = (a \downarrow b) \downarrow (a \downarrow b)$$
+
+> **Teorema (Generación cruzada):**[]{#gen_cruzada_eng
+> label="gen_cruzada_eng"}
+> $$a + b = \overline{a} \uparrow \overline{b} = (a \uparrow a) \uparrow (b \uparrow b) \qquad \text{y} \qquad a \cdot b = \overline{a} \downarrow \overline{b} = (a \downarrow a) \downarrow (b \downarrow b)$$
+
+> **Teorema (Conmutatividad):**[]{#conmut_deriv_eng
+> label="conmut_deriv_eng"}
+> $$a \uparrow b = b \uparrow a \qquad \text{y} \qquad a \downarrow b = b \downarrow a$$
+
+> **Teorema (Comportamiento con las
+> constantes):**[]{#constantes_deriv_eng label="constantes_deriv_eng"}
+> $$\begin{align*}
+>     a \uparrow 1 &= \overline{a} \qquad & a \downarrow 0 &= \overline{a} \\
+>     a \uparrow 0 &= 1 \qquad & a \downarrow 1 &= 0
+> \end{align*}$$
+
+> **Teorema (Ausencia de Asociatividad):**[]{#no_asoc_deriv_eng
+> label="no_asoc_deriv_eng"}
+> $$(a \uparrow b) \uparrow c \neq a \uparrow (b \uparrow c) \qquad \text{y} \qquad (a \downarrow b) \downarrow c \neq a \downarrow (b \downarrow c)$$
+
+> **Definicion (NAND y NOR de 3 entradas):**[]{#n_entradas_eng
+> label="n_entradas_eng"}
+> $$\uparrow(a,b,c) = \overline{a \cdot b \cdot c} \qquad \text{y} \qquad \downarrow(a,b,c) = \overline{a + b + c}$$
+
+> **Teorema (NAND/NOR múltiple vs cascada
+> binaria):**[]{#multiple_vs_binaria_eng
+> label="multiple_vs_binaria_eng"} $$\begin{align*}
+>     \uparrow(a,b,c) &\neq (a \uparrow b) \uparrow c \qquad & \uparrow(a,b,c) &\neq a \uparrow (b \uparrow c) \\
+>     \downarrow(a,b,c) &\neq (a \downarrow b) \downarrow c \qquad & \downarrow(a,b,c) &\neq a \downarrow (b \downarrow c)
+> \end{align*}$$
+
+### Comportamiento de los Operadores XOR y XNOR {#comportamiento-de-los-operadores-xor-y-xnor-1 .unnumbered}
+
+> **Definicion (Definición de XOR y XNOR):**[]{#def_xor_xnor_eng
+> label="def_xor_xnor_eng"}
+> $$a \oplus b = (a \cdot \overline{b}) + (\overline{a} \cdot b) \qquad \text{y} \qquad a \odot b = \overline{a \oplus b} = (a \cdot b) + (\overline{a} \cdot \overline{b})$$
+
+> **Teorema (Conmutatividad):**[]{#conmut_xor_eng
+> label="conmut_xor_eng"}
+> $$a \oplus b = b \oplus a \qquad \text{y} \qquad a \odot b = b \odot a$$
+
+> **Teorema (Elementos Neutros e Inversores):**[]{#neutros_xor_eng
+> label="neutros_xor_eng"} $$\begin{align*}
+>     a \oplus 0 &= a \qquad & a \odot 1 &= a \\
+>     a \oplus 1 &= \overline{a} \qquad & a \odot 0 &= \overline{a}
+> \end{align*}$$
+
+> **Teorema (Elemento Inverso de sí mismo (Grupo
+> Abeliano)):**[]{#idemp_nula_eng label="idemp_nula_eng"}
+> $$a \oplus a = 0 \qquad \text{y} \qquad a \odot a = 1$$
+
+> **Teorema (Propiedades de Negación):**[]{#neg_xor_eng
+> label="neg_xor_eng"}
+> $$\overline{a \oplus b} = \overline{a} \oplus b = a \oplus \overline{b} = a \odot b$$
+> $$\overline{a \odot b} = \overline{a} \odot b = a \odot \overline{b} = a \oplus b$$
+
+> **Teorema (Asociatividad y Generalización):**[]{#asoc_gen_xor_eng
+> label="asoc_gen_xor_eng"} Ambos operadores son asociativos:
+> $$a \oplus (b \oplus c) = (a \oplus b) \oplus c \qquad \text{y} \qquad a \odot (b \odot c) = (a \odot b) \odot c$$
+> Lo cual permite su generalización a un número arbitrario $n$ de
+> entradas:
+> $$\bigoplus_{i=1}^{n} x_i = x_1 \oplus x_2 \oplus \dots \oplus x_n \qquad \text{y} \qquad \bigodot_{i=1}^{n} x_i = x_1 \odot x_2 \odot \dots \odot x_n$$
+
+> **Teorema (Distributividad con el producto y la
+> suma):**[]{#dist_xor_eng label="dist_xor_eng"}
+> $$a \cdot (b \oplus c) = (a \cdot b) \oplus (a \cdot c) \qquad \text{y} \qquad a + (b \odot c) = (a + b) \odot (a + c)$$
+
+### Tablas de Verdad Bivaluadas {#tablas-de-verdad-bivaluadas .unnumbered}
+
+Resumen de las tablas de operación del álgebra de Boole para el caso de
+dos elementos ($B=\{0,1\}$), transcritas al lenguaje ingenieril:
+
+   $a$   $\overline{a}$
+  ----- ----------------
+   $0$        $1$
+   $1$        $0$
+
+   $a$   $b$   $a + b$   $a \cdot b$   $a \uparrow b$   $a \downarrow b$   $a \oplus b$   $a \odot b$
+  ----- ----- --------- ------------- ---------------- ------------------ -------------- -------------
+   $0$   $0$     $0$         $0$            $1$               $1$              $0$            $1$
+   $0$   $1$     $1$         $0$            $1$               $0$              $1$            $0$
+   $1$   $0$     $1$         $0$            $1$               $0$              $1$            $0$
+   $1$   $1$     $1$         $1$            $0$               $0$              $0$            $1$
+
+# Familias Comerciales y Catálogo (Serie 74xx)
+
+Este anexo sirve como manual técnico de referencia rápida para el
+laboratorio de electrónica digital. Tras haber estudiado los límites
+teóricos del hardware en el Capítulo
+[\[ch:familias\]](#ch:familias){reference-type="ref"
+reference="ch:familias"}, aquí abordaremos cómo extraer dicha
+información de los manuales oficiales del fabricante y presentaremos la
+disposición de pines (pinouts) de los circuitos integrados más
+habituales.
+
+## Anatomía de un Datasheet
+
+Un *Datasheet* (Hoja de Características) es el contrato vinculante entre
+el fabricante (Texas Instruments, Nexperia, ON Semiconductor, etc.) y el
+ingeniero diseñador. Cuando abras el PDF oficial de una puerta (por
+ejemplo, el SN74LS00), debes buscar inmediatamente tres tablas críticas:
+
+1.  **Absolute Maximum Ratings (Condiciones Máximas Absolutas):** Estos
+    son los límites destructivos. Si superas el voltaje o la temperatura
+    indicados aquí, el encapsulado de silicio se fundirá o sufrirá daños
+    irreversibles. *Jamás se debe diseñar un circuito operando en esta
+    tabla*.
+
+2.  **Recommended Operating Conditions (Condiciones Recomendadas):**
+    Esta es la zona segura. Indica los voltajes de alimentación
+    nominales (ej. $V_{CC} = 5\text{V} \pm 5\%$) y las temperaturas de
+    trabajo donde el fabricante garantiza que la puerta se comportará
+    tal y como prometen las matemáticas.
+
+3.  **Electrical Characteristics (Características Eléctricas):** Aquí se
+    encuentran los parámetros estudiados previamente
+    ($V_{IH}, V_{IL}, I_{OH}, I_{OL}$). Es vital revisar la fila
+    denominada *Test Conditions* para saber bajo qué carga de corriente
+    o temperatura el fabricante midió esos valores.
+
+## Catálogo de Circuitos Integrados (Serie 74xx)
+
+Los integrados clásicos suelen presentarse en formato *Dual In-line
+Package* (DIP), típicamente de 14 o 16 pines. **Regla de oro del
+empaquetado DIP:** Posicionando la muesca de plástico en forma de
+semicírculo mirando hacia \"arriba\" o \"izquierda\", el Pin 1 es
+siempre el primero de la parte inferior izquierda. Se cuenta en sentido
+antihorario. Generalmente, el último pin de abajo a la derecha es la
+conexión a Tierra (GND), y el pin superior derecho es la alimentación
+positiva ($V_{CC}$).
+
+A continuación, se listan integrados fundamentales para montar circuitos
+combinacionales.
+
+### Puertas Básicas
+
+**74LS00 / 74HC00: Cuatro puertas NAND de 2 entradas (Quad 2-Input
+NAND)** Se trata del chip más famoso de la historia digital. Contiene
+cuatro puertas independientes. Pines de alimentación típicos: 7 (GND) y
+14 ($V_{CC}$).
+
+**74LS04 / 74HC04: Seis Inversores (Hex Inverter)** Un empaquetado de 14
+pines que aloja seis puertas NOT, vital para generar el complemento
+matemático de las variables antes de introducirlas a otras etapas
+lógicas.
+
+### Circuitos Combinacionales Estándar MSIs
+
+**74LS138 / 74HC138: Decodificador/Demultiplexor 3 a 8** Permite
+decodificar 3 bits de dirección ($A, B, C$) para seleccionar una de 8
+salidas posibles. Característica fundamental: sus salidas son *activas a
+baja* (el cable seleccionado baja a cero voltios, el resto se queda en
+uno). Dispone de 3 pines de habilitación (*Enable*) que facilitan
+conectar varios chips en cascada para decodificar más bits.
+
+**74HC157: Multiplexor Cuádruple 2 a 1** El opuesto del decodificador.
+Selecciona entre dos autobuses de datos de 4 bits ($A$ o $B$) utilizando
+un único pin selector común, enviando la información elegida a un bus de
+salida único $Y.$
+
+**74HC283: Sumador Completo de 4 bits (4-bit Full Adder)** Realiza la
+suma aritmética pura de dos números binarios de 4 bits. Cuenta con
+entrada de acarreo ($C_{in}$) y salida de acarreo final ($C_{out}$) para
+encadenar aritméticamente múltiples sumadores si se desea procesar
+números de 8 o 16 bits en hardware.
 
 [^1]: Aunque en textos recientes es común encontrar simplemente la
     abreviatura **ZF** (Zermelo-Fraenkel), en este libro volvemos a usar

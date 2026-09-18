@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>independencia_huntington</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css" />
+</head>
+<body>
+<p><span class="math display">
+\gdef\symdiff{\mathbin{\vartriangle}}
+\gdef\llbracket{\lbrack\!\lbrack}
+\gdef\rrbracket{\rbrack\!\rbrack}
+\gdef\triangleq{\stackrel{\mathrm{def}}{=}}
+</span></p>
+<h1
+id="independencia-de-los-axiomas-de-huntington-de-1904-opcional">Independencia
+de los axiomas de Huntington de 1904 (Opcional)</h1>
+<p>Esta sección explora la independencia lógica de los postulados
+propuestos por Edward V. Huntington en 1904.<a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>Para esto demostrar que los axiomas antes dados son independientes
+entre sí, primero daremos un modelo consistente y sencillo, en el que
+haremos variaciones y obtendremos modelos (ejemplos) de sistemas que
+cumplan todos los axiomas excepto uno de ellos. Si se logra quedará
+claro que no podemos deducir el axioma fallido del resto de axiomas que
+sí que se cumplen: el axioma fallido es lógicamente independiente del
+resto de axiomas. Esto es fácil de conseguir, comenzando con modelos de
+álgebras con base en un conjunto de dos elementos <span
+class="math inline">{\ensuremath{\mathbb{B}}}_2 =
+\ensuremath{\{0,1\}}</span>. En esto copiamos los modelos dados por
+Huntington en su artículo de 1904.</p>
+<h2 id="modelo-mínimo-de-álgebra-de-boole.">Modelo mínimo de álgebra de
+Boole.</h2>
+<p>Definimos: <span class="math display">\begin{flalign}
+{\ensuremath{\mathbb{B}}}_2
+&amp;\ensuremath{\stackrel{\mathsf{def}}{{}={}}}\ensuremath{\{0,1\}} =
+\ensuremath{\{0\}} \cup \ensuremath{\{1\}} \\
+0 &amp;\ensuremath{\stackrel{\mathsf{def}}{{}={}}}\emptyset \\
+1
+&amp;\ensuremath{\stackrel{\mathsf{def}}{{}={}}}\ensuremath{\{\emptyset\}}
+\cup \ensuremath{\{ \ensuremath{\{ \emptyset \}} \}} = \ensuremath{\{
+\emptyset,
+\ensuremath{\{ \emptyset \}} \}} \\
+0 &amp;\;\in\; 1 \\
+0 &amp;\;\subsetneq\; 1 \\
+0 &amp;\;\neq\; 1 \\
+\end{flalign}</span> <span class="math display">\begin{flalign}
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}
+&amp;:  {\ensuremath{\mathbb{B}}}_2 \times
+{\ensuremath{\mathbb{B}}}_2{\qquad}\ensuremath{\longrightarrow}{\qquad}
+{\ensuremath{\mathbb{B}}}_2\\
+\end{flalign}</span> <span class="math display">\begin{flalign}
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}} &amp;::
+\left({0,0}\right) {\qquad} \mapsto {\qquad} 0\\
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}} &amp;::
+\left({0,1}\right) {\qquad} \mapsto {\qquad} 1\\
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}} &amp;::
+\left({1,0}\right) {\qquad} \mapsto {\qquad} 1\\
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}} &amp;::
+\left({1,1}\right) {\qquad} \mapsto {\qquad} 1
+\end{flalign}</span> <span class="math display">\begin{flalign}
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}
+&amp;:  {\ensuremath{\mathbb{B}}}_2 \times
+{\ensuremath{\mathbb{B}}}_2{\qquad}\ensuremath{\longrightarrow}{\qquad}
+{\ensuremath{\mathbb{B}}}_2\\
+\end{flalign}</span> <span class="math display">\begin{flalign}
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}} &amp;::
+\left({0,0}\right) {\qquad} \mapsto {\qquad} 0\\
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}} &amp;::
+\left({0,1}\right) {\qquad} \mapsto {\qquad} 0\\
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}} &amp;::
+\left({1,0}\right) {\qquad} \mapsto {\qquad} 0\\
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}} &amp;::
+\left({1,1}\right) {\qquad} \mapsto {\qquad} 1
+\end{flalign}</span> <span class="math display">\begin{flalign}
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}
+&amp;:  {\ensuremath{\mathbb{B}}}_2 {\qquad}
+\ensuremath{\longrightarrow}{\qquad} {\ensuremath{\mathbb{B}}}_2
+\end{flalign}</span> <span class="math display">\begin{flalign}
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}} &amp;:: 0 {\qquad}
+\mapsto {\qquad} 1\\
+\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}} &amp;:: 1 {\qquad}
+\mapsto {\qquad} 0
+\end{flalign}</span></p>
+<p>El conjunto <span
+class="math inline">{\ensuremath{\mathbb{B}}}_2</span> es conjunto en
+<strong>ZF</strong>, desde el momento que la el axioma de unión nos
+asegura que <span class="math inline">{\ensuremath{\mathbb{B}}}_2</span>
+es conjunto unión de dos conjuntos de un solo elemento, <span
+class="math inline">{\ensuremath{\mathbb{B}}}_2
+\ensuremath{\stackrel{\mathsf{def}}{{}={}}}{ \ensuremath{\{0\}} } \cup {
+\ensuremath{\{1\}} }</span>. Los elementos <span class="math inline">0
+\ensuremath{\stackrel{\mathsf{def}}{{}={}}}\emptyset</span> y <span
+class="math inline">1
+\ensuremath{\stackrel{\mathsf{def}}{{}={}}}\ensuremath{\{
+\emptyset, \ensuremath{\{ \emptyset \}} \}}</span>. De nuevo para
+definir <span class="math inline">1</span> como conjunto necesitamos el
+axioma de unión (o de pares no ordenados) de <strong>ZF</strong>, siendo
+<span class="math inline">1
+\ensuremath{\stackrel{\mathsf{def}}{{}={}}}\ensuremath{\{0\}}\cup\ensuremath{\{\ensuremath{\{0\}}\}}</span>.
+Podemos ver que <span class="math inline">0 \cap 1 =
+\emptyset</span> por lo que <span class="math inline">0 \neq 1</span>.
+También <span class="math inline">0 \in 1</span>. Todo este párrafo
+constituye la satisfacción de los requerimientos VI<a href="#fn2"
+class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>.</p>
+<p>Tal como hemos definido nuestro modelo de álgebra de Boole, lo
+primero que queda claro es que <span
+class="math inline">\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}</span>
+y <span
+class="math inline">\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}</span>
+son funciones binarias bien definidas, y esta última es además
+biyectiva. Luego los axiomas Ia<a href="#fn3" class="footnote-ref"
+id="fnref3" role="doc-noteref"><sup>3</sup></a> y Ib<a href="#fn4"
+class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>
+quedan satisfechos.</p>
+<p>Los axiomas IIa<a href="#fn5" class="footnote-ref" id="fnref5"
+role="doc-noteref"><sup>5</sup></a> y IIb<a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+(existencia del elemento neutro) quedan directamente satisfechos por
+simple inspección de las tablas.</p>
+<p>Para el axioma IIa observamos que <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({0,0}\right)}
+= 0</span> y <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({0,1}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({1,0}\right)}
+= 1</span> nos muestra el elemento neutro de la suma, el elemento <span
+class="math inline">0</span>.</p>
+<p>Para el axioma IIb observamos que <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({1,0}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({0,1}\right)}
+= 0</span> y <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({1,1}\right)}
+= 1</span> nos muestra el elemento neutro del producto, el elemento
+<span class="math inline">1</span>.</p>
+<p>Para los axiomas de conmutatividad solo hay que observar en la
+definición de las funciones binarias <span
+class="math inline">\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}},\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}:
+\ensuremath{\mathbb{B}}_2 \times \ensuremath{\mathbb{B}}_2
+\ensuremath{\longrightarrow}\ensuremath{\mathbb{B}}_2</span>, que <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({0,1}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({1,0}\right)}
+= 1</span> y se cumple IIIa<a href="#fn7" class="footnote-ref"
+id="fnref7" role="doc-noteref"><sup>7</sup></a>, que <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({0,1}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({1,0}\right)}
+= 0</span> y se cumple IIIb<a href="#fn8" class="footnote-ref"
+id="fnref8" role="doc-noteref"><sup>8</sup></a>.</p>
+<p>Para las distribuciones de una operación interna sobre otra elegiré
+construir unas tablas que muestren la igualdades necesarias.</p>
+<p>Primero veremos la distribución de la suma sobre el producto, o, lo
+que es lo mismo, su inversa, sacar factor común.</p>
+<p>Lo haremos rellenando y comparando la siguiente tabla de verdad.</p>
+<p>El método de relleno es fácil. Primero rellenamos las tres primeras
+columnas, corresponden a las variables independientes, que al ser tres
+con dos valores posibles en cada ocasión, son un total de ocho
+combinaciones distintas. Esas columnas están marcadas con <span
+class="math inline">1</span> en la última fila (fila que se ve
+separada). A continuación rellenamos las columnas correspondientes a una
+operación binaria interna de dos variables independientes ya rellenas.
+Para rellenarlas, solo tenemos que buscar los valores en las tablas
+dadas para las operaciones internas en ka definición de este álgebra de
+Boole. Estas están marcadas con un <span class="math inline">2</span> en
+la última línea, la línea separada. Corresponden con la cuarta columna,
+la suma <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({
+\textsf{b} ,
+\textsf{c} }\right)}</span>, y con las columnas siete y ocho: la ocho es
+un producto <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{a},\textsf{c}}\right)}</span>
+y la siete otro <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({
+\textsf{a} , \textsf{b} }\right)}</span>. Las columnas centrales, la
+cinco y la seis corresponden a todas las valoraciones posibles (y en el
+mismo orden de valor de las variables independientes) de las dos
+expresiones que queremos comparar, las afirmadas por el postulado IVb<a
+href="#fn9" class="footnote-ref" id="fnref9"
+role="doc-noteref"><sup>9</sup></a>. Podemos ver que ambas columnas son
+idénticas, luego se cumple el citado postulado.</p>
+<p><span class="math display">\begin{flalign}
+\begin{matrix}
+\hline
+\textsf{a} &amp; \textsf{b} &amp; \textsf{c} &amp;
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\textsf{b},\textsf{c}}\right)}
+&amp;
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{a},\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\textsf{b},\textsf{c}}\right)}}\right)}
+&amp;
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{a},\textsf{b}}\right)},\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{a},\textsf{c}}\right)}}\right)}
+&amp;
+{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{a},\textsf{b}}\right)}}
+&amp;
+{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{a},\textsf{c}}\right)}}
+\\
+\hline
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 1 \\
+1 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+\hline
+1 &amp; 1 &amp; 1 &amp; 2 &amp; 3 &amp; 3 &amp; 2 &amp; 2 \\
+\hline
+\end{matrix}
+\end{flalign}</span></p>
+<p>Por último veremos la distribución del producto sobre la suma, o, lo
+que es lo mismo, su inversa, sacar sumando común. El método es en todo
+idéntico al seguido para la otra distributiva.</p>
+<p><span class="math display">\begin{flalign}
+\begin{matrix}
+\hline
+\textsf{a} &amp; \textsf{b} &amp; \textsf{c} &amp;
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{b},\textsf{c}}\right)}
+&amp;
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\textsf{a},\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\textsf{b},\textsf{c}}\right)}}\right)}
+&amp;
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\textsf{a},\textsf{b}}\right)},\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\textsf{a},\textsf{c}}\right)}}\right)}
+&amp;
+{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\textsf{a},\textsf{b}}\right)}}
+&amp;
+{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({\textsf{a},\textsf{c}}\right)}}
+\\
+\hline
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 0 &amp; 1 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+\hline
+1 &amp; 1 &amp; 1 &amp; 2 &amp; 3 &amp; 3 &amp; 2 &amp; 2 \\
+\hline
+\end{matrix}
+\end{flalign}</span></p>
+<p>Para el axioma V<a href="#fn10" class="footnote-ref" id="fnref10"
+role="doc-noteref"><sup>10</sup></a> observamos que <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({0}\right)}
+= 1</span> y <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({1}\right)}
+= 0</span> y por inspección en las tablas vemos que <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({0,\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({0}\right)}}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({0,1}\right)}
+= 1</span> y que <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({0,\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({0}\right)}}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({0,1}\right)}
+= 0</span> cumpliendo para el elemento <span
+class="math inline">0</span> se cumple que <span
+class="math inline">\exists 1 =
+\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({0}\right)}
+\in \ensuremath{\mathbb{B}}_2</span> <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({1,\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({1}\right)}}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({1,0}\right)}
+= 1</span>, que coincide con la ecuación segunda (ecuación: 2.15) de
+postulado V y <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({1,\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({1}\right)}}\right)}=\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({1,0}\right)}
+= 0</span> que coincide con la tercera ecuación (ecuación: 2.16) de
+postulado V, e igualmente para el elemento <span
+class="math inline">1</span>, <span class="math inline">\exists 0 =
+\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({1}\right)}
+\in \ensuremath{\mathbb{B}}_2</span> <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({0,\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({0}\right)}}\right)}
+=
+\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{s}}}}\left({0,1}\right)}
+= 1</span> (ecuación: 2.15) y <span
+class="math inline">\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({0,\ensuremath{\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{c}}}}}\left({0}\right)}}\right)}
+=\ensuremath{\ensuremath{\ensuremath{\boldsymbol{\mathsf{p}}}}\left({0,1}\right)}
+= 0</span> (ecuación: 2.16) de postulado V.</p>
+<p>Como las ecuaciones 2.15 y 2.16 se cumplen para <span
+class="math inline">0</span> y <span class="math inline">1</span>, esto
+es, <span class="math inline">\forall x \in
+\ensuremath{\mathbb{B}}_2</span> como se requiere en la ecuación 2.14,
+queda satisfecho el postulado V.</p>
+<h2 id="independencia-de-la-suma-está-siempre-definida.">Independencia
+de la suma está siempre definida.</h2>
+<p>Modelo en el que solo falla Ia, esto es, que la operación suma no es
+operación interna: no es función, pero en el sentido que <span
+class="math inline">1 + 1 \notin
+\ensuremath{\mathbb{B}}</span>.</p>
+<p><span class="math display">\begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {x} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \qquad\qquad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {0} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}</span></p>
+<p>Al ser <span class="math inline">1 + 1 = x</span>, dónde <span
+class="math inline">x</span> es ningún elemento de <span
+class="math inline">\ensuremath{\mathbb{B}}</span>, o dicho de otro
+modo, <span class="math inline">1 + 1 \notin
+\ensuremath{\mathbb{B}}</span>, vemos que sigue existiendo el elemento
+neutro de la suma, <span class="math inline">0</span>, que la suma sigue
+siendo conmutativa y las distributivas siguen valiendo mientras la suma
+tenga sentido (mientras no aparezca <span class="math inline">x</span>).
+El complementario de <span class="math inline">0</span> es <span
+class="math inline">1</span> y el de <span class="math inline">1</span>
+es <span class="math inline">0</span>.</p>
+<h2
+id="independencia-de-la-unicidad-de-la-definición-de-la-suma.">Independencia
+de la unicidad de la definición de la suma.</h2>
+<p>Modelo en el que no se cumple Ia, en el sentido que <span
+class="math inline">1 + 1
+\mapsto 1</span> y <span class="math inline">1 + 1 \mapsto 0</span>.</p>
+<p><span class="math display">\begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {x=0 \vee x=1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}
+    \qquad\qquad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {0} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}</span></p>
+<p>Exactamente igual que en la versión anterior, se cumplen todos los
+demás postulados, sea cual sea el valor tomado para <span
+class="math inline">1 + 1</span>.</p>
+<h2
+id="independencia-de-el-producto-está-siempre-definido.">Independencia
+de el producto está siempre definido.</h2>
+<p>Modelo en el que solo falla Ib, esto es, que la operación producto no
+es operación interna: no es función. Este es el caso en que <span
+class="math inline">0 \cdot 0 \notin \ensuremath{\mathbb{B}}</span>.
+Ponemos en ese caso <span class="math inline">0 \cdot 0 = x</span> pero
+igualmente podríamos haber dejado en blanco ese lugar.</p>
+<p><span class="math display">\begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {x} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}</span></p>
+<p>Como es fácil ver, existe elemento neutro tanto de la suma como del
+producto. Ambas operaciones son conmutativas y se dan las dos
+propiedades de distribución, siempre que tenga sentido el producto, esto
+es, no aparezca <span class="math inline">0 \cdot 0</span>. El
+complementario del <span class="math inline">0</span> es <span
+class="math inline">\overline 0 = 1</span> y el del <span
+class="math inline">1</span> es <span class="math inline">\overline 1 =
+0</span>.</p>
+<h2
+id="independencia-de-la-unicidad-de-la-definición-del-producto.">Independencia
+de la unicidad de la definición del producto.</h2>
+<p>Modelo en el que solo falla Ia, esto es, en el sentido que <span
+class="math inline">0
+\cdot 0 \mapsto 0</span> y también <span class="math inline">0 \cdot 0
+\mapsto 1</span>.</p>
+<p><span class="math display">\begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {x=0 \vee x=1}
+&amp; {0} &amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}</span></p>
+<h2
+id="independencia-de-la-existencia-de-elemento-neutro-de-la-suma.">Independencia
+de la existencia de elemento neutro de la suma.</h2>
+<p>Modelo en el que solo falla IIa, esto es, la existencia de elemento
+neutro en la operación binaria interna suma.</p>
+<p><span class="math display">\begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {0} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {0} &amp; {0} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {0} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}</span></p>
+<p>Primero, está claro que las operaciones internas están bien
+construidas en cuanto a que son funciones.</p>
+<p>Queda claro que no hay elemento neutro de la suma pues <span
+class="math inline">\forall xy \in
+\ensuremath{\mathbb{B}}\quad x + y = 0</span>.</p>
+<p>Segundo, existe el elemento neutro del producto: <span
+class="math inline">0 \cdot 1 = 1 \cdot 0
+= 0</span> y <span class="math inline">1 \cdot 1 = 1</span>. Luego se
+cumple IIb<a href="#fn11" class="footnote-ref" id="fnref11"
+role="doc-noteref"><sup>11</sup></a>.</p>
+<p>La conmutatividad se hace patente al ver las diagonales inversas de
+las tablas de operación, que muestran un único valor. <span
+class="math inline">0 + 1 = 1 + 0 = 0</span> y <span
+class="math inline">0 \cdot 1 = 1 \cdot 0 = 0</span>. Se cumplen IIIa y
+IIIb.</p>
+<p>En cuanto a la distribución del producto sobre la suma, veamos si
+podemos comprobarla de forma sencilla: <span class="math inline">a \cdot
+( b + c ) = (a \cdot b) + (a \cdot
+c)</span>. Sabemos que <span class="math inline">b + c = 0</span>
+siempre, y que, pongamos que <span class="math inline">a \cdot b = x
+\in \ensuremath{\mathbb{B}}</span> y que <span class="math inline">a
+\cdot c = y \in \ensuremath{\mathbb{B}}</span>. Ahora bien <span
+class="math inline">x + y = 0</span>. Así que todo lo que tenemos que
+probar es que <span class="math inline">a \cdot 0 = 0</span>, pero esto
+es claro en la table del producto. Luego se cumple IVb.</p>
+<p>Ahora la distribución de la suma sobre el producto. <span
+class="math inline">a + ( b \cdot c )
+= (a + b) \cdot (a + c)</span>. Sabemos que <span class="math inline">a
++ (b \cdot c) = 0</span> siempre, y que, pongamos que <span
+class="math inline">a + b = 0</span> y que <span class="math inline">a +
+c = 0</span>. Ahora bien <span class="math inline">0 \cdot
+0 = 0</span>. Luego se cumple IVa<a href="#fn12" class="footnote-ref"
+id="fnref12" role="doc-noteref"><sup>12</sup></a>.</p>
+<p>Nos queda encontrar un complemento para el <span
+class="math inline">0</span>. Pero encontrar el complemento solo tiene
+sentido si existen los dos elementos neutros, pero en este caso no
+existe el neutro de la suma: no tiene sentido buscar el
+complementario.</p>
+<h2
+id="independencia-de-la-existencia-de-elemento-neutro-del-producto.">Independencia
+de la existencia de elemento neutro del producto.</h2>
+<p>Exponemos un modelo en el que solo falla IIb, esto es, la existencia
+de elemento neutro en la operación binaria interna producto.</p>
+<p><span class="math display">\begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {1} &amp; {1}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {1} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}</span></p>
+<p>Este modelo es completamente simétrico al anterior, por lo que no nos
+hará falta demostrar que se dan el resto de postulados. Solo hay que
+seguir el esquema de la sub-sección anterior.</p>
+<h2 id="independencia-de-la-conmutatividad-de-la-suma.">Independencia de
+la conmutatividad de la suma.</h2>
+<p>Modelo en que la conmutatividad de la suma IIIa no se dá, pero si que
+se dan el resto de postulados.</p>
+<p><span class="math display">\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {0} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {0} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}</span></p>
+<p>Que la suma y el producto están bien definidos como función es
+inmediato.</p>
+<p>Podemos comprobar que tanto <span class="math inline">\forall x \; x
++ 0 = x</span> como que <span class="math inline">\forall
+x \; x + 1 = x</span>. Esto quiere decir que la suma tiene dos neutros,
+el <span class="math inline">0</span> y el <span
+class="math inline">1</span>. Esto tendrá repercusiones sobre el
+elemento complementario. Podemos ver por otra parte que <span
+class="math inline">1 + 0 \neq 0 + 1</span>, por lo que efectivamente la
+suma no es conmutativa. Para el producto todo es idéntico, tiene
+elemento neutro general y único <span class="math inline">0</span> y
+<span class="math inline">1\cdot 0 = 0\cdot 1</span> por lo que el
+producto es conmutativo.</p>
+<p>Por otro lado, vemos que el complementario de <span
+class="math inline">0</span> es <span class="math inline">1</span>,
+<span class="math inline">0 + 1 =
+1</span> -es neutro del producto- y <span class="math inline">0 * 1 =
+0</span> -es neutro de la suma-. Para ver que <span
+class="math inline">1</span> tiene complementario, hay que ir con más
+cuidado, <span class="math inline">1 + 1 = 1</span> - <span
+class="math inline">1</span> es neutro del producto - y <span
+class="math inline">1 * 1 = 1</span> - <span
+class="math inline">1</span> es también neutro del producto -. Luego
+existe complementario de <span class="math inline">1</span> y es <span
+class="math inline">1</span>.</p>
+<p>Vamos ahora con las distribuciones:</p>
+<p>Nos preguntamos si se cumple <span class="math inline">x \cdot ( y +
+z ) = ( x \cdot y ) + ( x
+\cdot z )</span> en el actual modelo. Si <span class="math inline">x =
+0</span> entonces <span class="math inline">0 \cdot (x + y) =
+0</span> y la parte derecha de la igualdad se resuelve en <span
+class="math inline">( 0 \cdot y ) + ( 0
+\cdot z )</span> pero como <span class="math inline">0 \cdot x =
+0</span> obtenemos que la distribución IVb será verdad para <span
+class="math inline">x = 0</span> si <span class="math inline">0 = 0 +
+0</span>, cosa que es cierta. Si <span class="math inline">x = 1</span>,
+la igualdad a verificar quedaría <span class="math inline">1 \cdot ( y +
+z )
+= ( 1 \cdot y ) + ( 1 \cdot z )</span> y por IIb queda <span
+class="math inline">y + z  =  y
++ z</span> que no es más que la identidad lógica de la igualdad. Se
+satisface IVb.</p>
+<p>Nos preguntamos por la satisfacción de IVa <span
+class="math inline">x + ( y \cdot z
+) = ( x + y ) \cdot ( x + z )</span> en el actual modelo. Procedemos
+como en el párrafo anterior, por casos. Si <span class="math inline">x =
+0</span> entonces <span class="math inline">x + ( y \cdot z ) = ( x
++ y ) \cdot ( x + z )</span> <span
+class="math inline">\Longrightarrow</span> <span class="math inline">0 +
+( y \cdot z ) = ( 0 + y )
+\cdot ( 0 + z )</span> <span class="math inline">\Longrightarrow</span>
+<span class="math inline">0 = 0 \cdot 0</span> lo que es cierto. Para el
+caso <span class="math inline">x = 1</span>, obtenemos <span
+class="math inline">x + ( y \cdot z ) = ( x + y ) \cdot ( x
++ z )</span> <span class="math inline">\Longrightarrow</span> <span
+class="math inline">1 + ( y \cdot z ) = ( 1 + y ) \cdot ( 1 + z
+)</span> <span class="math inline">\Longrightarrow</span> <span
+class="math inline">1 = 1 \cdot 1</span>. Por lo tanto también se
+verifica IVa.</p>
+<p>Queda comprobado que la conmutatividad de la suma IIIa es
+independiente del resto de postulados.</p>
+<h2 id="independencia-de-la-conmutatividad-del-producto.">Independencia
+de la conmutatividad del producto.</h2>
+<p>Modelo en que la conmutatividad del producto IIIb no se da, pero, si
+se satisfacen el resto de postulados.</p>
+<p><span class="math display">\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {0} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {1} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}</span></p>
+<p>El modelo es totalmente simétrico al anterior por lo que se puede
+comprobar todo siguiendo los mismos pasos que en la sub-sección
+anterior.</p>
+<h2
+id="independencia-de-la-distribución-de-la-suma-sobre-el-producto.">Independencia
+de la distribución de la suma sobre el producto.</h2>
+<p>El postulado del título no se cumple. Existen valores del modelo
+<span class="math inline">\exists x \in \ensuremath{\mathbb{B}}</span>
+que no cumplen IVa, <span class="math inline">x + ( y \cdot z )
+\neq ( x + y ) \cdot (x + z)</span>.</p>
+<p><span class="math display">\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {0} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {0} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}</span></p>
+<p>Este modelo es virtualmente idéntico al cuerpo sobre <span
+class="math inline">\ensuremath{\mathbb{Z}}</span> de restos módulo 2,
+<span class="math inline">\ensuremath{\mathbb{Z}}/{\mod2}</span>. Ese es
+el cambio que se da en la suma. Ahora <span class="math inline">1
++ 1 = 0</span>.</p>
+<p>Se dan por lo tanto todos los teoremas conocidos incluida la
+distribución IVb e incluso sabemos que las operaciones son
+asociativas.</p>
+<p>Pero en aritmética no se da la dualidad que buscamos y la
+distribución del producto sobre la suma no es una verdad.</p>
+<p>Solo nos queda ver si cumple la existencia de elemento complementario
+que se encuentra visualmente por inspección de las tablas: <span
+class="math inline">\overline{1} = 0</span> y <span
+class="math inline">\overline{0} = 1</span>.</p>
+<p>Nos queda verificar que efectivamente no se cumple la distribución de
+la suma sobre el producto (que intuitivamente vemos). Encontramos un
+caso, <span class="math inline">1 + ( y \cdot z ) \neq ( 1 + y ) \cdot (
+1 + z )</span>. Lo vemos a continuación.</p>
+<p><span class="math display">\begin{flalign}
+  x = 1 &amp;{} \\
+  1 + ( y \cdot z ) &amp;= ( 1 + y ) \cdot ( 1 + z ) \\
+  \overline{y \cdot z} &amp;= \overline{y} \cdot \overline{z} \\
+  y = 0 &amp;{} \\
+  \overline{0 \cdot z} &amp;= \overline{0} \cdot \overline{z} \\
+  \overline{0} &amp;= 1 \cdot \overline{z} \\
+  1 &amp;= \overline{z} \\
+  z &amp;= 0\\
+  x=1 \wedge y=0 \wedge z=1 &amp;\Longrightarrow \neg\mathrm{IVa}
+\end{flalign}</span></p>
+<p>De dónde efectivamente este modelo no distribuye la suma sobre un
+producto. Y la independencia de IVa queda probada.</p>
+<h2
+id="independencia-de-la-distribución-del-producto-sobre-la-suma.">Independencia
+de la distribución del producto sobre la suma.</h2>
+<p><span class="math display">\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {1} &amp; {0}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}</span></p>
+<p>Completamente simétrico al caso anterior.</p>
+<h2
+id="independencia-de-la-existencia-del-elemento-complementario.">Independencia
+de la existencia del elemento complementario.</h2>
+<p>Por último presentamos un modelo que no cumple la existencia del
+complementario y si satisface el resto de postulados.</p>
+<p><span class="math display">\begin{equation}
+    \begin{matrix}
+        {\cdot + \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}             &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        {1}             &amp; \big{\vert} &amp; {1} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+    \end{matrix}
+    \quad
+    \begin{matrix}
+        {\cdot * \cdot} &amp; \big{\vert} &amp; {0} &amp; {1} &amp;
+\big{\vert} \\
+        \hline
+        {0}                   &amp; \big{\vert} &amp; {0} &amp; {1}
+&amp; \big{\vert} \\
+        {1}                   &amp; \big{\vert} &amp; {1} &amp; {1}
+&amp; \big{\vert} \\
+        \hline
+    \end{matrix}
+\end{equation}</span></p>
+<p>Como podemos ver en este modelo la suma y el producto son idénticos,
+por lo que el <span class="math inline">0</span> es el único neutro,
+tanto de la suma como del producto. La conmutatividad es evidente a
+primera vista.</p>
+<p>Veamos la distribución del producto respecto de la suma. Com la suma
+y el producto son idénticos, bastará con probar este caso
+únicamente.</p>
+<p><span class="math display">\begin{equation}
+x \cdot (y + z) = x + ( y + z ) = ( x + x ) + ( y + z ) = ( x + y ) + (
+x + z
+) = ( x + y ) \cdot ( x + z )
+\end{equation}</span></p>
+<p>Solo queda probar que <span class="math inline">x = x + x</span> (que
+se hace por simple inspección visual de las tablas) y la propiedad
+asociativa para este modelo, que tendremos que probar. Lo haremos
+mediante una tabla.</p>
+<p><span class="math display">\begin{equation}
+  \begin{matrix}
+  \hline
+  \mathsf{a} &amp; \mathsf{b} &amp; \mathsf{c} &amp;
+\mathsf{b}\cdot\mathsf{c} &amp;
+  \mathsf{a}\cdot\left( \mathsf{b} \cdot \mathsf{c} \right) &amp;
+  \left(\mathsf{a}\cdot \mathsf{b}\right) \cdot \mathsf{c} &amp;
+  \mathsf{a}\cdot\mathsf{b}\\
+  \hline
+%%a   b   c   bc a(bc)(ab)c ab
+  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0    &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 1 &amp; 1 &amp; 1    &amp; 1 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 1 &amp; 1    &amp; 1 &amp; 1 \\
+  0 &amp; 1 &amp; 1 &amp; 1 &amp; 1    &amp; 1 &amp; 1 \\
+  1 &amp; 0 &amp; 0 &amp; 0 &amp; 1    &amp; 1 &amp; 1 \\
+  1 &amp; 0 &amp; 1 &amp; 1 &amp; 1    &amp; 1 &amp; 1 \\
+  1 &amp; 1 &amp; 0 &amp; 1 &amp; 1    &amp; 1 &amp; 1 \\
+  1 &amp; 1 &amp; 1 &amp; 1 &amp; 1    &amp; 1 &amp; 1 \\
+  \hline
+  1 &amp; 1 &amp; 1 &amp; 2 &amp; 3    &amp; 3 &amp; 2 \\
+  \hline
+  \end{matrix}
+\end{equation}</span></p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Edward V. Huntington, <em>Sets of Independent Postulates
+for the Algebra of Logic</em>, Transactions of the American Mathematical
+Society, Vol. 5, No. 3 (Jul., 1904), pp. 288-309.<a href="#fnref1"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Postulado VI: Existen al menos dos elementos distintos
+en la clase.<a href="#fnref2" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Postulado Ia: Clausura bajo la suma.<a href="#fnref3"
+class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>Postulado Ib: Clausura bajo el producto.<a
+href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Postulado IIa: Existencia de elemento neutro para la
+suma.<a href="#fnref5" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Postulado IIb: Existencia de elemento neutro para el
+producto.<a href="#fnref6" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Postulado IIIa: Conmutatividad de la suma.<a
+href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Postulado IIIb: Conmutatividad del producto.<a
+href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Postulado IVb: Distributividad del producto sobre la
+suma.<a href="#fnref9" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Postulado V: Existencia de elemento complementario.<a
+href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Postulado IIb: Existencia de elemento neutro para el
+producto.<a href="#fnref11" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Postulado IVa: Distributividad de la suma sobre el
+producto.<a href="#fnref12" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

@@ -3,16 +3,16 @@
 \section{Anillos Booleanos}
 Un álgebra de Boole puede ser interpretada desde la perspectiva del álgebra abstracta clásica como un tipo especial de anillo. Para ello, nos apoyamos en los operadores derivados introducidos anteriormente, en particular la operación O-exclusiva (XOR, $\oplus$) y la conjunción (AND, $\wedge$).
 
-\begin{definicion}{Anillo Booleano}{def_anillo_booleano_cap}
+\begin{quote}\textbf{Definicion (Anillo Booleano):}\label{def_anillo_booleano_cap}
 Un anillo booleano es un anillo conmutativo con elemento unidad $(R, +, \cdot, 0_R, 1_R)$ en el cual todo elemento es idempotente respecto a la multiplicación:
 \[ \forall x \in R, x \cdot x = x \]
-\end{definicion}
+\end{quote}
 
 A partir de esta aparente simplicidad (la idempotencia de todos sus elementos), emergen propiedades estructurales muy rígidas que limitan la forma de estos anillos.
 
-\begin{teorema}{Característica 2}{caracteristica_dos}
+\begin{quote}\textbf{Teorema (Característica 2):}\label{caracteristica_dos}
 Todo anillo booleano tiene característica 2, es decir, $\forall x \in R, x + x = 0_R.$ Todo elemento es su propio inverso aditivo.
-\end{teorema}
+\end{quote}
 \begin{proof}
 Consideremos el elemento $(x+x)$ y apliquemos la idempotencia:
 \begin{align*}
@@ -24,9 +24,9 @@ x + x &= x + x + x + x \\
 Por tanto, al restar $x$ en ambos lados obtenemos $x = -x.$
 \end{proof}
 
-\begin{teorema}{Conmutatividad estricta}{conmutatividad_estricta}
+\begin{quote}\textbf{Teorema (Conmutatividad estricta):}\label{conmutatividad_estricta}
 Todo anillo booleano es obligatoriamente conmutativo ($x \cdot y = y \cdot x$).
-\end{teorema}
+\end{quote}
 \begin{proof}
 Evaluando el elemento $(x+y)$ al cuadrado:
 \begin{align*}
@@ -67,9 +67,9 @@ Inversamente, dado un Anillo Booleano $(R, +, \cdot, 0_R, 1_R),$ podemos recuper
 
 La teoría de Espacios Vectoriales (que trataremos en detalle más adelante) exige que el conjunto de escalares sobre el que se fundamenta el espacio tenga estructura matemática de \textbf{Cuerpo} (\textit{Field} en inglés). Un cuerpo es un anillo conmutativo unitario donde todo elemento distinto de cero tiene inverso multiplicativo; como consecuencia directa fundamental, \textbf{un cuerpo no puede tener divisores de cero}.
 
-\begin{teorema}{El único Cuerpo Booleano es $\mathbb{F}_2$}{cuerpo_booleano}
+\begin{quote}\textbf{Teorema (El único Cuerpo Booleano es $\mathbb{F}_2$):}\label{cuerpo_booleano}
 Un anillo booleano es un cuerpo matemático si y solo si contiene exactamente dos elementos.
-\end{teorema}
+\end{quote}
 \begin{proof}
 Sea $R$ un anillo booleano que además cumple las propiedades de un cuerpo. Sea $x \in R$ cualquier elemento del anillo.
 Por la propiedad de idempotencia inherente al anillo booleano:
